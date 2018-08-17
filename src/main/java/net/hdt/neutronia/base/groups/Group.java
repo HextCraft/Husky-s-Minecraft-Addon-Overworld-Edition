@@ -23,18 +23,20 @@ public class Group implements Comparable<Group> {
 
     public final Map<String, Component> components = new HashMap<>();
     private final List<Component> enabledComponents = new ArrayList<>();
-    public String name;
+    public String name, desc;
     public boolean enabled;
     public Property prop;
     private ItemStack iconStack;
 
     public Group() {
         name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
+        desc = "This is a missing description text since this component does not have a description defined";
         GroupLoader.registerGroup(this);
     }
 
     public Group(Builder builder) {
         name = builder.name;
+        desc = builder.desc;
         for (Component component : builder.components) {
             registerComponent(component);
         }
@@ -42,10 +44,6 @@ public class Group implements Comparable<Group> {
 
     public static Builder builder() {
         return new Builder();
-    }
-
-    private void addComponents() {
-        // NO-OP
     }
 
     private void registerComponent(Component component) {
@@ -83,9 +81,6 @@ public class Group implements Comparable<Group> {
     }
 
     public void setupConfig() {
-        if (components.isEmpty())
-            addComponents();
-
         forEachComponent(component -> {
             ConfigHelper.needsRestart = component.requiresMinecraftRestartToEnable();
             component.enabled = loadPropBool(component.configName, component.getFeatureDescription(), component.enabledByDefault) && enabled;
@@ -202,7 +197,7 @@ public class Group implements Comparable<Group> {
         }
     }
 
-    public void setIconStack(ItemStack stack) {
+    private void setIconStack(ItemStack stack) {
         this.iconStack = stack;
     }
 
@@ -239,31 +234,20 @@ public class Group implements Comparable<Group> {
 
         private String name, desc;
         private ItemStack icon;
-        private Component component;
         private Group group;
-        private boolean enabled;
         private List<Component> components = new ArrayList<>();
 
         public Builder withName(String name) {
-            if (!name.isEmpty()) {
-                this.name = name;
-            } else {
-                this.name = "Missing Group Name";
-            }
+            this.name = name;
             return this;
         }
 
         public Builder withDesc(String desc) {
-            if (!desc.isEmpty()) {
-                this.desc = desc;
-            } else {
-                this.desc = "This is an example description";
-            }
+            this.desc = desc;
             return this;
         }
 
         public Builder withComponent(Component component) {
-            this.component = component;
             components.add(component);
             return this;
         }
@@ -277,14 +261,8 @@ public class Group implements Comparable<Group> {
             return this;
         }
 
-        public Builder isEnabled(boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
         public Group register() {
             group = new Group(this);
-            group.enabled = this.enabled;
             group.setIconStack(icon);
             GroupLoader.registerGroup(group);
             return group;

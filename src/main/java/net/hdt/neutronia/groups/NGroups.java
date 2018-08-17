@@ -43,7 +43,6 @@ public class NGroups {
                 .withComponent(new VanillaWalls())
                 .withComponent(new WoodBlocks())
                 .withComponent(new WorldStoneBricks())
-                .isEnabled(true)
                 .register();
 
         client = Group.builder()
@@ -63,7 +62,6 @@ public class NGroups {
                 .withComponent(new ShulkerBoxTooltip())
                 .withComponent(new UsageTicker())
                 .withComponent(new VisualStatDisplay())
-                .isEnabled(true)
                 .register();
 
         decoration = Group.builder()
@@ -82,7 +80,6 @@ public class NGroups {
                 .withComponent(new VariedBookshelves())
                 .withComponent(new VariedButtonsAndPressurePlates())
                 .withComponent(new VariedTrapdoors())
-                .isEnabled(true)
                 .register();
 
         dimensions = Group.builder()
@@ -93,7 +90,6 @@ public class NGroups {
                 .withComponent(new MoonBiomes())
                 .withComponent(new MoonDimension())
                 .withComponent(new SunDimension())
-                .isEnabled(true)
                 .register();
 
         experimental = Group.builder()
@@ -102,7 +98,6 @@ public class NGroups {
                 .withIcon(new ItemStack(Blocks.TNT))
                 .withComponent(new BiggerCaves())
                 .withComponent(new ColoredLights())
-                .isEnabled(true)
                 .register();
 
         management = Group.builder()
@@ -112,7 +107,6 @@ public class NGroups {
                 .withComponent(new FavoriteItems())
                 .withComponent(new BetterCraftShifting())
                 .withComponent(new RightClickAddToShulkerBox())
-                .isEnabled(true)
                 .register();
 
         misc = Group.builder()
@@ -175,7 +169,6 @@ public class NGroups {
                 .withComponent(new SheepDyeFix())
                 .withComponent(new PeacefulSurface())
                 .withComponent(new MobDropBuffs())
-                .isEnabled(true)
                 .register();
 
         vanity = Group.builder()
@@ -185,7 +178,6 @@ public class NGroups {
                 .withComponent(new DyableElytra())
                 .withComponent(new DyeItemNames())
                 .withComponent(new SitInStairs())
-                .isEnabled(true)
                 .register();
 
         world = Group.builder()
@@ -212,7 +204,6 @@ public class NGroups {
                 .withComponent(new Stalactite())
                 .withComponent(new BetterCaves())
                 .withComponent(new BetterUnderground())
-                .isEnabled(true)
                 .register();
 
     }

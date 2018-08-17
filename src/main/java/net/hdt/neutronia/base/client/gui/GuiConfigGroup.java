@@ -88,7 +88,7 @@ public class GuiConfigGroup extends GuiConfigBase {
 
         if (button instanceof GuiButtonFeatureSettings) {
             GuiButtonFeatureSettings featureButton = (GuiButtonFeatureSettings) button;
-//            mc.displayGuiScreen(new GuiConfigCategory(this, featureButton.category));
+            mc.displayGuiScreen(new GuiConfigCategory(this, featureButton.category));
         } else if (button == left || button == right) {
             if (button == left)
                 page = Math.max(page - 1, 0);

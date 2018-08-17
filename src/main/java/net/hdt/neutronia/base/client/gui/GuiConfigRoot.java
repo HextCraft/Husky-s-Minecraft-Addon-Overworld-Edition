@@ -3,10 +3,15 @@ package net.hdt.neutronia.base.client.gui;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,8 +70,8 @@ public class GuiConfigRoot extends GuiConfigBase {
             x = startX + k % 2 * 180;
             y = startY + k / 2 * 22;
             Group group = groups.get(j);
-            buttonList.add(new GuiButtonModule(x, y, group));
-            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
+//            buttonList.add(new GuiButtonModule(x, y, group));
+//            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
         }
 
         if (left != null) {
@@ -96,14 +101,40 @@ public class GuiConfigRoot extends GuiConfigBase {
         else if (nEnabled && !GlobalConfig.enableNButton)
             s = I18n.translateToLocal("neutronia.config.qdisabled");
 
-        if (totalPages > 1) {
+        for(int i = 0; i < groups.size(); i++) {
+            int nextHeight = 79 * i;
+            int nextHeightIcon = 60 * i;
+            int nextHeightLine = 79 * i;
+            ItemStack stack = groups.get(i).getIconStack();
+            if(groups.size() < 2) {
+                drawRect(80, 0, Minecraft.getMinecraft().displayWidth - 80, 80, Color.GRAY.getRGB());
+                drawRect(0, 0, 80, 80, Color.WHITE.getRGB());
+                RenderHelper.enableGUIStandardItemLighting();
+                GlStateManager.enableDepth();
+                mc.getRenderItem().renderItemIntoGUI(stack, 35, 40);
+                drawString(fontRenderer, groups.get(i).name, 65, 20, 0xFFFFFF);
+                drawString(fontRenderer, groups.get(i).desc, 65, 40, 0xFFFFFF);
+                drawRect(80, 79, Minecraft.getMinecraft().displayWidth - 80, 80, Color.DARK_GRAY.getRGB());
+            } else {
+                drawRect(0, 0, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, Color.DARK_GRAY.getRGB());
+                drawRect(60, 0, Minecraft.getMinecraft().displayWidth - 60, 59 + nextHeight, Color.GRAY.getRGB());
+                drawRect(0, 0, 60, nextHeightIcon, Color.WHITE.getRGB());
+                RenderHelper.enableGUIStandardItemLighting();
+                GlStateManager.enableDepth();
+                mc.getRenderItem().renderItemIntoGUI(stack, 20, 20 + nextHeightIcon);
+                drawString(fontRenderer, groups.get(i).name, 85, 20 + nextHeightIcon, 0xFFFFFF);
+                drawString(fontRenderer, groups.get(i).desc, 85, 40 + nextHeightIcon, 0xFFFFFF);
+            }
+        }
+
+        /*if (totalPages > 1) {
             int x = width / 2;
             int y = height / 6 - 7;
             drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
         }
 
         if (s != null)
-            drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
+            drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);*/
     }
 
     @Override
