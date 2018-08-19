@@ -12,7 +12,7 @@ public class GuiReplacementEvents {
 
     @SubscribeEvent
     public static void onGuiOpen(GuiOpenEvent event) {
-        if(event.getGui() instanceof GuiMainMenu) {
+        if (event.getGui() instanceof GuiMainMenu) {
 //            event.setGui(new net.hdt.neutronia.base.client.gui.GuiMainMenu());
         }
     }

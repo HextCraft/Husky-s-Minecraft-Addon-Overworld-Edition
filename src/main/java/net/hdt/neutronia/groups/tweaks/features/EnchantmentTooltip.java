@@ -50,17 +50,12 @@ public class EnchantmentTooltip extends Component {
                     event.getToolTip().add(tooltip);
                 }
             }
-        }/* else if (stack.getItem() instanceof ItemArcaneScroll) {
-            Enchantment enchantment = ItemArcaneScroll.getEnchantment(stack);
-            String tooltip = getTranslatedEnchantment(enchantment);
-            if (tooltip != null) {
-                event.getToolTip().add(tooltip);
-            }
-        }*/
+        }
     }
 
     @Override
     public String getFeatureDescription() {
         return "Add a tooltip to Enchantment source items (Scrolls, Books) to show what type of tool the enchantment can be used on.";
     }
+
 }

@@ -20,6 +20,8 @@ public class GuiButtonModule extends GuiButton {
 
     @Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
+        super.drawButton(mc, mouseX, mouseY, partialTicks);
+
         if (visible) {
             ItemStack stack = group.getIconStack();
             RenderHelper.enableGUIStandardItemLighting();

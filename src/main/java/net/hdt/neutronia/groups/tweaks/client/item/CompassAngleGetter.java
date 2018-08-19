@@ -19,11 +19,11 @@ import javax.annotation.Nullable;
 
 public class CompassAngleGetter implements IItemPropertyGetter {
 
-    private static final String TAG_CALCULATED = "quark:compass_calculated";
-    private static final String TAG_WAS_IN_NETHER = "quark:compass_in_nether";
-    private static final String TAG_POSITION_SET = "quark:compass_position_set";
-    private static final String TAG_NETHER_TARGET_X = "quark:nether_x";
-    private static final String TAG_NETHER_TARGET_Z = "quark:nether_z";
+    private static final String TAG_CALCULATED = "neutronia:compass_calculated";
+    private static final String TAG_WAS_IN_NETHER = "neutronia:compass_in_nether";
+    private static final String TAG_POSITION_SET = "neutronia:compass_position_set";
+    private static final String TAG_NETHER_TARGET_X = "neutronia:nether_x";
+    private static final String TAG_NETHER_TARGET_Z = "neutronia:nether_z";
 
     double rotation;
     double rota;

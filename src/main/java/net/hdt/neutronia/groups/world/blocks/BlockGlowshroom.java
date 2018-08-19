@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.blocks;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBush;
-import net.hdt.neutronia.groups.world.features.UndergroundBiomes;
+import net.hdt.neutronia.groups.world.features.overworld.CaveBiomes;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumParticleTypes;
@@ -32,11 +32,11 @@ public class BlockGlowshroom extends BlockNeutroniaBush {
 
     @Override
     protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == UndergroundBiomes.glowcelium;
+        return state.getBlock() == CaveBiomes.glowcelium;
     }
 
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (rand.nextInt(UndergroundBiomes.glowshroomGrowthRate) == 0) {
+        if (rand.nextInt(CaveBiomes.glowshroomGrowthRate) == 0) {
             int i = 5;
             int j = 4;
 

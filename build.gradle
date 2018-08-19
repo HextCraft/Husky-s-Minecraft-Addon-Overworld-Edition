@@ -67,6 +67,9 @@ repositories {
     maven { url = "http://tehnut.info/maven" }
     maven { url = "http://maven.tterrag.com" }
     maven { url = "http://maven.covers1624.net" }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
@@ -74,6 +77,8 @@ dependencies {
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    compile name: "HuskyLib2-${mc_version}-${hl2_version}-deobf"
+    compile name: "HuskyLib2-${mc_version}-${hl2_version}-sources"
 }
 
 processResources {

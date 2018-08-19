@@ -44,6 +44,7 @@ public class MoreTempting extends Component {
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         CHICKEN = Ingredient.fromStacks(new ItemStack(Items.WHEAT_SEEDS), new ItemStack(Items.MELON_SEEDS), new ItemStack(Items.PUMPKIN_SEEDS), new ItemStack(Items.BEETROOT_SEEDS));
+        PIG = Ingredient.fromStacks(new ItemStack(Items.WHEAT), new ItemStack(Items.CARROT));
         HERD_ANIMAL = Ingredient.fromStacks(new ItemStack(Items.WHEAT), new ItemStack(Blocks.TALLGRASS));
     }
 

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 
 public class ClockTimeGetter implements IItemPropertyGetter {
 
-    private static final String TAG_CALCULATED = "quark:clock_calculated";
+    private static final String TAG_CALCULATED = "neutronia:clock_calculated";
 
     double rotation;
     double rota;

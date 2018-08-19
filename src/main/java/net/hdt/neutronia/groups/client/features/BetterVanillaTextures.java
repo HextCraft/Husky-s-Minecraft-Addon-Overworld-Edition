@@ -17,10 +17,7 @@ public class BetterVanillaTextures extends Component {
         diorite = loadPropBool("Override Diorite", "", true);
         bricks = loadPropBool("Override Bricks", "", true);
         glass = loadPropBool("Override Glass", "", true);
-        pumpkinFace = loadPropBool("Override Pumpkin Front Face", "", false);
-        pistonModels = loadPropBool("Override Piston Models", "", true);
         bowAnimation = loadPropBool("Override Bow Animation", "", true);
-        observer = loadPropBool("Override Observer", "", true);
         smoothAndesite = loadPropBool("Override Smooth Andesite", "", true);
         smoothDiorite = loadPropBool("Override Smooth Diorite", "", true);
         smoothGranite = loadPropBool("Override Smooth Granite", "", true);
@@ -33,17 +30,9 @@ public class BetterVanillaTextures extends Component {
         overrideBlock("stone_diorite", diorite);
         overrideBlock("brick", bricks);
         overrideBlock("glass", glass);
-        overrideBlock("pumpkin_face_off", pumpkinFace);
         overrideBlock("stone_granite_smooth", smoothGranite);
         overrideBlock("stone_diorite_smooth", smoothDiorite);
         overrideBlock("stone_andesite_smooth", smoothAndesite);
-
-        batch(this::overrideBlockModel, pistonModels,
-                "piston_extended_normal", "piston_head_normal", "piston_head_short_sticky",
-                "piston_head_sticky", "piston_inventory_sticky", "sticky_piston");
-
-        batch(this::overrideBlockModel, observer,
-                "observer", "observer_powered");
 
         overrideItemModel("bow", bowAnimation);
     }

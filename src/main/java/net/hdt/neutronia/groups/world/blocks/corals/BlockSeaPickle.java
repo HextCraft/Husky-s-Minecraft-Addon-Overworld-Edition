@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.blocks.corals;
 
 import net.hdt.neutronia.base.states.BlockStateProperties;
 import net.hdt.neutronia.blocks.base.BlockModBush;
-import net.hdt.neutronia.groups.world.features.SeaPickles;
+import net.hdt.neutronia.groups.world.features.overworld.SeaPickles;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;

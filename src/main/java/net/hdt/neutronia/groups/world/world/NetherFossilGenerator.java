@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.world;
 
-import net.hdt.neutronia.groups.world.features.NetherFossils;
+import net.hdt.neutronia.groups.world.features.nether.NetherFossils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;

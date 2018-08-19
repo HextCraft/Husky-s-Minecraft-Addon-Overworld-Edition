@@ -12,7 +12,6 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -26,20 +25,18 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by primetoxinz on 4/20/17.
  */
 public class MobSpawning extends Component {
-    public static final SpawnWhitelist NETHER = new SpawnWhitelist();
-    public static final SpawnWhitelist SLIME = new SpawnWhitelist();
+    private static final SpawnWhitelist NETHER = new SpawnWhitelist();
+    private static final SpawnWhitelist SLIME = new SpawnWhitelist();
 
     private boolean slime;
     private boolean nether;
     private boolean witches;
-    private boolean jungleSpiders;
 
     @Override
     public void init(FMLInitializationEvent event) {
@@ -55,9 +52,7 @@ public class MobSpawning extends Component {
             SLIME.addIngredient(new BlockMaterialIngredient(Material.GRASS, Material.ROCK, Material.GROUND));
         }
 
-        Iterator<Biome> iterator = Biome.REGISTRY.iterator();
-        while (iterator.hasNext()) {
-            Biome biome = iterator.next();
+        for (Biome biome : Biome.REGISTRY) {
             if (witches && !BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP))
                 EntityRegistry.removeSpawn(EntityWitch.class, EnumCreatureType.MONSTER, biome);
         }
@@ -73,7 +68,6 @@ public class MobSpawning extends Component {
         slime = loadPropBool("Limit Slime Spawning", "Slimes can only spawn on natural blocks", true);
         nether = loadPropBool("Limit Nether Spawning", "Nether Mobs can only spawn on nether blocks", true);
         witches = loadPropBool("Limit Witch Spawning", "Witches can only spawn in swamps", true);
-        jungleSpiders = loadPropBool("Jungle Spider Spawning", "Jungle Spiders can spawn in jungles", true);
     }
 
     @SubscribeEvent
@@ -123,16 +117,12 @@ public class MobSpawning extends Component {
     public static class SpawnWhitelist {
         private final List<BlockIngredient> WHITELIST = Lists.newArrayList();
 
-        public void addIngredient(BlockIngredient ingredient) {
+        void addIngredient(BlockIngredient ingredient) {
             WHITELIST.add(ingredient);
         }
 
-        public void addBlock(Block block) {
+        void addBlock(Block block) {
             WHITELIST.add(new BlockIngredient(Ingredient.fromItem(Item.getItemFromBlock(block))));
-        }
-
-        public void addBlock(ItemStack stack) {
-            WHITELIST.add(new BlockIngredient(stack));
         }
 
         public boolean contains(World world, BlockPos pos, IBlockState state) {

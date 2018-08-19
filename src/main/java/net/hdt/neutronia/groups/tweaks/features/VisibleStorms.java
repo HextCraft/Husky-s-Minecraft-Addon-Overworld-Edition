@@ -1,9 +1,7 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleManager;
@@ -25,14 +23,13 @@ import java.awt.*;
 import java.util.Random;
 
 public class VisibleStorms extends Component {
-    public static boolean DUST_STORMS;
-    public static boolean SAND_STORMS;
-    public static int DUST_PARTICLES;
-    public static int AIR_PARTICLES;
-    float currentRed, currentGreen, currentBlue;
-    float currentDistance, currentDistanceScale;
-    float desiredRed, desiredGreen, desiredBlue;
-    float desiredDistance, desiredDistanceScale;
+    private static boolean DUST_STORMS;
+    private static boolean SAND_STORMS;
+    private static int AIR_PARTICLES;
+    private float currentRed, currentGreen, currentBlue;
+    private float currentDistance, currentDistanceScale;
+    private float desiredRed, desiredGreen, desiredBlue;
+    private float desiredDistance, desiredDistanceScale;
 
     @SideOnly(Side.CLIENT)
     private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale) {
@@ -49,7 +46,6 @@ public class VisibleStorms extends Component {
     public void setupConfig() {
         DUST_STORMS = loadPropBool("Dust Storms", "Storms are clearly visible in dry biomes.", true);
         SAND_STORMS = loadPropBool("Sand Storms", "Adds a fog change during storms in deserts.", true);
-        DUST_PARTICLES = loadPropInt("Dust Particle Count", "How many dust particles should be created, too many may contribute to lag.", 2);
         AIR_PARTICLES = loadPropInt("Air Particle Count", "How many air particles should be created, too many may contribute to lag.", 3);
     }
 
@@ -73,16 +69,6 @@ public class VisibleStorms extends Component {
             Random random = world.rand;
             BlockPos pos = entity.getPosition();
             int radius = 16; //blocks
-            for (int i = 0; i < DUST_PARTICLES; i++) {
-                BlockPos posGround = pos.add(random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius);
-                if (!shouldStorm(world, posGround))
-                    continue;
-                posGround = world.getHeight(posGround).down(); //Constant access whaaaat???
-
-                IBlockState stateGround = world.getBlockState(posGround);
-                Particle particleGround = particleManager.spawnEffectParticle(EnumParticleTypes.BLOCK_DUST.getParticleID(), posGround.getX() + random.nextDouble(), posGround.getY() + 1.2, posGround.getZ() + random.nextDouble(), -0.5 - random.nextDouble() * 0.6, 0.0, 0.0, Block.getStateId(stateGround));
-            }
-
             for (int i = 0; i < AIR_PARTICLES; i++) {
                 BlockPos posAir = pos.add(random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius);
                 if (world.canSeeSky(posAir) && shouldStorm(world, posAir)) {

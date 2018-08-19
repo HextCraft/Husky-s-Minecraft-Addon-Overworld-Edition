@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.blocks;
 
 import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.groups.world.features.UndergroundBiomes;
+import net.hdt.neutronia.groups.world.features.overworld.CaveBiomes;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,8 +25,8 @@ public class BlockBiomeCobblestone extends BlockMetaVariants implements INeutron
     }
 
     public enum Variants implements EnumBase {
-        FIRE_STONE(() -> UndergroundBiomes.firestoneEnabled),
-        ICY_STONE(() -> UndergroundBiomes.icystoneEnabled);
+        FIRE_STONE(() -> CaveBiomes.firestoneEnabled),
+        ICY_STONE(() -> CaveBiomes.icystoneEnabled);
 
         private final Supplier<Boolean> enabledCond;
 

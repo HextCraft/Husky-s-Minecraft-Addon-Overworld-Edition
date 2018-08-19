@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class UtilityRecipes extends Component {
 
-    boolean enableDispenser, enableRepeater, enableMinecarts;
+    private boolean enableDispenser, enableRepeater, enableMinecarts;
 
     @Override
     public void setupConfig() {

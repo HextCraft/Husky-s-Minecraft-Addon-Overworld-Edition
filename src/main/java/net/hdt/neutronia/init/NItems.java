@@ -148,20 +148,25 @@ public class NItems {
         COPPER_LEGGINGS = new ItemArmorBase("copper", COPPER_ARMOR, 1, EntityEquipmentSlot.LEGS);
         COPPER_BOOTS = new ItemArmorBase("copper", COPPER_ARMOR, 1, EntityEquipmentSlot.FEET);
 
-        BRONZE_HELMET = new ItemArmorBase("zinc", BRONZE_ARMOR, 1, EntityEquipmentSlot.HEAD);
-        BRONZE_CHESTPLATE = new ItemArmorBase("zinc", BRONZE_ARMOR, 1, EntityEquipmentSlot.CHEST);
-        BRONZE_LEGGINGS = new ItemArmorBase("zinc", BRONZE_ARMOR, 1, EntityEquipmentSlot.LEGS);
-        BRONZE_BOOTS = new ItemArmorBase("zinc", BRONZE_ARMOR, 1, EntityEquipmentSlot.FEET);
+        BRONZE_HELMET = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        BRONZE_CHESTPLATE = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        BRONZE_LEGGINGS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        BRONZE_BOOTS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.FEET);
 
         brassIngot = new ItemBase("brass_ingot", tab);
         brassNugget = new ItemBase("brass_nugget", tab);
+
         copperIngot = new ItemBase("copper_ingot", tab);
         copperNugget = new ItemBase("copper_nugget", tab);
+
         steelIngot = new ItemBase("steel_ingot", tab);
         steelNugget = new ItemBase("steel_nugget", tab);
+
         zincChunk = new ItemBase("zinc_chunk", tab);
+
         tinIngot = new ItemBase("tin_ingot", tab);
         tinNugget = new ItemBase("tin_nugget", tab);
+
         bronzeIngot = new ItemBase("bronze_ingot", tab);
         bronzeNugget = new ItemBase("bronze_nugget", tab);
 

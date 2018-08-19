@@ -9,7 +9,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public class ShulkerBoxDropIn extends AbstractDropIn {
+public class ShulkerBoxDropIn extends BaseDropIn {
 
     @Override
     public boolean canDropItemIn(ItemStack stack, ItemStack incoming) {
@@ -28,7 +28,7 @@ public class ShulkerBoxDropIn extends AbstractDropIn {
 
         TileEntityShulkerBox tile = new TileEntityShulkerBox();
         NBTTagCompound stackCmp = shulkerBox.getTagCompound();
-        NBTTagCompound blockCmp = null;
+        NBTTagCompound blockCmp;
 
         if (stackCmp == null || !stackCmp.hasKey("BlockEntityTag"))
             blockCmp = new NBTTagCompound();

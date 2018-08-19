@@ -24,21 +24,21 @@ public class WorldGenNetherMushroom extends WorldGenerator {
                 worldIn.getBlockState(position.add(0, height, 2)).getBlock() == Blocks.AIR &&
                 worldIn.getBlockState(position.add(0, height, -2)).getBlock() == Blocks.AIR) {
 
-            generateStem(worldIn, rand, position, stem, height);
+            generateStem(worldIn, position, stem, height);
 
             if (height < 5) {
-                generateHatSmall(worldIn, rand, position.add(0, height, 0), hat);
+                generateHatSmall(worldIn, position.add(0, height, 0), hat);
             } else if (height < 7) {
-                generateHatMedium(worldIn, rand, position.add(0, height, 0), hat);
+                generateHatMedium(worldIn, position.add(0, height, 0), hat);
             } else {
-                generateHatLarge(worldIn, rand, position.add(0, height, 0), hat);
+                generateHatLarge(worldIn, position.add(0, height, 0), hat);
             }
             return true;
         }
         return false;
     }
 
-    private void generateHatSmall(World world, Random rand, BlockPos pos, Block block) {
+    private void generateHatSmall(World world, BlockPos pos, Block block) {
         int r = 1;
         for (int i = -r; i <= r; i++) {
             for (int j = -r; j <= r; j++) {
@@ -47,7 +47,7 @@ public class WorldGenNetherMushroom extends WorldGenerator {
         }
     }
 
-    private void generateHatMedium(World world, Random rand, BlockPos pos, Block block) {
+    private void generateHatMedium(World world, BlockPos pos, Block block) {
         int r = 1;
         for (int i = -r; i <= r; i++) {
             for (int j = -r; j <= r; j++) {
@@ -61,8 +61,8 @@ public class WorldGenNetherMushroom extends WorldGenerator {
         }
     }
 
-    private void generateHatLarge(World world, Random rand, BlockPos pos, Block block) {
-        generateHatMedium(world, rand, pos, block);
+    private void generateHatLarge(World world, BlockPos pos, Block block) {
+        generateHatMedium(world, pos, block);
 
         for (int i = -1; i <= 1; i++) {
             world.setBlockState(pos.add(-3, -1, i), block.getDefaultState());
@@ -79,7 +79,7 @@ public class WorldGenNetherMushroom extends WorldGenerator {
 
     }
 
-    private void generateStem(World world, Random rand, BlockPos pos, Block block, int height) {
+    private void generateStem(World world, BlockPos pos, Block block, int height) {
         for (int i = 0; i < height; i++) {
             world.setBlockState(pos.add(0, i, 0), block.getDefaultState());
         }

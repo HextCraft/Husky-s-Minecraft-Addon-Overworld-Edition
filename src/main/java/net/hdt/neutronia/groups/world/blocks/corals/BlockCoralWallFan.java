@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.blocks.corals;
 
 import net.hdt.neutronia.groups.world.blocks.BlockWaterPlantBase;
-import net.hdt.neutronia.groups.world.features.Corals;
+import net.hdt.neutronia.groups.world.features.overworld.Corals;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;

@@ -5,7 +5,6 @@ import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
 import net.minecraft.block.Block;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,7 +33,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         switch (world.provider.getDimension()) {
             case 0:
                 generateCoral(world, random, chunkX, chunkZ);
-                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 40, Blocks.GRASS, Biomes.PLAINS);
+//                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 40, Blocks.GRASS, Biomes.PLAINS);
                 break;
         }
     }

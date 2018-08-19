@@ -13,7 +13,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class SheepDyeFix extends Component {
 
-    public String[] blacklist;
+    private String[] blacklist;
     private boolean enabled;
 
     @Override

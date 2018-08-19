@@ -31,7 +31,7 @@ import org.lwjgl.input.Mouse;
 
 public class FavoriteItems extends Component {
 
-    public static String TAG_FAVORITE_ITEM = "Quark:FavoriteItem";
+    public static String TAG_FAVORITE_ITEM = "neutronia:FavoriteItem";
 
     public static boolean hovering;
     boolean mouseDown = false;

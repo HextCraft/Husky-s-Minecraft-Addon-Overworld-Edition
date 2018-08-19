@@ -2,12 +2,10 @@ package net.hdt.neutronia.groups.world.blocks.corals;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import net.hdt.neutronia.base.states.BlockStateProperties;
+import net.hdt.huskylib2.block.BlockFacing;
 import net.hdt.neutronia.groups.world.blocks.BlockWaterPlantBase;
-import net.hdt.neutronia.groups.world.features.Corals;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -17,6 +15,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -42,16 +41,18 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
  */
 public class BlockCoralFan extends BlockWaterPlantBase {
 
-    public static final PropertyBool field_211882_a = BlockStateProperties.field_208198_y;
     private static final Map<EnumFacing, AxisAlignedBB> field_211885_c = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, new AxisAlignedBB(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, new AxisAlignedBB(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
-    private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
-    private boolean dead;
+    private static final PropertyEnum<EnumFacing> FACING = BlockFacing.FACING;
+    private static final PropertyBool ON_WALL = PropertyBool.create("on_wall");
+    private static final PropertyBool IS_DEAD = PropertyBool.create("dead");
+    private boolean dead, onWall;
     private ArrayList<Block> livingVersion, deadVersion;
     private EnumCoralColor color;
 
-    public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+    public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, boolean isOnWall, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
         super(isDead ? "dead_" + colorIn.getNewName() + "_coral_fan" : colorIn.getNewName() + "_coral_fan");
         this.dead = isDead;
+        this.onWall = isOnWall;
         this.color = colorIn;
         this.livingVersion = livingVersion;
         this.deadVersion = deadVersion;
@@ -60,12 +61,13 @@ public class BlockCoralFan extends BlockWaterPlantBase {
         } else {
             livingVersion.add(this);
         }
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15).withProperty(ON_WALL, isOnWall).withProperty(IS_DEAD, isDead));
     }
 
-    public BlockCoralFan(EnumCoralColor colorIn, String name, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
+    public BlockCoralFan(EnumCoralColor colorIn, String name, boolean isDead, boolean isOnWall, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
         super(isDead ? "dead_" + colorIn.getNewName() + name : colorIn.getNewName() + name);
         this.dead = isDead;
+        this.onWall = isOnWall;
         this.color = colorIn;
         this.livingVersion = livingVersion;
         this.deadVersion = deadVersion;
@@ -74,7 +76,7 @@ public class BlockCoralFan extends BlockWaterPlantBase {
         } else {
             livingVersion.add(this);
         }
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15).withProperty(ON_WALL, isOnWall).withProperty(IS_DEAD, isDead));
     }
 
     @Override
@@ -119,6 +121,12 @@ public class BlockCoralFan extends BlockWaterPlantBase {
         return 0;
     }
 
+
+    @Override
+    public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+        return true;
+    }
+
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return field_211885_c.get(state.getValue(FACING));
@@ -158,11 +166,7 @@ public class BlockCoralFan extends BlockWaterPlantBase {
 
     @Override
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
-        if (this == Corals.coralFan[color.getMetadata()] || this == Corals.deadCoralFan[color.getMetadata()]) {
-            return side != EnumFacing.DOWN && side != EnumFacing.UP;
-        } else {
-            return true;
-        }
+        return onWall;
     }
 
     @Override
@@ -170,16 +174,6 @@ public class BlockCoralFan extends BlockWaterPlantBase {
         IBlockState state = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
         return state.withProperty(FACING, placer.getHorizontalFacing());
     }
-
-    /*public IBlockState func_196271_a(IBlockState p_196271_1_, EnumFacing p_196271_2_, IBlockState p_196271_3_, World p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_)
-    {
-        if (p_196271_1_.getValue(field_211882_a))
-        {
-            p_196271_4_.func_205219_F_().func_205360_a(p_196271_5_, Fluids.field_204546_a, Fluids.field_204546_a.func_205569_a(p_196271_4_));
-        }
-
-        return p_196271_2_.getOpposite() == p_196271_1_.getValue(FACING) && !p_196271_1_.withProperty(p_196271_4_, p_196271_5_) ? Blocks.AIR.getDefaultState() : p_196271_1_;
-    }*/
 
     @Override
     public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {
@@ -199,7 +193,7 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     }
 
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING, BlockLiquid.LEVEL);
+        return new BlockStateContainer(this, FACING, BlockLiquid.LEVEL, ON_WALL, IS_DEAD);
     }
 
     @Override

@@ -857,7 +857,7 @@ command.neutronia.biome_and_dimension_not_defined=Det er ikke noe biome eller di
 message.neutronia:death.coordinates=Du døde ved %d %d %d in %d
 
 neutronia.config.title=Neutronia Konfigurasjon
-neutronia.config.import=Importere Konfig
+neutronia.config.import=Importere Konfigurasjon
 neutronia.config.configure=Konfigurere Neutronia
 neutronia.config.opensite=Neutronia Nettside
 neutronia.config.general=Generelle innstillinger
@@ -885,15 +885,15 @@ neutronia.config.firstloadinfo6=If you are going to play on a Vanilla server, or
 neutronia.config.firstloadinfo7=doesn't have Neutronia installed. You NEED to disable every module except
 neutronia.config.firstloadinfo8=for Client, or you will find incompatibilities and/or crashes. If you're
 neutronia.config.firstloadinfo9=playing on a server with Neutronia, don't disable anything outside Client.
-neutronia.config.module.dimensions=Dimensjoner
-neutronia.config.module.building=Bygging
-neutronia.config.module.decoration=Dekorasjon
-neutronia.config.module.tweaks=Tweaks
-neutronia.config.module.world=Verden
-neutronia.config.module.experimental=Eksperimentel
-neutronia.config.module.client=Client
-neutronia.config.module.management=Management
-neutronia.config.module.vanity=Vanity
+neutronia.config.group.dimensions=Dimensjoner
+neutronia.config.group.building=Bygging
+neutronia.config.group.decoration=Dekorasjon
+neutronia.config.group.tweaks=Tweaks
+neutronia.config.group.world=Verden
+neutronia.config.group.experimental=Eksperimentel
+neutronia.config.group.client=Client
+neutronia.config.group.management=Management
+neutronia.config.group.vanity=Vanity
 
 # MISC
 neutroniaMisc.chestButton.restock=Restock
@@ -915,10 +915,10 @@ neutroniaMisc.leftAfk=Du er ikke lengre BFT.
 neutroniaMisc.personSleeping=%s sover nå.
 # The %s is very important!
 neutroniaMisc.sleepingListHeader=Sovende Spillere: %s
-neutroniaMisc.buried_chest_map=Buried Treasure Map
+neutroniaMisc.buried_chest_map=Skattekart
 neutroniaMisc.trashButtonOpen=Klikk for å slette
 neutroniaMisc.signShift=Shift
-neutroniaMisc.signClear=Reingjøre
+neutroniaMisc.signClear=Reingjør
 neutroniaMisc.rotationLockBefore=You have enabled Rotation Lock. Any blocks you place will be oriented in the direction you were looking. Press [
 neutroniaMisc.rotationLockAfter=] to change or reset it. This message won't appear again.
 neutroniaMisc.rightClickAdd=Høyreklikk for å legge til

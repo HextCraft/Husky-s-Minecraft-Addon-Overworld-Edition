@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class DyableElytra extends Component {
 
-    public static final String TAG_ELYTRA_DYE = "quark:elytraDye";
+    public static final String TAG_ELYTRA_DYE = "neutronia:elytraDye";
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

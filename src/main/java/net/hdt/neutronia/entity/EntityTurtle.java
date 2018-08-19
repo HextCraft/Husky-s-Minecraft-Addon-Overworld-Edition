@@ -214,6 +214,29 @@ public class EntityTurtle extends EntityAnimal
  * Called when a lightning bolt hits the entity.
  * <p>
  * Called when the mob's health reaches 0.
+ * <p>
+ * (abstract) Protected helper method to read subclass entity data from NBT.
+ * <p>
+ * Get this Entity's EnumCreatureAttribute
+ * <p>
+ * Get number of ticks, at least during which the living entity will be silent.
+ * <p>
+ * "Sets the scale for an ageable entity according to the boolean parameter, which says if it's a child."
+ * <p>
+ * Returns new PathNavigateGround instance
+ * <p>
+ * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
+ * the animal type)
+ * <p>
+ * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
+ * use this to react to sunlight and start to burn.
+ * <p>
+ * This is called when Entity's growing age timer reaches 0 (negative values are considered as a child, positive as
+ * an adult)
+ * <p>
+ * Called when a lightning bolt hits the entity.
+ * <p>
+ * Called when the mob's health reaches 0.
  *//*
 
     public void writeEntityToNBT(NBTTagCompound compound)

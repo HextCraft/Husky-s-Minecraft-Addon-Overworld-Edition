@@ -31,9 +31,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Util {
-    public static LongSupplier nanoTimeSupplier = System::nanoTime;
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Pattern RESERVED_WINDOWS_NAMES = Pattern.compile(".*\\.|(?:CON|PRN|AUX|NUL|COM1|COM2|COM3|COM4|COM5|COM6|COM7|COM8|COM9|LPT1|LPT2|LPT3|LPT4|LPT5|LPT6|LPT7|LPT8|LPT9)(?:\\..*)?", 2);
+    public static LongSupplier nanoTimeSupplier = System::nanoTime;
 
     public static <K, V> Collector<Entry<? extends K, ? extends V>, ?, Map<K, V>> toMapCollector() {
         return Collectors.toMap(Entry::getKey, Entry::getValue);
@@ -76,8 +76,8 @@ public class Util {
                 return true;
             }
 
-            lvt_2_1_ = (Path)var1.next();
-        } while(!RESERVED_WINDOWS_NAMES.matcher(lvt_2_1_.toString()).matches());
+            lvt_2_1_ = (Path) var1.next();
+        } while (!RESERVED_WINDOWS_NAMES.matcher(lvt_2_1_.toString()).matches());
 
         return false;
     }
@@ -116,7 +116,7 @@ public class Util {
         if (p_195647_1_ != null) {
             Object lvt_4_1_ = lvt_3_1_;
 
-            while(lvt_4_1_ != p_195647_1_) {
+            while (lvt_4_1_ != p_195647_1_) {
                 if (lvt_2_1_.hasNext()) {
                     lvt_4_1_ = lvt_2_1_.next();
                 }

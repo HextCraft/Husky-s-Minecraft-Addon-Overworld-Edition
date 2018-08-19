@@ -13,7 +13,7 @@ public class RenderSkyboxCube {
     private final ResourceLocation[] field_209143_a = new ResourceLocation[6];
 
     public RenderSkyboxCube(ResourceLocation p_i49378_1_) {
-        for(int lvt_2_1_ = 0; lvt_2_1_ < 6; ++lvt_2_1_) {
+        for (int lvt_2_1_ = 0; lvt_2_1_ < 6; ++lvt_2_1_) {
             this.field_209143_a[lvt_2_1_] = new ResourceLocation(p_i49378_1_.getNamespace(), p_i49378_1_.getPath() + '_' + lvt_2_1_ + ".png");
         }
 
@@ -37,16 +37,16 @@ public class RenderSkyboxCube {
         GlStateManager.depthMask(false);
         GlStateManager.tryBlendFuncSeparate(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA, SourceFactor.ONE, DestFactor.ZERO);
 
-        for(int lvt_7_1_ = 0; lvt_7_1_ < 4; ++lvt_7_1_) {
+        for (int lvt_7_1_ = 0; lvt_7_1_ < 4; ++lvt_7_1_) {
             GlStateManager.pushMatrix();
-            float lvt_8_1_ = ((float)(lvt_7_1_ % 2) / 2.0F - 0.5F) / 256.0F;
-            float lvt_9_1_ = ((float)(lvt_7_1_ / 2) / 2.0F - 0.5F) / 256.0F;
+            float lvt_8_1_ = ((float) (lvt_7_1_ % 2) / 2.0F - 0.5F) / 256.0F;
+            float lvt_9_1_ = ((float) (lvt_7_1_ / 2) / 2.0F - 0.5F) / 256.0F;
             float lvt_10_1_ = 0.0F;
             GlStateManager.translate(lvt_8_1_, lvt_9_1_, 0.0F);
             GlStateManager.rotate(p_209142_2_, 1.0F, 0.0F, 0.0F);
             GlStateManager.rotate(p_209142_3_, 0.0F, 1.0F, 0.0F);
 
-            for(int lvt_11_1_ = 0; lvt_11_1_ < 6; ++lvt_11_1_) {
+            for (int lvt_11_1_ = 0; lvt_11_1_ < 6; ++lvt_11_1_) {
                 p_209142_1_.getTextureManager().bindTexture(this.field_209143_a[lvt_11_1_]);
                 lvt_5_1_.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
                 int lvt_12_1_ = 255 / (lvt_7_1_ + 1);

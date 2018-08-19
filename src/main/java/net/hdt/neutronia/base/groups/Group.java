@@ -190,7 +190,7 @@ public class Group implements Comparable<Group> {
     }
 
     public ItemStack getIconStack() {
-        if(iconStack != null) {
+        if (iconStack != null) {
             return iconStack;
         } else {
             return new ItemStack(Blocks.BARRIER);

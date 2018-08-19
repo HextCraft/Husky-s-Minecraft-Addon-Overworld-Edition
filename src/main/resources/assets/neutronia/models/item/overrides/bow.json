@@ -30,35 +30,35 @@
             "predicate": {
                 "pulling": 1
             },
-            "model": "quark:item/bow_pulling_0"
+            "model": "neutronia:item/bow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.35
             },
-            "model": "quark:item/bow_pulling_1"
+            "model": "neutronia:item/bow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.55
             },
-            "model": "quark:item/bow_pulling_2"
+            "model": "neutronia:item/bow_pulling_2"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.75
             },
-            "model": "quark:item/bow_pulling_3"
+            "model": "neutronia:item/bow_pulling_3"
         },
         {
             "predicate": {
                 "pulling": 1,
                 "pull": 0.95
             },
-            "model": "quark:item/bow_pulling_4"
+            "model": "neutronia:item/bow_pulling_4"
         }
     ]
 }

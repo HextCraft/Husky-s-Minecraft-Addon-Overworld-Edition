@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.world;
 
 import net.hdt.neutronia.base.handler.server.BiomeTypeConfigHandler;
-import net.hdt.neutronia.groups.world.features.RevampStoneGen.StoneInfo;
+import net.hdt.neutronia.groups.world.features.overworld.BetterStoneGeneration.StoneInfo;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;

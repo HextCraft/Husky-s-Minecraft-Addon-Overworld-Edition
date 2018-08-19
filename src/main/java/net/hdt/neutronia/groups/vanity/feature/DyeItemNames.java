@@ -20,7 +20,7 @@ import java.awt.*;
 
 public class DyeItemNames extends Component {
 
-    private static final String TAG_DYE = "Quark:ItemNameDye";
+    private static final String TAG_DYE = "neutronia:ItemNameDye";
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)

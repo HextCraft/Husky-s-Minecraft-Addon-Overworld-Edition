@@ -8,7 +8,7 @@ public class RenderSkybox {
     private final Minecraft field_209145_a;
     private final RenderSkyboxCube field_209146_b;
     private float field_209147_c;
-    private double guiScaleFactor = (double)this.getScaleFactor(Minecraft.getMinecraft().gameSettings.guiScale);
+    private double guiScaleFactor = (double) this.getScaleFactor(Minecraft.getMinecraft().gameSettings.guiScale);
 
     public RenderSkybox(RenderSkyboxCube p_i49377_1_) {
         this.field_209146_b = p_i49377_1_;
@@ -21,7 +21,7 @@ public class RenderSkybox {
         GlStateManager.clear(256);
         GlStateManager.matrixMode(5889);
         GlStateManager.loadIdentity();
-        GlStateManager.ortho(0.0D, (double) Minecraft.getMinecraft().displayWidth / getGuiScaleFactor(), (double)Minecraft.getMinecraft().displayHeight / getGuiScaleFactor(), 0.0D, 1000.0D, 3000.0D);
+        GlStateManager.ortho(0.0D, (double) Minecraft.getMinecraft().displayWidth / getGuiScaleFactor(), (double) Minecraft.getMinecraft().displayHeight / getGuiScaleFactor(), 0.0D, 1000.0D, 3000.0D);
         GlStateManager.matrixMode(5888);
         GlStateManager.loadIdentity();
         GlStateManager.translate(0.0F, 0.0F, -2000.0F);
@@ -33,7 +33,7 @@ public class RenderSkybox {
 
     public int getScaleFactor(int p_getScaleFactor_1_) {
         int lvt_2_1_;
-        for(lvt_2_1_ = 1; lvt_2_1_ != p_getScaleFactor_1_ && lvt_2_1_ < Minecraft.getMinecraft().displayWidth && lvt_2_1_ < Minecraft.getMinecraft().displayHeight && Minecraft.getMinecraft().displayWidth / (lvt_2_1_ + 1) >= 320 && Minecraft.getMinecraft().displayHeight / (lvt_2_1_ + 1) >= 240; ++lvt_2_1_) {
+        for (lvt_2_1_ = 1; lvt_2_1_ != p_getScaleFactor_1_ && lvt_2_1_ < Minecraft.getMinecraft().displayWidth && lvt_2_1_ < Minecraft.getMinecraft().displayHeight && Minecraft.getMinecraft().displayWidth / (lvt_2_1_ + 1) >= 320 && Minecraft.getMinecraft().displayHeight / (lvt_2_1_ + 1) >= 240; ++lvt_2_1_) {
             ;
         }
 

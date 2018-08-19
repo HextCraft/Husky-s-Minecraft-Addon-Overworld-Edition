@@ -26,16 +26,11 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Created by primetoxinz on 4/20/17.
- */
 public class HCTools extends Component {
 
-    public static final HashMap<Item.ToolMaterial, ToolMaterialOverride> OVERRIDES = Maps.newHashMap();
-    public static boolean removeLowTools;
-    public static int noHungerThreshold;
-    public static int noDamageThreshold;
-    private static Set<ItemTool> TOOLS;
+    private static final HashMap<Item.ToolMaterial, ToolMaterialOverride> OVERRIDES = Maps.newHashMap();
+    private static boolean removeLowTools;
+    private static int noDamageThreshold;
 
     private static void removeLowTierToolRecipes() {
         BWMRecipes.removeRecipe(new ItemStack(Items.WOODEN_AXE, OreDictionary.WILDCARD_VALUE));
@@ -52,8 +47,7 @@ public class HCTools extends Component {
 
     @Override
     public void init(FMLInitializationEvent event) {
-
-        TOOLS = Sets.newHashSet(
+        Set<ItemTool> TOOLS = Sets.newHashSet(
                 Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SWORD, Items.DIAMOND_SHOVEL, Items.DIAMOND_HOE,
                 Items.IRON_PICKAXE, Items.IRON_AXE, Items.IRON_SWORD, Items.IRON_SHOVEL, Items.IRON_HOE,
                 Items.STONE_PICKAXE, Items.STONE_AXE, Items.STONE_SWORD, Items.STONE_SHOVEL, Items.STONE_HOE,
@@ -87,7 +81,6 @@ public class HCTools extends Component {
     @Override
     public void setupConfig() {
         removeLowTools = loadPropBool("Remove cheapest tools", "The minimum level of the hoe and the sword is iron, and the axe needs at least stone.", true);
-        noHungerThreshold = loadPropInt("No Exhaustion Harvest Level", "When destroying a 0 hardness block with a tool of this harvest level or higher, no exhaustion is applied", Item.ToolMaterial.IRON.getHarvestLevel());
         noDamageThreshold = loadPropInt("No Durability Damage Harvest Level", "When destroying a 0 hardness block with a tool of this harvest level or higher, no durability damage is applied", Item.ToolMaterial.DIAMOND.getHarvestLevel());
     }
 
@@ -115,8 +108,8 @@ public class HCTools extends Component {
         BlockPos pos = event.getPos();
         IBlockState state = world.getBlockState(pos);
         ItemStack stack = player.getHeldItemMainhand();
-        String tooltype = state.getBlock().getHarvestTool(state);
-        if (tooltype != null && state.getBlockHardness(world, pos) <= 0 && stack.getItem().getHarvestLevel(stack, tooltype, player, state) < noDamageThreshold)
+        String toolType = state.getBlock().getHarvestTool(state);
+        if (toolType != null && state.getBlockHardness(world, pos) <= 0 && stack.getItem().getHarvestLevel(stack, toolType, player, state) < noDamageThreshold)
             stack.damageItem(1, player); //Make 0 hardness blocks damage tools that are not over some harvest level
     }
 
@@ -135,10 +128,6 @@ public class HCTools extends Component {
         private float efficiencyOnProperMaterial;
         private int enchantability;
 
-
-        public ToolMaterialOverride(Item.ToolMaterial material) {
-            this(material.name().toLowerCase(), material.getMaxUses(), material.getEfficiency(), material.getEnchantability());
-        }
 
         ToolMaterialOverride(String name, int maxUses, float efficiencyOnProperMaterial, int enchantability) {
             this.maxUses = ConfigHelper.loadPropInt("Max Durability", configCategory + "." + name, "", maxUses);
