@@ -4,12 +4,11 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.hdt.neutronia.base.states.BlockStateProperties;
 import net.hdt.neutronia.groups.world.blocks.BlockWaterPlantBase;
-import net.hdt.neutronia.groups.world.features.Corals;
+import net.hdt.neutronia.groups.world.features.overworld.Corals;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
@@ -94,27 +93,6 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     }
 
     @Override
-    protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == Blocks.WATER || state.getMaterial() == Material.ICE;
-    }
-
-    @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        if (pos.getY() >= 0 && pos.getY() < 256) {
-            IBlockState iblockstate = worldIn.getBlockState(pos.down());
-            Material material = iblockstate.getMaterial();
-            return material == Material.WATER && iblockstate.getValue(BlockLiquid.LEVEL) == 0 || material == Material.ICE;
-        } else
-            return false;
-    }
-
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        IBlockState state = worldIn.getBlockState(pos.down());
-        return super.canPlaceBlockAt(worldIn, pos) && state.getBlock() == Blocks.WATER;
-    }
-
-    @Override
     public int quantityDropped(Random random) {
         return 0;
     }
@@ -170,16 +148,6 @@ public class BlockCoralFan extends BlockWaterPlantBase {
         IBlockState state = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
         return state.withProperty(FACING, placer.getHorizontalFacing());
     }
-
-    /*public IBlockState func_196271_a(IBlockState p_196271_1_, EnumFacing p_196271_2_, IBlockState p_196271_3_, World p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_)
-    {
-        if (p_196271_1_.getValue(field_211882_a))
-        {
-            p_196271_4_.func_205219_F_().func_205360_a(p_196271_5_, Fluids.field_204546_a, Fluids.field_204546_a.func_205569_a(p_196271_4_));
-        }
-
-        return p_196271_2_.getOpposite() == p_196271_1_.getValue(FACING) && !p_196271_1_.withProperty(p_196271_4_, p_196271_5_) ? Blocks.AIR.getDefaultState() : p_196271_1_;
-    }*/
 
     @Override
     public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {

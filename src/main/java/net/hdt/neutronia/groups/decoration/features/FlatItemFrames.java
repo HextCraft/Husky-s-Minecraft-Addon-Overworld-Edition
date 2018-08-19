@@ -25,7 +25,7 @@ public class FlatItemFrames extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        String flatItemFrameName = "quark:flat_item_frame";
+        String flatItemFrameName = "neutronia:flat_item_frame";
         EntityRegistry.registerModEntity(new ResourceLocation(flatItemFrameName), EntityFlatItemFrame.class, flatItemFrameName, LibEntityIDs.FLAT_ITEM_FRAME, Neutronia.instance, 256, 64, false);
     }
 
