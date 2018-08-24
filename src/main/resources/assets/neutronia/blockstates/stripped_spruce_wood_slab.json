@@ -4,10 +4,10 @@
   "variants": {
     "half": {
       "top": {
-        "model": "neutronia:upper_stripped_spruce_bark_slab"
+        "model": "neutronia:upper_stripped_spruce_wood_slab"
       },
       "bottom": {
-        "model": "neutronia:half_stripped_spruce_bark_slab"
+        "model": "neutronia:half_stripped_spruce_wood_slab"
       }
     }
   }

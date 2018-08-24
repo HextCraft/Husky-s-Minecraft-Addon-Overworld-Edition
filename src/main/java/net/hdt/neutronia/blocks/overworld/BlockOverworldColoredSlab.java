@@ -5,8 +5,6 @@ import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockModColoredSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -19,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockOverworldColoredSlab extends BlockModColoredSlab implements INeutroniaBlock, IBlockColorProvider {
 
     public BlockOverworldColoredSlab(String name, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
-        super(color.getName() + "_" + name, color, materialIn, doubleSlab);
+        super(color.getName() + "_" + name + "_slab", color, materialIn, doubleSlab);
     }
 
     @Override
@@ -117,16 +115,6 @@ public class BlockOverworldColoredSlab extends BlockModColoredSlab implements IN
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         return false;
-    }
-
-    @Override
-    public IBlockColor getBlockColor() {
-        return (state, worldIn, pos, tintIndex) -> color.getColorValue();
-    }
-
-    @Override
-    public IItemColor getItemColor() {
-        return (stack, tintIndex) -> color.getColorValue();
     }
 
 }

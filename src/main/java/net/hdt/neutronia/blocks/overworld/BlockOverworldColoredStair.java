@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockOverworldColoredStair extends BlockModColoredStairs implements INeutroniaBlock {
 
     public BlockOverworldColoredStair(String name, IBlockState state, EnumDyeColor color, CreativeTabs tab) {
-        super(name, state, color);
+        super(color.getName() + "_" + name + "_stairs", state, color);
         setCreativeTab(tab);
     }
 

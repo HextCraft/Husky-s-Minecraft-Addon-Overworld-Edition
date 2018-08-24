@@ -112,7 +112,12 @@ public class StalagmiteGenerator implements IWorldGenerator {
                 case DIORITE:
                     return Stalagmite.diorite_stalagmite;
             }
-        } else if (block == Basalt.basalt)
+        }
+        else if(block == Blocks.ICE)
+            return Stalagmite.ice_stalagmite;
+        else if(block == Blocks.PACKED_ICE)
+            return Stalagmite.packed_ice_stalagmite;
+        else if (block == Basalt.basalt)
             return Stalagmite.basalt_stalagmite;
         else if (block == BetterStoneGeneration.marble)
             return Stalagmite.marble_stalagmite;

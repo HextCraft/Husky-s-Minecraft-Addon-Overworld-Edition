@@ -1,9 +1,9 @@
 {
   "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/slab",
+  "parent": "minecraft:block/half_slab",
   "textures": {
-    "bottom": "minecraft:blocks/log_big_oak_top",
-    "side": "minecraft:blocks/log_big_oak",
-    "top": "minecraft:blocks/log_big_oak_top"
+    "bottom": "minecraft:blocks/log_dark_oak_top",
+    "side": "minecraft:blocks/log_dark_oak",
+    "top": "minecraft:blocks/log_dark_oak_top"
   }
 }

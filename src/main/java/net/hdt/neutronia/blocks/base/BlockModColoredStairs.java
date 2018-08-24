@@ -15,27 +15,18 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.apache.commons.lang3.text.WordUtils;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public abstract class BlockModColoredStairs extends BlockStairs implements IModBlock, IBlockColorProvider {
 
@@ -54,43 +45,6 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
 
     public static void initStairs(Block base, int meta, BlockStairs block) {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 4), "B  ", "BB ", "BBB", 'B', ProxyRegistry.newStack(base, 1, meta));
-    }
-
-    private static TextFormatting getFromColor(EnumDyeColor color) {
-        switch (color) {
-            case ORANGE:
-                return TextFormatting.GOLD;
-            case MAGENTA:
-                return TextFormatting.LIGHT_PURPLE;
-            case LIGHT_BLUE:
-                return TextFormatting.BLUE;
-            case YELLOW:
-                return TextFormatting.YELLOW;
-            case LIME:
-                return TextFormatting.GREEN;
-            case PINK:
-                return TextFormatting.LIGHT_PURPLE;
-            case GRAY:
-                return TextFormatting.DARK_GRAY;
-            case SILVER:
-                return TextFormatting.GRAY;
-            case CYAN:
-                return TextFormatting.DARK_AQUA;
-            case PURPLE:
-                return TextFormatting.DARK_PURPLE;
-            case BLUE:
-                return TextFormatting.DARK_BLUE;
-            case BROWN:
-                return TextFormatting.GOLD;
-            case GREEN:
-                return TextFormatting.DARK_GREEN;
-            case RED:
-                return TextFormatting.DARK_RED;
-            case BLACK:
-                return TextFormatting.BLACK;
-            default:
-                return TextFormatting.WHITE;
-        }
     }
 
     public Block setTranslationKey(String name) {
@@ -227,24 +181,13 @@ public abstract class BlockModColoredStairs extends BlockStairs implements IModB
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        if (!GuiScreen.isShiftKeyDown()) {
-            tooltip.add("Hold " + TextFormatting.BOLD + getFromColor(color) + "SHIFT " + TextFormatting.GRAY + "for more information");
-        } else {
-            String colorName = color.getName().replace("_", " ");
-            colorName = WordUtils.capitalize(colorName);
-            tooltip.add("Color: " + TextFormatting.BOLD.toString() + getFromColor(color).toString() + colorName);
-        }
-    }
-
-    @Override
     public IBlockColor getBlockColor() {
-        return (state, worldIn, pos, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+        return (state, worldIn, pos, tintIndex) -> color.getColorValue();
     }
 
     @Override
     public IItemColor getItemColor() {
-        return (stack, tintIndex) -> EnumDyeColor.values()[tintIndex].getColorValue();
+        return (stack, tintIndex) -> color.getColorValue();
     }
 
 }

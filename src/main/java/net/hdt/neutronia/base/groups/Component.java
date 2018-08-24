@@ -2,7 +2,9 @@ package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.base.BWMRecipes;
 import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.handler.client.ClientHandler;
 import net.hdt.neutronia.base.lib.LibMisc;
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
@@ -35,6 +37,7 @@ public class Component implements Comparable<Component> {
     boolean forceLoad;
     private String iconFile = "";
     private ResourceLocation icon;
+    private boolean isColored;
 
     public Component() {
     }
@@ -50,6 +53,27 @@ public class Component implements Comparable<Component> {
     public static IRecipe registerHardcoreRecipe(String ID, IRecipe recipe) {
         BWMRecipes.addHardcoreRecipe(ID, recipe);
         return recipe;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void addColoredBlocks(Block[] coloredBlocks) {
+        ClientHandler.blocks.add(coloredBlocks);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void addColoredSlabs(Block[] coloredSlabSingle, Block[] coloredSlabDouble) {
+        ClientHandler.slabs.add(coloredSlabSingle);
+        ClientHandler.slabs.add(coloredSlabDouble);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void addColoredStairs(Block[] coloredBlocks) {
+        ClientHandler.stairs.add(coloredBlocks);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void addColoredWalls(Block[] coloredBlocks) {
+        ClientHandler.walls.add(coloredBlocks);
     }
 
     final void setupConstantConfig() {
@@ -206,12 +230,8 @@ public class Component implements Comparable<Component> {
         return ConfigHelper.loadRecipeCondition(jsonName, propName, configCategory, comment, _default);
     }
 
-    public IRecipe addHardcoreRecipe(IRecipe recipe) {
-        return registerHardcoreRecipe(getClass().getSimpleName(), recipe);
-    }
-
-    public final List<ResourceLocation> loadRLList(String propName, String comment, String[] default_) {
-        return ConfigHelper.loadPropRLList(propName, configCategory, comment, default_);
+    protected void addHardcoreRecipe(IRecipe recipe) {
+        registerHardcoreRecipe(getClass().getSimpleName(), recipe);
     }
 
     public void overrideBlock(String str) {

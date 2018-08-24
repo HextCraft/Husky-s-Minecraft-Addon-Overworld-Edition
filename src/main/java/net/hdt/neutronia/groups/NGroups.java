@@ -5,10 +5,7 @@ import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
 import net.hdt.neutronia.groups.decoration.features.*;
-import net.hdt.neutronia.groups.dimensions.features.MarsDimension;
-import net.hdt.neutronia.groups.dimensions.features.MoonBiomes;
-import net.hdt.neutronia.groups.dimensions.features.MoonDimension;
-import net.hdt.neutronia.groups.dimensions.features.SunDimension;
+import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
 import net.hdt.neutronia.groups.experimental.features.ColoredLights;
 import net.hdt.neutronia.groups.management.features.BetterCraftShifting;
@@ -18,8 +15,13 @@ import net.hdt.neutronia.groups.misc.feature.*;
 import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
+import net.hdt.neutronia.groups.vanity.feature.SimplerHorseModel;
 import net.hdt.neutronia.groups.vanity.feature.SitInStairs;
-import net.hdt.neutronia.groups.world.features.*;
+import net.hdt.neutronia.groups.world.features.end.Acidian;
+import net.hdt.neutronia.groups.world.features.end.PurhoganyWood;
+import net.hdt.neutronia.groups.world.features.nether.NetherFossils;
+import net.hdt.neutronia.groups.world.features.nether.NetherMushrooms;
+import net.hdt.neutronia.groups.world.features.overworld.*;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -36,13 +38,11 @@ public class NGroups {
                 .withDesc("This group adds new structural building blocks and building utensils.")
                 .withIcon(new ItemStack(Blocks.BRICK_BLOCK))
                 .withComponent(new BarkBlocks())
-                .withComponent(new CarvedWood())
                 .withComponent(new LogBlocks())
                 .withComponent(new MoreStoneBlocks())
                 .withComponent(new VanillaStairsAndSlabs())
                 .withComponent(new VanillaWalls())
                 .withComponent(new WoodBlocks())
-                .withComponent(new WorldStoneBricks())
                 .register();
 
         client = Group.builder()
@@ -51,17 +51,14 @@ public class NGroups {
                 .withIcon(new ItemStack(Items.ENDER_EYE))
                 .withComponent(new BetterVanillaTextures())
                 .withComponent(new FoodTooltip())
-                .withComponent(new GreenerGrass())
-                .withComponent(new ImprovedMountHUD())
-                .withComponent(new ImprovedSignEdit())
-                .withComponent(new ItemsFlashBeforeExpiring())
-                .withComponent(new LessIntrusiveShields())
                 .withComponent(new MapTooltip())
                 .withComponent(new NewMenuScreenBackgrounds())
                 .withComponent(new NoPotionShift())
                 .withComponent(new ShulkerBoxTooltip())
-                .withComponent(new UsageTicker())
                 .withComponent(new VisualStatDisplay())
+                .withComponent(new ConsoleHudFeatures())
+                .withComponent(new PastelColors())
+                .withComponent(new BetterEndTextures())
                 .register();
 
         decoration = Group.builder()
@@ -71,15 +68,12 @@ public class NGroups {
                 .withComponent(new CharcoalBlock())
                 .withComponent(new DecorativeAquamarine())
                 .withComponent(new DecorativeCorals())
-                .withComponent(new FlatItemFrames())
-                .withComponent(new LitLamp())
-                .withComponent(new MoreBannerLayers())
                 .withComponent(new MoreBanners())
-                .withComponent(new NetherBrickFenceGate())
                 .withComponent(new TerracottaFlowerPots())
                 .withComponent(new VariedBookshelves())
                 .withComponent(new VariedButtonsAndPressurePlates())
                 .withComponent(new VariedTrapdoors())
+                .withComponent(new ColoredPlanks())
                 .register();
 
         dimensions = Group.builder()
@@ -90,6 +84,8 @@ public class NGroups {
                 .withComponent(new MoonBiomes())
                 .withComponent(new MoonDimension())
                 .withComponent(new SunDimension())
+                .withComponent(new RevampedEnd())
+                .withComponent(new RevampedNether())
                 .register();
 
         experimental = Group.builder()
@@ -115,10 +111,7 @@ public class NGroups {
                 .withIcon(new ItemStack(Items.CARROT_ON_A_STICK))
                 .withComponent(new ColorRunes())
                 .withComponent(new EnchantedScrolls())
-                .withComponent(new EndermitesIntoShulkers())
-                .withComponent(new MapMarkers())
                 .withComponent(new NoteBlocksMobSounds())
-                .withComponent(new PoisonPotatoUsage())
                 .withComponent(new UtilityRecipes())
                 .register();
 
@@ -147,28 +140,23 @@ public class NGroups {
                 .withComponent(new BabyJumping())
                 .withComponent(new BetterBlockHardness())
                 .withComponent(new CactusSkeleton())
-                .withComponent(new CheaperAxes())
-                .withComponent(new DarkQuartz())
                 .withComponent(new EnchantmentTooltip())
                 .withComponent(new EquipmentDrop())
                 .withComponent(new GrassPath())
-//                .withComponent(new HCArmor())
                 .withComponent(new HCMovement())
                 .withComponent(new HCStructures())
                 .withComponent(new HCTools())
-                .withComponent(new HeadDrops())
                 .withComponent(new ImprovedFlee())
                 .withComponent(new MobEating())
-                .withComponent(new MobSpawning())
                 .withComponent(new MoreTempting())
                 .withComponent(new MossGeneration())
                 .withComponent(new Sinkholes())
                 .withComponent(new VisibleStorms())
-                .withComponent(new WoolArmor())
                 .withComponent(new ToolEffTweaks())
                 .withComponent(new SheepDyeFix())
                 .withComponent(new PeacefulSurface())
                 .withComponent(new MobDropBuffs())
+                .withComponent(new SwingThroughGrass())
                 .register();
 
         vanity = Group.builder()
@@ -178,32 +166,27 @@ public class NGroups {
                 .withComponent(new DyableElytra())
                 .withComponent(new DyeItemNames())
                 .withComponent(new SitInStairs())
+                .withComponent(new SimplerHorseModel())
                 .register();
 
         world = Group.builder()
                 .withName("World")
-                .withDesc("This module adds world generation features.")
+                .withDesc("This module adds world generation features to the End, Nether and Overworld.")
                 .withIcon(new ItemStack(Blocks.GRASS))
-                .withComponent(new Corals())
-                .withComponent(new NaturalAquamarine())
+                .withComponent(new Acidian())
                 .withComponent(new Basalt())
-                .withComponent(new ClayGeneration())
-                .withComponent(new OceanGuardians())
-                .withComponent(new NaturalBlazesInNether())
-                .withComponent(new MushroomsInSwamps())
-                .withComponent(new BuriedTreasure())
-                .withComponent(new RevampStoneGen())
-                .withComponent(new CrystalCaves())
-                .withComponent(new VariedDungeons())
-                .withComponent(new UndergroundBiomes())
-                .withComponent(new PathfinderMaps())
+                .withComponent(new BetterCaves())
+                .withComponent(new BetterStoneGeneration())
+                .withComponent(new CaveBiomes())
+                .withComponent(new Corals())
+                .withComponent(new ImprovedWorldGen())
+                .withComponent(new NaturalAquamarine())
                 .withComponent(new NetherFossils())
                 .withComponent(new NetherMushrooms())
-                .withComponent(new RealisticWorldType())
-                .withComponent(new DefaultWorldOptions())
+                .withComponent(new PurhoganyWood())
                 .withComponent(new Stalactite())
-                .withComponent(new BetterCaves())
-                .withComponent(new BetterUnderground())
+                .withComponent(new Stalagmite())
+                .withComponent(new VariedDungeons())
                 .register();
 
     }

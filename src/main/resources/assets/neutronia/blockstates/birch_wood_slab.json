@@ -4,10 +4,10 @@
   "variants": {
     "half": {
       "top": {
-        "model": "neutronia:upper_birch_bark_slab"
+        "model": "neutronia:upper_birch_wood_slab"
       },
       "bottom": {
-        "model": "neutronia:half_birch_bark_slab"
+        "model": "neutronia:half_birch_wood_slab"
       }
     }
   }

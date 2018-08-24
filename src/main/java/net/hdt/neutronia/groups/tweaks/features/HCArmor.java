@@ -15,8 +15,8 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
  */
 public class HCArmor extends Component {
 
-    public static final StackMap<Integer> weights = new StackMap<>(0);
-    public static boolean shieldRebalance;
+    private static final StackMap<Integer> weights = new StackMap<>(0);
+    private static boolean shieldRebalance;
 
     public static float getWeight(ItemStack stack) {
         if (!GroupLoader.isFeatureEnabled(HCArmor.class))
@@ -24,7 +24,7 @@ public class HCArmor extends Component {
         return weights.get(stack);
     }
 
-    public static void initWeights() {
+    private static void initWeights() {
 
         weights.put(Items.CHAINMAIL_HELMET, OreDictionary.WILDCARD_VALUE, 3);
         weights.put(Items.CHAINMAIL_CHESTPLATE, OreDictionary.WILDCARD_VALUE, 4);

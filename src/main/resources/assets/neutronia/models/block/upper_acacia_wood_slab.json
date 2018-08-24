@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "minecraft:block/upper_slab",
+  "textures": {
+    "bottom": "minecraft:blocks/log_acacia",
+    "side": "minecraft:blocks/log_acacia",
+    "top": "minecraft:blocks/log_acacia"
+  }
+}

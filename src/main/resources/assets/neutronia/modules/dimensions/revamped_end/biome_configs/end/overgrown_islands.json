@@ -1,0 +1,26 @@
+{
+  "biome": "neutronia:overgrown_islands",
+  "weight": 10,
+  "region": "orbit",
+  "enabled": true,
+  "genDefaultFeatures": true,
+  "blocks": {
+    "topBlock": {
+      "block": "minecraft:mossy_cobblestone"
+    },
+    "upperFillerBlock": {
+      "block": "minecraft:end_stone"
+    },
+    "middleFillerBlock": {
+      "block": "minecraft:end_stone"
+    },
+    "lowerFillerBlock": {
+      "block": "minecraft:end_stone"
+    },
+    "bottomBlock": {
+      "block": "minecraft:end_stone"
+    }
+  },
+  "features": [
+  ]
+}

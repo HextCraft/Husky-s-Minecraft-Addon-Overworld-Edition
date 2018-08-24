@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
@@ -27,13 +28,16 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for (EnumDyeColor color : EnumDyeColor.values()) {
-//            genCustomBlockWithTexture(new ResourceLocation(modid, String.format("%s_colored_slime_block", color.getName())), new ResourceLocation(modid, "colored_slime_block"), new ResourceLocation(modid, "colored_slime_block"));
-//            genCustomBlock(new ResourceLocation(modid, String.format("%s_terracotta_pot", color.getName())), new ResourceLocation(modid, "custom_flower_pot"));
+        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+            genSlab(new ResourceLocation(modid, String.format("%s_wood_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())));
+            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())));
+            genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
+            genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())));
         }
-        /*for(EnumVanillaWoodTypes woodTypes : EnumVanillaWoodTypes.values()) {
-            genOrientedBlock(new ResourceLocation(modid, String.format("%s_bookshelf", woodTypes.getName())), new ResourceLocation("minecraft", String.format("planks_%s", woodTypes.getName())), new ResourceLocation(modid, String.format("bookshelf_%s", woodTypes.getName())), new ResourceLocation(modid, String.format("bookshelf_%s", woodTypes.getName())));
-        }*/
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
+            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
+        }
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
@@ -75,6 +79,7 @@ public class JsonGenerator {
         } catch (IOException e) {
             System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
         }
+
     }
 
     public static void genCustomBlock(ResourceLocation modIdAndName, ResourceLocation modelPath) {
@@ -616,6 +621,7 @@ public class JsonGenerator {
         } catch (IOException e) {
             System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
         }
+
     }
 
     public static void genStair(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
@@ -979,7 +985,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "cube_all");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures.addProperty("all", sideTextureLocation.toString());
 
         blarg.add("textures", textures);
 
@@ -1003,7 +1009,7 @@ public class JsonGenerator {
 
     }
 
-    public static void genSlabCustom(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
+    public static void genSlabColored(ResourceLocation modIDAndName, ResourceLocation topTextureLocation, ResourceLocation sideTextureLocation, ResourceLocation bottomTextureLocation) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -1046,7 +1052,7 @@ public class JsonGenerator {
         blarg.addProperty("model", "neutronia:cube_all_colored");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("all", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
+        textures.addProperty("all", sideTextureLocation.toString());
 
         blarg.add("textures", textures);
 
@@ -1081,24 +1087,24 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "neutronia:block/slab");
+        root.addProperty("parent", "minecraft:block/half_slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
-        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
-        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
+        textures.addProperty("bottom", bottomTextureLocation.toString());
+        textures.addProperty("side", sideTextureLocation.toString());
+        textures.addProperty("top", topTextureLocation.toString());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
 
         JsonObject root2 = new JsonObject();
         root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root2.addProperty("parent", "neutronia:block/slab_top");
+        root2.addProperty("parent", "minecraft:block/upper_slab");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
-        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
-        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
+        textures2.addProperty("bottom", bottomTextureLocation.toString());
+        textures2.addProperty("side", sideTextureLocation.toString());
+        textures2.addProperty("top", topTextureLocation.toString());
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);
@@ -1126,9 +1132,9 @@ public class JsonGenerator {
         root.addProperty("parent", "neutronia:block/slab");
 
         JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
-        textures.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
-        textures.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
+        textures.addProperty("bottom", bottomTextureLocation.toString());
+        textures.addProperty("side", sideTextureLocation.toString());
+        textures.addProperty("top", topTextureLocation.toString());
         root.add("textures", textures);
 
         String json = gson.toJson(root);
@@ -1138,9 +1144,9 @@ public class JsonGenerator {
         root2.addProperty("parent", "neutronia:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
-        textures2.addProperty("bottom", bottomTextureLocation.getNamespace() + ":block/" + bottomTextureLocation.getPath());
-        textures2.addProperty("side", sideTextureLocation.getNamespace() + ":block/" + sideTextureLocation.getPath());
-        textures2.addProperty("top", topTextureLocation.getNamespace() + ":block/" + topTextureLocation.getPath());
+        textures2.addProperty("bottom", bottomTextureLocation.toString());
+        textures2.addProperty("side", sideTextureLocation.toString());
+        textures2.addProperty("top", topTextureLocation.toString());
         root2.add("textures", textures2);
 
         String json2 = gson.toJson(root2);
@@ -1174,73 +1180,6 @@ public class JsonGenerator {
         } catch (IOException e) {
             System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
         }
-
-    }
-
-    public static void genSlabBlock(String modId, String blockName, String textureName, String blockMockName) {
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
-        if (!base.toFile().exists()) {
-            base.toFile().mkdirs();
-        }
-
-        JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("forge_marker", 1);
-
-        JsonObject variants = new JsonObject();
-
-        JsonObject half = new JsonObject();
-
-        JsonObject upper = new JsonObject();
-        upper.addProperty("model", modId + ":upper_" + blockName);
-        half.add("top", upper);
-
-        JsonObject lower = new JsonObject();
-        lower.addProperty("model", modId + ":half_" + blockName);
-        half.add("bottom", lower);
-
-        variants.add("half", half);
-
-        root.add("variants", variants);
-
-        String json = gson.toJson(root);
-
-        JsonObject root2 = new JsonObject();
-        root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root2.addProperty("forge_marker", 1);
-
-        JsonObject variants2 = new JsonObject();
-
-        JsonObject prop = new JsonObject();
-
-        JsonObject blarg = new JsonObject();
-        blarg.addProperty("model", "cube_all");
-
-        JsonObject textures = new JsonObject();
-        textures.addProperty("all", modId + ":block/" + textureName);
-
-        blarg.add("textures", textures);
-
-        prop.add("blarg", blarg);
-
-        variants2.add("prop", prop);
-
-        root2.add("variants", variants2);
-
-        String json2 = gson.toJson(root2);
-
-        try {
-            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
-        } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
-        }
-
-//        genSlabBlockModel(modId, blockName, textureName, textureName, textureName);
-//        genSlabItemModel(modId, blockName);
 
     }
 
@@ -1371,78 +1310,6 @@ public class JsonGenerator {
 
     public static void genFenceBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
 
-        /*try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getPath() + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v4.");
-            jw.name("multipart");
-            jw.beginArray();
-            jw.beginObject();
-            jw.name("apply");
-            jw.beginObject();
-            jw.name("model").value(modIdAndName.getNamespace() + ":" + modIdAndName.getPath() + "_post");
-            jw.endObject();
-            jw.endObject();
-            jw.beginObject();
-            jw.name("when");
-            jw.beginObject();
-            jw.name("north").value("true");
-            jw.endObject();
-            jw.name("apply");
-            jw.beginObject();
-            jw.name("model").value(modIdAndName.getNamespace() + ":" + modIdAndName.getPath() + "_side");
-            jw.name("uvlock").value(true);
-            jw.endObject();
-            jw.endObject();
-            jw.beginObject();
-            jw.name("when");
-            jw.beginObject();
-            jw.name("east").value("true");
-            jw.endObject();
-            jw.name("apply");
-            jw.beginObject();
-            jw.name("model").value(modIdAndName.getNamespace() + ":" + modIdAndName.getPath() + "_side");
-            jw.name("y").value(90);
-            jw.name("uvlock").value(true);
-            jw.endObject();
-            jw.endObject();
-            jw.beginObject();
-            jw.name("when");
-            jw.beginObject();
-            jw.name("south").value("true");
-            jw.endObject();
-            jw.name("apply");
-            jw.beginObject();
-            jw.name("model").value(modIdAndName.getNamespace() + ":" + modIdAndName.getPath() + "_side");
-            jw.name("y").value(180);
-            jw.name("uvlock").value(true);
-            jw.endObject();
-            jw.endObject();
-            jw.beginObject();
-            jw.name("when");
-            jw.beginObject();
-            jw.name("west").value("true");
-            jw.endObject();
-            jw.name("apply");
-            jw.beginObject();
-            jw.name("model").value(modIdAndName.getNamespace() + ":" + modIdAndName.getPath() + "_side");
-            jw.name("y").value(270);
-            jw.name("uvlock").value(true);
-            jw.endObject();
-            jw.endObject();
-            jw.endArray();
-            jw.endObject();
-
-            writer.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getNamespace(), "blockstates");
@@ -1534,60 +1401,6 @@ public class JsonGenerator {
     }
 
     public static void genBlockFenceModel(ResourceLocation modIdAndName, ResourceLocation textureName) {
-
-        /*File fileDir = Paths.get("src", "main", "resources", "assets", modIdAndName.getNamespace(), "models", "block").toFile();
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
-
-        try {
-
-            Writer writer = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getPath() + "_post" + ".json"), "UTF-8");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonWriter jw = gson.newJsonWriter(writer);
-
-            jw.beginObject();
-            jw.name("_comment").value("Generated using Husky's JSON Generator v4.");
-            jw.name("parent").value("block/fence_post");
-            jw.name("textures");
-            jw.beginObject();
-            jw.name("texture").value(modIdAndName.getNamespace() + ":block/" +textureName);
-            jw.endObject();
-            jw.endObject();
-
-            writer.close();
-
-            Writer writer2 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getPath() + "_side" + ".json"), "UTF-8");
-            JsonWriter jw2 = gson.newJsonWriter(writer2);
-
-            jw2.beginObject();
-            jw2.name("_comment").value("Generated using Husky's JSON Generator v4.");
-            jw2.name("parent").value("block/fence_side");
-            jw2.name("textures");
-            jw2.beginObject();
-            jw2.name("texture").value(textureName.getNamespace() + ":block/" +textureName.getPath());
-            jw2.endObject();
-            jw2.endObject();
-
-            writer2.close();
-
-            Writer writer3 = new OutputStreamWriter(new FileOutputStream(fileDir + "\\" + modIdAndName.getPath() + "_inventory" + ".json"), "UTF-8");
-            JsonWriter jw3 = gson.newJsonWriter(writer3);
-
-            jw3.beginObject();
-            jw3.name("_comment").value("Generated using Husky's JSON Generator v4.");
-            jw3.name("parent").value("block/fence_inventory");
-            jw3.name("textures");
-            jw3.beginObject();
-            jw3.name("texture").value(textureName.getNamespace() + ":block/" +textureName.getNamespace());
-            jw3.endObject();
-            jw3.endObject();
-
-            writer3.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 

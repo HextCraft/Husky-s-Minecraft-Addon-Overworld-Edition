@@ -113,7 +113,12 @@ public class StalactiteGenerator implements IWorldGenerator {
                 case DIORITE:
                     return Stalactite.diorite_stalactite;
             }
-        } else if (block == Basalt.basalt)
+        }
+        else if(block == Blocks.ICE)
+            return Stalactite.ice_stalactite;
+        else if(block == Blocks.PACKED_ICE)
+            return Stalactite.packed_ice_stalactite;
+        else if (block == Basalt.basalt)
             return Stalactite.basalt_stalactite;
         else if (block == BetterStoneGeneration.marble)
             return Stalactite.marble_stalactite;

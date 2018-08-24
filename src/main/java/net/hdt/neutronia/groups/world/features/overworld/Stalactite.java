@@ -13,7 +13,7 @@ public class Stalactite extends Component {
 
     public static Block stone_stalactite, granite_stalactite, diorite_stalactite,
             andesite_stalactite, basalt_stalactite, marble_stalactite, limestone_stalactite,
-            netherrack_stalactite;
+            netherrack_stalactite, ice_stalactite, packed_ice_stalactite;
 
     public static int tries, clusterCount, netherTries, netherClusterCount;
     public static DimensionConfig dimensionConfig;
@@ -35,6 +35,8 @@ public class Stalactite extends Component {
         diorite_stalactite = new BlockStalactite("diorite");
         andesite_stalactite = new BlockStalactite("andesite");
         netherrack_stalactite = new BlockStalactite("netherrack").setNetherrack();
+        ice_stalactite = new BlockStalactite("ice");
+        packed_ice_stalactite = new BlockStalactite("packed_ice");
 
         if (GroupLoader.isFeatureEnabled(Basalt.class))
             basalt_stalactite = new BlockStalactite("basalt");

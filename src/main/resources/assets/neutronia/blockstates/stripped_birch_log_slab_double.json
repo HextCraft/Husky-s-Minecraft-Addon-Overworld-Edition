@@ -6,7 +6,7 @@
       "blarg": {
         "model": "cube_all",
         "textures": {
-          "all": "neutronia:block/stripped_birch_log"
+          "all": "neutronia:block/stripped_log_birch_side"
         }
       }
     }

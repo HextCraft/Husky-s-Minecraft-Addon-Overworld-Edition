@@ -48,8 +48,6 @@ public class NBlocks {
     public static final BlockSoulGlass soulGlass, soulGlassOn;
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
     public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
-    public static final Block[] coloredPlanks = new Block[16];
-    public static final Block[] coloredPlanksSlabSingle = new Block[16], coloredPlanksSlabDouble = new Block[16];
     public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
@@ -179,12 +177,6 @@ public class NBlocks {
             add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), Material.ROCK, dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, Material.ROCK, dyeColor.getMetadata(), false, true, OVERWORLD_EXPANSION_TAB);
             coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
-            coloredPlanks[dyeColor.getMetadata()] = new BlockColoredAlt("colored_plank", dyeColor).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
-            /*coloredPlanksStair[dyeColor.getMetadata()] = new BlockOverworldColoredStair("colored_plank_stair", coloredPlanksStair[dyeColor.getMetadata()].getDefaultState(), dyeColor, NCreativeTabs.WOOD_EXPANSION_TAB);
-            BlockModColoredStairs.initStairs(coloredPlanks[dyeColor.getMetadata()], 0, (BlockModStairs) coloredPlanksStair[dyeColor.getMetadata()]);*/
-            coloredPlanksSlabSingle[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", dyeColor, Material.WOOD, false).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
-            coloredPlanksSlabDouble[dyeColor.getMetadata()] = new BlockOverworldColoredSlab("colored_plank_slab", dyeColor, Material.WOOD, true).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
-            BlockModColoredSlab.initSlab(coloredPlanks[dyeColor.getMetadata()], 0, (BlockModColoredSlab) coloredPlanksSlabSingle[dyeColor.getMetadata()], (BlockModColoredSlab) coloredPlanksSlabDouble[dyeColor.getMetadata()]);
             coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
             coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
             coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);

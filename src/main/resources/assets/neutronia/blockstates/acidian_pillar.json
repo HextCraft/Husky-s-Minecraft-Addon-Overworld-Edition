@@ -1,0 +1,36 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "axis=y": {
+      "model": "minecraft:cube_column",
+      "textures": {
+        "end": "neutronia:block/acidian_pillar_top",
+        "side": "neutronia:block/acidian_pillar"
+      },
+      "x": 0,
+      "y": 0
+    },
+    "axis=z": {
+      "model": "minecraft:cube_column",
+      "textures": {
+        "end": "neutronia:block/acidian_pillar_top",
+        "side": "neutronia:block/acidian_pillar"
+      },
+      "x": 90
+    },
+    "axis=x": {
+      "model": "minecraft:cube_column",
+      "textures": {
+        "end": "neutronia:block/acidian_pillar_top",
+        "side": "neutronia:block/acidian_pillar"
+      },
+      "x": 90,
+      "y": 90
+    },
+    "inventory": [{}]
+  }
+}
