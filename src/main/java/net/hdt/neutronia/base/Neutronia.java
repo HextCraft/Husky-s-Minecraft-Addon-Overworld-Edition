@@ -45,15 +45,15 @@ public class Neutronia {
     }
 
     public static int func_203191_f(ItemStack p_203191_0_) {
-        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203193_C), p_203191_0_);
+        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.LOYALTY), p_203191_0_);
     }
 
     public static int func_203190_g(ItemStack p_203190_0_) {
-        return EnchantmentHelper.getEnchantmentLevel(NEnchantments.field_203195_E, p_203190_0_);
+        return EnchantmentHelper.getEnchantmentLevel(NEnchantments.RIPTIDE, p_203190_0_);
     }
 
     public static boolean func_203192_h(ItemStack p_203192_0_) {
-        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.field_203196_F), p_203192_0_) > 0;
+        return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.CHANNELING), p_203192_0_) > 0;
     }
 
     @Mod.EventHandler

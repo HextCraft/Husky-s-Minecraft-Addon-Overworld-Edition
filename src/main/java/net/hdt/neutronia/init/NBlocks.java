@@ -8,9 +8,13 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
-import net.hdt.neutronia.blocks.nether.*;
+import net.hdt.neutronia.blocks.nether.BlockBurnedBones;
+import net.hdt.neutronia.blocks.nether.BlockNetherBase;
+import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
+import net.hdt.neutronia.blocks.nether.BlockNetherSponge;
 import net.hdt.neutronia.blocks.overworld.*;
-import net.hdt.neutronia.properties.*;
+import net.hdt.neutronia.properties.EnumAquamarineVariants;
+import net.hdt.neutronia.properties.EnumGlowingNetherBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockSandStone;
@@ -20,10 +24,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Objects;
 
@@ -37,8 +39,6 @@ public class NBlocks {
     public static final Block brassOre, steelOre, copperOre, bronzeOre, tinOre, zincOre;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
-    //Stone Blocks
-    public static final Block[] newStoneVariants = new Block[26];
     //Wood Blocks
     public static final Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
     public static final Block[] logPoles = new Block[6];
@@ -70,9 +70,6 @@ public class NBlocks {
     private static final Block driedKelpBlock;
     private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
     private static final MRPillar prismarineColumn;
-    private static final Block[] soulStone = new Block[3];
-    private static final Block[] soulStoneSlabSingle = new Block[3];
-    private static final Block[] soulStoneSlabDouble = new Block[3];
     private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
     private static final MRPillar netherbrickPillar;
     private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
@@ -125,39 +122,9 @@ public class NBlocks {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNetherGlowingBase(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
 
-        for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
-            soulStone[soulStoneTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, soulStoneTypes.getName());
-            soulStoneSlabSingle[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), false);
-            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), true);
-            BlockModSlab.initSlab(soulStone[soulStoneTypes.getMetadata()], 0, (BlockModSlab) soulStoneSlabSingle[soulStoneTypes.getMetadata()], (BlockModSlab) soulStoneSlabDouble[soulStoneTypes.getMetadata()]);
-        }
-
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[0]),
-                "SS", "SS",
-                'S', ProxyRegistry.newStack(Blocks.SOUL_SAND));
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[2], 4),
-                "SS", "SS",
-                'S', ProxyRegistry.newStack(soulStone[0], 1));
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[1], 1),
-                "S", "S",
-                'S', ProxyRegistry.newStack(soulStoneSlabSingle[0], 1));
-
         netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", NETHER_EXPANSION_TAB, 0.4F, 7.5F);
         chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
         chiseledNetherbrickFilled = new BlockNetherbrickChiseled("chiseled_netherbrick_filled", true);
-
-        // New Stone Blocks
-        for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
-            newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName(), false);
-        }
-        for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
-            add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
-        }
-        GameRegistry.addSmelting(newStoneVariants[4], new ItemStack(newStoneVariants[1], 4), 2F);
-        add("andesite_bricks", NBlocks.newStoneVariants[EnumNewStoneVariants.ANDESITE_BRICKS.getMetadata()], Material.ROCK, 0, false, true, OVERWORLD_EXPANSION_TAB);
-        add("andesite_cobble", NBlocks.newStoneVariants[EnumNewStoneVariants.ANDESITE_COBBLE.getMetadata()], Material.ROCK, 0, false, true, OVERWORLD_EXPANSION_TAB);
-        add("granite_bricks", NBlocks.newStoneVariants[EnumNewStoneVariants.GRANITE_BRICKS.getMetadata()], Material.ROCK, 0, false, true, OVERWORLD_EXPANSION_TAB);
-        add("granite_cobble", NBlocks.newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], Material.ROCK, 0, false, true, OVERWORLD_EXPANSION_TAB);
 
         //Wood Blocks
         /*for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {

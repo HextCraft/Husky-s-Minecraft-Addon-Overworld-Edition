@@ -22,6 +22,6 @@ public class CactusSkeleton extends Component {
 
     @Override
     public String getFeatureDescription() {
-        return "Skeletons are no longer damaged by Cacti. Intended to make killing mobs in mobtraps harder.";
+        return "Skeletons are no longer damaged by Cacti. Intended to make killing mobs in mob-traps harder.";
     }
 }

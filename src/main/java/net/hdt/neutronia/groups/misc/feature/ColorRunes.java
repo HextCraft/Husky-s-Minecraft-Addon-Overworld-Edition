@@ -24,8 +24,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ColorRunes extends Component {
 
-    public static final String TAG_RUNE_ATTACHED = "Neutronia:RuneAttached";
-    public static final String TAG_RUNE_COLOR = "Neutronia:RuneColor";
+    public static final String TAG_RUNE_ATTACHED = "neutronia:rune_attached";
+    public static final String TAG_RUNE_COLOR = "neutronia:rune_color";
     public static Item rune;
     private static ItemStack targetStack;
     int dungeonWeight, netherFortressWeight, jungleTempleWeight, desertTempleWeight, itemQuality, applyCost;

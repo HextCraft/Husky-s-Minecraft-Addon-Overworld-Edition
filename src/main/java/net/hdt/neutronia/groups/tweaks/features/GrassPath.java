@@ -57,11 +57,11 @@ public class GrassPath extends Component {
         return true;
     }
 
-    protected boolean isBlockDirt(IBlockState state) {
+    private boolean isBlockDirt(IBlockState state) {
         return state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.GRASS;
     }
 
-    protected void setPathOrDirt(World world, IBlockState blockState, BlockPos blockPos, SoundEvent soundEvent, EntityPlayer player, ItemStack itemStack, EnumHand hand) {
+    private void setPathOrDirt(World world, IBlockState blockState, BlockPos blockPos, SoundEvent soundEvent, EntityPlayer player, ItemStack itemStack, EnumHand hand) {
         world.playSound(player, blockPos, soundEvent, SoundCategory.BLOCKS, 1.0F, 1.0F);
         player.swingArm(hand);
         if (!world.isRemote) {
@@ -72,7 +72,7 @@ public class GrassPath extends Component {
 
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onBlockRightclick(PlayerInteractEvent.RightClickBlock event) {
+    public void onBlockRightClick(PlayerInteractEvent.RightClickBlock event) {
         if (event.getResult() != Event.Result.DEFAULT || event.isCanceled())
             return;
 

@@ -14,18 +14,18 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class NSounds {
 
-    public static final SoundEvent field_204326_e;
-    public static final SoundEvent field_204327_f;
-    public static final SoundEvent field_204323_b;
-    public static final SoundEvent field_204324_c;
-    public static final SoundEvent field_204325_d;
-    public static final SoundEvent field_204410_e;
-    public static final SoundEvent field_203254_u;
+    public static final SoundEvent AMBIENT_UNDERWATER_ENTER;
+    public static final SoundEvent AMBIENT_UNDERWATER_EXIT;
+    public static final SoundEvent AMBIENT_UNDERWATER_LOOP;
+    public static final SoundEvent AMBIENT_UNDERWATER_LOOP_ADDITIONS;
+    public static final SoundEvent AMBIENT_UNDERWATER_LOOP_ADDITIONS_RARE;
+    public static final SoundEvent AMBIENT_UNDERWATER_LOOP_ADDITIONS_ULTRA_RARE;
+    public static final SoundEvent ARMOR_EQUIP_TURTLE;
     public static final SoundEvent AXE_STRIP;
-    public static final SoundEvent field_206938_K;
-    public static final SoundEvent field_206939_L;
-    public static final SoundEvent field_206940_M;
-    public static final SoundEvent field_206941_N;
+    public static final SoundEvent BLOCK_BEACON_ACTIVATE;
+    public static final SoundEvent BLOCK_BEACON_AMBIENT;
+    public static final SoundEvent BLOCK_BEACON_DEACTIVATE;
+    public static final SoundEvent BLOCK_BEACON_POWER_SELECT;
     public static final SoundEvent field_203253_U;
     public static final SoundEvent field_203251_S;
     public static final SoundEvent field_203252_T;
@@ -122,18 +122,18 @@ public class NSounds {
     private static List<SoundEvent> soundEvents = Lists.newArrayList();
 
     static {
-        field_204326_e = registerSound("ambient.underwater.enter");
-        field_204327_f = registerSound("ambient.underwater.exit");
-        field_204323_b = registerSound("ambient.underwater.loop");
-        field_204324_c = registerSound("ambient.underwater.loop.additions");
-        field_204325_d = registerSound("ambient.underwater.loop.additions.rare");
-        field_204410_e = registerSound("ambient.underwater.loop.additions.ultra_rare");
-        field_203254_u = registerSound("item.armor.equip_turtle");
+        AMBIENT_UNDERWATER_ENTER = registerSound("ambient.underwater.enter");
+        AMBIENT_UNDERWATER_EXIT = registerSound("ambient.underwater.exit");
+        AMBIENT_UNDERWATER_LOOP = registerSound("ambient.underwater.loop");
+        AMBIENT_UNDERWATER_LOOP_ADDITIONS = registerSound("ambient.underwater.loop.additions");
+        AMBIENT_UNDERWATER_LOOP_ADDITIONS_RARE = registerSound("ambient.underwater.loop.additions.rare");
+        AMBIENT_UNDERWATER_LOOP_ADDITIONS_ULTRA_RARE = registerSound("ambient.underwater.loop.additions.ultra_rare");
+        ARMOR_EQUIP_TURTLE = registerSound("item.armor.equip_turtle");
         AXE_STRIP = registerSound("item.axe.strip");
-        field_206938_K = registerSound("block.beacon.activate");
-        field_206939_L = registerSound("block.beacon.ambient");
-        field_206940_M = registerSound("block.beacon.deactivate");
-        field_206941_N = registerSound("block.beacon.power_select");
+        BLOCK_BEACON_ACTIVATE = registerSound("block.beacon.activate");
+        BLOCK_BEACON_AMBIENT = registerSound("block.beacon.ambient");
+        BLOCK_BEACON_DEACTIVATE = registerSound("block.beacon.deactivate");
+        BLOCK_BEACON_POWER_SELECT = registerSound("block.beacon.power_select");
         field_203253_U = registerSound("block.bubble_column.bubble_pop");
         field_203251_S = registerSound("block.bubble_column.upwards_ambient");
         field_203252_T = registerSound("block.bubble_column.upwards_inside");

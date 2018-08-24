@@ -1,17 +1,15 @@
 package net.hdt.neutronia.groups;
 
-import betterwithmods.module.tweaks.ImprovedFlee;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
 import net.hdt.neutronia.groups.decoration.features.*;
 import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
-import net.hdt.neutronia.groups.experimental.features.ColoredLights;
-import net.hdt.neutronia.groups.management.features.BetterCraftShifting;
-import net.hdt.neutronia.groups.management.features.FavoriteItems;
-import net.hdt.neutronia.groups.management.features.RightClickAddToShulkerBox;
-import net.hdt.neutronia.groups.misc.feature.*;
+import net.hdt.neutronia.groups.misc.feature.ColorRunes;
+import net.hdt.neutronia.groups.misc.feature.EnchantedScrolls;
+import net.hdt.neutronia.groups.misc.feature.NoteBlocksMobSounds;
+import net.hdt.neutronia.groups.misc.feature.UtilityRecipes;
 import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
@@ -30,7 +28,7 @@ import net.minecraft.item.ItemStack;
 
 public class NGroups {
 
-    public static Group building, client, decoration, dimensions, experimental, management, misc, tweaks, vanity, world;
+    public static Group building, client, decoration, dimensions, experimental, misc, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -93,16 +91,6 @@ public class NGroups {
                 .withDesc("Experimental Features. All components in this group are disabled by default. Use at your own risk.")
                 .withIcon(new ItemStack(Blocks.TNT))
                 .withComponent(new BiggerCaves())
-                .withComponent(new ColoredLights())
-                .register();
-
-        management = Group.builder()
-                .withName("Management")
-                .withDesc("This module adds inventory management features.")
-                .withIcon(new ItemStack(Items.BOOK))
-                .withComponent(new FavoriteItems())
-                .withComponent(new BetterCraftShifting())
-                .withComponent(new RightClickAddToShulkerBox())
                 .register();
 
         misc = Group.builder()
@@ -131,7 +119,7 @@ public class NGroups {
                 .withComponent(new StackableItems())
                 .withComponent(new StairsMakeMore())
                 .withComponent(new TorchesBurnInFurnaces())
-                .withComponent(new BlastproofShulkerBoxes())
+                .withComponent(new BlastProofShulkerBoxes())
                 .withComponent(new ChickensShedFeathers())
                 .withComponent(new AxesBreakLeaves())
                 .withComponent(new ConvertClay())

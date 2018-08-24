@@ -10,11 +10,9 @@ import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-/**
- * Created by primetoxinz on 4/20/17.
- */
 public class HCStructures extends Component {
-    public static int HARDCORE_STRUCTURE_RADIUS;
+
+    private static int HARDCORE_STRUCTURE_RADIUS;
 
     public static boolean isInRadius(World world, int x, int z) {
         BlockPos center = world.getSpawnPoint();
@@ -43,7 +41,6 @@ public class HCStructures extends Component {
         MapGenStructureIO.registerStructureComponent(BWComponentScatteredFeaturePieces.DesertPyramid.class, "BWTeDP");
         MapGenStructureIO.registerStructureComponent(BWComponentScatteredFeaturePieces.JunglePyramid.class, "BWTeJP");
         MapGenStructureIO.registerStructureComponent(BWComponentScatteredFeaturePieces.SwampHut.class, "BWTeSH");
-        //MapGenStructureIO.registerStructureComponent(BWComponentScatteredFeaturePieces.Igloo.class, "BWIglu");
     }
 
     @SubscribeEvent

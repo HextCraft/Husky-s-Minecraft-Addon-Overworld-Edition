@@ -5,7 +5,7 @@ import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class BlastproofShulkerBoxes extends Component {
+public class BlastProofShulkerBoxes extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

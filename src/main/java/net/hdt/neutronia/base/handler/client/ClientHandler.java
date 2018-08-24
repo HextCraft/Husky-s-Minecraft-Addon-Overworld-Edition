@@ -45,32 +45,32 @@ public class ClientHandler {
 
     @SubscribeEvent
     public static void onColorBlocks(ColorHandlerEvent.Block event) {
-        for(Block[] coloredBlocks : blocks) {
+        for (Block[] coloredBlocks : blocks) {
             event.getBlockColors().registerBlockColorHandler(blockHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : slabs) {
+        for (Block[] coloredBlocks : slabs) {
             event.getBlockColors().registerBlockColorHandler(slabHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : stairs) {
+        for (Block[] coloredBlocks : stairs) {
             event.getBlockColors().registerBlockColorHandler(stairHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : walls) {
+        for (Block[] coloredBlocks : walls) {
             event.getBlockColors().registerBlockColorHandler(wallHandler, coloredBlocks);
         }
     }
 
     @SubscribeEvent
     public static void onItemColored(ColorHandlerEvent.Item event) {
-        for(Block[] coloredBlocks : blocks) {
+        for (Block[] coloredBlocks : blocks) {
             event.getItemColors().registerItemColorHandler(itemBlockHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : slabs) {
+        for (Block[] coloredBlocks : slabs) {
             event.getItemColors().registerItemColorHandler(itemSlabHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : stairs) {
+        for (Block[] coloredBlocks : stairs) {
             event.getItemColors().registerItemColorHandler(itemStairHandler, coloredBlocks);
         }
-        for(Block[] coloredBlocks : walls) {
+        for (Block[] coloredBlocks : walls) {
             event.getItemColors().registerItemColorHandler(itemWallHandler, coloredBlocks);
         }
     }

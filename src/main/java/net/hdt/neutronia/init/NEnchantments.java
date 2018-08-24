@@ -16,21 +16,21 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class NEnchantments {
 
-    public static final Enchantment field_203193_C;
-    public static final Enchantment field_203194_D;
-    public static final Enchantment field_203195_E;
-    public static final Enchantment field_203196_F;
+    public static final Enchantment LOYALTY;
+    public static final Enchantment IMPALING;
+    public static final Enchantment RIPTIDE;
+    public static final Enchantment CHANNELING;
 
     static {
-        field_203193_C = new EnchantmentLoyalty(Enchantment.Rarity.UNCOMMON, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "loyalty"));
-        field_203194_D = new EnchantmentImpaling(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "impaling"));
-        field_203195_E = new EnchantmentRiptide(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "riptide"));
-        field_203196_F = new EnchantmentChanneling(Enchantment.Rarity.VERY_RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "channeling"));
+        LOYALTY = new EnchantmentLoyalty(Enchantment.Rarity.UNCOMMON, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "loyalty"));
+        IMPALING = new EnchantmentImpaling(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "impaling"));
+        RIPTIDE = new EnchantmentRiptide(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "riptide"));
+        CHANNELING = new EnchantmentChanneling(Enchantment.Rarity.VERY_RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "channeling"));
     }
 
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
-        event.getRegistry().registerAll(field_203193_C, field_203194_D, field_203195_E, field_203196_F);
+        event.getRegistry().registerAll(LOYALTY, IMPALING, RIPTIDE, CHANNELING);
     }
 
 }

@@ -22,9 +22,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Created by primetoxinz on 4/20/17.
- */
 public class MossGeneration extends Component {
     private static int RADIUS;
     private static int RATE;

@@ -48,7 +48,7 @@ public final class GroupLoader {
         forEachEnabled(module -> module.preInit(event));
         forEachEnabled(module -> module.postPreInit(event));
         forEachModule(module -> {
-            for(Component component : componentInstances.values()) {
+            for (Component component : componentInstances.values()) {
                 LibMisc.LOGGER.info("Module " + module.name + " have these features enabled: " + component.configName);
             }
         });

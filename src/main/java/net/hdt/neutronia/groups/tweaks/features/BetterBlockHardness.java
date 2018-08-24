@@ -54,14 +54,6 @@ public class BetterBlockHardness extends Component {
         Blocks.FIRE.setFireInfo(Blocks.LEAVES, 60, 100);
         Blocks.FIRE.setFireInfo(Blocks.LEAVES2, 60, 100);
         rebalancedVanillaHardness();
-
-        /*ToolsManager.setAxesAsEffectiveAgainst(Blocks.COCOA, Blocks.SKULL, Blocks.VINE, Blocks.WEB, Blocks.CACTUS);
-
-        ToolsManager.setPickaxesAsEffectiveAgainst(Blocks.LEVER, Blocks.GLASS, Blocks.STAINED_GLASS, Blocks.GLASS_PANE, Blocks.STAINED_GLASS_PANE,
-                Blocks.STONE_BUTTON, Blocks.PISTON, Blocks.STICKY_PISTON, Blocks.PISTON_EXTENSION,
-                Blocks.GLOWSTONE, Blocks.BEACON, Blocks.MONSTER_EGG,
-                Blocks.REDSTONE_LAMP, Blocks.LIT_REDSTONE_LAMP
-        );*/
     }
 
     @Override

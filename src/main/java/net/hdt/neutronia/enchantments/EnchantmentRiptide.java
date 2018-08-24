@@ -40,6 +40,6 @@ public class EnchantmentRiptide extends Enchantment {
      * Determines if the enchantment passed can be applyied together with this enchantment.
      */
     public boolean canApplyTogether(Enchantment ench) {
-        return super.canApplyTogether(ench) && ench != NEnchantments.field_203193_C && ench != NEnchantments.field_203196_F;
+        return super.canApplyTogether(ench) && ench != NEnchantments.LOYALTY && ench != NEnchantments.CHANNELING;
     }
 }

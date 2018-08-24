@@ -1,4 +1,4 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.util.EntityUtils;
@@ -19,9 +19,6 @@ import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-/**
- * Created by primetoxinz on 4/20/17.
- */
 public class ImprovedFlee extends Component {
 
     private static boolean blockPlace, blockBreak, groupFlee;

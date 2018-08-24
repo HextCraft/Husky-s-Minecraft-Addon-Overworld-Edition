@@ -10,10 +10,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-/**
- * Created by primetoxinz on 5/6/17.
- */
 public class Sinkholes extends Component {
+
     @SubscribeEvent
     public void playerTick(TickEvent.PlayerTickEvent event) {
         EntityPlayer player = event.player;
@@ -40,4 +38,5 @@ public class Sinkholes extends Component {
     public boolean hasSubscriptions() {
         return true;
     }
+
 }

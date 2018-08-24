@@ -1,12 +1,9 @@
-package betterwithmods.module.tweaks;
+package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-/**
- * Created by primetoxinz on 4/20/17.
- */
 public class AxeLeaves extends Component {
     @Override
     public String getFeatureDescription() {

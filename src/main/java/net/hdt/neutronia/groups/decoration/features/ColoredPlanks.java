@@ -22,18 +22,6 @@ public class ColoredPlanks extends Component {
     private static final BlockOverworldColoredSlab[] coloredSlabsDouble = new BlockOverworldColoredSlab[16];
     private static final BlockStairs[] coloredStairs = new BlockStairs[16];
 
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        for(EnumDyeColor color : EnumDyeColor.values()) {
-            coloredPlanks[color.getMetadata()] = new BlockColoredAlt("colored_plank", color).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
-            addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
-//            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
-        }
-        addColoredBlocks(coloredPlanks);
-        addColoredStairs(coloredStairs);
-        addColoredSlabs(coloredSlabsSingle, coloredSlabsDouble);
-    }
-
     private static void addColored(String name, Block block, int meta, boolean slab, boolean stairs, EnumDyeColor color) {
         IBlockState state = block.getStateFromMeta(meta);
 
@@ -53,6 +41,18 @@ public class ColoredPlanks extends Component {
         Block[] coloredWallBlocks = new Block[16];
         coloredWallBlocks[color.getMetadata()] = new BlockNeutroniaColoredWall(name, state, color);
         BlockNeutroniaColoredWall.initWall(block, meta, coloredWallBlocks[color.getMetadata()]);
+    }
+
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        for (EnumDyeColor color : EnumDyeColor.values()) {
+            coloredPlanks[color.getMetadata()] = new BlockColoredAlt("colored_plank", color).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
+//            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
+        }
+        addColoredBlocks(coloredPlanks);
+        addColoredStairs(coloredStairs);
+        addColoredSlabs(coloredSlabsSingle, coloredSlabsDouble);
     }
 
 }

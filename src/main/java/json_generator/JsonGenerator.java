@@ -28,13 +28,13 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
             genSlab(new ResourceLocation(modid, String.format("%s_wood_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("%s_log_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())));
         }
-        for(EnumDyeColor color : EnumDyeColor.values()) {
+        for (EnumDyeColor color : EnumDyeColor.values()) {
             genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
             genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
         }

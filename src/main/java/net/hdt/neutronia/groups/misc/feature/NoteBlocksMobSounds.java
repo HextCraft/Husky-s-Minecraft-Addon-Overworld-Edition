@@ -87,10 +87,5 @@ public class NoteBlocksMobSounds extends Component {
     public boolean hasSubscriptions() {
         return true;
     }
-	
-	/*@Override
-	public String getFeatureIngameConfigName() {
-		return "Note Block Mob Sounds";
-	}*/
 
 }
