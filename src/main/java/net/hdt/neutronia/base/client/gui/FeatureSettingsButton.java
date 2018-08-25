@@ -5,11 +5,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 
-public class GuiButtonFeatureSettings extends GuiButton {
+public class FeatureSettingsButton extends GuiButton {
 
     public final String category;
 
-    public GuiButtonFeatureSettings(int x, int y, String category) {
+    public FeatureSettingsButton(int x, int y, String category) {
         super(0, x, y, 20, 20, "C");
         this.category = category;
     }

@@ -1,13 +1,11 @@
 package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.base.BWMRecipes;
-import net.hdt.neutronia.base.Neutronia;
-import net.hdt.neutronia.base.handler.client.ClientHandler;
+import net.hdt.neutronia.base.handler.client.ClientEventHandler;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Property;
@@ -18,9 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.text.WordUtils;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class Component implements Comparable<Component> {
@@ -35,14 +30,8 @@ public class Component implements Comparable<Component> {
     boolean prevEnabled;
     String configName;
     boolean forceLoad;
-    private String iconFile = "";
-    private ResourceLocation icon;
-    private boolean isColored;
 
     public Component() {
-    }
-
-    public Component(Builder builder) {
 
     }
 
@@ -57,23 +46,23 @@ public class Component implements Comparable<Component> {
 
     @SideOnly(Side.CLIENT)
     public static void addColoredBlocks(Block[] coloredBlocks) {
-        ClientHandler.blocks.add(coloredBlocks);
+        ClientEventHandler.blocks.add(coloredBlocks);
     }
 
     @SideOnly(Side.CLIENT)
     public static void addColoredSlabs(Block[] coloredSlabSingle, Block[] coloredSlabDouble) {
-        ClientHandler.slabs.add(coloredSlabSingle);
-        ClientHandler.slabs.add(coloredSlabDouble);
+        ClientEventHandler.slabs.add(coloredSlabSingle);
+        ClientEventHandler.slabs.add(coloredSlabDouble);
     }
 
     @SideOnly(Side.CLIENT)
     public static void addColoredStairs(Block[] coloredBlocks) {
-        ClientHandler.stairs.add(coloredBlocks);
+        ClientEventHandler.stairs.add(coloredBlocks);
     }
 
     @SideOnly(Side.CLIENT)
     public static void addColoredWalls(Block[] coloredBlocks) {
-        ClientHandler.walls.add(coloredBlocks);
+        ClientEventHandler.walls.add(coloredBlocks);
     }
 
     final void setupConstantConfig() {
@@ -184,7 +173,7 @@ public class Component implements Comparable<Component> {
         return ConfigHelper.loadPropInt(propName, configCategory, desc, default_);
     }
 
-    public final double loadPropDouble(String propName, String desc, double default_) {
+    protected final double loadPropDouble(String propName, String desc, double default_) {
         return ConfigHelper.loadPropDouble(propName, configCategory, desc, default_);
     }
 
@@ -192,96 +181,21 @@ public class Component implements Comparable<Component> {
         return ConfigHelper.loadPropBool(propName, configCategory, desc, default_);
     }
 
-    public final String loadPropString(String propName, String desc, String default_) {
+    protected final String loadPropString(String propName, String desc, String default_) {
         return ConfigHelper.loadPropString(propName, configCategory, desc, default_);
     }
 
-    public final String[] loadPropStringList(String propName, String desc, String[] default_) {
+    protected final String[] loadPropStringList(String propName, String desc, String[] default_) {
         return ConfigHelper.loadPropStringList(propName, configCategory, desc, default_);
     }
 
-    public final HashSet<String> loadPropStringHashSet(String propName, String desc, String[] default_) {
-        return new HashSet<>(Arrays.asList(ConfigHelper.loadPropStringList(propName, configCategory, desc, default_)));
-    }
-
-
-    public final int[] loadPropIntList(String propName, String comment, int[] default_) {
-        return ConfigHelper.loadPropIntList(propName, configCategory, comment, default_);
-    }
-
-
-    public final ItemStack[] loadItemStackArray(String propName, String comment, ItemStack[] default_) {
-        return ConfigHelper.loadItemStackArray(propName, configCategory, comment, default_);
-    }
-
-    public final List<ItemStack> loadItemStackList(String propName, String comment, ItemStack[] default_) {
+    protected final List<ItemStack> loadItemStackList(String propName, String comment, String[] default_) {
         return ConfigHelper.loadItemStackList(propName, configCategory, comment, default_);
-    }
-
-    public final List<ItemStack> loadItemStackList(String propName, String comment, String[] default_) {
-        return ConfigHelper.loadItemStackList(propName, configCategory, comment, default_);
-    }
-
-    public final HashMap<Ingredient, Integer> loadItemStackIntMap(String propName, String comment, String[] _default) {
-        return ConfigHelper.loadItemStackIntMap(propName, configCategory, comment, _default);
-    }
-
-    public final boolean loadRecipeCondition(String jsonName, String propName, String comment, boolean _default) {
-        return ConfigHelper.loadRecipeCondition(jsonName, propName, configCategory, comment, _default);
-    }
-
-    protected void addHardcoreRecipe(IRecipe recipe) {
-        registerHardcoreRecipe(getClass().getSimpleName(), recipe);
-    }
-
-    public void overrideBlock(String str) {
-        Neutronia.proxy.addResourceOverride("textures", "block", str, "png");
-    }
-
-    public void overrideItem(String str) {
-        Neutronia.proxy.addResourceOverride("textures", "items", str, "png");
     }
 
     @Override
     public int compareTo(Component o) {
         return configName.compareTo(o.configName);
-    }
-
-    public static class Builder {
-
-        private String name, desc;
-        private ItemStack icon;
-        private Component component;
-        private boolean enabled;
-
-        public Builder(Component component) {
-            this.component = component;
-        }
-
-        public Component.Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Component.Builder withDesc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-        public Component.Builder withIcon(ItemStack icon) {
-            this.icon = icon;
-            return this;
-        }
-
-        public Component.Builder withEnabled(boolean isEnabled) {
-            this.enabled = isEnabled;
-            return this;
-        }
-
-        public Component register() {
-            return new Component(this);
-        }
-
     }
 
 }

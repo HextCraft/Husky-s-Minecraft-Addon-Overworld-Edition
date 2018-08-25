@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Random;
 
 @SideOnly(Side.CLIENT)
-public class GuiMainMenu extends GuiScreen {
+public class MainMenu extends GuiScreen {
     public static final String MORE_INFO_TEXT = "Please click " + TextFormatting.UNDERLINE + "here" + TextFormatting.RESET + " for more information.";
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Random RANDOM = new Random();
@@ -65,7 +65,7 @@ public class GuiMainMenu extends GuiScreen {
      * The Object object utilized as a thread lock when performing non thread-safe operations
      */
     private final Object threadLock = new Object();
-    private final RenderSkybox field_209101_K;
+    private final SkyboxRender field_209101_K;
     /**
      * The splash message.
      */
@@ -134,9 +134,9 @@ public class GuiMainMenu extends GuiScreen {
     private GuiButton modButton;
     private EntityPlayerSP player = new EntityPlayerSP(Minecraft.getMinecraft(), null, null, null, null);
 
-    public GuiMainMenu() {
+    public MainMenu() {
         this.openGLWarning2 = MORE_INFO_TEXT;
-        this.field_209101_K = new RenderSkybox(new RenderSkyboxCube(new ResourceLocation("textures/gui/title/background/panorama")));
+        this.field_209101_K = new SkyboxRender(new SkyboxCubeRender(new ResourceLocation("textures/gui/title/background/panorama")));
         this.splashText = "missingno";
         IResource iresource = null;
 

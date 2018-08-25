@@ -8,33 +8,27 @@ import net.minecraft.util.ResourceLocation;
 import java.util.*;
 
 public final class BWMRecipes {
-    public static final List<ItemStack> REMOVE_RECIPE_BY_OUTPUT = Lists.newArrayList();
-    public static final List<ResourceLocation> REMOVE_RECIPE_BY_RL = Lists.newArrayList();
+    private static final List<ItemStack> REMOVE_RECIPE_BY_OUTPUT = Lists.newArrayList();
+    private static final List<ResourceLocation> REMOVE_RECIPE_BY_RL = Lists.newArrayList();
     private static final List<IRecipe> RECIPES = new ArrayList<>();
     private static final Map<String, List<IRecipe>> HARDCORE_RECIPES = new HashMap<>();
 
-    public static IRecipe addHardcoreRecipe(String ID, IRecipe recipe) {
+    public static void addHardcoreRecipe(String ID, IRecipe recipe) {
         if (!HARDCORE_RECIPES.containsKey(ID)) {
             HARDCORE_RECIPES.put(ID, new ArrayList<>());
         }
         HARDCORE_RECIPES.get(ID).add(recipe);
-        return recipe;
     }
 
     public static List<IRecipe> getRecipes() {
         return Collections.unmodifiableList(RECIPES);
     }
 
-    public static IRecipe addRecipe(IRecipe recipe) {
-        RECIPES.add(recipe);
-        return recipe;
-    }
-
     public static void removeRecipe(ItemStack output) {
         REMOVE_RECIPE_BY_OUTPUT.add(output);
     }
 
-    public static void removeRecipe(ResourceLocation loc) {
+    private static void removeRecipe(ResourceLocation loc) {
         REMOVE_RECIPE_BY_RL.add(loc);
     }
 

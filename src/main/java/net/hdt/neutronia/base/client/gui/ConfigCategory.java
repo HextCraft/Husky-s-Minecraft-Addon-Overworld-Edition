@@ -10,9 +10,9 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 import java.util.ArrayList;
 import java.util.List;
 
-class GuiConfigCategory extends GuiConfig {
+class ConfigCategory extends GuiConfig {
 
-    GuiConfigCategory(GuiScreen parentScreen, String baseCategory) {
+    ConfigCategory(GuiScreen parentScreen, String baseCategory) {
         super(parentScreen, getAllElements(baseCategory), LibMisc.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(GroupLoader.config.toString()));
     }
 

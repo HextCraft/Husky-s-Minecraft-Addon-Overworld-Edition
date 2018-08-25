@@ -34,7 +34,7 @@ public class EntityAIVillagerMate extends EntityAIBase {
 
     public static boolean isWillingToMate(EntityVillager villager) {
         if (villager != null) {
-            return ReflectionHelper.getPrivateValue(EntityVillager.class, villager, ReflectionLib.ENTITY_VILLAGER_ISWILLINGTOMATE);
+            return ReflectionHelper.getPrivateValue(EntityVillager.class, villager, ReflectionLib.ENTITY_VILLAGER_IS_WILLING_TO_MATE);
         }
         return false;
     }

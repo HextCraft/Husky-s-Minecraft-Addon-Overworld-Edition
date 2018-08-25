@@ -7,16 +7,16 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.common.config.Property.Type;
 
-public class GuiButtonConfigSetting extends GuiButton {
+public class ConfigSettingsButton extends GuiButton {
 
     public final Property prop;
     final boolean labeled;
 
-    public GuiButtonConfigSetting(int x, int y, Property prop, boolean labeled) {
+    public ConfigSettingsButton(int x, int y, Property prop, boolean labeled) {
         this(x, y, prop, labeled, prop.getName());
     }
 
-    public GuiButtonConfigSetting(int x, int y, Property prop, boolean labeled, String label) {
+    public ConfigSettingsButton(int x, int y, Property prop, boolean labeled, String label) {
         super(0, x, y, 20, 20, label);
         this.prop = prop;
         this.labeled = labeled;

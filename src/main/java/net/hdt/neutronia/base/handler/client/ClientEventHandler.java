@@ -20,7 +20,7 @@ import java.util.List;
 import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = MOD_ID)
-public class ClientHandler {
+public class ClientEventHandler {
 
     public static final List<Block[]> blocks = new ArrayList<>();
     public static final List<Block[]> slabs = new ArrayList<>();
@@ -51,9 +51,9 @@ public class ClientHandler {
         for (Block[] coloredBlocks : slabs) {
             event.getBlockColors().registerBlockColorHandler(slabHandler, coloredBlocks);
         }
-        for (Block[] coloredBlocks : stairs) {
+        /*for (Block[] coloredBlocks : stairs) {
             event.getBlockColors().registerBlockColorHandler(stairHandler, coloredBlocks);
-        }
+        }*/
         for (Block[] coloredBlocks : walls) {
             event.getBlockColors().registerBlockColorHandler(wallHandler, coloredBlocks);
         }
@@ -67,9 +67,9 @@ public class ClientHandler {
         for (Block[] coloredBlocks : slabs) {
             event.getItemColors().registerItemColorHandler(itemSlabHandler, coloredBlocks);
         }
-        for (Block[] coloredBlocks : stairs) {
+        /*for (Block[] coloredBlocks : stairs) {
             event.getItemColors().registerItemColorHandler(itemStairHandler, coloredBlocks);
-        }
+        }*/
         for (Block[] coloredBlocks : walls) {
             event.getItemColors().registerItemColorHandler(itemWallHandler, coloredBlocks);
         }

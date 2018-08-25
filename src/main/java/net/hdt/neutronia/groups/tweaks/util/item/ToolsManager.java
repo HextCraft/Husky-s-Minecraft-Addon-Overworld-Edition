@@ -43,7 +43,7 @@ public final class ToolsManager {
     }
 
     public static Set<Block> getEffectiveBlocks(ItemTool tool) {
-        return ReflectionHelper.getPrivateValue(ItemTool.class, tool, ReflectionLib.ITEMTOOL_EFFECTIVE_BLOCKS);
+        return ReflectionHelper.getPrivateValue(ItemTool.class, tool, ReflectionLib.ITEM_TOOL_EFFECTIVE_BLOCKS);
     }
 
     public static void setToolAsEffectiveAgainst(ItemTool tool, Block... blocks) {

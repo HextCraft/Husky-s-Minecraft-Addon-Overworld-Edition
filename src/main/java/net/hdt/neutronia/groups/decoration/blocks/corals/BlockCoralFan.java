@@ -41,7 +41,7 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
  */
 public class BlockCoralFan extends BlockWaterPlantBase {
 
-    public static final PropertyBool field_211882_a = BlockStateProperties.field_208198_y;
+    public static final PropertyBool WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private static final Map<EnumFacing, AxisAlignedBB> field_211885_c = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, new AxisAlignedBB(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, new AxisAlignedBB(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
     private boolean dead;

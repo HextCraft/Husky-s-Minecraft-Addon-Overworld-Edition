@@ -7,9 +7,9 @@ import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
 
-public class GuiConfigFirstLoad extends GuiConfigBase {
+public class FirstLoadScreen extends GuiConfigBase {
 
-    public GuiConfigFirstLoad(GuiScreen parent) {
+    public FirstLoadScreen(GuiScreen parent) {
         super(parent);
     }
 
@@ -33,7 +33,7 @@ public class GuiConfigFirstLoad extends GuiConfigBase {
 
         switch (button.id) {
             case 1: // Configure
-                mc.displayGuiScreen(new GuiConfigRoot(parent));
+                mc.displayGuiScreen(new RootConfigGui(parent));
                 break;
             /*case 2: // Import Config
                 tryOpenWebsite();

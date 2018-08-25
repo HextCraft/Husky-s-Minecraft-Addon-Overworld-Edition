@@ -55,8 +55,8 @@ public class GuiConfigBase extends GuiScreen {
         if (backButton != null && button == backButton)
             returnToParent();
 
-        if (button instanceof GuiButtonConfigSetting) {
-            GuiButtonConfigSetting configButton = (GuiButtonConfigSetting) button;
+        if (button instanceof ConfigSettingsButton) {
+            ConfigSettingsButton configButton = (ConfigSettingsButton) button;
             configButton.prop.set(!configButton.prop.getBoolean());
             if (configButton.prop.requiresMcRestart()) {
                 if (restartRequiringProperties.contains(configButton.prop))
@@ -77,7 +77,7 @@ public class GuiConfigBase extends GuiScreen {
     }
 
     void tryOpenWebsite(String url) {
-        GuiConfirmOpenLink gui = new GuiConfigLink(this, url);
+        GuiConfirmOpenLink gui = new ConfigLinkScreen(this, url);
         mc.displayGuiScreen(gui);
     }
 

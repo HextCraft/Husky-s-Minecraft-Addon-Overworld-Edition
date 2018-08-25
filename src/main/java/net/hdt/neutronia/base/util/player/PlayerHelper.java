@@ -6,10 +6,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.NBTTagCompound;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -27,7 +25,7 @@ public final class PlayerHelper {
 
     }
 
-    public static Set<ItemStack> getHolding(@Nullable EntityPlayer player) {
+    private static Set<ItemStack> getHolding(@Nullable EntityPlayer player) {
         if (player == null)
             return Sets.newHashSet();
         return Sets.newHashSet(player.getHeldItemMainhand(), player.getHeldItemOffhand()).stream().filter(s -> !s.isEmpty()).collect(Collectors.toSet());
@@ -68,14 +66,6 @@ public final class PlayerHelper {
             iattributeinstance.removeModifier(speedModifier);
         }
         iattributeinstance.applyModifier(speedModifier);
-    }
-
-    public static ItemStack getPlayerHead(EntityPlayer player) {
-        ItemStack head = new ItemStack(Items.SKULL, 1, 3);
-        NBTTagCompound name = new NBTTagCompound();
-        name.setString("SkullOwner", player.getDisplayNameString());
-        head.setTagCompound(name);
-        return head;
     }
 
 }

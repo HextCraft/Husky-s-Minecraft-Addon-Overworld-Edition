@@ -26,12 +26,12 @@ import java.util.*;
 import static net.hdt.neutronia.base.util.ConfigHelper.*;
 
 public class Config {
-    protected static final JsonParser JSON_PARSER = new JsonParser();
-    protected static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+    private static final JsonParser JSON_PARSER = new JsonParser();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-    protected Map<String, JsonElement> DATA;
-    protected Map<String, JsonElement> FALLBACK_DATA;
-    protected Map<String, Config> DATA_BRANCHES;
+    private Map<String, JsonElement> DATA;
+    private Map<String, JsonElement> FALLBACK_DATA;
+    private Map<String, Config> DATA_BRANCHES;
     private boolean keepDataOrder;
 
     public Config(File configFile, boolean keepDataOrder) {
@@ -116,32 +116,24 @@ public class Config {
         DATA.put(key, element);
     }
 
-    public void addFallbackData(String key, JsonElement element) {
+    private void addFallbackData(String key, JsonElement element) {
         FALLBACK_DATA.put(key, element);
-    }
-
-    public void addDataBranch(String key, Config config) {
-        DATA_BRANCHES.put(key, config);
     }
 
     public boolean hasData(String key) {
         return DATA.containsKey(key);
     }
 
-    public boolean hasFallbackData(String key) {
+    private boolean hasFallbackData(String key) {
         return FALLBACK_DATA.containsKey(key);
     }
 
-    public boolean hasDataBranch(String key) {
+    private boolean hasDataBranch(String key) {
         return DATA_BRANCHES.containsKey(key);
     }
 
-    public JsonElement getData(String key) {
+    private JsonElement getData(String key) {
         return DATA.get(key);
-    }
-
-    public JsonElement getFallbackData(String key) {
-        return FALLBACK_DATA.get(key);
     }
 
     public Map<String, JsonElement> getAllData() {
@@ -150,29 +142,6 @@ public class Config {
 
     public void removeData(String key) {
         DATA.remove(key);
-    }
-
-    public void removeFallbackData(String key) {
-        FALLBACK_DATA.remove(key);
-    }
-
-    public JsonElement replaceData(String key, JsonElement data) {
-        return DATA.replace(key, data);
-    }
-
-    public JsonElement replaceFallbackData(String key, JsonElement data) {
-        return FALLBACK_DATA.replace(key, data);
-    }
-
-    public String getString(String key, String fallbackValue) {
-        String value = getString(key);
-
-        if (value.equals("MissingNo")) {
-            addFallbackData(key, new JsonPrimitive(fallbackValue));
-            return fallbackValue;
-        }
-
-        return value;
     }
 
     public int getInt(String key, int fallbackValue) {
@@ -219,24 +188,13 @@ public class Config {
         return value;
     }
 
-    public ResourceLocation getResource(String key, ResourceLocation fallbackValue) {
-        ResourceLocation value = getResource(key);
-
-        if (value == null) {
-            addFallbackData(key, new JsonPrimitive(fallbackValue.toString()));
-            return fallbackValue;
-        }
-
-        return value;
-    }
-
     public IBlockState getBlock(String key, IBlockState fallbackValue) {
         IBlockState value = getBlock(key);
 
         if (value == null) {
             JsonObject block = new JsonObject();
             JsonObject properties = new JsonObject();
-            block.addProperty("block", fallbackValue.getBlock().getRegistryName().toString());
+            block.addProperty("block", Objects.requireNonNull(fallbackValue.getBlock().getRegistryName()).toString());
 
             for (Map.Entry<IProperty<?>, Comparable<?>> entry : fallbackValue.getProperties().entrySet()) {
                 properties.addProperty(entry.getKey().getName(), entry.getValue().toString().toLowerCase());
@@ -291,7 +249,7 @@ public class Config {
         }
     }
 
-    public float getFloat(String key) {
+    private float getFloat(String key) {
         if (isFloat(getData(key))) {
             return getData(key).getAsJsonPrimitive().getAsFloat();
         } else {
@@ -399,7 +357,7 @@ public class Config {
                 int meta = itemConfig.getInt("meta", 0);
 
                 if (ForgeRegistries.ITEMS.containsKey(item)) {
-                    stack = new ItemStack(Item.getByNameOrId(item.toString()), 1, meta);
+                    stack = new ItemStack(Objects.requireNonNull(Item.getByNameOrId(item.toString())), 1, meta);
                 } else if (ForgeRegistries.BLOCKS.containsKey(item)) {
                     IBlockState state = getBlock(key);
                     Block block = state.getBlock();
@@ -484,7 +442,7 @@ public class Config {
         return value;
     }
 
-    public List<Config> getDataBranches(String key) {
+    private List<Config> getDataBranches(String key) {
         if (isArray(getData(key))) {
             JsonArray array = getData(key).getAsJsonArray();
             List<Config> subConfigs = new ArrayList<>();
@@ -496,36 +454,6 @@ public class Config {
             }
 
             return subConfigs;
-        } else {
-            return null;
-        }
-    }
-
-    public List<String> getStrings(String key, List<String> fallbackValue) {
-        List<String> value = getStrings(key);
-
-        if (value == null) {
-            JsonArray array = new JsonArray();
-            fallbackValue.forEach(array::add);
-            addFallbackData(key, array);
-            return fallbackValue;
-        }
-
-        return value;
-    }
-
-    public List<String> getStrings(String key) {
-        if (isArray(getData(key))) {
-            JsonArray array = getData(key).getAsJsonArray();
-            List<String> strings = new ArrayList<>();
-
-            for (JsonElement element : array) {
-                if (isPrimitive(element)) {
-                    strings.add(element.getAsJsonPrimitive().getAsString());
-                }
-            }
-
-            return strings;
         } else {
             return null;
         }

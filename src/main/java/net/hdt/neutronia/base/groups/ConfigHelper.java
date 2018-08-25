@@ -1,46 +1,21 @@
 package net.hdt.neutronia.base.groups;
 
-import com.google.common.collect.Maps;
-import net.hdt.neutronia.base.util.StackIngredient;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.OreIngredient;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ConfigHelper {
 
-    public static HashMap<String, Boolean> CONDITIONS = Maps.newHashMap();
     static boolean needsRestart;
     static boolean allNeedRestart = false;
     static Property lastProp;
-
-    public static void setDescription(String category, String comment) {
-        GroupLoader.config.setCategoryComment(category, comment);
-    }
-
-    public static boolean loadRecipeCondition(String jsonString, String propName, String category, String desc, boolean default_) {
-        boolean value = loadPropBool(propName, category, desc, default_);
-        CONDITIONS.put(jsonString, value);
-        return value;
-    }
-
-    public static int[] loadPropIntList(String propName, String category, String comment, int[] default_) {
-        Property prop = GroupLoader.config.get(category, propName, default_, comment);
-        setNeedsRestart(prop);
-
-        lastProp = prop;
-        return prop.getIntList();
-    }
 
     public static int loadPropInt(String propName, String category, String desc, String comment, int default_, int min, int max) {
         Property prop = GroupLoader.config.get(category, propName, default_, comment, min, max);
@@ -62,15 +37,6 @@ public class ConfigHelper {
 
     public static double loadPropDouble(String propName, String category, String desc, double default_) {
         Property prop = GroupLoader.config.get(category, propName, default_);
-        prop.setComment(desc);
-        setNeedsRestart(prop);
-
-        lastProp = prop;
-        return prop.getDouble(default_);
-    }
-
-    public static double loadPropDouble(String propName, String category, String desc, double default_, double min, double max) {
-        Property prop = GroupLoader.config.get(category, propName, default_, desc, min, max);
         prop.setComment(desc);
         setNeedsRestart(prop);
 
@@ -105,24 +71,6 @@ public class ConfigHelper {
         return prop.getStringList();
     }
 
-    public static List<ResourceLocation> loadPropRLList(String propName, String category, String desc, String[] default_) {
-        String[] l = loadPropStringList(propName, category, desc, default_);
-        return Arrays.stream(l).map(ConfigHelper::rlFromString).collect(Collectors.toList());
-    }
-
-    public static Set<ResourceLocation> loadPropRLSet(String propName, String category, String desc, String[] default_) {
-        String[] l = loadPropStringList(propName, category, desc, default_);
-        return Arrays.stream(l).map(ConfigHelper::rlFromString).collect(Collectors.toSet());
-    }
-
-    public static ResourceLocation rlFromString(String loc) {
-        String[] split = loc.split(":");
-        if (split.length > 1) {
-            return new ResourceLocation(split[0], split[1]);
-        }
-        return null;
-    }
-
     private static ItemStack stackFromString(String name) {
         String[] split = name.split(":");
         if (split.length > 1) {
@@ -141,78 +89,8 @@ public class ConfigHelper {
         return ItemStack.EMPTY;
     }
 
-    private static Ingredient ingredientfromString(String name) {
-        if (name.startsWith("ore:"))
-            return new OreIngredient(name.substring(4));
-        String[] split = name.split(":");
-        if (split.length > 1) {
-            int meta = 0;
-            if (split.length > 2) {
-                if (split[2].equalsIgnoreCase("*"))
-                    meta = OreDictionary.WILDCARD_VALUE;
-                else
-                    meta = Integer.parseInt(split[2]);
-            }
-            Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(split[0], split[1]));
-            if (item != null) {
-                return StackIngredient.fromStacks(new ItemStack(item, 1, meta));
-            }
-        }
-        return Ingredient.EMPTY;
-    }
-
-    private static String fromStack(ItemStack stack) {
-        if (stack.getMetadata() == OreDictionary.WILDCARD_VALUE) {
-            return String.format("%s:*", stack.getItem().getRegistryName());
-        } else if (stack.getMetadata() == 0) {
-            return stack.getItem().getRegistryName().toString();
-        } else {
-            return String.format("%s:%s", stack.getItem().getRegistryName(), stack.getMetadata());
-        }
-    }
-
     public static List<ItemStack> loadItemStackList(String propName, String category, String desc, String[] default_) {
         return Arrays.stream(loadPropStringList(propName, category, desc, default_)).map(ConfigHelper::stackFromString).collect(Collectors.toList());
-    }
-
-    public static List<ItemStack> loadItemStackList(String propName, String category, String desc, ItemStack[] default_) {
-        String[] strings_ = new String[default_.length];
-        Arrays.stream(default_).map(ConfigHelper::fromStack).collect(Collectors.toList()).toArray(strings_);
-        return loadItemStackList(propName, category, desc, strings_);
-    }
-
-    public static ItemStack[] loadItemStackArray(String propName, String category, String desc, String[] default_) {
-        return Arrays.stream(loadPropStringList(propName, category, desc, default_)).map(ConfigHelper::stackFromString).toArray(ItemStack[]::new);
-    }
-
-    public static ItemStack[] loadItemStackArray(String propName, String category, String desc, ItemStack[] default_) {
-        String[] strings_ = new String[default_.length];
-        Arrays.stream(default_).map(ConfigHelper::fromStack).collect(Collectors.toList()).toArray(strings_);
-        return loadItemStackArray(propName, category, desc, strings_);
-    }
-
-    public static HashMap<Ingredient, Integer> loadItemStackIntMap(String propName, String category, String desc, String[] _default) {
-        HashMap<Ingredient, Integer> map = Maps.newHashMap();
-        String[] l = loadPropStringList(propName, category, desc, _default);
-        for (String s : l) {
-            String[] a = s.split("=");
-            if (a.length == 2) {
-                map.put(ConfigHelper.ingredientfromString(a[0]), Integer.parseInt(a[1]));
-            }
-        }
-        return map;
-    }
-
-    public static HashMap<Integer, Integer> loadIntIntMap(String propName, String category, String desc, String[] _default) {
-        HashMap<Integer, Integer> map = Maps.newHashMap();
-        String[] l = loadPropStringList(propName, category, desc, _default);
-        for (String s : l) {
-            String[] a = s.split("=");
-            if (a.length == 2) {
-                map.put(Integer.parseInt(a[0]), Integer.parseInt(a[1]));
-            }
-        }
-        return map;
     }
 
     private static void setNeedsRestart(Property prop) {

@@ -21,7 +21,7 @@ public final class ConfigEvents {
     public static void onGuiOpen(GuiOpenEvent event) {
 		if(GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
 			GroupLoader.firstLoad = true;
-			event.setGui(new GuiConfigFirstLoad(event.getGui()));
+			event.setGui(new FirstLoadScreen(event.getGui()));
 		}
     }
 
@@ -37,7 +37,7 @@ public final class ConfigEvents {
             List<GuiButton> buttons = event.getButtonList();
             for (GuiButton b : buttons)
                 if (targets.contains(b.displayString)) {
-                    GuiButton qButton = new GuiButtonColor(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 100, "Neutronia Config", 0x48ddbc);
+                    GuiButton qButton = new ColoredButton(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 100, "Neutronia Config", 0x48ddbc);
                     buttons.add(qButton);
                     return;
                 }
@@ -46,8 +46,8 @@ public final class ConfigEvents {
 
     @SubscribeEvent
     public static void onButtonClick(GuiScreenEvent.ActionPerformedEvent event) {
-        if (event.getButton() instanceof GuiButtonColor)
-            Minecraft.getMinecraft().displayGuiScreen(new GuiConfigRoot(event.getGui()));
+        if (event.getButton() instanceof ColoredButton)
+            Minecraft.getMinecraft().displayGuiScreen(new RootConfigGui(event.getGui()));
     }
 
 }

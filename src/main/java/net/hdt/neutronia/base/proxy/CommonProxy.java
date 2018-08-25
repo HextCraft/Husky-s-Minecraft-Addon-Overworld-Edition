@@ -1,7 +1,6 @@
 package net.hdt.neutronia.base.proxy;
 
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.hdt.neutronia.base.network.MessageRegister;
 import net.hdt.neutronia.tileentity.TileEntityPot;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +17,6 @@ public class CommonProxy implements IProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         GroupLoader.preInit(event);
-        MessageRegister.init();
     }
 
     @Override

@@ -59,11 +59,6 @@ public class ClientProxy extends CommonProxy {
         resourceProxy.addResource(space, dir, file, ext);
     }
 
-    private void overrideBlock(String str, boolean flag) {
-        if (flag)
-            addResourceOverride("textures", "block", str, "png");
-    }
-
     @Override
     public float getPartialTicks() {
         return ClientProxy.timer.renderPartialTicks;

@@ -3,11 +3,11 @@ package net.hdt.neutronia.base.client.gui;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.gui.GuiScreen;
 
-public class GuiConfigLink extends GuiConfirmOpenLink {
+public class ConfigLinkScreen extends GuiConfirmOpenLink {
 
     GuiScreen parent;
 
-    public GuiConfigLink(GuiScreen parentScreenIn, String url) {
+    public ConfigLinkScreen(GuiScreen parentScreenIn, String url) {
         super(parentScreenIn, url, 0, true);
         parent = parentScreenIn;
     }

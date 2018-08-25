@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GuiConfigRoot extends GuiConfigBase {
+public class RootConfigGui extends GuiConfigBase {
 
     private static int MODULES_PER_PAGE = 8;
     private final List<Group> groups;
@@ -22,7 +22,7 @@ public class GuiConfigRoot extends GuiConfigBase {
     private int totalPages;
     private GuiButton left, right;
 
-    GuiConfigRoot(GuiScreen parent) {
+    RootConfigGui(GuiScreen parent) {
         super(parent);
 
         groups = new ArrayList<>(GroupLoader.groups);
@@ -58,7 +58,7 @@ public class GuiConfigRoot extends GuiConfigBase {
         int startX = width / 2 - 185;
         int startY = height / 5 + 3;
 
-        buttonList.removeIf((b) -> b instanceof GuiButtonModule || b instanceof GuiButtonConfigSetting);
+        buttonList.removeIf((b) -> b instanceof GroupButton || b instanceof ConfigSettingsButton);
 
         int start = page * MODULES_PER_PAGE;
         for (int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
@@ -66,8 +66,8 @@ public class GuiConfigRoot extends GuiConfigBase {
             x = startX + k % 2 * 180;
             y = startY + k / 2 * 22;
             Group group = groups.get(j);
-            buttonList.add(new GuiButtonModule(x, y, group));
-            buttonList.add(new GuiButtonConfigSetting(x + 150, y, group.prop, false));
+            buttonList.add(new GroupButton(x, y, group));
+            buttonList.add(new ConfigSettingsButton(x + 150, y, group.prop, false));
         }
 
         if (left != null) {
@@ -77,15 +77,15 @@ public class GuiConfigRoot extends GuiConfigBase {
 
         x = width / 2;
         y = startY + 113;
-        buttonList.add(new GuiButtonConfigSetting(x + 155, y, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+        buttonList.add(new ConfigSettingsButton(x + 85, y + 22, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
         buttonList.add(new GuiButton(1, x - 100, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.general")));
 //        buttonList.add(new GuiButton(2, x  + 2, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.import")));
 
-        buttonList.add(new GuiButtonColor(3, x - 100, y + 44, 64, I18n.translateToLocal("neutronia.config.opensite"), 0x48ddbc));
-        buttonList.add(new GuiButtonColor(5, x + 36, y + 44, 64, I18n.translateToLocal("neutronia.config.discord"), 0xf96854));
-        buttonList.add(new GuiButtonColor(5, x + 36, y + 44, 64, I18n.translateToLocal("neutronia.config.twitter"), 0xf96854));
+        buttonList.add(new ColoredButton(3, x - 100, y + 44, 54, I18n.translateToLocal("neutronia.config.opensite"), 0x4078c0));
+        buttonList.add(new ColoredButton(5, x - 40, y + 44, 54, I18n.translateToLocal("neutronia.config.discord"), 0x7289da));
+        buttonList.add(new ColoredButton(5, x + 36, y + 44, 54, I18n.translateToLocal("neutronia.config.twitter"), 0x55acee));
 
-        buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 200, 20, I18n.translateToLocal("gui.done")));
+        buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 205, 20, I18n.translateToLocal("gui.done")));
     }
 
     @Override
@@ -138,8 +138,8 @@ public class GuiConfigRoot extends GuiConfigBase {
     protected void actionPerformed(GuiButton button) throws IOException {
         super.actionPerformed(button);
 
-        if (button instanceof GuiButtonModule) {
-            GuiButtonModule moduleButton = (GuiButtonModule) button;
+        if (button instanceof GroupButton) {
+            GroupButton moduleButton = (GroupButton) button;
             mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
         } else if (button == left || button == right) {
             if (button == left)
@@ -149,7 +149,7 @@ public class GuiConfigRoot extends GuiConfigBase {
             addFeatureButtons();
         } else switch (button.id) {
             case 1: // General Settings
-                mc.displayGuiScreen(new GuiConfigCategory(this, "_global"));
+                mc.displayGuiScreen(new ConfigCategory(this, "_global"));
                 break;
             /*case 2: // Import Config
                 mc.displayGuiScreen(new GuiConfigImport(this));

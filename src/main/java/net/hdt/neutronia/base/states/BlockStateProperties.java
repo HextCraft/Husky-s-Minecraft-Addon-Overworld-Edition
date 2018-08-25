@@ -1,66 +1,9 @@
 package net.hdt.neutronia.base.states;
 
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.util.EnumFacing;
 
 public class BlockStateProperties {
-    public static final PropertyBool field_208174_a = PropertyBool.create("attached");
-    public static final PropertyBool field_208176_c = PropertyBool.create("conditional");
-    public static final PropertyBool field_208178_e = PropertyBool.create("disarmed");
-    public static final PropertyBool field_208179_f = PropertyBool.create("drag");
-    public static final PropertyBool field_208180_g = PropertyBool.create("enabled");
-    public static final PropertyBool field_208181_h = PropertyBool.create("extended");
-    public static final PropertyBool field_208182_i = PropertyBool.create("eye");
-    public static final PropertyBool field_208183_j = PropertyBool.create("falling");
-    public static final PropertyBool field_208184_k = PropertyBool.create("has_bottle_0");
-    public static final PropertyBool field_208185_l = PropertyBool.create("has_bottle_1");
-    public static final PropertyBool field_208186_m = PropertyBool.create("has_bottle_2");
-    public static final PropertyBool field_208187_n = PropertyBool.create("has_record");
-    public static final PropertyBool field_208188_o = PropertyBool.create("inverted");
-    public static final PropertyBool field_208189_p = PropertyBool.create("in_wall");
-    public static final PropertyBool field_208190_q = PropertyBool.create("lit");
-    public static final PropertyBool field_208191_r = PropertyBool.create("locked");
-    public static final PropertyBool field_208192_s = PropertyBool.create("occupied");
-    public static final PropertyBool field_208193_t = PropertyBool.create("open");
-    public static final PropertyBool field_208515_s = PropertyBool.create("persistent");
-    public static final PropertyBool field_208194_u = PropertyBool.create("powered");
-    public static final PropertyBool field_208195_v = PropertyBool.create("short");
-    public static final PropertyBool field_208196_w = PropertyBool.create("snowy");
-    public static final PropertyBool field_208197_x = PropertyBool.create("triggered");
-    public static final PropertyBool field_208198_y = PropertyBool.create("waterlogged");
-    public static final PropertyEnum<EnumFacing.Axis> field_208199_z = PropertyEnum.<EnumFacing.Axis>create("axis", EnumFacing.Axis.class, EnumFacing.Axis.X, EnumFacing.Axis.Z);
-    public static final PropertyEnum<EnumFacing.Axis> field_208148_A = PropertyEnum.<EnumFacing.Axis>create("axis", EnumFacing.Axis.class);
-    public static final PropertyBool field_208149_B = PropertyBool.create("up");
-    public static final PropertyBool field_208150_C = PropertyBool.create("down");
-    public static final PropertyBool field_208151_D = PropertyBool.create("north");
-    public static final PropertyBool field_208152_E = PropertyBool.create("east");
-    public static final PropertyBool field_208153_F = PropertyBool.create("south");
-    public static final PropertyBool field_208154_G = PropertyBool.create("west");
-    public static final PropertyDirection field_208155_H = PropertyDirection.create("facing", EnumFacing.Plane.VERTICAL);
-    public static final PropertyDirection field_208156_I = PropertyDirection.create("facing", (p_208125_0_) -> p_208125_0_ != EnumFacing.UP);
-    public static final PropertyDirection field_208157_J = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-    public static final PropertyInteger field_208167_T = PropertyInteger.create("age", 0, 2);
-    public static final PropertyInteger field_208168_U = PropertyInteger.create("age", 0, 3);
-    public static final PropertyInteger field_208169_V = PropertyInteger.create("age", 0, 5);
-    public static final PropertyInteger field_208170_W = PropertyInteger.create("age", 0, 7);
-    public static final PropertyInteger field_208171_X = PropertyInteger.create("age", 0, 15);
-    public static final PropertyInteger field_208172_Y = PropertyInteger.create("age", 0, 25);
-    public static final PropertyInteger field_208173_Z = PropertyInteger.create("bites", 0, 6);
-    public static final PropertyInteger field_208126_aa = PropertyInteger.create("delay", 1, 4);
-    public static final PropertyInteger field_208514_aa = PropertyInteger.create("distance", 1, 7);
-    public static final PropertyInteger field_208127_ab = PropertyInteger.create("eggs", 1, 4);
-    public static final PropertyInteger field_208128_ac = PropertyInteger.create("hatch", 0, 2);
-    public static final PropertyInteger field_208129_ad = PropertyInteger.create("layers", 1, 8);
-    public static final PropertyInteger field_208130_ae = PropertyInteger.create("level", 0, 3);
-    public static final PropertyInteger field_208131_af = PropertyInteger.create("level", 1, 8);
-    public static final PropertyInteger field_208132_ag = PropertyInteger.create("level", 0, 15);
-    public static final PropertyInteger field_208133_ah = PropertyInteger.create("moisture", 0, 7);
-    public static final PropertyInteger field_208134_ai = PropertyInteger.create("note", 0, 24);
-    public static final PropertyInteger field_208135_aj = PropertyInteger.create("pickles", 1, 4);
-    public static final PropertyInteger field_208136_ak = PropertyInteger.create("power", 0, 15);
-    public static final PropertyInteger field_208137_al = PropertyInteger.create("stage", 0, 1);
-    public static final PropertyInteger field_208138_am = PropertyInteger.create("rotation", 0, 15);
+
+    public static final PropertyBool WATERLOGGED = PropertyBool.create("waterlogged");
+
 }

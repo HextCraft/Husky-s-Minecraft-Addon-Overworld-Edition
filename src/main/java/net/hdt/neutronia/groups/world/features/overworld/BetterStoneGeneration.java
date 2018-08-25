@@ -40,20 +40,16 @@ public class BetterStoneGeneration extends Component {
 
     public static BlockMod marble;
     public static BlockMod limestone;
-    public static boolean generateBasedOnBiomes;
-    public static boolean enableMarble;
-    public static boolean enableLimestone;
-    public static StoneInfo graniteInfo, dioriteInfo, andesiteInfo, marbleInfo, limestoneInfo;
+    static boolean enableMarble;
+    static boolean enableLimestone;
+    private static StoneInfo graniteInfo, dioriteInfo, andesiteInfo, marbleInfo, limestoneInfo;
     private static List<StoneInfoBasedGenerator> generators;
-    boolean enableStairsAndSlabs;
-    boolean enableWalls;
-    boolean outputCSV;
+    private boolean enableStairsAndSlabs;
+    private boolean enableWalls;
 
     public static StoneInfo loadStoneInfo(String configCategory, String name, int clusterSize, int clusterRarity, int upperBound, int lowerBound, boolean enabled, String dims, Type... biomes) {
         String category = configCategory + "." + name;
-        StoneInfo info = new StoneInfo(category, clusterSize, clusterRarity, upperBound, lowerBound, enabled, dims, biomes);
-
-        return info;
+        return new StoneInfo(category, clusterSize, clusterRarity, upperBound, lowerBound, enabled, dims, biomes);
     }
 
     @Override
@@ -62,8 +58,6 @@ public class BetterStoneGeneration extends Component {
         enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
         enableMarble = loadPropBool("Enable Marble", "", true);
         enableLimestone = loadPropBool("Enable Limestone", "", true);
-        generateBasedOnBiomes = loadPropBool("Generate Based on Biomes", "Note: The stone rarity values are tuned based on this being true. If you turn it off, also change the stones' rarity (around 50 is fine).", true);
-        outputCSV = loadPropBool("Output CSV Debug Info", "If this is true, CSV debug info will be printed out to the console on init, to help test biome spreads.", false);
 
         int defSize = 14;
         int defRarity = 15;
@@ -77,7 +71,7 @@ public class BetterStoneGeneration extends Component {
         limestoneInfo = loadStoneInfo("limestone", defSize, defRarity, defUpper, defLower, enableLimestone, Type.SWAMP, Type.OCEAN, Type.RIVER, Type.BEACH, Type.JUNGLE);
     }
 
-    public StoneInfo loadStoneInfo(String name, int clusterSize, int clusterRarity, int upperBound, int lowerBound, boolean enabled, Type... biomes) {
+    private StoneInfo loadStoneInfo(String name, int clusterSize, int clusterRarity, int upperBound, int lowerBound, boolean enabled, Type... biomes) {
         return loadStoneInfo(configCategory, name, clusterSize, clusterRarity, upperBound, lowerBound, enabled, "0", biomes);
     }
 
@@ -127,9 +121,6 @@ public class BetterStoneGeneration extends Component {
             generators.add(new StoneInfoBasedGenerator(() -> marbleInfo, marble.getDefaultState(), "marble"));
         if (enableLimestone)
             generators.add(new StoneInfoBasedGenerator(() -> limestoneInfo, limestone.getDefaultState(), "limestone"));
-
-        if (outputCSV)
-            BiomeTypeConfigHandler.debugStoneGeneration(generators);
     }
 
     @Override

@@ -60,7 +60,7 @@ public class GuiConfigGroup extends GuiConfigBase {
         int startX = width / 2 - 195;
         int startY = height / 6 + 20;
 
-        buttonList.removeIf((b) -> b instanceof GuiButtonConfigSetting || b instanceof GuiButtonFeatureSettings);
+        buttonList.removeIf((b) -> b instanceof ConfigSettingsButton || b instanceof FeatureSettingsButton);
 
         int x, y;
 
@@ -72,10 +72,10 @@ public class GuiConfigGroup extends GuiConfigBase {
 
             Component component = components.get(i);
 
-            buttonList.add(new GuiButtonConfigSetting(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
+            buttonList.add(new ConfigSettingsButton(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
 
             if (GroupLoader.config.hasCategory(component.configCategory))
-                buttonList.add(new GuiButtonFeatureSettings(x + 170, y, component.configCategory));
+                buttonList.add(new FeatureSettingsButton(x + 170, y, component.configCategory));
         }
 
         if (left != null) {
@@ -88,9 +88,9 @@ public class GuiConfigGroup extends GuiConfigBase {
     protected void actionPerformed(GuiButton button) throws IOException {
         super.actionPerformed(button);
 
-        if (button instanceof GuiButtonFeatureSettings) {
-            GuiButtonFeatureSettings featureButton = (GuiButtonFeatureSettings) button;
-            mc.displayGuiScreen(new GuiConfigCategory(this, featureButton.category));
+        if (button instanceof FeatureSettingsButton) {
+            FeatureSettingsButton featureButton = (FeatureSettingsButton) button;
+            mc.displayGuiScreen(new ConfigCategory(this, featureButton.category));
         } else if (button == left || button == right) {
             if (button == left)
                 page = Math.max(page - 1, 0);

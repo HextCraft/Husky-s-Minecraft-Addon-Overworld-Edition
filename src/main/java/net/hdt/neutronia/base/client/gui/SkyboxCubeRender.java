@@ -9,10 +9,10 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderSkyboxCube {
+public class SkyboxCubeRender {
     private final ResourceLocation[] field_209143_a = new ResourceLocation[6];
 
-    public RenderSkyboxCube(ResourceLocation p_i49378_1_) {
+    public SkyboxCubeRender(ResourceLocation p_i49378_1_) {
         for (int lvt_2_1_ = 0; lvt_2_1_ < 6; ++lvt_2_1_) {
             this.field_209143_a[lvt_2_1_] = new ResourceLocation(p_i49378_1_.getNamespace(), p_i49378_1_.getPath() + '_' + lvt_2_1_ + ".png");
         }

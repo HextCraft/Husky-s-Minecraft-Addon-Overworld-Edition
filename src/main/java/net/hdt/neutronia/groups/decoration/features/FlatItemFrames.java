@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.lib.LibEntityIDs;
 import net.hdt.neutronia.groups.decoration.client.render.RenderFlatItemFrame;
 import net.hdt.neutronia.groups.decoration.entity.EntityFlatItemFrame;
 import net.minecraft.entity.EntityHanging;

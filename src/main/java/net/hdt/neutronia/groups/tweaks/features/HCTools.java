@@ -69,12 +69,12 @@ public class HCTools extends Component {
     }
 
     private void loadToolMaterialOverride(ItemTool tool) {
-        Item.ToolMaterial material = ReflectionHelper.getPrivateValue(ItemTool.class, tool, ReflectionLib.ITEMTOOL_TOOLMATERIAL);
+        Item.ToolMaterial material = ReflectionHelper.getPrivateValue(ItemTool.class, tool, ReflectionLib.ITEM_TOOL_TOOL_MATERIAL);
         ToolMaterialOverride override = OVERRIDES.get(material);
-        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getMaxUses(), ReflectionLib.TOOLMATERIAL_MAXUSES);
-        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getEfficiency(), ReflectionLib.TOOLMATERIAL_EFFICIENCY);
-        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getEnchantability(), ReflectionLib.TOOLMATERIAL_ENCHANTABILITIY);
-        ReflectionHelper.setPrivateValue(ItemTool.class, tool, material.getEfficiency(), ReflectionLib.ITEMTOOL_EFFICIENCY);
+        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getMaxUses(), ReflectionLib.TOOL_MATERIAL_MAX_USES);
+        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getEfficiency(), ReflectionLib.TOOL_MATERIAL_EFFICIENCY);
+        ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getEnchantability(), ReflectionLib.TOOL_MATERIAL_ENCHANTABILITIY);
+        ReflectionHelper.setPrivateValue(ItemTool.class, tool, material.getEfficiency(), ReflectionLib.ITEM_TOOL_EFFICIENCY);
         tool.setMaxDamage(material.getMaxUses() - 1); //subtract one from the max durability because the tool doesn't break until -1
     }
 

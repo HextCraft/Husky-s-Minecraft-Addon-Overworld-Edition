@@ -4,13 +4,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.MathHelper;
 
-public class RenderSkybox {
+public class SkyboxRender {
     private final Minecraft field_209145_a;
-    private final RenderSkyboxCube field_209146_b;
+    private final SkyboxCubeRender field_209146_b;
     private float field_209147_c;
     private double guiScaleFactor = (double) this.getScaleFactor(Minecraft.getMinecraft().gameSettings.guiScale);
 
-    public RenderSkybox(RenderSkyboxCube p_i49377_1_) {
+    public SkyboxRender(SkyboxCubeRender p_i49377_1_) {
         this.field_209146_b = p_i49377_1_;
         this.field_209145_a = Minecraft.getMinecraft();
     }

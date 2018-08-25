@@ -1,4 +1,4 @@
 package net.hdt.neutronia.base.client.gui;
 
-public class GuiGroup {
+public class GroupGui {
 }

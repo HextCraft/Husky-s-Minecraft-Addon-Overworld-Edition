@@ -9,11 +9,11 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 
-public class GuiButtonModule extends GuiButton {
+public class GroupButton extends GuiButton {
 
     final Group group;
 
-    public GuiButtonModule(int x, int y, Group group) {
+    public GroupButton(int x, int y, Group group) {
         super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.name.toLowerCase()));
         this.group = group;
     }
