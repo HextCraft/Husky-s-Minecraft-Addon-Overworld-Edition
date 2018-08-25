@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RootConfigGui extends GuiConfigBase {
 
-    private static int MODULES_PER_PAGE = 8;
+    private static int MODULES_PER_PAGE = 10;
     private final List<Group> groups;
     boolean nEnabled;
     private int page = 0;

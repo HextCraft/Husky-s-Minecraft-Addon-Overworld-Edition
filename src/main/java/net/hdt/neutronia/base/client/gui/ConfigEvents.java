@@ -37,7 +37,7 @@ public final class ConfigEvents {
             List<GuiButton> buttons = event.getButtonList();
             for (GuiButton b : buttons)
                 if (targets.contains(b.displayString)) {
-                    GuiButton qButton = new ColoredButton(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 100, "N", 0x48ddbc);
+                    GuiButton qButton = new ColoredButton(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 20, "N", 0x48ddbc);
                     buttons.add(qButton);
                     return;
                 }
