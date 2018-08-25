@@ -61,7 +61,6 @@ public class NBlocks {
     public static final BlockPurpurChiseled chiseledPurpurFilled;
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
-    public static final Block scaffoldingBlock;
     public static final Block[] closet = new Block[6];
     //    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
 //    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
@@ -230,8 +229,6 @@ public class NBlocks {
         chiseledPurpurFilled = new BlockPurpurChiseled("purpur_chiseled_filled", true);
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);
         chiseledBricksFilled = new BlockBrickChiseled("chiseled_bricks_filled", true);
-
-        scaffoldingBlock = new BlockScaffoldingBlock();
 
         for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
             closet[woodType.getMetadata()] = new BlockRandom(woodType);

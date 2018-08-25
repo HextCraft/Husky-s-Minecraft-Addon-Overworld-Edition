@@ -36,7 +36,7 @@ public final class ConfigEvents {
             List<GuiButton> buttons = event.getButtonList();
             for (GuiButton b : buttons)
                 if (targets.contains(b.displayString)) {
-                    GuiButton qButton = new GuiButtonQ(b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y);
+                    GuiButton qButton = new GuiButtonColor(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 100, "Neutronia Config", 0x48ddbc);
                     buttons.add(qButton);
                     return;
                 }
@@ -45,7 +45,7 @@ public final class ConfigEvents {
 
     @SubscribeEvent
     public static void onButtonClick(GuiScreenEvent.ActionPerformedEvent event) {
-        if (event.getButton() instanceof GuiButtonQ)
+        if (event.getButton() instanceof GuiButtonColor)
             Minecraft.getMinecraft().displayGuiScreen(new GuiConfigRoot(event.getGui()));
     }
 

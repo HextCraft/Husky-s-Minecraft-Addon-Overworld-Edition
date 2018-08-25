@@ -1,5 +1,6 @@
 package net.hdt.neutronia.world.gen;
 
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -24,9 +25,9 @@ public class OreGen implements IWorldGenerator {
     private WorldGenerator volcanicRock;
 
     public OreGen() {
-        marble = new WorldGenMinable(NBlocks.newStoneVariants[7].getDefaultState(), 22);
+        marble = new WorldGenMinable(MoreStoneBlocks.newStoneVariants[7].getDefaultState(), 22);
 //        basalt = new WorldGenMinable(NBlocks.newStoneVariants[3].getDefaultState(), 13);
-        limestone = new WorldGenMinable(NBlocks.newStoneVariants[5].getDefaultState(), 25);
+        limestone = new WorldGenMinable(MoreStoneBlocks.newStoneVariants[5].getDefaultState(), 25);
         fieryStone = new WorldGenMinable(NBlocks.glowingNetherBlocks[0].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));
         volcanicGlowRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[1].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));
         volcanicRock = new WorldGenMinable(NBlocks.glowingNetherBlocks[2].getDefaultState(), 33, BlockMatcher.forBlock(Blocks.NETHERRACK));

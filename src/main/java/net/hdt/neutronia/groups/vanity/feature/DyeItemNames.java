@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.vanity.feature;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.management.features.FavoriteItems;
 import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -48,8 +47,6 @@ public class DyeItemNames extends Component {
                 Color color = new Color(rgb);
 
                 String name = stack.getDisplayName();
-                if (FavoriteItems.isItemFavorited(stack))
-                    name = "   " + name;
 
                 if (stack.hasDisplayName())
                     name = TextFormatting.ITALIC + name;

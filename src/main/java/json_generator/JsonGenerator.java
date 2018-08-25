@@ -36,7 +36,7 @@ public class JsonGenerator {
         }
         for (EnumDyeColor color : EnumDyeColor.values()) {
             genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
-            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
+//            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
         }
     }
 
