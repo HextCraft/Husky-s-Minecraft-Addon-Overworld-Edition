@@ -35,9 +35,9 @@ public class GuiConfigFirstLoad extends GuiConfigBase {
             case 1: // Configure
                 mc.displayGuiScreen(new GuiConfigRoot(parent));
                 break;
-            case 2: // Import Config
+            /*case 2: // Import Config
                 tryOpenWebsite();
-                break;
+                break;*/
         }
     }
 

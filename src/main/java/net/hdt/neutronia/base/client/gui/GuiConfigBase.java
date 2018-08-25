@@ -1,5 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiConfirmOpenLink;
@@ -54,7 +55,7 @@ public class GuiConfigBase extends GuiScreen {
         if (backButton != null && button == backButton)
             returnToParent();
 
-        /*if (button instanceof GuiButtonConfigSetting) {
+        if (button instanceof GuiButtonConfigSetting) {
             GuiButtonConfigSetting configButton = (GuiButtonConfigSetting) button;
             configButton.prop.set(!configButton.prop.getBoolean());
             if (configButton.prop.requiresMcRestart()) {
@@ -65,7 +66,7 @@ public class GuiConfigBase extends GuiScreen {
                 mayRequireRestart = !restartRequiringProperties.isEmpty();
             }
             GroupLoader.loadConfig();
-        }*/
+        }
     }
 
     private void returnToParent() {

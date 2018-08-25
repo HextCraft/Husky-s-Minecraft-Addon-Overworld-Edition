@@ -26,6 +26,7 @@ public final class GroupLoader {
     public static Configuration config;
     public static List<Group> groups;
     public static List<Group> enabledGroups;
+    public static boolean firstLoad;
     static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
 
     static {
@@ -87,9 +88,14 @@ public final class GroupLoader {
 
     public static void setupConfig(FMLPreInitializationEvent event) {
         File configFile = event.getSuggestedConfigurationFile();
+        if(!configFile.exists())
+            firstLoad = true;
+
         config = new Configuration(configFile);
         config.load();
+
         loadConfig();
+
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }
 

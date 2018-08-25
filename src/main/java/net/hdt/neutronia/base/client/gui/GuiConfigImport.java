@@ -32,9 +32,9 @@ public class GuiConfigImport extends GuiConfigBase {
         int x = width / 2 - 100;
         int y = height / 6;
 
-        GuiButton importButton = new GuiButton(1, x, y + 110, 200, 20, I18n.translateToLocal("neutronia.config.import"));
+//        GuiButton importButton = new GuiButton(1, x, y + 110, 200, 20, I18n.translateToLocal("neutronia.config.import"));
         buttonList.add(backButton = new GuiButton(0, x, y + 167, 200, 20, I18n.translateToLocal("gui.done")));
-        buttonList.add(importButton);
+//        buttonList.add(importButton);
         buttonList.add(new GuiButton(2, x, y + 132, 200, 20, I18n.translateToLocal("neutronia.config.opensite")));
 
         textField = new GuiTextField(0, fontRenderer, x, y + 72, 200, 20);
@@ -42,8 +42,8 @@ public class GuiConfigImport extends GuiConfigBase {
         textField.setCanLoseFocus(false);
         textField.setMaxStringLength(Integer.MAX_VALUE);
 
-        if (mc.world != null)
-            importButton.enabled = false;
+        /*if (mc.world != null)
+            importButton.enabled = false;*/
     }
 
     @Override
@@ -63,9 +63,9 @@ public class GuiConfigImport extends GuiConfigBase {
                     }
                 } else FMLCommonHandler.instance().exitJava(0, false);
                 break;
-            case 2: // Open Website
+            /*case 2: // Open Website
                 tryOpenWebsite();
-                break;
+                break;*/
         }
     }
 
@@ -105,7 +105,7 @@ public class GuiConfigImport extends GuiConfigBase {
         }
 
         if (needsRestart) {
-            String s = "";
+            String s;
             if (disabledFeatures == 1)
                 s = I18n.translateToLocalFormatted("neutronia.config.disabledcount1");
             else s = I18n.translateToLocalFormatted("neutronia.config.disabledcount", disabledFeatures);
