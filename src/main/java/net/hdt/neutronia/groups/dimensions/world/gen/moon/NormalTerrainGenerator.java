@@ -204,7 +204,7 @@ public class NormalTerrainGenerator {
                                 } else if (height < waterLevel - 4 && height > 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, MoonBlocks.MOON_STONE.getDefaultState());
                                 } else if((d15 += d16) > 0.0D) {
-                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, MoonBlocks.MOON_DUST.getDefaultState());
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + 4, z4 * 4 + z, MoonBlocks.MOON_DUST.getDefaultState());
                                 }
                             }
 
