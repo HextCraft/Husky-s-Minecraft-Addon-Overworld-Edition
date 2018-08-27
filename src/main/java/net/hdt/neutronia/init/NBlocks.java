@@ -8,17 +8,11 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.*;
-import net.hdt.neutronia.blocks.nether.BlockBurnedBones;
-import net.hdt.neutronia.blocks.nether.BlockNetherBase;
-import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
-import net.hdt.neutronia.blocks.nether.BlockNetherSponge;
+import net.hdt.neutronia.blocks.base.BlockFalling;
+import net.hdt.neutronia.blocks.nether.*;
 import net.hdt.neutronia.blocks.overworld.*;
-import net.hdt.neutronia.properties.EnumAquamarineVariants;
 import net.hdt.neutronia.properties.EnumGlowingNetherBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.BlockStoneSlab;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,7 +39,6 @@ public class NBlocks {
     public static final Block[] strippedLogPoles = new Block[6];
     //Blocks for the nether
     public static final Block[] glowingNetherBlocks = new Block[24];
-    public static final BlockSoulGlass soulGlass, soulGlassOn;
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
     public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
@@ -62,7 +55,7 @@ public class NBlocks {
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
     public static final Block[] closet = new Block[6];
-    //    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+//    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
 //    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
     private static final Block[] aquamarine = new Block[6];
@@ -79,7 +72,7 @@ public class NBlocks {
     public static Block[] frostedStones = new Block[6];
     public static Block[] frostedDirts = new Block[12];
     public static Block[] frostedClay = new Block[16];
-    //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
+//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
 //    public static final Block redClayBlock, greenClayBlock;
@@ -94,10 +87,6 @@ public class NBlocks {
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
-        for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-//            aquamarine[aquamarineVariants.ordinal()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
-//            add(aquamarineVariants.getName(), aquamarine[aquamarineVariants.getID()], Material.ROCK, 0, true, false, OCEAN_EXPANSION_TAB);
-        }
         driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
@@ -105,17 +94,13 @@ public class NBlocks {
         prismarineColumn = new MRPillar(Material.ROCK, "prismarine_column", OCEAN_EXPANSION_TAB, 0.3F, 6.5F);
         chiseledPrismarine = new BlockPrismarineChiseled("chiseled_prismarine", false);
         chiseledPrismarineFilled = new BlockPrismarineChiseled("chiseled_prismarine_filled", true);
-//        elderPrismarine = new MRBlock(Material.ROCK, "elder_prismarine", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
-//        elderPrismarineBricks = new MRBlock(Material.ROCK, "elder_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F);
 
         // Nether Blocks
         netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(NETHER_EXPANSION_TAB);
-        soulGlass = new BlockSoulGlass(false, Material.GLASS, "soul_glass", NETHER_EXPANSION_TAB);
-        soulGlassOn = new BlockSoulGlass(true, Material.GLASS, "soul_glass_on", null);
         netherRod = new BlockRodBase("nether_rod", NETHER_EXPANSION_TAB, true);
         netherSponge = new BlockNetherSponge();
         burnedBones = new BlockBurnedBones();
-        ash = new BlockNetherBase(Material.SAND, "ash");
+        ash = new BlockAsh();
 
         for (EnumGlowingNetherBlocks enumGlowingNetherBlocks : EnumGlowingNetherBlocks.values()) {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNetherGlowingBase(Material.GLASS, enumGlowingNetherBlocks.getName());
@@ -255,24 +240,6 @@ public class NBlocks {
         if (slabs) {
             BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(name, material, false, creativeTabs), new BlockOverworldSlabBase(name, material, true, creativeTabs));
         }
-    }
-
-    public static void addWall(String name, Block block, int meta, CreativeTabs creativeTab) {
-        addWall(name, block, meta, BlockModWall::new, creativeTab);
-    }
-
-    public static void addWall(String name, Block block, int meta) {
-        addWall(name, block, meta, BlockModWall::new, CreativeTabs.DECORATIONS);
-    }
-
-    public static void addWall(String name, Block block, int meta, WallSupplier supplier, CreativeTabs creativeTab) {
-        IBlockState state = block.getStateFromMeta(meta);
-        String wallName = name + "_wall";
-        BlockModWall.initWall(block, meta, supplier.supply(wallName, state).setCreativeTab(creativeTab));
-    }
-
-    public interface WallSupplier {
-        BlockModWall supply(String wallName, IBlockState state);
     }
 
 }

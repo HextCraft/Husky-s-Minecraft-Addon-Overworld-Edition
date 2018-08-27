@@ -2,25 +2,19 @@ package net.hdt.neutronia.groups.tweaks.features;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import net.hdt.neutronia.base.BWMRecipes;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.ConfigHelper;
 import net.hdt.neutronia.base.util.ReflectionLib;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.HashMap;
 import java.util.Set;
@@ -29,16 +23,6 @@ import java.util.stream.Collectors;
 public class HCTools extends Component {
 
     private static final HashMap<Item.ToolMaterial, ToolMaterialOverride> OVERRIDES = Maps.newHashMap();
-    private static boolean removeLowTools;
-    private static int noDamageThreshold;
-
-    private static void removeLowTierToolRecipes() {
-        BWMRecipes.removeRecipe(new ItemStack(Items.WOODEN_AXE, OreDictionary.WILDCARD_VALUE));
-        BWMRecipes.removeRecipe(new ItemStack(Items.WOODEN_HOE, OreDictionary.WILDCARD_VALUE));
-        BWMRecipes.removeRecipe(new ItemStack(Items.WOODEN_SWORD, OreDictionary.WILDCARD_VALUE));
-        BWMRecipes.removeRecipe(new ItemStack(Items.STONE_HOE, OreDictionary.WILDCARD_VALUE));
-        BWMRecipes.removeRecipe(new ItemStack(Items.STONE_SWORD, OreDictionary.WILDCARD_VALUE));
-    }
 
     @Override
     public String getFeatureDescription() {
@@ -62,10 +46,6 @@ public class HCTools extends Component {
         OVERRIDES.put(Item.ToolMaterial.GOLD, new ToolMaterialOverride("gold", 32, 12.0F, 22));
 
         TOOLS.forEach(this::loadToolMaterialOverride);
-
-        if (removeLowTools) {
-            removeLowTierToolRecipes();
-        }
     }
 
     private void loadToolMaterialOverride(ItemTool tool) {
@@ -76,12 +56,6 @@ public class HCTools extends Component {
         ReflectionHelper.setPrivateValue(Item.ToolMaterial.class, material, override.getEnchantability(), ReflectionLib.TOOL_MATERIAL_ENCHANTABILITIY);
         ReflectionHelper.setPrivateValue(ItemTool.class, tool, material.getEfficiency(), ReflectionLib.ITEM_TOOL_EFFICIENCY);
         tool.setMaxDamage(material.getMaxUses() - 1); //subtract one from the max durability because the tool doesn't break until -1
-    }
-
-    @Override
-    public void setupConfig() {
-        removeLowTools = loadPropBool("Remove cheapest tools", "The minimum level of the hoe and the sword is iron, and the axe needs at least stone.", true);
-        noDamageThreshold = loadPropInt("No Durability Damage Harvest Level", "When destroying a 0 hardness block with a tool of this harvest level or higher, no durability damage is applied", Item.ToolMaterial.DIAMOND.getHarvestLevel());
     }
 
     @Override
@@ -97,20 +71,6 @@ public class HCTools extends Component {
         if (stack.getMaxDamage() == 1) {
             destroyItem(stack, player);
         }
-    }
-
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void harvestGarbage(BlockEvent.BreakEvent event) {
-        EntityPlayer player = event.getPlayer();
-        if (event.isCanceled() || player == null || player.isCreative())
-            return;
-        World world = event.getWorld();
-        BlockPos pos = event.getPos();
-        IBlockState state = world.getBlockState(pos);
-        ItemStack stack = player.getHeldItemMainhand();
-        String toolType = state.getBlock().getHarvestTool(state);
-        if (toolType != null && state.getBlockHardness(world, pos) <= 0 && stack.getItem().getHarvestLevel(stack, toolType, player, state) < noDamageThreshold)
-            stack.damageItem(1, player); //Make 0 hardness blocks damage tools that are not over some harvest level
     }
 
     private void destroyItem(ItemStack stack, EntityLivingBase entity) {

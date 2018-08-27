@@ -5,6 +5,8 @@ import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
 import net.hdt.neutronia.groups.decoration.features.*;
 import net.hdt.neutronia.groups.dimensions.features.*;
+import net.hdt.neutronia.groups.earlyGame.features.ClayCauldron;
+import net.hdt.neutronia.groups.earlyGame.features.ClayTools;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
 import net.hdt.neutronia.groups.misc.feature.ColorRunes;
 import net.hdt.neutronia.groups.misc.feature.EnchantedScrolls;
@@ -28,7 +30,7 @@ import net.minecraft.item.ItemStack;
 
 public class NGroups {
 
-    public static Group building, client, decoration, dimensions, experimental, misc, tweaks, vanity, world;
+    public static Group building, client, decoration, dimensions, earlyGame, experimental, misc, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -84,6 +86,14 @@ public class NGroups {
                 .withComponent(new SunDimension())
                 .withComponent(new RevampedEnd())
                 .withComponent(new RevampedNether())
+                .register();
+
+        earlyGame = Group.builder()
+                .withName("Early Game")
+                .withDesc("This group aims to extend the early game.")
+                .withIcon(new ItemStack(Items.WOODEN_AXE))
+                .withComponent(new ClayCauldron())
+                .withComponent(new ClayTools())
                 .register();
 
         experimental = Group.builder()
@@ -143,6 +153,7 @@ public class NGroups {
                 .withComponent(new PeacefulSurface())
                 .withComponent(new MobDropBuffs())
                 .withComponent(new SwingThroughGrass())
+                .withComponent(new HarderLogs())
                 .register();
 
         vanity = Group.builder()

@@ -1,8 +1,7 @@
 package net.hdt.neutronia.groups.dimensions.world.gen.moon;
 
-import net.minecraft.block.BlockColored;
+import net.hdt.neutronia.groups.dimensions.features.MoonBlocks;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -203,7 +202,7 @@ public class NormalTerrainGenerator {
                                 if (height < 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.BEDROCK.getDefaultState());
                                 } else if ((d15 += d16) > 0.0D) {
-                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.SILVER));
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, MoonBlocks.MOON_DUST.getDefaultState());
                                 }
                             }
 

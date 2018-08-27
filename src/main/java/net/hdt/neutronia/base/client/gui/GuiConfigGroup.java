@@ -3,12 +3,10 @@ package net.hdt.neutronia.base.client.gui;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.translation.I18n;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -104,7 +102,7 @@ public class GuiConfigGroup extends GuiConfigBase {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
 
-        drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100, Color.LIGHT_GRAY.getRGB());
+//        drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100, Color.LIGHT_GRAY.getRGB());
 
         if (totalPages > 1) {
             int x = width / 2;

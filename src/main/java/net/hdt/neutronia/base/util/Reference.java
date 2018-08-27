@@ -18,4 +18,6 @@ public class Reference {
     public static final boolean IS_DEV_ENV = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
     public static final File CONFIG_DIRECTORY = Loader.instance().getConfigDir();
 
+    public static final int GUI_DIRT_CRAFTING_TABLE = 1;
+
 }

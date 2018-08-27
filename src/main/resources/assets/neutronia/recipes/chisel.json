@@ -1,5 +1,5 @@
 {
-  "type": "crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "II ",
     " I ",
@@ -16,7 +16,7 @@
     }
   },
   "result": {
-    "item": "neutronia:log_stripper",
+    "item": "neutronia:chisel",
     "count": 1
   }
 }

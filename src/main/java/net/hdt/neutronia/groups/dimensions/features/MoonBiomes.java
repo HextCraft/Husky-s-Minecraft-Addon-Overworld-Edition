@@ -3,6 +3,8 @@ package net.hdt.neutronia.groups.dimensions.features;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.dimensions.world.biomes.moon.BiomeMoonMain;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -16,6 +18,11 @@ public class MoonBiomes extends Component {
         biome.setRegistryName(MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
         System.out.println(String.format("Moon Biome: %s is now registered", name));
+        BiomeDictionary.addTypes(biome, BiomeDictionary.Type.END, BiomeDictionary.Type.COLD, BiomeDictionary.Type.DEAD, BiomeDictionary.Type.MAGICAL);
+        BiomeManager.addBiome(BiomeManager.BiomeType.ICY, new BiomeManager.BiomeEntry(biome, 10));
+        BiomeManager.removeSpawnBiome(biome);
+        BiomeManager.removeStrongholdBiome(biome);
+        BiomeManager.removeVillageBiome(biome);
     }
 
     @Override
