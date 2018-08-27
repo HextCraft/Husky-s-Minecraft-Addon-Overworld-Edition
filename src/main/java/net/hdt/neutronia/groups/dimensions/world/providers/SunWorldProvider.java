@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.dimensions.world.providers;
 
-import net.hdt.neutronia.groups.dimensions.features.MoonBiomes;
+import net.hdt.neutronia.groups.dimensions.features.SunBiomes;
 import net.hdt.neutronia.groups.dimensions.features.SunDimension;
 import net.hdt.neutronia.groups.dimensions.world.gen.sun.SunChunkGenerator;
 import net.minecraft.util.math.Vec3d;
@@ -16,7 +16,7 @@ public class SunWorldProvider extends WorldProvider {
     @Override
     protected void init() {
         super.init();
-        biomeProvider = new BiomeProviderSingle(MoonBiomes.MOON_MAIN);
+        biomeProvider = new BiomeProviderSingle(SunBiomes.SUN_MAIN);
     }
 
     @Override

@@ -32,7 +32,7 @@ public class NormalTerrainGenerator {
     private Biome[] biomesForGeneration;
 
     public NormalTerrainGenerator() {
-        this.heightMap = new double[825];
+        this.heightMap = new double[256];
 
         this.biomeWeights = new float[25];
         for (int j = -2; j <= 2; ++j) {
@@ -201,7 +201,9 @@ public class NormalTerrainGenerator {
                             for (int z = 0; z < 4; ++z) {
                                 if (height < 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.BEDROCK.getDefaultState());
-                                } else if ((d15 += d16) > 0.0D) {
+                                } else if (height < waterLevel - 4 && height > 2) {
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, MoonBlocks.MOON_STONE.getDefaultState());
+                                } else if((d15 += d16) > 0.0D) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, MoonBlocks.MOON_DUST.getDefaultState());
                                 }
                             }

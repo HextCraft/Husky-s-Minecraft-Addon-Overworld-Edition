@@ -1,0 +1,19 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all",
+    "textures": {
+      "all": "neutronia:block/moondust"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
+}

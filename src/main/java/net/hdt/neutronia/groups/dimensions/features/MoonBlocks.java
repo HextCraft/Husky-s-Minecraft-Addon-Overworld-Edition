@@ -17,7 +17,7 @@ public class MoonBlocks extends Component {
         CARVED_MOON_STONE_CRACKED = new BlockMoonBase("carved_moon_stone_cracked", Material.ROCK, CreativeTabs.BUILDING_BLOCKS);
         CHISELED_MOON_STONE = new BlockMoonBase("chiseled_moon_stone", Material.ROCK, CreativeTabs.BUILDING_BLOCKS);
         CHISELED_MOON_STONE_CRACKED = new BlockMoonBase("chiseled_moon_stone_cracked", Material.ROCK, CreativeTabs.BUILDING_BLOCKS);
-        MOON_DUST = new BlockMoonBase("moon_dus", Material.SAND, CreativeTabs.BUILDING_BLOCKS);
+        MOON_DUST = new BlockMoonBase("moon_dust", Material.SAND, CreativeTabs.BUILDING_BLOCKS);
         MOON_STONE = new BlockMoonBase("moon_stone", Material.ROCK, CreativeTabs.BUILDING_BLOCKS);
         SOLID_MOON_STONE = new BlockMoonBase("solid_moon_stone", Material.ROCK, CreativeTabs.BUILDING_BLOCKS);
     }

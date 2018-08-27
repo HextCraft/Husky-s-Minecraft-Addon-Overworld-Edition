@@ -11,12 +11,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ClayTools extends Component {
 
     private Item.ToolMaterial CLAY = EnumHelper.addToolMaterial("clay", 0, 95, 3.0F, 0.5F,15);
-    private static ItemBase UNFIRED_CLAY_AXE, UNFIRED_CLAY_PICKAXE, UNFIRED_CLAY_SWORD, UNFIRED_CLAY_SHOVEL, UNFIRED_CLAY_HOE;
-    private BaseAxe FIRED_CLAY_AXE;
-    private BasePickaxe FIRED_CLAY_PICKAXE;
-    private BaseSword FIRED_CLAY_SWORD;
-    private BaseShovel FIRED_CLAY_SHOVEL;
-    private BaseHoe FIRED_CLAY_HOE;
+    public static ItemBase UNFIRED_CLAY_AXE, UNFIRED_CLAY_PICKAXE, UNFIRED_CLAY_SWORD, UNFIRED_CLAY_SHOVEL, UNFIRED_CLAY_HOE;
+    public static BaseAxe FIRED_CLAY_AXE;
+    public static BasePickaxe FIRED_CLAY_PICKAXE;
+    public static BaseSword FIRED_CLAY_SWORD;
+    public static BaseShovel FIRED_CLAY_SHOVEL;
+    public static BaseHoe FIRED_CLAY_HOE;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
