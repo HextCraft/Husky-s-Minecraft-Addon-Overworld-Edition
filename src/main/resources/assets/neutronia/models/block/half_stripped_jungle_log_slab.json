@@ -2,8 +2,8 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "parent": "minecraft:block/half_slab",
   "textures": {
-    "bottom": "neutronia:block/stripped_log_jungle_top",
-    "side": "neutronia:block/stripped_log_jungle_side",
-    "top": "neutronia:block/stripped_log_jungle_top"
+    "bottom": "neutronia:block/stripped_jungle_log_top",
+    "side": "neutronia:block/stripped_jungle_log",
+    "top": "neutronia:block/stripped_jungle_log_top"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "minecraft:block/half_slab",
+  "textures": {
+    "bottom": "neutronia:block/purhogany_planks",
+    "side": "neutronia:block/purhogany_planks",
+    "top": "neutronia:block/purhogany_planks"
+  }
+}

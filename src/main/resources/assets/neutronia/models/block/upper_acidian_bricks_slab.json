@@ -1,0 +1,9 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "minecraft:block/upper_slab",
+  "textures": {
+    "bottom": "neutronia:block/acidian_bricks",
+    "side": "neutronia:block/acidian_bricks",
+    "top": "neutronia:block/acidian_bricks"
+  }
+}

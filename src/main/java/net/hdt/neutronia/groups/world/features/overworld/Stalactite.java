@@ -3,6 +3,7 @@ package net.hdt.neutronia.groups.world.features.overworld;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.DimensionConfig;
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.groups.world.blocks.BlockStalactite;
 import net.hdt.neutronia.groups.world.world.StalactiteGenerator;
 import net.minecraft.block.Block;
@@ -38,15 +39,10 @@ public class Stalactite extends Component {
         ice_stalactite = new BlockStalactite("ice");
         packed_ice_stalactite = new BlockStalactite("packed_ice");
 
-        if (GroupLoader.isFeatureEnabled(Basalt.class))
+        if(GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
             basalt_stalactite = new BlockStalactite("basalt");
-
-        if (GroupLoader.isFeatureEnabled(BetterStoneGeneration.class)) {
-            if (BetterStoneGeneration.enableMarble)
-                marble_stalactite = new BlockStalactite("marble");
-
-            if (BetterStoneGeneration.enableLimestone)
-                limestone_stalactite = new BlockStalactite("limestone");
+            marble_stalactite = new BlockStalactite("marble");
+            limestone_stalactite = new BlockStalactite("limestone");
         }
 
         GameRegistry.registerWorldGenerator(new StalactiteGenerator(), 1000);

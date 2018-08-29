@@ -5,9 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.FileUtils;
@@ -28,7 +26,7 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+        /*for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
             genSlab(new ResourceLocation(modid, String.format("%s_wood_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("%s_log_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
@@ -37,7 +35,12 @@ public class JsonGenerator {
         for (EnumDyeColor color : EnumDyeColor.values()) {
             genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
 //            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
-        }
+        }*/
+        genSlab(new ResourceLocation(modid, "acidian_bricks_slab"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"));
+        genSlab(new ResourceLocation(modid, "chiseled_acidian_slab"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"));
+        genSlab(new ResourceLocation(modid, "natural_acidian_slab"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"));
+        genSlab(new ResourceLocation(modid, "purhogany_planks_slab"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"));
+        genSlab(new ResourceLocation(modid, "purhogany_log_slab"), new ResourceLocation(modid, "block/purhogany_log_top"), new ResourceLocation(modid, "block/purhogany_log"), new ResourceLocation(modid, "block/purhogany_log_top"));
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {

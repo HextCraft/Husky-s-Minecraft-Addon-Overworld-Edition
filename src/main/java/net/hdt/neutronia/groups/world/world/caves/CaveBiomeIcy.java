@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.world.world.caves;
 
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.hdt.neutronia.groups.world.features.overworld.CaveBiomes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -14,12 +13,6 @@ public class CaveBiomeIcy extends BasicCaveBiome {
 
     public CaveBiomeIcy() {
         super(Blocks.ICE.getDefaultState(), null, null, true);
-    }
-
-    @Override
-    public void fillCeiling(World world, BlockPos pos, IBlockState state) {
-        if (CaveBiomes.icystoneEnabled)
-            world.setBlockState(pos, CaveBiomes.icystoneState, 2);
     }
 
     @Override

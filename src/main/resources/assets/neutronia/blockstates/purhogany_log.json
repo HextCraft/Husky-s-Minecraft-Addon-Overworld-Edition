@@ -10,7 +10,17 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "normal": [{}],
+    "axis=y": {
+      "x": 0,
+      "y": 0
+    },
+    "axis=z": {
+      "x": 90
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90
+    },
     "inventory": [{}]
   }
 }

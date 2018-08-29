@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.world;
 
-import net.hdt.neutronia.groups.world.features.overworld.Basalt;
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.groups.world.features.overworld.BetterStoneGeneration.StoneInfo;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class BasaltGenerator extends StoneInfoBasedGenerator implements IWorldGenerator {
 
     public BasaltGenerator(Supplier<StoneInfo> infoSupplier) {
-        super(infoSupplier, Basalt.basalt.getDefaultState(), "basalt");
+        super(infoSupplier, MoreStoneBlocks.newStoneVariants[0].getDefaultState(), "basalt");
     }
 
     @Override

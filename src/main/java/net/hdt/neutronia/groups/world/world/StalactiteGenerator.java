@@ -1,8 +1,7 @@
 package net.hdt.neutronia.groups.world.world;
 
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.groups.world.blocks.BlockStalactite;
-import net.hdt.neutronia.groups.world.features.overworld.Basalt;
-import net.hdt.neutronia.groups.world.features.overworld.BetterStoneGeneration;
 import net.hdt.neutronia.groups.world.features.overworld.Stalactite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
@@ -117,12 +116,12 @@ public class StalactiteGenerator implements IWorldGenerator {
             return Stalactite.ice_stalactite;
         else if (block == Blocks.PACKED_ICE)
             return Stalactite.packed_ice_stalactite;
-        else if (block == Basalt.basalt)
+        else if (block == MoreStoneBlocks.newStoneVariants[0])
             return Stalactite.basalt_stalactite;
-        else if (block == BetterStoneGeneration.marble)
-            return Stalactite.marble_stalactite;
-        else if (block == BetterStoneGeneration.limestone)
+        else if (block == MoreStoneBlocks.newStoneVariants[5])
             return Stalactite.limestone_stalactite;
+        else if (block == MoreStoneBlocks.newStoneVariants[17])
+            return Stalactite.marble_stalactite;
 
         return null;
     }

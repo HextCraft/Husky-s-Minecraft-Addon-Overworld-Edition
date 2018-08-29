@@ -17,6 +17,24 @@ public class BlockCustomPressurePlate extends BlockNeutroniaPressurePlate {
         setSoundType(SoundType.WOOD);
     }
 
+    public BlockCustomPressurePlate(String variant, Material material) {
+        super(variant + "_pressure_plate", material, Sensitivity.EVERYTHING);
+        setHardness(0.5F);
+        setSoundType(SoundType.WOOD);
+    }
+
+    public BlockCustomPressurePlate(String variant, Material material, SoundType soundType) {
+        super(variant + "_pressure_plate", material, Sensitivity.EVERYTHING);
+        setHardness(0.5F);
+        setSoundType(soundType);
+    }
+
+    public BlockCustomPressurePlate(String variant, Material material, SoundType soundType, Sensitivity sensitivity) {
+        super(variant + "_pressure_plate", material, sensitivity);
+        setHardness(0.5F);
+        setSoundType(soundType);
+    }
+
     @Override
     protected List<Entity> getValidEntities(World world, AxisAlignedBB aabb) {
         return world.getEntitiesWithinAABBExcludingEntity(null, aabb);

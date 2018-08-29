@@ -8,4 +8,8 @@ public class BlockCustomButton extends BlockNeutroniaButton {
         super(variant + "_button", true);
     }
 
+    public BlockCustomButton(String variant, boolean wooden) {
+        super(variant + "_button", wooden);
+    }
+
 }

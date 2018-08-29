@@ -1,26 +1,17 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.huskylib2.block.BlockModSlab;
-import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.BiomeTypeConfigHandler;
 import net.hdt.neutronia.base.handler.server.DimensionConfig;
-import net.hdt.neutronia.groups.building.features.VanillaWalls;
-import net.hdt.neutronia.groups.world.blocks.BlockBiomeCobblestone;
 import net.hdt.neutronia.groups.world.blocks.BlockGlowcelium;
 import net.hdt.neutronia.groups.world.blocks.BlockGlowshroom;
-import net.hdt.neutronia.groups.world.blocks.slab.BlockFireStoneSlab;
-import net.hdt.neutronia.groups.world.blocks.slab.BlockIcyStoneSlab;
-import net.hdt.neutronia.groups.world.blocks.stairs.BlockFireStoneStairs;
-import net.hdt.neutronia.groups.world.blocks.stairs.BlockIcyStoneStairs;
 import net.hdt.neutronia.groups.world.world.CaveBiomeGenerator;
 import net.hdt.neutronia.groups.world.world.caves.*;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -42,23 +33,18 @@ public class CaveBiomes extends Component {
 
     public static List<CaveBiomeGenerator> biomes;
 
-    public static BlockMod biome_cobblestone;
     public static BlockMod glowcelium;
     public static Block glowshroom;
 
     public static int glowshroomGrowthRate;
 
-    public static IBlockState firestoneState, icystoneState;
-
-    public static boolean firestoneEnabled, icystoneEnabled, glowceliumEnabled;
+    public static boolean glowceliumEnabled;
     boolean enableStairsAndSlabs, enableWalls;
 
     @Override
     public void setupConfig() {
         biomes = new ArrayList<>();
 
-        firestoneEnabled = loadPropBool("Enable Firestone", "", true);
-        icystoneEnabled = loadPropBool("Enable Froststone", "", true);
         glowceliumEnabled = loadPropBool("Enable Glowcelium and Glowshrooms", "", true);
         enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
         enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
@@ -78,35 +64,12 @@ public class CaveBiomes extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        if (firestoneEnabled || icystoneEnabled)
-            biome_cobblestone = new BlockBiomeCobblestone();
-
-        if (enableStairsAndSlabs) {
-            if (firestoneEnabled) {
-                BlockModSlab.initSlab(biome_cobblestone, 0, new BlockFireStoneSlab(false), new BlockFireStoneSlab(true));
-                BlockModStairs.initStairs(biome_cobblestone, 0, new BlockFireStoneStairs());
-            }
-
-            if (icystoneEnabled) {
-                BlockModSlab.initSlab(biome_cobblestone, 1, new BlockIcyStoneSlab(false), new BlockIcyStoneSlab(true));
-                BlockModStairs.initStairs(biome_cobblestone, 1, new BlockIcyStoneStairs());
-            }
-        }
-
-        VanillaWalls.add("fire_stone", biome_cobblestone, 0, enableWalls && firestoneEnabled);
-        VanillaWalls.add("icy_stone", biome_cobblestone, 1, enableWalls && icystoneEnabled);
-
         if (glowceliumEnabled) {
             glowcelium = new BlockGlowcelium();
             glowshroom = new BlockGlowshroom();
 
             RecipeHandler.addShapelessOreDictRecipe(new ItemStack(Items.MUSHROOM_STEW), "mushroomAny", "mushroomAny", new ItemStack(Items.BOWL));
         }
-
-        if (firestoneEnabled)
-            firestoneState = biome_cobblestone.getDefaultState().withProperty(biome_cobblestone.getVariantProp(), BlockBiomeCobblestone.Variants.FIRE_STONE);
-        if (icystoneEnabled)
-            icystoneState = biome_cobblestone.getDefaultState().withProperty(biome_cobblestone.getVariantProp(), BlockBiomeCobblestone.Variants.ICY_STONE);
     }
 
     @Override

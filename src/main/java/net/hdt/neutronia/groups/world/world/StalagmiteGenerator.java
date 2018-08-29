@@ -1,8 +1,7 @@
 package net.hdt.neutronia.groups.world.world;
 
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.groups.world.blocks.BlockStalagmite;
-import net.hdt.neutronia.groups.world.features.overworld.Basalt;
-import net.hdt.neutronia.groups.world.features.overworld.BetterStoneGeneration;
 import net.hdt.neutronia.groups.world.features.overworld.Stalagmite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
@@ -116,12 +115,12 @@ public class StalagmiteGenerator implements IWorldGenerator {
             return Stalagmite.ice_stalagmite;
         else if (block == Blocks.PACKED_ICE)
             return Stalagmite.packed_ice_stalagmite;
-        else if (block == Basalt.basalt)
+        else if (block == MoreStoneBlocks.newStoneVariants[0])
             return Stalagmite.basalt_stalagmite;
-        else if (block == BetterStoneGeneration.marble)
-            return Stalagmite.marble_stalagmite;
-        else if (block == BetterStoneGeneration.limestone)
+        else if (block == MoreStoneBlocks.newStoneVariants[5])
             return Stalagmite.limestone_stalagmite;
+        else if (block == MoreStoneBlocks.newStoneVariants[17])
+            return Stalagmite.marble_stalagmite;
 
         return null;
     }

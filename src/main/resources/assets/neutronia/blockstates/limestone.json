@@ -5,19 +5,7 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "variant=stone_limestone": [
-      {
-        "textures": {
-          "all": "neutronia:block/stone_limestone"
-        }
-      }
-    ],
-    "variant=stone_limestone_smooth": [
-      {
-        "textures": {
-          "all": "neutronia:block/stone_limestone_smooth"
-        }
-      }
-    ]
+    "variant=raw_limestone": [{ "textures": { "all": "neutronia:block/raw_limestone" } }],
+    "variant=smooth_limestone": [{ "textures": { "all": "neutronia:block/smooth_limestone" } }]
   }
 }
