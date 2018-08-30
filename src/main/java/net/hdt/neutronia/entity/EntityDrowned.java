@@ -9,7 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityZombie;
@@ -17,14 +16,15 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.*;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -35,7 +35,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
-import java.util.Calendar;
 import java.util.Random;
 
 public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
@@ -87,11 +86,6 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     }
 
     @Override
-    protected PathNavigate createNavigator(World world) {
-        return new PathNavigateGround(this, world);
-    }
-
-    @Override
     protected boolean isValidLightLevel() {
         return true;
     }
@@ -99,73 +93,6 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     @Override
     public float getBlockPathWeight(BlockPos pos) {
         return world.getBlockState(pos).getMaterial() == Material.WATER ? 10.0F + world.getLightBrightness(pos) - 0.5F : super.getBlockPathWeight(pos);
-    }
-
-    @Override
-    public void onLivingUpdate() {
-        if (getEntityWorld().isRemote) {
-            if (isInWater()) {
-                Vec3d vec3d = getLook(0.0F);
-                for (int i = 0; i < 2; ++i)
-                    getEntityWorld().spawnParticle(EnumParticleTypes.WATER_BUBBLE, posX + (rand.nextDouble() - 0.5D) * (double) width - vec3d.x * 1.5D, posY + rand.nextDouble() * (double) height - vec3d.y * 1.5D, posZ + (rand.nextDouble() - 0.5D) * (double) width - vec3d.z * 1.5D, 0.0D, 0.0D, 0.0D);
-            }
-        }
-
-        if (inWater) {
-            setAir(300);
-        } else if (onGround) {
-            motionY += 0.5D;
-            motionX += (double) ((rand.nextFloat() * 2.0F - 1.0F) * 0.4F);
-            motionZ += (double) ((rand.nextFloat() * 2.0F - 1.0F) * 0.4F);
-            rotationYaw = rand.nextFloat() * 360.0F;
-            onGround = false;
-            isAirBorne = true;
-            if (getEntityWorld().getTotalWorldTime() % 5 == 0)
-                getEntityWorld().playSound(null, posX, posY, posZ, SoundEvents.ENTITY_GUARDIAN_FLOP, SoundCategory.HOSTILE, 1F, 1F);
-            damageEntity(DamageSource.DROWN, 0.5F);
-        }
-
-        super.onLivingUpdate();
-    }
-
-    @Override
-    public void onUpdate() {
-        if (!getEntityWorld().isRemote) {
-            if (getAttackTarget() != null && !getEntityWorld().containsAnyLiquid(getAttackTarget().getEntityBoundingBox())) {
-                Double distance = getPosition().getDistance((int) getAttackTarget().posX, (int) getAttackTarget().posY, (int) getAttackTarget().posZ);
-                if (distance > 1.0F && distance < 6.0F)
-                    if (isInWater() && getEntityWorld().isAirBlock(new BlockPos((int) posX, (int) posY + 1, (int) posZ))) {
-                        double distanceX = getAttackTarget().posX - posX;
-                        double distanceZ = getAttackTarget().posZ - posZ;
-                        float distanceSqrRoot = MathHelper.sqrt(distanceX * distanceX + distanceZ * distanceZ);
-                        motionX = distanceX / distanceSqrRoot * 0.5D * 0.900000011920929D + motionX * 0.70000000298023224D;
-                        motionZ = distanceZ / distanceSqrRoot * 0.5D * 0.900000011920929D + motionZ * 0.70000000298023224D;
-                        motionY = 0.4D;
-                    }
-            }
-        }
-        super.onUpdate();
-    }
-
-    @Override
-    public void travel(float strafe, float up, float forward) {
-        if (isServerWorld()) {
-            if (isInWater()) {
-                moveRelative(strafe, up, forward, 0.1F);
-                move(MoverType.SELF, motionX, motionY, motionZ);
-                motionX *= 0.8999999761581421D;
-                motionY *= 1D;
-                motionZ *= 0.8999999761581421D;
-
-                if (getAttackTarget() == null) {
-                    motionY -= 0.005D;
-                }
-            } else {
-                super.travel(strafe, up, forward);
-            }
-        } else {
-            super.travel(strafe, up, forward);
-        }
     }
 
     /**
@@ -204,10 +131,6 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         return true;
     }
 
-    public boolean isPushedByWater() {
-        return false;
-    }
-
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
         boolean flag = super.attackEntityAsMob(entityIn);
@@ -219,30 +142,6 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
                 entityIn.setFire(2 * (int) f);
         }
         return flag;
-    }
-
-    /**
-     * TODO: Change Sounds...
-     */
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_ZOMBIE_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_ZOMBIE_DEATH;
-    }
-
-    // TODO ^
-
-    protected SoundEvent getStepSound() {
-        return SoundEvents.ENTITY_ZOMBIE_STEP;
     }
 
     @Override
@@ -258,21 +157,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     @Nullable
     @Override
     protected ResourceLocation getLootTable() {
-        return LootTableHandler.FORSAKEN_DIVER;
-    }
-
-    @Override
-    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        super.setEquipmentBasedOnDifficulty(difficulty);
-
-        if (this.rand.nextFloat() < (this.world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F)) {
-            int i = this.rand.nextInt(3);
-
-            if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.anchor));
-            else
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, ItemStack.EMPTY);
-        }
+        return LootTableHandler.DROWNED;
     }
 
     @Override
@@ -283,48 +168,6 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     @Override
     protected boolean canEquipItem(ItemStack stack) {
         return stack.getItem() == NItems.anchor;
-    }
-
-    @Nullable
-    @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-        if (!getCanSpawnHere())
-            despawnEntity();
-        else {
-            setBreakDoorsAItask(false);
-            livingdata = super.onInitialSpawn(difficulty, livingdata);
-            float f = difficulty.getClampedAdditionalDifficulty();
-            this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-            if (this.getItemStackFromSlot(EntityEquipmentSlot.HEAD).isEmpty()) {
-                Calendar calendar = this.world.getCurrentDate();
-                if (calendar.get(Calendar.MONTH) + 1 == 10 && calendar.get(Calendar.DATE) == 31 && this.rand.nextFloat() < 0.25F) {
-                    this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(this.rand.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
-                    this.inventoryArmorDropChances[EntityEquipmentSlot.HEAD.getIndex()] = 0.0F;
-                }
-            }
-            this.setEquipmentBasedOnDifficulty(difficulty);
-            this.setEnchantmentBasedOnDifficulty(difficulty);
-
-            this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).applyModifier(new AttributeModifier("Spawn Bonus", this.rand.nextDouble() * 0.05000000074505806D, 0));
-            double d0 = this.rand.nextDouble() * 1.5D * (double) f;
-
-            if (d0 > 1.0D)
-                this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).applyModifier(new AttributeModifier("Random Anchored-Spawn Bonus", d0, 2));
-
-            if (this.rand.nextFloat() < f * 0.0F && this.world.getDifficulty() == EnumDifficulty.HARD) {
-                this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier("Leader Anchored Bonus", this.rand.nextDouble() * 3.0D + 1.0D, 2));
-            }
-        }
-        return livingdata;
-    }
-
-    private boolean func_204715_dF() {
-        if (this.field_204718_bx) {
-            return true;
-        } else {
-            EntityLivingBase entitylivingbase = this.getAttackTarget();
-            return entitylivingbase != null && entitylivingbase.isInWater();
-        }
     }
 
     public boolean func_204714_e(@Nullable EntityLivingBase p_204714_1_) {
@@ -352,8 +195,123 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         }
     }
 
+    protected PathNavigate createNavigator(World p_createNavigator_1_) {
+        return super.createNavigator(p_createNavigator_1_);
+    }
+
+    public IEntityLivingData onInitialSpawn(DifficultyInstance p_onInitialSpawn_1_, @Nullable IEntityLivingData p_onInitialSpawn_2_) {
+        p_onInitialSpawn_2_ = super.onInitialSpawn(p_onInitialSpawn_1_, p_onInitialSpawn_2_);
+        if (this.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND).isEmpty() && this.rand.nextFloat() < 0.03F) {
+            this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(NItems.nautilusShell));
+            this.inventoryHandsDropChances[EntityEquipmentSlot.OFFHAND.getIndex()] = 2.0F;
+        }
+
+        return p_onInitialSpawn_2_;
+    }
+
+    /*public boolean canSpawn(World p_canSpawn_1_) {
+        Biome lvt_2_1_ = p_canSpawn_1_.getBiome(new BlockPos(this.posX, this.posY, this.posZ));
+        if (lvt_2_1_ != Biomes.RIVER && lvt_2_1_ != Biomes.FROZEN_RIVER) {
+            return this.rand.nextInt(40) == 0 && this.func_204712_dC() && super.canSpawn(p_canSpawn_1_);
+        } else {
+            return this.rand.nextInt(15) == 0 && super.canSpawn(p_canSpawn_1_);
+        }
+    }*/
+
+    private boolean func_204712_dC() {
+        return this.getEntityBoundingBox().minY < (double)(this.world.getSeaLevel() - 5);
+    }
+
+    protected boolean canBreakDoors() {
+        return false;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return this.isInWater() ? NSounds.ENTITY_DROWNED_AMBIENT_WATER : NSounds.ENTITY_DROWNED_AMBIENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource p_getHurtSound_1_) {
+        return this.isInWater() ? NSounds.ENTITY_DROWNED_HURT_WATER : NSounds.ENTITY_DROWNED_HURT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return this.isInWater() ? NSounds.ENTITY_DROWNED_DEATH_WATER : NSounds.ENTITY_DROWNED_DEATH;
+    }
+
+    protected SoundEvent getStepSound() {
+        return NSounds.ENTITY_DROWNED_STEP;
+    }
+
+    protected SoundEvent getSwimSound() {
+        return NSounds.ENTITY_DROWNED_SWIM;
+    }
+
     protected ItemStack getSkullDrop() {
-        return new ItemStack(Items.SKULL, 1, 2);
+        return ItemStack.EMPTY;
+    }
+
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance p_setEquipmentBasedOnDifficulty_1_) {
+        if ((double)this.rand.nextFloat() > 0.9D) {
+            int lvt_2_1_ = this.rand.nextInt(16);
+            if (lvt_2_1_ < 10) {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.trident));
+            } else {
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.FISHING_ROD));
+            }
+        }
+    }
+
+    protected boolean shouldDrown() {
+        return false;
+    }
+
+    public boolean isNotColliding(World p_isNotColliding_1_) {
+        return p_isNotColliding_1_.checkNoEntityCollision(this.getEntityBoundingBox(), this) && p_isNotColliding_1_.getCollisionBoxes(this, this.getEntityBoundingBox()).isEmpty();
+    }
+
+    public boolean shouldAttack(@Nullable EntityLivingBase p_shouldAttack_1_) {
+        if (p_shouldAttack_1_ != null) {
+            return !this.world.isDaytime() || p_shouldAttack_1_.isInWater();
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isPushedByWater() {
+        return false;
+    }
+
+    private boolean func_204715_dF() {
+        if (this.field_204718_bx) {
+            return true;
+        } else {
+            EntityLivingBase lvt_1_1_ = this.getAttackTarget();
+            return lvt_1_1_ != null && lvt_1_1_.isInWater();
+        }
+    }
+
+    public void travel(float p_travel_1_, float p_travel_2_, float p_travel_3_) {
+        if (this.isServerWorld() && this.isInWater() && this.func_204715_dF()) {
+            this.moveRelative(p_travel_1_, p_travel_2_, p_travel_3_, 0.01F);
+            this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
+            this.motionX *= 0.8999999761581421D;
+            this.motionY *= 0.8999999761581421D;
+            this.motionZ *= 0.8999999761581421D;
+        } else {
+            super.travel(p_travel_1_, p_travel_2_, p_travel_3_);
+        }
+
+    }
+
+    protected boolean isCloseToPathTarget() {
+        Path lvt_1_1_ = this.getNavigator().getPath();
+        if (lvt_1_1_ != null) {
+            PathPoint lvt_2_1_ = lvt_1_1_.getTarget();
+            double lvt_3_1_ = this.getDistanceSq((double)lvt_2_1_.x, (double)lvt_2_1_.y, (double)lvt_2_1_.z);
+            return lvt_3_1_ < 4.0D;
+        }
+
+        return false;
     }
 
     @Override
@@ -381,9 +339,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
 
             double d0 = this.getDistanceSq((double) pathpoint.x, (double) pathpoint.y, (double) pathpoint.z);
 
-            if (d0 < 4.0D) {
-                return true;
-            }
+            return d0 < 4.0D;
         }
 
         return false;
@@ -584,31 +540,31 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         }
 
         public void onUpdateMoveHelper() {
-            EntityLivingBase entitylivingbase = this.drownedIn.getAttackTarget();
+            EntityLivingBase entityLiving = this.drownedIn.getAttackTarget();
 
             if (this.drownedIn.func_204715_dF() && this.drownedIn.isInWater()) {
-                if (entitylivingbase != null && entitylivingbase.posY > this.drownedIn.posY || this.drownedIn.field_204718_bx) {
+                if (entityLiving != null && entityLiving.posY > this.drownedIn.posY || this.drownedIn.field_204718_bx) {
                     this.drownedIn.motionY += 0.002D;
                 }
 
-                if (this.action != EntityMoveHelper.Action.MOVE_TO || this.drownedIn.getNavigator().noPath()) {
+                if (this.action != Action.MOVE_TO || this.drownedIn.getNavigator().noPath()) {
                     this.drownedIn.setAIMoveSpeed(0.0F);
                     return;
                 }
 
-                double d0 = this.posX - this.drownedIn.posX;
-                double d1 = this.posY - this.drownedIn.posY;
-                double d2 = this.posZ - this.drownedIn.posZ;
-                double d3 = (double) MathHelper.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
-                d1 = d1 / d3;
-                float f = (float) (MathHelper.atan2(d2, d0) * (180D / Math.PI)) - 90.0F;
-                this.drownedIn.rotationYaw = this.limitAngle(this.drownedIn.rotationYaw, f, 90.0F);
+                double lvt_2_1_ = this.posX - this.drownedIn.posX;
+                double lvt_4_1_ = this.posY - this.drownedIn.posY;
+                double lvt_6_1_ = this.posZ - this.drownedIn.posZ;
+                double lvt_8_1_ = (double)MathHelper.sqrt(lvt_2_1_ * lvt_2_1_ + lvt_4_1_ * lvt_4_1_ + lvt_6_1_ * lvt_6_1_);
+                lvt_4_1_ /= lvt_8_1_;
+                float lvt_10_1_ = (float)(MathHelper.atan2(lvt_6_1_, lvt_2_1_) * 57.2957763671875D) - 90.0F;
+                this.drownedIn.rotationYaw = this.limitAngle(this.drownedIn.rotationYaw, lvt_10_1_, 90.0F);
                 this.drownedIn.renderYawOffset = this.drownedIn.rotationYaw;
-                float f1 = (float) (this.speed * this.drownedIn.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
-                this.drownedIn.setAIMoveSpeed(this.drownedIn.getAIMoveSpeed() + (f1 - this.drownedIn.getAIMoveSpeed()) * 0.125F);
-                this.drownedIn.motionY += (double) this.drownedIn.getAIMoveSpeed() * d1 * 0.1D;
-                this.drownedIn.motionX += (double) this.drownedIn.getAIMoveSpeed() * d0 * 0.005D;
-                this.drownedIn.motionZ += (double) this.drownedIn.getAIMoveSpeed() * d2 * 0.005D;
+                float lvt_11_1_ = (float)(this.speed * this.drownedIn.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
+                this.drownedIn.setAIMoveSpeed(this.drownedIn.getAIMoveSpeed() + (lvt_11_1_ - this.drownedIn.getAIMoveSpeed()) * 0.125F);
+                this.drownedIn.motionY += (double)this.drownedIn.getAIMoveSpeed() * lvt_4_1_ * 0.1D;
+                this.drownedIn.motionX += (double)this.drownedIn.getAIMoveSpeed() * lvt_2_1_ * 0.005D;
+                this.drownedIn.motionZ += (double)this.drownedIn.getAIMoveSpeed() * lvt_6_1_ * 0.005D;
             } else {
                 if (!this.drownedIn.onGround) {
                     this.drownedIn.motionY -= 0.008D;

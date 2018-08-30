@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.render.model;
 
-import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
@@ -8,7 +8,8 @@ import net.minecraft.entity.Entity;
  * Adventurer Villager - Undefined
  * Created using Tabula 7.0.0
  */
-public class ModelAdventurerVillager extends ModelBase {
+public class ModelAdventurerVillager extends ModelBiped {
+
     public ModelRenderer Head;
     public ModelRenderer BackPack1;
     public ModelRenderer BackPack2;

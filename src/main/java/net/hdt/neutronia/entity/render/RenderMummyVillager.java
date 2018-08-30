@@ -2,13 +2,13 @@ package net.hdt.neutronia.entity.render;
 
 import net.hdt.neutronia.entity.EntityMummyVillager;
 import net.hdt.neutronia.entity.render.model.ModelMummyVillager;
-import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class RenderMummyVillager extends RenderBiped<EntityMummyVillager> {
+public class RenderMummyVillager extends RenderLiving<EntityMummyVillager> {
 
     private static final ResourceLocation ZOMBIE_VILLAGER_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_villager.png");
     private static final ResourceLocation ZOMBIE_VILLAGER_FARMER_LOCATION = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy_farmer.png");
