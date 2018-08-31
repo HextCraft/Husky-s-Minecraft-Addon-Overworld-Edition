@@ -55,8 +55,8 @@ public class HelperFunctions {
     }
 
     /**
-     * @param bookStack   ItemStack containing the enchantetd book
-     * @param enchantment The enchantment being matched
+     * @param enchantment The enchantment being matches
+     * @param level the xp level required for the enchantment
      * @return true if the book has said enchantment, false otherwise
      */
     public static NBTTagCompound getEnchantedBookNBT(Enchantment enchantment, int level) {
