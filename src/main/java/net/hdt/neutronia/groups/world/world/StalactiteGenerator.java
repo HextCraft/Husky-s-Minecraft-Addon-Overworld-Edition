@@ -26,18 +26,18 @@ public class StalactiteGenerator implements IWorldGenerator {
         int x = chunkX * 16 + 8;
         int z = chunkZ * 16 + 8;
 
-        int spread = 16;
+        int spread = 10;
         int tries = Stalactite.tries;
         int innerSpread = 6;
         int innerTries = Stalactite.clusterCount;
-        int upperBound = world.getSeaLevel();
+        int upperBound = Stalactite.maxHeight;
         int offset = 6;
 
         if (world.provider.isNether()) {
             upperBound = 128;
             offset = 0;
             tries = Stalactite.netherTries;
-            innerSpread = Stalactite.netherClusterCount;
+            innerTries = Stalactite.netherClusterCount;
         }
 
         for (int i = 0; i < tries; i++) {

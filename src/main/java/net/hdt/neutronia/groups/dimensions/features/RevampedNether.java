@@ -45,4 +45,9 @@ public class RevampedNether extends Component {
         NNBiomeManager.resetBiomes();
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

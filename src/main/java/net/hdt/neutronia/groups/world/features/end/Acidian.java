@@ -34,4 +34,9 @@ public class Acidian extends Component {
         VanillaWalls.add(naturalAcidian.getRegistryName().getPath(), naturalAcidian, 0, true);
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

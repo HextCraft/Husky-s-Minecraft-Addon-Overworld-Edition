@@ -30,4 +30,5 @@ public class AnimalBirth extends Component {
     public boolean hasSubscriptions() {
         return true;
     }
+
 }

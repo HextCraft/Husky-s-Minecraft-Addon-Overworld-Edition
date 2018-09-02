@@ -29,7 +29,7 @@ public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaB
         setHardness(3.0F);
         setSoundType(SoundType.WOOD);
 
-        variants = new String[]{name};
+        variants = new String[] { name };
         bareName = name;
 
         setTranslationKey(name);

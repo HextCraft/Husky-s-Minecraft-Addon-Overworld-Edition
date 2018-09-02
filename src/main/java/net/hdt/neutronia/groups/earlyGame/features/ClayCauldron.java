@@ -13,4 +13,9 @@ public class ClayCauldron extends Component {
         clayCauldron = new BlockClayCauldron();
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

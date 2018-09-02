@@ -31,4 +31,9 @@ public class ImprovedWorldGen extends Component {
         DimensionManager.registerDimension(0, overworld);
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

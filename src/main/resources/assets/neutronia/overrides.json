@@ -1,0 +1,58 @@
+{
+    "overrides": [
+      {
+        "name": "Granite",
+        "files": [
+          "textures/block//stone_granite.png"
+        ]
+      },
+      {
+        "name": "Andesite",
+        "files": [
+          "textures/block//stone_andesite.png"
+        ]
+      },
+      {
+        "name": "Diorite",
+        "files": [
+          "textures/block//stone_diorite.png"
+        ]
+      },
+      {
+        "name": "Bricks",
+        "files": [
+          "textures/block//stone_bricks.png"
+        ]
+      },
+      {
+        "name": "Glass",
+        "files": [
+          "textures/block//stone_glass.png"
+        ]
+      },
+      {
+        "name": "Polished Granite",
+        "files":[
+            "textures/block//stone_granite_smooth.png"
+        ]
+      },
+      {
+        "name": "Polished Andesite",
+        "files":[
+            "textures/block//stone_andesite_smooth.png"
+        ]
+      },
+      {
+        "name": "Polished Diorite",
+        "files":[
+            "textures/block//stone_diorite_smooth.png"
+        ]
+      },
+      {
+        "name": "Bow Animation",
+        "files": [
+          "models/item//bow.json"
+        ]
+      }
+    ]
+  }

@@ -15,4 +15,9 @@ public class MarsDimension extends Component {
         DimensionManager.registerDimension(3, MARS);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

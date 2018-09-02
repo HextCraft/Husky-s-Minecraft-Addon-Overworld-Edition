@@ -18,4 +18,9 @@ public class MoonBlocks extends Component {
         }
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

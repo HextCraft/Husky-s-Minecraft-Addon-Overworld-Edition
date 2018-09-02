@@ -46,7 +46,7 @@ public class NetherFossilGenerator implements IWorldGenerator {
             } while (stateAt.getBlock().isAir(stateAt, world, pos) && pos.getY() > 0);
 
             if (stateAt.getBlock() == Blocks.LAVA)
-                generateFossil(world, random, pos.up(random.nextInt(2) + 1));
+                generateFossil(world, random, pos.up(random.nextInt(2)));
         }
     }
 

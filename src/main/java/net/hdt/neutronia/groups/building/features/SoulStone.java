@@ -38,4 +38,9 @@ public class SoulStone extends Component {
                 'S', ProxyRegistry.newStack(soulStoneSlabSingle[0], 1));
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

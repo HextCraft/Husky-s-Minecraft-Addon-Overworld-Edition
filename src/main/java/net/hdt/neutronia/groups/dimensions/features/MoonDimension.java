@@ -15,4 +15,9 @@ public class MoonDimension extends Component {
         DimensionManager.registerDimension(2, MOON);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

@@ -172,4 +172,9 @@ public class VariedButtonsAndPressurePlates extends Component {
         return true;
     }
 
+    @Override
+    public String getComponentIngameConfigName() {
+        return "Varied Buttons/P.Plates";
+    }
+
 }

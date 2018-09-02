@@ -55,8 +55,8 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void addResourceOverride(String space, String dir, String file, String ext) {
-        resourceProxy.addResource(space, dir, file, ext);
+    public void addResourceOverride(String path, String file) {
+        resourceProxy.addResource(path, file);
     }
 
     @Override

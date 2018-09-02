@@ -190,4 +190,10 @@ public class VisibleStorms extends Component {
         Biome biome = world.getBiome(pos);
         return BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY);
     }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

@@ -32,4 +32,9 @@ public class ClayTools extends Component {
         FIRED_CLAY_HOE = new BaseHoe("fired_clay_hoe", CLAY);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

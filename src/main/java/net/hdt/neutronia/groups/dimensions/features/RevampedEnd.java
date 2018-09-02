@@ -34,4 +34,9 @@ public class RevampedEnd extends Component {
         NEBiomeManager.resetBiomes();
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

@@ -1,65 +1,67 @@
 package net.hdt.neutronia.groups.client.features;
 
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.function.BiConsumer;
+
+import com.google.gson.Gson;
+
 import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import java.util.function.BiConsumer;
 
 public class BetterVanillaTextures extends Component {
 
-    boolean granite, andesite, diorite, smoothGranite, smoothAndesite, smoothDiorite, bricks, glass, pumpkinFace, pistonModels, bowAnimation, observer;
+    private static final String OVERRIDES_JSON_FILE = "/assets/" + LibMisc.MOD_ID + "/overrides.json";
+    private static final Gson GSON = new Gson();
+	
+	OverrideHolder overrides = null;
+
 
     @Override
     public void setupConfig() {
-        granite = loadPropBool("Override Granite", "", true);
-        andesite = loadPropBool("Override Andesite", "", true);
-        diorite = loadPropBool("Override Diorite", "", true);
-        bricks = loadPropBool("Override Bricks", "", true);
-        glass = loadPropBool("Override Glass", "", true);
-        bowAnimation = loadPropBool("Override Bow Animation", "", true);
-        smoothAndesite = loadPropBool("Override Smooth Andesite", "", true);
-        smoothDiorite = loadPropBool("Override Smooth Diorite", "", true);
-        smoothGranite = loadPropBool("Override Smooth Granite", "", true);
+        if(overrides == null) {
+			InputStreamReader reader = new InputStreamReader(Neutronia.class.getResourceAsStream(OVERRIDES_JSON_FILE));
+			overrides = GSON.fromJson(reader, OverrideHolder.class);
+		}
+		
+		for(OverrideEntry e : overrides.overrides)
+			e.configVal = loadPropBool("Enable " + e.name, "", !e.disabled);
     }
 
     @Override
     public void preInitClient(FMLPreInitializationEvent event) {
-        overrideBlock("stone_granite", granite);
-        overrideBlock("stone_andesite", andesite);
-        overrideBlock("stone_diorite", diorite);
-        overrideBlock("brick", bricks);
-        overrideBlock("glass", glass);
-        overrideBlock("stone_granite_smooth", smoothGranite);
-        overrideBlock("stone_diorite_smooth", smoothDiorite);
-        overrideBlock("stone_andesite_smooth", smoothAndesite);
-
-        overrideItemModel("bow", bowAnimation);
-    }
-
-    private void overrideBlock(String str, boolean flag) {
-        if (flag)
-            Neutronia.proxy.addResourceOverride("textures", "block", str, "png");
-    }
-
-    private void overrideBlockModel(String str, boolean flag) {
-        if (flag)
-            Neutronia.proxy.addResourceOverride("models", "block", str, "json");
-    }
-
-    private void overrideItemModel(String str, boolean flag) {
-        if (flag)
-            Neutronia.proxy.addResourceOverride("models", "item", str, "json");
-    }
-
-    private void batch(BiConsumer<String, Boolean> f, boolean flag, String... vars) {
-        for (String s : vars)
-            f.accept(s, flag);
+        overrides.overrides.forEach(OverrideEntry::apply);
     }
 
     @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }
+
+    private static class OverrideHolder {
+		
+		List<OverrideEntry> overrides;
+		
+	}
+	
+	private static class OverrideEntry {
+		
+		String name;
+		String[] files;
+		boolean disabled = false;
+		
+		boolean configVal;
+		
+		void apply() {
+			if(configVal) 
+				for(String file : files) {
+					String[] tokens = file.split("\\/\\/");
+					Neutronia.proxy.addResourceOverride(tokens[0], tokens[1]);
+				}
+		}
+		
+	}
 
 }

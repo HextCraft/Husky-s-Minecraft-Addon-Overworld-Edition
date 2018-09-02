@@ -17,7 +17,7 @@ public interface IProxy {
 
     void serverStarting(FMLServerStartingEvent event);
 
-    void addResourceOverride(String space, String dir, String file, String ext);
+    void addResourceOverride(String path, String file);
 
     default float getPartialTicks() {
         return 0.0F;

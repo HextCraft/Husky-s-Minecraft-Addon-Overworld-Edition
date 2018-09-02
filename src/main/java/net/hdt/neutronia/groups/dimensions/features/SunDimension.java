@@ -15,4 +15,9 @@ public class SunDimension extends Component {
         DimensionManager.registerDimension(4, SUN);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

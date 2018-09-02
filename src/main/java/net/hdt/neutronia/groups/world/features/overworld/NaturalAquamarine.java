@@ -20,4 +20,9 @@ public class NaturalAquamarine extends Component {
         }
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

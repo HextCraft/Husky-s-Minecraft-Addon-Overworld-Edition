@@ -20,7 +20,7 @@ public class RenderItemFlashing extends RenderEntityItem {
     @Override
     public void doRender(EntityItem entity, double x, double y, double z, float entityYaw, float partialTicks) {
         int timeLeft = entity.lifespan - entity.getAge();
-        if (timeLeft < ItemsFlashBeforeExpiring.minTime && timeLeft % 20 < 8)
+        if (timeLeft < ItemsFlashBeforeExpiring.minTime && timeLeft % 20 < 8 && entity.ticksExisted > 1)
             return;
 
         super.doRender(entity, x, y, z, entityYaw, partialTicks);

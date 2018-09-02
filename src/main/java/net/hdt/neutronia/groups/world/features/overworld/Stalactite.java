@@ -16,7 +16,7 @@ public class Stalactite extends Component {
             andesite_stalactite, basalt_stalactite, marble_stalactite, limestone_stalactite,
             netherrack_stalactite, ice_stalactite, packed_ice_stalactite;
 
-    public static int tries, clusterCount, netherTries, netherClusterCount;
+    public static int tries, clusterCount, netherTries, netherClusterCount, maxHeight;
     public static DimensionConfig dimensionConfig;
 
     @Override
@@ -25,6 +25,7 @@ public class Stalactite extends Component {
         clusterCount = loadPropInt("Stalactite Per Cluster", "", 12);
         netherTries = loadPropInt("Cluster Attempts Per Chunk (Nether)", "", 4);
         netherClusterCount = loadPropInt("Stalactite Per Cluster (Nether)", "", 12);
+        maxHeight = loadPropInt("Highest Y Level", "", 55);
 
         dimensionConfig = new DimensionConfig(configCategory, "0,-1");
     }
@@ -46,6 +47,11 @@ public class Stalactite extends Component {
         }
 
         GameRegistry.registerWorldGenerator(new StalactiteGenerator(), 1000);
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
 
 }

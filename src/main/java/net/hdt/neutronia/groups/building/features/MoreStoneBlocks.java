@@ -31,4 +31,9 @@ public class MoreStoneBlocks extends Component {
         VanillaStairsAndSlabs.add("granite_cobble", newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], 0, false, true, true);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

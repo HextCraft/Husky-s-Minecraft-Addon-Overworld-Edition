@@ -45,4 +45,9 @@ public class Corals extends Component {
         }
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

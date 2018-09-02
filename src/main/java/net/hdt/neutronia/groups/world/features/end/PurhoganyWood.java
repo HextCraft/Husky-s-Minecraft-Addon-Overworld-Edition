@@ -32,4 +32,9 @@ public class PurhoganyWood extends Component {
         VanillaWalls.add(purhoganyLog.getRegistryName().getPath(), purhoganyLog, 0, true);
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

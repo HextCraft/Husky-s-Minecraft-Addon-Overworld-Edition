@@ -30,4 +30,9 @@ public class MarsBiomes extends Component {
         addBiome(MARS_MAIN, "mars");
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

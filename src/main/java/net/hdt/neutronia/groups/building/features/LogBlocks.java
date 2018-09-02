@@ -71,4 +71,9 @@ public class LogBlocks extends Component {
         VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, true);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

@@ -55,4 +55,9 @@ public class ColoredPlanks extends Component {
         addColoredSlabs(coloredSlabsSingle, coloredSlabsDouble);
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

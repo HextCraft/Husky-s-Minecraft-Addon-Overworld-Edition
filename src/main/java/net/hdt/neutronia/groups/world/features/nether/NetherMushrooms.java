@@ -12,4 +12,9 @@ public class NetherMushrooms extends Component {
         GameRegistry.registerWorldGenerator(new NetherMushroomGenerator(), 10);
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

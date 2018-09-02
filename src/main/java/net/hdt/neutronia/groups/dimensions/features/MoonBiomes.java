@@ -30,4 +30,9 @@ public class MoonBiomes extends Component {
         addBiome(MOON_MAIN, "moon");
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

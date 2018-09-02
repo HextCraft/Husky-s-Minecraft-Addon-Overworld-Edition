@@ -16,7 +16,7 @@ public class Stalagmite extends Component {
             andesite_stalagmite, basalt_stalagmite, marble_stalagmite, limestone_stalagmite,
             netherrack_stalagmite, ice_stalagmite, packed_ice_stalagmite;
 
-    public static int tries, clusterCount, netherTries, netherClusterCount;
+    public static int tries, clusterCount, netherTries, netherClusterCount, maxHeight;
     public static DimensionConfig dimensionConfig;
 
     @Override
@@ -25,6 +25,7 @@ public class Stalagmite extends Component {
         clusterCount = loadPropInt("Stalagmite Per Cluster", "", 12);
         netherTries = loadPropInt("Cluster Attempts Per Chunk (Nether)", "", 4);
         netherClusterCount = loadPropInt("Stalagmite Per Cluster (Nether)", "", 12);
+        maxHeight = loadPropInt("Highest Y Level", "", 55);
 
         dimensionConfig = new DimensionConfig(configCategory, "0,-1");
     }
@@ -46,6 +47,11 @@ public class Stalagmite extends Component {
         }
 
         GameRegistry.registerWorldGenerator(new StalagmiteGenerator(), 1000);
+    }
+
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
 
 }

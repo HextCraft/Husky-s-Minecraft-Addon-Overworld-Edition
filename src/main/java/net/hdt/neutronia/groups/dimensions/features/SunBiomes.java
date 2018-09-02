@@ -30,4 +30,9 @@ public class SunBiomes extends Component {
         addBiome(SUN_MAIN, "sun");
     }
 
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }
