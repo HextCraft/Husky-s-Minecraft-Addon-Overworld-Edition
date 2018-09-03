@@ -3,7 +3,7 @@
 	"defaults": {
 		"model": "minecraft:pressure_plate_up",
 		"textures": {
-			"texture": "minecraft:blocks/planks_granite"
+			"texture": "minecraft:blocks/stone_granite"
 		}
 	},
 	"variants": {

@@ -4,7 +4,6 @@ import com.google.common.collect.Maps;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.text.TextFormatting;
 
-import java.awt.*;
 import java.util.Map;
 
 public class ColorUtilsIdk {
@@ -53,14 +52,14 @@ public class ColorUtilsIdk {
     }
 
     private static float[] toHSVFloatArray(float[] colour) {
-        return Color.RGBtoHSB((int) (colour[0] * 255), (int) (colour[1] * 255), (int) (colour[2] * 255), null);
+        return java.awt.Color.RGBtoHSB((int) (colour[0] * 255), (int) (colour[1] * 255), (int) (colour[2] * 255), null);
     }
 
     private static float[] toHSVFloatArray(int colour) {
         int red = (colour >> 16) & 0xFF;
         int green = (colour >> 8) & 0xFF;
         int blue = colour & 0xFF;
-        return Color.RGBtoHSB(red, green, blue, null);
+        return java.awt.Color.RGBtoHSB(red, green, blue, null);
     }
 
     public static TextFormatting getClosest(int colour) {

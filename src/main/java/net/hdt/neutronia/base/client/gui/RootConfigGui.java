@@ -4,8 +4,10 @@ import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
+import net.hdt.neutronia.base.util.Color;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
@@ -15,12 +17,31 @@ import java.util.List;
 
 public class RootConfigGui extends GuiConfigBase {
 
+    protected final StandardPanel backgroundPanel = new StandardPanel();
+    protected final StandardPanel presetPanel = new StandardPanel(0, 0, Color.GOLD, Color.BLACK, Color.GRAY);
+
+    protected int anchorX;
+    protected int anchorY;
+    protected int regionWidth;
+    protected int regionHeight;
+
     private static int MODULES_PER_PAGE = 10;
+    private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
     private final List<Group> groups;
     boolean nEnabled;
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
+
+    protected static final int MARGIN = 10;
+    protected static final int INSET = 5;
+    protected static final int MAX_PRESETS_PAGE = 5;
+    protected static final int BUTTON_WIDTH = 100;
+    protected static final int BUTTON_HEIGHT = 20;
+    protected static final int PRESET_BUTTON_WIDTH = 200;
+    protected static final int PRESET_BUTTON_HEIGHT = 20;
+    protected static final int NAV_BUTTON_WIDTH = 25;
+    protected static final int NAV_BUTTON_INSET = 5;
 
     RootConfigGui(GuiScreen parent) {
         super(parent);
@@ -48,7 +69,17 @@ public class RootConfigGui extends GuiConfigBase {
             buttonList.add(right = new GuiButton(0, x + 20, y, 20, 20, ">"));
         }
 
-        addFeatureButtons();
+//        addFeatureButtons();
+
+        final int presetWidth = PRESET_BUTTON_WIDTH + INSET * 2;
+        final int presetHeight = (int) (PRESET_BUTTON_HEIGHT * (MAX_PRESETS_PAGE + 1.5F)) + INSET;
+        this.presetPanel.setWidth(presetWidth);
+        this.presetPanel.setHeight(presetHeight);
+
+        this.regionWidth = MARGIN * 2 + presetWidth + INSET + BUTTON_WIDTH;
+        this.regionHeight = MARGIN * 2 + presetHeight + BUTTON_HEIGHT * 2;
+        this.backgroundPanel.setWidth(this.regionWidth);
+        this.backgroundPanel.setHeight(this.regionHeight);
     }
 
     private void addFeatureButtons() {
@@ -81,9 +112,9 @@ public class RootConfigGui extends GuiConfigBase {
         buttonList.add(new GuiButton(1, x - 100, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.general")));
 //        buttonList.add(new GuiButton(2, x  + 2, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.import")));
 
-        buttonList.add(new ColoredButton(3, x - 100, y + 44, 54, I18n.translateToLocal("neutronia.config.opensite"), 0x4078c0));
-        buttonList.add(new ColoredButton(5, x - 40, y + 44, 54, I18n.translateToLocal("neutronia.config.discord"), 0x7289da));
-        buttonList.add(new ColoredButton(5, x + 36, y + 44, 54, I18n.translateToLocal("neutronia.config.twitter"), 0x55acee));
+        buttonList.add(new CustomIconButton(3, x - 100, y + 44, 0, 0, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.opensite")*/));
+        buttonList.add(new CustomIconButton(5, x - 40, y + 44, 0, y + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.discord")*/));
+        buttonList.add(new CustomIconButton(5, x + 36, y + 44, 0, y + 44 + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.twitter")*/));
 
         buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 205, 20, I18n.translateToLocal("gui.done")));
     }
@@ -124,6 +155,9 @@ public class RootConfigGui extends GuiConfigBase {
             }
         }*/
 
+//        mc.getTextureManager().bindTexture(new ResourceLocation("textures/blocks/dirt.png"));
+//        drawTexturedModalRect(0, 0, 0, 0, this.width, this.height);
+
         if (totalPages > 1) {
             int x = width / 2;
             int y = height / 6 - 7;
@@ -132,6 +166,11 @@ public class RootConfigGui extends GuiConfigBase {
 
         if (s != null)
             drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
+
+        drawDefaultBackground();
+        this.backgroundPanel.render(this.anchorX, this.anchorY, Panel.Reference.UPPER_LEFT);
+        this.presetPanel.render(this.anchorX + MARGIN, this.anchorY + MARGIN + INSET * 3, Panel.Reference.UPPER_LEFT);
+        super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     @Override

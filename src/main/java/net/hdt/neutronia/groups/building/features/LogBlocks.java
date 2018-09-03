@@ -25,7 +25,7 @@ import static net.hdt.neutronia.init.NCreativeTabs.WOOD_EXPANSION_TAB;
 
 public class LogBlocks extends Component {
 
-    private static final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
+    public static final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
             plankButtons = new Block[6], plankPressurePlates = new Block[6], plankPoles = new Block[6];
 
     public static void add(String name, Block block, Material material, int meta, CreativeTabs creativeTabs) {

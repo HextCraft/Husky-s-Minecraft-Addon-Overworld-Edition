@@ -1,5 +1,6 @@
 package net.hdt.neutronia.base.groups;
 
+import net.hdt.neutronia.base.config.ConfigFileGenerator;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.groups.NGroups;
 import net.minecraftforge.common.MinecraftForge;
@@ -95,6 +96,8 @@ public final class GroupLoader {
         config.load();
 
         loadConfig();
+
+        forEachModule(module -> new ConfigFileGenerator(new File(event.getModConfigurationDirectory() + "Test", module.name.toLowerCase().replace(" ", "_") + ".json")));
 
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }

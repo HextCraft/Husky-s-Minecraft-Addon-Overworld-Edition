@@ -23,7 +23,7 @@ import java.util.Objects;
 
 public class CommandFindBiome extends CommandBase {
 
-    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "f", "fn", "findbio", "findbiome", "find");
+    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "findbiome");
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
@@ -31,11 +31,8 @@ public class CommandFindBiome extends CommandBase {
         String name = StringUtils.capitalize(biomeName.getPath());
         String biomeChatName = name.replace("_", " ");
         name = WordUtils.capitalizeFully(biomeChatName);
-        if (args.length == 0) {
-            notifyCommandListener(sender, this, "command.neutronia.biome_and_dimension_not_defined");
-            return;
-        }
-        if (args.length == 1) {
+
+        if(args[1].isEmpty()) {
             notifyCommandListener(sender, this, "command.neutronia.biome_not_defined");
             return;
         }
@@ -63,7 +60,7 @@ public class CommandFindBiome extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "findbiome <dimension> <name>";
+        return "findbiome <name>";
     }
 
     @Override
@@ -80,12 +77,14 @@ public class CommandFindBiome extends CommandBase {
      * Get a list of options for when the user presses the TAB key
      */
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
-        if (args.length == 2) {
+        if (args.length == 0) {
             List<String> strings = new ArrayList<>();
             for (Biome b : ForgeRegistries.BIOMES.getValues()) {
                 String s = b.getRegistryName().toString();
-                if (s.toLowerCase().contains(args[1].toLowerCase()))
-                    strings.add(s);
+                if (!s.toLowerCase().contains(args[1].toLowerCase())) {
+                    continue;
+                }
+                strings.add(s);
             }
 
             return strings;
