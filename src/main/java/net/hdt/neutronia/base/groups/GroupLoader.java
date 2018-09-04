@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.groups;
 
-import net.hdt.neutronia.base.config.ConfigFileGenerator;
 import net.hdt.neutronia.base.lib.LibMisc;
+import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.groups.NGroups;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -28,7 +28,7 @@ public final class GroupLoader {
     public static List<Group> groups;
     public static List<Group> enabledGroups;
     public static boolean firstLoad;
-    static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
+    public static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
 
     static {
         groups = new ArrayList<>();
@@ -49,11 +49,11 @@ public final class GroupLoader {
 
         forEachEnabled(module -> module.preInit(event));
         forEachEnabled(module -> module.postPreInit(event));
-        forEachModule(module -> {
+        /*forEachModule(module -> {
             for (Component component : componentInstances.values()) {
                 LibMisc.LOGGER.info("Module " + module.name + " have these features enabled: " + component.configName);
             }
-        });
+        });*/
     }
 
     public static void init(FMLInitializationEvent event) {
@@ -97,7 +97,12 @@ public final class GroupLoader {
 
         loadConfig();
 
-        forEachModule(module -> new ConfigFileGenerator(new File(event.getModConfigurationDirectory() + "Test", module.name.toLowerCase().replace(" ", "_") + ".json")));
+        forEachEnabled(module -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/modules/" + module.name.toLowerCase().replace(" ", "_"), "main.json"), module));
+        /*forEachEnabled(module -> {
+            for (Component component : componentInstances.values()) {
+                new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/modules/" + module.name.toLowerCase().replace(" ", "_") + "/features", component.configName.toLowerCase().replace(" ", "_") + ".json"));
+            }
+        });*/
 
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }

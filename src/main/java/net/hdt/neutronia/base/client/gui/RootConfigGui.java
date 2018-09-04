@@ -69,9 +69,9 @@ public class RootConfigGui extends GuiConfigBase {
             buttonList.add(right = new GuiButton(0, x + 20, y, 20, 20, ">"));
         }
 
-//        addFeatureButtons();
+        addFeatureButtons();
 
-        final int presetWidth = PRESET_BUTTON_WIDTH + INSET * 2;
+        /*final int presetWidth = PRESET_BUTTON_WIDTH + INSET * 2;
         final int presetHeight = (int) (PRESET_BUTTON_HEIGHT * (MAX_PRESETS_PAGE + 1.5F)) + INSET;
         this.presetPanel.setWidth(presetWidth);
         this.presetPanel.setHeight(presetHeight);
@@ -79,7 +79,7 @@ public class RootConfigGui extends GuiConfigBase {
         this.regionWidth = MARGIN * 2 + presetWidth + INSET + BUTTON_WIDTH;
         this.regionHeight = MARGIN * 2 + presetHeight + BUTTON_HEIGHT * 2;
         this.backgroundPanel.setWidth(this.regionWidth);
-        this.backgroundPanel.setHeight(this.regionHeight);
+        this.backgroundPanel.setHeight(this.regionHeight);*/
     }
 
     private void addFeatureButtons() {
@@ -167,10 +167,10 @@ public class RootConfigGui extends GuiConfigBase {
         if (s != null)
             drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
 
-        drawDefaultBackground();
+        /*drawDefaultBackground();
         this.backgroundPanel.render(this.anchorX, this.anchorY, Panel.Reference.UPPER_LEFT);
         this.presetPanel.render(this.anchorX + MARGIN, this.anchorY + MARGIN + INSET * 3, Panel.Reference.UPPER_LEFT);
-        super.drawScreen(mouseX, mouseY, partialTicks);
+        super.drawScreen(mouseX, mouseY, partialTicks);*/
     }
 
     @Override

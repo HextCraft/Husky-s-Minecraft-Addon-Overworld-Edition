@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 public class Group implements Comparable<Group> {
 
     public final Map<String, Component> components = new HashMap<>();
-    private final List<Component> enabledComponents = new ArrayList<>();
+    final List<Component> enabledComponents = new ArrayList<>();
     public String name, desc;
     public boolean enabled;
     public Property prop;
@@ -186,7 +186,7 @@ public class Group implements Comparable<Group> {
     }
 
     String getModuleDescription() {
-        return "";
+        return desc;
     }
 
     public ItemStack getIconStack() {
