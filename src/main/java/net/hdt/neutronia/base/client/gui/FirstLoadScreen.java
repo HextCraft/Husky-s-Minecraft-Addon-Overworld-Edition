@@ -35,6 +35,7 @@ public class FirstLoadScreen extends GuiConfigBase {
         switch (button.id) {
             case 0:
                 mc.displayGuiScreen(new GuiMainMenu());
+                break;
             case 1: // Configure
                 mc.displayGuiScreen(new RootConfigGui(parent));
                 break;

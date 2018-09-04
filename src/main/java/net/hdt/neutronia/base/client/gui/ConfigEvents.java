@@ -19,10 +19,10 @@ public final class ConfigEvents {
 
     @SubscribeEvent
     public static void onGuiOpen(GuiOpenEvent event) {
-		if(GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
+		/*if(GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
 			GroupLoader.firstLoad = true;
-			event.setGui(new FirstLoadScreen(event.getGui()));
-		}
+			event.setGui(new FirstLoadScreen(new GuiMainMenu()));
+		}*/
     }
 
     @SubscribeEvent
