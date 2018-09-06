@@ -1,11 +1,11 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "blocks/cauldron_side",
-    "top": "blocks/cauldron_top",
-    "bottom": "blocks/cauldron_bottom",
-    "side": "blocks/cauldron_side",
-    "inside": "blocks/cauldron_inner",
+    "particle": "neutronia:block/clay_cauldron_side",
+    "top": "neutronia:block/clay_cauldron_top",
+    "bottom": "neutronia:block/clay_cauldron_bottom",
+    "side": "neutronia:block/clay_cauldron_side",
+    "inside": "neutronia:block/clay_cauldron_inner",
     "water": "blocks/water_still"
   },
   "elements": [
@@ -152,8 +152,8 @@
         "east":  { "texture": "#side" }
       }
     },
-    {   "from": [ 2, 12, 2 ],
-      "to": [ 14, 12, 14 ],
+    {   "from": [ 2, 9, 2 ],
+      "to": [ 14, 9, 14 ],
       "faces": {
         "up": { "texture": "#water" }
       }

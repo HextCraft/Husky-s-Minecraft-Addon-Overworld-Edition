@@ -36,11 +36,11 @@ public class JsonGenerator {
             genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
 //            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
         }*/
-        genSlab(new ResourceLocation(modid, "acidian_bricks_slab"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"));
-        genSlab(new ResourceLocation(modid, "chiseled_acidian_slab"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"));
-        genSlab(new ResourceLocation(modid, "natural_acidian_slab"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"));
-        genSlab(new ResourceLocation(modid, "purhogany_planks_slab"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"));
-        genSlab(new ResourceLocation(modid, "purhogany_log_slab"), new ResourceLocation(modid, "block/purhogany_log_top"), new ResourceLocation(modid, "block/purhogany_log"), new ResourceLocation(modid, "block/purhogany_log_top"));
+//        genSlab(new ResourceLocation(modid, "acidian_bricks_slab"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"));
+//        genSlab(new ResourceLocation(modid, "chiseled_acidian_slab"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"));
+//        genSlab(new ResourceLocation(modid, "natural_acidian_slab"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"));
+//        genSlab(new ResourceLocation(modid, "purhogany_planks_slab"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"));
+//        genSlab(new ResourceLocation(modid, "purhogany_log_slab"), new ResourceLocation(modid, "block/purhogany_log_top"), new ResourceLocation(modid, "block/purhogany_log"), new ResourceLocation(modid, "block/purhogany_log_top"));
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
@@ -186,15 +186,15 @@ public class JsonGenerator {
         facing.add("north", new JsonObject());
 
         JsonObject south = new JsonObject();
-        south.addProperty("y", "90");
+        south.addProperty("y", 90);
         facing.add("south", south);
 
         JsonObject east = new JsonObject();
-        east.addProperty("y", "180");
+        east.addProperty("y", 180);
         facing.add("east", east);
 
         JsonObject west = new JsonObject();
-        west.addProperty("y", "270");
+        west.addProperty("y", 270);
         facing.add("west", west);
 
         variants.add("facing", facing);
@@ -288,15 +288,15 @@ public class JsonGenerator {
         facing.add("north", new JsonObject());
 
         JsonObject south = new JsonObject();
-        south.addProperty("y", "90");
+        south.addProperty("y", 90);
         facing.add("south", south);
 
         JsonObject east = new JsonObject();
-        east.addProperty("y", "180");
+        east.addProperty("y", 180);
         facing.add("east", east);
 
         JsonObject west = new JsonObject();
-        west.addProperty("y", "270");
+        west.addProperty("y", 270);
         facing.add("west", west);
 
         variants.add("facing", facing);

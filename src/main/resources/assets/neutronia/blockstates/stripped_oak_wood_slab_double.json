@@ -1,14 +1,11 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "forge_marker": 1,
-  "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "neutronia:block/stripped_log_oak_side"
-        }
-      }
-    }
-  }
+"forge_marker": 1,
+"defaults": {
+	"model": "minecraft:cube_all",
+	"transform": "forge:default-block"
+},
+	"variants": {
+		"normal": [{ "textures": { "all": "neutronia:block/stripped_oak_log" } }],
+		"prop=blarg": [{ "textures": { "all": "neutronia:block/stripped_oak_log" } }]
+	}
 }

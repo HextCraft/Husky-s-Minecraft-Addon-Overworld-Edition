@@ -4,6 +4,7 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaButton;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
@@ -25,24 +26,22 @@ import static net.hdt.neutronia.init.NCreativeTabs.WOOD_EXPANSION_TAB;
 
 public class LogBlocks extends Component {
 
-    public static final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
-            plankButtons = new Block[6], plankPressurePlates = new Block[6], plankPoles = new Block[6];
+    private final Block[] strippedLogs = new Block[6], logPoles = new Block[6], strippedLogPoles = new Block[6], logDowels = new Block[6], strippedLogDowels = new Block[6],
+            plankPoles = new Block[6];
 
-    public static void add(String name, Block block, Material material, int meta, CreativeTabs creativeTabs) {
-        add(name, block, material, meta, true, true, creativeTabs);
-    }
+    private boolean acacia, birch, darkOak, jungle, oak, spruce;
+    private boolean enableSlabsAndStairs, enableWalls;
 
-    public static void add(String name, Block block, Material material, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs) {
-        IBlockState state = block.getStateFromMeta(meta);
-        String stairsName = name + "_stairs";
-        String slabName = name + "_slab";
-
-        if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
-        }
-        if (slabs) {
-            BlockModSlab.initSlab(block, meta, new BlockOverworldSlabBase(slabName, material, false, creativeTabs), new BlockOverworldSlabBase(slabName, material, true, creativeTabs));
-        }
+    @Override
+    public void setupConfig() {
+        acacia = loadPropBool("Acacia Log blocks", "", true);
+        birch = loadPropBool("Acacia Log blocks", "", true);
+        darkOak = loadPropBool("Acacia Log blocks", "", true);
+        jungle = loadPropBool("Acacia Log blocks", "", true);
+        oak = loadPropBool("Acacia Log blocks", "", true);
+        spruce = loadPropBool("Acacia Log blocks", "", true);
+        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true);
+        enableWalls = loadPropBool("Enable walls", "", false);
     }
 
     @Override
@@ -57,18 +56,23 @@ public class LogBlocks extends Component {
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedLogs[enumType.getMetadata()], 1), log, NItems.logStripper);
         }
-        VanillaStairsAndSlabs.add("oak_log", Blocks.LOG, 0, true, true, true);
-        VanillaStairsAndSlabs.add("spruce_log", Blocks.LOG, 1, true, true, true);
-        VanillaStairsAndSlabs.add("birch_log", Blocks.LOG, 2, true, true, true);
-        VanillaStairsAndSlabs.add("jungle_log", Blocks.LOG, 3, true, true, true);
-        VanillaStairsAndSlabs.add("acacia_log", Blocks.LOG2, 0, true, true, true);
-        VanillaStairsAndSlabs.add("dark_oak_log", Blocks.LOG2, 1, true, true, true);
-        VanillaWalls.add("oak_log", Blocks.LOG, 0, true);
-        VanillaWalls.add("spruce_log", Blocks.LOG, 1, true);
-        VanillaWalls.add("birch_log", Blocks.LOG, 2, true);
-        VanillaWalls.add("jungle_log", Blocks.LOG, 3, true);
-        VanillaWalls.add("acacia_log", Blocks.LOG2, 0, true);
-        VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, true);
+
+        if(enableSlabsAndStairs) {
+            VanillaStairsAndSlabs.add("acacia_log", Blocks.LOG2, 0, acacia, WOOD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add("birch_log", Blocks.LOG, 2, birch, WOOD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add("dark_oak_log", Blocks.LOG2, 1, darkOak, WOOD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add("jungle_log", Blocks.LOG, 3, jungle, WOOD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add("oak_log", Blocks.LOG, 0, oak, WOOD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add("spruce_log", Blocks.LOG, 1, spruce, WOOD_EXPANSION_TAB);
+        }
+        if(enableWalls) {
+            VanillaWalls.add("acacia_log", Blocks.LOG2, 0, acacia, WOOD_EXPANSION_TAB);
+            VanillaWalls.add("birch_log", Blocks.LOG, 2, birch, WOOD_EXPANSION_TAB);
+            VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, darkOak, WOOD_EXPANSION_TAB);
+            VanillaWalls.add("jungle_log", Blocks.LOG, 3, jungle, WOOD_EXPANSION_TAB);
+            VanillaWalls.add("oak_log", Blocks.LOG, 0, oak, WOOD_EXPANSION_TAB);
+            VanillaWalls.add("spruce_log", Blocks.LOG, 1, spruce, WOOD_EXPANSION_TAB);
+        }
     }
 
     @Override

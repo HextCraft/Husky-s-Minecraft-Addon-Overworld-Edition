@@ -28,7 +28,7 @@ public class RootConfigGui extends GuiConfigBase {
     private static int MODULES_PER_PAGE = 10;
     private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
     private final List<Group> groups;
-    boolean nEnabled;
+    private boolean nEnabled;
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;

@@ -39,7 +39,7 @@ public final class GroupLoader {
 
         setupConfig(event);
 
-        forEachModule(group -> {
+        forEachGroup(group -> {
             if (group.enabled) {
                 LibMisc.LOGGER.info("Enabling Group " + group.name);
             } else {
@@ -49,11 +49,6 @@ public final class GroupLoader {
 
         forEachEnabled(module -> module.preInit(event));
         forEachEnabled(module -> module.postPreInit(event));
-        /*forEachModule(module -> {
-            for (Component component : componentInstances.values()) {
-                LibMisc.LOGGER.info("Module " + module.name + " have these features enabled: " + component.configName);
-            }
-        });*/
     }
 
     public static void init(FMLInitializationEvent event) {
@@ -97,12 +92,7 @@ public final class GroupLoader {
 
         loadConfig();
 
-        forEachEnabled(module -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/modules/" + module.name.toLowerCase().replace(" ", "_"), "main.json"), module));
-        /*forEachEnabled(module -> {
-            for (Component component : componentInstances.values()) {
-                new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/modules/" + module.name.toLowerCase().replace(" ", "_") + "/features", component.configName.toLowerCase().replace(" ", "_") + ".json"));
-            }
-        });*/
+        forEachEnabled(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
 
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }
@@ -110,33 +100,33 @@ public final class GroupLoader {
     public static void loadConfig() {
         GlobalConfig.initGlobalConfig();
 
-        forEachModule(module -> {
-            module.enabled = true;
-            if (module.canBeDisabled()) {
+        forEachGroup(group -> {
+            group.enabled = true;
+            if (group.canBeDisabled()) {
                 ConfigHelper.needsRestart = true;
-                module.enabled = ConfigHelper.loadPropBool(module.name, "_groups", module.getModuleDescription(), module.isEnabledByDefault());
-                module.prop = ConfigHelper.lastProp;
+                group.enabled = ConfigHelper.loadPropBool(group.name, "_groups", group.getModuleDescription(), group.isEnabledByDefault());
+                group.prop = ConfigHelper.lastProp;
             }
         });
 
         enabledGroups = new ArrayList<>(groups);
         enabledGroups.removeIf(module -> !module.enabled);
 
-        loadModuleConfigs();
+        loadGroupConfigs();
 
         if (config.hasChanged())
             config.save();
     }
 
-    private static void loadModuleConfigs() {
-        forEachModule(Group::setupConfig);
+    private static void loadGroupConfigs() {
+        forEachGroup(Group::setupConfig);
     }
 
     public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
         return componentInstances.get(clazz).enabled;
     }
 
-    static void forEachModule(Consumer<Group> consumer) {
+    static void forEachGroup(Consumer<Group> consumer) {
         groups.forEach(consumer);
     }
 

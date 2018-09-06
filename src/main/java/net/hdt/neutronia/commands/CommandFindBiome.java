@@ -27,12 +27,12 @@ public class CommandFindBiome extends CommandBase {
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
-        ResourceLocation biomeName = new ResourceLocation(args[1]);
+        ResourceLocation biomeName = new ResourceLocation(args[0]);
         String name = StringUtils.capitalize(biomeName.getPath());
         String biomeChatName = name.replace("_", " ");
         name = WordUtils.capitalizeFully(biomeChatName);
 
-        if(args[1].isEmpty()) {
+        if(args[0].isEmpty()) {
             notifyCommandListener(sender, this, "command.neutronia.biome_not_defined");
             return;
         }
@@ -81,7 +81,7 @@ public class CommandFindBiome extends CommandBase {
             List<String> strings = new ArrayList<>();
             for (Biome b : ForgeRegistries.BIOMES.getValues()) {
                 String s = b.getRegistryName().toString();
-                if (!s.toLowerCase().contains(args[1].toLowerCase())) {
+                if (!s.toLowerCase().contains(args[0].toLowerCase())) {
                     continue;
                 }
                 strings.add(s);

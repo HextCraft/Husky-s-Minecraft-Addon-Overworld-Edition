@@ -23,6 +23,8 @@ public class Group implements Comparable<Group> {
 
     public final Map<String, Component> components = new HashMap<>();
     final List<Component> enabledComponents = new ArrayList<>();
+    private List<Component> componentDependencies = new ArrayList<>();
+    private List<Group> groupDependencies = new ArrayList<>();
     public String name, desc;
     public boolean enabled;
     public Property prop;
@@ -40,6 +42,8 @@ public class Group implements Comparable<Group> {
         for (Component component : builder.components) {
             registerComponent(component);
         }
+        groupDependencies = builder.groupDependencies;
+        componentDependencies = builder.componentDependencies;
     }
 
     public static Builder builder() {
@@ -226,8 +230,8 @@ public class Group implements Comparable<Group> {
     }
 
     @Override
-    public int compareTo(Group o) {
-        return name.compareTo(o.name);
+    public int compareTo(Group group) {
+        return name.compareTo(group.name);
     }
 
     public static class Builder {
@@ -235,24 +239,42 @@ public class Group implements Comparable<Group> {
         private String name, desc;
         private ItemStack icon;
         private Group group;
+        private boolean enabled;
         private List<Component> components = new ArrayList<>();
+        private List<Component> componentDependencies = new ArrayList<>();
+        private List<Group> groupDependencies = new ArrayList<>();
 
-        public Builder withName(String name) {
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder withDesc(String desc) {
+        public Builder description(String desc) {
             this.desc = desc;
             return this;
         }
 
-        public Builder withComponent(Component component) {
+        public Builder addComponent(Component component) {
             components.add(component);
             return this;
         }
 
-        public Builder withIcon(ItemStack icon) {
+        public Builder groupDependency(Group group) {
+            groupDependencies.add(group);
+            return this;
+        }
+
+        public Builder componentDependency(Component component) {
+            componentDependencies.add(component);
+            return this;
+        }
+
+        public Builder enabled(boolean enabled) {
+            this.enabled = enabled;
+            return this;
+        }
+
+        public Builder iconStack(ItemStack icon) {
             if (!icon.isEmpty()) {
                 this.icon = icon;
             } else {
@@ -264,6 +286,7 @@ public class Group implements Comparable<Group> {
         public Group register() {
             group = new Group(this);
             group.setIconStack(icon);
+            group.enabled = enabled;
             GroupLoader.registerGroup(group);
             return group;
         }

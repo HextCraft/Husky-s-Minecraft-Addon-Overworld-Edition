@@ -4,6 +4,7 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
 import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -22,6 +23,21 @@ public class VanillaWalls extends Component {
         IBlockState state = block.getStateFromMeta(meta);
         String wallName = name + "_wall";
         BlockNeutroniaWall.initWall(block, meta, supplier.supply(wallName, state));
+    }
+
+    public static void add(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
+        add(name, block, meta, doit, BlockNeutroniaWall::new, creativeTabs);
+    }
+
+    public static void add(String name, Block block, int meta, boolean doit, WallSupplier supplier, CreativeTabs creativeTabs) {
+        if (!doit)
+            return;
+
+        IBlockState state = block.getStateFromMeta(meta);
+        String wallName = name + "_wall";
+        BlockNeutroniaWall neutroniaWall = supplier.supply(wallName, state);
+        neutroniaWall.setCreativeTabs(creativeTabs);
+        BlockNeutroniaWall.initWall(block, meta, neutroniaWall);
     }
 
     @Override

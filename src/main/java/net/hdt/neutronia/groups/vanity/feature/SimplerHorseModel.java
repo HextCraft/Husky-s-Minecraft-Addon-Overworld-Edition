@@ -18,4 +18,8 @@ public class SimplerHorseModel extends Component {
         RenderingRegistry.registerEntityRenderingHandler(EntityZombieHorse.class, RenderAbstractHorseOverride::new);
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 }

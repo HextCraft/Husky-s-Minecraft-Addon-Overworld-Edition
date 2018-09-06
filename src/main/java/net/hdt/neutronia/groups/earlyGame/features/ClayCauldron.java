@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClayCauldron extends Component {
 
-    private BlockClayCauldron clayCauldron;
+    private static BlockClayCauldron clayCauldron;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

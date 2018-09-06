@@ -20,9 +20,9 @@ for %%x in (%*) do (
 		echo   "defaults": {
 		echo     "model": "minecraft:half_slab",
 		echo     "textures": {
-		echo       "bottom": "%modid%:blocks/%%x",
-		echo       "top": "%modid%:blocks/%%x",
-		echo       "side": "%modid%:blocks/%%x"
+		echo       "bottom": "%modid%:block/%%x",
+		echo       "top": "%modid%:block/%%x",
+		echo       "side": "%modid%:block/%%x"
 		echo     },
 		echo     "transform": "forge:default-block"
 		echo   },
@@ -46,8 +46,8 @@ for %%x in (%*) do (
 		echo		"transform": "forge:default-block"
 		echo	},
 		echo 	"variants": {
-		echo 		"normal": [{ "textures": { "all": "%modid%:blocks/%%x" } }],
-		echo 		"prop=blarg": [{ "textures": { "all": "%modid%:blocks/%%x" } }]
+		echo 		"normal": [{ "textures": { "all": "%modid%:block/%%x" } }],
+		echo 		"prop=blarg": [{ "textures": { "all": "%modid%:block/%%x" } }]
 		echo 	}
 		echo }
 	) > %%x_slab_double.json
@@ -58,9 +58,9 @@ for %%x in (%*) do (
 		echo   "forge_marker": 1,
 		echo   "defaults": {
 		echo     "textures": {
-		echo       "bottom": "%modid%:blocks/%%x",
-		echo       "top": "%modid%:blocks/%%x",
-		echo       "side": "%modid%:blocks/%%x"
+		echo       "bottom": "%modid%:block/%%x",
+		echo       "top": "%modid%:block/%%x",
+		echo       "side": "%modid%:block/%%x"
 		echo     }
 		echo   },
 		echo   "variants": {

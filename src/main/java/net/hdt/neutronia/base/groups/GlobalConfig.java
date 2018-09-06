@@ -71,7 +71,7 @@ public final class GlobalConfig {
             }
 
             if (config.hasChanged()) {
-                GroupLoader.forEachModule(Group::setupConfig);
+                GroupLoader.forEachGroup(Group::setupConfig);
 
                 if (saveToFile)
                     config.save();

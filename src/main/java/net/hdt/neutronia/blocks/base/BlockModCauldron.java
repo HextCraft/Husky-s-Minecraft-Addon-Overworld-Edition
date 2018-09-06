@@ -43,7 +43,7 @@ public class BlockModCauldron extends BlockMod implements INeutroniaBlock {
     protected static final AxisAlignedBB AABB_WALL_WEST = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.125D, 1.0D, 1.0D);
 
     public BlockModCauldron(String name, CreativeTabs creativeTabs) {
-        super(name, Material.IRON);
+        super(name, Material.CLAY);
         setCreativeTab(creativeTabs);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 0));
     }
@@ -74,8 +74,8 @@ public class BlockModCauldron extends BlockMod implements INeutroniaBlock {
     /**
      * Called When an Entity Collided with the Block
      */
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        int i = state.getValue(LEVEL).intValue();
+    public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        int i = state.getValue(LEVEL);
         float f = (float) pos.getY() + (6.0F + (float) (3 * i)) / 16.0F;
 
         if (!worldIn.isRemote && entityIn.isBurning() && i > 0 && entityIn.getEntityBoundingBox().minY <= (double) f) {
@@ -206,7 +206,7 @@ public class BlockModCauldron extends BlockMod implements INeutroniaBlock {
     }
 
     public void setWaterLevel(World worldIn, BlockPos pos, IBlockState state, int level) {
-        worldIn.setBlockState(pos, state.withProperty(LEVEL, Integer.valueOf(MathHelper.clamp(level, 0, 3))), 2);
+        worldIn.setBlockState(pos, state.withProperty(LEVEL, MathHelper.clamp(level, 0, 3)), 2);
         worldIn.updateComparatorOutputLevel(pos, this);
     }
 
@@ -231,11 +231,11 @@ public class BlockModCauldron extends BlockMod implements INeutroniaBlock {
      * Get the Item that this Block should drop when harvested.
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Items.CAULDRON;
+        return new ItemStack(this).getItem();
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(Items.CAULDRON);
+        return new ItemStack(this);
     }
 
     public boolean hasComparatorInputOverride(IBlockState state) {

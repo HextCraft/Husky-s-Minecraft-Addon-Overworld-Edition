@@ -1,14 +1,20 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:half_slab",
+    "textures": {
+      "bottom": "neutronia:block/chiseled_aquamarine",
+      "top": "neutronia:block/chiseled_aquamarine",
+      "side": "neutronia:block/chiseled_aquamarine"
+    },
+    "transform": "forge:default-block"
+  },
   "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_chiseled_aquamarine_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_chiseled_aquamarine_slab"
-      }
-    }
+    "half=top": [{
+      "x": 180,
+      "uvlock": true
+    }],
+    "half=bottom": [{}],
+    "inventory": [{}]
   }
 }
