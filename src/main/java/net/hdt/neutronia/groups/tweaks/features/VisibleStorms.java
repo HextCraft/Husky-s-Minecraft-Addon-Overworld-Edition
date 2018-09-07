@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.init.NBiomes;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
@@ -8,6 +9,7 @@ import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -46,7 +48,7 @@ public class VisibleStorms extends Component {
     public void setupConfig() {
         DUST_STORMS = loadPropBool("Dust Storms", "Storms are clearly visible in dry biomes.", true);
         SAND_STORMS = loadPropBool("Sand Storms", "Adds a fog change during storms in deserts.", true);
-        AIR_PARTICLES = loadPropInt("Air Particle Count", "How many air particles should be created, too many may contribute to lag.", 3);
+        AIR_PARTICLES = loadPropInt("Air Particle Count", "How many air particles should be created, too many may contribute to lag.", 9);
     }
 
     @Override
@@ -68,7 +70,7 @@ public class VisibleStorms extends Component {
 
             Random random = world.rand;
             BlockPos pos = entity.getPosition();
-            int radius = 16; //blocks
+            int radius = 32; //blocks
             for (int i = 0; i < AIR_PARTICLES; i++) {
                 BlockPos posAir = pos.add(random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius, random.nextInt(radius * 2 + 1) - radius);
                 if (world.canSeeSky(posAir) && shouldStorm(world, posAir)) {
@@ -110,7 +112,7 @@ public class VisibleStorms extends Component {
             BlockPos[] probes = new BlockPos[]{pos, pos.add(1, 0, 0), pos.add(0, 0, 1), pos.add(-1, 0, 0), pos.add(0, 0, -1)};
             for (BlockPos probepos : probes) {
                 boolean aboveground = world.canSeeSky(probepos);
-                if (isDesert(world, probepos) && aboveground) {
+                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT || world.getBiome(probepos) == NBiomes.BLACK_DESERT || world.getBiome(probepos) == NBiomes.RED_DESERT && aboveground) {
                     desiredDistance += fogEvent.getFarPlaneDistance() / 3f;
                     desiredDistanceScale += -1.0f;
                     totalweight += 1;
@@ -155,7 +157,7 @@ public class VisibleStorms extends Component {
             BlockPos[] probes = new BlockPos[]{pos, pos.add(1, 0, 0), pos.add(0, 0, 1), pos.add(-1, 0, 0), pos.add(0, 0, -1)};
             for (BlockPos probepos : probes) {
                 boolean aboveground = world.canSeeSky(probepos);
-                if (isDesert(world, probepos)) {
+                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT || world.getBiome(probepos) == NBiomes.BLACK_DESERT || world.getBiome(probepos) == NBiomes.RED_DESERT) {
                     Biome biome = world.getBiome(probepos);
                     MapColor mapcolor = biome.topBlock.getMapColor(world, probepos);
                     Color color = new Color(mapcolor.colorValue);
@@ -184,11 +186,6 @@ public class VisibleStorms extends Component {
     private boolean shouldStorm(World world, BlockPos pos) {
         Biome biome = world.getBiome(pos);
         return world.isRaining() && !biome.canRain() && !biome.isSnowyBiome();
-    }
-
-    private boolean isDesert(World world, BlockPos pos) {
-        Biome biome = world.getBiome(pos);
-        return BiomeDictionary.hasType(biome, BiomeDictionary.Type.SANDY);
     }
 
     @Override

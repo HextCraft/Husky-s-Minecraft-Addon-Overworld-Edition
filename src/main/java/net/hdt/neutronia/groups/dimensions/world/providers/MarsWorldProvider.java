@@ -25,11 +25,6 @@ public class MarsWorldProvider extends WorldProvider {
     }
 
     @Override
-    public String getSaveFolder() {
-        return "MARS";
-    }
-
-    @Override
     public boolean canRespawnHere() {
         return false;
     }
@@ -42,7 +37,7 @@ public class MarsWorldProvider extends WorldProvider {
     @Override
     @SideOnly(Side.CLIENT)
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return new Vec3d(0.2980392156862745D, 0.207843137254902D, 0.3372549019607843D);
+        return new Vec3d(232 / 255, 55 / 255, 32 / 255);
     }
 
     @Override
