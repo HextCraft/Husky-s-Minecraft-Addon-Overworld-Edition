@@ -37,7 +37,7 @@ public class SunWorldProvider extends WorldProvider {
     @Override
     @SideOnly(Side.CLIENT)
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return new Vec3d(232 / 255, 201 / 255, 31 / 255);
+        return new Vec3d(0.909D, 0.788D, 0.121D);
     }
 
     @Override

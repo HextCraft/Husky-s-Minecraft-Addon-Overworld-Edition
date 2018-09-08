@@ -1757,10 +1757,10 @@ public class StructureVillagePieces {
     }
 
     public static class Well extends StructureVillagePieces.Village {
-        public Well() {
+        Well() {
         }
 
-        public Well(StructureVillagePieces.Start start, int type, Random rand, int x, int z) {
+        Well(StructureVillagePieces.Start start, int type, Random rand, int x, int z) {
             super(start, type);
             this.setCoordBaseMode(EnumFacing.Plane.HORIZONTAL.random(rand));
 

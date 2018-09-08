@@ -1,0 +1,8 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "neutronia:block/chiseled_glazed_terracotta/silver_chiseled_glazed_terracotta_top",
+    "side": "neutronia:block/chiseled_glazed_terracotta/silver_chiseled_glazed_terracotta"
+  }
+}

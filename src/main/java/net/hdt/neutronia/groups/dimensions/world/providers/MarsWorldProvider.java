@@ -37,7 +37,7 @@ public class MarsWorldProvider extends WorldProvider {
     @Override
     @SideOnly(Side.CLIENT)
     public Vec3d getFogColor(float celestialAngle, float partialTicks) {
-        return new Vec3d(232 / 255, 55 / 255, 32 / 255);
+        return new Vec3d(0.909D, 0.215D, 0.125D);
     }
 
     @Override

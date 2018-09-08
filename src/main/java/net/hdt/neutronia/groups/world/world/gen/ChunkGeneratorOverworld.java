@@ -2,7 +2,8 @@ package net.hdt.neutronia.groups.world.world.gen;
 
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenDungeons;
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenLakes;
-import net.hdt.neutronia.groups.world.world.gen.structure.*;
+import net.hdt.neutronia.groups.world.world.gen.structure.StructureOceanMonument;
+import net.hdt.neutronia.groups.world.world.gen.structure.WoodlandMansion;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -18,8 +19,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.*;
-import net.minecraft.world.gen.MapGenCaves;
+import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
+import net.minecraft.world.gen.structure.MapGenStronghold;
+import net.minecraft.world.gen.structure.MapGenVillage;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -474,7 +477,7 @@ public class ChunkGeneratorOverworld implements IChunkGenerator {
             return this.woodlandMansionGenerator.isInsideStructure(pos);
         } else if ("Monument".equals(structureName) && this.oceanMonumentGenerator != null) {
             return this.oceanMonumentGenerator.isInsideStructure(pos);
-        } else if ("Village".equals(structureName) && this.villageGenerator != null) {
+        } else if ("VillageNew".equals(structureName) && this.villageGenerator != null) {
             return this.villageGenerator.isInsideStructure(pos);
         } else if ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null) {
             return this.mineshaftGenerator.isInsideStructure(pos);
@@ -493,7 +496,7 @@ public class ChunkGeneratorOverworld implements IChunkGenerator {
             return this.woodlandMansionGenerator.getNearestStructurePos(worldIn, position, findUnexplored);
         } else if ("Monument".equals(structureName) && this.oceanMonumentGenerator != null) {
             return this.oceanMonumentGenerator.getNearestStructurePos(worldIn, position, findUnexplored);
-        } else if ("Village".equals(structureName) && this.villageGenerator != null) {
+        } else if ("VillageNew".equals(structureName) && this.villageGenerator != null) {
             return this.villageGenerator.getNearestStructurePos(worldIn, position, findUnexplored);
         } else if ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null) {
             return this.mineshaftGenerator.getNearestStructurePos(worldIn, position, findUnexplored);

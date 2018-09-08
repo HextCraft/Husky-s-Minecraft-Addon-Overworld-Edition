@@ -2,20 +2,22 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "neutronia:lime_glazed_terracotta_pillar",
+    "model": "block/cube_column",
+    "textures": {
+      "end": "neutronia:block/glazed_terracotta_pillars/gtp_pillar_lime_top",
+      "side": "neutronia:block/glazed_terracotta_pillars/gtp_pillar_lime"
+    },
     "transform": "forge:default-block"
   },
   "variants": {
-    "facing": {
-      "north": {},
-      "south": {
-        "y": "90"
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
       },
-      "east": {
-        "y": "180"
-      },
-      "west": {
-        "y": "270"
+      "y": {},
+      "z": {
+        "x": 90
       }
     },
     "inventory": [

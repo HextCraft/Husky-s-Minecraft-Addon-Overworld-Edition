@@ -32,7 +32,7 @@ public class NormalTerrainGenerator {
     private Biome[] biomesForGeneration;
 
     public NormalTerrainGenerator() {
-        this.heightMap = new double[256];
+        this.heightMap = new double[825];
 
         this.biomeWeights = new float[25];
         for (int j = -2; j <= 2; ++j) {

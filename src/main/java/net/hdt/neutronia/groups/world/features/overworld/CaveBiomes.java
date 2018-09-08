@@ -45,7 +45,7 @@ public class CaveBiomes extends Component {
     public void setupConfig() {
         biomes = new ArrayList<>();
 
-        glowceliumEnabled = loadPropBool("Enable Glowcelium and Glowshrooms", "", true);
+        glowceliumEnabled = loadPropBool("Enable Glowcelium and Glowshrooms", "", false);
         enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
         enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
 

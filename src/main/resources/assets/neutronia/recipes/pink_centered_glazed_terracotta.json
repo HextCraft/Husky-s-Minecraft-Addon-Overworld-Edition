@@ -1,0 +1,20 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "type": "forge:ore_shaped",
+  "group": "centered_terracotta",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:glazed_terracotta_pink",
+      "data": 6
+    }
+  },
+  "result": {
+    "item": "pink_centered_glazed_terracotta",
+    "count": 9
+  }
+}

@@ -124,7 +124,7 @@ public class WorldGenNewCave extends MapGenBase {
                 scale *= rand.nextFloat() * rand.nextFloat() * 3.0F + 1.0F;
             }
 
-            addTunnel(rand.nextLong(), originalX, originalZ, primer, x, y, z, scale, slopeXZ, slopeY, 0, 121, 0.6);
+            addTunnel(rand.nextLong(), originalX, originalZ, primer, x, y, z, scale, slopeXZ, slopeY, 0, 121, 6.0);
         }
     }
 

@@ -1,0 +1,15 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "type": "forge:ore_shapeless",
+  "group": "cut_terracotta",
+  "ingredients": [
+    {
+      "item": "minecraft:glazed_terracotta_yellow",
+      "data": 4
+    }
+  ],
+  "result": {
+    "item": "yellow_cut_glazed_terracotta",
+    "count": 6
+  }
+}

@@ -1,8 +1,7 @@
 package net.hdt.neutronia.groups.dimensions.world.gen.sun;
 
-import net.minecraft.block.BlockColored;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -11,6 +10,8 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class NormalTerrainGenerator {
@@ -203,7 +204,10 @@ public class NormalTerrainGenerator {
                                 if (height < 2) {
                                     primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.BEDROCK.getDefaultState());
                                 } else if ((d15 += d16) > 0.0D) {
-                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.YELLOW));
+                                    List<Block> groundBlocks = new ArrayList<>();
+                                    groundBlocks.add(Blocks.MAGMA);
+                                    groundBlocks.add(Blocks.LAVA);
+                                    primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, groundBlocks.get(new Random().nextInt(groundBlocks.size())).getDefaultState());
                                 }
                             }
 

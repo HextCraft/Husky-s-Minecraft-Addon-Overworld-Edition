@@ -1,0 +1,15 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "type": "forge:ore_shapeless",
+  "group": "glazed_pillars",
+  "ingredients": [
+    {
+      "item": "minecraft:glazed_terracotta_red",
+      "data": 14
+    }
+  ],
+  "result": {
+    "item": "red_glazed_terracotta_pillar",
+    "count": 6
+  }
+}

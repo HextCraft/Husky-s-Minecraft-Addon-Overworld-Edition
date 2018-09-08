@@ -60,7 +60,7 @@ public class NGroups {
                 .addComponent(new ConsoleHudFeatures())
                 .addComponent(new PastelColors())
                 .addComponent(new BetterEndTextures())
-                .enabled(true)
+                .enabled(false)
                 .register();
 
         decoration = Group.builder()
@@ -68,8 +68,11 @@ public class NGroups {
                 .description("This group adds new decorative building blocks and improves vanilla ones.")
                 .iconStack(new ItemStack(Blocks.RED_FLOWER))
                 .addComponent(new CharcoalBlock())
+                .addComponent(new CenteredGlazedTerracotta())
+                .addComponent(new CutGlazedTerracotta())
                 .addComponent(new DecorativeAquamarine())
 //                .addComponent(new DecorativeCorals())
+                .addComponent(new GlazedTerracottaPillar())
                 .addComponent(new MoreBanners())
                 .addComponent(new TerracottaFlowerPots())
                 .addComponent(new VariedBookshelves())
@@ -185,6 +188,7 @@ public class NGroups {
                 .addComponent(new Acidian())
                 .addComponent(new BetterCaves())
                 .addComponent(new BetterStoneGeneration())
+                .addComponent(new BetterVillages())
                 .addComponent(new CaveBiomes())
 //                .addComponent(new Corals())
                 .addComponent(new ImprovedWorldGen())

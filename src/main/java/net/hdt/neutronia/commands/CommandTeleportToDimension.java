@@ -33,7 +33,7 @@ public class CommandTeleportToDimension extends CommandBase {
         }
 
         if (sender instanceof EntityPlayer) {
-            TeleportUtil.teleportToDimension((EntityPlayer) sender, dimension, 0, 100, 0);
+            TeleportUtil.teleportToDimension((EntityPlayer) sender, dimension, 0, sender.getEntityWorld().getSeaLevel(), 0);
         }
     }
 

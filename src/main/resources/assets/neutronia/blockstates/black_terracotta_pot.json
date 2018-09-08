@@ -2,12 +2,38 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "neutronia:custom_flower_pot",
-    "transform": "forge:default-block"
+    "model": "minecraft:cube_all",
+    "transform": "forge:default-block",
+    "textures": {
+      "flowerpot": "minecraft:blocks/hardened_clay_stained_black",
+      "particle": "minecraft:blocks/hardened_clay_stained_black"
+    }
   },
   "variants": {
     "contents": {
-      "empty": {}
+      "contents=empty":            { "model": "neutronia:flower_pot" },
+      "contents=rose":             { "model": "neutronia:flower_pot_rose" },
+      "contents=blue_orchid":      { "model": "neutronia:flower_pot_orchid" },
+      "contents=allium":           { "model": "neutronia:flower_pot_allium" },
+      "contents=houstonia":        { "model": "neutronia:flower_pot_houstonia" },
+      "contents=red_tulip":        { "model": "neutronia:flower_pot_tulip_red" },
+      "contents=orange_tulip":     { "model": "neutronia:flower_pot_tulip_orange" },
+      "contents=white_tulip":      { "model": "neutronia:flower_pot_tulip_white" },
+      "contents=pink_tulip":       { "model": "neutronia:flower_pot_tulip_pink" },
+      "contents=oxeye_daisy":      { "model": "neutronia:flower_pot_daisy" },
+      "contents=dandelion":        { "model": "neutronia:flower_pot_dandelion" },
+      "contents=oak_sapling":      { "model": "neutronia:flower_pot_oak" },
+      "contents=spruce_sapling":   { "model": "neutronia:flower_pot_spruce" },
+      "contents=birch_sapling":    { "model": "neutronia:flower_pot_birch" },
+      "contents=jungle_sapling":   { "model": "neutronia:flower_pot_jungle" },
+      "contents=acacia_sapling":   { "model": "neutronia:flower_pot_acacia" },
+      "contents=dark_oak_sapling": { "model": "neutronia:flower_pot_dark_oak" },
+      "contents=mushroom_red":     { "model": "neutronia:flower_pot_mushroom_red" },
+      "contents=mushroom_brown":   { "model": "neutronia:flower_pot_mushroom_brown" },
+      "contents=dead_bush":        { "model": "neutronia:flower_pot_dead_bush" },
+      "contents=fern":             { "model": "neutronia:flower_pot_fern" },
+      "contents=cactus":           { "model": "neutronia:flower_pot_cactus" },
+      "contents=custom":           { "model": "neutronia:custom_flower_pot" }
     },
     "inventory": [
       {}

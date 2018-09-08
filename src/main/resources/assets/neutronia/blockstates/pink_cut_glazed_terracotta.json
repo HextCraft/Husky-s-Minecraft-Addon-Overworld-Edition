@@ -1,0 +1,27 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "block/cube_column",
+    "textures": {
+      "end": "neutronia:block/chiseled_glazed_terracotta/pink_chiseled_glazed_terracotta_top",
+      "side": "neutronia:block/chiseled_glazed_terracotta/pink_chiseled_glazed_terracotta"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "axis": {
+      "x": {
+        "x": 90,
+        "y": 90
+      },
+      "y": {},
+      "z": {
+        "x": 90
+      }
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}

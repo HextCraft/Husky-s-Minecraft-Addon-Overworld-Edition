@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.FileUtils;
@@ -31,11 +32,14 @@ public class JsonGenerator {
             genSlab(new ResourceLocation(modid, String.format("%s_log_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())));
-        }
-        for (EnumDyeColor color : EnumDyeColor.values()) {
-            genSlabColored(new ResourceLocation(modid, String.format("%s_colored_planks_slab", color.getName())), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"), new ResourceLocation(modid, "block/colored_planks"));
-//            genStair(modid, String.format("%s_colored_planks_slab", color.getName()));
         }*/
+        for (EnumDyeColor color : EnumDyeColor.values()) {
+            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
+            genPillarBlock(new ResourceLocation(modid, String.format("%s_cut_glazed_terracotta", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta_top", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta", color.getName())));
+//            genRecipe(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), false, "X", "X", " ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_glazed_terracotta_pillar", color.getName()), "glazed_pillars", 6);
+//            genRecipe(modid, String.format("%s_cut_glazed_terracotta", color.getName()), false, "XX", "XX", "  ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_cut_glazed_terracotta", color.getName()), "cut_terracotta", 6);
+//            genRecipe(modid, String.format("%s_centered_glazed_terracotta", color.getName()), true, "XXX", "XXX", "XXX", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_centered_glazed_terracotta", color.getName()), "centered_terracotta", 9);
+        }
 //        genSlab(new ResourceLocation(modid, "acidian_bricks_slab"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"));
 //        genSlab(new ResourceLocation(modid, "chiseled_acidian_slab"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"));
 //        genSlab(new ResourceLocation(modid, "natural_acidian_slab"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"));
@@ -542,7 +546,7 @@ public class JsonGenerator {
         }
     }
 
-    public static void genPillarBlock(ResourceLocation modIdAndName, ResourceLocation modIdAndBarkName, ResourceLocation endTextureName, ResourceLocation sidesTextureName) {
+    public static void genPillarBlock(ResourceLocation modIdAndName, ResourceLocation endTextureName, ResourceLocation sidesTextureName) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -581,10 +585,6 @@ public class JsonGenerator {
         JsonObject axisZ = new JsonObject();
         axisZ.addProperty("x", 90);
         axis.add("z", axisZ);
-
-        JsonObject axisNone = new JsonObject();
-        axisNone.addProperty("model", modIdAndBarkName.getNamespace() + ":" + modIdAndBarkName.getPath());
-        axis.add("none", axisNone);
 
         variants.add("axis", axis);
 
