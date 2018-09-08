@@ -10,12 +10,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class GlazedTerracottaStripes extends Component {
 
-    private Block[] centeredGlazedTerracotta = new Block[16];
+    private Block[] glazedTerracottaStriped = new Block[16];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
-            centeredGlazedTerracotta[dyeColor.getMetadata()] = new BlockOverworldBase(Material.CLAY, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false).setCreativeTab(CreativeTabs.DECORATIONS);
+            glazedTerracottaStriped[dyeColor.getMetadata()] = new BlockOverworldBase(Material.CLAY, String.format("%s_glazed_terracotta_stripes", dyeColor.getName()), false).setCreativeTab(CreativeTabs.DECORATIONS);
         }
     }
 
