@@ -73,6 +73,7 @@ public class NGroups {
                 .addComponent(new DecorativeAquamarine())
 //                .addComponent(new DecorativeCorals())
                 .addComponent(new GlazedTerracottaPillar())
+                .addComponent(new GlazedTerracottaStripes())
                 .addComponent(new MoreBanners())
                 .addComponent(new TerracottaFlowerPots())
                 .addComponent(new VariedBookshelves())
