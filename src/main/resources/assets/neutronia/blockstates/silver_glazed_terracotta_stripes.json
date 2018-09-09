@@ -1,0 +1,32 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "block/cube_column",
+    "textures": {
+      "end": "neutronia:block/glazed_terracotta_stripes/silver_glazed_terracotta_stripes_top",
+      "side": "neutronia:block/glazed_terracotta_stripes/silver_glazed_terracotta_stripes"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "axis": {
+      "x": {
+        "model": "neutronia:silver_glazed_terracotta_stripes",
+        "x": 90,
+        "y": 90
+      },
+      "y": {
+        "model": "neutronia:silver_glazed_terracotta_stripes"
+      },
+      "z": {
+        "model": "neutronia:silver_glazed_terracotta_stripes",
+        "x": 90
+      },
+      "none": {}
+    },
+    "inventory": [
+      {}
+    ]
+  }
+}

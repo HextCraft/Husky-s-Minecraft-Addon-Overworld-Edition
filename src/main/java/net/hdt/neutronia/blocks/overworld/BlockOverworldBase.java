@@ -19,6 +19,14 @@ public class BlockOverworldBase extends BlockMod implements INeutroniaBlock {
         }
     }
 
+    public BlockOverworldBase(Material material, String name, boolean flammable, String... variants) {
+        super(name, material, variants);
+        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        if (flammable) {
+            addFlammable(this);
+        }
+    }
+
     public static void addFlammable(Block block) {
         Blocks.FIRE.setFireInfo(block, 5, 20);
     }

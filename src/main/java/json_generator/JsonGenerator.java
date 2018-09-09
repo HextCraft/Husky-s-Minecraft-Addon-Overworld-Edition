@@ -36,6 +36,7 @@ public class JsonGenerator {
         for (EnumDyeColor color : EnumDyeColor.values()) {
             genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
             genPillarBlock(new ResourceLocation(modid, String.format("%s_cut_glazed_terracotta", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta_top", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta", color.getName())));
+            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_stripes", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes", color.getName())));
 //            genRecipe(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), false, "X", "X", " ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_glazed_terracotta_pillar", color.getName()), "glazed_pillars", 6);
 //            genRecipe(modid, String.format("%s_cut_glazed_terracotta", color.getName()), false, "XX", "XX", "  ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_cut_glazed_terracotta", color.getName()), "cut_terracotta", 6);
 //            genRecipe(modid, String.format("%s_centered_glazed_terracotta", color.getName()), true, "XXX", "XXX", "XXX", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_centered_glazed_terracotta", color.getName()), "centered_terracotta", 9);
@@ -284,7 +285,7 @@ public class JsonGenerator {
 
         JsonObject defaults = new JsonObject();
         defaults.addProperty("transform", "forge:default-block");
-        defaults.addProperty("model", modIdAndName.getNamespace() + ":" + modIdAndName.getPath());
+        defaults.addProperty("model", modIdAndName.toString());
         root.add("defaults", defaults);
 
         JsonObject variants = new JsonObject();
@@ -576,15 +577,23 @@ public class JsonGenerator {
         JsonObject axis = new JsonObject();
 
         JsonObject axisX = new JsonObject();
+        axisX.addProperty("model", modIdAndName.toString());
         axisX.addProperty("x", 90);
         axisX.addProperty("y", 90);
         axis.add("x", axisX);
 
-        axis.add("y", new JsonObject());
+        JsonObject axisY = new JsonObject();
+        axisY.addProperty("model", modIdAndName.toString());
+        axis.add("y", axisY);
 
         JsonObject axisZ = new JsonObject();
+        axisZ.addProperty("model", modIdAndName.toString());
         axisZ.addProperty("x", 90);
         axis.add("z", axisZ);
+
+        JsonObject axisNone = new JsonObject();
+        axisY.addProperty("model", modIdAndName.toString());
+        axis.add("none", axisNone);
 
         variants.add("axis", axis);
 
@@ -602,7 +611,30 @@ public class JsonGenerator {
             System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
         }
 
+        genBlockPillarBlockModel(modIdAndName, endTextureName, sidesTextureName);
         genBlockPillarItemModel(modIdAndName, endTextureName, sidesTextureName);
+    }
+
+    public static void genBlockPillarBlockModel(ResourceLocation modIdAndName, ResourceLocation endTextureName, ResourceLocation sidesTextureName) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getNamespace(), "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("parent", "block/cube_column");
+        JsonObject textures = new JsonObject();
+        textures.addProperty("end", endTextureName.getNamespace() + ":block/" + endTextureName.getPath());
+        textures.addProperty("side", sidesTextureName.getNamespace() + ":block/" + sidesTextureName.getPath());
+        root.add("textures", textures);
+        String json = gson.toJson(root);
+        try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+        }
+
     }
 
     public static void genBlockPillarItemModel(ResourceLocation modIdAndName, ResourceLocation endTextureName, ResourceLocation sidesTextureName) {

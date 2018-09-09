@@ -12,13 +12,18 @@
   "variants": {
     "axis": {
       "x": {
+        "model": "neutronia:white_glazed_terracotta_pillar",
         "x": 90,
         "y": 90
       },
-      "y": {},
+      "y": {
+        "model": "neutronia:white_glazed_terracotta_pillar"
+      },
       "z": {
+        "model": "neutronia:white_glazed_terracotta_pillar",
         "x": 90
-      }
+      },
+      "none": {}
     },
     "inventory": [
       {}

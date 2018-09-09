@@ -11,15 +11,22 @@
   },
   "variants": {
     "axis": {
-      "x": [{
+      "x": {
+        "model": "neutronia:black_glazed_terracotta_pillar",
         "x": 90,
         "y": 90
-      }],
-      "y": [{}],
-      "z": [{
+      },
+      "y": {
+        "model": "neutronia:black_glazed_terracotta_pillar"
+      },
+      "z": {
+        "model": "neutronia:black_glazed_terracotta_pillar",
         "x": 90
-      }]
+      },
+      "none": {}
     },
-    "inventory": [{}]
+    "inventory": [
+      {}
+    ]
   }
 }
