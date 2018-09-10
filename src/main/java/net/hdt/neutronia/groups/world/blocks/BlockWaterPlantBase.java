@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.world.blocks;
 
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -10,7 +9,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -44,45 +42,13 @@ public class BlockWaterPlantBase extends BlockModBush {
         return false;
     }
 
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
-
     @Override
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @SideOnly(Side.CLIENT)
     public boolean hasCustomBreakingProgress(IBlockState state) {
-        return true;
-    }
-
-    @Override
-    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
-        switch (face) {
-            case DOWN:
-                return false;
-            case UP:
-                return isWater(world, pos.add(0, 1, 0));
-            case NORTH:
-                return isWater(world, pos.add(0, 0, -1));
-            case SOUTH:
-                return isWater(world, pos.add(0, 0, 1));
-            case EAST:
-                return isWater(world, pos.add(1, 0, 0));
-            case WEST:
-                return isWater(world, pos.add(-1, 0, 0));
-        }
-        return false;
-    }
-
-    private boolean isWater(IBlockAccess world, BlockPos pos) {
-        return world.getBlockState(pos).getMaterial() == Material.WATER;
-    }
-
-    @Override
-    public boolean isTranslucent(IBlockState state) {
         return true;
     }
 
@@ -109,36 +75,41 @@ public class BlockWaterPlantBase extends BlockModBush {
         return Item.getItemFromBlock(this);
     }
 
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
-    }
-
-    public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
-    }
-
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        Block ground = worldIn.getBlockState(pos.add(0, -1, 0)).getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL && worldIn.getBlockState(pos.add(0, 2, 0)).getBlock() != Blocks.AIR;
-    }
-
-    public boolean isReplaceable(IBlockAccess access, BlockPos pos) {
-        return access.getBlockState(pos).getBlock() == Blocks.WATER && canBlockStay(access, pos, getDefaultState()) && access.getBlockState(pos.add(0, 1, 0)).getBlock() != Blocks.AIR;
-    }
-
-    protected boolean canSustainBush(IBlockState state) {
-        Block ground = state.getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL;
-    }
-
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
         checkAndDropBlock(worldIn, pos, state);
         super.onBlockAdded(worldIn, pos, state);
     }
 
-    public boolean isReplaceable(World worldIn, BlockPos pos) {
+    @Override
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+        switch (face) {
+            case DOWN:
+                return false;
+            case UP:
+                return isWater(world, pos.add(0, 1, 0));
+            case NORTH:
+                return isWater(world, pos.add(0, 0, -1));
+            case SOUTH:
+                return isWater(world, pos.add(0, 0, 1));
+            case EAST:
+                return isWater(world, pos.add(1, 0, 0));
+            case WEST:
+                return isWater(world, pos.add(-1, 0, 0));
+        }
+        return false;
+    }
+
+    private boolean isWater(IBlockAccess world, BlockPos pos) {
+        return world.getBlockState(pos).getMaterial().isLiquid();
+    }
+
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 

@@ -9,14 +9,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class DecorativeCorals extends Component {
 
-    private static final Block[] decorativeCoralBlock = new Block[5];
-    private static final Block[] decorativeDeadCoralBlock = new Block[5];
-    private static final Block[] decorativeCoralFan = new Block[5];
-    private static final Block[] decorativeDeadCoralFan = new Block[5];
-    private static final Block[] decorativeCoralFanWall = new Block[5];
-    private static final Block[] decorativeDeadCoralFanWall = new Block[5];
-    private static final Block[] decorativeCoral = new Block[5];
-    private static final Block[] decorativeDeadCoral = new Block[5];
+    public static final Block[] decorativeCoralBlock = new Block[5];
+    public static final Block[] decorativeDeadCoralBlock = new Block[5];
+    public static final Block[] decorativeCoralFan = new Block[5];
+    public static final Block[] decorativeDeadCoralFan = new Block[5];
+    public static final Block[] decorativeCoralFanWall = new Block[5];
+    public static final Block[] decorativeDeadCoralFanWall = new Block[5];
+    public static final Block[] decorativeCoral = new Block[5];
+    public static final Block[] decorativeDeadCoral = new Block[5];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

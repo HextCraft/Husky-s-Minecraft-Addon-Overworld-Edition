@@ -2,20 +2,17 @@ package net.hdt.neutronia.groups.decoration.blocks.corals;
 
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.init.NCreativeTabs;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,13 +35,8 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
     }
 
     @Override
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
-
-    @Override
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 
     @SideOnly(Side.CLIENT)
@@ -78,37 +70,19 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
         return Item.getItemFromBlock(this);
     }
 
-    @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
-    }
-
-    public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos) {
-        Block block = worldIn.getBlockState(new BlockPos(pos.add(0, -1, 0))).getBlock();
-        return (block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.SPONGE || block == Blocks.STONE || block == Blocks.CLAY || block == Blocks.GRAVEL || block == Blocks.GRASS) && worldIn.getBlockState(new BlockPos(pos.add(0, 2, 0))).getBlock() != Blocks.AIR;
-    }
-
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        Block ground = worldIn.getBlockState(pos.add(0, -1, 0)).getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL && worldIn.getBlockState(pos.add(0, 2, 0)).getBlock() != Blocks.AIR;
-    }
-
-    @Override
-    public boolean isReplaceable(IBlockAccess access, BlockPos pos) {
-        return access.getBlockState(pos).getBlock() == Blocks.WATER && canBlockStay(access, pos) && access.getBlockState(pos.add(0, 1, 0)).getBlock() != Blocks.AIR;
-    }
-
-    @Override
-    protected boolean canSustainBush(IBlockState state) {
-        Block ground = state.getBlock();
-        return ground == Blocks.SAND || ground == Blocks.GRASS || ground == Blocks.DIRT || ground == Blocks.GRAVEL;
-    }
-
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
         checkAndDropBlock(worldIn, pos, state);
         super.onBlockAdded(worldIn, pos, state);
+    }
+
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
     }
 
 }

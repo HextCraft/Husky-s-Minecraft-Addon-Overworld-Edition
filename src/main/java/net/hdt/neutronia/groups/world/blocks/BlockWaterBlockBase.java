@@ -33,6 +33,11 @@ public class BlockWaterBlockBase extends BlockMod implements INeutroniaBlock {
         }
     }
 
+    @SideOnly(Side.CLIENT)
+    public boolean hasCustomBreakingProgress(IBlockState state) {
+        return true;
+    }
+
     @Override
     public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
         switch (face) {
@@ -53,12 +58,17 @@ public class BlockWaterBlockBase extends BlockMod implements INeutroniaBlock {
     }
 
     private boolean isWater(IBlockAccess world, BlockPos pos) {
-        return world.getBlockState(pos).getMaterial() == Material.WATER;
+        return world.getBlockState(pos).getMaterial().isLiquid();
     }
 
-    @SideOnly(Side.CLIENT)
-    public boolean hasCustomBreakingProgress(IBlockState state) {
-        return true;
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
     }
 
 }

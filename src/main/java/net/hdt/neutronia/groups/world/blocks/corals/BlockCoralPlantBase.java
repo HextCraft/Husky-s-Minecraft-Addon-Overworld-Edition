@@ -9,6 +9,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -36,10 +37,6 @@ public class BlockCoralPlantBase extends BlockModBush {
     }
 
     public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
-
-    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
@@ -121,6 +118,39 @@ public class BlockCoralPlantBase extends BlockModBush {
     @Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
         this.checkFlowerChange(world, pos, state);
+    }
+
+    @Override
+    public boolean doesSideBlockRendering(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing face) {
+        switch (face) {
+            case DOWN:
+                return false;
+            case UP:
+                return isWater(world, pos.add(0, 1, 0));
+            case NORTH:
+                return isWater(world, pos.add(0, 0, -1));
+            case SOUTH:
+                return isWater(world, pos.add(0, 0, 1));
+            case EAST:
+                return isWater(world, pos.add(1, 0, 0));
+            case WEST:
+                return isWater(world, pos.add(-1, 0, 0));
+        }
+        return false;
+    }
+
+    private boolean isWater(IBlockAccess world, BlockPos pos) {
+        return world.getBlockState(pos).getMaterial().isLiquid();
+    }
+
+    @Override
+    public boolean isTranslucent(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
     }
 
 }
