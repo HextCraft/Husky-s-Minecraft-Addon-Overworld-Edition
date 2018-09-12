@@ -54,7 +54,7 @@ public class BlockCoralBlock extends BlockWaterBlockBase {
             worldIn.setBlockState(pos, livingVersion.get(deadVersion.indexOf(this)).getDefaultState());
     }
 
-    protected boolean canLive(World world, BlockPos itsPosition) {
+    private boolean canLive(World world, BlockPos itsPosition) {
         for (EnumFacing facing : EnumFacing.values()) {
             IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
             if (sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) {
