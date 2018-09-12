@@ -11,7 +11,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -173,14 +172,6 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
         IBlockState state = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
         return state.withProperty(FACING, placer.getHorizontalFacing());
-    }
-
-    @Override
-    public boolean canBlockStay(IBlockAccess worldIn, BlockPos pos, IBlockState state) {
-        EnumFacing enumfacing = state.getValue(FACING);
-        BlockPos blockpos = pos.offset(enumfacing.getOpposite());
-        IBlockState iblockstate = worldIn.getBlockState(blockpos);
-        return iblockstate.getBlockFaceShape(worldIn, blockpos, enumfacing) == BlockFaceShape.SOLID && !isExceptBlockForAttachWithPiston(iblockstate.getBlock());
     }
 
     public int getMetaFromState(IBlockState state) {
