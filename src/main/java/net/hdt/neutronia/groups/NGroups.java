@@ -68,8 +68,10 @@ public class NGroups {
                 .name("Decoration")
                 .description("This group adds new decorative building blocks and improves vanilla ones.")
                 .iconStack(new ItemStack(Blocks.RED_FLOWER))
-                .addComponent(new CharcoalBlock())
+                .addComponent(new CarvedPlanks())
                 .addComponent(new CenteredGlazedTerracotta())
+                .addComponent(new CharcoalBlock())
+                .addComponent(new ColoredPlanks())
                 .addComponent(new CutGlazedTerracotta())
                 .addComponent(new DecorativeAquamarine())
                 .addComponent(new DecorativeCorals())
@@ -80,7 +82,6 @@ public class NGroups {
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
                 .addComponent(new VariedTrapdoors())
-                .addComponent(new ColoredPlanks())
                 .enabled(true)
                 .register();
 
