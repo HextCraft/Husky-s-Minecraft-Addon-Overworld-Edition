@@ -55,8 +55,13 @@ public class ClientProxy extends CommonProxy {
     }
 
     @Override
-    public void addResourceOverride(String path, String file) {
-        resourceProxy.addResource(path, file);
+    public void addVanillaResourceOverride(String path, String file) {
+        resourceProxy.addVanillaResource(path, file);
+    }
+
+    @Override
+    public void addNeutroniaResourceOverride(String path, String file) {
+        resourceProxy.addNeutroniaResource(path, file);
     }
 
     @Override

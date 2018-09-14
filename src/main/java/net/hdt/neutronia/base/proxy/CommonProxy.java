@@ -42,7 +42,12 @@ public class CommonProxy implements IProxy {
     }
 
     @Override
-    public void addResourceOverride(String path, String file) {
+    public void addVanillaResourceOverride(String path, String file) {
+
+    }
+
+    @Override
+    public void addNeutroniaResourceOverride(String path, String file) {
 
     }
 

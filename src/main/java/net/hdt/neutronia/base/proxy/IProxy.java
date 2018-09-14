@@ -17,7 +17,9 @@ public interface IProxy {
 
     void serverStarting(FMLServerStartingEvent event);
 
-    void addResourceOverride(String path, String file);
+    void addVanillaResourceOverride(String path, String file);
+
+    void addNeutroniaResourceOverride(String path, String file);
 
     default float getPartialTicks() {
         return 0.0F;

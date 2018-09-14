@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "name": "Bookshelf",
+      "files": [
+        "textures/block//acacia_bookshelf.png"
+      ]
+    }
+  ]
+}

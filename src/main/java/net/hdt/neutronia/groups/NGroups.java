@@ -60,6 +60,7 @@ public class NGroups {
                 .addComponent(new ConsoleHudFeatures())
                 .addComponent(new PastelColors())
                 .addComponent(new BetterEndTextures())
+                .addComponent(new MoreDetailedModels())
                 .enabled(false)
                 .register();
 

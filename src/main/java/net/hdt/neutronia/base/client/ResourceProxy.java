@@ -14,9 +14,11 @@ import java.util.Set;
 public class ResourceProxy extends AbstractResourcePack {
 
     private static final String MINECRAFT = "minecraft";
-    private static final Set<String> RESOURCE_DOMAINS = ImmutableSet.of(MINECRAFT);
+    private static final String NEUTRONIA = "neutronia";
+    private static final Set<String> RESOURCE_DOMAINS = ImmutableSet.of(MINECRAFT, NEUTRONIA);
 
-    private static final String BARE_FORMAT = "assets/" + MINECRAFT + "/%s/%s";
+    private static final String MINECRAFT_BARE_FORMAT = "assets/" + MINECRAFT + "/%s/%s";
+    private static final String NEUTRONIA_BARE_FORMAT = "assets/" + NEUTRONIA + "/%s/%s";
     private static final String OVERRIDE_FORMAT = "/assets/" + LibMisc.MOD_ID + "/%s/overrides/%s";
 
     private static final Map<String, String> overrides = new HashMap<>();
@@ -26,8 +28,14 @@ public class ResourceProxy extends AbstractResourcePack {
         overrides.put("pack.mcmeta", "/proxypack.mcmeta");
     }
 
-    public void addResource(String path, String file) {
-        String bare = String.format(BARE_FORMAT, path, file);
+    public void addVanillaResource(String path, String file) {
+        String bare = String.format(MINECRAFT_BARE_FORMAT, path, file);
+        String override = String.format(OVERRIDE_FORMAT, path, file);
+        overrides.put(bare, override);
+    }
+
+    public void addNeutroniaResource(String path, String file) {
+        String bare = String.format(NEUTRONIA_BARE_FORMAT, path, file);
         String override = String.format(OVERRIDE_FORMAT, path, file);
         overrides.put(bare, override);
     }

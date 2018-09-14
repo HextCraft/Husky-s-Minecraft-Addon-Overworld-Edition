@@ -1,15 +1,13 @@
 package net.hdt.neutronia.groups.client.features;
 
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.function.BiConsumer;
-
 import com.google.gson.Gson;
-
 import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.io.InputStreamReader;
+import java.util.List;
 
 public class BetterVanillaTextures extends Component {
 
@@ -17,7 +15,6 @@ public class BetterVanillaTextures extends Component {
     private static final Gson GSON = new Gson();
 	
 	OverrideHolder overrides = null;
-
 
     @Override
     public void setupConfig() {
@@ -58,7 +55,7 @@ public class BetterVanillaTextures extends Component {
 			if(configVal) 
 				for(String file : files) {
 					String[] tokens = file.split("\\/\\/");
-					Neutronia.proxy.addResourceOverride(tokens[0], tokens[1]);
+					Neutronia.proxy.addVanillaResourceOverride(tokens[0], tokens[1]);
 				}
 		}
 		
