@@ -2,6 +2,7 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,6 +23,11 @@ public class CutGlazedTerracotta extends Component {
     @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return GlobalConfig.enableExperimentalFeatures;
     }
 
 }

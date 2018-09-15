@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.world.world.gen.structure;
 
 import com.google.common.collect.Lists;
+import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -1473,8 +1474,7 @@ public class StructureVillagePieces {
             this.setBlockState(worldIn, iblockstate, 1, 0, 0, structureBoundingBoxIn);
             this.setBlockState(worldIn, iblockstate, 1, 1, 0, structureBoundingBoxIn);
             this.setBlockState(worldIn, iblockstate, 1, 2, 0, structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.REDSTONE_LAMP.getDefaultState(), 1, 3, 0, structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.LEVER.getDefaultState().withProperty(BlockLever.FACING, BlockLever.EnumOrientation.EAST).withProperty(BlockLever.POWERED, true), 2, 3, 0, structureBoundingBoxIn);
+            this.setBlockState(worldIn, Blocks.LIT_REDSTONE_LAMP.getDefaultState(), 1, 3, 0, structureBoundingBoxIn);
             return true;
         }
     }
@@ -1656,7 +1656,7 @@ public class StructureVillagePieces {
                 return event.getReplacement();
             if (this.structureType == 1) {
                 if (blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {
-                    return Blocks.SANDSTONE.getDefaultState();
+                    return NBlocks.sandstonePillar.getDefaultState().withProperty(BlockLog.AXIS, EnumFacing.Axis.Z);
                 }
 
                 if (blockstateIn.getBlock() == Blocks.COBBLESTONE) {

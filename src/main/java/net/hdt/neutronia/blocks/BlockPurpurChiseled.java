@@ -30,28 +30,18 @@ public class BlockPurpurChiseled extends BlockMod implements INeutroniaBlock {
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        ItemStack itemstack = playerIn.getHeldItem(hand);
+        Item heldItem = playerIn.getHeldItem(hand).getItem();
 
-        if (itemstack.isEmpty()) {
-            return false;
-        } else {
-            Item item = itemstack.getItem();
-
-            if (item == Items.ENDER_PEARL) {
-                if (!filled) {
-                    worldIn.setBlockState(pos, NBlocks.chiseledPurpurFilled.getDefaultState(), 2);
-                    itemstack.shrink(1);
-                    return true;
-                }
-                return false;
-            } else {
-                if (filled) {
-                    worldIn.setBlockState(pos, NBlocks.chiseledPurpur.getDefaultState(), 2);
-                    playerIn.inventory.addItemStackToInventory(new ItemStack(Items.ENDER_PEARL));
-                    return true;
-                }
-                return false;
-            }
+        if (heldItem == Items.ENDER_PEARL && !this.filled) {
+            worldIn.setBlockState(pos, NBlocks.chiseledPurpurFilled.getDefaultState(), 2);
+            playerIn.getHeldItem(hand).setCount(playerIn.getHeldItem(hand).getCount() - 1);
+            return true;
         }
+        if (playerIn.getHeldItem(hand).isEmpty() && this.filled) {
+            worldIn.setBlockState(pos, NBlocks.chiseledPurpur.getDefaultState(), 2);
+            playerIn.inventory.addItemStackToInventory(new ItemStack(Items.ENDER_PEARL));
+            return false;
+        }
+        return false;
     }
 }

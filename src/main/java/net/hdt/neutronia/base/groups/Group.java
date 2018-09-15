@@ -13,10 +13,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class Group implements Comparable<Group> {
@@ -234,6 +231,10 @@ public class Group implements Comparable<Group> {
         return name.compareTo(group.name);
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
     public static class Builder {
 
         private String name, desc;
@@ -287,6 +288,7 @@ public class Group implements Comparable<Group> {
             group = new Group(this);
             group.setIconStack(icon);
             group.enabled = enabled;
+            components.removeIf(component -> !component.enabled);
             GroupLoader.registerGroup(group);
             return group;
         }

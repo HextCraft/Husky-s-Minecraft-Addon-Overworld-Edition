@@ -198,4 +198,8 @@ public class Component implements Comparable<Component> {
         return configName.compareTo(o.configName);
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
 }

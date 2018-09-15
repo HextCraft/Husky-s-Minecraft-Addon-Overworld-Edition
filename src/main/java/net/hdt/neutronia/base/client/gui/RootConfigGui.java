@@ -46,8 +46,7 @@ public class RootConfigGui extends GuiConfigBase {
     RootConfigGui(GuiScreen parent) {
         super(parent);
 
-        groups = new ArrayList<>(GroupLoader.groups);
-        groups.removeIf(module -> !module.enabled);
+        groups = new ArrayList<>(GroupLoader.enabledGroups);
         Collections.sort(groups);
 
         nEnabled = GlobalConfig.enableNButton;
@@ -112,9 +111,12 @@ public class RootConfigGui extends GuiConfigBase {
         buttonList.add(new GuiButton(1, x - 100, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.general")));
 //        buttonList.add(new GuiButton(2, x  + 2, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.import")));
 
-        buttonList.add(new CustomIconButton(3, x - 100, y + 44, 0, 0, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.opensite")*/));
-        buttonList.add(new CustomIconButton(5, x - 40, y + 44, 0, y + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.discord")*/));
-        buttonList.add(new CustomIconButton(5, x + 36, y + 44, 0, y + 44 + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.twitter")*/));
+//        buttonList.add(new CustomIconButton(3, x - 100, y + 44, 0, 0, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.opensite")*/));
+//        buttonList.add(new CustomIconButton(4, x - 40, y + 44, 0, y + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.discord")*/));
+//        buttonList.add(new CustomIconButton(5, x + 36, y + 44, 0, y + 44 + 44, 20, 20, CUSTOM_BUTTON_ICONS/*, I18n.translateToLocal("neutronia.config.twitter")*/));
+        buttonList.add(new ColoredButton(3, x - 100, y + 44, 54, I18n.translateToLocal("neutronia.config.opensite"), 0x4078c0));
+        buttonList.add(new ColoredButton(5, x - 40, y + 44, 54, I18n.translateToLocal("neutronia.config.discord"), 0x7289da));
+        buttonList.add(new ColoredButton(5, x + 36, y + 44, 54, I18n.translateToLocal("neutronia.config.twitter"), 0x55acee));
 
         buttonList.add(backButton = new GuiButton(0, x - 100, y + 66, 205, 20, I18n.translateToLocal("gui.done")));
     }

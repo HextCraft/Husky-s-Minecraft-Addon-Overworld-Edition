@@ -147,7 +147,6 @@ public class VisibleStorms extends Component {
                 Math.min(fogEvent.getGreen(), 1.0f),
                 Math.min(fogEvent.getBlue(), 1.0f)
         );
-
         if (world.isRaining()) {
             float red = 0;
             float green = 0;
@@ -192,4 +191,8 @@ public class VisibleStorms extends Component {
         return true;
     }
 
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }

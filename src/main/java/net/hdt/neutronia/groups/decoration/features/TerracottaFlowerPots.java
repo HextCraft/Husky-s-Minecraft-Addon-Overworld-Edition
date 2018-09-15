@@ -24,13 +24,9 @@ public class TerracottaFlowerPots extends Component {
     @SubscribeEvent
     public static void coloringHandling(ColorHandlerEvent.Block event) {
         BlockColors blocks = event.getBlockColors();
-
         IBlockColor handlerBlocks = (s, w, p, t) -> t == 0 ? ((BlockTerracottaFlowerPot) s.getBlock()).color.getColorValue() : 0xFFFFFF;
-        Block[][] toColor = new Block[][]{
-                pots
-        };
+        Block[][] toColor = new Block[][]{pots};
         Block[] coloredStuff = new Block[16 * toColor.length];
-
         for (int i = 0; i < toColor.length; i++) {
             Block[] colored = toColor[i];
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
@@ -41,13 +37,9 @@ public class TerracottaFlowerPots extends Component {
     @SubscribeEvent
     public static void coloringHandling(ColorHandlerEvent.Item event) {
         ItemColors items = event.getItemColors();
-
         IItemColor handlerItems = (s, t) -> event.getBlockColors().colorMultiplier(((ItemBlock) s.getItem()).getBlock().getDefaultState(), null, null, t);
-        Block[][] toColor = new Block[][]{
-                pots
-        };
+        Block[][] toColor = new Block[][]{pots};
         Block[] coloredStuff = new Block[16 * toColor.length];
-
         for (int i = 0; i < toColor.length; i++) {
             Block[] colored = toColor[i];
             System.arraycopy(colored, 0, coloredStuff, i * 16, 16);
@@ -67,4 +59,5 @@ public class TerracottaFlowerPots extends Component {
     public boolean hasSubscriptions() {
         return true;
     }
+
 }

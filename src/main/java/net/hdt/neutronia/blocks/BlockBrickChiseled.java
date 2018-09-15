@@ -30,28 +30,18 @@ public class BlockBrickChiseled extends BlockMod implements INeutroniaBlock {
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        ItemStack itemstack = playerIn.getHeldItem(hand);
+        Item heldItem = playerIn.getHeldItem(hand).getItem();
 
-        if (itemstack.isEmpty()) {
-            return false;
-        } else {
-            Item item = itemstack.getItem();
-
-            if (item == Item.getItemFromBlock(Blocks.STONE_SLAB)) {
-                if (!filled) {
-                    worldIn.setBlockState(pos, NBlocks.chiseledBricksFilled.getDefaultState(), 2);
-                    itemstack.shrink(1);
-                    return true;
-                }
-                return false;
-            } else {
-                if (filled) {
-                    worldIn.setBlockState(pos, NBlocks.chiseledBricks.getDefaultState(), 2);
-                    playerIn.inventory.addItemStackToInventory(new ItemStack(Blocks.STONE_SLAB));
-                    return true;
-                }
-                return false;
-            }
+        if (heldItem == Item.getItemFromBlock(Blocks.STONE_SLAB) && !this.filled) {
+            worldIn.setBlockState(pos, NBlocks.chiseledBricksFilled.getDefaultState(), 2);
+            playerIn.getHeldItem(hand).setCount(playerIn.getHeldItem(hand).getCount() - 1);
+            return true;
         }
+        if (playerIn.getHeldItem(hand).isEmpty() && this.filled) {
+            worldIn.setBlockState(pos, NBlocks.chiseledBricks.getDefaultState(), 2);
+            playerIn.inventory.addItemStackToInventory(new ItemStack(Item.getItemFromBlock(Blocks.STONE_SLAB)));
+            return false;
+        }
+        return false;
     }
 }

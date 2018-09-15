@@ -101,7 +101,6 @@ public final class GroupLoader {
         GlobalConfig.initGlobalConfig();
 
         forEachGroup(group -> {
-            group.enabled = true;
             if (group.canBeDisabled()) {
                 ConfigHelper.needsRestart = true;
                 group.enabled = ConfigHelper.loadPropBool(group.name, "_groups", group.getModuleDescription(), group.isEnabledByDefault());

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.groups;
 
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 public final class GlobalConfig {
@@ -9,6 +8,7 @@ public final class GlobalConfig {
     public static boolean enableVariants;
     public static boolean enableNButton;
     public static boolean NButtonOnRight;
+    public static boolean enableExperimentalFeatures;
     public static Property NButtonProp;
     static boolean enableAntiOverlap;
 
@@ -29,6 +29,10 @@ public final class GlobalConfig {
                         + "this is helpful to reduce the load, if you intend on running a really large modpack.\n"
                         + "Note: Blocks that require stairs and/or slabs for their recipes (such as Soul Sandstone or Midori) won't be affected.", true);
 
+        enableExperimentalFeatures = ConfigHelper.loadPropBool("Enable Experimental Features", category,
+                    "Set this to true to enable features that are either not finished, or will be added"
+                        + " in a newer version", false);
+
         ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = false;
 
         enableNButton = ConfigHelper.loadPropBool("Enable N Button", category,
@@ -40,43 +44,6 @@ public final class GlobalConfig {
                 "Set this to true to move the N button to the right of the buttons, instead\n"
                         + "of to the left as it is by default.", false);
 
-    }
-
-    public static void changeConfig(String moduleName, String category, String key, String value, boolean saveToFile) {
-        Configuration config = GroupLoader.config;
-        String fullCategory = moduleName;
-        if (!category.equals("-"))
-            fullCategory += "." + category;
-
-        char type = key.charAt(0);
-        key = key.substring(2);
-
-        if (config.hasKey(fullCategory, key)) {
-
-            try {
-                switch (type) {
-                    case 'B':
-                        boolean b = Boolean.parseBoolean(value);
-                        config.get(fullCategory, key, false).setValue(b);
-                    case 'I':
-                        int i = Integer.parseInt(value);
-                        config.get(fullCategory, key, 0).setValue(i);
-                    case 'D':
-                        double d = Double.parseDouble(value);
-                        config.get(fullCategory, key, 0.0).setValue(d);
-                    case 'S':
-                        config.get(fullCategory, key, "").setValue(value);
-                }
-            } catch (IllegalArgumentException ignored) {
-            }
-
-            if (config.hasChanged()) {
-                GroupLoader.forEachGroup(Group::setupConfig);
-
-                if (saveToFile)
-                    config.save();
-            }
-        }
     }
 
 }

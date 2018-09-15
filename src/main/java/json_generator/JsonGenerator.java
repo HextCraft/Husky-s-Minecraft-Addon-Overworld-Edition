@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
@@ -33,10 +34,14 @@ public class JsonGenerator {
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
             genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())));
         }*/
+        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+            genBlock(new ResourceLocation(modid, String.format("carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("carved_%s_planks", woodType.getName())));
+            genSlab(new ResourceLocation(modid, String.format("carved_%s_planks_slab", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())));
+        }
         for (EnumDyeColor color : EnumDyeColor.values()) {
-            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
-            genPillarBlock(new ResourceLocation(modid, String.format("%s_cut_glazed_terracotta", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta_top", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta", color.getName())));
-            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_stripes", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes", color.getName())));
+//            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
+//            genPillarBlock(new ResourceLocation(modid, String.format("%s_cut_glazed_terracotta", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta_top", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta", color.getName())));
+//            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_stripes", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes", color.getName())));
 //            genRecipe(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), false, "X", "X", " ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_glazed_terracotta_pillar", color.getName()), "glazed_pillars", 6);
 //            genRecipe(modid, String.format("%s_cut_glazed_terracotta", color.getName()), false, "XX", "XX", "  ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_cut_glazed_terracotta", color.getName()), "cut_terracotta", 6);
 //            genRecipe(modid, String.format("%s_centered_glazed_terracotta", color.getName()), true, "XXX", "XXX", "XXX", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_centered_glazed_terracotta", color.getName()), "centered_terracotta", 9);
