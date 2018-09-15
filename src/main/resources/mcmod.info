@@ -1,16 +1,17 @@
 [
-{
-  "modid": "neutronia",
-  "name": "Neutronia",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "1.12.2",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "neutronia",
+    "name": "Neutronia",
+    "description": "Neutronia is a mod that aims to expand upon the vanilla style, including much more variety to all dimensions. \n The surface, underground, nether and end have upgraded worldgen, more biomes and structures.",
+    "version": "${version}",
+    "mcversion": "1.12.2",
+    "authorList": [
+      "TheGamingHuskyMC",
+      "Blommm",
+      "Polar"
+    ],
+    "credits": "Thanks to Nox, AguilaPapi, AbsolemJackdaw, SnakeBlock, YoshiSalad, Paul, Zontic, Igrek and King of Creepers for their awesome art. Also Mistral__ for the amazing logo and banner he made :) And Axoladdy and KingVampyre for their awesome ideas. Thanks to MCvinnyq, Dion6103, cybercat5555 and AguilaPapi for their amazing entity models",
+    "logoFile": "/assets/neutronia/textures/logo.png",
+    "url": "https://github.com/HuskysDevelopmentTeam/Neutronia"
+  }
 ]

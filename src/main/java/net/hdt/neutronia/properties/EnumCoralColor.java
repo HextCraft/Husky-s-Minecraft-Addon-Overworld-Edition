@@ -1,22 +1,19 @@
 package net.hdt.neutronia.properties;
 
 import net.minecraft.util.IStringSerializable;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public enum EnumCoralColor implements IStringSerializable {
 
-    BLUE(0, "blue", "tube", 3949738),
-    PINK(1, "pink", "brain", 15961002),
-    PURPLE(2, "purple", "bubble", 8991416),
-    RED(3, "red", "fire", 11546150),
-    YELLOW(4, "yellow", "horn", 16701501)/*,
-    BLACK(5, "yellow", "seaweed", 16701501),
-    CYAN(6, "yellow", "horn", 16701501),
-    GREEN(7, "yellow", "forest", 16701501),
-    LIGHT_BLUE(8, "yellow", "horn", 16701501),
-    LIME(9, "yellow", "horn", 16701501),
-    ORANGE(10, "yellow", "anthias", 16701501)*/;
+    BLUE(0, "blue", "tube"),
+    PINK(1, "pink", "brain"),
+    PURPLE(2, "purple", "bubble"),
+    RED(3, "red", "fire"),
+    YELLOW(4, "yellow", "horn"),
+    CYAN(5, "cyan", "prismarine"),
+    BROWN(6, "brown", "earth"),
+    LIGHT_BLUE(7, "light_blue", "diamond"),
+    LIME(8, "lime", "emerald"),
+    ORANGE(9, "orange", "lava");
 
     private static final EnumCoralColor[] META_LOOKUP = new EnumCoralColor[values().length];
 
@@ -28,29 +25,17 @@ public enum EnumCoralColor implements IStringSerializable {
 
     private final int meta;
     private final String oldName, newName;
-    private final int colorValue;
-    private final float[] colorComponentValues;
 
-    EnumCoralColor(int metaIn, String oldName, int colorValueIn) {
+    EnumCoralColor(int metaIn, String oldName) {
         this.meta = metaIn;
         this.oldName = oldName;
         this.newName = oldName;
-        this.colorValue = colorValueIn;
-        int i = (colorValueIn & 16711680) >> 16;
-        int j = (colorValueIn & 65280) >> 8;
-        int k = (colorValueIn & 255);
-        this.colorComponentValues = new float[]{(float) i / 255.0F, (float) j / 255.0F, (float) k / 255.0F};
     }
 
-    EnumCoralColor(int metaIn, String oldName, String newName, int colorValueIn) {
+    EnumCoralColor(int metaIn, String oldName, String newName) {
         this.meta = metaIn;
         this.oldName = oldName;
         this.newName = newName;
-        this.colorValue = colorValueIn;
-        int i = (colorValueIn & 16711680) >> 16;
-        int j = (colorValueIn & 65280) >> 8;
-        int k = (colorValueIn & 255);
-        this.colorComponentValues = new float[]{(float) i / 255.0F, (float) j / 255.0F, (float) k / 255.0F};
     }
 
     public static EnumCoralColor byMetadata(int meta) {
@@ -67,15 +52,6 @@ public enum EnumCoralColor implements IStringSerializable {
 
     public String getNewName() {
         return newName;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public int getColorValue() {
-        return this.colorValue;
-    }
-
-    public float[] getColorComponentValues() {
-        return this.colorComponentValues;
     }
 
     public String toString() {

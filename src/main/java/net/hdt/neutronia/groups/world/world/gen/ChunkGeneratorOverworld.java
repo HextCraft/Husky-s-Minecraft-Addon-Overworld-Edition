@@ -2,6 +2,7 @@ package net.hdt.neutronia.groups.world.world.gen;
 
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenDungeons;
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenLakes;
+import net.hdt.neutronia.groups.world.world.gen.structure.MapGenVillage;
 import net.hdt.neutronia.groups.world.world.gen.structure.StructureOceanMonument;
 import net.hdt.neutronia.groups.world.world.gen.structure.WoodlandMansion;
 import net.minecraft.block.BlockFalling;
@@ -22,7 +23,6 @@ import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.MapGenStronghold;
-import net.minecraft.world.gen.structure.MapGenVillage;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -135,7 +135,6 @@ public class ChunkGeneratorOverworld implements IChunkGenerator {
                     double d8 = (this.heightMap[l1 + i2 + 1] - d4) * 0.125D;
 
                     for (int j2 = 0; j2 < 8; ++j2) {
-                        double d9 = 0.25D;
                         double d10 = d1;
                         double d11 = d2;
                         double d12 = (d3 - d1) * 0.25D;

@@ -421,11 +421,11 @@ public class StructureVillagePieces {
             this.fillWithBlocks(worldIn, structureBoundingBoxIn, 4, 0, 1, 5, 0, 7, Blocks.FARMLAND.getDefaultState(), Blocks.FARMLAND.getDefaultState(), false);
             this.fillWithBlocks(worldIn, structureBoundingBoxIn, 7, 0, 1, 8, 0, 7, Blocks.FARMLAND.getDefaultState(), Blocks.FARMLAND.getDefaultState(), false);
             this.fillWithBlocks(worldIn, structureBoundingBoxIn, 10, 0, 1, 11, 0, 7, Blocks.FARMLAND.getDefaultState(), Blocks.FARMLAND.getDefaultState(), false);
-            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 0, 0, 0, 0, 0, 8, LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), false);
-            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 6, 0, 0, 6, 0, 8, LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), false);
-            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 12, 0, 0, 12, 0, 8, LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), false);
-            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, 0, 11, 0, 0, LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), false);
-            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, 8, 11, 0, 8, LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), LOG.withProperty(BlockLog.AXIS, EnumFacing.Axis.Z), false);
+            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 0, 0, 0, 0, 0, 8, LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z), LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z), false);
+            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 6, 0, 0, 6, 0, 8, LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z), LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z), false);
+            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 12, 0, 0, 12, 0, 8, LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z), LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Y), false);
+            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, 0, 11, 0, 0, LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.X), LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.X), false);
+            this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 0, 8, 11, 0, 8, LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.X), LOG.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.X), false);
             this.fillWithBlocks(worldIn, structureBoundingBoxIn, 3, 0, 1, 3, 0, 7, Blocks.WATER.getDefaultState(), Blocks.WATER.getDefaultState(), false);
             this.fillWithBlocks(worldIn, structureBoundingBoxIn, 9, 0, 1, 9, 0, 7, Blocks.WATER.getDefaultState(), Blocks.WATER.getDefaultState(), false);
 
@@ -1655,8 +1655,12 @@ public class StructureVillagePieces {
             if (event.getResult() == net.minecraftforge.fml.common.eventhandler.Event.Result.DENY)
                 return event.getReplacement();
             if (this.structureType == 1) {
-                if (blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {
-                    return NBlocks.sandstonePillar.getDefaultState().withProperty(BlockLog.AXIS, EnumFacing.Axis.Z);
+                if (blockstateIn.getBlock() == Blocks.LOG.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z) || blockstateIn.getBlock() == Blocks.LOG2.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z)) {
+                    return NBlocks.sandstonePillar.getDefaultState().withProperty(BlockLog.LOG_AXIS, blockstateIn.getValue(BlockLog.LOG_AXIS));
+                }
+
+                if(blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {
+                    return Blocks.SANDSTONE.getDefaultState();
                 }
 
                 if (blockstateIn.getBlock() == Blocks.COBBLESTONE) {

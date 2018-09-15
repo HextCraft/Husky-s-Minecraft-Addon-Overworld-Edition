@@ -38,35 +38,33 @@ public class NItems {
     public static final ItemArmor.ArmorMaterial OAK_ARMOR = EnumHelper.addArmorMaterial("oak", "oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor.ArmorMaterial SPRUCE_ARMOR = EnumHelper.addArmorMaterial("spruce", "spruce", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
-    public static final Item ancientSword, bandage, witherBone, witherBonemeal, /*driedKelp, stinger, chitin, */
+    public static final Item ancientSword, bandage, witherBone, witherBonemeal,
             phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
-//    public static final Item rawSeaweed;
 
-    //    public static final Item AXE_CHITIN, PICKAXE_CHITIN, HOE_CHITIN, SHOVEL_CHITIN, SWORD_CHITIN;
     public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
 
     public static final Item BRASS_AXE, BRASS_PICKAXE, BRASS_SHOVEL, BRASS_SWORD;
     public static final Item STEEL_AXE, STEEL_PICKAXE, STEEL_SHOVEL, STEEL_SWORD;
     public static final Item COPPER_AXE, COPPER_PICKAXE, COPPER_SHOVEL, COPPER_SWORD;
-    public static final Item BRONZE_AXE, BRONZE_PICKAXE, BRONZE_SHOVEL, BRONZE_SWORD;
+//    public static final Item BRONZE_AXE, BRONZE_PICKAXE, BRONZE_SHOVEL, BRONZE_SWORD;
     public static final Item brassIngot, brassNugget;
     public static final Item copperIngot, copperNugget;
     public static final Item steelIngot, steelNugget;
     public static final Item zincChunk;
-    public static final Item bronzeIngot, bronzeNugget;
+//    public static final Item bronzeIngot, bronzeNugget;
     public static final Item tinIngot, tinNugget;
 
     public static final Item BRASS_HELMET, BRASS_CHESTPLATE, BRASS_LEGGINGS, BRASS_BOOTS;
     public static final Item STEEL_HELMET, STEEL_CHESTPLATE, STEEL_LEGGINGS, STEEL_BOOTS;
     public static final Item COPPER_HELMET, COPPER_CHESTPLATE, COPPER_LEGGINGS, COPPER_BOOTS;
-    public static final Item BRONZE_HELMET, BRONZE_CHESTPLATE, BRONZE_LEGGINGS, BRONZE_BOOTS;
+//    public static final Item BRONZE_HELMET, BRONZE_CHESTPLATE, BRONZE_LEGGINGS, BRONZE_BOOTS;
 
-    /*public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
+    public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
+    public static final Item BIRCH_HELMET, BIRCH_CHESTPLATE, BIRCH_LEGGINGS, BIRCH_BOOTS;
     public static final Item DARK_OAK_HELMET, DARK_OAK_CHESTPLATE, DARK_OAK_LEGGINGS, DARK_OAK_BOOTS;
-    public static final Item BIRCH__HELMET, BIRCH__CHESTPLATE, BIRCH__LEGGINGS, BIRCH__BOOTS;
     public static final Item JUNGLE_HELMET, JUNGLE_CHESTPLATE, JUNGLE_LEGGINGS, JUNGLE_BOOTS;
     public static final Item OAK_HELMET, OAK_CHESTPLATE, OAK_LEGGINGS, OAK_BOOTS;
-    public static final Item SPRUCE_HELMET, SPRUCE_CHESTPLATE, SPRUCE_LEGGINGS, SPRUCE_BOOTS;*/
+    public static final Item SPRUCE_HELMET, SPRUCE_CHESTPLATE, SPRUCE_LEGGINGS, SPRUCE_BOOTS;
 
     public static final Item woodSpear;
     public static final Item stoneSpear;
@@ -78,15 +76,10 @@ public class NItems {
     public static final Item anchor;
     public static final Item chisel;
     public static final Item logStripper;
-    public static final Item easter_egg;
-
-//    public static final Item rawDragonMeat, cookedDragonMeat;
 
     public static Item[] barkItem = new Item[6];
     public static Item[] logShields = new Item[6];
     public static Item[] planksShields = new Item[6];
-
-    public static Item[] jellybean = new Item[23];
 
     static {
         CreativeTabs tab = NCreativeTabs.ITEM_EXPANSION_TAB;
@@ -95,8 +88,6 @@ public class NItems {
         bandage = new ItemBandage();
         witherBone = new ItemBase("wither_bone", tab);
         witherBonemeal = new ItemBase("wither_bonemeal", tab);
-//        stinger = new ItemBase("stinger", tab);
-//        chitin = new ItemBase("chitin", tab);
         phantomMembrane = new ItemPhantomMembrane();
         nautilusShell = new ItemBase("nautilus_shell", tab);
         heartOfTheSea = new ItemBase("heart_of_the_sea", tab);
@@ -128,10 +119,10 @@ public class NItems {
         COPPER_SHOVEL = new BaseShovel("copper_shovel", COPPER);
         COPPER_SWORD = new BaseSword("copper_sword", COPPER);
 
-        BRONZE_AXE = new BaseAxe("bronze_axe", BRONZE);
-        BRONZE_PICKAXE = new BasePickaxe("bronze_pickaxe", BRONZE);
-        BRONZE_SHOVEL = new BaseShovel("bronze_shovel", BRONZE);
-        BRONZE_SWORD = new BaseSword("bronze_sword", BRONZE);
+//        BRONZE_AXE = new BaseAxe("bronze_axe", BRONZE);
+//        BRONZE_PICKAXE = new BasePickaxe("bronze_pickaxe", BRONZE);
+//        BRONZE_SHOVEL = new BaseShovel("bronze_shovel", BRONZE);
+//        BRONZE_SWORD = new BaseSword("bronze_sword", BRONZE);
 
         BRASS_HELMET = new ItemArmorBase("brass", BRASS_ARMOR, 1, EntityEquipmentSlot.HEAD);
         BRASS_CHESTPLATE = new ItemArmorBase("brass", BRASS_ARMOR, 1, EntityEquipmentSlot.CHEST);
@@ -148,10 +139,40 @@ public class NItems {
         COPPER_LEGGINGS = new ItemArmorBase("copper", COPPER_ARMOR, 1, EntityEquipmentSlot.LEGS);
         COPPER_BOOTS = new ItemArmorBase("copper", COPPER_ARMOR, 1, EntityEquipmentSlot.FEET);
 
-        BRONZE_HELMET = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.HEAD);
-        BRONZE_CHESTPLATE = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.CHEST);
-        BRONZE_LEGGINGS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.LEGS);
-        BRONZE_BOOTS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.FEET);
+//        BRONZE_HELMET = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.HEAD);
+//        BRONZE_CHESTPLATE = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.CHEST);
+//        BRONZE_LEGGINGS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.LEGS);
+//        BRONZE_BOOTS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        ACACIA_HELMET = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        ACACIA_CHESTPLATE = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        ACACIA_LEGGINGS = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        ACACIA_BOOTS = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        BIRCH_HELMET = new ItemArmorBase("birch", BIRCH_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        BIRCH_CHESTPLATE = new ItemArmorBase("birch", BIRCH_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        BIRCH_LEGGINGS = new ItemArmorBase("birch", BIRCH_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        BIRCH_BOOTS = new ItemArmorBase("birch", BIRCH_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        DARK_OAK_HELMET = new ItemArmorBase("dark_oak", DARK_OAK_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        DARK_OAK_CHESTPLATE = new ItemArmorBase("dark_oak", DARK_OAK_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        DARK_OAK_LEGGINGS = new ItemArmorBase("dark_oak", DARK_OAK_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        DARK_OAK_BOOTS = new ItemArmorBase("dark_oak", DARK_OAK_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        JUNGLE_HELMET = new ItemArmorBase("jungle", JUNGLE_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        JUNGLE_CHESTPLATE = new ItemArmorBase("jungle", JUNGLE_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        JUNGLE_LEGGINGS = new ItemArmorBase("jungle", JUNGLE_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        JUNGLE_BOOTS = new ItemArmorBase("jungle", JUNGLE_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        OAK_HELMET = new ItemArmorBase("oak", OAK_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        OAK_CHESTPLATE = new ItemArmorBase("oak", OAK_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        OAK_LEGGINGS = new ItemArmorBase("oak", OAK_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        OAK_BOOTS = new ItemArmorBase("oak", OAK_ARMOR, 1, EntityEquipmentSlot.FEET);
+
+        SPRUCE_HELMET = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        SPRUCE_CHESTPLATE = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.CHEST);
+        SPRUCE_LEGGINGS = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.LEGS);
+        SPRUCE_BOOTS = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.FEET);
 
         brassIngot = new ItemBase("brass_ingot", tab);
         brassNugget = new ItemBase("brass_nugget", tab);
@@ -167,8 +188,8 @@ public class NItems {
         tinIngot = new ItemBase("tin_ingot", tab);
         tinNugget = new ItemBase("tin_nugget", tab);
 
-        bronzeIngot = new ItemBase("bronze_ingot", tab);
-        bronzeNugget = new ItemBase("bronze_nugget", tab);
+//        bronzeIngot = new ItemBase("bronze_ingot", tab);
+//        bronzeNugget = new ItemBase("bronze_nugget", tab);
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
         stoneSpear = new ItemSpear("stone_spear", Item.ToolMaterial.STONE).setCreativeTab(null);
@@ -177,7 +198,6 @@ public class NItems {
         diamondSpear = new ItemSpear("diamond_spear", Item.ToolMaterial.DIAMOND).setCreativeTab(null);
         trident = new ItemTrident().setCreativeTab(null);
         anchor = new ItemSpear("anchor", Item.ToolMaterial.IRON).setCreativeTab(null);
-        easter_egg = new ItemEasterEgg();
 
         for (BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
 //            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));

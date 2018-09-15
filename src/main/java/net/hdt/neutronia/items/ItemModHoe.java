@@ -27,7 +27,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder, INeutroniaIte
 
         bareName = name;
         this.variants = variants;
-        setTranslationKey(name);
+        setTranslationKey(getPrefix() +name);
         ItemMod.variantHolders.add(this);
         this.toolMaterial = material;
         this.maxStackSize = 1;
@@ -36,9 +36,8 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder, INeutroniaIte
 
     public Item setTranslationKey(String name) {
         super.setTranslationKey(name);
-        setRegistryName(new ResourceLocation(getPrefix(), name));
+        setRegistryName(new ResourceLocation(name));
         ProxyRegistry.register(this);
-
         return this;
     }
 

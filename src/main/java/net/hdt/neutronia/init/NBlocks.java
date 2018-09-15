@@ -5,14 +5,22 @@ import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.blocks.*;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.blocks.base.*;
 import net.hdt.neutronia.blocks.base.BlockFalling;
-import net.hdt.neutronia.blocks.nether.*;
+import net.hdt.neutronia.blocks.base.BlockGlassBase;
+import net.hdt.neutronia.blocks.base.BlockRodBase;
+import net.hdt.neutronia.blocks.nether.BlockAsh;
+import net.hdt.neutronia.blocks.nether.BlockBurnedBones;
+import net.hdt.neutronia.blocks.nether.BlockNetherGlowingBase;
+import net.hdt.neutronia.blocks.nether.BlockNetherSponge;
 import net.hdt.neutronia.blocks.overworld.*;
 import net.hdt.neutronia.properties.EnumGlowingNetherBlocks;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockSandStone;
+import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,8 +37,8 @@ public class NBlocks {
 
     // Misc
     public static final Block blackSand;
-    public static final Block brassBlock, steelBlock, copperBlock, bronzeBlock;
-    public static final Block brassOre, steelOre, copperOre, bronzeOre, tinOre, zincOre;
+    public static final Block brassBlock, steelBlock, copperBlock/*, bronzeBlock*/;
+    public static final Block brassOre, steelOre, copperOre/*, bronzeOre*/, tinOre, zincOre;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
     //Wood Blocks
@@ -42,14 +50,14 @@ public class NBlocks {
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
     public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
-    public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
-    public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
+//    public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
+//    public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredSlimeBlock = new BlockColoredAlt[16];
     public static final Block fireflyBulbOff, fireflyBulbOn;
-    public static final MRPillar sandstonePillar;
-    public static final MRPillar redSandstonePillar;
+    public static final Block sandstonePillar;
+    public static final Block redSandstonePillar;
     public static final BlockPurpurChiseled chiseledPurpur;
     public static final BlockPurpurChiseled chiseledPurpurFilled;
     public static final BlockBrickChiseled chiseledBricks;
@@ -61,9 +69,9 @@ public class NBlocks {
     private static final Block[] aquamarine = new Block[6];
     private static final Block driedKelpBlock;
     private static final Block wrautnaut, wrautnautOld, wrautnautPorthole;
-    private static final MRPillar prismarineColumn;
+    private static final Block prismarineColumn;
     private static final Block netherGlass, netherRod, netherSponge, ash, burnedBones;
-    private static final MRPillar netherbrickPillar;
+    private static final Block netherbrickPillar;
     private static final Block[] centeredGlazedTerracottaBlocks = new Block[16];
     public static Block seaPickle, turtleEgg;
     public static Block[] netherPlants = new Block[3];
@@ -91,7 +99,7 @@ public class NBlocks {
         wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
         wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(OCEAN_EXPANSION_TAB);
-        prismarineColumn = new MRPillar(Material.ROCK, "prismarine_column", OCEAN_EXPANSION_TAB, 0.3F, 6.5F);
+        prismarineColumn = new BlockNeutroniaPillar(Material.ROCK, "prismarine_column").setCreativeTab(OCEAN_EXPANSION_TAB);
         chiseledPrismarine = new BlockPrismarineChiseled("chiseled_prismarine", false);
         chiseledPrismarineFilled = new BlockPrismarineChiseled("chiseled_prismarine_filled", true);
 
@@ -106,7 +114,7 @@ public class NBlocks {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNetherGlowingBase(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
 
-        netherbrickPillar = new MRPillar(Material.ROCK, "netherbrick_pillar", NETHER_EXPANSION_TAB, 0.4F, 7.5F);
+        netherbrickPillar = new BlockNeutroniaPillar(Material.ROCK, "netherbrick_pillar").setCreativeTab(NETHER_EXPANSION_TAB);
         chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
         chiseledNetherbrickFilled = new BlockNetherbrickChiseled("chiseled_netherbrick_filled", true);
 
@@ -129,8 +137,8 @@ public class NBlocks {
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, Material.ROCK, dyeColor.getMetadata(), false, true, OVERWORLD_EXPANSION_TAB);
             coloredCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, false);
             coloredLitCandles[dyeColor.getMetadata()] = new BlockColoredCandles(dyeColor, true);
-            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
-            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
+//            coloredLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, false);
+//            coloredLitLanterns[dyeColor.getMetadata()] = new BlockColoredLanterns(dyeColor, true);
             coloredRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, false);
             coloredLitRedstoneLamp[dyeColor.getMetadata()] = new BlockColoredRedstoneLamp(dyeColor, true);
             coloredSlimeBlock[dyeColor.getMetadata()] = new BlockColoredSlime(dyeColor);
@@ -199,17 +207,17 @@ public class NBlocks {
         brassBlock = new BlockOverworldBase(Material.IRON, "brass_block", false);
         steelBlock = new BlockOverworldBase(Material.IRON, "steel_block", false);
         copperBlock = new BlockOverworldBase(Material.IRON, "copper_block", false);
-        bronzeBlock = new BlockOverworldBase(Material.IRON, "bronze_block", false);
+//        bronzeBlock = new BlockOverworldBase(Material.IRON, "bronze_block", false);
 
         brassOre = new BlockNeutroniaOre("brass_ore").setIngot(NItems.brassIngot);
         steelOre = new BlockNeutroniaOre("steel_ore").setIngot(NItems.steelIngot);
         copperOre = new BlockNeutroniaOre("copper_ore").setIngot(NItems.copperIngot);
-        bronzeOre = new BlockNeutroniaOre("bronze_ore").setIngot(NItems.bronzeIngot);
+//        bronzeOre = new BlockNeutroniaOre("bronze_ore").setIngot(NItems.bronzeIngot);
         tinOre = new BlockNeutroniaOre("tin_ore").setIngot(NItems.tinIngot);
         zincOre = new BlockNeutroniaOre("zinc_ore").setIngot(NItems.zincChunk);
 
-        sandstonePillar = new MRPillar(Material.ROCK, "sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
-        redSandstonePillar = new MRPillar(Material.ROCK, "red_sandstone_pillar", OVERWORLD_EXPANSION_TAB, 0.8F, 4.0F);
+        sandstonePillar = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar").setCreativeTab(OVERWORLD_EXPANSION_TAB);
+        redSandstonePillar = new BlockNeutroniaPillar(Material.ROCK, "red_sandstone_pillar").setCreativeTab(OVERWORLD_EXPANSION_TAB);
         chiseledPurpur = new BlockPurpurChiseled("purpur_chiseled", false);
         chiseledPurpurFilled = new BlockPurpurChiseled("purpur_chiseled_filled", true);
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);

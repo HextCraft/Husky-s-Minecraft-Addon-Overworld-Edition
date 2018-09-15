@@ -1,3 +1,4 @@
+/*
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
@@ -48,11 +49,13 @@ public class BlockColoredLanterns extends BlockColoredAlt {
         }
     }
 
-    /**
+    */
+/**
      * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor
      * change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid
      * block, etc.
-     */
+     *//*
+
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         if (!worldIn.isRemote) {
             if (this.isOn && !worldIn.isBlockPowered(pos)) {
@@ -76,9 +79,11 @@ public class BlockColoredLanterns extends BlockColoredAlt {
         }
     }
 
-    /**
+    */
+/**
      * Get the Item that this Block should drop when harvested.
-     */
+     *//*
+
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(NBlocks.coloredLanterns[color.getMetadata()]);
     }
@@ -92,3 +97,4 @@ public class BlockColoredLanterns extends BlockColoredAlt {
     }
 
 }
+*/
