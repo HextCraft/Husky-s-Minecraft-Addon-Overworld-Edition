@@ -4,16 +4,17 @@ import net.minecraft.util.IStringSerializable;
 
 public enum EnumCoralColor implements IStringSerializable {
 
-    BLUE(0, "blue", "tube"),
-    PINK(1, "pink", "brain"),
-    PURPLE(2, "purple", "bubble"),
-    RED(3, "red", "fire"),
-    YELLOW(4, "yellow", "horn"),
-    CYAN(5, "cyan", "prismarine"),
-    BROWN(6, "brown", "earth"),
-    LIGHT_BLUE(7, "light_blue", "diamond"),
-    LIME(8, "lime", "emerald"),
-    ORANGE(9, "orange", "lava");
+    BLUE(0, "tube"),
+    PINK(1, "brain"),
+    PURPLE(2, "bubble"),
+    RED(3, "fire"),
+    YELLOW(4, "horn"),
+    CYAN(5, "prismarine"),
+    BROWN(6, "earth"),
+    LIGHT_BLUE(7, "diamond"),
+    LIME(8, "emerald"),
+    ORANGE(9, "lava"),
+    GREEN(10, "moss");
 
     private static final EnumCoralColor[] META_LOOKUP = new EnumCoralColor[values().length];
 
@@ -24,18 +25,11 @@ public enum EnumCoralColor implements IStringSerializable {
     }
 
     private final int meta;
-    private final String oldName, newName;
+    private final String name;
 
-    EnumCoralColor(int metaIn, String oldName) {
+    EnumCoralColor(int metaIn, String newName) {
         this.meta = metaIn;
-        this.oldName = oldName;
-        this.newName = oldName;
-    }
-
-    EnumCoralColor(int metaIn, String oldName, String newName) {
-        this.meta = metaIn;
-        this.oldName = oldName;
-        this.newName = newName;
+        this.name = newName;
     }
 
     public static EnumCoralColor byMetadata(int meta) {
@@ -50,16 +44,12 @@ public enum EnumCoralColor implements IStringSerializable {
         return this.meta;
     }
 
-    public String getNewName() {
-        return newName;
-    }
-
     public String toString() {
-        return this.oldName;
+        return this.name;
     }
 
     public String getName() {
-        return this.oldName;
+        return this.name;
     }
 
 }

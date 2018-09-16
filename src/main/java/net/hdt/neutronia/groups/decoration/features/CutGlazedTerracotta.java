@@ -13,6 +13,10 @@ public class CutGlazedTerracotta extends Component {
 
     private Block[] cutGlazedTerracotta = new Block[16];
 
+    public CutGlazedTerracotta() {
+        super(GlobalConfig.enableExperimentalFeatures);
+    }
+
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
@@ -23,11 +27,6 @@ public class CutGlazedTerracotta extends Component {
     @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return GlobalConfig.enableExperimentalFeatures;
     }
 
 }

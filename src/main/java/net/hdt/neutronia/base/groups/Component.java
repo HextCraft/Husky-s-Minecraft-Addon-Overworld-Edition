@@ -1,17 +1,11 @@
 package net.hdt.neutronia.base.groups;
 
-import net.hdt.neutronia.base.BWMRecipes;
 import net.hdt.neutronia.base.handler.client.ClientEventHandler;
-import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.*;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.text.WordUtils;
@@ -31,17 +25,12 @@ public class Component implements Comparable<Component> {
     String configName;
     boolean forceLoad;
 
+    public Component(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Component() {
-
-    }
-
-    public static void registerTile(Class<? extends TileEntity> clazz, String key) {
-        GameRegistry.registerTileEntity(clazz, new ResourceLocation(LibMisc.PREFIX_MOD + key));
-    }
-
-    public static IRecipe registerHardcoreRecipe(String ID, IRecipe recipe) {
-        BWMRecipes.addHardcoreRecipe(ID, recipe);
-        return recipe;
+        this.enabled = true;
     }
 
     @SideOnly(Side.CLIENT)
@@ -153,7 +142,7 @@ public class Component implements Comparable<Component> {
         return "";
     }
 
-    public String getComponentIngameConfigName() {
+    public String getComponentInGameConfigName() {
         return WordUtils.capitalizeFully(configName);
     }
 
@@ -198,8 +187,20 @@ public class Component implements Comparable<Component> {
         return configName.compareTo(o.configName);
     }
 
+    public boolean isEnabledByDefault() {
+        return enabledByDefault;
+    }
+
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public boolean isEnabledAtLoadtime() {
+        return enabledAtLoadtime;
+    }
+
+    public boolean isPrevEnabled() {
+        return prevEnabled;
     }
 
 }

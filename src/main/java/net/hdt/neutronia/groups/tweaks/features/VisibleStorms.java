@@ -32,6 +32,10 @@ public class VisibleStorms extends Component {
     private float desiredRed, desiredGreen, desiredBlue;
     private float desiredDistance, desiredDistanceScale;
 
+    public VisibleStorms() {
+        super(false);
+    }
+
     @SideOnly(Side.CLIENT)
     private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale) {
         if (fogMode < 0) {
@@ -191,8 +195,4 @@ public class VisibleStorms extends Component {
         return true;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
 }

@@ -30,14 +30,13 @@ public class Group implements Comparable<Group> {
     public Group() {
         name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
         desc = "This is a missing description text since this component does not have a description defined";
-        GroupLoader.registerGroup(this);
     }
 
     public Group(Builder builder) {
         name = builder.name;
         desc = builder.desc;
         for (Component component : builder.components) {
-            registerComponent(component);
+            registerComponent(component, component.enabled);
         }
         groupDependencies = builder.groupDependencies;
         componentDependencies = builder.componentDependencies;
@@ -47,10 +46,6 @@ public class Group implements Comparable<Group> {
         return new Builder();
     }
 
-    private void registerComponent(Component component) {
-        registerComponent(component, convertName(component.getClass().getSimpleName()));
-    }
-
     public void registerComponent(Component component, boolean enabledByDefault) {
         registerComponent(component, convertName(component.getClass().getSimpleName()), enabledByDefault);
     }
@@ -58,10 +53,6 @@ public class Group implements Comparable<Group> {
     private String convertName(String origName) {
         String withSpaces = origName.replaceAll("(?<=.)([A-Z])", " $1").toLowerCase();
         return Character.toUpperCase(withSpaces.charAt(0)) + withSpaces.substring(1);
-    }
-
-    private void registerComponent(Component component, String name) {
-        registerComponent(component, name, true);
     }
 
     private void registerComponent(Component component, String name, boolean enabledByDefault) {
@@ -287,9 +278,8 @@ public class Group implements Comparable<Group> {
         public Group register() {
             group = new Group(this);
             group.setIconStack(icon);
-            group.enabled = enabled;
-            components.removeIf(component -> !component.enabled);
             GroupLoader.registerGroup(group);
+            group.enabled = enabled;
             return group;
         }
 

@@ -22,6 +22,7 @@ import net.hdt.neutronia.groups.world.features.end.PurhoganyWood;
 import net.hdt.neutronia.groups.world.features.nether.NetherFossils;
 import net.hdt.neutronia.groups.world.features.nether.NetherMushrooms;
 import net.hdt.neutronia.groups.world.features.overworld.*;
+import net.hdt.neutronia.groups.world.features.overworld.HCStructures;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -60,7 +61,7 @@ public class NGroups {
                 .addComponent(new PastelColors())
                 .addComponent(new BetterEndTextures())
                 .addComponent(new MoreDetailedModels())
-                .enabled(false)
+                .enabled(true)
                 .register();
 
         decoration = Group.builder()
@@ -155,7 +156,6 @@ public class NGroups {
                 .addComponent(new EquipmentDrop())
                 .addComponent(new GrassPath())
                 .addComponent(new HCMovement())
-                .addComponent(new HCStructures())
                 .addComponent(new HCTools())
                 .addComponent(new ImprovedFlee())
                 .addComponent(new MobEating())
@@ -193,7 +193,10 @@ public class NGroups {
                 .addComponent(new BetterVillages())
                 .addComponent(new CaveBiomes())
                 .addComponent(new Corals())
+                .addComponent(new HCStructures())
+                .addComponent(new HCVillages())
                 .addComponent(new ImprovedWorldGen())
+                .addComponent(new MineshaftGeneration())
                 .addComponent(new NaturalAquamarine())
                 .addComponent(new NetherFossils())
                 .addComponent(new NetherMushrooms())

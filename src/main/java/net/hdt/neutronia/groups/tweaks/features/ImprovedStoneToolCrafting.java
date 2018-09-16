@@ -46,7 +46,7 @@ public class ImprovedStoneToolCrafting extends Component {
     }
 
     @Override
-    public String getComponentIngameConfigName() {
+    public String getComponentInGameConfigName() {
         return "Better Stone Tool Crafting";
     }
 

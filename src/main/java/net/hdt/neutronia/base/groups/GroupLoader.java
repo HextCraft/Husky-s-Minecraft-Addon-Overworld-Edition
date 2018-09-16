@@ -101,6 +101,7 @@ public final class GroupLoader {
         GlobalConfig.initGlobalConfig();
 
         forEachGroup(group -> {
+            group.enabled = true;
             if (group.canBeDisabled()) {
                 ConfigHelper.needsRestart = true;
                 group.enabled = ConfigHelper.loadPropBool(group.name, "_groups", group.getModuleDescription(), group.isEnabledByDefault());
@@ -109,7 +110,7 @@ public final class GroupLoader {
         });
 
         enabledGroups = new ArrayList<>(groups);
-        enabledGroups.removeIf(module -> !module.enabled);
+        enabledGroups.removeIf(group -> !group.enabled);
 
         loadGroupConfigs();
 
@@ -125,7 +126,7 @@ public final class GroupLoader {
         return componentInstances.get(clazz).enabled;
     }
 
-    static void forEachGroup(Consumer<Group> consumer) {
+    private static void forEachGroup(Consumer<Group> consumer) {
         groups.forEach(consumer);
     }
 

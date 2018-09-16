@@ -5,9 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.minecraft.block.BlockPlanks;
+import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.FileUtils;
@@ -28,29 +27,21 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        /*for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
-            genSlab(new ResourceLocation(modid, String.format("%s_wood_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())));
-            genSlab(new ResourceLocation(modid, String.format("%s_log_slab", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s", woodType.getName())), new ResourceLocation("minecraft", "blocks/" + String.format("log_%s_top", woodType.getName())));
-            genSlab(new ResourceLocation(modid, String.format("stripped_%s_wood_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())));
-            genSlab(new ResourceLocation(modid, String.format("stripped_%s_log_slab", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_side", woodType.getName())), new ResourceLocation(modid, "block/" + String.format("stripped_log_%s_top", woodType.getName())));
-        }*/
-        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
-            genBlock(new ResourceLocation(modid, String.format("carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("carved_%s_planks", woodType.getName())));
-            genSlab(new ResourceLocation(modid, String.format("carved_%s_planks_slab", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())), new ResourceLocation(modid, String.format("block/carved_%s_planks", woodType.getName())));
+        for(EnumCoralColor coralColor : EnumCoralColor.values()) {
+            genBlock(new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())));
+            genBlock(new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())));
+            genCoralPlant(new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
+            genCoralPlant(new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getName())));
+            genCoralFan(new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getName())));
+            genCoralFan(new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getName())));
+
+            genBlock(new ResourceLocation(modid, String.format("decorative_%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())));
+            genBlock(new ResourceLocation(modid, String.format("decorative_dead_%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())));
+            genCoralPlant(new ResourceLocation(modid, String.format("decorative_%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
+            genCoralPlant(new ResourceLocation(modid, String.format("decorative_dead_%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getName())));
+            genCoralFan(new ResourceLocation(modid, String.format("decorative_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getName())));
+            genCoralFan(new ResourceLocation(modid, String.format("decorative_dead_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getName())));
         }
-        for (EnumDyeColor color : EnumDyeColor.values()) {
-//            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
-//            genPillarBlock(new ResourceLocation(modid, String.format("%s_cut_glazed_terracotta", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta_top", color.getName())), new ResourceLocation(modid, String.format("chiseled_glazed_terracotta/%s_chiseled_glazed_terracotta", color.getName())));
-//            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_stripes", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes_top", color.getName())), new ResourceLocation(modid, String.format("glazed_terracotta_stripes/%s_glazed_terracotta_stripes", color.getName())));
-//            genRecipe(modid, String.format("%s_glazed_terracotta_pillar", color.getName()), false, "X", "X", " ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_glazed_terracotta_pillar", color.getName()), "glazed_pillars", 6);
-//            genRecipe(modid, String.format("%s_cut_glazed_terracotta", color.getName()), false, "XX", "XX", "  ", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_cut_glazed_terracotta", color.getName()), "cut_terracotta", 6);
-//            genRecipe(modid, String.format("%s_centered_glazed_terracotta", color.getName()), true, "XXX", "XXX", "XXX", new String[]{"X"}, new String[]{String.format("minecraft:glazed_terracotta_%s", color.getName())}, new int[]{color.getMetadata()}, String.format("%s_centered_glazed_terracotta", color.getName()), "centered_terracotta", 9);
-        }
-//        genSlab(new ResourceLocation(modid, "acidian_bricks_slab"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"), new ResourceLocation(modid, "block/acidian_bricks"));
-//        genSlab(new ResourceLocation(modid, "chiseled_acidian_slab"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"), new ResourceLocation(modid, "block/chiseled_acidian"));
-//        genSlab(new ResourceLocation(modid, "natural_acidian_slab"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"), new ResourceLocation(modid, "block/natural_acidian"));
-//        genSlab(new ResourceLocation(modid, "purhogany_planks_slab"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"), new ResourceLocation(modid, "block/purhogany_planks"));
-//        genSlab(new ResourceLocation(modid, "purhogany_log_slab"), new ResourceLocation(modid, "block/purhogany_log_top"), new ResourceLocation(modid, "block/purhogany_log"), new ResourceLocation(modid, "block/purhogany_log_top"));
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
@@ -188,10 +179,36 @@ public class JsonGenerator {
 
         JsonObject defaults = new JsonObject();
         defaults.addProperty("transform", "forge:default-block");
-        defaults.addProperty("model", modIdAndName.getNamespace() + ":" + modIdAndName.getPath());
+        defaults.addProperty("model", "neutronia:coral_fan");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
+        defaults.add("textures", textures);
+
         root.add("defaults", defaults);
 
         JsonObject variants = new JsonObject();
+        variants.add("normal", new JsonObject());
+        variants.add("inventory", new JsonObject());
+        root.add("variants", variants);
+
+        String json = gson.toJson(root);
+
+        JsonObject root2 = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("forge_marker", 1);
+
+        JsonObject defaults2 = new JsonObject();
+        defaults2.addProperty("transform", "forge:default-block");
+        defaults2.addProperty("model", "neutronia:coral_wall_fan");
+
+        JsonObject textures2 = new JsonObject();
+        textures2.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
+        defaults2.add("textures", textures2);
+
+        root.add("defaults", defaults2);
+
+        JsonObject variants2 = new JsonObject();
         JsonObject facing = new JsonObject();
         facing.add("north", new JsonObject());
 
@@ -207,13 +224,24 @@ public class JsonGenerator {
         west.addProperty("y", 270);
         facing.add("west", west);
 
-        variants.add("facing", facing);
-        variants.add("inventory", new JsonObject());
-        root.add("variants", variants);
+        variants2.add("facing", facing);
 
-        String json = gson.toJson(root);
+        JsonObject wall = new JsonObject();
+
+        JsonObject wallModel = new JsonObject();
+        wallModel.addProperty("model", "");
+
+        wall.add("true", wallModel);
+        wall.addProperty("on_wall", false);
+        variants2.add("on_wall", wall);
+
+        variants2.add("inventory", new JsonObject());
+        root2.add("variants", variants2);
+
+        String json2 = gson.toJson(root2);
 
         try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             System.out.print(String.format("Created file with the name %s" + "\n", modIdAndName.getPath()));
         } catch (IOException e) {
@@ -234,6 +262,32 @@ public class JsonGenerator {
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
         root.addProperty("parent", "neutronia:block/coral_fan");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
+        root.add("textures", textures);
+
+        String json = gson.toJson(root);
+
+        try {
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+        }
+
+    }
+
+    public static void genCoralFanWallModel(ResourceLocation modIdAndName, ResourceLocation textureName) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Path base = Paths.get("src", "main", "resources", "assets", modIdAndName.getNamespace(), "models", "block");
+        if (!base.toFile().exists()) {
+            base.toFile().mkdirs();
+        }
+
+        JsonObject root = new JsonObject();
+        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
+        root.addProperty("parent", "neutronia:block/coral_wall_fan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());

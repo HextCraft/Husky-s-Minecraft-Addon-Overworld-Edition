@@ -49,7 +49,7 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     private EnumCoralColor color;
 
     public BlockCoralFan(EnumCoralColor colorIn, boolean isDead, boolean isOnWall, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
-        super(isDead ? "dead_" + colorIn.getNewName() + "_coral_fan" : colorIn.getNewName() + "_coral_fan");
+        super(isDead ? "dead_" + colorIn.getName() + "_coral_fan" : colorIn.getName() + "_coral_fan");
         this.dead = isDead;
         this.onWall = isOnWall;
         this.color = colorIn;
@@ -64,7 +64,7 @@ public class BlockCoralFan extends BlockWaterPlantBase {
     }
 
     public BlockCoralFan(EnumCoralColor colorIn, String name, boolean isDead, boolean isOnWall, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
-        super(isDead ? "dead_" + colorIn.getNewName() + name : colorIn.getNewName() + name);
+        super(isDead ? "dead_" + colorIn.getName() + name : colorIn.getName() + name);
         this.dead = isDead;
         this.onWall = isOnWall;
         this.color = colorIn;

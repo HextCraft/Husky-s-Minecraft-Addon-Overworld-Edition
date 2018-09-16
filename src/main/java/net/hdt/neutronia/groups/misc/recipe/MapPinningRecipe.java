@@ -1,8 +1,8 @@
 package net.hdt.neutronia.groups.misc.recipe;
 
 import net.hdt.huskylib2.recipe.ModRecipe;
-import net.hdt.huskylib2.util.ItemNBTHelper;
 import net.hdt.neutronia.groups.misc.feature.MapMarkers;
+import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;

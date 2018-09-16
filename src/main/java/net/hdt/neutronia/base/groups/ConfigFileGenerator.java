@@ -4,9 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.Group;
-import net.hdt.neutronia.base.groups.GroupLoader;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -32,7 +29,7 @@ public class ConfigFileGenerator {
         JsonObject feature = new JsonObject();
 
         for(Component component : group.enabledComponents) {
-            feature.addProperty("name", component.getComponentIngameConfigName());
+            feature.addProperty("name", component.getComponentInGameConfigName());
             feature.addProperty("description", component.getFeatureDescription());
         }
 

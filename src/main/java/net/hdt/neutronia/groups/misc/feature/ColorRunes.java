@@ -1,12 +1,12 @@
 package net.hdt.neutronia.groups.misc.feature;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
-import net.hdt.huskylib2.util.ItemNBTHelper;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.api.ICustomEnchantColor;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.misc.item.ItemRune;
+import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

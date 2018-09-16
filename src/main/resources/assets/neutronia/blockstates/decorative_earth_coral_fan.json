@@ -1,0 +1,23 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "neutronia:decorative_earth_coral_fan"
+  },
+  "variants": {
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 90
+      },
+      "east": {
+        "y": 180
+      },
+      "west": {
+        "y": 270
+      }
+    },
+    "inventory": {}
+  }
+}

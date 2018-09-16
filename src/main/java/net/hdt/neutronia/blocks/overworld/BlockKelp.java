@@ -161,7 +161,7 @@ public class BlockKelp extends BlockOverworldBase {
 
         /**
          * Called when this is first added to the world (by {@link World#addTileEntity(TileEntity)}).
-         * Override instead of adding {@code if (firstTick)} stuff in update.
+         * Override instead of adding {@code if (firstTick)} changers in update.
          */
         @Override
         public void onLoad() {

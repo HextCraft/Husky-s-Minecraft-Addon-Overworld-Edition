@@ -74,7 +74,7 @@ public class NaturalBlazesInNether extends Component {
     }
 
     @Override
-    public String getComponentIngameConfigName() {
+    public String getComponentInGameConfigName() {
         return "Naturally Spawning Blazes";
     }
 

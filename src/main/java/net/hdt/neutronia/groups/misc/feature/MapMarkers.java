@@ -1,8 +1,8 @@
 package net.hdt.neutronia.groups.misc.feature;
 
-import net.hdt.huskylib2.util.ItemNBTHelper;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.misc.recipe.MapPinningRecipe;
+import net.hdt.neutronia.groups.tweaks.util.ItemNBTHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

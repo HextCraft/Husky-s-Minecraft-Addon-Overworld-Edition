@@ -29,16 +29,6 @@
     },
     {
       "when": {
-        "east": "true",
-        "west": "true"
-      },
-      "apply": {
-        "model": "neutronia:sandstone_wall_middle",
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
         "east": "true"
       },
       "apply": {

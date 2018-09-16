@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -23,11 +22,6 @@ public class CenteredGlazedTerracotta extends Component {
     @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return GlobalConfig.enableExperimentalFeatures;
     }
 
 }

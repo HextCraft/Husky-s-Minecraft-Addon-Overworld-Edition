@@ -23,7 +23,7 @@ public class BlockCoralBlock extends BlockWaterBlockBase {
     private ArrayList<Block> livingVersion, deadVersion;
 
     public BlockCoralBlock(EnumCoralColor colorIn, boolean isDead, ArrayList<Block> livingVersion, ArrayList<Block> deadVersion) {
-        super(isDead ? "dead_" + colorIn.getNewName() + "_coral_block" : colorIn.getNewName() + "_coral_block");
+        super(isDead ? "dead_" + colorIn.getName() + "_coral_block" : colorIn.getName() + "_coral_block");
         this.dead = isDead;
         this.livingVersion = livingVersion;
         this.deadVersion = deadVersion;

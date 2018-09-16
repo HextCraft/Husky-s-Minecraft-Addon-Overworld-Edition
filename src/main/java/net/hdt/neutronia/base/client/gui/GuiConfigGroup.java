@@ -70,7 +70,7 @@ public class GuiConfigGroup extends GuiConfigBase {
 
             Component component = components.get(i);
 
-            buttonList.add(new ConfigSettingsButton(x + 150, y, component.prop, true, component.getComponentIngameConfigName()));
+            buttonList.add(new ConfigSettingsButton(x + 150, y, component.prop, true, component.getComponentInGameConfigName()));
 
             if (GroupLoader.config.hasCategory(component.configCategory))
                 buttonList.add(new FeatureSettingsButton(x + 170, y, component.configCategory));

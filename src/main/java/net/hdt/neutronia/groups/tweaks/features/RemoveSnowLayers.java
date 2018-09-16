@@ -55,7 +55,7 @@ public class RemoveSnowLayers extends Component {
     }
 
     @Override
-    public String getComponentIngameConfigName() {
+    public String getComponentInGameConfigName() {
         return "Shave Snow Layers";
     }
 

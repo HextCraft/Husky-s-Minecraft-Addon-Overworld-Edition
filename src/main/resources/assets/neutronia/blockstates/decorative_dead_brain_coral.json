@@ -2,15 +2,22 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "neutronia:decorative_dead_brain_coral",
-    "transform": "forge:default-block"
+    "transform": "forge:default-block",
+    "model": "neutronia:decorative_dead_brain_coral"
   },
   "variants": {
-    "normal": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 90
+      },
+      "east": {
+        "y": 180
+      },
+      "west": {
+        "y": 270
+      }
+    },
+    "inventory": {}
   }
 }

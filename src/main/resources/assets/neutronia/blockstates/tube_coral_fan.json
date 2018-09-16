@@ -8,21 +8,18 @@
   "variants": {
     "facing": {
       "north": {
-        "model": "neutronia:tube_coral_fan"
+        "y": 0
       },
       "south": {
-        "model": "neutronia:tube_coral_fan",
-        "y": "90"
+        "y": 180
       },
       "east": {
-        "model": "neutronia:tube_coral_fan",
-        "y": "180"
+        "y": 90
       },
       "west": {
-        "model": "neutronia:tube_coral_fan",
-        "y": "270"
+        "y": 270
       }
     },
-    "inventory": {}
+    "inventory": [{}]
   }
 }
