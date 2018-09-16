@@ -87,7 +87,7 @@ public class NGroups {
 
         dimensions = Group.builder()
                 .name("Dimensions")
-                .description("This group adds some new dimensions")
+                .description("This group adds some new biomes")
                 .iconStack(new ItemStack(Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.WHITE).getBlock()))
                 .addComponent(new MoonBlocks())
                 .addComponent(new MoonBiomes())
@@ -197,6 +197,7 @@ public class NGroups {
                 .addComponent(new HCVillages())
                 .addComponent(new ImprovedWorldGen())
                 .addComponent(new MineshaftGeneration())
+                .addComponent(new MoreBiomes())
                 .addComponent(new NaturalAquamarine())
                 .addComponent(new NetherFossils())
                 .addComponent(new NetherMushrooms())

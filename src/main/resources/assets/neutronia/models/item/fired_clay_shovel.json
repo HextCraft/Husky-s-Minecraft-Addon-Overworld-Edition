@@ -1,0 +1,7 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "neutronia:items/hardened_clay_shovel"
+  }
+}

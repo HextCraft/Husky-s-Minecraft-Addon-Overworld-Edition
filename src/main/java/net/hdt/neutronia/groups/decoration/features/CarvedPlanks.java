@@ -20,7 +20,7 @@ public class CarvedPlanks extends Component {
     @Override
     public void setupConfig() {
         stairs = loadPropBool("Enable Stairs", "", true);
-        walls = loadPropBool("Enable Walls", "", true);
+        walls = loadPropBool("Enable Walls", "", false);
         slabs = loadPropBool("Enable Slabs", "", true);
     }
 

@@ -244,7 +244,7 @@ public class CommandStructureCapture extends CommandBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // print dimensions to the file
+        // print biomes to the file
         if (printOut != null) {
             printOut.println(dimX);
             printOut.println(dimY);

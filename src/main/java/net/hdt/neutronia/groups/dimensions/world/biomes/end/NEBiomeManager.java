@@ -23,13 +23,13 @@ public class NEBiomeManager {
     private static final Map<Biome, Config> BIOME_CONFIGS = new HashMap<>();
 
     public static void preInit() {
-        FileHelper.copyDirectoryToDirectory(Neutronia.class.getResource("/assets/neutronia/modules/dimensions/revamped_end/biome_configs"), new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_end/biomes"));
+        FileHelper.copyDirectoryToDirectory(Neutronia.class.getResource("/assets/neutronia/modules/dimensions/revamped_end/biome_configs"), new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_end/biomes"));
     }
 
     public static void setupDefaultBiomes() {
         Neutronia.LOGGER.info("Setting up default biomes.");
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_end/biomes/vanilla"));
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_end/biomes/end"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_end/biomes/vanilla"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_end/biomes/end"));
     }
 
     public static void setupCompatibleBiomes(MinecraftServer server) {
@@ -38,7 +38,7 @@ public class NEBiomeManager {
 
     public static void setupCustomBiomes() {
         Neutronia.LOGGER.info("Setting up custom biomes.");
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_end/biomes/custom"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_end/biomes/custom"));
     }
 
     private static void parseBiomeConfigs(File directory) {

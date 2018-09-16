@@ -26,13 +26,13 @@ public class NNBiomeManager {
     private static final Map<Biome, Config> BIOME_CONFIGS = new HashMap<>();
 
     public static void preInit() {
-        FileHelper.copyDirectoryToDirectory(Neutronia.class.getResource("/assets/neutronia/modules/dimensions/revamped_nether/biome_configs"), new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_nether/biomes"));
+        FileHelper.copyDirectoryToDirectory(Neutronia.class.getResource("/assets/neutronia/modules/dimensions/revamped_nether/biome_configs"), new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_nether/biomes"));
     }
 
     public static void setupDefaultBiomes() {
         Neutronia.LOGGER.info("Setting up default biomes.");
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_nether/biomes/vanilla"));
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_nether/biomes/nether"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_nether/biomes/vanilla"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_nether/biomes/nether"));
     }
 
     public static void setupCompatibleBiomes(MinecraftServer server) {
@@ -43,14 +43,14 @@ public class NNBiomeManager {
 
             if (worldType.getName().equalsIgnoreCase("BIOMESOP") || worldType.getName().equalsIgnoreCase("lostcities_bop")) {
                 Neutronia.LOGGER.info("Setting up Biomes O' Plenty biomes.");
-                parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_nether/biomes/biomesoplenty"));
+                parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_nether/biomes/biomesoplenty"));
             }
         }
     }
 
     public static void setupCustomBiomes() {
         Neutronia.LOGGER.info("Setting up custom biomes.");
-        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/dimensions/revamped_nether/biomes/custom"));
+        parseBiomeConfigs(new File(Reference.CONFIG_DIRECTORY, "Neutronia/modules/biomes/revamped_nether/biomes/custom"));
     }
 
     private static void parseBiomeConfigs(File directory) {

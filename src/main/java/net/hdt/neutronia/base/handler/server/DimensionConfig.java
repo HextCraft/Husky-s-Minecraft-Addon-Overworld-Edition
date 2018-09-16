@@ -20,7 +20,7 @@ public class DimensionConfig {
     }
 
     public DimensionConfig(String parent, boolean blacklist, String... defaultStrs) {
-        String category = parent + ".dimensions";
+        String category = parent + ".biomes";
         this.blacklist = GroupLoader.config.getBoolean("Is Blacklist", category, blacklist, "");
 
         String[] dimStrs = GroupLoader.config.getStringList("Dimensions", category, defaultStrs, "");
