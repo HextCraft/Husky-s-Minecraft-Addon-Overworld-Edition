@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class BlockDeadCoralBlock extends BlockOverworldBase {
 
     public BlockDeadCoralBlock(EnumCoralColor colorIn) {
-        super(Material.GRASS, colorIn.getName() + "_coral_block", false);
+        super(Material.GRASS, "dead_" + colorIn.getName() + "_coral_block", false);
     }
 
 }

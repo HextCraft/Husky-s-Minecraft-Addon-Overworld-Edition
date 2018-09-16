@@ -3,9 +3,7 @@ package net.hdt.neutronia.groups.world.blocks.corals;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.hdt.huskylib2.block.BlockFacing;
-import net.hdt.neutronia.groups.world.blocks.BlockWaterPlantBase;
 import net.hdt.neutronia.properties.EnumCoralColor;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -36,18 +34,13 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
  * Created on 7/5/18 by alexiy.
  * This coral fan turns dead if no water blocks are adjacent to it
  */
-public class BlockDeadCoralFan extends BlockWaterPlantBase {
+public class BlockDeadCoralFan extends BlockCoralFan {
 
     private static final Map<EnumFacing, AxisAlignedBB> field_211885_c = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, new AxisAlignedBB(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, new AxisAlignedBB(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, new AxisAlignedBB(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
     private static final PropertyEnum<EnumFacing> FACING = BlockFacing.FACING;
 
     public BlockDeadCoralFan(EnumCoralColor colorIn) {
-        super(colorIn.getName() + "_coral_fan");
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-    }
-
-    public BlockDeadCoralFan(EnumCoralColor colorIn, String name) {
-        super(colorIn.getName() + name);
+        super("dead_" + colorIn.getName() + "_coral_fan");
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 
@@ -142,22 +135,6 @@ public class BlockDeadCoralFan extends BlockWaterPlantBase {
 
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, BlockLiquid.LEVEL);
-    }
-
-    @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (canLive(worldIn, pos))
-            worldIn.setBlockState(pos, this.deadBlock.getDefaultState());
-    }
-
-    private boolean canLive(World world, BlockPos itsPosition) {
-        for (EnumFacing facing : EnumFacing.values()) {
-            IBlockState sidestate = world.getBlockState(itsPosition.offset(facing));
-            if (sidestate.getBlock() == Blocks.WATER || sidestate.getBlock() == Blocks.FLOWING_WATER) {
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override

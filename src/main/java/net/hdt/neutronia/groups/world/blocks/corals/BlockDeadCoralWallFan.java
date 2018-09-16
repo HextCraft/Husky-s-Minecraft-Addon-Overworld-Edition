@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.world.blocks.corals;
 
 import net.hdt.neutronia.groups.world.blocks.BlockWaterPlantBase;
-import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.properties.IProperty;
@@ -28,13 +27,8 @@ public class BlockDeadCoralWallFan extends BlockWaterPlantBase {
     public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
     private static final AxisAlignedBB ALGAE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
 
-    public BlockDeadCoralWallFan(EnumCoralColor colorIn) {
-        super("dead_" + colorIn.getName() + "_coral_fan");
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-    }
-
-    public BlockDeadCoralWallFan(EnumCoralColor colorIn, String name) {
-        super("dead_" + colorIn.getName() + name);
+    public BlockDeadCoralWallFan(String name) {
+        super(name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 

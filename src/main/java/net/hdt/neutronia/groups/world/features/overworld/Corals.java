@@ -12,11 +12,11 @@ public class Corals extends Component {
 
     private static int size = EnumCoralColor.values().length;
 
-    public static final Block[] coralFan = new Block[size];
-    public static final Block[] deadCoralFan = new Block[size];
-    public static final Block[] coral = new Block[size];
-    public static final Block[] coralFanWall = new Block[size];
-    public static final Block[] deadCoralFanWall = new Block[size];
+    private static final Block[] coralFan = new Block[size];
+    private static final Block[] deadCoralFan = new Block[size];
+    private static final Block[] coral = new Block[size];
+    private static final Block[] coralFanWall = new Block[size];
+    private static final Block[] deadCoralFanWall = new Block[size];
     private static final Block[] coralBlock = new Block[size];
     private static final Block[] deadCoralBlock = new Block[size];
     private static final Block[] deadCoral = new Block[size];
@@ -28,10 +28,10 @@ public class Corals extends Component {
         for (EnumCoralColor coralColor : EnumCoralColor.values()) {
             deadCoralBlock[coralColor.getMetadata()] = new BlockDeadCoralBlock(coralColor);
             coralBlock[coralColor.getMetadata()] = new BlockCoralBlock(deadCoralBlock[coralColor.getMetadata()], coralColor);
-            coralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, false, livingCorals, deadCorals);
-            deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, livingCorals, deadCorals);
-            coralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "_coral_wall_fan", false, livingCorals, deadCorals);
-            deadCoralFanWall[coralColor.getMetadata()] = new BlockDeadCoralWallFan(coralColor, "_coral_wall_fan");
+            deadCoralFan[coralColor.getMetadata()] = new BlockDeadCoralFan(coralColor);
+            coralFan[coralColor.getMetadata()] = new BlockCoralFin(deadCoralFan[coralColor.getMetadata()], coralColor);
+            deadCoralFanWall[coralColor.getMetadata()] = new BlockDeadCoralWallFan(String.format("%s_coral_wall_fan", coralColor.getName()));
+            coralFanWall[coralColor.getMetadata()] = new BlockCoralWallFan(deadCoralFanWall[coralColor.getMetadata()], coralColor, "_coral_wall_fan");
             coral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, false, livingCorals, deadCorals);
             deadCoral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, true, livingCorals, deadCorals);
         }

@@ -25,7 +25,7 @@ import static net.minecraft.block.BlockLiquid.LEVEL;
 
 public class BlockWaterPlantBase extends BlockModBush {
 
-    private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
+    public static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockWaterPlantBase(String name) {
         super(name, Material.WATER);
