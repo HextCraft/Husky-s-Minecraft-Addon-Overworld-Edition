@@ -18,6 +18,8 @@
         "y": 270
       }
     },
-    "inventory": {}
+    "inventory": [
+      {}
+    ]
   }
 }

@@ -226,23 +226,13 @@ public class JsonGenerator {
 
         variants2.add("facing", facing);
 
-        JsonObject wall = new JsonObject();
-
-        JsonObject wallModel = new JsonObject();
-        wallModel.addProperty("model", "");
-
-        wall.add("true", wallModel);
-        wall.addProperty("on_wall", false);
-        variants2.add("on_wall", wall);
-
         variants2.add("inventory", new JsonObject());
         root2.add("variants", variants2);
 
         String json2 = gson.toJson(root2);
 
         try {
-            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
             System.out.print(String.format("Created file with the name %s" + "\n", modIdAndName.getPath()));
         } catch (IOException e) {
             System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
@@ -364,7 +354,11 @@ public class JsonGenerator {
         facing.add("west", west);
 
         variants.add("facing", facing);
-        variants.add("inventory", new JsonObject());
+
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
+        variants.add("inventory", empty);
         root.add("variants", variants);
 
         String json = gson.toJson(root);
@@ -389,7 +383,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "block/cross");
+        root.addProperty("parent", "neutronia:block/cross");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("cross", textureName.getNamespace() + ":block/" + textureName.getPath());

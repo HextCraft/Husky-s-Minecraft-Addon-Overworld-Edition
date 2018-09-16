@@ -3,21 +3,13 @@
   "forge_marker": 1,
   "defaults": {
     "transform": "forge:default-block",
-    "model": "neutronia:dead_lava_coral_fan"
+    "model": "neutronia:coral_fan",
+    "textures": {
+      "fan": "neutronia:block/dead_lava_coral_fan"
+    }
   },
   "variants": {
-    "facing": {
-      "north": {},
-      "south": {
-        "y": 90
-      },
-      "east": {
-        "y": 180
-      },
-      "west": {
-        "y": 270
-      }
-    },
+    "normal": {},
     "inventory": {}
   }
 }

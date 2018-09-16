@@ -1,6 +1,6 @@
 {
   "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/cross",
+  "parent": "neutronia:block/cross",
   "textures": {
     "cross": "neutronia:block/dead_earth_coral"
   }

@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 public class BlockDecorativeCoralBlockBase extends BlockMod implements INeutroniaBlock {
 
     public BlockDecorativeCoralBlockBase(String name) {
-        super(name, Material.PLANTS);
+        super(name, Material.CORAL);
         this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
     }
 

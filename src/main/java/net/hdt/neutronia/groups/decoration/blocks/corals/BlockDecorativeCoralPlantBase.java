@@ -45,6 +45,11 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
     }
 
     @Override
+    protected boolean canSustainBush(IBlockState state) {
+        return true;
+    }
+
+    @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
         IBlockState state = super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
         return state.withProperty(FACING, placer.getHorizontalFacing());

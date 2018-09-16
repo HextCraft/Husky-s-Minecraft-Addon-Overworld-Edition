@@ -1,9 +1,7 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralBlock;
-import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralFan;
-import net.hdt.neutronia.groups.world.blocks.corals.BlockCoralPlant;
+import net.hdt.neutronia.groups.world.blocks.corals.*;
 import net.hdt.neutronia.properties.EnumCoralColor;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -28,12 +26,12 @@ public class Corals extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumCoralColor coralColor : EnumCoralColor.values()) {
-            coralBlock[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, false, livingCorals, deadCorals);
-            deadCoralBlock[coralColor.getMetadata()] = new BlockCoralBlock(coralColor, true, livingCorals, deadCorals);
-            coralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, false, true, livingCorals, deadCorals);
-            deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, true, livingCorals, deadCorals);
-            coralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "_coral_wall_fan", false, false, livingCorals, deadCorals);
-            deadCoralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "_coral_wall_fan", true, false, livingCorals, deadCorals);
+            deadCoralBlock[coralColor.getMetadata()] = new BlockDeadCoralBlock(coralColor);
+            coralBlock[coralColor.getMetadata()] = new BlockCoralBlock(deadCoralBlock[coralColor.getMetadata()], coralColor);
+            coralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, false, livingCorals, deadCorals);
+            deadCoralFan[coralColor.getMetadata()] = new BlockCoralFan(coralColor, true, livingCorals, deadCorals);
+            coralFanWall[coralColor.getMetadata()] = new BlockCoralFan(coralColor, "_coral_wall_fan", false, livingCorals, deadCorals);
+            deadCoralFanWall[coralColor.getMetadata()] = new BlockDeadCoralWallFan(coralColor, "_coral_wall_fan");
             coral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, false, livingCorals, deadCorals);
             deadCoral[coralColor.getMetadata()] = new BlockCoralPlant(coralColor, true, livingCorals, deadCorals);
         }
