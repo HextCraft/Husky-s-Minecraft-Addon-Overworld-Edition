@@ -1,4 +1,4 @@
-package net.hdt.neutronia.world.biome.overworld;
+package net.hdt.neutronia.groups.world.biomes;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;

@@ -38,7 +38,7 @@ public class NItems {
     public static final ItemArmor.ArmorMaterial OAK_ARMOR = EnumHelper.addArmorMaterial("oak", "oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor.ArmorMaterial SPRUCE_ARMOR = EnumHelper.addArmorMaterial("spruce", "spruce", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
-    public static final Item ancientSword, bandage, witherBone, witherBonemeal,
+    public static final Item ancientSword, bandage/*, witherBone, witherBonemeal*/,
             phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 
     public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
@@ -52,7 +52,7 @@ public class NItems {
     public static final Item steelIngot, steelNugget;
     public static final Item zincChunk;
 //    public static final Item bronzeIngot, bronzeNugget;
-    public static final Item tinIngot, tinNugget;
+//    public static final Item tinIngot, tinNugget;
 
     public static final Item BRASS_HELMET, BRASS_CHESTPLATE, BRASS_LEGGINGS, BRASS_BOOTS;
     public static final Item STEEL_HELMET, STEEL_CHESTPLATE, STEEL_LEGGINGS, STEEL_BOOTS;
@@ -86,8 +86,8 @@ public class NItems {
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();
-        witherBone = new ItemBase("wither_bone", tab);
-        witherBonemeal = new ItemBase("wither_bonemeal", tab);
+//        witherBone = new ItemBase("wither_bone", tab);
+//        witherBonemeal = new ItemBase("wither_bonemeal", tab);
         phantomMembrane = new ItemPhantomMembrane();
         nautilusShell = new ItemBase("nautilus_shell", tab);
         heartOfTheSea = new ItemBase("heart_of_the_sea", tab);
@@ -185,8 +185,8 @@ public class NItems {
 
         zincChunk = new ItemBase("zinc_chunk", tab);
 
-        tinIngot = new ItemBase("tin_ingot", tab);
-        tinNugget = new ItemBase("tin_nugget", tab);
+//        tinIngot = new ItemBase("tin_ingot", tab);
+//        tinNugget = new ItemBase("tin_nugget", tab);
 
 //        bronzeIngot = new ItemBase("bronze_ingot", tab);
 //        bronzeNugget = new ItemBase("bronze_nugget", tab);

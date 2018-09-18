@@ -59,5 +59,4 @@ public class CaveBiomeSlime extends BasicCaveBiome {
         waterFloor = GroupLoader.config.getBoolean("Enable Water Floor", category, true, "");
     }
 
-
 }

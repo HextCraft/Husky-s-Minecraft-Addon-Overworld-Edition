@@ -8,11 +8,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MoonDimension extends Component {
 
-    public static final DimensionType MOON = DimensionType.register("Moon", "_moon", 2, MoonWorldProvider.class, false);
+    public static final DimensionType MOON = DimensionType.register("Moon", "_moon", 9987, MoonWorldProvider.class, false);
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        DimensionManager.registerDimension(2, MOON);
+        DimensionManager.registerDimension(9987, MOON);
     }
 
     @Override

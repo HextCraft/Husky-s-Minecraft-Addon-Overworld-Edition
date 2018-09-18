@@ -4,7 +4,7 @@
         "model": "minecraft:cube_all",
         "transform": "forge:default-block",
         "textures": {
-            "block": "neutronia:blocks/stone_basalt"
+            "block": "neutronia:block/stone_basalt"
         }
     },
     "variants": {

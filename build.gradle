@@ -77,8 +77,7 @@ dependencies {
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
-    compile name: "HuskyLib2-${mc_version}-${hl2_version}-deobf"
-    compile name: "HuskyLib2-${mc_version}-${hl2_version}-sources"
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 processResources {

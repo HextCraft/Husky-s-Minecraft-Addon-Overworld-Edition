@@ -2,26 +2,26 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "texture": "neutronia:blocks/trapdoor_birch"
+            "texture": "neutronia:block/trapdoor_birch"
         }
     },
     "variants": {
-        "inventory": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=north,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=south,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=east,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=west,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=north,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=south,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=east,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=west,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=north,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=south,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 180 },
-        "facing=east,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 90 },
-        "facing=west,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 270 },
-        "facing=north,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"} },
-        "facing=south,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 180 },
-        "facing=east,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 90 },
-        "facing=west,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:blocks/trapdoor_birch"}, "y": 270 }
+        "inventory": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=north,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=south,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=east,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=west,half=bottom,open=false": { "model": "minecraft:trapdoor_bottom", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=north,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=south,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=east,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=west,half=top,open=false": { "model": "minecraft:trapdoor_top", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=north,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=south,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 180 },
+        "facing=east,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 90 },
+        "facing=west,half=bottom,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 270 },
+        "facing=north,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"} },
+        "facing=south,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 180 },
+        "facing=east,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 90 },
+        "facing=west,half=top,open=true": { "model": "minecraft:trapdoor_open", "textures": {"texture": "neutronia:block/trapdoor_birch"}, "y": 270 }
     }
 }

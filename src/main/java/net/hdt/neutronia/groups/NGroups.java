@@ -8,7 +8,6 @@ import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.earlyGame.features.ClayCauldron;
 import net.hdt.neutronia.groups.earlyGame.features.ClayTools;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
-import net.hdt.neutronia.groups.misc.feature.ColorRunes;
 import net.hdt.neutronia.groups.misc.feature.EnchantedScrolls;
 import net.hdt.neutronia.groups.misc.feature.NoteBlocksMobSounds;
 import net.hdt.neutronia.groups.misc.feature.UtilityRecipes;
@@ -122,7 +121,7 @@ public class NGroups {
                 .name("Misc")
                 .description("This module adds miscellaneous features that didn't fit in any other modules.")
                 .iconStack(new ItemStack(Items.CARROT_ON_A_STICK))
-                .addComponent(new ColorRunes())
+//                .addComponent(new ColorRunes())
                 .addComponent(new EnchantedScrolls())
                 .addComponent(new NoteBlocksMobSounds())
                 .addComponent(new UtilityRecipes())
@@ -198,6 +197,7 @@ public class NGroups {
                 .addComponent(new ImprovedWorldGen())
                 .addComponent(new MineshaftGeneration())
                 .addComponent(new MoreBiomes())
+                .addComponent(new MoreOceanBiomes())
                 .addComponent(new NaturalAquamarine())
                 .addComponent(new NetherFossils())
                 .addComponent(new NetherMushrooms())

@@ -44,7 +44,7 @@ public class CommandFindBiome extends CommandBase {
         new Thread(() -> {
             BlockPos pos = BiomeUtils.spiralOutwardsLookingForBiome(sender, sender.getEntityWorld(), Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getPath())), sender.getPosition().getX(), sender.getPosition().getZ(), 10_000);
             if (pos == null) {
-                server.addScheduledTask(() -> sender.sendMessage(new TextComponentString(TextFormatting.RED + "Error! Biome '" + args[1] + "' could not be found after " + TextFormatting.GRAY + 30_000 + "ms" + TextFormatting.RED + ".")));
+                server.addScheduledTask(() -> sender.sendMessage(new TextComponentString(TextFormatting.RED + "Error! Biome '" + args[0] + "' could not be found after " + TextFormatting.GRAY + 30_000 + "ms" + TextFormatting.RED + ".")));
                 return;
             }
             if (sender instanceof EntityPlayerMP) {

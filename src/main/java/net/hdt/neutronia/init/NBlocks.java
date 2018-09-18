@@ -38,7 +38,7 @@ public class NBlocks {
     // Misc
     public static final Block blackSand;
     public static final Block brassBlock, steelBlock, copperBlock/*, bronzeBlock*/;
-    public static final Block brassOre, steelOre, copperOre/*, bronzeOre*/, tinOre, zincOre;
+    public static final Block brassOre, steelOre, copperOre/*, bronzeOre, tinOre*/, zincOre;
     public static final BlockPrismarineChiseled chiseledPrismarine;
     public static final BlockPrismarineChiseled chiseledPrismarineFilled;
     //Wood Blocks
@@ -213,7 +213,7 @@ public class NBlocks {
         steelOre = new BlockNeutroniaOre("steel_ore").setIngot(NItems.steelIngot);
         copperOre = new BlockNeutroniaOre("copper_ore").setIngot(NItems.copperIngot);
 //        bronzeOre = new BlockNeutroniaOre("bronze_ore").setIngot(NItems.bronzeIngot);
-        tinOre = new BlockNeutroniaOre("tin_ore").setIngot(NItems.tinIngot);
+//        tinOre = new BlockNeutroniaOre("tin_ore").setIngot(NItems.tinIngot);
         zincOre = new BlockNeutroniaOre("zinc_ore").setIngot(NItems.zincChunk);
 
         sandstonePillar = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar").setCreativeTab(OVERWORLD_EXPANSION_TAB);

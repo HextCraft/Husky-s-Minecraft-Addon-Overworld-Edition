@@ -5,7 +5,6 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.end.BlockEndBase;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
-import net.hdt.neutronia.groups.building.features.VanillaWalls;
 import net.hdt.neutronia.groups.world.blocks.BlockEndDoor;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
@@ -28,8 +27,8 @@ public class PurhoganyWood extends Component {
         purhoganyTrapdoor = new BlockNeutroniaTrapdoor("purhogany_trapdoor").setCreativeTab(TAB);
         VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyPlanks.getRegistryName()).getPath(), purhoganyPlanks, 0, true);
         VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyLog.getRegistryName()).getPath(), purhoganyLog, 0, true);
-        VanillaWalls.add(purhoganyPlanks.getRegistryName().getPath(), purhoganyPlanks, 0, true);
-        VanillaWalls.add(purhoganyLog.getRegistryName().getPath(), purhoganyLog, 0, true);
+//        VanillaWalls.add(purhoganyPlanks.getRegistryName().getPath(), purhoganyPlanks, 0, true);
+//        VanillaWalls.add(purhoganyLog.getRegistryName().getPath(), purhoganyLog, 0, true);
     }
 
     @Override

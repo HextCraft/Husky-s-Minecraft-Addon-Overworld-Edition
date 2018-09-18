@@ -1,5 +1,8 @@
 package net.hdt.neutronia.init;
 
+import net.hdt.neutronia.groups.world.biomes.BiomeColdOcean;
+import net.hdt.neutronia.groups.world.biomes.BiomeLukewarmOcean;
+import net.hdt.neutronia.groups.world.biomes.BiomeWarmOcean;
 import net.hdt.neutronia.world.biome.overworld.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -72,7 +75,7 @@ public class NBiomes {
         System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
     }
 
-    private static Biome addOceanBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
+    private static void addOceanBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
         biome.setRegistryName(MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
         System.out.println(String.format("Biome: %s is now registered", name));
@@ -82,7 +85,6 @@ public class NBiomes {
         System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
         System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
         BiomeManager.oceanBiomes.add(biome);
-        return biome;
     }
 
 }

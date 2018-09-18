@@ -42,20 +42,20 @@ public class VanillaWalls extends Component {
 
     @Override
     public void setupConfig() {
-        stone = loadPropBool("Stone", "", true);
-        granite = loadPropBool("Granite", "", true);
-        diorite = loadPropBool("Diorite", "", true);
-        andesite = loadPropBool("Andesite", "", true);
+        stone = loadPropBool("Stone", "", false);
+        granite = loadPropBool("Granite", "", false);
+        diorite = loadPropBool("Diorite", "", false);
+        andesite = loadPropBool("Andesite", "", false);
         sandstone = loadPropBool("Sandstone", "", true);
         redSandstone = loadPropBool("Red Sandstone", "", true);
-        stoneBricks = loadPropBool("Stone Bricks", "", true);
-        bricks = loadPropBool("Bricks", "", true);
-        quartz = loadPropBool("Quartz", "", true);
-        prismarine = loadPropBool("Prismarine", "", true);
-        prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
-        darkPrismarine = loadPropBool("Dark Prismarine", "", true);
-        purpurBlock = loadPropBool("Purpur", "", true);
-        endBricks = loadPropBool("End Bricks", "", true);
+        stoneBricks = loadPropBool("Stone Bricks", "", false);
+        bricks = loadPropBool("Bricks", "", false);
+        quartz = loadPropBool("Quartz", "", false);
+        prismarine = loadPropBool("Prismarine", "", false);
+        prismarineBricks = loadPropBool("Prismarine Bricks", "", false);
+        darkPrismarine = loadPropBool("Dark Prismarine", "", false);
+        purpurBlock = loadPropBool("Purpur", "", false);
+        endBricks = loadPropBool("End Bricks", "", false);
     }
 
     @Override

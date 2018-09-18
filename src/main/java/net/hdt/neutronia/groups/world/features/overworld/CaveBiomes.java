@@ -1,30 +1,19 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
-import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.BiomeTypeConfigHandler;
 import net.hdt.neutronia.base.handler.server.DimensionConfig;
-import net.hdt.neutronia.groups.world.blocks.BlockGlowcelium;
-import net.hdt.neutronia.groups.world.blocks.BlockGlowshroom;
 import net.hdt.neutronia.groups.world.world.CaveBiomeGenerator;
 import net.hdt.neutronia.groups.world.world.caves.*;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,23 +22,14 @@ public class CaveBiomes extends Component {
 
     public static List<CaveBiomeGenerator> biomes;
 
-    public static BlockMod glowcelium;
-    public static Block glowshroom;
-
-    public static int glowshroomGrowthRate;
-
-    public static boolean glowceliumEnabled;
     boolean enableStairsAndSlabs, enableWalls;
 
     @Override
     public void setupConfig() {
         biomes = new ArrayList<>();
 
-        glowceliumEnabled = loadPropBool("Enable Glowcelium and Glowshrooms", "", false);
         enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
         enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
-
-        glowshroomGrowthRate = loadPropInt("Glowshroom Growth Rate", "The smaller, the faster glowshrooms will spread. Vanilla mushroom speed is 25.", 20);
 
         biomes.add(loadUndergrondBiomeInfo("Lush", new CaveBiomeLush(), 160, Type.JUNGLE));
         biomes.add(loadUndergrondBiomeInfo("Sandstone", new CaveBiomeSandstone(), 160, Type.SANDY));
@@ -59,26 +39,6 @@ public class CaveBiomes extends Component {
         biomes.add(loadUndergrondBiomeInfo("Overgrown", new CaveBiomeOvergrown(), 160, Type.FOREST));
         biomes.add(loadUndergrondBiomeInfo("Icy", new CaveBiomeIcy(), 160, Type.COLD));
         biomes.add(loadUndergrondBiomeInfo("Lava", new CaveBiomeLava(), 160, Type.MESA));
-        biomes.add(loadUndergrondBiomeInfo("Glowshroom", new CaveBiomeGlowshroom(), 160, Type.MOUNTAIN, Type.MUSHROOM));
-    }
-
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        if (glowceliumEnabled) {
-            glowcelium = new BlockGlowcelium();
-            glowshroom = new BlockGlowshroom();
-
-            RecipeHandler.addShapelessOreDictRecipe(new ItemStack(Items.MUSHROOM_STEW), "mushroomAny", "mushroomAny", new ItemStack(Items.BOWL));
-        }
-    }
-
-    @Override
-    public void init(FMLInitializationEvent event) {
-        if (glowceliumEnabled) {
-            OreDictionary.registerOre("mushroomAny", Blocks.RED_MUSHROOM);
-            OreDictionary.registerOre("mushroomAny", Blocks.BROWN_MUSHROOM);
-            OreDictionary.registerOre("mushroomAny", glowshroom);
-        }
     }
 
     @SubscribeEvent
