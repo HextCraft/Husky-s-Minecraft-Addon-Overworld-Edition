@@ -1,7 +1,5 @@
 package net.hdt.neutronia.commands;
 
-import com.google.common.collect.Lists;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -9,6 +7,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -23,8 +22,6 @@ import java.util.Objects;
 
 public class CommandFindBiome extends CommandBase {
 
-    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "findbiome");
-
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         ResourceLocation biomeName = new ResourceLocation(args[0]);
@@ -33,11 +30,11 @@ public class CommandFindBiome extends CommandBase {
         name = WordUtils.capitalizeFully(biomeChatName);
 
         if(args[0].isEmpty()) {
-            notifyCommandListener(sender, this, "command.neutronia.biome_not_defined");
+            notifyCommandListener(sender, this, TextFormatting.RED + "command.neutronia.biome_not_defined");
             return;
         }
         if (Biome.REGISTRY.getObject(new ResourceLocation(biomeName.getPath())) == null) {
-            notifyCommandListener(sender, this, TextFormatting.RED + "command.neutronia.biome_not_found", name);
+            notifyCommandListener(sender, this, new TextComponentTranslation(TextFormatting.RED + "command.neutronia.biome_not_found").getKey(), name);
             return;
         }
         String finalName = name;
@@ -55,17 +52,12 @@ public class CommandFindBiome extends CommandBase {
 
     @Override
     public String getName() {
-        return "findbiome";
+        return "locatebiome";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "findbiome <name>";
-    }
-
-    @Override
-    public List<String> getAliases() {
-        return aliases;
+        return "/locatebiome <name>";
     }
 
     @Override
@@ -77,7 +69,7 @@ public class CommandFindBiome extends CommandBase {
      * Get a list of options for when the user presses the TAB key
      */
     public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
-        if (args.length == 0) {
+        if (args.length == 1) {
             List<String> strings = new ArrayList<>();
             for (Biome b : ForgeRegistries.BIOMES.getValues()) {
                 String s = b.getRegistryName().toString();
@@ -91,5 +83,7 @@ public class CommandFindBiome extends CommandBase {
         }
         return Collections.emptyList();
     }
+
+
 
 }
