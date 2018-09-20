@@ -22,6 +22,8 @@ public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock
     public BlockPrismarineChiseled(String name, boolean filled) {
         super(name, Material.ROCK);
         this.filled = filled;
+        setHardness(1.5F);
+        setResistance(10.0F);
         setCreativeTab(filled ? null : NCreativeTabs.OCEAN_EXPANSION_TAB);
     }
 

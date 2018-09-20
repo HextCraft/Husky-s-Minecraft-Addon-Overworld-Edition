@@ -45,7 +45,7 @@ public class CommandFindBiome extends CommandBase {
                 return;
             }
             if (sender instanceof EntityPlayerMP) {
-                server.addScheduledTask(() -> notifyCommandListener(sender, this, "command.neutronia.biome_found", Objects.requireNonNull(pos).getX(), pos.getZ(), finalName));
+                server.addScheduledTask(() -> sender.sendMessage(new TextComponentTranslation("command.neutronia.biome_found", Objects.requireNonNull(pos).getX(), pos.getZ(), finalName)));
             }
         }, "Neutronia Biome Finder").start();
     }

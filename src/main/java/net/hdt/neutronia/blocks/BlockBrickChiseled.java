@@ -24,8 +24,8 @@ public class BlockBrickChiseled extends BlockMod implements INeutroniaBlock {
         super(name, Material.ROCK);
         this.filled = filled;
         setCreativeTab(filled ? null : NCreativeTabs.OVERWORLD_EXPANSION_TAB);
-        setHardness(0.3F);
-        setResistance(6.5F);
+        setHardness(2.0F);
+        setResistance(10.0F);
         setSoundType(SoundType.STONE);
     }
 
