@@ -39,47 +39,41 @@ public final class GroupLoader {
 
         setupConfig(event);
 
-        forEachGroup(group -> {
-            if (group.enabled) {
-                LibMisc.LOGGER.info("Enabling Group " + group.name);
-            } else {
-                LibMisc.LOGGER.error("Could not enable " + group.name);
-            }
-        });
+        forEachGroup(module -> LibMisc.LOGGER.info("Group " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
 
-        forEachEnabled(module -> module.preInit(event));
-        forEachEnabled(module -> module.postPreInit(event));
+        forEachEnabledGroup(module -> module.preInit(event));
+        forEachEnabledGroup(module -> module.postPreInit(event));
     }
 
     public static void init(FMLInitializationEvent event) {
-        forEachEnabled(module -> module.init(event));
+        forEachEnabledGroup(module -> module.init(event));
     }
 
     public static void postInit(FMLPostInitializationEvent event) {
-        forEachEnabled(module -> module.postInit(event));
+        forEachEnabledGroup(module -> module.postInit(event));
     }
 
     public static void finalInit(FMLPostInitializationEvent event) {
-        forEachEnabled(module -> module.finalInit(event));
+        forEachEnabledGroup(module -> module.finalInit(event));
     }
 
     @SideOnly(Side.CLIENT)
     public static void preInitClient(FMLPreInitializationEvent event) {
-        forEachEnabled(module -> module.preInitClient(event));
+        forEachEnabledGroup(module -> module.preInitClient(event));
     }
 
     @SideOnly(Side.CLIENT)
     public static void initClient(FMLInitializationEvent event) {
-        forEachEnabled(module -> module.initClient(event));
+        forEachEnabledGroup(module -> module.initClient(event));
     }
 
     @SideOnly(Side.CLIENT)
     public static void postInitClient(FMLPostInitializationEvent event) {
-        forEachEnabled(module -> module.postInitClient(event));
+        forEachEnabledGroup(module -> module.postInitClient(event));
     }
 
     public static void serverStarting(FMLServerStartingEvent event) {
-        forEachEnabled(module -> module.serverStarting(event));
+        forEachEnabledGroup(module -> module.serverStarting(event));
     }
 
     public static void setupConfig(FMLPreInitializationEvent event) {
@@ -92,7 +86,7 @@ public final class GroupLoader {
 
         loadConfig();
 
-        forEachEnabled(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
+        forEachEnabledGroup(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
 
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }
@@ -101,7 +95,6 @@ public final class GroupLoader {
         GlobalConfig.initGlobalConfig();
 
         forEachGroup(group -> {
-            group.enabled = true;
             if (group.canBeDisabled()) {
                 ConfigHelper.needsRestart = true;
                 group.enabled = ConfigHelper.loadPropBool(group.name, "_groups", group.getModuleDescription(), group.isEnabledByDefault());
@@ -130,7 +123,7 @@ public final class GroupLoader {
         groups.forEach(consumer);
     }
 
-    private static void forEachEnabled(Consumer<Group> consumer) {
+    private static void forEachEnabledGroup(Consumer<Group> consumer) {
         enabledGroups.forEach(consumer);
     }
 

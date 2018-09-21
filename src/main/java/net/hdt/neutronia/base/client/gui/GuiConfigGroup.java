@@ -37,7 +37,7 @@ public class GuiConfigGroup extends GuiConfigBase {
     public void initGui() {
         super.initGui();
 
-        title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name.toLowerCase()) + " (" + components.size() + ")";
+        title += " - " + I18n.translateToLocal("neutronia.config.group." + group.name.toLowerCase().replace(" ", "_")) + " (" + components.size() + ")";
 
         int x = width / 2 - 100;
         int y = height / 6 + 167;

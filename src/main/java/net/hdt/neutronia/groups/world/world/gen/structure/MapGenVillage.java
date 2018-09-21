@@ -48,7 +48,7 @@ public class MapGenVillage extends MapGenStructure {
 
     @Override
     public String getStructureName() {
-        return "VillageNew";
+        return "Village";
     }
 
     protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {

@@ -35,6 +35,7 @@ public class Group implements Comparable<Group> {
     public Group(Builder builder) {
         name = builder.name;
         desc = builder.desc;
+        enabled = builder.enabled;
         for (Component component : builder.components) {
             registerComponent(component, component.enabled);
         }
@@ -131,42 +132,42 @@ public class Group implements Comparable<Group> {
     }
 
     public void preInit(FMLPreInitializationEvent event) {
-        forEachEnabled(component -> component.preInit(event));
+        forEachEnabledComponent(component -> component.preInit(event));
     }
 
     void postPreInit(FMLPreInitializationEvent event) {
-        forEachEnabled(component -> component.postPreInit(event));
+        forEachEnabledComponent(component -> component.postPreInit(event));
     }
 
     public void init(FMLInitializationEvent event) {
-        forEachEnabled(component -> component.init(event));
+        forEachEnabledComponent(component -> component.init(event));
     }
 
     public void postInit(FMLPostInitializationEvent event) {
-        forEachEnabled(component -> component.postInit(event));
+        forEachEnabledComponent(component -> component.postInit(event));
     }
 
     void finalInit(FMLPostInitializationEvent event) {
-        forEachEnabled(component -> component.finalInit(event));
+        forEachEnabledComponent(component -> component.finalInit(event));
     }
 
     @SideOnly(Side.CLIENT)
     void preInitClient(FMLPreInitializationEvent event) {
-        forEachEnabled(component -> component.preInitClient(event));
+        forEachEnabledComponent(component -> component.preInitClient(event));
     }
 
     @SideOnly(Side.CLIENT)
     void initClient(FMLInitializationEvent event) {
-        forEachEnabled(component -> component.initClient(event));
+        forEachEnabledComponent(component -> component.initClient(event));
     }
 
     @SideOnly(Side.CLIENT)
     void postInitClient(FMLPostInitializationEvent event) {
-        forEachEnabled(component -> component.postInitClient(event));
+        forEachEnabledComponent(component -> component.postInitClient(event));
     }
 
     void serverStarting(FMLServerStartingEvent event) {
-        forEachEnabled(component -> component.serverStarting(event));
+        forEachEnabledComponent(component -> component.serverStarting(event));
     }
 
     boolean canBeDisabled() {
@@ -197,7 +198,7 @@ public class Group implements Comparable<Group> {
         components.values().forEach(consumer);
     }
 
-    private void forEachEnabled(Consumer<Component> consumer) {
+    private void forEachEnabledComponent(Consumer<Component> consumer) {
         enabledComponents.forEach(consumer);
     }
 
@@ -270,7 +271,7 @@ public class Group implements Comparable<Group> {
             if (!icon.isEmpty()) {
                 this.icon = icon;
             } else {
-                this.icon = group.getIconStack();
+                this.icon = new ItemStack(Blocks.AIR);
             }
             return this;
         }
@@ -279,7 +280,6 @@ public class Group implements Comparable<Group> {
             group = new Group(this);
             group.setIconStack(icon);
             GroupLoader.registerGroup(group);
-            group.enabled = enabled;
             return group;
         }
 

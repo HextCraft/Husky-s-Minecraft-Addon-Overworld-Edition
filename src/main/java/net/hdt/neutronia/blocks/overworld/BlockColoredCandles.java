@@ -4,7 +4,6 @@ import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPumpkin;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -29,7 +28,6 @@ public class BlockColoredCandles extends BlockColoredAlt {
     public BlockColoredCandles(EnumDyeColor color, boolean lit) {
         super(lit ? "lit_candle" : "candle", color);
         this.color = color;
-        BlockPumpkin
         this.lit = lit;
         setCreativeTab(!lit ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
         this.setLightLevel(lit ? 1.0F : 0.0F);

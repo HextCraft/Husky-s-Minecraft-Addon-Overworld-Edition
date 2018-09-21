@@ -14,7 +14,7 @@ public class GroupButton extends GuiButton {
     final Group group;
 
     public GroupButton(int x, int y, Group group) {
-        super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.name.toLowerCase()));
+        super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.name.toLowerCase().replace(" ", "_")));
         this.group = group;
     }
 

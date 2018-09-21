@@ -28,9 +28,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 public class NGroups {
 
-    public static Group building, client, decoration, dimensions, earlyGame, experimental, misc, tweaks, vanity, world;
+    public static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -44,6 +47,11 @@ public class NGroups {
                 .addComponent(new WoodBlocks())
                 .addComponent(new SoulStone())
                 .enabled(true)
+                .register();
+
+        christmas = Group.builder()
+                .name("Christmas")
+                .enabled(isChristmas())
                 .register();
 
         client = Group.builder()
@@ -86,7 +94,7 @@ public class NGroups {
 
         dimensions = Group.builder()
                 .name("Dimensions")
-                .description("This group adds some new biomes")
+                .description("This group adds some new dimensions")
                 .iconStack(new ItemStack(Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.WHITE).getBlock()))
                 .addComponent(new MoonBlocks())
                 .addComponent(new MoonBiomes())
@@ -97,7 +105,7 @@ public class NGroups {
                 .addComponent(new SunDimension())
                 .addComponent(new RevampedEnd())
                 .addComponent(new RevampedNether())
-                .enabled(true)
+                .enabled(false)
                 .register();
 
         earlyGame = Group.builder()
@@ -106,7 +114,12 @@ public class NGroups {
                 .iconStack(new ItemStack(Items.WOODEN_AXE))
                 .addComponent(new ClayCauldron())
                 .addComponent(new ClayTools())
-                .enabled(true)
+                .enabled(false)
+                .register();
+
+        easter = Group.builder()
+                .name("Easter")
+                .enabled(isEaster())
                 .register();
 
         experimental = Group.builder()
@@ -115,6 +128,12 @@ public class NGroups {
                 .iconStack(new ItemStack(Blocks.TNT))
                 .addComponent(new BiggerCaves())
                 .enabled(true)
+                .register();
+
+        halloween = Group.builder()
+                .name("Halloween")
+                .iconStack(new ItemStack(Blocks.LIT_PUMPKIN))
+                .enabled(isHalloween())
                 .register();
 
         misc = Group.builder()
@@ -126,6 +145,12 @@ public class NGroups {
                 .addComponent(new NoteBlocksMobSounds())
                 .addComponent(new UtilityRecipes())
                 .enabled(true)
+                .register();
+
+        summer = Group.builder()
+                .name("Summer")
+                .iconStack(new ItemStack(Blocks.SAND))
+                .enabled(false)
                 .register();
 
         tweaks = Group.builder()
@@ -155,7 +180,7 @@ public class NGroups {
                 .addComponent(new EquipmentDrop())
                 .addComponent(new GrassPath())
                 .addComponent(new HCMovement())
-                .addComponent(new HCTools())
+//                .addComponent(new HCTools())
                 .addComponent(new ImprovedFlee())
                 .addComponent(new MobEating())
                 .addComponent(new MoreTempting())
@@ -167,7 +192,7 @@ public class NGroups {
                 .addComponent(new PeacefulSurface())
                 .addComponent(new MobDropBuffs())
                 .addComponent(new SwingThroughGrass())
-                .addComponent(new HarderLogs())
+//                .addComponent(new HarderLogs())
                 .enabled(true)
                 .register();
 
@@ -182,6 +207,12 @@ public class NGroups {
                 .enabled(true)
                 .register();
 
+        winter = Group.builder()
+                .name("Winter")
+                .iconStack(new ItemStack(Blocks.SNOW))
+                .enabled(false)
+                .register();
+
         world = Group.builder()
                 .name("World")
                 .description("This module adds world generation features to the End, Nether and Overworld.")
@@ -194,7 +225,7 @@ public class NGroups {
 //                .addComponent(new Corals())
                 .addComponent(new HCStructures())
                 .addComponent(new HCVillages())
-                .addComponent(new ImprovedWorldGen())
+//                .addComponent(new ImprovedWorldGen())
                 .addComponent(new MineshaftGeneration())
                 .addComponent(new MoreBiomes())
                 .addComponent(new MoreOceanBiomes())
@@ -208,6 +239,18 @@ public class NGroups {
                 .enabled(true)
                 .register();
 
+    }
+
+    private static boolean isHalloween() {
+        return LocalDate.now().getMonth() == Month.OCTOBER && LocalDate.now().getDayOfMonth() == 31;
+    }
+
+    private static boolean isChristmas() {
+        return LocalDate.now().getMonth() == Month.DECEMBER && LocalDate.now().getDayOfMonth() == 24;
+    }
+
+    private static boolean isEaster() {
+        return LocalDate.now().getMonth() == Month.APRIL && LocalDate.now().getDayOfMonth() == 21;
     }
 
 }

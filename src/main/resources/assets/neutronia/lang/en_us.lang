@@ -923,6 +923,12 @@ neutronia.config.group.client=Client
 neutronia.config.group.management=Management
 neutronia.config.group.vanity=Vanity
 neutronia.config.group.misc=Misc
+neutronia.config.group.early_game=Early Game
+neutronia.config.group.halloween=Halloween
+neutronia.config.group.easter=Easter
+neutronia.config.group.christmas=Christmas
+neutronia.config.group.summer=Summer
+neutronia.config.group.winter=Winter
 
 # MISC
 neutroniaMisc.shulkerBoxShift=Hold Shift to see contents
