@@ -9,12 +9,12 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:glazed_terracotta_purple",
+      "item": "minecraft:purple_glazed_terracotta",
       "data": 10
     }
   },
   "result": {
-    "item": "purple_centered_glazed_terracotta",
+    "item": "neutronia:purple_centered_glazed_terracotta",
     "count": 9
   }
 }

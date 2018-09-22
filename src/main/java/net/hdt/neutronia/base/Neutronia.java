@@ -44,7 +44,6 @@ public class Neutronia {
 
     public static final GroupLoader MODULE_LOADER = new GroupLoader(new File(MOD_ID));
 
-
     public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_) {
         return (new EntityDamageSourceIndirect("trident", p_203096_0_, p_203096_1_)).setProjectile();
     }

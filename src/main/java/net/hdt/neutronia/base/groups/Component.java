@@ -93,7 +93,8 @@ public abstract class Component implements IStateHandler {
                 return false;
             }
         }
-        return config().load(this.category, "Enabled", isEnabledByDefault()).setCategoryComment(getDescription()).get();
+//        return config().load(this.category, "Enabled", isEnabledByDefault()).setCategoryComment(getDescription()).get();
+        return true;
     }
 
 

@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonObject;
 import net.hdt.neutronia.api.modules.impl.ListStateHandler;
+import net.hdt.neutronia.groups.NGroups;
 import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.crafting.IConditionFactory;
@@ -52,13 +53,14 @@ public final class GroupLoader extends ListStateHandler<Group> {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-//        File file = event.getSuggestedConfigurationFile();
-//        ConfigHelper helper = new ConfigHelper(file.getParent(), new Configuration(file));
+        File file = event.getSuggestedConfigurationFile();
+        ConfigHelper helper = new ConfigHelper(file.getParent(), new Configuration(file));
         config = new Configuration(event.getSuggestedConfigurationFile());
+        NGroups.registerGroups();
         forEach(module -> {
             //FIXME Currently have a config for each module, not entirely sure about this
-            File file = new File(event.getModConfigurationDirectory(), relativeConfigDir.getPath());
-            ConfigHelper helper = new ConfigHelper(file.getPath(), new Configuration(new File(file, module.getName() + ".cfg")));
+//            File file = new File(event.getModConfigurationDirectory(), relativeConfigDir.getPath());
+//            ConfigHelper helper = new ConfigHelper(file.getPath(), new Configuration(new File(file, module.getName() + ".cfg")));
 
             List<Component> feature = module.setup(helper, getLogger());
             //Add all feature classes to the set;
