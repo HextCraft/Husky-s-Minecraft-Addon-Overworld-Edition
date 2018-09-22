@@ -4,10 +4,12 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.dimensions.world.biomes.mars.BiomeMarsMain;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
+@Mod.EventBusSubscriber(modid = MOD_ID)
 public class MarsBiomes extends Component {
 
     public static final Biome MARS_MAIN = new BiomeMarsMain();
@@ -18,13 +20,8 @@ public class MarsBiomes extends Component {
     }
 
     @Override
-    public boolean hasSubscriptions() {
-        return true;
+    public String getDescription() {
+        return "Adds biomes for Mars";
     }
-
-    @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
 
 }

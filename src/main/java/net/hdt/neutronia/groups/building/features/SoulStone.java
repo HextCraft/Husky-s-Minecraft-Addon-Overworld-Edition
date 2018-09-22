@@ -39,8 +39,7 @@ public class SoulStone extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-
+    public String getDescription() {
+        return "This adds a new block called soulstone which is like the same as sandstone but for soulsand";
+    }
 }

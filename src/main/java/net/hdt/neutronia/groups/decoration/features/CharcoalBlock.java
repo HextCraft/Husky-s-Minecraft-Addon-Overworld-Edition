@@ -34,8 +34,8 @@ public class CharcoalBlock extends Component {
     }
 
     @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
+    public String getDescription() {
+        return "This adds a block that is made out of charcoal";
     }
 
     @Override

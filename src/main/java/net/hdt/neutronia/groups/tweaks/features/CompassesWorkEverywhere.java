@@ -17,10 +17,15 @@ public class CompassesWorkEverywhere extends Component {
 
     @Override
     public void setupConfig() {
-        enableCompassNerf = loadPropBool("Enable Compass Fix", "Make compasses always point north until crafted", true);
-        enableClockNerf = loadPropBool("Enable Clock Fix", "Make clocks always show day until crafted", true);
-        enableNether = loadPropBool("Enable Nether Compass", "Make compasses point to where the portal you came in from when in the nether", true);
-        enableEnd = loadPropBool("Enable End Compass", "Make compasses point to center of the main island when in the end", true);
+        enableCompassNerf = loadProperty("Enable Compass Fix", true).setComment("Make compasses always point north until crafted").get();
+        enableClockNerf = loadProperty("Enable Clock Fix", true).setComment("Make clocks always show day until crafted").get();
+        enableNether = loadProperty("Enable Nether Compass", true).setComment("Make compasses point to where the portal you came in from when in the nether").get();
+        enableEnd = loadProperty("Enable End Compass", true).setComment("Make compasses point to center of the main island when in the end").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes the compasses work everywhere";
     }
 
     @Override

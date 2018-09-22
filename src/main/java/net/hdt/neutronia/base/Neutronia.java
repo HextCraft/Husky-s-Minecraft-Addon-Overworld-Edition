@@ -1,5 +1,6 @@
 package net.hdt.neutronia.base;
 
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.proxy.CommonProxy;
 import net.hdt.neutronia.base.util.Reference;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nullable;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -39,6 +41,9 @@ public class Neutronia {
         add(new EventHandlers());
         add(new RecipeHandlers());
     }};
+
+    public static final GroupLoader MODULE_LOADER = new GroupLoader(new File(MOD_ID));
+
 
     public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_) {
         return (new EntityDamageSourceIndirect("trident", p_203096_0_, p_203096_1_)).setProjectile();

@@ -32,6 +32,11 @@ public class PurhoganyWood extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes a new cool end tree";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

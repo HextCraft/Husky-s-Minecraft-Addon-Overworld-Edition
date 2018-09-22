@@ -19,6 +19,11 @@ public class SimplerHorseModel extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes the horse model the same as the 1.13 one";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

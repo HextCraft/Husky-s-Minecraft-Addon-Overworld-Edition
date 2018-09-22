@@ -54,7 +54,7 @@ public class EnchantmentTooltip extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Add a tooltip to Enchantment source items (Scrolls, Books) to show what type of tool the enchantment can be used on.";
     }
 

@@ -1,8 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
 import com.google.common.collect.ImmutableSet;
-import net.hdt.neutronia.base.groups.GlobalConfig;
-import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiIngameMenu;
@@ -29,15 +27,13 @@ public final class ConfigEvents {
     public static void onGuiInit(GuiScreenEvent.InitGuiEvent event) {
         GuiScreen gui = event.getGui();
 
-        if (GlobalConfig.enableNButton && (gui instanceof GuiMainMenu || gui instanceof GuiIngameMenu)) {
-            ImmutableSet<String> targets = GlobalConfig.NButtonOnRight
-                    ? ImmutableSet.of(I18n.format("fml.menu.modoptions"), I18n.format("menu.online").replace("Minecraft", "").trim())
-                    : ImmutableSet.of(I18n.format("menu.options"), I18n.format("fml.menu.mods"));
+        if ((gui instanceof GuiMainMenu || gui instanceof GuiIngameMenu)) {
+            ImmutableSet<String> targets = ImmutableSet.of(I18n.format("menu.options"), I18n.format("fml.menu.mods"));
 
             List<GuiButton> buttons = event.getButtonList();
             for (GuiButton b : buttons)
                 if (targets.contains(b.displayString)) {
-                    GuiButton qButton = new ColoredButton(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 20, "N", 0x48ddbc);
+                    GuiButton qButton = new ColoredButton(-82392, b.x + (-24), b.y, 20, "N", 0x48ddbc);
                     buttons.add(qButton);
                     return;
                 }

@@ -34,4 +34,8 @@ public class DecorativeCorals extends Component {
         }
     }
 
+    @Override
+    public String getDescription() {
+        return "Adds decorative versions of the corals which don't die";
+    }
 }

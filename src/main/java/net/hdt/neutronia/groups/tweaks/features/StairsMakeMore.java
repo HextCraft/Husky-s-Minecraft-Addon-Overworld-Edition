@@ -35,10 +35,15 @@ public class StairsMakeMore extends Component {
 
     @Override
     public void setupConfig() {
-        targetSize = loadPropInt("Target stack size (must be a divisor of 24 if 'Reversion recipe' is enabled)", "", 8);
-        originalSize = loadPropInt("Vanilla stack size", "The stack size for the vanilla stair recipe, used for automatically detecting stair recipes", 4);
-        reversionRecipe = loadPropBool("Add stairs to blocks recipe", "", true);
-        enableSlabToStair = loadPropBool("Enable Slab to Stairs Recipe", "This recipe can only be enabled if the \"Slabs to blocks recipe\" feature is.", true);
+        targetSize = loadProperty("Target stack size (must be a divisor of 24 if 'Reversion recipe' is enabled)", 8).get();
+        originalSize = loadProperty("Vanilla stack size", 4).setComment("The stack size for the vanilla stair recipe, used for automatically detecting stair recipes").get();
+        reversionRecipe = loadProperty("Add stairs to blocks recipe", true).get();
+        enableSlabToStair = loadProperty("Enable Slab to Stairs Recipe", true).setComment("This recipe can only be enabled if the \"Slabs to blocks recipe\" feature is.").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes stairs return more when crafted";
     }
 
     @Override

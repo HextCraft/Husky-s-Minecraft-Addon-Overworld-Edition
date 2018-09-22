@@ -14,7 +14,7 @@ public class MobEating extends Component {
     private static final int radius = 4;
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Mobs are hungry too, if they see some food on the ground that they like they might just eat!";
     }
 

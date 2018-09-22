@@ -16,8 +16,8 @@ public class MoonDimension extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public String getDescription() {
+        return "Adds a moon dimension";
+    }
 
 }

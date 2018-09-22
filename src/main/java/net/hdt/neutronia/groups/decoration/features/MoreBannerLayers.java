@@ -8,12 +8,17 @@ public class MoreBannerLayers extends Component {
     public static int layers;
 
     public static int getLayerCount() {
-        return GroupLoader.isFeatureEnabled(MoreBannerLayers.class) ? layers : 6;
+        return GroupLoader.isComponentEnabled(MoreBannerLayers.class) ? layers : 6;
     }
 
     @Override
     public void setupConfig() {
-        layers = loadPropInt("Survival Layer Count", "", 16);
+        layers = loadProperty("Survival Layer Count", 16).get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Let's banners have more layers in survival";
     }
 
 

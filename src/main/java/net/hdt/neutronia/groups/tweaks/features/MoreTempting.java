@@ -35,7 +35,7 @@ public class MoreTempting extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Add more valid items for tempting animals to follow. Sheep and cows follow Tall Grass or Wheat." +
                 " Chickens follow most seeds." +
                 " Pigs will follow Wheat, Potatoes, Beets, Chocolate";

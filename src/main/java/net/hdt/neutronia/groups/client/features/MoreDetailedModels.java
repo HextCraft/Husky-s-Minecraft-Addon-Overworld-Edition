@@ -24,7 +24,7 @@ public class MoreDetailedModels extends Component {
         }
 
         for(MoreDetailedModels.OverrideEntry e : overrides.overrides)
-            e.configVal = loadPropBool("Enable " + e.name, "", !e.disabled);
+            e.configVal = loadProperty("Enable " + e.name, !e.disabled).get();
     }
 
     @Override
@@ -33,8 +33,8 @@ public class MoreDetailedModels extends Component {
     }
 
     @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
+    public String getDescription() {
+        return "This adds some more detailed models for blocks and items";
     }
 
     private static class OverrideHolder {

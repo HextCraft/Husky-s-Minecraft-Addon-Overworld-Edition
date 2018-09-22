@@ -15,6 +15,11 @@ public class TorchesBurnInFurnaces extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes it so torches burn in furnaces";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

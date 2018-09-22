@@ -13,6 +13,11 @@ public class NetherMushrooms extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Spawns mushrooms made out of dirt and stone in the nether";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

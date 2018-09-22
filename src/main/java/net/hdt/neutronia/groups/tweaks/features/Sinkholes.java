@@ -30,7 +30,7 @@ public class Sinkholes extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Falling blocks update when players stand on them, causing them to fall if the blocks are not supported by non-falling blocks. ";
     }
 

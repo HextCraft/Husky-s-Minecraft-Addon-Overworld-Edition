@@ -3,6 +3,7 @@ package net.hdt.neutronia.groups.decoration.features;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredWall;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.handler.client.ClientEventHandler;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.BlockModColoredSlab;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
@@ -50,14 +51,14 @@ public class ColoredPlanks extends Component {
             addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
 //            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
         }
-        addColoredBlocks(coloredPlanks);
-        addColoredStairs(coloredStairs);
-        addColoredSlabs(coloredSlabsSingle, coloredSlabsDouble);
+        ClientEventHandler.blocks.add(coloredPlanks);
+        ClientEventHandler.slabs.add(coloredStairs);
+        ClientEventHandler.slabs.add(coloredSlabsSingle);
+        ClientEventHandler.slabs.add(coloredSlabsDouble);
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-
+    public String getDescription() {
+        return "This adds some colored planks with slabs and stairs";
+    }
 }

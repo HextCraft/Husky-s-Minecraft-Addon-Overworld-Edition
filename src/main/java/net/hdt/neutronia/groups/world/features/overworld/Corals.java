@@ -38,6 +38,11 @@ public class Corals extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Adds corals from 1.13";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

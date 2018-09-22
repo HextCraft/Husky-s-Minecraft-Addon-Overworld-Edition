@@ -81,6 +81,11 @@ public class DyableElytra extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes elytras dyable";
+    }
+
+    @Override
     public boolean hasSubscriptions() {
         return isClient();
     }

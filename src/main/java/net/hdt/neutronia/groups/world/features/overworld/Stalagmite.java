@@ -21,13 +21,18 @@ public class Stalagmite extends Component {
 
     @Override
     public void setupConfig() {
-        tries = loadPropInt("Cluster Attempts Per Chunk", "", 60);
-        clusterCount = loadPropInt("Stalagmite Per Cluster", "", 12);
-        netherTries = loadPropInt("Cluster Attempts Per Chunk (Nether)", "", 4);
-        netherClusterCount = loadPropInt("Stalagmite Per Cluster (Nether)", "", 12);
-        maxHeight = loadPropInt("Highest Y Level", "", 55);
+        tries = loadProperty("Cluster Attempts Per Chunk", 60).get();
+        clusterCount = loadProperty("Stalagmite Per Cluster", 12).get();
+        netherTries = loadProperty("Cluster Attempts Per Chunk (Nether)", 4).get();
+        netherClusterCount = loadProperty("Stalagmite Per Cluster (Nether)", 12).get();
+        maxHeight = loadProperty("Highest Y Level", 55).get();
 
-        dimensionConfig = new DimensionConfig(configCategory, "0,-1");
+        dimensionConfig = new DimensionConfig(getCategory(), "0,-1");
+    }
+
+    @Override
+    public String getDescription() {
+        return "";
     }
 
     @Override
@@ -40,7 +45,7 @@ public class Stalagmite extends Component {
         ice_stalagmite = new BlockStalagmite("ice");
         packed_ice_stalagmite = new BlockStalagmite("packed_ice");
 
-        if(GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
+        if(GroupLoader.isComponentEnabled(MoreStoneBlocks.class)) {
             basalt_stalagmite = new BlockStalagmite("basalt");
             marble_stalagmite = new BlockStalagmite("marble");
             limestone_stalagmite = new BlockStalagmite("limestone");

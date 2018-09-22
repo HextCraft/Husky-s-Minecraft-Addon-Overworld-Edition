@@ -19,7 +19,12 @@ public class SquidsInkYou extends Component {
 
     @Override
     public void setupConfig() {
-        time = loadPropInt("Blindness Time", "How long should blindness last upon hitting a squid, in ticks", time);
+        time = loadProperty("Blindness Time", time).setComment("How long should blindness last upon hitting a squid, in ticks").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes it so squids ink you when you hit them";
     }
 
     @SubscribeEvent

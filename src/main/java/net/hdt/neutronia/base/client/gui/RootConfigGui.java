@@ -1,8 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
-import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.util.Color;
 import net.minecraft.client.gui.GuiButton;
@@ -12,7 +10,6 @@ import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class RootConfigGui extends GuiConfigBase {
@@ -46,10 +43,9 @@ public class RootConfigGui extends GuiConfigBase {
     RootConfigGui(GuiScreen parent) {
         super(parent);
 
-        groups = new ArrayList<>(GroupLoader.enabledGroups);
-        Collections.sort(groups);
+        groups = new ArrayList<>();
 
-        nEnabled = GlobalConfig.enableNButton;
+        nEnabled = true;
 
         System.out.println(groups.size());
         totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
@@ -107,7 +103,7 @@ public class RootConfigGui extends GuiConfigBase {
 
         x = width / 2;
         y = startY + 113;
-        buttonList.add(new ConfigSettingsButton(x + 85, y + 22, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
+//        buttonList.add(new ConfigSettingsButton(x + 85, y + 22, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
         buttonList.add(new GuiButton(1, x - 100, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.general")));
 //        buttonList.add(new GuiButton(2, x  + 2, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.import")));
 
@@ -128,7 +124,7 @@ public class RootConfigGui extends GuiConfigBase {
         String s = null;
         if (mayRequireRestart)
             s = I18n.translateToLocal("neutronia.config.needrestart");
-        else if (nEnabled && !GlobalConfig.enableNButton)
+        else if (nEnabled)
             s = I18n.translateToLocal("neutronia.config.qdisabled");
 
         /*for(int i = 0; i < groups.size(); i++) {

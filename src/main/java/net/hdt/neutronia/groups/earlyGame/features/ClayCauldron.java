@@ -14,8 +14,7 @@ public class ClayCauldron extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
-
+    public String getDescription() {
+        return "Adds a cauldron made of clay";
+    }
 }

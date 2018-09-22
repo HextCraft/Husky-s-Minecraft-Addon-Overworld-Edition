@@ -97,10 +97,15 @@ public class SwingThroughGrass extends Component {
 
     @Override
     public void setupConfig() {
-        cancelClickEventPropagation = loadPropBool("Cancel Click Event Propagation", "Whether to cancel click event propagation.\n" +
+        cancelClickEventPropagation = loadProperty("Cancel Click Event Propagation", false).setComment("Whether to cancel click event propagation.\n" +
                 "Setting this to 'true' will prevent destroying of blocks like tall grass and vanilla flowers.\n" +
-                "If you expect vanilla clients on server leave it 'false' otherwise this will introduce server-client desync.", false);
+                "If you expect vanilla clients on server leave it 'false' otherwise this will introduce server-client desync.").get();
 
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
     }
 
 }

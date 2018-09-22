@@ -18,6 +18,11 @@ public class HarderLogs extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes logs harder";
+    }
+
+    @Override
     public boolean hasSubscriptions() {
         return true;
     }

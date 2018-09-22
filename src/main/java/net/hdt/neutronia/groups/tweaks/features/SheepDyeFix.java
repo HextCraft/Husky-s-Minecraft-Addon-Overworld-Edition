@@ -18,8 +18,13 @@ public class SheepDyeFix extends Component {
 
     @Override
     public void setupConfig() {
-        enabled = loadPropBool("Enabled", "This defines if this component is enabled or not", true);
-        blacklist = loadPropStringList("Blacklisted Dyes", "The class name (or part of it) of the dye you don't want to work with the Sheep Dye Fix", new String[]{"net.minecraft.item.ItemDye", "biomesoplenty"});
+        enabled = loadProperty("Enabled", true).setComment("This defines if this component is enabled or not").get();
+        blacklist = loadProperty("Blacklisted Dyes", new String[]{"net.minecraft.item.ItemDye", "biomesoplenty"}).setComment("The class name (or part of it) of the dye you don't want to work with the Sheep Dye Fix").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes so you can dye sheep's";
     }
 
     @SubscribeEvent

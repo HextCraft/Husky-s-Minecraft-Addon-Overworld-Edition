@@ -36,7 +36,7 @@ public class VariedBookshelves extends Component {
 
     @Override
     public void setupConfig() {
-        renameVanillaBookshelves = loadPropBool("Rename vanilla bookshelves to Oak Bookshelf", "", true);
+        renameVanillaBookshelves = loadProperty("Rename vanilla bookshelves to Oak Bookshelf", true).get();
     }
 
     @Override
@@ -99,6 +99,7 @@ public class VariedBookshelves extends Component {
 
     @Override
     public void init(FMLInitializationEvent event) {
+        
         OreDictionary.registerOre("bookshelf", Blocks.BOOKSHELF);
 
         OreDictionary.registerOre("bookshelfOak", Blocks.BOOKSHELF);
@@ -110,8 +111,8 @@ public class VariedBookshelves extends Component {
     }
 
     @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
+    public String getDescription() {
+        return "Adds more types of bookshelf";
     }
-
+    
 }

@@ -1,148 +1,93 @@
 package net.hdt.neutronia.base.groups;
 
-import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.util.Reference;
-import net.hdt.neutronia.groups.NGroups;
-import net.minecraftforge.common.MinecraftForge;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.google.gson.JsonObject;
+import net.hdt.neutronia.api.modules.impl.ListStateHandler;
+import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.common.crafting.IConditionFactory;
+import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Consumer;
+import java.util.Set;
+import java.util.function.BooleanSupplier;
+import java.util.stream.Collectors;
 
-public final class GroupLoader {
+public final class GroupLoader extends ListStateHandler<Group> {
 
-    public static Map<String, Component> componentClassNames = new HashMap<>();
+    static final HashMap<String, Boolean> JSON_CONDITIONS = Maps.newHashMap();
+
+    private static Set<Class<? extends Component>> enabledFeatures = Sets.newHashSet();
+    private Logger logger;
     public static Configuration config;
-    public static List<Group> groups;
-    public static List<Group> enabledGroups;
-    public static boolean firstLoad;
-    public static Map<Class<? extends Component>, Component> componentInstances = new HashMap<>();
+    private File relativeConfigDir;
 
-    static {
-        groups = new ArrayList<>();
+    public GroupLoader(File relativeConfigDir) {
+        this.relativeConfigDir = relativeConfigDir;
     }
 
-    public static void preInit(FMLPreInitializationEvent event) {
-        NGroups.registerGroups();
-
-        setupConfig(event);
-
-        forEachGroup(module -> LibMisc.LOGGER.info("Group " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
-
-        forEachEnabledGroup(module -> module.preInit(event));
-        forEachEnabledGroup(module -> module.postPreInit(event));
+    public GroupLoader addModules(Group... modules) {
+        for (Group module : modules)
+            addModule(module);
+        return this;
     }
 
-    public static void init(FMLInitializationEvent event) {
-        forEachEnabledGroup(module -> module.init(event));
+    public GroupLoader addModule(Group module) {
+        add(module);
+        return this;
     }
 
-    public static void postInit(FMLPostInitializationEvent event) {
-        forEachEnabledGroup(module -> module.postInit(event));
+    public Logger getLogger() {
+        return logger;
     }
 
-    public static void finalInit(FMLPostInitializationEvent event) {
-        forEachEnabledGroup(module -> module.finalInit(event));
+    public void setLogger(Logger logger) {
+        this.logger = logger;
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void preInitClient(FMLPreInitializationEvent event) {
-        forEachEnabledGroup(module -> module.preInitClient(event));
-    }
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+//        File file = event.getSuggestedConfigurationFile();
+//        ConfigHelper helper = new ConfigHelper(file.getParent(), new Configuration(file));
+        config = new Configuration(event.getSuggestedConfigurationFile());
+        forEach(module -> {
+            //FIXME Currently have a config for each module, not entirely sure about this
+            File file = new File(event.getModConfigurationDirectory(), relativeConfigDir.getPath());
+            ConfigHelper helper = new ConfigHelper(file.getPath(), new Configuration(new File(file, module.getName() + ".cfg")));
 
-    @SideOnly(Side.CLIENT)
-    public static void initClient(FMLInitializationEvent event) {
-        forEachEnabledGroup(module -> module.initClient(event));
-    }
-
-    @SideOnly(Side.CLIENT)
-    public static void postInitClient(FMLPostInitializationEvent event) {
-        forEachEnabledGroup(module -> module.postInitClient(event));
-    }
-
-    public static void serverStarting(FMLServerStartingEvent event) {
-        forEachEnabledGroup(module -> module.serverStarting(event));
-    }
-
-    public static void setupConfig(FMLPreInitializationEvent event) {
-        File configFile = event.getSuggestedConfigurationFile();
-        if(!configFile.exists())
-            firstLoad = true;
-
-        config = new Configuration(configFile);
-        config.load();
-
-        loadConfig();
-
-        forEachEnabledGroup(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
-
-        MinecraftForge.EVENT_BUS.register(new ChangeListener());
-    }
-
-    public static void loadConfig() {
-        GlobalConfig.initGlobalConfig();
-
-        forEachGroup(group -> {
-            if (group.canBeDisabled()) {
-                ConfigHelper.needsRestart = true;
-                group.enabled = ConfigHelper.loadPropBool(group.name, "_groups", group.getModuleDescription(), group.isEnabledByDefault());
-                group.prop = ConfigHelper.lastProp;
-            }
+            List<Component> feature = module.setup(helper, getLogger());
+            //Add all feature classes to the set;
+            enabledFeatures.addAll(feature.stream().map(Component::getClass).collect(Collectors.toSet()));
         });
-
-        enabledGroups = new ArrayList<>(groups);
-        enabledGroups.removeIf(group -> !group.enabled);
-
-        loadGroupConfigs();
-
-        if (config.hasChanged())
-            config.save();
+        super.preInit(event);
     }
 
-    private static void loadGroupConfigs() {
-        forEachGroup(Group::setupConfig);
+    public static boolean isComponentEnabled(Class<? extends Component> clazz) {
+        return enabledFeatures.contains(clazz);
     }
 
-    public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
-        return componentInstances.get(clazz).enabled;
+    @Override
+    public String getName() {
+        return "GroupLoader";
     }
 
-    private static void forEachGroup(Consumer<Group> consumer) {
-        groups.forEach(consumer);
+    @Override
+    public String getType() {
+        return "GroupLoader";
     }
 
-    private static void forEachEnabledGroup(Consumer<Group> consumer) {
-        enabledGroups.forEach(consumer);
-    }
-
-    static void registerGroup(Group group) {
-        if (!groups.contains(group)) {
-            groups.add(group);
-            if (!group.name.isEmpty())
-                LibMisc.LOGGER.info("Registering Group " + group.name);
+    @SuppressWarnings("unused")
+    public static class ConditionConfig implements IConditionFactory {
+        @Override
+        public BooleanSupplier parse(JsonContext context, JsonObject json) {
+            String enabled = JsonUtils.getString(json, "enabled");
+            return () -> JSON_CONDITIONS.getOrDefault(enabled, false);
         }
-    }
-
-    public static class ChangeListener {
-
-        @SubscribeEvent
-        public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-            if (eventArgs.getModID().equals(LibMisc.MOD_ID))
-                loadConfig();
-        }
-
     }
 
 }

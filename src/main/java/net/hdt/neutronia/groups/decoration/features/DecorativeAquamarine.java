@@ -22,4 +22,8 @@ public class DecorativeAquamarine extends Component {
         }
     }
 
+    @Override
+    public String getDescription() {
+        return "Adds decorative versions of Aquamarine";
+    }
 }

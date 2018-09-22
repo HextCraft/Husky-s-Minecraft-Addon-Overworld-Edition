@@ -35,8 +35,8 @@ public class VariedTrapdoors extends Component {
 
     @Override
     public void setupConfig() {
-        renameVanillaTrapdoor = loadPropBool("Rename vanilla trapdoor to Oak Trapdoor", "", true);
-        recipeOutput = loadPropInt("Amount of trapdoors crafted (vanilla is 2)", "", 6);
+        renameVanillaTrapdoor = loadProperty("Rename vanilla trapdoor to Oak Trapdoor", true).get();
+        recipeOutput = loadProperty("Amount of trapdoors crafted (vanilla is 2)", 6).get();
     }
 
     @Override
@@ -46,10 +46,7 @@ public class VariedTrapdoors extends Component {
         jungle_trapdoor = new BlockNeutroniaTrapdoor("jungle_trapdoor");
         acacia_trapdoor = new BlockNeutroniaTrapdoor("acacia_trapdoor");
         dark_oak_trapdoor = new BlockNeutroniaTrapdoor("dark_oak_trapdoor");
-    }
 
-    @Override
-    public void postPreInit(FMLPreInitializationEvent event) {
         List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
         for (ResourceLocation res : recipeList) {
             IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
@@ -104,7 +101,8 @@ public class VariedTrapdoors extends Component {
     }
 
     @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
+    public String getDescription() {
+        return "Adds more type of trapdoors";
     }
+
 }

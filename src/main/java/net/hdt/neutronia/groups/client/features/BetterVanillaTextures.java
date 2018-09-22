@@ -16,28 +16,28 @@ public class BetterVanillaTextures extends Component {
 	
 	OverrideHolder overrides = null;
 
-    @Override
-    public void setupConfig() {
-        if(overrides == null) {
+	@Override
+	public void setupConfig() {
+		if(overrides == null) {
 			InputStreamReader reader = new InputStreamReader(Neutronia.class.getResourceAsStream(OVERRIDES_JSON_FILE));
 			overrides = GSON.fromJson(reader, OverrideHolder.class);
 		}
-		
-		for(OverrideEntry e : overrides.overrides)
-			e.configVal = loadPropBool("Enable " + e.name, "", !e.disabled);
-    }
 
-    @Override
+		for(OverrideEntry e : overrides.overrides)
+			e.configVal = loadProperty("Enable " + e.name, !e.disabled).get();
+	}
+
+	@Override
     public void preInitClient(FMLPreInitializationEvent event) {
         overrides.overrides.forEach(OverrideEntry::apply);
     }
 
-    @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
-    }
+	@Override
+	public String getDescription() {
+		return "This overrides vanilla textures to make them better";
+	}
 
-    private static class OverrideHolder {
+	private static class OverrideHolder {
 		
 		List<OverrideEntry> overrides;
 		

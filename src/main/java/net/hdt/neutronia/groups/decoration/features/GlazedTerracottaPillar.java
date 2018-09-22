@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,15 +12,20 @@ public class GlazedTerracottaPillar extends Component {
 
     private Block[] glazedTerracottaPillar = new Block[16];
 
-    public GlazedTerracottaPillar() {
+    /*public GlazedTerracottaPillar() {
         super(GlobalConfig.enableExperimentalFeatures);
-    }
+    }*/
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
             glazedTerracottaPillar[dyeColor.getMetadata()] = new BlockNeutroniaPillar(Material.CLAY, String.format("%s_glazed_terracotta_pillar", dyeColor.getName())).setCreativeTab(CreativeTabs.DECORATIONS);
         }
+    }
+
+    @Override
+    public String getDescription() {
+        return "Adds glazed terracotta pillars which is pillars made with glazed terracotta";
     }
 
     @Override

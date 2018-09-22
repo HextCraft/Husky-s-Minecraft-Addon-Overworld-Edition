@@ -16,8 +16,8 @@ public class SunDimension extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public String getDescription() {
+        return "Adds the Sun";
+    }
 
 }

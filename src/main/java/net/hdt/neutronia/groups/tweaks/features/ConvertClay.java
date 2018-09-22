@@ -15,6 +15,11 @@ public class ConvertClay extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Does so you can make clay blocks into clay balls again";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

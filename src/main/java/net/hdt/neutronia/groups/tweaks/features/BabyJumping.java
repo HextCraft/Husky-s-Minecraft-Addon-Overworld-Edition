@@ -26,7 +26,7 @@ public class BabyJumping extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Make it so babies can no longer jump. Adds some possibilities for automation";
     }
 

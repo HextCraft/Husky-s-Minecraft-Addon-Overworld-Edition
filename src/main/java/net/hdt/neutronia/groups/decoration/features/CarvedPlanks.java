@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.building.features.VanillaWalls;
@@ -19,20 +18,23 @@ public class CarvedPlanks extends Component {
 
     @Override
     public void setupConfig() {
-        stairs = loadPropBool("Enable Stairs", "", true);
-        walls = loadPropBool("Enable Walls", "", false);
-        slabs = loadPropBool("Enable Slabs", "", true);
+        stairs = loadProperty("Enable Stairs", true).get();
+        walls = loadProperty("Enable Walls", false).get();
+        slabs = loadProperty("Enable Slabs", true).get();
     }
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for(BlockPlanks.EnumType plankTypes : BlockPlanks.EnumType.values()) {
             carvedPlanks[plankTypes.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("carved_%s_planks", plankTypes.getName()), true).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-            if(GlobalConfig.enableVariants) {
-                VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, CreativeTabs.BUILDING_BLOCKS);
-                VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, CreativeTabs.BUILDING_BLOCKS);
-            }
+            VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, CreativeTabs.BUILDING_BLOCKS);
+            VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, CreativeTabs.BUILDING_BLOCKS);
         }
     }
 
+    @Override
+    public String getDescription() {
+        return "This adds carved planks";
+    }
+    
 }

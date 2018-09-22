@@ -33,7 +33,12 @@ public class MapMarkers extends Component {
 
     @Override
     public void setupConfig() {
-        useRightClick = loadPropBool("Use Right Click", "If enabled, replaces the recipe to add the marker with right clicking for the same purpose", false);
+        useRightClick = loadProperty("Use Right Click", false).setComment("If enabled, replaces the recipe to add the marker with right clicking for the same purpose").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
     }
 
     @Override

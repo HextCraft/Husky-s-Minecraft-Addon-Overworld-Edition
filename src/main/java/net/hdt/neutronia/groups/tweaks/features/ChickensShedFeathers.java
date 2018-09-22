@@ -17,9 +17,14 @@ public class ChickensShedFeathers extends Component {
 
     @Override
     public void setupConfig() {
-        chicksDropFeathers = loadPropBool("Chicks drop feathers", "", true);
-        dropAtLeastOne = loadPropBool("Force at least one feather on kill", "", true);
-        dropFreq = loadPropInt("Drop frequency (lower means more)", "", 28000);
+        chicksDropFeathers = loadProperty("Chicks drop feathers", true).get();
+        dropAtLeastOne = loadProperty("Force at least one feather on kill", true).get();
+        dropFreq = loadProperty("Drop frequency (lower means more)", 28000).get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes chickens shed feathers";
     }
 
     @SubscribeEvent

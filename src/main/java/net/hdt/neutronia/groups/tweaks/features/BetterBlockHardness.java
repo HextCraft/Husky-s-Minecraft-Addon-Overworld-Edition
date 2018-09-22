@@ -57,7 +57,7 @@ public class BetterBlockHardness extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Makes certain block hardness more \"realistic\"";
     }
 

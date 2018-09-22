@@ -50,12 +50,17 @@ public class RemoveSnowLayers extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Removes snow layers";
+    }
+
+    @Override
     public boolean hasSubscriptions() {
         return true;
     }
 
     @Override
-    public String getComponentInGameConfigName() {
+    public String getName() {
         return "Shave Snow Layers";
     }
 

@@ -12,9 +12,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
 
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
 public class FoodTooltip extends Component {
 
     int divisor = 2;
@@ -74,13 +79,13 @@ public class FoodTooltip extends Component {
     }
 
     @Override
-    public String[] getIncompatibleMods() {
-        return new String[]{"appleskin"};
+    public String getDescription() {
+        return "This shows how many hunger points food gives you";
     }
 
     @Override
-    public boolean hasSubscriptions() {
-        return isClient();
+    public String[] getIncompatibleMods() {
+        return new String[]{"appleskin"};
     }
 
 }

@@ -33,8 +33,8 @@ public class ClayTools extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public String getDescription() {
+        return "Adds tools made out of clay";
+    }
 
 }

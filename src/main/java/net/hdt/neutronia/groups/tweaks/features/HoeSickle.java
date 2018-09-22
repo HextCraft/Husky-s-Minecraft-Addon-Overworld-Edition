@@ -55,6 +55,11 @@ public class HoeSickle extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "I don't know what this does";
+    }
+
+    @Override
     public boolean hasSubscriptions() {
         return true;
     }

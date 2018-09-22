@@ -4,20 +4,15 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.blocks.BlockNeutroniaButton;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockModPillar;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldSlabBase;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldStairBase;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockWoodSlabBase;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockWoodStairBase;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -34,14 +29,14 @@ public class LogBlocks extends Component {
 
     @Override
     public void setupConfig() {
-        acacia = loadPropBool("Acacia Log blocks", "", true);
-        birch = loadPropBool("Acacia Log blocks", "", true);
-        darkOak = loadPropBool("Acacia Log blocks", "", true);
-        jungle = loadPropBool("Acacia Log blocks", "", true);
-        oak = loadPropBool("Acacia Log blocks", "", true);
-        spruce = loadPropBool("Acacia Log blocks", "", true);
-        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true);
-        enableWalls = loadPropBool("Enable walls", "", false);
+        acacia = loadProperty("Acacia Log Blocks", true).get();
+        birch = loadProperty("Acacia Log blocks", true).get();
+        darkOak = loadProperty("Acacia Log blocks", true).get();
+        jungle = loadProperty("Acacia Log blocks", true).get();
+        oak = loadProperty("Acacia Log blocks", true).get();
+        spruce = loadProperty("Acacia Log blocks", true).get();
+        enableSlabsAndStairs = loadProperty("Enable Slabs and Stairs", true).get();
+        enableWalls = loadProperty("Enable walls", false).get();
     }
 
     @Override
@@ -76,8 +71,8 @@ public class LogBlocks extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public String getDescription() {
+        return "This adds new log blocks from 1.13";
+    }
 
 }

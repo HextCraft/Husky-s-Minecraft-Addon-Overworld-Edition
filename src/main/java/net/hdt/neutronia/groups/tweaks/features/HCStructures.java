@@ -20,14 +20,14 @@ public class HCStructures extends Component {
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Makes it so structures are looted within a radius of spawn and unlooted outside of that radius. \nEncourages exploration.\nHC" +
                 "Also makes unlooted structures the only source of Enchanting Tables and Brewing Stands.";
     }
 
     @Override
     public void setupConfig() {
-        HARDCORE_STRUCTURE_RADIUS = loadPropInt("Hardcore Structure Radius", "Radius from original spawn which structures will be abandoned in", 2000);
+        HARDCORE_STRUCTURE_RADIUS = loadProperty("Hardcore Structure Radius", 2000).setComment("Radius from original spawn which structures will be abandoned in").get();
     }
 
     @Override

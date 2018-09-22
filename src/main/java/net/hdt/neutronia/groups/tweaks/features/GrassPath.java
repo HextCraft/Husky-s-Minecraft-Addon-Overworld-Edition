@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
+import java.util.Objects;
 
 import static net.hdt.neutronia.groups.tweaks.features.HCMovement.dirtpathQuality;
 
@@ -39,11 +40,11 @@ public class GrassPath extends Component {
 
     @Override
     public void setupConfig() {
-        SHOVEL_BLACKLIST = loadItemStackList("Shovel Blacklist", "Blacklist an item for being able to make grass paths", new String[]{"psi:cad"});
+        SHOVEL_BLACKLIST.add(new ItemStack(Objects.requireNonNull(Item.getByNameOrId("psi:cad"))));
     }
 
     @Override
-    public String getFeatureDescription() {
+    public String getDescription() {
         return "Allows turning more than just grass into path. Turns off when dirt2path is installed";
     }
 

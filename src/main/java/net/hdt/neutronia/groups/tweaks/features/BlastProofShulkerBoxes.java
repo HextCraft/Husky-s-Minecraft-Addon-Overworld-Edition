@@ -17,6 +17,11 @@ public class BlastProofShulkerBoxes extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Makes shulker boxes blast proof";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

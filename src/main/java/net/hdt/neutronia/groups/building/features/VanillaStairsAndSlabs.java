@@ -4,7 +4,6 @@ import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -59,22 +58,18 @@ public class VanillaStairsAndSlabs extends Component {
 
     @Override
     public void setupConfig() {
-        stone = loadPropBool("Stone", "", true);
-        granite = loadPropBool("Granite", "", true);
-        diorite = loadPropBool("Diorite", "", true);
-        andesite = loadPropBool("Andesite", "", true);
-        endBricks = loadPropBool("End Bricks", "", true);
-        prismarine = loadPropBool("Prismarine", "", true);
-        prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
-        darkPrismarine = loadPropBool("Dark Prismarine", "", true);
-        redNetherBricks = loadPropBool("Red Nether Brick", "", true);
+        stone = loadProperty("Stone", false).get();
+        granite = loadProperty("Granite", false).get();
+        diorite = loadProperty("Diorite", false).get();
+        andesite = loadProperty("Andesite", false).get();
+        prismarine = loadProperty("Prismarine", false).get();
+        prismarineBricks = loadProperty("Prismarine Bricks", false).get();
+        darkPrismarine = loadProperty("Dark Prismarine", false).get();
+        endBricks = loadProperty("End Bricks", false).get();
     }
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        if (!GlobalConfig.enableVariants)
-            return;
-
         add("stone", Blocks.STONE, 0, false, true, stone);
         add("stone_granite", Blocks.STONE, 1, granite);
         add("stone_diorite", Blocks.STONE, 3, diorite);
@@ -87,9 +82,8 @@ public class VanillaStairsAndSlabs extends Component {
     }
 
     @Override
-    public boolean requiresMinecraftRestartToEnable() {
-        return true;
+    public String getDescription() {
+        return "This adds slabs and stairs for a lot more vanilla blocks";
     }
-
 }
 

@@ -84,6 +84,11 @@ public class NoteBlocksMobSounds extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return null;
+    }
+
+    @Override
     public boolean hasSubscriptions() {
         return true;
     }

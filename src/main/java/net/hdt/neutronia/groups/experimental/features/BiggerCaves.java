@@ -4,8 +4,12 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.experimental.world.BigCaveGenerator;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent.EventType;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
+
+@Mod.EventBusSubscriber(modid = MOD_ID)
 public class BiggerCaves extends Component {
 
     public static float overallCaveSizeVariance, overallCaveSizeBase;
@@ -18,17 +22,17 @@ public class BiggerCaves extends Component {
 
     @Override
     public void setupConfig() {
-        overallCaveSizeVariance = (float) loadPropDouble("Overall Cave Size Variance", "Vanilla value is 3", 7);
-        overallCaveSizeBase = (float) loadPropDouble("Overall Cave Size Minimum", "Vanilla value is 0", 0);
+        overallCaveSizeVariance = (float) loadProperty("Overall Cave Size Variance", 7).setComment("Vanilla value is 3").get();
+        overallCaveSizeBase = (float) loadProperty("Overall Cave Size Minimum", 0).setComment("Vanilla value is 0").get();
 
-        bigCaveSizeVariance = (float) loadPropDouble("Big Cave Size Variance", "Vanilla value is 3", 8);
-        bigCaveSizeBase = (float) loadPropDouble("Big Cave Size Minimum", "Vanilla value is 1", 1);
+        bigCaveSizeVariance = (float) loadProperty("Big Cave Size Variance", 8).setComment("Vanilla value is 3").get();
+        bigCaveSizeBase = (float) loadProperty("Big Cave Size Minimum", 1).setComment("Vanilla value is 1").get();
 
-        generateHugeCaves = loadPropBool("Huge Caves Enabled", "", true);
-        hugeCaveMaxY = loadPropInt("Huge Cave Maximum Y Level", "", 32);
-        hugeCaveChance = loadPropInt("Huge Cave Chance", "Given the value of this config as X, in average, 1 in X caves will be a huge cave", 1800);
-        hugeCaveSizeVariance = (float) loadPropDouble("Huge Cave Size Variance", "", 6);
-        hugeCaveSizeBase = (float) loadPropDouble("Huge Cave Size Minimum", "", 14);
+        generateHugeCaves = loadProperty("Huge Caves Enabled", true).get();
+        hugeCaveMaxY = loadProperty("Huge Cave Maximum Y Level", 32).get();
+        hugeCaveChance = loadProperty("Huge Cave Chance", 1800).setComment("Given the value of this config as X, in average, 1 in X caves will be a huge cave").get();
+        hugeCaveSizeVariance = (float) loadProperty("Huge Cave Size Variance", 6).get();
+        hugeCaveSizeBase = (float) loadProperty("Huge Cave Size Minimum", 14).get();
     }
 
     @SubscribeEvent
@@ -42,4 +46,8 @@ public class BiggerCaves extends Component {
         return true;
     }
 
+    @Override
+    public String getDescription() {
+        return "Adds bigger caves";
+    }
 }

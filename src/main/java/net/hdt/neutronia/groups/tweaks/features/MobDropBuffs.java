@@ -24,12 +24,17 @@ public class MobDropBuffs extends Component {
 
     @Override
     public void setupConfig() {
-        chickenFeathers = loadPropBool("Chicken Feathers", "", true);
-        cowLeather = loadPropBool("Cow Leather", "", true);
-        skeletonBones = loadPropBool("Skeleton Bones", "", true);
-        squidSacs = loadPropBool("Squid Ink Sacs", "", true);
-        enderPearls = loadPropBool("Enderman Ender Pearls", "", true);
-        enableHorseGlue = loadPropBool("Enable \"glue\" drops", "Changes horse drops under \"hot\" conditions", true);
+        chickenFeathers = loadProperty("Chicken Feathers", true).get();
+        cowLeather = loadProperty("Cow Leather", true).get();
+        skeletonBones = loadProperty("Skeleton Bones", true).get();
+        squidSacs = loadProperty("Squid Ink Sacs", true).get();
+        enderPearls = loadProperty("Enderman Ender Pearls", true).get();
+        enableHorseGlue = loadProperty("Enable \"glue\" drops", true).setComment("Changes horse drops under \"hot\" conditions").get();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Changes drops for some mobs";
     }
 
     @SubscribeEvent

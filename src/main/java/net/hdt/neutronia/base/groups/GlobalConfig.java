@@ -1,3 +1,4 @@
+/*
 package net.hdt.neutronia.base.groups;
 
 import net.minecraftforge.common.config.Property;
@@ -35,7 +36,7 @@ public final class GlobalConfig {
 
         ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = false;
 
-        enableNButton = ConfigHelper.loadPropBool("Enable N Button", category,
+        enableNButton = ConfigHelper.("Enable N Button", category,
                 "Set this to false to disable the q button in the main and pause menus.\n"
                         + "If you disable this, you can still access the neutronia config from Mod Options > Neutronia > Config", true);
         NButtonProp = ConfigHelper.lastProp;
@@ -47,3 +48,4 @@ public final class GlobalConfig {
     }
 
 }
+*/

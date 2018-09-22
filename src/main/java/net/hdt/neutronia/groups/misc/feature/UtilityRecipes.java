@@ -15,9 +15,14 @@ public class UtilityRecipes extends Component {
 
     @Override
     public void setupConfig() {
-        enableDispenser = loadPropBool("Dispenser Recipe", "", true);
-        enableRepeater = loadPropBool("Repeater Recipe", "", true);
-        enableMinecarts = loadPropBool("Enable Minecarts", "", true);
+        enableDispenser = loadProperty("Dispenser Recipe", true).get();
+        enableRepeater = loadProperty("Repeater Recipe", true).get();
+        enableMinecarts = loadProperty("Enable Minecarts", true).get();
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
     }
 
     @Override

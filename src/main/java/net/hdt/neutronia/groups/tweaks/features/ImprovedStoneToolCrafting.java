@@ -41,12 +41,17 @@ public class ImprovedStoneToolCrafting extends Component {
     }
 
     @Override
+    public String getDescription() {
+        return "Does so you can use more type of stones to craft the stone tools";
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }
 
     @Override
-    public String getComponentInGameConfigName() {
+    public String getName() {
         return "Better Stone Tool Crafting";
     }
 

@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.BiomeTypeConfigHandler;
 import net.hdt.neutronia.base.handler.server.DimensionConfig;
@@ -28,8 +27,8 @@ public class CaveBiomes extends Component {
     public void setupConfig() {
         biomes = new ArrayList<>();
 
-        enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
-        enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
+        enableStairsAndSlabs = loadProperty("Enable stairs and slabs", true).get();
+        enableWalls = loadProperty("Enable walls", true).get();
 
         biomes.add(loadUndergrondBiomeInfo("Lush", new CaveBiomeLush(), 160, Type.JUNGLE));
         biomes.add(loadUndergrondBiomeInfo("Sandstone", new CaveBiomeSandstone(), 160, Type.SANDY));
@@ -39,6 +38,11 @@ public class CaveBiomes extends Component {
         biomes.add(loadUndergrondBiomeInfo("Overgrown", new CaveBiomeOvergrown(), 160, Type.FOREST));
         biomes.add(loadUndergrondBiomeInfo("Icy", new CaveBiomeIcy(), 160, Type.COLD));
         biomes.add(loadUndergrondBiomeInfo("Lava", new CaveBiomeLava(), 160, Type.MESA));
+    }
+
+    @Override
+    public String getDescription() {
+        return "Makes different biomes for the caves";
     }
 
     @SubscribeEvent
@@ -65,7 +69,7 @@ public class CaveBiomes extends Component {
     }
 
     private CaveBiomeGenerator loadUndergrondBiomeInfo(String name, CaveBiome biome, int rarity, Type... biomes) {
-        String category = configCategory + "." + name;
+        String category = getCategory() + "." + name;
         UndergroundBiomeInfo info = new UndergroundBiomeInfo(category, biome, rarity, biomes);
 
         return new CaveBiomeGenerator(info);

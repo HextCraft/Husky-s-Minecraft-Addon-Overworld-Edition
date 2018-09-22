@@ -21,13 +21,18 @@ public class Stalactite extends Component {
 
     @Override
     public void setupConfig() {
-        tries = loadPropInt("Cluster Attempts Per Chunk", "", 60);
-        clusterCount = loadPropInt("Stalactite Per Cluster", "", 12);
-        netherTries = loadPropInt("Cluster Attempts Per Chunk (Nether)", "", 4);
-        netherClusterCount = loadPropInt("Stalactite Per Cluster (Nether)", "", 12);
-        maxHeight = loadPropInt("Highest Y Level", "", 55);
+        tries = loadProperty("Cluster Attempts Per Chunk", 60).get();
+        clusterCount = loadProperty("Stalactite Per Cluster", 12).get();
+        netherTries = loadProperty("Cluster Attempts Per Chunk (Nether)", 4).get();
+        netherClusterCount = loadProperty("Stalactite Per Cluster (Nether)", 12).get();
+        maxHeight = loadProperty("Highest Y Level", 55).get();
 
-        dimensionConfig = new DimensionConfig(configCategory, "0,-1");
+        dimensionConfig = new DimensionConfig(getCategory(), "0,-1");
+    }
+
+    @Override
+    public String getDescription() {
+        return null;
     }
 
     @Override
@@ -40,7 +45,7 @@ public class Stalactite extends Component {
         ice_stalactite = new BlockStalactite("ice");
         packed_ice_stalactite = new BlockStalactite("packed_ice");
 
-        if(GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
+        if(GroupLoader.isComponentEnabled(MoreStoneBlocks.class)) {
             basalt_stalactite = new BlockStalactite("basalt");
             marble_stalactite = new BlockStalactite("marble");
             limestone_stalactite = new BlockStalactite("limestone");
