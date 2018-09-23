@@ -4,12 +4,12 @@
   "group": "cut_terracotta",
   "ingredients": [
     {
-      "item": "minecraft:glazed_terracotta_yellow",
+      "item": "minecraft:yellow_glazed_terracotta",
       "data": 4
     }
   ],
   "result": {
-    "item": "yellow_cut_glazed_terracotta",
+    "item": "neutronia:yellow_cut_glazed_terracotta",
     "count": 6
   }
 }

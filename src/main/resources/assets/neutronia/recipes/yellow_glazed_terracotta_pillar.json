@@ -4,12 +4,12 @@
   "group": "glazed_pillars",
   "ingredients": [
     {
-      "item": "minecraft:glazed_terracotta_yellow",
+      "item": "minecraft:yellow_glazed_terracotta",
       "data": 4
     }
   ],
   "result": {
-    "item": "yellow_glazed_terracotta_pillar",
+    "item": "neutronia:yellow_glazed_terracotta_pillar",
     "count": 6
   }
 }
