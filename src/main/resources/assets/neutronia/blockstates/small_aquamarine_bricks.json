@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:block/small_aquamarine_bricks"
+      "all": "neutronia:block/chiseled_aquamarine_bricks"
     },
     "transform": "forge:default-block"
   },
