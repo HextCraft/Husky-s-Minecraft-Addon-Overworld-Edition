@@ -13,9 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CarvedPlanks extends Component {
 
-    private Block[] carvedPlanks = new Block[6];
-
     public boolean stairs, walls, slabs;
+    private Block[] carvedPlanks = new Block[6];
 
     @Override
     public void setupConfig() {
@@ -26,9 +25,9 @@ public class CarvedPlanks extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(BlockPlanks.EnumType plankTypes : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType plankTypes : BlockPlanks.EnumType.values()) {
             carvedPlanks[plankTypes.getMetadata()] = new BlockOverworldBase(Material.WOOD, String.format("carved_%s_planks", plankTypes.getName()), true).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-            if(GlobalConfig.enableVariants) {
+            if (GlobalConfig.enableVariants) {
                 VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, CreativeTabs.BUILDING_BLOCKS);
                 VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, CreativeTabs.BUILDING_BLOCKS);
             }

@@ -16,8 +16,8 @@ public class MoonDimension extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

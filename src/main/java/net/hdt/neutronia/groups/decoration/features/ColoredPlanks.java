@@ -56,8 +56,8 @@ public class ColoredPlanks extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

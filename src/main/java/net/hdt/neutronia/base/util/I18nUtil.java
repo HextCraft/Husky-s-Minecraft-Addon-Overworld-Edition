@@ -33,20 +33,20 @@ import java.lang.reflect.Field;
 @SideOnly(Side.CLIENT)
 public final class I18nUtil {
 
-	private static Field i18nLocale = ReflectionHelper.findField(I18n.class, "i18nLocale", "field_135054_a");
+    private static Field i18nLocale = ReflectionHelper.findField(I18n.class, "i18nLocale", "field_135054_a");
 
-	private I18nUtil() {
+    private I18nUtil() {
 
-	}
+    }
 
-	public static Locale getLocale() {
-		if (i18nLocale != null) {
-			try {
-				return (Locale) i18nLocale.get(null);
-			} catch (final Throwable t) {
-			}
-		}
-		return null;
-	}
+    public static Locale getLocale() {
+        if (i18nLocale != null) {
+            try {
+                return (Locale) i18nLocale.get(null);
+            } catch (final Throwable t) {
+            }
+        }
+        return null;
+    }
 
 }

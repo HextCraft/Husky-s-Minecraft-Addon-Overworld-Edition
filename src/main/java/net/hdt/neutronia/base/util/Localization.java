@@ -33,66 +33,66 @@ import javax.annotation.Nullable;
 
 public final class Localization {
 
-	private static Local impl;
+    private static Local impl;
 
-	private abstract static class Local {
-		public abstract String format(final String translateKey, final Object... parameters);
+    public static void initialize(@Nonnull final Side side) {
+        if (side == Side.SERVER) {
+            impl = new ServerImpl();
+        } else {
+            impl = new ClientImpl();
+        }
+    }
 
-		public abstract String loadString(final String translateKey);
-	}
+    @Nonnull
+    public static String format(@Nonnull final String translateKey, @Nullable final Object... parameters) {
+        return impl.format(translateKey, parameters);
+    }
 
-	private static class ClientImpl extends Local {
-		public ClientImpl() {
-		}
+    public static String loadString(@Nonnull final String translateKey) {
+        return impl.loadString(translateKey);
+    }
 
-		@Override
-		public String format(final String translateKey, final Object... parameters) {
-			// Let I18n do the heavy lifting
-			return I18n.format(translateKey, parameters);
-		}
+    private abstract static class Local {
+        public abstract String format(final String translateKey, final Object... parameters);
 
-		@Override
-		public String loadString(final String translateKey) {
-			final Locale locale = I18nUtil.getLocale();
-			return LocaleUtil.translateKeyPrivate(locale, translateKey);
-		}
-	}
+        public abstract String loadString(final String translateKey);
+    }
 
-	// Manually loads the en_US language file. Not looking for translations -
-	// just want to reuse the strings in the language file.
-	private static class ServerImpl extends Local {
+    private static class ClientImpl extends Local {
+        public ClientImpl() {
+        }
 
-		private final Translations xlate = new Translations();
+        @Override
+        public String format(final String translateKey, final Object... parameters) {
+            // Let I18n do the heavy lifting
+            return I18n.format(translateKey, parameters);
+        }
 
-		public ServerImpl() {
-			this.xlate.load("/assets/neutronia/lang/", Translations.DEFAULT_LANGUAGE);
-		}
+        @Override
+        public String loadString(final String translateKey) {
+            final Locale locale = I18nUtil.getLocale();
+            return LocaleUtil.translateKeyPrivate(locale, translateKey);
+        }
+    }
 
-		@Override
-		public String format(final String translateKey, final Object... parameters) {
-			return this.xlate.format(translateKey, parameters);
-		}
+    // Manually loads the en_US language file. Not looking for translations -
+    // just want to reuse the strings in the language file.
+    private static class ServerImpl extends Local {
 
-		@Override
-		public String loadString(final String translateKey) {
-			return this.xlate.loadString(translateKey);
-		}
-	}
+        private final Translations xlate = new Translations();
 
-	public static void initialize(@Nonnull final Side side) {
-		if (side == Side.SERVER) {
-			impl = new ServerImpl();
-		} else {
-			impl = new ClientImpl();
-		}
-	}
+        public ServerImpl() {
+            this.xlate.load("/assets/neutronia/lang/", Translations.DEFAULT_LANGUAGE);
+        }
 
-	@Nonnull
-	public static String format(@Nonnull final String translateKey, @Nullable final Object... parameters) {
-		return impl.format(translateKey, parameters);
-	}
+        @Override
+        public String format(final String translateKey, final Object... parameters) {
+            return this.xlate.format(translateKey, parameters);
+        }
 
-	public static String loadString(@Nonnull final String translateKey) {
-		return impl.loadString(translateKey);
-	}
+        @Override
+        public String loadString(final String translateKey) {
+            return this.xlate.loadString(translateKey);
+        }
+    }
 }

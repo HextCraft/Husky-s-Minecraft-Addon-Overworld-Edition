@@ -8,6 +8,15 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class InventoryIterator implements Iterator<ItemStack> {
+    private final ItemStackHandler handler;
+    private final int end;
+    private int index;
+    private InventoryIterator(ItemStackHandler handler, int start, int end) {
+        this.handler = handler;
+        this.index = start;
+        this.end = end;
+    }
+
     public static Stream<ItemStack> stream(ItemStackHandler handler) {
         return stream(handler, 0, handler.getSlots());
     }
@@ -16,16 +25,6 @@ public class InventoryIterator implements Iterator<ItemStack> {
         Iterator<ItemStack> iterator = new InventoryIterator(handler, start, end);
         Iterable<ItemStack> iterable = () -> iterator;
         return StreamSupport.stream(iterable.spliterator(), false);
-    }
-
-    private final ItemStackHandler handler;
-    private final int end;
-    private int index;
-
-    private InventoryIterator(ItemStackHandler handler, int start, int end) {
-        this.handler = handler;
-        this.index = start;
-        this.end = end;
     }
 
     @Override

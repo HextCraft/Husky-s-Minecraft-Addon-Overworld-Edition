@@ -58,7 +58,7 @@ public class BlockIngredient extends Ingredient {
             if (states == null) states = Sets.newHashSet();
             NonNullList<ItemStack> lst = NonNullList.create();
             Iterator<ItemStack> iter = this.stacks.iterator();
-            while(iter.hasNext()) {
+            while (iter.hasNext()) {
                 ItemStack itemstack = iter.next();
                 Set<IBlockState> s = BWMRecipes.getStatesFromStack(itemstack);
                 if (s.isEmpty()) {

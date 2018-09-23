@@ -28,7 +28,7 @@ public class ConfigFileGenerator {
 
         JsonObject feature = new JsonObject();
 
-        for(Component component : group.enabledComponents) {
+        for (Component component : group.enabledComponents) {
             feature.addProperty("name", component.getComponentInGameConfigName());
             feature.addProperty("description", component.getFeatureDescription());
         }

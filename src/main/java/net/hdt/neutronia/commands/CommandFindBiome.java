@@ -29,7 +29,7 @@ public class CommandFindBiome extends CommandBase {
         String biomeChatName = name.replace("_", " ");
         name = WordUtils.capitalizeFully(biomeChatName);
 
-        if(args[0].isEmpty()) {
+        if (args[0].isEmpty()) {
             notifyCommandListener(sender, this, TextFormatting.RED + "command.neutronia.biome_not_defined");
             return;
         }
@@ -83,7 +83,6 @@ public class CommandFindBiome extends CommandBase {
         }
         return Collections.emptyList();
     }
-
 
 
 }

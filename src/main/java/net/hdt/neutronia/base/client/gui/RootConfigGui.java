@@ -17,22 +17,6 @@ import java.util.List;
 
 public class RootConfigGui extends GuiConfigBase {
 
-    protected final StandardPanel backgroundPanel = new StandardPanel();
-    protected final StandardPanel presetPanel = new StandardPanel(0, 0, Color.GOLD, Color.BLACK, Color.GRAY);
-
-    protected int anchorX;
-    protected int anchorY;
-    protected int regionWidth;
-    protected int regionHeight;
-
-    private static int MODULES_PER_PAGE = 10;
-    private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
-    private final List<Group> groups;
-    private boolean nEnabled;
-    private int page = 0;
-    private int totalPages;
-    private GuiButton left, right;
-
     protected static final int MARGIN = 10;
     protected static final int INSET = 5;
     protected static final int MAX_PRESETS_PAGE = 5;
@@ -42,6 +26,19 @@ public class RootConfigGui extends GuiConfigBase {
     protected static final int PRESET_BUTTON_HEIGHT = 20;
     protected static final int NAV_BUTTON_WIDTH = 25;
     protected static final int NAV_BUTTON_INSET = 5;
+    private static int MODULES_PER_PAGE = 10;
+    protected final StandardPanel backgroundPanel = new StandardPanel();
+    protected final StandardPanel presetPanel = new StandardPanel(0, 0, Color.GOLD, Color.BLACK, Color.GRAY);
+    private final List<Group> groups;
+    protected int anchorX;
+    protected int anchorY;
+    protected int regionWidth;
+    protected int regionHeight;
+    private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
+    private boolean nEnabled;
+    private int page = 0;
+    private int totalPages;
+    private GuiButton left, right;
 
     RootConfigGui(GuiScreen parent) {
         super(parent);

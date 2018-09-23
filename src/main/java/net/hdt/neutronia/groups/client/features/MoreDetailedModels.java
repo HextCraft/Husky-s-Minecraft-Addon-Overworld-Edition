@@ -18,12 +18,12 @@ public class MoreDetailedModels extends Component {
 
     @Override
     public void setupConfig() {
-        if(overrides == null) {
+        if (overrides == null) {
             InputStreamReader reader = new InputStreamReader(Neutronia.class.getResourceAsStream(OVERRIDES_JSON_FILE));
             overrides = GSON.fromJson(reader, MoreDetailedModels.OverrideHolder.class);
         }
 
-        for(MoreDetailedModels.OverrideEntry e : overrides.overrides)
+        for (MoreDetailedModels.OverrideEntry e : overrides.overrides)
             e.configVal = loadPropBool("Enable " + e.name, "", !e.disabled);
     }
 
@@ -50,8 +50,8 @@ public class MoreDetailedModels extends Component {
         boolean configVal;
 
         void apply() {
-            if(configVal)
-                for(String file : files) {
+            if (configVal)
+                for (String file : files) {
                     String[] tokens = file.split("\\/\\/");
                     Neutronia.proxy.addVanillaResourceOverride(tokens[0], tokens[1]);
                     Neutronia.proxy.addNeutroniaResourceOverride(tokens[0], tokens[1]);

@@ -19,7 +19,7 @@ public class CutGlazedTerracotta extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
+        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             cutGlazedTerracotta[dyeColor.getMetadata()] = new BlockNeutroniaPillar(Material.CLAY, String.format("%s_cut_glazed_terracotta", dyeColor.getName())).setCreativeTab(CreativeTabs.DECORATIONS);
         }
     }

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class DecorativeCorals extends Component {
 
     private static int size = EnumCoralColor.values().length;
-    
+
     public static final Block[] decorativeCoralBlock = new Block[size];
     public static final Block[] decorativeDeadCoralBlock = new Block[size];
     public static final Block[] decorativeCoralFan = new Block[size];

@@ -27,7 +27,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder, INeutroniaIte
 
         bareName = name;
         this.variants = variants;
-        setTranslationKey(getPrefix() +name);
+        setTranslationKey(getPrefix() + name);
         ItemMod.variantHolders.add(this);
         this.toolMaterial = material;
         this.maxStackSize = 1;

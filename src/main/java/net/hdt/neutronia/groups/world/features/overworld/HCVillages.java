@@ -35,14 +35,13 @@ public class HCVillages extends Component {
     public static boolean disableIronGolems;
 
     private int normalRadius, semiabandonedRadius;
+    private Set<StructureChanger> VILLAGE = Sets.newHashSet();
+    private StructureChanger ABANDONED, SEMIABANDONED, NORMAL;
 
     @Override
     public String getFeatureDescription() {
         return "Makes it so villages with in the reaches of the spawn zone are abandoned and gradually gain more resources the further out. What this means to be gained by the player.";
     }
-
-    private Set<StructureChanger> VILLAGE = Sets.newHashSet();
-    private StructureChanger ABANDONED, SEMIABANDONED, NORMAL;
 
     @Override
     public void setupConfig() {

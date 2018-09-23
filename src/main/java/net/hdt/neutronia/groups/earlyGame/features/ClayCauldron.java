@@ -14,8 +14,8 @@ public class ClayCauldron extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

@@ -19,14 +19,6 @@ public class MoreBiomes extends Component {
     private static final Biome SAND_DUNE = new BiomeSandDune(new Biome.BiomeProperties("Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
     private static final Biome RED_SAND_DUNE = new BiomeRedSandDune(new Biome.BiomeProperties("Red Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
 
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        addBiome(GOLDEN_SAVANNA, "golden_savanna", 5, true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SAVANNA);
-        addBiome(GOLDEN_SAVANNA_PLATEAU, "golden_savanna_plateau", 1, true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SAVANNA);
-        addBiome(SAND_DUNE, "sand_dune", 5, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
-        addBiome(RED_SAND_DUNE, "red_sand_dune", 3, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
-    }
-
     private static void addBiome(Biome biome, String name, int weight, boolean hasVillage, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
         biome.setRegistryName(Reference.MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
@@ -39,6 +31,14 @@ public class MoreBiomes extends Component {
 
         System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
         System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
+    }
+
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+        addBiome(GOLDEN_SAVANNA, "golden_savanna", 5, true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SAVANNA);
+        addBiome(GOLDEN_SAVANNA_PLATEAU, "golden_savanna_plateau", 1, true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SAVANNA);
+        addBiome(SAND_DUNE, "sand_dune", 5, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
+        addBiome(RED_SAND_DUNE, "red_sand_dune", 3, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
     }
 
 }

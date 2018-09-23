@@ -13,6 +13,13 @@ import java.util.function.BiPredicate;
 public class StructureChanger {
 
 
+    public Set<IChanger> changers = Sets.newHashSet();
+    private BiPredicate<World, BlockPos> predicate;
+
+    private StructureChanger(BiPredicate<World, BlockPos> predicate) {
+        this.predicate = predicate;
+    }
+
     public static IBlockState getConversion(Set<StructureChanger> changers, StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState state) {
         for (StructureChanger changer : changers) {
             if (changer.canConvert(world, pos)) {
@@ -22,18 +29,10 @@ public class StructureChanger {
         return null;
     }
 
-    private BiPredicate<World, BlockPos> predicate;
-
     public static StructureChanger create(Set<StructureChanger> set, BiPredicate<World, BlockPos> predicate) {
         StructureChanger c = new StructureChanger(predicate);
         set.add(c);
         return c;
-    }
-
-    public Set<IChanger> changers = Sets.newHashSet();
-
-    private StructureChanger(BiPredicate<World, BlockPos> predicate) {
-        this.predicate = predicate;
     }
 
     public static void convert(Set<StructureChanger> set, StructureSetBlockEvent event) {

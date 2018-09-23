@@ -30,16 +30,13 @@ import java.util.Set;
  */
 public class HCStructures extends Component {
     public static int HARDCORE_STRUCTURE_RADIUS;
-    private boolean disableRecipes;
-
     public static Set<StructureChanger> DESERT_TEMPLE = Sets.newHashSet();
     public static StructureChanger ABANDONED_DESERT_TEMPLE, NORMAL_DESERT_TEMPLE;
-
     public static Set<StructureChanger> JUNGLE_TEMPLE = Sets.newHashSet();
     public static StructureChanger ABANDONED_JUNGLE_TEMPLE, NORMAL_JUNGLE_TEMPLE;
-
     public static Set<StructureChanger> WITCH_HUT = Sets.newHashSet();
     public static StructureChanger WITCH_HUT_CHANGER = StructureChanger.create(WITCH_HUT, (w, p) -> true);
+    private boolean disableRecipes;
 
     @Deprecated
     public static boolean isInRadius(World worldIn, int worldX, int worldZ) {

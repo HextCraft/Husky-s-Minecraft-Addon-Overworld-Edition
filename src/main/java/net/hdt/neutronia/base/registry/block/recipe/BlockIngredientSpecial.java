@@ -17,6 +17,6 @@ public class BlockIngredientSpecial extends BlockIngredient {
 
     @Override
     public boolean apply(World world, BlockPos pos, @Nullable IBlockState state) {
-        return predicate.test(world,pos);
+        return predicate.test(world, pos);
     }
 }

@@ -14,45 +14,45 @@ import java.util.List;
 import java.util.Random;
 
 public class WorldGenPatches extends WorldGenerator {
-	private final IBlockState state;
-	private final int size;
-	private List<Block> replaceableBlocks = new ArrayList<>();
+    private final IBlockState state;
+    private final int size;
+    private List<Block> replaceableBlocks = new ArrayList<>();
 
-	public WorldGenPatches(IBlockState state, int size, Block... replaceableBlocks) {
-		this.state = state;
-		this.size = size;
-		Collections.addAll(this.replaceableBlocks, replaceableBlocks);
-	}
+    public WorldGenPatches(IBlockState state, int size, Block... replaceableBlocks) {
+        this.state = state;
+        this.size = size;
+        Collections.addAll(this.replaceableBlocks, replaceableBlocks);
+    }
 
-	public WorldGenPatches(IBlockState state, int size) {
-		this(state, size, Blocks.SAND,Blocks.DIRT, Blocks.GRASS, Blocks.STONE);
-	}
+    public WorldGenPatches(IBlockState state, int size) {
+        this(state, size, Blocks.SAND, Blocks.DIRT, Blocks.GRASS, Blocks.STONE);
+    }
 
-	public boolean generate(World worldIn, Random rand, BlockPos position) {
-		int i = rand.nextInt(this.size - 4) + 4;
-		int j = 1;
+    public boolean generate(World worldIn, Random rand, BlockPos position) {
+        int i = rand.nextInt(this.size - 4) + 4;
+        int j = 1;
 
-		for (int k = position.getX() - i; k <= position.getX() + i; ++k) {
-			for (int l = position.getZ() - i; l <= position.getZ() + i; ++l) {
-				int i1 = k - position.getX();
-				int j1 = l - position.getZ();
+        for (int k = position.getX() - i; k <= position.getX() + i; ++k) {
+            for (int l = position.getZ() - i; l <= position.getZ() + i; ++l) {
+                int i1 = k - position.getX();
+                int j1 = l - position.getZ();
 
-				if (i1 * i1 + j1 * j1 <= i * i) {
-					for (int k1 = position.getY() - 1; k1 <= position.getY() + 1; ++k1) {
-						BlockPos blockpos = new BlockPos(k, k1, l);
-						if (worldIn.isAirBlock(blockpos.up()) || worldIn.getBlockState(blockpos.up()).getMaterial() == Material.VINE) {
-							Block block = worldIn.getBlockState(blockpos).getBlock();
+                if (i1 * i1 + j1 * j1 <= i * i) {
+                    for (int k1 = position.getY() - 1; k1 <= position.getY() + 1; ++k1) {
+                        BlockPos blockpos = new BlockPos(k, k1, l);
+                        if (worldIn.isAirBlock(blockpos.up()) || worldIn.getBlockState(blockpos.up()).getMaterial() == Material.VINE) {
+                            Block block = worldIn.getBlockState(blockpos).getBlock();
 
-							if (replaceableBlocks.contains(block)) {
-								worldIn.setBlockState(blockpos, state, 2);
-								if (worldIn.getBlockState(blockpos.up()).getMaterial() == Material.VINE)
-									worldIn.setBlockToAir(blockpos.up());
-							}
-						}
-					}
-				}
-			}
-		}
-		return true;
-	}
+                            if (replaceableBlocks.contains(block)) {
+                                worldIn.setBlockState(blockpos, state, 2);
+                                if (worldIn.getBlockState(blockpos.up()).getMaterial() == Material.VINE)
+                                    worldIn.setBlockToAir(blockpos.up());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }

@@ -40,7 +40,7 @@ public class Stalactite extends Component {
         ice_stalactite = new BlockStalactite("ice");
         packed_ice_stalactite = new BlockStalactite("packed_ice");
 
-        if(GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
+        if (GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
             basalt_stalactite = new BlockStalactite("basalt");
             marble_stalactite = new BlockStalactite("marble");
             limestone_stalactite = new BlockStalactite("limestone");

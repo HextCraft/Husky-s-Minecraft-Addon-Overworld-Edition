@@ -63,26 +63,25 @@ public class EndChunkGenerator extends ChunkGeneratorEnd {
 
     public EndChunkGenerator(World worldIn, BlockPos pos) {
         super(worldIn, worldIn.getWorldInfo().isMapFeaturesEnabled(), worldIn.getSeed(), pos);
-        world = worldIn;
-        mapFeaturesEnabled = worldIn.getWorldInfo().isMapFeaturesEnabled();
-        spawnPoint = pos;
-        rand = new Random(worldIn.getSeed());
-        noiseGen1 = new NoiseGeneratorOctaves(rand, 16);
-        noiseGen2 = new NoiseGeneratorOctaves(rand, 16);
-        noiseGen3 = new NoiseGeneratorOctaves(rand, 8);
-        scaleNoiseGen = new NoiseGeneratorOctaves(rand, 10);
-        depthNoiseGen = new NoiseGeneratorOctaves(rand, 16);
-        islandNoiseGen = new NoiseGeneratorSimplex(rand);
-
-        InitNoiseGensEvent.ContextEnd context = new InitNoiseGensEvent.ContextEnd(noiseGen1, noiseGen2, noiseGen3, scaleNoiseGen, depthNoiseGen, islandNoiseGen);
-        context = TerrainGen.getModdedNoiseGenerators(worldIn, rand, context);
-        noiseGen1 = context.getLPerlin1();
-        noiseGen2 = context.getLPerlin2();
-        noiseGen3 = context.getPerlin();
-        scaleNoiseGen = context.getDepth();
-        depthNoiseGen = context.getScale();
-        islandNoiseGen = context.getIsland();
-        endCityGen = (MapGenEndCity) TerrainGen.getModdedMapGen(endCityGen, InitMapGenEvent.EventType.END_CITY);
+        this.world = worldIn;
+        this.mapFeaturesEnabled = worldIn.getWorldInfo().isMapFeaturesEnabled();
+        this.spawnPoint = pos;
+        this.rand = new Random(worldIn.getSeed());
+        this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
+        this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
+        this.noiseGen3 = new NoiseGeneratorOctaves(this.rand, 8);
+        this.scaleNoiseGen = new NoiseGeneratorOctaves(this.rand, 10);
+        this.depthNoiseGen = new NoiseGeneratorOctaves(this.rand, 16);
+        this.islandNoiseGen = new NoiseGeneratorSimplex(this.rand);
+        InitNoiseGensEvent.ContextEnd context = new InitNoiseGensEvent.ContextEnd(this.noiseGen1, this.noiseGen2, this.noiseGen3, this.scaleNoiseGen, this.depthNoiseGen, this.islandNoiseGen);
+        context = TerrainGen.getModdedNoiseGenerators(worldIn, this.rand, context);
+        this.noiseGen1 = context.getLPerlin1();
+        this.noiseGen2 = context.getLPerlin2();
+        this.noiseGen3 = context.getPerlin();
+        this.scaleNoiseGen = context.getDepth();
+        this.depthNoiseGen = context.getScale();
+        this.islandNoiseGen = context.getIsland();
+        this.endCityGen = (MapGenEndCity) TerrainGen.getModdedMapGen(this.endCityGen, InitMapGenEvent.EventType.END_CITY);
     }
 
     @Override

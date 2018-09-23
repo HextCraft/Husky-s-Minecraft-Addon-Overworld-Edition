@@ -10,8 +10,8 @@ public class HarderLogs extends Component {
 
     @SubscribeEvent
     public void onBreakBlocks(PlayerEvent.BreakSpeed event) {
-        if(event.getEntityPlayer().getActiveItemStack().isEmpty() || event.getEntityPlayer().getActiveItemStack().getItem() instanceof ItemBlock) {
-            if(event.getState().getBlock() instanceof BlockLog) {
+        if (event.getEntityPlayer().getActiveItemStack().isEmpty() || event.getEntityPlayer().getActiveItemStack().getItem() instanceof ItemBlock) {
+            if (event.getState().getBlock() instanceof BlockLog) {
                 event.setNewSpeed(0);
             }
         }

@@ -28,16 +28,16 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public final class BWMRecipes {
-    private static final boolean GENERATE_RECIPES = false;
-    private static final List<IRecipe> RECIPES = new ArrayList<>();
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final Set<String> USED_OD_NAMES = new TreeSet<>();
-    private static File RECIPE_DIR = null;
-    private static final Map<String, List<IRecipe>> HARDCORE_RECIPES = new HashMap<>();
     public static final List<ItemStack> REMOVE_RECIPE_BY_OUTPUT = Lists.newArrayList();
     public static final List<List<Ingredient>> REMOVE_RECIPE_BY_INPUT = Lists.newArrayList();
     public static final List<ResourceLocation> REMOVE_RECIPE_BY_RL = Lists.newArrayList();
     public static final List<Pattern> REMOVE_BY_REGEX = Lists.newArrayList();
+    private static final boolean GENERATE_RECIPES = false;
+    private static final List<IRecipe> RECIPES = new ArrayList<>();
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Set<String> USED_OD_NAMES = new TreeSet<>();
+    private static final Map<String, List<IRecipe>> HARDCORE_RECIPES = new HashMap<>();
+    private static File RECIPE_DIR = null;
 
     public static List<IRecipe> getHardcoreRecipes(String ID) {
         if (HARDCORE_RECIPES.containsKey(ID))

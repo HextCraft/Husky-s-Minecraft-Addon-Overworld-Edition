@@ -30,7 +30,7 @@ public final class GlobalConfig {
                         + "Note: Blocks that require stairs and/or slabs for their recipes (such as Soul Sandstone or Midori) won't be affected.", true);
 
         enableExperimentalFeatures = ConfigHelper.loadPropBool("Enable Experimental Features", category,
-                    "Set this to true to enable features that are either not finished, or will be added"
+                "Set this to true to enable features that are either not finished, or will be added"
                         + " in a newer version", false);
 
         ConfigHelper.needsRestart = ConfigHelper.allNeedRestart = false;

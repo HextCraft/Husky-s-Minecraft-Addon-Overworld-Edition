@@ -1659,7 +1659,7 @@ public class StructureVillagePieces {
                     return NBlocks.sandstonePillar.getDefaultState().withProperty(BlockLog.LOG_AXIS, blockstateIn.getValue(BlockLog.LOG_AXIS));
                 }
 
-                if(blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {
+                if (blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {
                     return Blocks.SANDSTONE.getDefaultState();
                 }
 

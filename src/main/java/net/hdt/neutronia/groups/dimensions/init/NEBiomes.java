@@ -17,6 +17,7 @@ import static net.minecraftforge.common.BiomeDictionary.Type.END;
 
 @GameRegistry.ObjectHolder(MOD_ID)
 public class NEBiomes {
+
     public static final BiomeChorusForest CHORUS_FOREST = null;
     public static final BiomeEndIslands END_ISLANDS = null;
     public static final BiomeOvergrownIslands OVERGROWN_ISLANDS = null;
@@ -24,10 +25,15 @@ public class NEBiomes {
     public static final BiomeVoidFalls VOID_FALLS = null;
 
     public static void init() {
+        assert false;
         BiomeDictionary.addTypes(CHORUS_FOREST, END);
+        assert false;
         BiomeDictionary.addTypes(END_ISLANDS, END);
+        assert false;
         BiomeDictionary.addTypes(OVERGROWN_ISLANDS, END);
+        assert false;
         BiomeDictionary.addTypes(STARLANDS, END);
+        assert false;
         BiomeDictionary.addTypes(VOID_FALLS, END);
     }
 

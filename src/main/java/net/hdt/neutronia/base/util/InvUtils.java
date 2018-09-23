@@ -39,6 +39,9 @@ import java.util.stream.IntStream;
 
 public class InvUtils {
 
+    public static StackEjector EJECT_OFFSET = new StackEjector(new VectorBuilder().rand(0.5f).offset(0.25f), new VectorBuilder().setGaussian(0.05f)),
+            EJECT_EXACT = new StackEjector(new VectorBuilder(), new VectorBuilder());
+
     public static boolean containsIngredient(List<Ingredient> collection, List<Ingredient> ingredient) {
         return matchesPredicate(collection, ingredient, (a, b) -> {
             if (a.getMatchingStacks().length > 0)
@@ -191,7 +194,6 @@ public class InvUtils {
         return true;
     }
 
-
     public static void insert(World world, BlockPos pos, IItemHandler inv, NonNullList<ItemStack> stacks, boolean simulate) {
         stacks.forEach(stack -> {
 
@@ -257,7 +259,6 @@ public class InvUtils {
         }
         return ItemStack.EMPTY;
     }
-
 
     public static int getRandomOccupiedStackInRange(IItemHandler inv, int minSlot, int maxSlot) {
         List<Integer> list = Lists.newArrayList();
@@ -520,7 +521,6 @@ public class InvUtils {
         return spawnStack(world, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, stack, pickupDelay);
     }
 
-
     public static boolean spawnStack(World world, double x, double y, double z, ItemStack stack, int pickupDelay) {
         EntityItem item = new EntityItem(world, x, y, z, stack);
         item.motionX = 0;
@@ -550,10 +550,6 @@ public class InvUtils {
                 ejectStackWithOffset(world, pos, stack.copy());
         }
     }
-
-
-    public static StackEjector EJECT_OFFSET = new StackEjector(new VectorBuilder().rand(0.5f).offset(0.25f), new VectorBuilder().setGaussian(0.05f)),
-            EJECT_EXACT = new StackEjector(new VectorBuilder(), new VectorBuilder());
 
     public static void ejectStackWithOffset(World world, BlockPos pos, ItemStack stack) {
         if (stack.isEmpty())

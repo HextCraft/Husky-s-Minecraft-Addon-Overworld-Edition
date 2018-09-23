@@ -10,7 +10,7 @@ import net.minecraft.world.gen.structure.StructureComponent;
 public class TableChanger implements IChanger {
     @Override
     public boolean canChange(StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState state) {
-        if(state.getBlock() == Blocks.WOODEN_PRESSURE_PLATE) {
+        if (state.getBlock() == Blocks.WOODEN_PRESSURE_PLATE) {
             IBlockState below = world.getBlockState(pos.down());
             return below.getBlock() instanceof BlockFence;
         }

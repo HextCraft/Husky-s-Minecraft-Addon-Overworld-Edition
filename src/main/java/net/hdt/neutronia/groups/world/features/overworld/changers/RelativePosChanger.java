@@ -23,6 +23,10 @@ public class RelativePosChanger implements IChanger {
         this.state = state;
     }
 
+    public static Iterable<BlockPos> getPosInBox(AxisAlignedBB box) {
+        return BlockPos.getAllInBox(new BlockPos((int) box.minX, (int) box.minY, (int) box.minZ), new BlockPos((int) (box.maxX), (int) (box.maxY), (int) (box.maxZ)));
+    }
+
     @Override
     public boolean canChange(StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState original) {
         return check.contains(relativePos);
@@ -31,9 +35,5 @@ public class RelativePosChanger implements IChanger {
     @Override
     public IBlockState change(StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState original) {
         return state;
-    }
-
-    public static Iterable<BlockPos> getPosInBox(AxisAlignedBB box) {
-        return BlockPos.getAllInBox(new BlockPos((int)box.minX,(int) box.minY, (int)box.minZ), new BlockPos((int) (box.maxX), (int) (box.maxY), (int) (box.maxZ)));
     }
 }

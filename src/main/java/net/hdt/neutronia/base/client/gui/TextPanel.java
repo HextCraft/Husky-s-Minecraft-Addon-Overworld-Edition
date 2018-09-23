@@ -36,79 +36,79 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class TextPanel extends Panel<TextPanel> {
 
-	private final FontRenderer font = Minecraft.getMinecraft().fontRenderer;
+    private final FontRenderer font = Minecraft.getMinecraft().fontRenderer;
 
-	private List<String> text = ImmutableList.of();
+    private List<String> text = ImmutableList.of();
 
-	public TextPanel() {
-		super();
-	}
+    public TextPanel() {
+        super();
+    }
 
-	@Nonnull
-	public TextPanel setText(@Nonnull final List<String> text) {
-		this.text = text;
-		setHeight((text.size() + 1) * this.font.FONT_HEIGHT);
+    @Nonnull
+    public TextPanel setText(@Nonnull final List<String> text) {
+        this.text = text;
+        setHeight((text.size() + 1) * this.font.FONT_HEIGHT);
 
-		int w = 0;
-		for (final String s : text)
-			w = Math.max(this.font.getStringWidth(s), w);
-		w += this.font.FONT_HEIGHT;
-		setWidth(w);
-		return this;
-	}
+        int w = 0;
+        for (final String s : text)
+            w = Math.max(this.font.getStringWidth(s), w);
+        w += this.font.FONT_HEIGHT;
+        setWidth(w);
+        return this;
+    }
 
-	@Nonnull
-	public TextPanel resetText() {
-		this.text = ImmutableList.of();
-		return this;
-	}
+    @Nonnull
+    public TextPanel resetText() {
+        this.text = ImmutableList.of();
+        return this;
+    }
 
-	public boolean hasText() {
-		return !this.text.isEmpty();
-	}
+    public boolean hasText() {
+        return !this.text.isEmpty();
+    }
 
-	@Override
-	public void render(final int locX, final int locY, @Nonnull final Reference ref) {
+    @Override
+    public void render(final int locX, final int locY, @Nonnull final Reference ref) {
 
-		if (this.text.isEmpty())
-			return;
+        if (this.text.isEmpty())
+            return;
 
-		final int posY;
+        final int posY;
 
-		switch (ref) {
-		case CENTER:
-			posY = locY - getCenterY();
-			break;
-		case TOP_CENTER:
-			posY = locY;
-			break;
-		default:
-			posY = locY;
-		}
+        switch (ref) {
+            case CENTER:
+                posY = locY - getCenterY();
+                break;
+            case TOP_CENTER:
+                posY = locY;
+                break;
+            default:
+                posY = locY;
+        }
 
-		super.render(locX, locY, ref);
+        super.render(locX, locY, ref);
 
-		GlStateManager.color(1F, 1F, 1F, this.alpha);
-		GlStateManager.enableBlend();
+        GlStateManager.color(1F, 1F, 1F, this.alpha);
+        GlStateManager.enableBlend();
 
-		final int textRGB = getForegroundColor().rgbWithAlpha(this.alpha);
+        final int textRGB = getForegroundColor().rgbWithAlpha(this.alpha);
 
-		final int drawX;
+        final int drawX;
 
-		if (ref == Reference.CENTER || ref == Reference.TOP_CENTER)
-			drawX = locX;
-		else
-			drawX = locX + getCenterX();
+        if (ref == Reference.CENTER || ref == Reference.TOP_CENTER)
+            drawX = locX;
+        else
+            drawX = locX + getCenterX();
 
-		int drawY = posY + (this.font.FONT_HEIGHT + 1) / 2;
+        int drawY = posY + (this.font.FONT_HEIGHT + 1) / 2;
 
-		for (int i = 0; i < this.text.size(); i++) {
-			GuiUtils.drawCenteredString(this.font, this.text.get(i), drawX, drawY, textRGB);
-			drawY += this.font.FONT_HEIGHT;
-		}
+        for (int i = 0; i < this.text.size(); i++) {
+            GuiUtils.drawCenteredString(this.font, this.text.get(i), drawX, drawY, textRGB);
+            drawY += this.font.FONT_HEIGHT;
+        }
 
-		GlStateManager.color(1F, 1F, 1F, 1F);
+        GlStateManager.color(1F, 1F, 1F, 1F);
 
-	}
+    }
 
 }

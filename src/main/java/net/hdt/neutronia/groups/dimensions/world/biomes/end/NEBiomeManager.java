@@ -99,6 +99,6 @@ public class NEBiomeManager {
         HEART,
         ORBIT,
         DIVIDE,
-        EXPANSE;
+        EXPANSE
     }
 }

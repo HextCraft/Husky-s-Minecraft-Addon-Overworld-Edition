@@ -36,276 +36,272 @@ import java.util.Map;
  */
 public class Color {
 
-	public static final class ImmutableColor extends Color {
+    public static final Color RED = new ImmutableColor(255, 0, 0);
+    public static final Color ORANGE = new ImmutableColor(255, 127, 0);
+    public static final Color YELLOW = new ImmutableColor(255, 255, 0);
+    public static final Color LGREEN = new ImmutableColor(127, 255, 0);
+    public static final Color GREEN = new ImmutableColor(0, 255, 0);
+    public static final Color TURQOISE = new ImmutableColor(0, 255, 127);
+    public static final Color CYAN = new ImmutableColor(0, 255, 255);
+    public static final Color AUQUAMARINE = new ImmutableColor(0, 127, 255);
+    public static final Color BLUE = new ImmutableColor(0, 0, 255);
+    public static final Color VIOLET = new ImmutableColor(127, 0, 255);
+    public static final Color MAGENTA = new ImmutableColor(255, 0, 255);
+    public static final Color RASPBERRY = new ImmutableColor(255, 0, 127);
+    public static final Color BLACK = new ImmutableColor(0, 0, 0);
+    public static final Color WHITE = new ImmutableColor(255, 255, 255);
+    public static final Color PURPLE = new ImmutableColor(80, 0, 80);
+    public static final Color INDIGO = new ImmutableColor(75, 0, 130);
+    public static final Color NAVY = new ImmutableColor(0, 0, 128);
+    public static final Color TAN = new ImmutableColor(210, 180, 140);
+    public static final Color GOLD = new ImmutableColor(255, 215, 0);
+    public static final Color GRAY = new ImmutableColor(128, 128, 128);
+    public static final Color LGRAY = new ImmutableColor(192, 192, 192);
+    public static final Color SLATEGRAY = new ImmutableColor(112, 128, 144);
+    public static final Color DARKSLATEGRAY = new ImmutableColor(47, 79, 79);
+    // Minecraft colors mapped to codes
+    public static final Color MC_BLACK = new ImmutableColor(0, 0, 0);
+    public static final Color MC_DARKBLUE = new ImmutableColor(0, 0, 170);
+    public static final Color MC_DARKGREEN = new ImmutableColor(0, 170, 0);
+    public static final Color MC_DARKAQUA = new ImmutableColor(0, 170, 170);
+    public static final Color MC_DARKRED = new ImmutableColor(170, 0, 0);
+    public static final Color MC_DARKPURPLE = new ImmutableColor(170, 0, 170);
+    public static final Color MC_GOLD = new ImmutableColor(255, 170, 0);
+    public static final Color MC_GRAY = new ImmutableColor(170, 170, 170);
+    public static final Color MC_DARKGRAY = new ImmutableColor(85, 85, 85);
+    public static final Color MC_BLUE = new ImmutableColor(85, 85, 255);
+    public static final Color MC_GREEN = new ImmutableColor(85, 255, 85);
+    public static final Color MC_AQUA = new ImmutableColor(85, 255, 255);
+    public static final Color MC_RED = new ImmutableColor(255, 85, 85);
+    public static final Color MC_LIGHTPURPLE = new ImmutableColor(255, 85, 255);
+    public static final Color MC_YELLOW = new ImmutableColor(255, 255, 85);
+    public static final Color MC_WHITE = new ImmutableColor(255, 255, 255);
+    // Basic Aurora color
+    public static final Color AURORA_RED = new ImmutableColor(1.0F, 0F, 0F);
+    public static final Color AURORA_GREEN = new ImmutableColor(0.5F, 1.0F, 0.0F);
+    public static final Color AURORA_BLUE = new ImmutableColor(0F, 0.8F, 1.0F);
+    private static final Map<TextFormatting, Color> colorLookup = new EnumMap<>(
+            TextFormatting.class);
 
-		ImmutableColor(@Nonnull final Color color) {
-			super(color);
-		}
+    static {
+        colorLookup.put(TextFormatting.BLACK, MC_BLACK);
+        colorLookup.put(TextFormatting.DARK_BLUE, MC_DARKBLUE);
+        colorLookup.put(TextFormatting.DARK_GREEN, MC_DARKGREEN);
+        colorLookup.put(TextFormatting.DARK_AQUA, MC_DARKAQUA);
+        colorLookup.put(TextFormatting.DARK_RED, MC_DARKRED);
+        colorLookup.put(TextFormatting.DARK_PURPLE, MC_DARKPURPLE);
+        colorLookup.put(TextFormatting.GOLD, MC_GOLD);
+        colorLookup.put(TextFormatting.GRAY, MC_GRAY);
+        colorLookup.put(TextFormatting.DARK_GRAY, MC_DARKGRAY);
+        colorLookup.put(TextFormatting.BLUE, MC_BLUE);
+        colorLookup.put(TextFormatting.GREEN, MC_GREEN);
+        colorLookup.put(TextFormatting.AQUA, MC_AQUA);
+        colorLookup.put(TextFormatting.RED, MC_RED);
+        colorLookup.put(TextFormatting.LIGHT_PURPLE, MC_LIGHTPURPLE);
+        colorLookup.put(TextFormatting.YELLOW, MC_YELLOW);
+        colorLookup.put(TextFormatting.WHITE, MC_WHITE);
+    }
 
-		ImmutableColor(final int red, final int green, final int blue) {
-			super(red, green, blue);
-		}
+    public float red;
+    public float green;
+    public float blue;
+    public Color(@Nonnull final Color color) {
+        this(color.red, color.green, color.blue);
+    }
+    public Color(final int red, final int green, final int blue) {
+        this(red / 255.0F, green / 255.0F, blue / 255.0F);
+    }
 
-		ImmutableColor(final float red, final float green, final float blue) {
-			super(red, green, blue);
-		}
+    public Color(@Nonnull final Vec3d vec) {
+        this((float) vec.x, (float) vec.y, (float) vec.z);
+    }
 
-		@Override
-		public Color scale(final float scaleFactor) {
-			throw new UnsupportedOperationException();
-		}
+    public Color(final int rgb) {
+        this((rgb >> 16) & 0xff, (rgb >> 8) & 0xff, rgb & 0xff);
+    }
 
-		@Override
-		public Color mix(final float red, final float green, final float blue) {
-			throw new UnsupportedOperationException();
-		}
+    public Color(final float red, final float green, final float blue) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
 
-		@Override
-		public Color adjust(@Nonnull final Vec3d adjust, @Nonnull final Color target) {
-			throw new UnsupportedOperationException();
-		}
-	}
+    public Color(final double red, final double green, final double blue) {
+        this((float) red, (float) green, (float) blue);
+    }
 
-	public static final Color RED = new ImmutableColor(255, 0, 0);
-	public static final Color ORANGE = new ImmutableColor(255, 127, 0);
-	public static final Color YELLOW = new ImmutableColor(255, 255, 0);
-	public static final Color LGREEN = new ImmutableColor(127, 255, 0);
-	public static final Color GREEN = new ImmutableColor(0, 255, 0);
-	public static final Color TURQOISE = new ImmutableColor(0, 255, 127);
-	public static final Color CYAN = new ImmutableColor(0, 255, 255);
-	public static final Color AUQUAMARINE = new ImmutableColor(0, 127, 255);
-	public static final Color BLUE = new ImmutableColor(0, 0, 255);
-	public static final Color VIOLET = new ImmutableColor(127, 0, 255);
-	public static final Color MAGENTA = new ImmutableColor(255, 0, 255);
-	public static final Color RASPBERRY = new ImmutableColor(255, 0, 127);
-	public static final Color BLACK = new ImmutableColor(0, 0, 0);
-	public static final Color WHITE = new ImmutableColor(255, 255, 255);
-	public static final Color PURPLE = new ImmutableColor(80, 0, 80);
-	public static final Color INDIGO = new ImmutableColor(75, 0, 130);
-	public static final Color NAVY = new ImmutableColor(0, 0, 128);
-	public static final Color TAN = new ImmutableColor(210, 180, 140);
-	public static final Color GOLD = new ImmutableColor(255, 215, 0);
-	public static final Color GRAY = new ImmutableColor(128, 128, 128);
-	public static final Color LGRAY = new ImmutableColor(192, 192, 192);
-	public static final Color SLATEGRAY = new ImmutableColor(112, 128, 144);
-	public static final Color DARKSLATEGRAY = new ImmutableColor(47, 79, 79);
+    public static Color getColor(final TextFormatting format) {
+        return colorLookup.get(format);
+    }
 
-	// Minecraft colors mapped to codes
-	public static final Color MC_BLACK = new ImmutableColor(0, 0, 0);
-	public static final Color MC_DARKBLUE = new ImmutableColor(0, 0, 170);
-	public static final Color MC_DARKGREEN = new ImmutableColor(0, 170, 0);
-	public static final Color MC_DARKAQUA = new ImmutableColor(0, 170, 170);
-	public static final Color MC_DARKRED = new ImmutableColor(170, 0, 0);
-	public static final Color MC_DARKPURPLE = new ImmutableColor(170, 0, 170);
-	public static final Color MC_GOLD = new ImmutableColor(255, 170, 0);
-	public static final Color MC_GRAY = new ImmutableColor(170, 170, 170);
-	public static final Color MC_DARKGRAY = new ImmutableColor(85, 85, 85);
-	public static final Color MC_BLUE = new ImmutableColor(85, 85, 255);
-	public static final Color MC_GREEN = new ImmutableColor(85, 255, 85);
-	public static final Color MC_AQUA = new ImmutableColor(85, 255, 255);
-	public static final Color MC_RED = new ImmutableColor(255, 85, 85);
-	public static final Color MC_LIGHTPURPLE = new ImmutableColor(255, 85, 255);
-	public static final Color MC_YELLOW = new ImmutableColor(255, 255, 85);
-	public static final Color MC_WHITE = new ImmutableColor(255, 255, 255);
+    @Nonnull
+    public static Color scale(@Nonnull final Color color, final float scaleFactor) {
+        return new Color(color).scale(scaleFactor);
+    }
 
-	// Basic Aurora color
-	public static final Color AURORA_RED = new ImmutableColor(1.0F, 0F, 0F);
-	public static final Color AURORA_GREEN = new ImmutableColor(0.5F, 1.0F, 0.0F);
-	public static final Color AURORA_BLUE = new ImmutableColor(0F, 0.8F, 1.0F);
+    private static float blend(final float c1, final float c2, final float factor) {
+        return (float) Math.sqrt((1.0F - factor) * c1 * c1 + factor * c2 * c2);
+    }
 
-	private static final Map<TextFormatting, Color> colorLookup = new EnumMap<>(
-			TextFormatting.class);
-	static {
-		colorLookup.put(TextFormatting.BLACK, MC_BLACK);
-		colorLookup.put(TextFormatting.DARK_BLUE, MC_DARKBLUE);
-		colorLookup.put(TextFormatting.DARK_GREEN, MC_DARKGREEN);
-		colorLookup.put(TextFormatting.DARK_AQUA, MC_DARKAQUA);
-		colorLookup.put(TextFormatting.DARK_RED, MC_DARKRED);
-		colorLookup.put(TextFormatting.DARK_PURPLE, MC_DARKPURPLE);
-		colorLookup.put(TextFormatting.GOLD, MC_GOLD);
-		colorLookup.put(TextFormatting.GRAY, MC_GRAY);
-		colorLookup.put(TextFormatting.DARK_GRAY, MC_DARKGRAY);
-		colorLookup.put(TextFormatting.BLUE, MC_BLUE);
-		colorLookup.put(TextFormatting.GREEN, MC_GREEN);
-		colorLookup.put(TextFormatting.AQUA, MC_AQUA);
-		colorLookup.put(TextFormatting.RED, MC_RED);
-		colorLookup.put(TextFormatting.LIGHT_PURPLE, MC_LIGHTPURPLE);
-		colorLookup.put(TextFormatting.YELLOW, MC_YELLOW);
-		colorLookup.put(TextFormatting.WHITE, MC_WHITE);
-	}
+    @Nonnull
+    public Vec3d toVec3d() {
+        return new Vec3d(this.red, this.green, this.blue);
+    }
 
-	public static Color getColor(final TextFormatting format) {
-		return colorLookup.get(format);
-	}
+    /*
+     * Calculates the RGB adjustments to make to the color to arrive at the target
+     * color after the specified number of iterations.
+     */
+    @Nonnull
+    public Vec3d transitionTo(@Nonnull final Color target, final int iterations) {
+        final double deltaRed = (target.red - this.red) / iterations;
+        final double deltaGreen = (target.green - this.green) / iterations;
+        final double deltaBlue = (target.blue - this.blue) / iterations;
+        return new Vec3d(deltaRed, deltaGreen, deltaBlue);
+    }
 
-	public float red;
-	public float green;
-	public float blue;
+    @Nonnull
+    public Color scale(final float scaleFactor) {
+        return scale(scaleFactor, scaleFactor, scaleFactor);
+    }
 
-	public Color(@Nonnull final Color color) {
-		this(color.red, color.green, color.blue);
-	}
+    @Nonnull
+    public Color scale(final float scaleRed, final float scaleGreen, final float scaleBlue) {
+        this.red *= scaleRed;
+        this.green *= scaleGreen;
+        this.blue *= scaleBlue;
+        return this;
+    }
 
-	public Color(final int red, final int green, final int blue) {
-		this(red / 255.0F, green / 255.0F, blue / 255.0F);
-	}
+    @Nonnull
+    public Color add(@Nonnull final Color color) {
+        this.red += color.red;
+        this.green += color.green;
+        this.blue += color.blue;
+        return this;
+    }
 
-	public Color(@Nonnull final Vec3d vec) {
-		this((float) vec.x, (float) vec.y, (float) vec.z);
-	}
+    @Nonnull
+    public Color add(final float red, final float green, final float blue) {
+        this.red += red;
+        this.green += green;
+        this.blue += blue;
+        return this;
+    }
 
-	public Color(final int rgb) {
-		this((rgb >> 16) & 0xff, (rgb >> 8) & 0xff, rgb & 0xff);
-	}
+    @Nonnull
+    public Color blend(@Nonnull final Color color, final float factor) {
+        this.red = blend(this.red, color.red, factor);
+        this.green = blend(this.green, color.green, factor);
+        this.blue = blend(this.blue, color.blue, factor);
+        return this;
+    }
 
-	public Color(final float red, final float green, final float blue) {
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-	}
+    @Nonnull
+    public Color mix(@Nonnull final Color color) {
+        return mix(color.red, color.green, color.blue);
+    }
 
-	public Color(final double red, final double green, final double blue) {
-		this((float) red, (float) green, (float) blue);
-	}
+    @Nonnull
+    public Color mix(final float red, final float green, final float blue) {
+        this.red = (this.red + red) / 2.0F;
+        this.green = (this.green + green) / 2.0F;
+        this.blue = (this.blue + blue) / 2.0F;
+        return this;
+    }
 
-	@Nonnull
-	public Vec3d toVec3d() {
-		return new Vec3d(this.red, this.green, this.blue);
-	}
+    @Nonnull
+    public Color adjust(@Nonnull final Vec3d adjust, @Nonnull final Color target) {
+        this.red += adjust.x;
+        if ((adjust.x < 0.0F && this.red < target.red) || (adjust.x > 0.0F && this.red > target.red)) {
+            this.red = target.red;
+        }
 
-	/*
-	 * Calculates the RGB adjustments to make to the color to arrive at the target
-	 * color after the specified number of iterations.
-	 */
-	@Nonnull
-	public Vec3d transitionTo(@Nonnull final Color target, final int iterations) {
-		final double deltaRed = (target.red - this.red) / iterations;
-		final double deltaGreen = (target.green - this.green) / iterations;
-		final double deltaBlue = (target.blue - this.blue) / iterations;
-		return new Vec3d(deltaRed, deltaGreen, deltaBlue);
-	}
+        this.green += adjust.y;
+        if ((adjust.y < 0.0F && this.green < target.green) || (adjust.y > 0.0F && this.green > target.green)) {
+            this.green = target.green;
+        }
 
-	@Nonnull
-	public Color scale(final float scaleFactor) {
-		return scale(scaleFactor, scaleFactor, scaleFactor);
-	}
+        this.blue += adjust.z;
+        if ((adjust.z < 0.0F && this.blue < target.blue) || (adjust.z > 0.0F && this.blue > target.blue)) {
+            this.blue = target.blue;
+        }
+        return this;
+    }
 
-	@Nonnull
-	public Color scale(final float scaleRed, final float scaleGreen, final float scaleBlue) {
-		this.red *= scaleRed;
-		this.green *= scaleGreen;
-		this.blue *= scaleBlue;
-		return this;
-	}
+    // Adjust luminance based on the specified percent. > 0 brightens; < 0
+    // darkens
+    @Nonnull
+    public Color luminance(final float percent) {
+        final float r = Math.min(Math.max(0, this.red + (this.red * percent)), 1.0F);
+        final float g = Math.min(Math.max(0, this.green + (this.green * percent)), 1.0F);
+        final float b = Math.min(Math.max(0, this.blue + (this.blue * percent)), 1.0F);
+        return new Color(r, g, b);
+    }
 
-	@Nonnull
-	public static Color scale(@Nonnull final Color color, final float scaleFactor) {
-		return new Color(color).scale(scaleFactor);
-	}
+    public int rgb() {
+        final int iRed = (int) (this.red * 255);
+        final int iGreen = (int) (this.green * 255);
+        final int iBlue = (int) (this.blue * 255);
+        return iRed << 16 | iGreen << 8 | iBlue;
+    }
 
-	@Nonnull
-	public Color add(@Nonnull final Color color) {
-		this.red += color.red;
-		this.green += color.green;
-		this.blue += color.blue;
-		return this;
-	}
+    public int rgbWithAlpha(final float alpha) {
+        final int iAlpha = (int) (alpha * 255);
+        return rgb() | (iAlpha << 24);
+    }
 
-	@Nonnull
-	public Color add(final float red, final float green, final float blue) {
-		this.red += red;
-		this.green += green;
-		this.blue += blue;
-		return this;
-	}
+    @Override
+    public boolean equals(final Object anObject) {
+        if (anObject == null || !(anObject instanceof Color))
+            return false;
+        final Color color = (Color) anObject;
+        return this.red == color.red && this.green == color.green && this.blue == color.blue;
+    }
 
-	private static float blend(final float c1, final float c2, final float factor) {
-		return (float) Math.sqrt((1.0F - factor) * c1 * c1 + factor * c2 * c2);
-	}
+    @Nonnull
+    public Color asImmutable() {
+        return new ImmutableColor(this);
+    }
 
-	@Nonnull
-	public Color blend(@Nonnull final Color color, final float factor) {
-		this.red = blend(this.red, color.red, factor);
-		this.green = blend(this.green, color.green, factor);
-		this.blue = blend(this.blue, color.blue, factor);
-		return this;
-	}
+    @Override
+    @Nonnull
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("[r:").append((int) (this.red * 255));
+        builder.append(",g:").append((int) (this.green * 255));
+        builder.append(",b:").append((int) (this.blue * 255));
+        builder.append(']');
+        return builder.toString();
+    }
 
-	@Nonnull
-	public Color mix(@Nonnull final Color color) {
-		return mix(color.red, color.green, color.blue);
-	}
+    public static final class ImmutableColor extends Color {
 
-	@Nonnull
-	public Color mix(final float red, final float green, final float blue) {
-		this.red = (this.red + red) / 2.0F;
-		this.green = (this.green + green) / 2.0F;
-		this.blue = (this.blue + blue) / 2.0F;
-		return this;
-	}
+        ImmutableColor(@Nonnull final Color color) {
+            super(color);
+        }
 
-	@Nonnull
-	public Color adjust(@Nonnull final Vec3d adjust, @Nonnull final Color target) {
-		this.red += adjust.x;
-		if ((adjust.x < 0.0F && this.red < target.red) || (adjust.x > 0.0F && this.red > target.red)) {
-			this.red = target.red;
-		}
+        ImmutableColor(final int red, final int green, final int blue) {
+            super(red, green, blue);
+        }
 
-		this.green += adjust.y;
-		if ((adjust.y < 0.0F && this.green < target.green) || (adjust.y > 0.0F && this.green > target.green)) {
-			this.green = target.green;
-		}
+        ImmutableColor(final float red, final float green, final float blue) {
+            super(red, green, blue);
+        }
 
-		this.blue += adjust.z;
-		if ((adjust.z < 0.0F && this.blue < target.blue) || (adjust.z > 0.0F && this.blue > target.blue)) {
-			this.blue = target.blue;
-		}
-		return this;
-	}
+        @Override
+        public Color scale(final float scaleFactor) {
+            throw new UnsupportedOperationException();
+        }
 
-	// Adjust luminance based on the specified percent. > 0 brightens; < 0
-	// darkens
-	@Nonnull
-	public Color luminance(final float percent) {
-		final float r = Math.min(Math.max(0, this.red + (this.red * percent)), 1.0F);
-		final float g = Math.min(Math.max(0, this.green + (this.green * percent)), 1.0F);
-		final float b = Math.min(Math.max(0, this.blue + (this.blue * percent)), 1.0F);
-		return new Color(r, g, b);
-	}
+        @Override
+        public Color mix(final float red, final float green, final float blue) {
+            throw new UnsupportedOperationException();
+        }
 
-	public int rgb() {
-		final int iRed = (int) (this.red * 255);
-		final int iGreen = (int) (this.green * 255);
-		final int iBlue = (int) (this.blue * 255);
-		return iRed << 16 | iGreen << 8 | iBlue;
-	}
-
-	public int rgbWithAlpha(final float alpha) {
-		final int iAlpha = (int) (alpha * 255);
-		return rgb() | (iAlpha << 24);
-	}
-
-	@Override
-	public boolean equals(final Object anObject) {
-		if (anObject == null || !(anObject instanceof Color))
-			return false;
-		final Color color = (Color) anObject;
-		return this.red == color.red && this.green == color.green && this.blue == color.blue;
-	}
-
-	@Nonnull
-	public Color asImmutable() {
-		return new ImmutableColor(this);
-	}
-
-	@Override
-	@Nonnull
-	public String toString() {
-		final StringBuilder builder = new StringBuilder();
-		builder.append("[r:").append((int) (this.red * 255));
-		builder.append(",g:").append((int) (this.green * 255));
-		builder.append(",b:").append((int) (this.blue * 255));
-		builder.append(']');
-		return builder.toString();
-	}
+        @Override
+        public Color adjust(@Nonnull final Vec3d adjust, @Nonnull final Color target) {
+            throw new UnsupportedOperationException();
+        }
+    }
 }

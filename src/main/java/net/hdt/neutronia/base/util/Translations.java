@@ -39,56 +39,56 @@ import java.util.Map.Entry;
 
 public class Translations {
 
-	public static final String DEFAULT_LANGUAGE = "en_us";
+    public static final String DEFAULT_LANGUAGE = "en_us";
 
-	private Map<String, String> lookup = new HashMap<>();
+    private Map<String, String> lookup = new HashMap<>();
 
-	public Translations() {
+    public Translations() {
 
-	}
+    }
 
-	protected void merge(@Nonnull final InputStream stream) throws IOException {
-		net.minecraftforge.fml.common.FMLCommonHandler.instance().loadLanguage(this.lookup, stream);
-	}
+    protected void merge(@Nonnull final InputStream stream) throws IOException {
+        net.minecraftforge.fml.common.FMLCommonHandler.instance().loadLanguage(this.lookup, stream);
+    }
 
-	public void load(@Nonnull final String assetRoot, @Nonnull final String... languages) {
-		for (final String lang : languages) {
-			final String assetName = StringUtils.appendIfMissing(assetRoot, "/") + lang + ".lang";
-			try (final InputStream stream = Translations.class.getResourceAsStream(assetName)) {
-				if (stream != null)
-					merge(stream);
-			} catch (final Throwable t) {
-				Neutronia.LOGGER.error("Error merging language " + assetName, t);
-			}
-		}
-	}
+    public void load(@Nonnull final String assetRoot, @Nonnull final String... languages) {
+        for (final String lang : languages) {
+            final String assetName = StringUtils.appendIfMissing(assetRoot, "/") + lang + ".lang";
+            try (final InputStream stream = Translations.class.getResourceAsStream(assetName)) {
+                if (stream != null)
+                    merge(stream);
+            } catch (final Throwable t) {
+                Neutronia.LOGGER.error("Error merging language " + assetName, t);
+            }
+        }
+    }
 
-	@Nonnull
-	public String format(@Nonnull final String translateKey, @Nullable final Object... parameters) {
-		final String xlated = this.lookup.get(translateKey);
-		return xlated == null ? translateKey : String.format(xlated, parameters);
-	}
+    @Nonnull
+    public String format(@Nonnull final String translateKey, @Nullable final Object... parameters) {
+        final String xlated = this.lookup.get(translateKey);
+        return xlated == null ? translateKey : String.format(xlated, parameters);
+    }
 
-	@Nonnull
-	public String loadString(@Nonnull final String translateKey) {
-		final String xlated = this.lookup.get(translateKey);
-		return xlated == null ? translateKey : xlated;
-	}
+    @Nonnull
+    public String loadString(@Nonnull final String translateKey) {
+        final String xlated = this.lookup.get(translateKey);
+        return xlated == null ? translateKey : xlated;
+    }
 
-	public void put(@Nonnull final String key, @Nonnull final String value) {
-		this.lookup.put(key, value);
-	}
+    public void put(@Nonnull final String key, @Nonnull final String value) {
+        this.lookup.put(key, value);
+    }
 
-	public void forAll(@Nonnull final Predicate<Entry<String, String>> pred) {
-		for (final Entry<String, String> e : this.lookup.entrySet())
-			pred.apply(e);
-	}
+    public void forAll(@Nonnull final Predicate<Entry<String, String>> pred) {
+        for (final Entry<String, String> e : this.lookup.entrySet())
+            pred.apply(e);
+    }
 
-	public void transform(@Nonnull final Function<Entry<String, String>, String> func) {
-		final Map<String, String> old = this.lookup;
-		this.lookup = new HashMap<>();
-		for (final Entry<String, String> e : old.entrySet()) {
-			this.lookup.put(e.getKey(), func.apply(e));
-		}
-	}
+    public void transform(@Nonnull final Function<Entry<String, String>, String> func) {
+        final Map<String, String> old = this.lookup;
+        this.lookup = new HashMap<>();
+        for (final Entry<String, String> e : old.entrySet()) {
+            this.lookup.put(e.getKey(), func.apply(e));
+        }
+    }
 }

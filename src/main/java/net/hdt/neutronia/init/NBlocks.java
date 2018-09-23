@@ -50,7 +50,7 @@ public class NBlocks {
     public static final BlockNetherbrickChiseled chiseledNetherbrick, chiseledNetherbrickFilled;
     public static final BlockColoredAlt[] coloredCandles = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitCandles = new BlockColoredAlt[16];
-//    public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
+    //    public static final BlockColoredAlt[] coloredLanterns = new BlockColoredAlt[16];
 //    public static final BlockColoredAlt[] coloredLitLanterns = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredRedstoneLamp = new BlockColoredAlt[16];
     public static final BlockColoredAlt[] coloredLitRedstoneLamp = new BlockColoredAlt[16];
@@ -63,7 +63,7 @@ public class NBlocks {
     public static final BlockBrickChiseled chiseledBricks;
     public static final BlockBrickChiseled chiseledBricksFilled;
     public static final Block[] closet = new Block[6];
-//    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
+    //    private static final Block smoothQuartz, smoothSandstone, smoothRedSandstone;
 //    private static final Block quartzBricks, sandstoneBricks, redSandstoneBricks;
     // Sea Blocks
     private static final Block[] aquamarine = new Block[6];
@@ -80,7 +80,7 @@ public class NBlocks {
     public static Block[] frostedStones = new Block[6];
     public static Block[] frostedDirts = new Block[12];
     public static Block[] frostedClay = new Block[16];
-//    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
+    //    public static final Block stoneAnvil, carbonAnvil, goldenAnvil, marbleAnvil, ironAnvil, darkIronAnvil;
 //    public static final Block stoneCauldron, carbonCauldron, goldenCauldron, marbleCauldron, ironCauldron, glassCauldron;
 //    public static final Block whiteBricks, redBricks, greenBricks;
 //    public static final Block redClayBlock, greenClayBlock;

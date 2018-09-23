@@ -52,7 +52,7 @@ public class LogBlocks extends Component {
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedLogs[enumType.getMetadata()], 1), log, NItems.logStripper);
         }
 
-        if(enableSlabsAndStairs) {
+        if (enableSlabsAndStairs) {
             VanillaStairsAndSlabs.add("acacia_log", Blocks.LOG2, 0, acacia, WOOD_EXPANSION_TAB);
             VanillaStairsAndSlabs.add("birch_log", Blocks.LOG, 2, birch, WOOD_EXPANSION_TAB);
             VanillaStairsAndSlabs.add("dark_oak_log", Blocks.LOG2, 1, darkOak, WOOD_EXPANSION_TAB);
@@ -60,7 +60,7 @@ public class LogBlocks extends Component {
             VanillaStairsAndSlabs.add("oak_log", Blocks.LOG, 0, oak, WOOD_EXPANSION_TAB);
             VanillaStairsAndSlabs.add("spruce_log", Blocks.LOG, 1, spruce, WOOD_EXPANSION_TAB);
         }
-        if(enableWalls) {
+        if (enableWalls) {
             VanillaWalls.add("acacia_log", Blocks.LOG2, 0, acacia, WOOD_EXPANSION_TAB);
             VanillaWalls.add("birch_log", Blocks.LOG, 2, birch, WOOD_EXPANSION_TAB);
             VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, darkOak, WOOD_EXPANSION_TAB);
@@ -71,8 +71,8 @@ public class LogBlocks extends Component {
     }
 
     @Override
-	public boolean requiresMinecraftRestartToEnable() {
-		return true;
-	}
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
 
 }

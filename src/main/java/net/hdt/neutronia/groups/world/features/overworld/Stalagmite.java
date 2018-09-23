@@ -40,7 +40,7 @@ public class Stalagmite extends Component {
         ice_stalagmite = new BlockStalagmite("ice");
         packed_ice_stalagmite = new BlockStalagmite("packed_ice");
 
-        if(GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
+        if (GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
             basalt_stalagmite = new BlockStalagmite("basalt");
             marble_stalagmite = new BlockStalagmite("marble");
             limestone_stalagmite = new BlockStalagmite("limestone");

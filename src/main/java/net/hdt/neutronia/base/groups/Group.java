@@ -13,18 +13,21 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class Group implements Comparable<Group> {
 
     public final Map<String, Component> components = new HashMap<>();
     final List<Component> enabledComponents = new ArrayList<>();
-    private List<Component> componentDependencies = new ArrayList<>();
-    private List<Group> groupDependencies = new ArrayList<>();
     public String name, desc;
     public boolean enabled;
     public Property prop;
+    private List<Component> componentDependencies = new ArrayList<>();
+    private List<Group> groupDependencies = new ArrayList<>();
     private ItemStack iconStack;
 
     public Group() {

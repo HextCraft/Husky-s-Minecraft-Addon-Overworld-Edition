@@ -27,7 +27,7 @@ public class JsonGenerator {
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for(EnumCoralColor coralColor : EnumCoralColor.values()) {
+        for (EnumCoralColor coralColor : EnumCoralColor.values()) {
             genBlock(new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())));
             genBlock(new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())));
             genCoralPlant(new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));

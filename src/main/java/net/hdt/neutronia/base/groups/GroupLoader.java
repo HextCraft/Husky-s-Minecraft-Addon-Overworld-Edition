@@ -2,7 +2,6 @@ package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.base.util.Reference;
-import net.hdt.neutronia.groups.NGroups;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -76,7 +75,7 @@ public final class GroupLoader {
 
     public static void setupConfig(FMLPreInitializationEvent event) {
         File configFile = event.getSuggestedConfigurationFile();
-        if(!configFile.exists())
+        if (!configFile.exists())
             firstLoad = true;
 
         config = new Configuration(configFile);

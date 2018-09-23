@@ -56,7 +56,7 @@ public class MineshaftGeneration extends Component {
     @SubscribeEvent
     public void onStructureSetBlock(StructureSetBlockEvent event) {
         if (event.getComponent() instanceof StructureMineshaftPieces.Peice) {
-                        System.out.printf("/tp %s ~ %s\n", event.getPos().getX(), event.getPos().getZ());
+            System.out.printf("/tp %s ~ %s\n", event.getPos().getX(), event.getPos().getZ());
             StructureChanger.convert(MINESHAFT, event);
         }
     }

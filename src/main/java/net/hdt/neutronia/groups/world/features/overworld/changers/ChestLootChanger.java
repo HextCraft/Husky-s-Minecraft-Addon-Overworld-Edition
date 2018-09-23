@@ -17,7 +17,7 @@ public class ChestLootChanger implements IChanger {
     @Override
     public IBlockState change(StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState original) {
         TileEntity tile = world.getTileEntity(pos);
-        if(tile instanceof TileEntityChest) {
+        if (tile instanceof TileEntityChest) {
             ((TileEntityChest) tile).setLootTable(null, world.rand.nextLong());
         }
         return null;

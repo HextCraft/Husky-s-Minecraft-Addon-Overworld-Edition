@@ -32,15 +32,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class StandardPanel extends Panel<StandardPanel> {
 
-	public StandardPanel() {
-		super();
-	}
+    public StandardPanel() {
+        super();
+    }
 
-	public StandardPanel(final int width, final int height) {
-		super(width, height);
-	}
+    public StandardPanel(final int width, final int height) {
+        super(width, height);
+    }
 
-	public StandardPanel(final int width, final int height, final Color fore, final Color back, final Color border) {
-		super(width, height, fore, back, border);
-	}
+    public StandardPanel(final int width, final int height, final Color fore, final Color back, final Color border) {
+        super(width, height, fore, back, border);
+    }
 }

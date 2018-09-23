@@ -19,7 +19,7 @@ public class GlazedTerracottaStripes extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
+        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             glazedTerracottaStriped[dyeColor.getMetadata()] = new BlockOverworldBase(Material.CLAY, String.format("%s_glazed_terracotta_stripes", dyeColor.getName()), false).setCreativeTab(CreativeTabs.DECORATIONS);
         }
     }

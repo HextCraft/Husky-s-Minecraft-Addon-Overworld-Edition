@@ -9,8 +9,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 
 public class IngredientChanger implements IChanger {
-    private BlockIngredient ingredient;
     protected IBlockState state;
+    private BlockIngredient ingredient;
 
     public IngredientChanger(BlockIngredient ingredient, IBlockState state) {
         this.ingredient = ingredient;
@@ -26,7 +26,7 @@ public class IngredientChanger implements IChanger {
     public IBlockState change(StructureComponent structure, World world, BlockPos pos, BlockPos relativePos, IBlockState original) {
         BiomeEvent.GetVillageBlockID event = new BiomeEvent.GetVillageBlockID(world.getBiome(pos), original);
         MinecraftForge.EVENT_BUS.post(event);
-        if(event.getReplacement() != null) {
+        if (event.getReplacement() != null) {
             return event.getReplacement();
         }
         return state;

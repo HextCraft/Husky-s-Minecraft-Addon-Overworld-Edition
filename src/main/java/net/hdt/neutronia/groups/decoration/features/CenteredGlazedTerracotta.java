@@ -14,7 +14,7 @@ public class CenteredGlazedTerracotta extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(EnumDyeColor dyeColor : EnumDyeColor.values()) {
+        for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             centeredGlazedTerracotta[dyeColor.getMetadata()] = new BlockOverworldBase(Material.CLAY, String.format("centered_glazed_terracotta_%s", dyeColor.getName()), false).setCreativeTab(CreativeTabs.DECORATIONS);
         }
     }

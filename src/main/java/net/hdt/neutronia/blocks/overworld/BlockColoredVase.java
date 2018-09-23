@@ -1,7 +1,5 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import java.util.Random;
-
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IRecipeGrouped;
 import net.hdt.huskylib2.item.ItemModBlock;
@@ -29,6 +27,8 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockColoredVase extends BlockFlowerPot implements INeutroniaBlock, IBlockColorProvider, IRecipeGrouped {
 

@@ -219,7 +219,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     }*/
 
     private boolean func_204712_dC() {
-        return this.getEntityBoundingBox().minY < (double)(this.world.getSeaLevel() - 5);
+        return this.getEntityBoundingBox().minY < (double) (this.world.getSeaLevel() - 5);
     }
 
     protected boolean canBreakDoors() {
@@ -251,7 +251,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
     }
 
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance p_setEquipmentBasedOnDifficulty_1_) {
-        if ((double)this.rand.nextFloat() > 0.9D) {
+        if ((double) this.rand.nextFloat() > 0.9D) {
             int lvt_2_1_ = this.rand.nextInt(16);
             if (lvt_2_1_ < 10) {
                 this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.trident));
@@ -307,7 +307,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         Path lvt_1_1_ = this.getNavigator().getPath();
         if (lvt_1_1_ != null) {
             PathPoint lvt_2_1_ = lvt_1_1_.getTarget();
-            double lvt_3_1_ = this.getDistanceSq((double)lvt_2_1_.x, (double)lvt_2_1_.y, (double)lvt_2_1_.z);
+            double lvt_3_1_ = this.getDistanceSq((double) lvt_2_1_.x, (double) lvt_2_1_.y, (double) lvt_2_1_.z);
             return lvt_3_1_ < 4.0D;
         }
 
@@ -555,16 +555,16 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
                 double lvt_2_1_ = this.posX - this.drownedIn.posX;
                 double lvt_4_1_ = this.posY - this.drownedIn.posY;
                 double lvt_6_1_ = this.posZ - this.drownedIn.posZ;
-                double lvt_8_1_ = (double)MathHelper.sqrt(lvt_2_1_ * lvt_2_1_ + lvt_4_1_ * lvt_4_1_ + lvt_6_1_ * lvt_6_1_);
+                double lvt_8_1_ = (double) MathHelper.sqrt(lvt_2_1_ * lvt_2_1_ + lvt_4_1_ * lvt_4_1_ + lvt_6_1_ * lvt_6_1_);
                 lvt_4_1_ /= lvt_8_1_;
-                float lvt_10_1_ = (float)(MathHelper.atan2(lvt_6_1_, lvt_2_1_) * 57.2957763671875D) - 90.0F;
+                float lvt_10_1_ = (float) (MathHelper.atan2(lvt_6_1_, lvt_2_1_) * 57.2957763671875D) - 90.0F;
                 this.drownedIn.rotationYaw = this.limitAngle(this.drownedIn.rotationYaw, lvt_10_1_, 90.0F);
                 this.drownedIn.renderYawOffset = this.drownedIn.rotationYaw;
-                float lvt_11_1_ = (float)(this.speed * this.drownedIn.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
+                float lvt_11_1_ = (float) (this.speed * this.drownedIn.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getAttributeValue());
                 this.drownedIn.setAIMoveSpeed(this.drownedIn.getAIMoveSpeed() + (lvt_11_1_ - this.drownedIn.getAIMoveSpeed()) * 0.125F);
-                this.drownedIn.motionY += (double)this.drownedIn.getAIMoveSpeed() * lvt_4_1_ * 0.1D;
-                this.drownedIn.motionX += (double)this.drownedIn.getAIMoveSpeed() * lvt_2_1_ * 0.005D;
-                this.drownedIn.motionZ += (double)this.drownedIn.getAIMoveSpeed() * lvt_6_1_ * 0.005D;
+                this.drownedIn.motionY += (double) this.drownedIn.getAIMoveSpeed() * lvt_4_1_ * 0.1D;
+                this.drownedIn.motionX += (double) this.drownedIn.getAIMoveSpeed() * lvt_2_1_ * 0.005D;
+                this.drownedIn.motionZ += (double) this.drownedIn.getAIMoveSpeed() * lvt_6_1_ * 0.005D;
             } else {
                 if (!this.drownedIn.onGround) {
                     this.drownedIn.motionY -= 0.008D;
