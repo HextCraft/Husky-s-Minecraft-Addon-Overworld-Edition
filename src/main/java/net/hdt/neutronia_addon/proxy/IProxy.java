@@ -4,8 +4,6 @@ import net.minecraftforge.fml.common.event.*;
 
 public interface IProxy {
 
-    void construction(FMLConstructionEvent event);
-
     void preInit(FMLPreInitializationEvent event);
 
     void init(FMLInitializationEvent event);
@@ -15,9 +13,5 @@ public interface IProxy {
     void finalInit(FMLPostInitializationEvent event);
 
     void serverStarting(FMLServerStartingEvent event);
-
-    void serverStarted(FMLServerStartedEvent event);
-
-    void serverStopped(FMLServerStoppedEvent event);
 
 }

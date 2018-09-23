@@ -57,11 +57,6 @@ public class Neutronia {
     }
 
     @Mod.EventHandler
-    public void construction(FMLConstructionEvent event) {
-        proxy.construction(event);
-    }
-
-    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER = event.getModLog();
         handlers.forEach(handler -> handler.preInit(event));

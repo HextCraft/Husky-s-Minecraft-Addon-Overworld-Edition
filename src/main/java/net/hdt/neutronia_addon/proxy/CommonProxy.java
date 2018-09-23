@@ -1,49 +1,38 @@
 package net.hdt.neutronia_addon.proxy;
 
-import net.hdt.neutronia.base.Neutronia;
-import net.hdt.neutronia_addon.NeutroniaAddon;
-import net.minecraftforge.fml.common.event.*;
+import net.hdt.neutronia.base.groups.GroupLoader;
+import net.hdt.neutronia_addon.modules.NAGroups;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 public class CommonProxy implements IProxy {
 
     @Override
-    public void construction(FMLConstructionEvent event) {
-        Neutronia.MODULE_LOADER.constructed(event);
-    }
-
-    @Override
     public void preInit(FMLPreInitializationEvent event) {
-        NeutroniaAddon.MODULE_LOADER.preInit(event);
+        NAGroups.registerGroups();
+        GroupLoader.preInit(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
-        NeutroniaAddon.MODULE_LOADER.init(event);
+        GroupLoader.init(event);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
-        NeutroniaAddon.MODULE_LOADER.postInit(event);
+        GroupLoader.postInit(event);
     }
 
     @Override
     public void finalInit(FMLPostInitializationEvent event) {
-        NeutroniaAddon.MODULE_LOADER.finalInit(event);
+        GroupLoader.finalInit(event);
     }
 
     @Override
     public void serverStarting(FMLServerStartingEvent event) {
-        NeutroniaAddon.MODULE_LOADER.serverStarting(event);
-    }
-
-    @Override
-    public void serverStarted(FMLServerStartedEvent event) {
-        NeutroniaAddon.MODULE_LOADER.serverStarted(event);
-    }
-
-    @Override
-    public void serverStopped(FMLServerStoppedEvent event) {
-        NeutroniaAddon.MODULE_LOADER.serverStopped(event);
+        GroupLoader.serverStarting(event);
     }
 
 }

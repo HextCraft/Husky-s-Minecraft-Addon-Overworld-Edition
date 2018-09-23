@@ -30,16 +30,12 @@ import net.minecraft.item.ItemStack;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
 
 public class NGroups {
 
     private static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
 
-    public static List<Group> groups = new ArrayList<>();
-
-    static {
+    public static void registerGroups() {
         building = Group.builder()
                 .name("Building")
                 .description("This group adds new structural building blocks and building utensils.")
@@ -52,13 +48,11 @@ public class NGroups {
                 .addComponent(new SoulStone())
                 .enabled(true)
                 .register();
-        groups.add(building);
 
         christmas = Group.builder()
                 .name("Christmas")
                 .enabled(isChristmas())
                 .register();
-        groups.add(christmas);
 
         client = Group.builder()
                 .name("Client")
@@ -76,7 +70,6 @@ public class NGroups {
                 .addComponent(new MoreDetailedModels())
                 .enabled(true)
                 .register();
-        groups.add(client);
 
         decoration = Group.builder()
                 .name("Decoration")
@@ -98,7 +91,6 @@ public class NGroups {
                 .addComponent(new VariedTrapdoors())
                 .enabled(true)
                 .register();
-        groups.add(decoration);
 
         dimensions = Group.builder()
                 .name("Dimensions")
@@ -115,7 +107,6 @@ public class NGroups {
                 .addComponent(new RevampedNether())
                 .enabled(false)
                 .register();
-        groups.add(dimensions);
 
         earlyGame = Group.builder()
                 .name("Early Game")
@@ -125,13 +116,11 @@ public class NGroups {
                 .addComponent(new ClayTools())
                 .enabled(false)
                 .register();
-        groups.add(earlyGame);
 
         easter = Group.builder()
                 .name("Easter")
                 .enabled(isEaster())
                 .register();
-        groups.add(easter);
 
         experimental = Group.builder()
                 .name("Experimental")
@@ -140,14 +129,12 @@ public class NGroups {
                 .addComponent(new BiggerCaves())
                 .enabled(true)
                 .register();
-        groups.add(experimental);
 
         halloween = Group.builder()
                 .name("Halloween")
                 .iconStack(new ItemStack(Blocks.LIT_PUMPKIN))
                 .enabled(isHalloween())
                 .register();
-        groups.add(halloween);
 
         misc = Group.builder()
                 .name("Misc")
@@ -159,14 +146,12 @@ public class NGroups {
                 .addComponent(new UtilityRecipes())
                 .enabled(true)
                 .register();
-        groups.add(misc);
 
         summer = Group.builder()
                 .name("Summer")
                 .iconStack(new ItemStack(Blocks.SAND))
                 .enabled(false)
                 .register();
-        groups.add(summer);
 
         tweaks = Group.builder()
                 .name("Tweaks")
@@ -210,7 +195,6 @@ public class NGroups {
 //                .addComponent(new HarderLogs())
                 .enabled(true)
                 .register();
-        groups.add(tweaks);
 
         vanity = Group.builder()
                 .name("Vanity")
@@ -222,14 +206,12 @@ public class NGroups {
                 .addComponent(new SimplerHorseModel())
                 .enabled(true)
                 .register();
-        groups.add(vanity);
 
         winter = Group.builder()
                 .name("Winter")
                 .iconStack(new ItemStack(Blocks.SNOW))
                 .enabled(false)
                 .register();
-        groups.add(winter);
 
         world = Group.builder()
                 .name("World")
@@ -256,7 +238,6 @@ public class NGroups {
                 .addComponent(new VariedDungeons())
                 .enabled(true)
                 .register();
-        groups.add(world);
     }
 
     private static boolean isHalloween() {

@@ -35,8 +35,6 @@ public final class GroupLoader {
     }
 
     public static void preInit(FMLPreInitializationEvent event) {
-//        NGroups.registerGroups();
-
         setupConfig(event);
 
         forEachGroup(module -> LibMisc.LOGGER.info("Group " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
