@@ -26,24 +26,20 @@ public class Group implements Comparable<Group> {
     public String name, desc;
     public boolean enabled;
     public Property prop;
-    private List<Component> componentDependencies = new ArrayList<>();
-    private List<Group> groupDependencies = new ArrayList<>();
     private ItemStack iconStack;
 
     public Group() {
-        name = getClass().getSimpleName().replaceAll("Neutronia", "").toLowerCase();
+        name = "This is a missing name";
         desc = "This is a missing description text since this component does not have a description defined";
     }
 
     public Group(Builder builder) {
-        name = builder.name;
-        desc = builder.desc;
-        enabled = builder.enabled;
+        this.name = builder.name;
+        this.desc = builder.desc;
+        this.enabled = builder.enabled;
         for (Component component : builder.components) {
             registerComponent(component, component.enabled);
         }
-        groupDependencies = builder.groupDependencies;
-        componentDependencies = builder.componentDependencies;
     }
 
     public static Builder builder() {
@@ -65,7 +61,6 @@ public class Group implements Comparable<Group> {
             throw new IllegalArgumentException("Component " + clazz + " is already registered!");
 
         GroupLoader.componentInstances.put(clazz, component);
-        GroupLoader.componentClassNames.put(clazz.getSimpleName(), component);
         components.put(name, component);
 
         component.enabledByDefault = enabledByDefault;
@@ -230,6 +225,10 @@ public class Group implements Comparable<Group> {
         return enabled;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public static class Builder {
 
         private String name, desc;
@@ -237,8 +236,6 @@ public class Group implements Comparable<Group> {
         private Group group;
         private boolean enabled;
         private List<Component> components = new ArrayList<>();
-        private List<Component> componentDependencies = new ArrayList<>();
-        private List<Group> groupDependencies = new ArrayList<>();
 
         public Builder name(String name) {
             this.name = name;
@@ -252,16 +249,6 @@ public class Group implements Comparable<Group> {
 
         public Builder addComponent(Component component) {
             components.add(component);
-            return this;
-        }
-
-        public Builder groupDependency(Group group) {
-            groupDependencies.add(group);
-            return this;
-        }
-
-        public Builder componentDependency(Component component) {
-            componentDependencies.add(component);
             return this;
         }
 
