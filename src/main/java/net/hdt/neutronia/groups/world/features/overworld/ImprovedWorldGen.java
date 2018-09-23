@@ -32,11 +32,6 @@ public class ImprovedWorldGen extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

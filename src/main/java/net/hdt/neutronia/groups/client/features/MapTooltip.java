@@ -15,15 +15,11 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.storage.MapData;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
 public class MapTooltip extends Component {
 
     private static final ResourceLocation RES_MAP_BACKGROUND = new ResourceLocation("textures/map/map_background.png");
@@ -32,7 +28,7 @@ public class MapTooltip extends Component {
 
     @Override
     public void setupConfig() {
-        requireShift = loadProperty("Needs Shift to be visible", false).get();
+        requireShift = loadPropBool("Needs Shift to be visible", "", false);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -46,7 +42,7 @@ public class MapTooltip extends Component {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void renderTooltip(RenderTooltipEvent.PostText event) {
-        if (event.getStack().getItem() instanceof ItemMap && (!requireShift || GuiScreen.isShiftKeyDown())) {
+        if (event.getStack() != null && event.getStack().getItem() instanceof ItemMap && (!requireShift || GuiScreen.isShiftKeyDown())) {
             Minecraft mc = Minecraft.getMinecraft();
 
             MapData mapdata = Items.FILLED_MAP.getMapData(event.getStack(), mc.world);
@@ -83,7 +79,8 @@ public class MapTooltip extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This makes it so we can see the map when we hover over it";
+    public boolean hasSubscriptions() {
+        return isClient();
     }
+
 }

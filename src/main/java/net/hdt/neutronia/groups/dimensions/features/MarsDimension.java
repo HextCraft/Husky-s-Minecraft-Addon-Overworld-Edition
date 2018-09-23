@@ -16,8 +16,8 @@ public class MarsDimension extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds Mars";
-    }
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
 
 }

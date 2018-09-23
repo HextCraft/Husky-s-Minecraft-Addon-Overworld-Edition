@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.proxy;
 
-import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.tileentity.TileEntityPot;
 import net.hdt.neutronia.world.gen.WorldGenCustomStructures;
 import net.minecraft.util.ResourceLocation;
@@ -18,29 +18,29 @@ public class CommonProxy implements IProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        Neutronia.MODULE_LOADER.preInit(event);
+        GroupLoader.preInit(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 1);
         GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
-        Neutronia.MODULE_LOADER.init(event);
+        GroupLoader.init(event);
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent event) {
-        Neutronia.MODULE_LOADER.postInit(event);
+        GroupLoader.postInit(event);
     }
 
     @Override
     public void finalInit(FMLPostInitializationEvent event) {
-        Neutronia.MODULE_LOADER.finalInit(event);
+        GroupLoader.finalInit(event);
     }
 
     @Override
     public void serverStarting(FMLServerStartingEvent event) {
-        Neutronia.MODULE_LOADER.serverStarting(event);
+        GroupLoader.serverStarting(event);
     }
 
     @Override

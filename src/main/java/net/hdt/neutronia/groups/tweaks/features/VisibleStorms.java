@@ -32,9 +32,9 @@ public class VisibleStorms extends Component {
     private float desiredRed, desiredGreen, desiredBlue;
     private float desiredDistance, desiredDistanceScale;
 
-    /*public VisibleStorms() {
+    public VisibleStorms() {
         super(false);
-    }*/
+    }
 
     @SideOnly(Side.CLIENT)
     private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale) {
@@ -49,14 +49,9 @@ public class VisibleStorms extends Component {
 
     @Override
     public void setupConfig() {
-        DUST_STORMS = loadProperty("Dust Storms", true).setComment("Storms are clearly visible in dry biomes.").get();
-        SAND_STORMS = loadProperty("Sand Storms", true).setComment("Adds a fog change during storms in deserts.").get();
-        AIR_PARTICLES = loadProperty("Air Particle Count", 9).setComment("How many air particles should be created, too many may contribute to lag.").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Adds sandstorms and duststorms to hot biomes";
+        DUST_STORMS = loadPropBool("Dust Storms", "Storms are clearly visible in dry biomes.", true);
+        SAND_STORMS = loadPropBool("Sand Storms", "Adds a fog change during storms in deserts.", true);
+        AIR_PARTICLES = loadPropInt("Air Particle Count", "How many air particles should be created, too many may contribute to lag.", 9);
     }
 
     @Override

@@ -54,9 +54,9 @@ public class MossGeneration extends Component {
 
     @Override
     public void setupConfig() {
-        RADIUS = loadProperty("Moss radius from the mob spawner", 5).get();
-        RATE = loadProperty("Moss grow rate", 100).setComment("1 out of this rate will cause a moss to try to generate").get();
-        DISABLE_VINE_RECIPES = loadProperty("Disable Vine Recipes", true).setComment("Disables the mossy cobblestone and mossy brick recipes involving vines.").get();
+        RADIUS = loadPropInt("Moss radius from the mob spawner", "", 5);
+        RATE = loadPropInt("Moss grow rate", "1 out of this rate will cause a moss to try to generate", 100);
+        DISABLE_VINE_RECIPES = loadPropBool("Disable Vine Recipes", "Disables the mossy cobblestone and mossy brick recipes involving vines.", true);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class MossGeneration extends Component {
     }
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Cobblestone or Stonebrick within the spawning radius of a Mob Spawner will randomly grow into the Mossy version.";
     }
 

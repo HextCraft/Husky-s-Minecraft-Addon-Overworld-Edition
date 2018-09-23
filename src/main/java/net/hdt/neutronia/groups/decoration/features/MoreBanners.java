@@ -28,15 +28,15 @@ public class MoreBanners extends Component {
 
     @Override
     public void setupConfig() {
-        dragon = loadProperty("Dragon", true).get();
-        eye = loadProperty("Eye", true).get();
-        shield = loadProperty("Shield", true).get();
-        sword = loadProperty("Sword", true).get();
-        scute = loadProperty("Scute", true).get();
-        phantom = loadProperty("Phantom", true).get();
-        nautilus = loadProperty("Nautilus", true).get();
-        trident = loadProperty("Trident", true).get();
-        anchor = loadProperty("Anchor", true).get();
+        dragon = loadPropBool("Dragon", "", true);
+        eye = loadPropBool("Eye", "", true);
+        shield = loadPropBool("Shield", "", true);
+        sword = loadPropBool("Sword", "", true);
+        scute = loadPropBool("Scute", "", true);
+        phantom = loadPropBool("Phantom", "", true);
+        nautilus = loadPropBool("Nautilus", "", true);
+        trident = loadPropBool("Trident", "", true);
+        anchor = loadPropBool("Anchor", "", true);
     }
 
     @Override
@@ -83,7 +83,8 @@ public class MoreBanners extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds some more patterns for the banners";
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
+
 }

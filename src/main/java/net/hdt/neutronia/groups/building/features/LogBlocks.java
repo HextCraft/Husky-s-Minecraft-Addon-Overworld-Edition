@@ -29,14 +29,14 @@ public class LogBlocks extends Component {
 
     @Override
     public void setupConfig() {
-        acacia = loadProperty("Acacia Log Blocks", true).get();
-        birch = loadProperty("Acacia Log blocks", true).get();
-        darkOak = loadProperty("Acacia Log blocks", true).get();
-        jungle = loadProperty("Acacia Log blocks", true).get();
-        oak = loadProperty("Acacia Log blocks", true).get();
-        spruce = loadProperty("Acacia Log blocks", true).get();
-        enableSlabsAndStairs = loadProperty("Enable Slabs and Stairs", true).get();
-        enableWalls = loadProperty("Enable walls", false).get();
+        acacia = loadPropBool("Acacia Log blocks", "", true);
+        birch = loadPropBool("Acacia Log blocks", "", true);
+        darkOak = loadPropBool("Acacia Log blocks", "", true);
+        jungle = loadPropBool("Acacia Log blocks", "", true);
+        oak = loadPropBool("Acacia Log blocks", "", true);
+        spruce = loadPropBool("Acacia Log blocks", "", true);
+        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true);
+        enableWalls = loadPropBool("Enable walls", "", false);
     }
 
     @Override
@@ -71,8 +71,8 @@ public class LogBlocks extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds new log blocks from 1.13";
-    }
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
 
 }

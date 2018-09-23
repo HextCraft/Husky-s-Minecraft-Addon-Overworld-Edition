@@ -3,6 +3,7 @@ package net.hdt.neutronia.groups.tweaks.features;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.groups.ConfigHelper;
 import net.hdt.neutronia.base.util.ReflectionLib;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,7 +25,7 @@ public class HCTools extends Component {
     private static final HashMap<Item.ToolMaterial, ToolMaterialOverride> OVERRIDES = Maps.newHashMap();
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Overhaul the durability of tools to be more rewarding when reaching the next level. Completely disables wooden tools (other than pick) by default.";
     }
 
@@ -89,7 +90,7 @@ public class HCTools extends Component {
 
 
         ToolMaterialOverride(String name, int maxUses, float efficiencyOnProperMaterial, int enchantability) {
-            this.maxUses = loadProperty("Max Durability", maxUses).setCategory(getCategory() + "." + name).get();
+            this.maxUses = ConfigHelper.loadPropInt("Max Durability", configCategory + "." + name, "", maxUses);
             this.efficiencyOnProperMaterial = efficiencyOnProperMaterial;
             this.enchantability = enchantability;
         }

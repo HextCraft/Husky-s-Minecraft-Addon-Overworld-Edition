@@ -12,12 +12,7 @@ public class PeacefulSurface extends Component {
 
     @Override
     public void setupConfig() {
-        enabled = loadProperty("Enabled", true).setComment("This defines if this component is enabled or not").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Don't remember what this does";
+        enabled = loadPropBool("Enabled", "This defines if this component is enabled or not", true);
     }
 
     @SubscribeEvent

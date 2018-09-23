@@ -41,8 +41,4 @@ public class MoreBiomes extends Component {
         System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
     }
 
-    @Override
-    public String getDescription() {
-        return "Adds more biomes to the overworld";
-    }
 }

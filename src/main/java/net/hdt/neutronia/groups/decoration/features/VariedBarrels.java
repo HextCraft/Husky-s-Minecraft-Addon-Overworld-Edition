@@ -4,12 +4,7 @@ import net.hdt.neutronia.base.groups.Component;
 
 public class VariedBarrels extends Component {
 
-	@Override
-	public String getDescription() {
-		return "Adds barrels made out of wood and that can be used for decoration";
-	}
-
-	@Override
+    @Override
 	public boolean requiresMinecraftRestartToEnable() {
 		return true;
 	}

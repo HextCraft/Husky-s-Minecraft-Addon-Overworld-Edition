@@ -37,7 +37,7 @@ public class HCVillages extends Component {
     private int normalRadius, semiabandonedRadius;
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Makes it so villages with in the reaches of the spawn zone are abandoned and gradually gain more resources the further out. What this means to be gained by the player.";
     }
 
@@ -46,11 +46,11 @@ public class HCVillages extends Component {
 
     @Override
     public void setupConfig() {
-        semiabandonedRadius = loadProperty("Semi-Abandoned Village Radius", 2000).setComment("Block radius from 0,0 at which villages are now semi-abandoned, all villages inside this radius are abandoned").get();
-        normalRadius = loadProperty("Normal Village Radius", 3000).setComment("Block radius from 0,0 at which villages are now normal, all villages in between this and semi-abandoned are semi-abandoned").get();
-        disableAllComplexBlocks = loadProperty("Disable All Complex Blocks", false).setComment("Removes any and all useful blocks from villages, including ladders, stairs, tables and more").get();
-        disableVillagerSpawning = loadProperty("Replace Villager Spawning with Nitwits", true).setComment("Replaces all villager spawns with Nitwits, which have no trades").get();
-        disableIronGolems = loadProperty("Disable Village Iron Golem Spawns", true).setComment("WARNING: Stops all non-player created Iron Golem Spawns").get();
+        semiabandonedRadius = loadPropInt("Semi-Abandoned Village Radius", "Block radius from 0,0 at which villages are now semi-abandoned, all villages inside this radius are abandoned", 2000);
+        normalRadius = loadPropInt("Normal Village Radius", "Block radius from 0,0 at which villages are now normal, all villages in between this and semi-abandoned are semi-abandoned", 3000);
+        disableAllComplexBlocks = loadPropBool("Disable All Complex Blocks", "Removes any and all useful blocks from villages, including ladders, stairs, tables and more", false);
+        disableVillagerSpawning = loadPropBool("Replace Villager Spawning with Nitwits", "Replaces all villager spawns with Nitwits, which have no trades", true);
+        disableIronGolems = loadPropBool("Disable Village Iron Golem Spawns", "WARNING: Stops all non-player created Iron Golem Spawns", true);
 
         ABANDONED = StructureChanger.create(VILLAGE, (w, p) -> p.distanceSq(w.getSpawnPoint()) < semiabandonedRadius * semiabandonedRadius);
         SEMIABANDONED = StructureChanger.create(VILLAGE, (w, p) -> p.distanceSq(w.getSpawnPoint()) < normalRadius * normalRadius);

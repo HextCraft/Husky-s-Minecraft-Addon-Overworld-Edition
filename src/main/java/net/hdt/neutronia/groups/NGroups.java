@@ -71,6 +71,8 @@ public class NGroups {
                 .addComponent(new ShulkerBoxTooltip())
                 .addComponent(new VisualStatDisplay())
                 .addComponent(new ConsoleHudFeatures())
+                .addComponent(new PastelColors())
+                .addComponent(new BetterEndTextures())
                 .addComponent(new MoreDetailedModels())
                 .enabled(true)
                 .register();
@@ -109,7 +111,7 @@ public class NGroups {
                 .addComponent(new MarsDimension())
                 .addComponent(new SunBiomes())
                 .addComponent(new SunDimension())
-//                .addComponent(new RevampedEnd())
+                .addComponent(new RevampedEnd())
                 .addComponent(new RevampedNether())
                 .enabled(false)
                 .register();
@@ -235,7 +237,7 @@ public class NGroups {
                 .iconStack(new ItemStack(Blocks.GRASS))
                 .addComponent(new Acidian())
                 .addComponent(new BetterCaves())
-//                .addComponent(new BetterStoneGeneration())
+                .addComponent(new BetterStoneGeneration())
                 .addComponent(new BetterVillages())
                 .addComponent(new CaveBiomes())
 //                .addComponent(new Corals())

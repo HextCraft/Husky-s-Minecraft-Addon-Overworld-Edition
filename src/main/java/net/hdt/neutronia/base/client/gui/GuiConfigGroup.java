@@ -9,6 +9,7 @@ import net.minecraft.util.text.translation.I18n;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GuiConfigGroup extends GuiConfigBase {
@@ -27,7 +28,8 @@ public class GuiConfigGroup extends GuiConfigBase {
         this.group = group;
 
         components = new ArrayList<>();
-        components.addAll(group);
+        group.forEachComponent(components::add);
+        Collections.sort(components);
 
         totalPages = (components.size() - 1) / FEATURES_PER_PAGE + 1;
     }
@@ -68,10 +70,10 @@ public class GuiConfigGroup extends GuiConfigBase {
 
             Component component = components.get(i);
 
-//            buttonList.add(new ConfigSettingsButton(x + 150, y, component.getParent(), true, component.getName()));
+            buttonList.add(new ConfigSettingsButton(x + 150, y, component.prop, true, component.getComponentInGameConfigName()));
 
-            if (GroupLoader.config.hasCategory(component.getCategory()))
-                buttonList.add(new FeatureSettingsButton(x + 170, y, component.getCategory()));
+            if (GroupLoader.config.hasCategory(component.configCategory))
+                buttonList.add(new FeatureSettingsButton(x + 170, y, component.configCategory));
         }
 
         if (left != null) {

@@ -18,12 +18,7 @@ public class ToolEffTweaks extends Component {
 
     @Override
     public void setupConfig() {
-        enabled = loadProperty("Enabled", true).setComment("This defines if this component is enabled or not").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Changes how effective some tools are on some blocks";
+        enabled = loadPropBool("Enabled", "This defines if this component is enabled or not", true);
     }
 
     @Override

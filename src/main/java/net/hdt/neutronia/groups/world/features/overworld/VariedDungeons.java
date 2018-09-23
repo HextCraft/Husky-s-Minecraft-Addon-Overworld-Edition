@@ -38,13 +38,8 @@ public class VariedDungeons extends Component {
 
     @Override
     public void setupConfig() {
-        String lootTableStr = loadProperty("Custom Loot Table", "").setComment("Set this to anything other than null to load a custom loot table for the dungeons.").get();
+        String lootTableStr = loadPropString("Custom Loot Table", "Set this to anything other than null to load a custom loot table for the dungeons.", "");
         lootTable = lootTableStr.isEmpty() ? null : new ResourceLocation(lootTableStr);
-    }
-
-    @Override
-    public String getDescription() {
-        return "Adds more varied dungeons";
     }
 
     @SubscribeEvent

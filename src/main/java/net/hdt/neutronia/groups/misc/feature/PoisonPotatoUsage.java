@@ -18,12 +18,7 @@ public class PoisonPotatoUsage extends Component {
 
     @Override
     public void setupConfig() {
-        chance = loadProperty("Chance to Poison", 0.1).get();
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
+        chance = loadPropDouble("Chance to Poison", "", 0.1);
     }
 
     @SubscribeEvent

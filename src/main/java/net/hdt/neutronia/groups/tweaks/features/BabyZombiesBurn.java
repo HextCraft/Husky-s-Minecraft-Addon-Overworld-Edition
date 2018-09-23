@@ -46,11 +46,6 @@ public class BabyZombiesBurn extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Makes baby zombies burn in daylight";
-    }
-
-    @Override
     public boolean hasSubscriptions() {
         return true;
     }

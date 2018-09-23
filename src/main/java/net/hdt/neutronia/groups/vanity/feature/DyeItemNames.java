@@ -74,11 +74,6 @@ public class DyeItemNames extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Makes it possible to dye item names";
-    }
-
-    @Override
     public boolean hasSubscriptions() {
         return true;
     }

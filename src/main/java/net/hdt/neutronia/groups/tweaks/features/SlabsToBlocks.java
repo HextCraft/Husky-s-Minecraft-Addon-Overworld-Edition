@@ -34,12 +34,7 @@ public class SlabsToBlocks extends Component {
 
     @Override
     public void setupConfig() {
-        originalSize = loadProperty("Vanilla stack size", 6).setComment("The stack size for the vanilla slab recipe, used for automatically detecting slab recipes").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "";
+        originalSize = loadPropInt("Vanilla stack size", "The stack size for the vanilla slab recipe, used for automatically detecting slab recipes", 6);
     }
 
     @Override

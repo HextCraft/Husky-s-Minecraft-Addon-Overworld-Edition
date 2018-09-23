@@ -35,11 +35,11 @@ public class HCMovement extends Component {
 
     @Override
     public void setupConfig() {
-        dirtpathQuality = loadProperty("Dirt Paths Require Quality Shovel", true).setComment("Dirt Paths require a shovel greater than stone to be created").get();
+        dirtpathQuality = loadPropBool("Dirt Paths Require Quality Shovel", "Dirt Paths require a shovel greater than stone to be created", true);
     }
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Change walking speed depending on the block";
     }
 

@@ -39,17 +39,12 @@ public class EnchantedScrolls extends Component {
 
     @Override
     public void setupConfig() {
-        enchantNames = loadProperty("Valid Enchantments", generateDefaultEnchantmentList()).get();
-        dungeonWeight = loadProperty("Dungeon loot weight", 8).get();
-        libraryWeight = loadProperty("Stronghold Library loot weight", 12).get();
-        itemQuality = loadProperty("Item quality for loot", 2).get();
-        mergeScrollCost = loadProperty("Cost to apply scroll", 35).get();
-        applyScrollCost = loadProperty("Cost to apply upgraded book to item", 35).get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Adds scrolls with enchantments which replaces enchanted books in chests";
+        enchantNames = loadPropStringList("Valid Enchantments", "", generateDefaultEnchantmentList());
+        dungeonWeight = loadPropInt("Dungeon loot weight", "", 8);
+        libraryWeight = loadPropInt("Stronghold Library loot weight", "", 12);
+        itemQuality = loadPropInt("Item quality for loot", "", 2);
+        mergeScrollCost = loadPropInt("Cost to apply scroll", "", 35);
+        applyScrollCost = loadPropInt("Cost to apply upgraded book to item", "", 35);
     }
 
     @Override

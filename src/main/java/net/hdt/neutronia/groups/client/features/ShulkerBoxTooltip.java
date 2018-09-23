@@ -18,29 +18,24 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
 public class ShulkerBoxTooltip extends Component {
 
-    public static ResourceLocation WIDGET_RESOURCE = new ResourceLocation(MOD_ID, "textures/misc/shulker_widget.png");
+    public static ResourceLocation WIDGET_RESOURCE = new ResourceLocation("neutronia", "textures/misc/shulker_widget.png");
 
     boolean useColors, requireShift;
 
 
     @Override
     public void setupConfig() {
-        useColors = loadProperty("Use Colors", true).get();
-        requireShift = loadProperty("Needs Shift to be visible", true).get();
+        useColors = loadPropBool("Use Colors", "", true);
+        requireShift = loadPropBool("Needs Shift to be visible", "", true);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -132,7 +127,8 @@ public class ShulkerBoxTooltip extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Makes so we can see what is in a shulker box if we hover over them in the inventory";
+    public boolean hasSubscriptions() {
+        return isClient();
     }
+
 }

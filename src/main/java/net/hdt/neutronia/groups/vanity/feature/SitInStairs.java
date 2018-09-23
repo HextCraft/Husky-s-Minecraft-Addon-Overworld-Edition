@@ -91,11 +91,6 @@ public class SitInStairs extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Allows you to sit on stairs and slabs";
-    }
-
-    @Override
     public boolean hasSubscriptions() {
         return true;
     }

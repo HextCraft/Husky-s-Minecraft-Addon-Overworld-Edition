@@ -11,12 +11,7 @@ public class NetherFossils extends Component {
 
     @Override
     public void setupConfig() {
-        chance = loadProperty("Fossil Chance", 25).setComment("The rarity of a fossil in a chunk. Higher means fewer fossils.").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Makes fossiles spawn in the nether";
+        chance = loadPropInt("Fossil Chance", "The rarity of a fossil in a chunk. Higher means fewer fossils.", 25);
     }
 
     @Override

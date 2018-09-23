@@ -19,8 +19,8 @@ public class MoonBlocks extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds blocks used for the moon";
-    }
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
 
 }

@@ -21,8 +21,8 @@ public class WoodBlocks extends Component {
 
     @Override
     public void setupConfig() {
-        enableSlabsAndStairs = loadProperty("Enable Slabs and Stairs", true).get();
-        enableWalls = loadProperty("Enable walls", false).get();
+        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true);
+        enableWalls = loadPropBool("Enable walls", "", false);
     }
 
     @Override
@@ -51,7 +51,8 @@ public class WoodBlocks extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds a lot of new wood blocks";
-    }
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
+
 }

@@ -56,11 +56,6 @@ public class TerracottaFlowerPots extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds terracotta pots which generate in dungeons and can be used for decoration";
-    }
-
-    @Override
     public boolean hasSubscriptions() {
         return true;
     }

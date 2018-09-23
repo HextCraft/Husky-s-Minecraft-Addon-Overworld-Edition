@@ -13,12 +13,7 @@ public class EndermitesIntoShulkers extends Component {
 
     @Override
     public void setupConfig() {
-        chance = loadProperty("Transform Chance", chance).setComment("The chance (1 in X) for an Endermite to turn into a Shulker.\nThe higher, the lower the chance. The chance for s Silverfish to bury is 10, for reference.").get();
-    }
-
-    @Override
-    public String getDescription() {
-        return null;
+        chance = loadPropInt("Transform Chance", "The chance (1 in X) for an Endermite to turn into a Shulker.\nThe higher, the lower the chance. The chance for s Silverfish to bury is 10, for reference.", chance);
     }
 
     @SubscribeEvent

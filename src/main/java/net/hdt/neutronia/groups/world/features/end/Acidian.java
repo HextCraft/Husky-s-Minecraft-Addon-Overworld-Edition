@@ -33,11 +33,6 @@ public class Acidian extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds some new end blocks";
-    }
-
-    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

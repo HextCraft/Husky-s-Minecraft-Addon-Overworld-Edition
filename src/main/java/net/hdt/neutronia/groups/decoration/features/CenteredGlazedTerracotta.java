@@ -20,7 +20,8 @@ public class CenteredGlazedTerracotta extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds some new variants of the glazed terracotta";
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
+
 }

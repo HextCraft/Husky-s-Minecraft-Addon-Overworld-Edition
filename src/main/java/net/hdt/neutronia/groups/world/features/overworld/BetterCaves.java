@@ -15,11 +15,6 @@ public class BetterCaves extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Makes caves better";
-    }
-
-    @Override
     public boolean hasTerrainSubscriptions() {
         return true;
     }

@@ -26,7 +26,7 @@ public class MineshaftGeneration extends Component {
     public static StructureChanger MINESHAFT_CHANGER = StructureChanger.create(MINESHAFT, (w, p) -> true);
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Mineshaft's now generate with logs instead of fences";
     }
 

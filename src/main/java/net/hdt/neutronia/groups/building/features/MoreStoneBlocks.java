@@ -32,8 +32,8 @@ public class MoreStoneBlocks extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds even more stone blocks";
-    }
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
 
 }

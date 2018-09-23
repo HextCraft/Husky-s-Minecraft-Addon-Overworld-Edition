@@ -34,9 +34,9 @@ public class VariedButtonsAndPressurePlates extends Component {
 
     @Override
     public void setupConfig() {
-        renameVanillaBlocks = loadProperty("Prefix vanilla blocks with Oak", true).get();
-        enablePressurePlates = loadProperty("Enable Pressure Plates", true).get();
-        enableButtons = loadProperty("Enable Buttons", true).get();
+        renameVanillaBlocks = loadPropBool("Prefix vanilla blocks with Oak", "", true);
+        enablePressurePlates = loadPropBool("Enable Pressure Plates", "", true);
+        enableButtons = loadPropBool("Enable Buttons", "", true);
     }
 
     @Override
@@ -70,7 +70,10 @@ public class VariedButtonsAndPressurePlates extends Component {
             polished_granite_button = new BlockCustomButton("polished_granite", false);
             polished_diorite_button = new BlockCustomButton("polished_diorite", false);
         }
+    }
 
+    @Override
+    public void postPreInit(FMLPreInitializationEvent event) {
         if (enablePressurePlates) {
             WoodVariantReplacer.addReplacements(1, Blocks.WOODEN_PRESSURE_PLATE);
 
@@ -127,7 +130,6 @@ public class VariedButtonsAndPressurePlates extends Component {
             if (renameVanillaBlocks)
                 Blocks.WOODEN_BUTTON.setTranslationKey("oak_button");
         }
-
     }
 
     @Override
@@ -166,13 +168,13 @@ public class VariedButtonsAndPressurePlates extends Component {
     }
 
     @Override
-    public String getName() {
-        return "Varied Buttons/P.Plates";
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
 
     @Override
-    public String getDescription() {
-        return "Adds more type of buttons and pressure plates";
+    public String getComponentInGameConfigName() {
+        return "Varied Buttons/P.Plates";
     }
 
 }

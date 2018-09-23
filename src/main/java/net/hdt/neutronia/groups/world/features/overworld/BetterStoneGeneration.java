@@ -43,13 +43,8 @@ public class BetterStoneGeneration extends Component {
         andesiteInfo = loadStoneInfo("andesite", defSize, defRarity, defUpper, defLower, true, Type.FOREST);
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
     private StoneInfo loadStoneInfo(String name, int clusterSize, int clusterRarity, int upperBound, int lowerBound, boolean enabled, Type... biomes) {
-        return loadStoneInfo(getCategory(), name, clusterSize, clusterRarity, upperBound, lowerBound, enabled, "0", biomes);
+        return loadStoneInfo(configCategory, name, clusterSize, clusterRarity, upperBound, lowerBound, enabled, "0", biomes);
     }
 
     @Override

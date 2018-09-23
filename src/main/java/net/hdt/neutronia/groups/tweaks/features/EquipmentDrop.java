@@ -27,7 +27,7 @@ public class EquipmentDrop extends Component {
     }
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Zombies have a 100% chance to drop any equipment";
     }
 }

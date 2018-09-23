@@ -14,7 +14,7 @@ public class ItemsFlashBeforeExpiring extends Component {
 
     @Override
     public void setupConfig() {
-        minTime = loadProperty("Time To Start Flashing", 200).setComment("How many ticks should the item have left when it starts flashing. Default is 10 seconds (200).").get();
+        minTime = loadPropInt("Time To Start Flashing", "How many ticks should the item have left when it starts flashing. Default is 10 seconds (200).", 200);
     }
 
     @Override
@@ -23,8 +23,4 @@ public class ItemsFlashBeforeExpiring extends Component {
         RenderingRegistry.registerEntityRenderingHandler(EntityItem.class, RenderItemFlashing.factory());
     }
 
-    @Override
-    public String getDescription() {
-        return "This makes items flash before it despawns";
-    }
 }

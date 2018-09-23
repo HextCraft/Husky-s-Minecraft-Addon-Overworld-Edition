@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.proxy;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.client.gui.GuiReplacementEvents;
@@ -38,13 +37,13 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
-        Neutronia.MODULE_LOADER.preInitClient(event);
+        GroupLoader.preInitClient(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event) {
         super.init(event);
-        Neutronia.MODULE_LOADER.initClient(event);
+        GroupLoader.initClient(event);
         MinecraftForge.EVENT_BUS.register(GuiReplacementEvents.class);
         MinecraftForge.EVENT_BUS.register(ConfigEvents.class);
     }
@@ -52,7 +51,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
-        Neutronia.MODULE_LOADER.postInitClient(event);
+        GroupLoader.postInitClient(event);
     }
 
     @Override

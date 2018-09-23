@@ -22,7 +22,7 @@ public class AnimalBirth extends Component {
     }
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Make born animals spawn between their parents for easier automation.";
     }
 

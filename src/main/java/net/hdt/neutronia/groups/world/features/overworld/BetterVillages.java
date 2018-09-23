@@ -15,11 +15,6 @@ public class BetterVillages extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Makes villages better";
-    }
-
-    @Override
     public boolean hasTerrainSubscriptions() {
         return true;
     }

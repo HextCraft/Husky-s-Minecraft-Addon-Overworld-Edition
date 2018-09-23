@@ -47,8 +47,4 @@ public class MoreOceanBiomes extends Component {
         BiomeManager.oceanBiomes.add(biome);
     }
 
-    @Override
-    public String getDescription() {
-        return "Adds all of the 1.13 ocean biomes";
-    }
 }

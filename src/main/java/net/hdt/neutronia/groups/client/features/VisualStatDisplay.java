@@ -19,7 +19,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -27,9 +26,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Collection;
 import java.util.List;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
 public class VisualStatDisplay extends Component {
 
     public static final ImmutableSet<String> VALID_ATTRIBUTES = ImmutableSet.of("generic.attackDamage", "generic.attackSpeed", "generic.armor", "generic.armorToughness");
@@ -197,7 +193,9 @@ public class VisualStatDisplay extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This shows icons that describe the damage and cooldowns of weapons";
+    public boolean hasSubscriptions() {
+        return isClient();
     }
+
+
 }

@@ -36,14 +36,14 @@ public class ColorRunes extends Component {
     }
 
     public static int getColor(int original) {
-        if (!GroupLoader.isComponentEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack) && !targetStack.isEmpty() && !(targetStack.getItem() instanceof ICustomEnchantColor))
+        if (!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack) && !targetStack.isEmpty() && !(targetStack.getItem() instanceof ICustomEnchantColor))
             return original;
 
         return getColorFromStack(targetStack);
     }
 
     public static void applyColor() {
-        if (!GroupLoader.isComponentEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack)) {
+        if (!GroupLoader.isFeatureEnabled(ColorRunes.class) || !doesStackHaveRune(targetStack)) {
             return;
         }
 
@@ -96,20 +96,15 @@ public class ColorRunes extends Component {
 
     @Override
     public void setupConfig() {
-        dungeonWeight = loadProperty("Dungeon loot weight", 20).get();
-        netherFortressWeight = loadProperty("Nether Fortress loot weight", 15).get();
-        jungleTempleWeight = loadProperty("Jungle Temple loot weight", 15).get();
-        desertTempleWeight = loadProperty("Desert Temple loot weight", 15).get();
-        itemQuality = loadProperty("Item quality for loot", 0).get();
-        applyCost = loadProperty("Cost to apply rune", 15).get();
-        enableRainbowRuneCrafting = loadProperty("Enable Rainbow Rune Crafting", true).get();
-        enableRainbowRuneChests = loadProperty("Enable Rainbow Rune in Chests", false).get();
-        stackable = loadProperty("Stackable Runes", true).get();
-    }
-
-    @Override
-    public String getDescription() {
-        return "Adds runes used to color items";
+        dungeonWeight = loadPropInt("Dungeon loot weight", "", 20);
+        netherFortressWeight = loadPropInt("Nether Fortress loot weight", "", 15);
+        jungleTempleWeight = loadPropInt("Jungle Temple loot weight", "", 15);
+        desertTempleWeight = loadPropInt("Desert Temple loot weight", "", 15);
+        itemQuality = loadPropInt("Item quality for loot", "", 0);
+        applyCost = loadPropInt("Cost to apply rune", "", 15);
+        enableRainbowRuneCrafting = loadPropBool("Enable Rainbow Rune Crafting", "", true);
+        enableRainbowRuneChests = loadPropBool("Enable Rainbow Rune in Chests", "", false);
+        stackable = loadPropBool("Stackable Runes", "", true);
     }
 
     @Override

@@ -31,11 +31,6 @@ public class ArmedArmorStands extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds armed armor stands";
-    }
-
-    @Override
     public boolean hasSubscriptions() {
         return true;
     }

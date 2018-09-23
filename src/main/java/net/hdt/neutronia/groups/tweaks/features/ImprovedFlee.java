@@ -30,9 +30,9 @@ public class ImprovedFlee extends Component {
 
     @Override
     public void setupConfig() {
-        blockPlace = loadProperty("Animals Flee from Block Place", true).setComment("When a block is placed in the vicinity of an animal it will get scared and run.").get();
-        blockBreak = loadProperty("Animals Flee from Block Break", true).setComment("When a non-replaceable block is broken in the vicinity of an animal it will get scared and run.").get();
-        groupFlee = loadProperty("Animals Group Flee", true).setComment("When an animal is attacked in the vicinity of another animal it will get scared and run.").get();
+        blockPlace = loadPropBool("Animals Flee from Block Place", "When a block is placed in the vicinity of an animal it will get scared and run.", true);
+        blockBreak = loadPropBool("Animals Flee from Block Break", "When a non-replaceable block is broken in the vicinity of an animal it will get scared and run.", true);
+        groupFlee = loadPropBool("Animals Group Flee", "When an animal is attacked in the vicinity of another animal it will get scared and run.", true);
     }
 
     @SubscribeEvent
@@ -103,7 +103,7 @@ public class ImprovedFlee extends Component {
     }
 
     @Override
-    public String getDescription() {
+    public String getFeatureDescription() {
         return "Improve fleeing AI for attacked animals";
     }
 

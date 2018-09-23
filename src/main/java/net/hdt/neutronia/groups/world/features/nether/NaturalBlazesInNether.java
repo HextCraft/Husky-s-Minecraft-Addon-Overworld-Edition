@@ -27,22 +27,17 @@ public class NaturalBlazesInNether extends Component {
 
     @Override
     public void setupConfig() {
-        weight = loadProperty("Spawn Weight", 5).setComment("The higher, the more will spawn").get();
-        min = loadProperty("Smallest spawn group", 1).get();
-        max = loadProperty("Largest spawn group", 2).get();
+        weight = loadPropInt("Spawn Weight", "The higher, the more will spawn", 5);
+        min = loadPropInt("Smallest spawn group", "", 1);
+        max = loadPropInt("Largest spawn group", "", 2);
 
-        restrictToNetherrack = loadProperty("Block restrictions", true).setComment("Make naturally spawned blazes only spawn in allowed blocks").get();
-        allowedBlocks = Arrays.asList(loadProperty("Allowed spawn blocks", new String[]{
+        restrictToNetherrack = loadPropBool("Block restrictions", "Make naturally spawned blazes only spawn in allowed blocks", true);
+        allowedBlocks = Arrays.asList(loadPropStringList("Allowed spawn blocks", "Only used if \" Block restrictions\" is enabled.", new String[]{
                 Blocks.NETHERRACK.getRegistryName().toString(),
                 Blocks.SOUL_SAND.getRegistryName().toString(),
                 Blocks.MAGMA.getRegistryName().toString(),
                 "neutronia:basalt"
-        }).setComment("Only used if \" Block restrictions\" is enabled.").get());
-    }
-
-    @Override
-    public String getDescription() {
-        return "Makes blazes spawn naturally";
+        }));
     }
 
     @Override
@@ -79,7 +74,7 @@ public class NaturalBlazesInNether extends Component {
     }
 
     @Override
-    public String getName() {
+    public String getComponentInGameConfigName() {
         return "Naturally Spawning Blazes";
     }
 

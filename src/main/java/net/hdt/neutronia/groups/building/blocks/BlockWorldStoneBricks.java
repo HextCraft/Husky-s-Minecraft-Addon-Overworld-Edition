@@ -44,7 +44,7 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
         }
 
         public boolean isEnabled() {
-            return GroupLoader.isComponentEnabled(featureLink) && enabledCond.get();
+            return GroupLoader.isFeatureEnabled(featureLink) && enabledCond.get();
         }
 
     }

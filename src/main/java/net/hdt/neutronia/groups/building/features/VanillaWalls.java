@@ -42,20 +42,20 @@ public class VanillaWalls extends Component {
 
     @Override
     public void setupConfig() {
-        stone = loadProperty("Stone", false).get();
-        granite = loadProperty("Granite", false).get();
-        diorite = loadProperty("Diorite", false).get();
-        andesite = loadProperty("Andesite", false).get();
-        sandstone = loadProperty("Sandstone", true).get();
-        redSandstone = loadProperty("Red Sandstone", true).get();
-        stoneBricks = loadProperty("Stone Bricks", false).get();
-        bricks = loadProperty("Bricks", false).get();
-        quartz = loadProperty("Quartz", false).get();
-        prismarine = loadProperty("Prismarine", false).get();
-        prismarineBricks = loadProperty("Prismarine Bricks", false).get();
-        darkPrismarine = loadProperty("Dark Prismarine", false).get();
-        purpurBlock = loadProperty("Purpur", false).get();
-        endBricks = loadProperty("End Bricks", false).get();
+        stone = loadPropBool("Stone", "", false);
+        granite = loadPropBool("Granite", "", false);
+        diorite = loadPropBool("Diorite", "", false);
+        andesite = loadPropBool("Andesite", "", false);
+        sandstone = loadPropBool("Sandstone", "", true);
+        redSandstone = loadPropBool("Red Sandstone", "", true);
+        stoneBricks = loadPropBool("Stone Bricks", "", false);
+        bricks = loadPropBool("Bricks", "", false);
+        quartz = loadPropBool("Quartz", "", false);
+        prismarine = loadPropBool("Prismarine", "", false);
+        prismarineBricks = loadPropBool("Prismarine Bricks", "", false);
+        darkPrismarine = loadPropBool("Dark Prismarine", "", false);
+        purpurBlock = loadPropBool("Purpur", "", false);
+        endBricks = loadPropBool("End Bricks", "", false);
     }
 
     @Override
@@ -81,8 +81,8 @@ public class VanillaWalls extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "This adds walls for a lot more blocks";
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
     }
 
     public interface WallSupplier {

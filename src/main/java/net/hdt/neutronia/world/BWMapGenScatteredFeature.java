@@ -1,6 +1,7 @@
 package net.hdt.neutronia.world;
 
 import com.google.common.collect.Sets;
+import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -28,6 +29,8 @@ public class BWMapGenScatteredFeature extends MapGenScatteredFeature {
     }
 
     public static StructureComponent getComponent(World world, Random random, int chunkX, int chunkZ, Biome biome) {
+        if (GlobalConfig.debug)
+            System.out.printf("/tp %s ~ %s\n", chunkX * 16, chunkZ * 16);
         for (String structure : STRUCTURE_BIOMES.keySet()) {
             if (STRUCTURE_BIOMES.get(structure).contains(biome)) {
                 switch (structure) {

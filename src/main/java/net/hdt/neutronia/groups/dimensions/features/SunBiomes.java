@@ -4,12 +4,10 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.dimensions.world.biomes.sun.BiomeSunMain;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-@Mod.EventBusSubscriber(modid = MOD_ID)
 public class SunBiomes extends Component {
 
     public static final Biome SUN_MAIN = new BiomeSunMain();
@@ -20,8 +18,13 @@ public class SunBiomes extends Component {
     }
 
     @Override
-    public String getDescription() {
-        return "Adds biomes for the Sun";
+    public boolean hasSubscriptions() {
+        return true;
     }
+
+    @Override
+	public boolean requiresMinecraftRestartToEnable() {
+		return true;
+	}
 
 }
