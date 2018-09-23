@@ -7,6 +7,7 @@ import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.events.ILifeCycleHandler;
 import net.hdt.neutronia.events.handlers.EventHandlers;
 import net.hdt.neutronia.events.handlers.RecipeHandlers;
+import net.hdt.neutronia.groups.building.Building;
 import net.hdt.neutronia.init.NEnchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -42,7 +43,9 @@ public class Neutronia {
         add(new RecipeHandlers());
     }};
 
-    public static final GroupLoader MODULE_LOADER = new GroupLoader(new File(MOD_ID));
+    public static final GroupLoader MODULE_LOADER = new GroupLoader(new File(MOD_ID)).addModules(
+            new Building()
+    );
 
     public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_) {
         return (new EntityDamageSourceIndirect("trident", p_203096_0_, p_203096_1_)).setProjectile();
@@ -58,6 +61,11 @@ public class Neutronia {
 
     public static boolean func_203192_h(ItemStack p_203192_0_) {
         return EnchantmentHelper.getEnchantmentLevel(Objects.requireNonNull(NEnchantments.CHANNELING), p_203192_0_) > 0;
+    }
+
+    @Mod.EventHandler
+    public void construction(FMLConstructionEvent event) {
+        proxy.construction(event);
     }
 
     @Mod.EventHandler

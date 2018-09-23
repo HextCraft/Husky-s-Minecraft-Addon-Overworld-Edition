@@ -29,10 +29,10 @@ public abstract class ListStateHandler<T extends IStateHandler> extends ArrayLis
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        forEachEnabled(i -> {
+        /*forEachEnabled(i -> {
             getLogger().info(" {}: {} is enabled", i.getType(), i.getName());
             i.preInit(event);
-        });
+        });*/
     }
 
     @Override

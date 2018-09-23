@@ -32,7 +32,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
             case 0:
-                generateCoral(world, random, chunkX, chunkZ);
+//                generateCoral(world, random, chunkX, chunkZ);
 //                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 40, Blocks.GRASS, Biomes.PLAINS);
                 break;
         }

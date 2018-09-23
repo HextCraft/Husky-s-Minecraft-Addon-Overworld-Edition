@@ -4,7 +4,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonObject;
 import net.hdt.neutronia.api.modules.impl.ListStateHandler;
-import net.hdt.neutronia.groups.NGroups;
 import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.crafting.IConditionFactory;
@@ -38,6 +37,12 @@ public final class GroupLoader extends ListStateHandler<Group> {
         return this;
     }
 
+    public GroupLoader addModules(List<Group> modules) {
+        for (Group module : modules)
+            addModule(module);
+        return this;
+    }
+
     public GroupLoader addModule(Group module) {
         add(module);
         return this;
@@ -56,7 +61,6 @@ public final class GroupLoader extends ListStateHandler<Group> {
         File file = event.getSuggestedConfigurationFile();
         ConfigHelper helper = new ConfigHelper(file.getParent(), new Configuration(file));
         config = new Configuration(event.getSuggestedConfigurationFile());
-        NGroups.registerGroups();
         forEach(module -> {
             //FIXME Currently have a config for each module, not entirely sure about this
 //            File file = new File(event.getModConfigurationDirectory(), relativeConfigDir.getPath());

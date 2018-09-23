@@ -1,14 +1,18 @@
 package net.hdt.neutronia_addon.proxy;
 
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia_addon.NeutroniaAddon;
-import net.hdt.neutronia_addon.modules.NAGroups;
 import net.minecraftforge.fml.common.event.*;
 
 public class CommonProxy implements IProxy {
 
     @Override
+    public void construction(FMLConstructionEvent event) {
+        Neutronia.MODULE_LOADER.constructed(event);
+    }
+
+    @Override
     public void preInit(FMLPreInitializationEvent event) {
-        NAGroups.registerGroups();
         NeutroniaAddon.MODULE_LOADER.preInit(event);
     }
 

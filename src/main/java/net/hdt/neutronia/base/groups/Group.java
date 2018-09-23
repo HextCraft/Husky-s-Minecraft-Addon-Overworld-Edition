@@ -1,7 +1,6 @@
 package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.api.modules.impl.ListStateHandler;
-import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Property;
@@ -193,7 +192,7 @@ public class Group extends ListStateHandler<Component> {
         public Group register() {
             group = new Group(this);
             group.setIconStack(icon);
-            Neutronia.MODULE_LOADER.addModule(group);
+//            Neutronia.MODULE_LOADER.addModule(group);
             return group;
         }
 

@@ -6,7 +6,7 @@ public class NAGroups {
 
     public static Group test;
 
-    public static void registerGroups() {
+    static {
         test = new Group.Builder()
                 .name("Test")
                 .enabled(true)
