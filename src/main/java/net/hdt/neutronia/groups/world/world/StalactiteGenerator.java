@@ -63,11 +63,19 @@ public class StalactiteGenerator implements IWorldGenerator {
         if (!world.isAirBlock(pos))
             return false;
 
-        IBlockState stateAt = null;
+        int off = world.provider.isNether() ? -1000 : 0;
+        boolean up = random.nextBoolean();
+        EnumFacing diff = (up ? EnumFacing.UP : EnumFacing.DOWN);
+
+        if(!up && world.canBlockSeeSky(pos))
+            return false;
+
+        IBlockState stateAt;
         do {
-            pos = pos.offset(EnumFacing.DOWN);
+            pos = pos.offset(diff);
             stateAt = world.getBlockState(pos);
-        } while (pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt));
+            off++;
+        } while(pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt) && off < 10);
 
         Block type = getStalactiteType(stateAt);
         placeStalactite(random, world, pos, type);

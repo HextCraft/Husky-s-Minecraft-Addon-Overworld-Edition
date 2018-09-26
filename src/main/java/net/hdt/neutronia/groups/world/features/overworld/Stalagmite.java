@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.groups.ComponentRegistry;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.DimensionConfig;
 import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
@@ -10,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+@ComponentRegistry(name = "Stalagmite", icon = "block", iconStack = "minecraft:bricks", description = "")
 public class Stalagmite extends Component {
 
     public static Block stone_stalagmite, granite_stalagmite, diorite_stalagmite,

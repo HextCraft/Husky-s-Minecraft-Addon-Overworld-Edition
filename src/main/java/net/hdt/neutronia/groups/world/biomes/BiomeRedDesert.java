@@ -1,4 +1,4 @@
-package net.hdt.neutronia.world.biome.overworld;
+package net.hdt.neutronia.groups.world.biomes;
 
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.IBlockState;

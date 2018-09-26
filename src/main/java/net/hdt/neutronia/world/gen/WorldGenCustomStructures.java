@@ -1,11 +1,9 @@
 package net.hdt.neutronia.world.gen;
 
 import com.google.common.collect.Lists;
-import net.hdt.neutronia.init.NBiomes;
 import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -73,7 +71,7 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         }
     }
 
-    private void generateCoral(World world, Random random, int chunkX, int chunkZ) {
+    /*private void generateCoral(World world, Random random, int chunkX, int chunkZ) {
         int x = (chunkX * 16) + random.nextInt(16);
         int z = (chunkZ * 16) + random.nextInt(16);
         int y = WorldGenUtils.calculateGenerationHeight(world, x, z, Blocks.GRAVEL);
@@ -87,6 +85,6 @@ public class WorldGenCustomStructures implements IWorldGenerator {
                 }
             }
         }
-    }
+    }*/
 
 }

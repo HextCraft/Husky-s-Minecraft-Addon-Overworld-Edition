@@ -49,7 +49,7 @@ public class ConsoleHudFeatures extends Component {
     }
 
     @Override
-    public void init(FMLInitializationEvent event) {
+    public void initClient(FMLInitializationEvent event) {
         RenderSelectedItem si = new RenderSelectedItem(Minecraft.getMinecraft());
         RenderPaperDoll pd = new RenderPaperDoll(Minecraft.getMinecraft());
         MinecraftForge.EVENT_BUS.register(si);

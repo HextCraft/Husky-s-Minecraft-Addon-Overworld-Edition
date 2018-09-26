@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class SimplerHorseModel extends Component {
 
     @Override
-    public void preInit(FMLPreInitializationEvent event) {
+    public void preInitClient(FMLPreInitializationEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(EntityHorse.class, RenderHorseOverride::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDonkey.class, RenderAbstractHorseOverride::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityMule.class, RenderAbstractHorseOverride::new);

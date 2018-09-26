@@ -14,6 +14,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ColoredPlanks extends Component {
 
@@ -50,6 +52,11 @@ public class ColoredPlanks extends Component {
             addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
 //            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
         }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void preInitClient(FMLPreInitializationEvent event) {
         addColoredBlocks(coloredPlanks);
         addColoredStairs(coloredStairs);
         addColoredSlabs(coloredSlabsSingle, coloredSlabsDouble);

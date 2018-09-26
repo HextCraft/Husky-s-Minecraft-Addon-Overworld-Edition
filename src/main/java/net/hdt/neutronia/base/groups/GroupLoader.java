@@ -123,7 +123,7 @@ public final class GroupLoader {
         enabledGroups.forEach(consumer);
     }
 
-    static void registerGroup(Group group) {
+    public static void registerGroup(Group group) {
         if (!groups.contains(group)) {
             groups.add(group);
             if (!group.name.isEmpty())

@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups;
 
 import net.hdt.neutronia.base.groups.Group;
+import net.hdt.neutronia.base.util.registries.Register;
 import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
 import net.hdt.neutronia.groups.decoration.features.*;
@@ -34,6 +35,15 @@ import java.time.Month;
 public class NGroups {
 
     private static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
+
+    @Register.RegisterGroup(name = "Test", icon = "minecraft:stone", description = "This is a test")
+    public static Group test = new Group();
+    @Register.RegisterGroup(name = "Test2", icon = "minecraft:stone", description = "This is a test")
+    public static Group test2 = new Group();
+    @Register.RegisterGroup(name = "Test3", icon = "minecraft:stone", description = "This is a test")
+    public static Group test3 = new Group();
+    @Register.RegisterGroup(name = "Test4", icon = "minecraft:stone", description = "This is a test")
+    public static Group test4 = new Group();
 
     public static void registerGroups() {
         building = Group.builder()

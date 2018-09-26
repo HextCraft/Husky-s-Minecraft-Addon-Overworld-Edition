@@ -7,7 +7,7 @@ public class ColoredButton extends GuiButton {
 
     private int color;
 
-    ColoredButton(int i, int x, int y, int w, String text, int color) {
+    public ColoredButton(int i, int x, int y, int w, String text, int color) {
         super(i, x, y, w, 20, text);
         this.color = color;
     }

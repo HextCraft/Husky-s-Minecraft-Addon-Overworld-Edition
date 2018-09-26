@@ -25,7 +25,7 @@ public class SquidsInkYou extends Component {
     @SubscribeEvent
     public void onHurt(LivingHurtEvent event) {
         Entity e = event.getEntity();
-        if (e instanceof EntitySquid && !e.world.isRemote) {
+        if (e instanceof EntitySquid && !e.world.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
             List<EntityPlayer> players = e.world.getEntitiesWithinAABB(EntityPlayer.class, e.getEntityBoundingBox().grow(4, 4, 4));
             for (EntityPlayer player : players)
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, time, 0));

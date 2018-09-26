@@ -46,6 +46,10 @@ public class Group implements Comparable<Group> {
         return new Builder();
     }
 
+    public void addComponents() {
+        // NO-OP
+    }
+
     public void registerComponent(Component component, boolean enabledByDefault) {
         registerComponent(component, convertName(component.getClass().getSimpleName()), enabledByDefault);
     }
@@ -188,7 +192,11 @@ public class Group implements Comparable<Group> {
         }
     }
 
-    private void setIconStack(ItemStack stack) {
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setIconStack(ItemStack stack) {
         this.iconStack = stack;
     }
 
@@ -227,6 +235,10 @@ public class Group implements Comparable<Group> {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public static class Builder {

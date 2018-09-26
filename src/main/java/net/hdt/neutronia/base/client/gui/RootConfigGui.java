@@ -1,5 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
+import net.hdt.neutronia.base.client.IconRenderer;
+import net.hdt.neutronia.base.client.gui.elements.GroupElement;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
@@ -39,6 +41,7 @@ public class RootConfigGui extends GuiConfigBase {
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
+    private IconRenderer renderer;
 
     RootConfigGui(GuiScreen parent) {
         super(parent);
@@ -94,6 +97,8 @@ public class RootConfigGui extends GuiConfigBase {
             y = startY + k / 2 * 22;
             Group group = groups.get(j);
             buttonList.add(new GroupButton(x, y, group));
+            GroupElement element = new GroupElement(group);
+            element.addParts();
             buttonList.add(new ConfigSettingsButton(x + 150, y, group.prop, false));
         }
 

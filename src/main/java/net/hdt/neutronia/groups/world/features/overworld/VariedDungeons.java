@@ -22,7 +22,6 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.lang.reflect.Constructor;
@@ -58,19 +57,14 @@ public class VariedDungeons extends Component {
         int y = rand.nextInt(256);
         int z = rand.nextInt(16) + 8;
         BlockPos generatePos = blockpos.add(x, y, z);
-        if (couldDungeonGenerate(world, rand, generatePos) && world instanceof WorldServer) {
+        if (couldDungeonGenerate(world, rand, generatePos) && world instanceof WorldServer)
             placeDungeonAt((WorldServer) world, rand, generatePos);
-            event.setResult(Result.DENY);
-        }
     }
 
     public boolean couldDungeonGenerate(World worldIn, Random rand, BlockPos position) {
-        int i = 3;
         int j = rand.nextInt(2) + 2;
         int k = -j - 1;
         int l = j + 1;
-        int i1 = -1;
-        int j1 = 4;
         int k1 = rand.nextInt(2) + 2;
         int l1 = -k1 - 1;
         int i2 = k1 + 1;

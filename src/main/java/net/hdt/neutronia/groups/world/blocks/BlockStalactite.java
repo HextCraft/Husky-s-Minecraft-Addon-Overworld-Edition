@@ -72,6 +72,11 @@ public class BlockStalactite extends BlockMod implements INeutroniaBlock {
         return true;
     }
 
+    @Override
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
+        return false;
+    }
+
     private int getBearing(IBlockAccess world, BlockPos pos) {
         return Math.max(getStrength(world, pos.down()), getStrength(world, pos.up()));
     }

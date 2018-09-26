@@ -11,12 +11,15 @@ import net.minecraft.client.resources.I18n;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
 public final class ConfigEvents {
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void onGuiOpen(GuiOpenEvent event) {
 		/*if(GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
 			GroupLoader.firstLoad = true;
@@ -25,6 +28,7 @@ public final class ConfigEvents {
     }
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void onGuiInit(GuiScreenEvent.InitGuiEvent event) {
         GuiScreen gui = event.getGui();
 
@@ -44,6 +48,7 @@ public final class ConfigEvents {
     }
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void onButtonClick(GuiScreenEvent.ActionPerformedEvent event) {
         if (event.getButton() instanceof ColoredButton)
             Minecraft.getMinecraft().displayGuiScreen(new RootConfigGui(event.getGui()));

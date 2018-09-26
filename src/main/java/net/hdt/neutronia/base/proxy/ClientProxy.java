@@ -10,7 +10,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
 import net.minecraft.util.Timer;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -18,9 +17,6 @@ import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 import java.util.List;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID)
 public class ClientProxy extends CommonProxy {
 
     public static final Minecraft minecraft = Minecraft.getMinecraft();
