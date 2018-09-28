@@ -59,6 +59,10 @@ public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
         setBreakDoorsAItask(false);
     }
 
+    protected boolean canBreakDoors() {
+        return false;
+    }
+
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
@@ -80,7 +84,7 @@ public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
 
     @Override
     protected PathNavigate createNavigator(World world) {
-        return new PathNavigateSwimmer(this, world);
+        return new PathNavigateGround(this, world);
     }
 
     @Override

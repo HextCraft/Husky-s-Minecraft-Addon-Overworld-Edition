@@ -195,4 +195,11 @@ public class VisibleStorms extends Component {
         return true;
     }
 
+    @Override
+    public String[] getIncompatibleMods() {
+        return new String[] {
+          ""
+        };
+    }
+
 }

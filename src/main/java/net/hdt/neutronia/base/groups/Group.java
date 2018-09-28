@@ -22,23 +22,26 @@ import java.util.function.Consumer;
 public class Group implements Comparable<Group> {
 
     public final Map<String, Component> components = new HashMap<>();
-    final List<Component> enabledComponents = new ArrayList<>();
+    private final List<Component> enabledComponents = new ArrayList<>();
     public String name, desc;
-    public boolean enabled;
+    public boolean enabled, enabledByDefault;
     public Property prop;
     private ItemStack iconStack;
 
     public Group() {
         name = "This is a missing name";
         desc = "This is a missing description text since this component does not have a description defined";
+        enabled = true;
+        enabledByDefault = true;
     }
 
     public Group(Builder builder) {
         this.name = builder.name;
         this.desc = builder.desc;
         this.enabled = builder.enabled;
+        this.enabledByDefault = builder.enabledByDefault;
         for (Component component : builder.components) {
-            registerComponent(component, component.enabled);
+            registerComponent(component, component.enabledByDefault);
         }
     }
 
@@ -177,7 +180,7 @@ public class Group implements Comparable<Group> {
     }
 
     boolean isEnabledByDefault() {
-        return true;
+        return enabledByDefault;
     }
 
     String getModuleDescription() {
@@ -246,7 +249,7 @@ public class Group implements Comparable<Group> {
         private String name, desc;
         private ItemStack icon;
         private Group group;
-        private boolean enabled;
+        private boolean enabled, enabledByDefault;
         private List<Component> components = new ArrayList<>();
 
         public Builder name(String name) {
@@ -269,6 +272,11 @@ public class Group implements Comparable<Group> {
             return this;
         }
 
+        public Builder enabledByDefault(boolean enabledByDefault) {
+            this.enabledByDefault = enabledByDefault;
+            return this;
+        }
+
         public Builder iconStack(ItemStack icon) {
             if (!icon.isEmpty()) {
                 this.icon = icon;
@@ -281,6 +289,8 @@ public class Group implements Comparable<Group> {
         public Group register() {
             group = new Group(this);
             group.setIconStack(icon);
+            group.enabled = enabled;
+            group.enabledByDefault = enabledByDefault;
             GroupLoader.registerGroup(group);
             return group;
         }

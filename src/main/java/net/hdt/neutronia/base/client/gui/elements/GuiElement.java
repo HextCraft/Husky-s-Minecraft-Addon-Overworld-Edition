@@ -5,7 +5,7 @@ public abstract class GuiElement {
     public int posX, posY, width, height;
 
     public GuiElement(String elementName) {
-        System.out.println(elementName);
+//        System.out.println(elementName);
         posX = 10;
         posY = 10;
         width = 16;

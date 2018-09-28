@@ -157,12 +157,6 @@ public class NGroups {
                 .enabled(true)
                 .register();
 
-        summer = Group.builder()
-                .name("Summer")
-                .iconStack(new ItemStack(Blocks.SAND))
-                .enabled(false)
-                .register();
-
         tweaks = Group.builder()
                 .name("Tweaks")
                 .description("This module tweaks various gameplay elements.")
@@ -196,7 +190,7 @@ public class NGroups {
                 .addComponent(new MoreTempting())
                 .addComponent(new MossGeneration())
                 .addComponent(new Sinkholes())
-//                .addComponent(new VisibleStorms())
+                .addComponent(new VisibleStorms())
                 .addComponent(new ToolEffTweaks())
                 .addComponent(new SheepDyeFix())
                 .addComponent(new PeacefulSurface())

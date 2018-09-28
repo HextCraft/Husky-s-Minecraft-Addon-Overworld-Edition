@@ -1,6 +1,5 @@
 package net.hdt.neutronia.events;
 
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -9,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -32,11 +32,11 @@ public class PlayerEventHandler {
         final String message;
 
         if (persistedData.getBoolean(key)) {
-            message = I18n.format("message.neutronia:login.already_received");
+            message = I18n.translateToLocal("message.neutronia:login.already_received");
         } else {
             persistedData.setBoolean(key, true);
             ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.APPLE));
-            message = I18n.format("message.neutronia:login.free_apple");
+            message = I18n.translateToLocal("message.neutronia:login.free_apple");
         }
 
         final ITextComponent chatComponent = new TextComponentTranslation(message);
