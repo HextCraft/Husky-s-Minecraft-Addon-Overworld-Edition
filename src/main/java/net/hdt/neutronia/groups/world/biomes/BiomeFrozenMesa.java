@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.groups.decoration.features.FrostedBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -19,12 +19,12 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class BiomeFrozenMesa extends Biome {
-    protected static final IBlockState COARSE_DIRT = NBlocks.frostedDirts[1].getDefaultState();
-    protected static final IBlockState GRASS = NBlocks.frostedDirts[7].getDefaultState();
-    protected static final IBlockState HARDENED_CLAY = NBlocks.frostedStones[5].getDefaultState();
-    protected static final IBlockState STAINED_HARDENED_CLAY = NBlocks.frostedClay[0].getDefaultState();
-    protected static final IBlockState ORANGE_STAINED_HARDENED_CLAY = NBlocks.frostedClay[1].getDefaultState();
-    protected static final IBlockState RED_SAND = NBlocks.frostedDirts[11].getDefaultState();
+    protected static final IBlockState COARSE_DIRT = FrostedBlocks.frostedDirt[1].getDefaultState();
+    protected static final IBlockState GRASS = FrostedBlocks.frostedDirt[7].getDefaultState();
+    protected static final IBlockState HARDENED_CLAY = FrostedBlocks.frostedStones[5].getDefaultState();
+    protected static final IBlockState STAINED_HARDENED_CLAY = FrostedBlocks.frostedClay[0].getDefaultState();
+    protected static final IBlockState ORANGE_STAINED_HARDENED_CLAY = FrostedBlocks.frostedClay[1].getDefaultState();
+    protected static final IBlockState RED_SAND = FrostedBlocks.frostedDirt[11].getDefaultState();
     private final boolean brycePillars;
     private final boolean hasForest;
     private IBlockState[] clayBands;
@@ -63,7 +63,7 @@ public class BiomeFrozenMesa extends Biome {
         return TREE_FEATURE;
     }
 
-    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+    public void genTerraiFrostedBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
         if (this.clayBands == null || this.worldSeed != worldIn.getSeed()) {
             this.generateBands(worldIn.getSeed());
         }
@@ -165,7 +165,7 @@ public class BiomeFrozenMesa extends Biome {
                         } else {
                             chunkPrimerIn.setBlockState(l1, j1, k1, iblockstate3);
 
-                            if (iblockstate3.getBlock() == NBlocks.frostedStones[5]) {
+                            if (iblockstate3.getBlock() == FrostedBlocks.frostedStones[5]) {
                                 chunkPrimerIn.setBlockState(l1, j1, k1, ORANGE_STAINED_HARDENED_CLAY);
                             }
                         }
@@ -206,7 +206,7 @@ public class BiomeFrozenMesa extends Biome {
             int k = random.nextInt(64);
 
             for (int l = 0; k + l < 64 && l < j; ++l) {
-                this.clayBands[k + l] = NBlocks.frostedClay[EnumDyeColor.YELLOW.getMetadata()].getDefaultState();
+                this.clayBands[k + l] = FrostedBlocks.frostedClay[EnumDyeColor.YELLOW.getMetadata()].getDefaultState();
             }
         }
 
@@ -217,7 +217,7 @@ public class BiomeFrozenMesa extends Biome {
             int l3 = random.nextInt(64);
 
             for (int i1 = 0; l3 + i1 < 64 && i1 < i3; ++i1) {
-                this.clayBands[l3 + i1] = NBlocks.frostedClay[EnumDyeColor.BROWN.getMetadata()].getDefaultState();
+                this.clayBands[l3 + i1] = FrostedBlocks.frostedClay[EnumDyeColor.BROWN.getMetadata()].getDefaultState();
             }
         }
 
@@ -228,7 +228,7 @@ public class BiomeFrozenMesa extends Biome {
             int k4 = random.nextInt(64);
 
             for (int j1 = 0; k4 + j1 < 64 && j1 < i4; ++j1) {
-                this.clayBands[k4 + j1] = NBlocks.frostedClay[EnumDyeColor.RED.getMetadata()].getDefaultState();
+                this.clayBands[k4 + j1] = FrostedBlocks.frostedClay[EnumDyeColor.RED.getMetadata()].getDefaultState();
             }
         }
 
@@ -240,14 +240,14 @@ public class BiomeFrozenMesa extends Biome {
             j4 += random.nextInt(16) + 4;
 
             for (int k1 = 0; j4 + k1 < 64 && k1 < 1; ++k1) {
-                this.clayBands[j4 + k1] = NBlocks.frostedClay[EnumDyeColor.WHITE.getMetadata()].getDefaultState();
+                this.clayBands[j4 + k1] = FrostedBlocks.frostedClay[EnumDyeColor.WHITE.getMetadata()].getDefaultState();
 
                 if (j4 + k1 > 1 && random.nextBoolean()) {
-                    this.clayBands[j4 + k1 - 1] = NBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
+                    this.clayBands[j4 + k1 - 1] = FrostedBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
                 }
 
                 if (j4 + k1 < 63 && random.nextBoolean()) {
-                    this.clayBands[j4 + k1 + 1] = NBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
+                    this.clayBands[j4 + k1 + 1] = FrostedBlocks.frostedClay[EnumDyeColor.SILVER.getMetadata()].getDefaultState();
                 }
             }
         }

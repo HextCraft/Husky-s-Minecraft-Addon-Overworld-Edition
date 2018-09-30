@@ -34,4 +34,9 @@ public class DecorativeCorals extends Component {
         }
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

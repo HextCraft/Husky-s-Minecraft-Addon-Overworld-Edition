@@ -21,11 +21,10 @@ public class NetherMushroomGenerator implements IWorldGenerator {
                 generateNether(random, chunkX, chunkZ, world);
                 break;
         }
-
     }
 
     private void generateNether(Random random, int chunkX, int chunkZ, World world) {
-        generateNetherMushroom(random, chunkX, chunkZ, world, 0.3F);
+            generateNetherMushroom(random, chunkX, chunkZ, world, 0.3F);
     }
 
     private void generateNetherMushroom(Random random, int chunkX, int chunkZ, World world, float probability) {

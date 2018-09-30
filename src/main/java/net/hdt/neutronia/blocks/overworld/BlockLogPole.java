@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.blocks.base.BlockRodBase;
-import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.groups.building.features.LogBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
@@ -47,9 +47,9 @@ public class BlockLogPole extends BlockRodBase {
     public void updateState(World worldIn, BlockPos pos, IBlockState state) {
         if (!worldIn.isRemote) {
             if (!this.stripped) {
-                worldIn.setBlockState(pos, NBlocks.logPoles[type.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, LogBlocks.logPoles[type.getMetadata()].getDefaultState(), 2);
             } else {
-                worldIn.setBlockState(pos, NBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, LogBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -79,7 +79,7 @@ public class BlockLogPole extends BlockRodBase {
             if (!this.stripped) {
                 worldIn.scheduleUpdate(pos, this, 4);
             } else {
-                worldIn.setBlockState(pos, NBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, LogBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -87,8 +87,8 @@ public class BlockLogPole extends BlockRodBase {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (playerIn.getActiveItemStack() == new ItemStack(Items.WOODEN_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.STONE_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.IRON_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.GOLDEN_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.DIAMOND_AXE) || playerIn.getActiveItemStack() == new ItemStack(NItems.OBSIDIAN_AXE) && hand == EnumHand.MAIN_HAND) {
-            if (worldIn.getBlockState(pos) == NBlocks.logPoles[type.getMetadata()].getDefaultState()) {
-                worldIn.setBlockState(pos, NBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
+            if (worldIn.getBlockState(pos) == LogBlocks.logPoles[type.getMetadata()].getDefaultState()) {
+                worldIn.setBlockState(pos, LogBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
                 worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(NItems.barkItem[type.getMetadata()], 4)));
                 stripped = true;
                 return true;

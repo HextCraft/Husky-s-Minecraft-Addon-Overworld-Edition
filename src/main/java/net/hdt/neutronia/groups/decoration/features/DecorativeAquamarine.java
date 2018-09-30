@@ -22,4 +22,9 @@ public class DecorativeAquamarine extends Component {
         }
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

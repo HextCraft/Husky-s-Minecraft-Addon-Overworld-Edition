@@ -60,4 +60,9 @@ public class TerracottaFlowerPots extends Component {
         return true;
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
 }

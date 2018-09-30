@@ -16,7 +16,7 @@ public class WorldGenNetherMushroom extends WorldGenerator {
         Block hat = Blocks.DIRT;
         Block stem = Blocks.STONE;
 
-        int height = 2 + rand.nextInt(7);
+        int height;
         height = 7;
 
         if (worldIn.getBlockState(position.add(-2, height, 0)).getBlock() == Blocks.AIR &&

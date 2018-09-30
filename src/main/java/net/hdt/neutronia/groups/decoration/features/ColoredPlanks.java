@@ -5,8 +5,8 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredWall;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
 import net.hdt.neutronia.blocks.base.BlockModColoredSlab;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
 import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredStair;
+import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaColoredSlab;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
@@ -20,8 +20,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ColoredPlanks extends Component {
 
     private static final Block[] coloredPlanks = new Block[16];
-    private static final BlockOverworldColoredSlab[] coloredSlabsSingle = new BlockOverworldColoredSlab[16];
-    private static final BlockOverworldColoredSlab[] coloredSlabsDouble = new BlockOverworldColoredSlab[16];
+    private static final BlockVanillaColoredSlab[] coloredSlabsSingle = new BlockVanillaColoredSlab[16];
+    private static final BlockVanillaColoredSlab[] coloredSlabsDouble = new BlockVanillaColoredSlab[16];
     private static final BlockStairs[] coloredStairs = new BlockStairs[16];
 
     private static void addColored(String name, Block block, int meta, boolean slab, boolean stairs, EnumDyeColor color) {
@@ -32,8 +32,8 @@ public class ColoredPlanks extends Component {
             BlockModStairs.initStairs(block, meta, coloredStairs[color.getMetadata()]);
         }
         if (slab) {
-            coloredSlabsSingle[color.getMetadata()] = new BlockOverworldColoredSlab(name, color, state.getMaterial(), false);
-            coloredSlabsDouble[color.getMetadata()] = new BlockOverworldColoredSlab(name, color, state.getMaterial(), true);
+            coloredSlabsSingle[color.getMetadata()] = new BlockVanillaColoredSlab(name, color, state, false);
+            coloredSlabsDouble[color.getMetadata()] = new BlockVanillaColoredSlab(name, color, state, true);
             BlockModColoredSlab.initSlab(block, meta, coloredSlabsSingle[color.getMetadata()], coloredSlabsDouble[color.getMetadata()]);
         }
     }

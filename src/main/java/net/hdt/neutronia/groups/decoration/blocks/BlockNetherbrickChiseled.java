@@ -1,8 +1,8 @@
-package net.hdt.neutronia.blocks;
+package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.groups.decoration.features.ChiseledBlocks;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -48,14 +48,14 @@ public class BlockNetherbrickChiseled extends BlockMod implements INeutroniaBloc
             if (item == Items.LAVA_BUCKET) {
                 if (!filled) {
                     worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    worldIn.setBlockState(pos, NBlocks.chiseledNetherbrickFilled.getDefaultState(), 2);
+                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherbrickFilled.getDefaultState(), 2);
                     playerIn.setHeldItem(hand, new ItemStack(Items.BUCKET));
                 }
                 return true;
             } else if (item == Items.BUCKET) {
                 if (filled) {
                     worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    worldIn.setBlockState(pos, NBlocks.chiseledNetherbrick.getDefaultState(), 2);
+                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherbrick.getDefaultState(), 2);
                     itemstack.shrink(1);
                     playerIn.setHeldItem(hand, new ItemStack(Items.LAVA_BUCKET));
                     return true;

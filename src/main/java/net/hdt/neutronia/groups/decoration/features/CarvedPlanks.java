@@ -34,4 +34,13 @@ public class CarvedPlanks extends Component {
         }
     }
 
+    @Override
+    public boolean requiresMinecraftRestartToEnable() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabledByDefault() {
+        return true;
+    }
 }

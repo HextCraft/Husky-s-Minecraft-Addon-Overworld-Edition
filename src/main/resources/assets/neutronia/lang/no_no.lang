@@ -925,3 +925,10 @@ neutroniaMisc.rightClickAdd=Høyreklikk for å legge til
 
 message.neutronia:login.already_received=Du har allerede fått ditt gratis eple!
 message.neutronia:login.free_apple=Her, ta et gratis eple!
+
+itemGroup.overworld=Neutronia: Overworld
+itemGroup.ocean=Neutronia: Ocean
+itemGroup.wood=Neutronia: Wood
+itemGroup.nether=Neutronia: Nether
+itemGroup.end=Neutronia: End
+itemGroup.items=Neutronia: Items

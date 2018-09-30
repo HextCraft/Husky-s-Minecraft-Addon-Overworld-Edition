@@ -39,42 +39,31 @@ public class BlockWoodSlabBase extends BlockModSlab implements INeutroniaBlock {
 
         switch (side) {
             case DOWN:
-
                 if (axisalignedbb.minY > 0.0D) {
                     return true;
                 }
-
                 break;
             case UP:
-
                 if (axisalignedbb.maxY < 1.0D) {
                     return true;
                 }
-
                 break;
             case NORTH:
-
                 if (axisalignedbb.minZ > 0.0D) {
                     return true;
                 }
-
                 break;
             case SOUTH:
-
                 if (axisalignedbb.maxZ < 1.0D) {
                     return true;
                 }
-
                 break;
             case WEST:
-
                 if (axisalignedbb.minX > 0.0D) {
                     return true;
                 }
-
                 break;
             case EAST:
-
                 if (axisalignedbb.maxX < 1.0D) {
                     return true;
                 }
@@ -86,12 +75,10 @@ public class BlockWoodSlabBase extends BlockModSlab implements INeutroniaBlock {
 
         // Glass and other transparent materials force this side to be transparent.
         if (material == Material.GLASS) {
-            if (!material.isOpaque() && material != Material.AIR) {
-                return false;
-            }
+            return material.isOpaque() || material == Material.AIR;
         }
 
-        return !sideBlockState.doesSideBlockRendering(blockAccess, pos.offset(side), side.getOpposite());
+        return true;
     }
 
     @Override

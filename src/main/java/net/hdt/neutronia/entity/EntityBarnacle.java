@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityMonsterOfTheOceanDepths extends EntityWaterMob {
+public class EntityBarnacle extends EntityWaterMob {
 
     public float squidPitch;
     public float prevSquidPitch;
@@ -51,7 +51,7 @@ public class EntityMonsterOfTheOceanDepths extends EntityWaterMob {
     private float randomMotionVecY;
     private float randomMotionVecZ;
 
-    public EntityMonsterOfTheOceanDepths(World worldIn) {
+    public EntityBarnacle(World worldIn) {
         super(worldIn);
         this.setSize(0.8F, 0.8F);
         this.rand.setSeed((long) (1 + this.getEntityId()));
@@ -59,11 +59,11 @@ public class EntityMonsterOfTheOceanDepths extends EntityWaterMob {
     }
 
     public static void registerFixesSquid(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityMonsterOfTheOceanDepths.class);
+        EntityLiving.registerFixesMob(fixer, EntityBarnacle.class);
     }
 
     protected void initEntityAI() {
-        this.tasks.addTask(0, new EntityMonsterOfTheOceanDepths.AIMoveRandom(this));
+        this.tasks.addTask(0, new EntityBarnacle.AIMoveRandom(this));
     }
 
     protected void applyEntityAttributes() {
@@ -215,9 +215,9 @@ public class EntityMonsterOfTheOceanDepths extends EntityWaterMob {
     }
 
     static class AIMoveRandom extends EntityAIBase {
-        private final EntityMonsterOfTheOceanDepths squid;
+        private final EntityBarnacle squid;
 
-        public AIMoveRandom(EntityMonsterOfTheOceanDepths p_i45859_1_) {
+        public AIMoveRandom(EntityBarnacle p_i45859_1_) {
             this.squid = p_i45859_1_;
         }
 

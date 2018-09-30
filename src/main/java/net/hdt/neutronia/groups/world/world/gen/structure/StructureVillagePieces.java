@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.world.world.gen.structure;
 
 import com.google.common.collect.Lists;
+import net.hdt.neutronia.groups.decoration.features.StonePillars;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -1656,7 +1657,7 @@ public class StructureVillagePieces {
                 return event.getReplacement();
             if (this.structureType == 1) {
                 if (blockstateIn.getBlock() == Blocks.LOG.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z) || blockstateIn.getBlock() == Blocks.LOG2.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Z)) {
-                    return NBlocks.sandstonePillar.getDefaultState().withProperty(BlockLog.LOG_AXIS, blockstateIn.getValue(BlockLog.LOG_AXIS));
+                    return StonePillars.sandstonePillar.getDefaultState().withProperty(BlockLog.LOG_AXIS, blockstateIn.getValue(BlockLog.LOG_AXIS));
                 }
 
                 if (blockstateIn.getBlock() == Blocks.LOG || blockstateIn.getBlock() == Blocks.LOG2) {

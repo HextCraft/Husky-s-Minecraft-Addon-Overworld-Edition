@@ -1,7 +1,7 @@
-package net.hdt.neutronia.blocks.overworld;
+package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.groups.decoration.features.ColoredCandles;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -74,7 +74,7 @@ public class BlockColoredCandles extends BlockColoredAlt {
             if (this.lit) {
                 worldIn.scheduleUpdate(pos, this, 4);
             } else {
-                worldIn.setBlockState(pos, NBlocks.coloredLitCandles[color.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, ColoredCandles.coloredLitCandles[color.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -83,15 +83,15 @@ public class BlockColoredCandles extends BlockColoredAlt {
      * Get the Item that this Block should drop when harvested.
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(NBlocks.coloredCandles[color.getMetadata()]);
+        return Item.getItemFromBlock(ColoredCandles.coloredCandles[color.getMetadata()]);
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(NBlocks.coloredCandles[color.getMetadata()]);
+        return new ItemStack(ColoredCandles.coloredCandles[color.getMetadata()]);
     }
 
     protected ItemStack getSilkTouchDrop(IBlockState state) {
-        return new ItemStack(NBlocks.coloredCandles[color.getMetadata()]);
+        return new ItemStack(ColoredCandles.coloredCandles[color.getMetadata()]);
     }
 
 }

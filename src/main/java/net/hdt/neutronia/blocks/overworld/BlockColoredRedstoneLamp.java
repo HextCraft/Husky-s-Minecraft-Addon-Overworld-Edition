@@ -1,7 +1,7 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.init.NBlocks;
+import net.hdt.neutronia.groups.decoration.features.ColoredRedstoneLamps;
 import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -38,9 +38,9 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
     public void updateState(World worldIn, BlockPos pos, IBlockState state) {
         if (!worldIn.isRemote) {
             if (this.isOn && !worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, NBlocks.coloredRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, ColoredRedstoneLamps.coloredRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, ColoredRedstoneLamps.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -55,7 +55,7 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
             if (this.isOn && !worldIn.isBlockPowered(pos)) {
                 worldIn.scheduleUpdate(pos, this, 4);
             } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
-                worldIn.setBlockState(pos, NBlocks.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
+                worldIn.setBlockState(pos, ColoredRedstoneLamps.coloredLitRedstoneLamp[color.getMetadata()].getDefaultState(), 2);
             }
         }
     }
@@ -64,15 +64,15 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
      * Get the Item that this Block should drop when harvested.
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
+        return Item.getItemFromBlock(ColoredRedstoneLamps.coloredRedstoneLamp[color.getMetadata()]);
     }
 
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
+        return new ItemStack(ColoredRedstoneLamps.coloredRedstoneLamp[color.getMetadata()]);
     }
 
     protected ItemStack getSilkTouchDrop(IBlockState state) {
-        return new ItemStack(NBlocks.coloredRedstoneLamp[color.getMetadata()]);
+        return new ItemStack(ColoredRedstoneLamps.coloredRedstoneLamp[color.getMetadata()]);
     }
 
 }

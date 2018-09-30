@@ -22,6 +22,7 @@ public class MoreBiomes extends Component {
     private static final Biome GOLDEN_SAVANNA_PLATEAU = new BiomeGoldenSavanna(new BiomeProperties("Golden Savanna Plateau").setBaseHeight(Biomes.SAVANNA_PLATEAU.getBaseHeight()).setHeightVariation(Biomes.SAVANNA_PLATEAU.getHeightVariation()).setTemperature(Biomes.SAVANNA_PLATEAU.getDefaultTemperature()).setRainfall(Biomes.SAVANNA_PLATEAU.getRainfall()));
     private static final Biome SAND_DUNE = new BiomeSandDune(new BiomeProperties("Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
     private static final Biome RED_SAND_DUNE = new BiomeRedSandDune(new BiomeProperties("Red Sand Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.DESERT.getDefaultTemperature()).setRainfall(Biomes.DESERT.getRainfall()).setRainDisabled());
+    private static final Biome CHAPARRAL = new BiomeChaparral();
 
     public static Biome hills = new BiomeNHills(new BiomeProperties("Hills").setBaseHeight(1.15F).setHeightVariation(0.558F).setTemperature(Biomes.EXTREME_HILLS.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
     ///public static Biome hills = new BiomeNHills(new BiomeProperties("Hills").setBaseHeight(1.44F).setHeightVariation(0.64F).setTemperature(Biomes.EXTREME_HILLS.getDefaultTemperature()).setRainfall(Biomes.EXTREME_HILLS.getRainfall()));
@@ -77,9 +78,10 @@ public class MoreBiomes extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         addBiome(GOLDEN_SAVANNA, "golden_savanna", 5, true, BiomeType.DESERT, Type.SAVANNA);
-        addBiome(GOLDEN_SAVANNA_PLATEAU, "golden_savanna_plateau", 1, true, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SAVANNA);
-        addBiome(SAND_DUNE, "sand_dune", 5, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
-        addBiome(RED_SAND_DUNE, "red_sand_dune", 3, false, BiomeManager.BiomeType.DESERT, BiomeDictionary.Type.SANDY);
+        addBiome(GOLDEN_SAVANNA_PLATEAU, "golden_savanna_plateau", 1, true, BiomeType.DESERT, Type.SAVANNA);
+        addBiome(SAND_DUNE, "sand_dune", 5, false, BiomeType.DESERT, Type.SANDY);
+        addBiome(RED_SAND_DUNE, "red_sand_dune", 3, false, BiomeType.DESERT, Type.SANDY);
+        addBiome(CHAPARRAL, "chaparral", 5, false, BiomeType.DESERT, Type.SANDY);
 
         //WARM
         addBiome(mountains, "mountains", 4, true, BiomeType.WARM, Type.HILLS);
