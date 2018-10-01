@@ -26,7 +26,8 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     RUST_ARDUIN(19, "rust_arduin"),
     SMOOTH_RUST_ARDUIN(20, "smooth_rust_arduin"),
     TINTED_ARDUIN(21, "tinted_arduin"),
-    SMOOTH_TINTED_ARDUIN(22, "smooth_tinted_arduin");
+    SMOOTH_TINTED_ARDUIN(22, "smooth_tinted_arduin"),
+    RED_COBBLE(23, "red_cobble");
 
     private static final EnumNewStoneVariants[] META_LOOKUP = new EnumNewStoneVariants[values().length];
 
@@ -39,9 +40,9 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     private final int meta;
     private final String name;
 
-    EnumNewStoneVariants(int p_i46384_3_, String p_i46384_5_) {
-        this.meta = p_i46384_3_;
-        this.name = p_i46384_5_;
+    EnumNewStoneVariants(int meta, String name) {
+        this.meta = meta;
+        this.name = name;
     }
 
     public static EnumNewStoneVariants byMetadata(int meta) {

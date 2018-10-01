@@ -6,14 +6,12 @@ import net.hdt.neutronia.properties.EnumNewStoneVariants;
 import net.hdt.neutronia.properties.EnumNewStoneVariantsSlabsAndStairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class MoreStoneBlocks extends Component {
 
     //Stone Blocks
-    public static final Block[] newStoneVariants = new Block[23];
+    public static final Block[] newStoneVariants = new Block[24];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -24,7 +22,6 @@ public class MoreStoneBlocks extends Component {
         for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
             VanillaStairsAndSlabs.add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], 0, true, false, true);
         }
-        GameRegistry.addSmelting(newStoneVariants[4], new ItemStack(newStoneVariants[1], 4), 2F);
         VanillaStairsAndSlabs.add("andesite_cobble", newStoneVariants[EnumNewStoneVariants.ANDESITE_COBBLE.getMetadata()], 0, false, true, true);
         VanillaStairsAndSlabs.add("granite_cobble", newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], 0, false, true, true);
     }

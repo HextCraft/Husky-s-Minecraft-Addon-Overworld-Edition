@@ -6,7 +6,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
-public class ModelPharaoGolem extends ModelBase {
+public class ModelAncientGolem extends ModelBase {
     /**
      * The head model for the iron golem.
      */
@@ -32,15 +32,15 @@ public class ModelPharaoGolem extends ModelBase {
      */
     public ModelRenderer ironGolemRightLeg;
 
-    public ModelPharaoGolem() {
+    public ModelAncientGolem() {
         this(0.0F);
     }
 
-    public ModelPharaoGolem(float p_i1161_1_) {
+    public ModelAncientGolem(float p_i1161_1_) {
         this(p_i1161_1_, -7.0F);
     }
 
-    public ModelPharaoGolem(float p_i46362_1_, float p_i46362_2_) {
+    public ModelAncientGolem(float p_i46362_1_, float p_i46362_2_) {
         int i = 128;
         int j = 128;
         this.ironGolemHead = (new ModelRenderer(this)).setTextureSize(128, 128);
