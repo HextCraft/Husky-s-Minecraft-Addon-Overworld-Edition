@@ -44,6 +44,10 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
         setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
+    public BlockNeutroniaWall(IBlockState state, String name) {
+        this(name, state);
+    }
+
     private static int getAABBIndex(IBlockState state) {
         int i = 0;
 

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import static net.hdt.neutronia.init.NCreativeTabs.OCEAN_EXPANSION_TAB;
 import static net.hdt.neutronia.init.NCreativeTabs.OVERWORLD_EXPANSION_TAB;
 
-public class StonePillars extends Component {
+public class MorePillars extends Component {
 
     public static Block sandstonePillar, redSandstonePillar, stonePillar, polishedAndesitePillar, polishedGranitePillar, polishedDioritePillar, stoneBrickPillar, prismarineColumn;
 
