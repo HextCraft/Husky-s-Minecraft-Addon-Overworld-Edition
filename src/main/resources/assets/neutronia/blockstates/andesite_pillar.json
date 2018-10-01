@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:andesite_pillar" },
+    "axis=z":     { "model": "neutronia:andesite_pillar", "x": 90 },
+    "axis=x":     { "model": "neutronia:andesite_pillar", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:andesite_pillar" }
+  }
+}

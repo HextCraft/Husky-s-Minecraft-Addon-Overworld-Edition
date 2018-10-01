@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/smooth_purpur_block",
+      "side": "neutronia:block/chiseled_purpur"
+    },
+    "model": "cube_column",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}

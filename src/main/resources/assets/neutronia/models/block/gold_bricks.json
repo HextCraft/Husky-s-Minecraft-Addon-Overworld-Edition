@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "neutronia:block/gold_bricks"
+  }
+}

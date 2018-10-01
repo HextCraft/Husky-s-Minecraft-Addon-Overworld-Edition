@@ -1,0 +1,47 @@
+{
+  "forge_marker": 1,
+  "defaults":{
+    "textures": {
+      "wall": "neutronia:block/stripped_oak_log"
+    }
+  },
+  "variants": {
+    "up": {
+      "true": {
+        "submodel": "minecraft:wall_post"
+      },
+      "false": {}
+    },
+    "north": {
+      "true": {
+        "submodel": "minecraft:wall_side",
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "east": {
+      "true": {
+        "submodel": "minecraft:wall_side",
+        "y": 90,
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "south": {
+      "true": {
+        "submodel": "minecraft:wall_side",
+        "y": 180,
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "west": {
+      "true": {
+        "submodel": "minecraft:wall_side",
+        "y": 270,
+        "uvlock": true
+      },
+      "false": {}
+    }
+  }
+}

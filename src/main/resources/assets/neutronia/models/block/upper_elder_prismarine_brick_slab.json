@@ -1,0 +1,8 @@
+{
+    "parent": "block/upper_slab",
+    "textures": {
+        "bottom": "neutronia:block/elder_prismarine_bricks",
+        "top": "neutronia:block/elder_prismarine_bricks",
+        "side": "neutronia:block/elder_prismarine_bricks"
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "blocks/stone_andesite_smooth",
+    "side": "neutronia:block/andesite_slab_side"
+  }
+}

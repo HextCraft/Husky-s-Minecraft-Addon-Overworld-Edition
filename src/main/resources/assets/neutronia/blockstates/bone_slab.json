@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_bone_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_bone_slab" }
+    }
+}

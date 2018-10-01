@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:block/elder_prismarine_bricks"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:elder_prismarine_bricks"
+    },
+    "inventory": {
+      "model": "neutronia:elder_prismarine_bricks"
+    }
+  }
+}

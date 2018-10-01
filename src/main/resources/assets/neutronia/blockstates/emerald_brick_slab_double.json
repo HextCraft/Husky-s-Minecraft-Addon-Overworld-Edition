@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "variant=default": { "model": "neutronia:emerald_bricks" }
+  }
+}

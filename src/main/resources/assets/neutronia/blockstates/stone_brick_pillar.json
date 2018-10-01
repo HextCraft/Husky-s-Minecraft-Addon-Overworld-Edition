@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:stone_brick_pillar" },
+    "axis=z":     { "model": "neutronia:stone_brick_pillar", "x": 90 },
+    "axis=x":     { "model": "neutronia:stone_brick_pillar", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:stone_brick_pillar" }
+  }
+}

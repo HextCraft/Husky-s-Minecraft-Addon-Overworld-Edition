@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_obsidian_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_obsidian_slab" }
+    }
+}

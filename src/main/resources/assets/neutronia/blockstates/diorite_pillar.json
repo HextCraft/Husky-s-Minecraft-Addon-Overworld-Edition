@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:diorite_pillar" },
+    "axis=z":     { "model": "neutronia:diorite_pillar", "x": 90 },
+    "axis=x":     { "model": "neutronia:diorite_pillar", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:diorite_pillar" }
+  }
+}

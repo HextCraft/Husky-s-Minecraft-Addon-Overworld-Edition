@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "neutronia:block/smooth_stonebrick",
+    "front": "neutronia:block/stone_brick_lantern",
+    "side": "neutronia:block/smooth_stonebrick"
+  }
+}

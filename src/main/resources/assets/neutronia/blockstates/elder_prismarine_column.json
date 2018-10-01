@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":    { "model": "neutronia:elder_prismarine_column" },
+    "axis=z":     { "model": "neutronia:elder_prismarine_column", "x": 90 },
+    "axis=x":     { "model": "neutronia:elder_prismarine_column", "x": 90, "y": 90 },
+    "axis=none":   { "model": "neutronia:elder_prismarine_column" }
+  }
+}

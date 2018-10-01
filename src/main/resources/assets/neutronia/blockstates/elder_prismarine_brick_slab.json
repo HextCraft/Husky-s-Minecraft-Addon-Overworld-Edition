@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_elder_prismarine_brick_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_elder_prismarine_brick_slab" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_granite_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_granite_slab" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_packed_ice_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_packed_ice_slab" }
+    }
+}

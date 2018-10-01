@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "neutronia:block/gold_bricks",
+        "top": "neutronia:block/gold_bricks",
+        "side": "neutronia:block/gold_bricks"
+    }
+}

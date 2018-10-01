@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=bottom,variant=default": { "model": "neutronia:bottom_emerald_brick_slab" },
+    "half=top,variant=default": { "model": "neutronia:upper_emerald_brick_slab" }
+  }
+}

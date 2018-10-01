@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "neutronia:bottom_mossy_cobblestone_slab" },
+        "half=top,variant=default": { "model": "neutronia:upper_mossy_cobblestone_slab" }
+    }
+}
