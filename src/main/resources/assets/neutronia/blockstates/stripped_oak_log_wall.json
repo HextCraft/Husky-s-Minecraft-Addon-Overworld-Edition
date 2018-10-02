@@ -8,20 +8,20 @@
   "variants": {
     "up": {
       "true": {
-        "submodel": "minecraft:wall_post"
+        "model": "block/wall_post"
       },
       "false": {}
     },
     "north": {
       "true": {
-        "submodel": "minecraft:wall_side",
+        "model": "block/wall_side",
         "uvlock": true
       },
       "false": {}
     },
     "east": {
       "true": {
-        "submodel": "minecraft:wall_side",
+        "model": "block/wall_side",
         "y": 90,
         "uvlock": true
       },
@@ -29,7 +29,7 @@
     },
     "south": {
       "true": {
-        "submodel": "minecraft:wall_side",
+        "model": "block/wall_side",
         "y": 180,
         "uvlock": true
       },
@@ -37,7 +37,7 @@
     },
     "west": {
       "true": {
-        "submodel": "minecraft:wall_side",
+        "model": "block/wall_side",
         "y": 270,
         "uvlock": true
       },

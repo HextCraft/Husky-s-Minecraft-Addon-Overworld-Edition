@@ -1,51 +1,47 @@
 {
-  "multipart": [
-    {
-      "when": {
-        "up": "true"
+  "forge_marker": 1,
+  "defaults":{
+    "textures": {
+      "wall": "blocks/red_sandstone_bottom"
+    }
+  },
+  "variants": {
+    "up": {
+      "true": {
+        "model": "wall_post"
       },
-      "apply": {
-        "model": "neutronia:red_sandstone_wall_post"
-      }
+      "false": {}
     },
-    {
-      "when": {
-        "north": "true"
-      },
-      "apply": {
-        "model": "neutronia:red_sandstone_wall_side",
+    "north": {
+      "true": {
+        "model": "wall_side",
         "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "true"
       },
-      "apply": {
-        "model": "neutronia:red_sandstone_wall_side",
+      "false": {}
+    },
+    "east": {
+      "true": {
+        "model": "wall_side",
         "y": 90,
         "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "south": "true"
       },
-      "apply": {
-        "model": "neutronia:red_sandstone_wall_side",
+      "false": {}
+    },
+    "south": {
+      "true": {
+        "model": "wall_side",
         "y": 180,
         "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "west": "true"
       },
-      "apply": {
-        "model": "neutronia:red_sandstone_wall_side",
+      "false": {}
+    },
+    "west": {
+      "true": {
+        "model": "wall_side",
         "y": 270,
         "uvlock": true
-      }
+      },
+      "false": {}
     }
-  ]
+  }
 }

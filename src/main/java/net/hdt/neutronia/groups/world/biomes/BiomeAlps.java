@@ -58,7 +58,7 @@ public class BiomeAlps extends Biome {
     }
 
     public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-        return (WorldGenAbstractTree) (rand.nextInt(3) > 0 ? this.spruceGenerator : this.spruceGenerator);
+        return (rand.nextInt(3) > 0 ? this.spruceGenerator : this.spruceGenerator);
     }
 
     public WorldGenerator getRandomWorldGenForGrass(Random rand) {
