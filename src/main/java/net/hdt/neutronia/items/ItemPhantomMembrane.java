@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class ItemPhantomMembrane extends ItemBase {
 
     public ItemPhantomMembrane() {
-        super("phantom_membrane", NCreativeTabs.ITEM_EXPANSION_TAB);
+        super("phantom_membrane", NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

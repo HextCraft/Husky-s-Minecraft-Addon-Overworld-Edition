@@ -17,7 +17,7 @@ import java.util.Objects;
 public class PurhoganyWood extends Component {
 
     public Block purhoganyLog, purhoganyPlanks, purhoganyDoor, purhoganyTrapdoor;
-    private CreativeTabs TAB = NCreativeTabs.END_EXPANSION_TAB;
+    private CreativeTabs TAB = NCreativeTabs.NEUTRONIA_MAIN;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

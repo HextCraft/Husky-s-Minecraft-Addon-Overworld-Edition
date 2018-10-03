@@ -1,5 +1,6 @@
 package net.hdt.neutronia.base.proxy;
 
+import net.hdt.neutronia.base.client.GuiDrawHandler;
 import net.hdt.neutronia.base.client.ResourceProxy;
 import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.client.gui.GuiReplacementEvents;
@@ -33,6 +34,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
         MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
+        MinecraftForge.EVENT_BUS.register(new GuiDrawHandler());
         GroupLoader.preInitClient(event);
     }
 

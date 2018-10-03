@@ -20,11 +20,11 @@ public class ClayTools extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        UNFIRED_CLAY_AXE = new ItemBase("unfired_clay_axe", NCreativeTabs.ITEM_EXPANSION_TAB);
-        UNFIRED_CLAY_PICKAXE = new ItemBase("unfired_clay_pickaxe", NCreativeTabs.ITEM_EXPANSION_TAB);
-        UNFIRED_CLAY_SWORD = new ItemBase("unfired_clay_sword", NCreativeTabs.ITEM_EXPANSION_TAB);
-        UNFIRED_CLAY_SHOVEL = new ItemBase("unfired_clay_shovel", NCreativeTabs.ITEM_EXPANSION_TAB);
-        UNFIRED_CLAY_HOE = new ItemBase("unfired_clay_hoe", NCreativeTabs.ITEM_EXPANSION_TAB);
+        UNFIRED_CLAY_AXE = new ItemBase("unfired_clay_axe", NCreativeTabs.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_PICKAXE = new ItemBase("unfired_clay_pickaxe", NCreativeTabs.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_SWORD = new ItemBase("unfired_clay_sword", NCreativeTabs.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_SHOVEL = new ItemBase("unfired_clay_shovel", NCreativeTabs.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_HOE = new ItemBase("unfired_clay_hoe", NCreativeTabs.NEUTRONIA_MAIN);
         FIRED_CLAY_AXE = new BaseAxe("fired_clay_axe", CLAY);
         FIRED_CLAY_PICKAXE = new BasePickaxe("fired_clay_pickaxe", CLAY);
         FIRED_CLAY_SWORD = new BaseSword("fired_clay_sword", CLAY);

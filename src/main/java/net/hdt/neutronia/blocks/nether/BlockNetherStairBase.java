@@ -17,7 +17,7 @@ public class BlockNetherStairBase extends BlockModStairs implements INeutroniaBl
 
     public BlockNetherStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

@@ -11,7 +11,7 @@ public class BlockBurnedBones extends BlockModPillar {
         super("burned_bones", Material.ROCK);
         this.setHardness(2.0F);
         this.setSoundType(SoundType.STONE);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
 }

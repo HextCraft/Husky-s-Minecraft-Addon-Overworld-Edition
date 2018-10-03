@@ -16,7 +16,7 @@ public class BWMArmor extends ItemModArmor implements IColorable, INeutroniaItem
     public BWMArmor(ArmorMaterial material, EntityEquipmentSlot equipmentSlotIn, String name) {
         super(name, material, 2, equipmentSlotIn);
         this.name = name;
-        this.setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

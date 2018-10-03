@@ -12,10 +12,26 @@ public class ModCreativeTab extends CreativeTabs {
     private int tempIndex = 0;
     private ItemStack tempDisplayStack = ItemStack.EMPTY;
     private ItemStack icon = getIcon();
+    private String label;
 
     public ModCreativeTab(String label, boolean displayRandom) {
         super(label);
+        this.label = label;
         this.displayRandom = displayRandom;
+    }
+
+    public ModCreativeTab(String label, ItemStack stack) {
+        super(label);
+        this.label = label;
+        this.icon = stack;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     @Override
@@ -45,6 +61,10 @@ public class ModCreativeTab extends CreativeTabs {
             }
             this.tempDisplayStack = this.icon;
         }
+    }
+
+    public void setIcon(ItemStack icon) {
+        this.icon = icon;
     }
 
     @Override

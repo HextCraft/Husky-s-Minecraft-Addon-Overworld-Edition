@@ -245,6 +245,7 @@ public class NGroups {
                 .addComponent(new MineshaftGeneration())
                 .addComponent(new MoreBiomes())
                 .addComponent(new MoreOceanBiomes())
+                .addComponent(new MoreStructures())
                 .addComponent(new NaturalAquamarine())
                 .addComponent(new NetherFossils())
                 .addComponent(new NetherMushrooms())

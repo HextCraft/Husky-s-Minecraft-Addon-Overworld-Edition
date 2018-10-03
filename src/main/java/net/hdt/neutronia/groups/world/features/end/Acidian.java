@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Acidian extends Component {
 
     public static Block naturalAcidian, acidianBricks, acidianPillar, chiseledAcidian, acidianBars;
-    private CreativeTabs TAB = NCreativeTabs.END_EXPANSION_TAB;
+    private CreativeTabs TAB = NCreativeTabs.NEUTRONIA_MAIN;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

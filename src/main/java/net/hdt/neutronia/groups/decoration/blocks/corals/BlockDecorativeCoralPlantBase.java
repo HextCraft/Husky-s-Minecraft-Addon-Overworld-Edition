@@ -25,7 +25,7 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
 
     public BlockDecorativeCoralPlantBase(String name) {
         super(name, Material.CORAL);
-        this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

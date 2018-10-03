@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 public class BlockPlankPole extends BlockRodBase {
 
     public BlockPlankPole(BlockPlanks.EnumType type) {
-        super(String.format("%s_plank_pole", type.getName()), NCreativeTabs.OVERWORLD_EXPANSION_TAB, false);
+        super(String.format("%s_plank_pole", type.getName()), NCreativeTabs.NEUTRONIA_MAIN, false);
     }
 
     protected static boolean isExcepBlockForAttachWithPiston(Block p_194142_0_) {

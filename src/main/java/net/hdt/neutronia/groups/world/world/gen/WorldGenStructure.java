@@ -1,4 +1,4 @@
-package net.hdt.neutronia.world.gen.generators;
+package net.hdt.neutronia.groups.world.world.gen;
 
 import net.hdt.neutronia.base.util.interfaces.IStructure;
 import net.minecraft.block.state.IBlockState;

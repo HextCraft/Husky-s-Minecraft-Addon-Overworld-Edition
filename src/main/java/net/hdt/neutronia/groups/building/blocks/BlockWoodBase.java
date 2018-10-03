@@ -12,7 +12,7 @@ public class BlockWoodBase extends BlockMod implements INeutroniaBlock {
 
     public BlockWoodBase(Material material, String name, boolean flammable) {
         super(name, material);
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         if (flammable) {
             addFlammable(this);
         }

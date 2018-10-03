@@ -19,7 +19,7 @@ public class BlockFireflyBulb extends BlockOverworldBase {
     public BlockFireflyBulb(boolean isOn) {
         super(Material.ROCK, isOn ? "lit_firefly_bulb" : "firefly_bulb", false);
         this.isOn = isOn;
-        setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
+        setCreativeTab(!isOn ? NCreativeTabs.NEUTRONIA_MAIN : null);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
         this.setTickRandomly(isOn);
     }

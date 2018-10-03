@@ -53,7 +53,7 @@ public class MoreMetals extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        CreativeTabs tab = NCreativeTabs.ITEM_EXPANSION_TAB;
+        CreativeTabs tab = NCreativeTabs.NEUTRONIA_MAIN;
 
         brassBlock = new BlockOverworldBase(Material.IRON, "brass_block", false);
         steelBlock = new BlockOverworldBase(Material.IRON, "steel_block", false);

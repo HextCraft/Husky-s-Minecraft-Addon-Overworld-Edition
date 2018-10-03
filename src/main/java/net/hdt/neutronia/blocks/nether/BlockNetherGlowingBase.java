@@ -27,7 +27,7 @@ public class BlockNetherGlowingBase extends BlockMod implements INeutroniaBlock 
 
     public BlockNetherGlowingBase(Material material, String name) {
         super(name, material);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

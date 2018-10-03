@@ -11,7 +11,7 @@ public class BlockDesertPlantBase extends BlockModBush {
 
     public BlockDesertPlantBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     public boolean isOpaqueCube(IBlockState state) {

@@ -20,7 +20,7 @@ public class ItemAncientSword extends ItemModSword implements INeutroniaItem {
 
     public ItemAncientSword() {
         super("khopesh", ancientToolMaterial);
-        setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

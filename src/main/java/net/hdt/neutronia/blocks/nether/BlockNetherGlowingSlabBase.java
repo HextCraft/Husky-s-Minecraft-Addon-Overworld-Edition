@@ -28,7 +28,7 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab implements INeutron
 
     public BlockNetherGlowingSlabBase(String name, boolean isDouble) {
         super(name + "_slab", Material.ROCK, isDouble);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

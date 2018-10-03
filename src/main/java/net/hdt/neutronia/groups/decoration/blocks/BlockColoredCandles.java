@@ -29,7 +29,7 @@ public class BlockColoredCandles extends BlockColoredAlt {
         super(lit ? "lit_candle" : "candle", color);
         this.color = color;
         this.lit = lit;
-        setCreativeTab(!lit ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
+        setCreativeTab(!lit ? NCreativeTabs.NEUTRONIA_MAIN : null);
         this.setLightLevel(lit ? 1.0F : 0.0F);
         this.setTickRandomly(lit);
     }

@@ -19,7 +19,7 @@ public class BlockNetherSlabBase extends BlockModSlab implements INeutroniaBlock
 
     public BlockNetherSlabBase(String name, boolean isDouble) {
         super(name + "_slab", Material.ROCK, isDouble);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

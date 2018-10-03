@@ -9,7 +9,7 @@ public class BlockEndBase extends BlockMod implements INeutroniaBlock {
 
     public BlockEndBase(Material material, String name) {
         super(name, material);
-        setCreativeTabs(NCreativeTabs.END_EXPANSION_TAB);
+        setCreativeTabs(NCreativeTabs.NEUTRONIA_MAIN);
         setHardness(3.0F);
         setResistance(15.0F);
     }

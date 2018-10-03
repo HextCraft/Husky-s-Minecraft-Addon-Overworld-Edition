@@ -15,7 +15,7 @@ public class BlockWaterBlockBase extends BlockMod implements INeutroniaBlock {
 
     public BlockWaterBlockBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(NCreativeTabs.OCEAN_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @SideOnly(Side.CLIENT)

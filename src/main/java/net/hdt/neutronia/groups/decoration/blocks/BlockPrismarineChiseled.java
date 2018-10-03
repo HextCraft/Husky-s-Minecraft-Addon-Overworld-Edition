@@ -24,7 +24,7 @@ public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock
         this.filled = filled;
         setHardness(1.5F);
         setResistance(10.0F);
-        setCreativeTab(filled ? null : NCreativeTabs.OCEAN_EXPANSION_TAB);
+        setCreativeTab(filled ? null : NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

@@ -25,7 +25,7 @@ public class BlockNetherGlowingStairBase extends BlockModStairs implements INeut
 
     public BlockNetherGlowingStairBase(String name, IBlockState state) {
         super(name + "_stair", state);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

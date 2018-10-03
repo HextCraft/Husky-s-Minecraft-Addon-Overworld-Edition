@@ -8,7 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.init.NCreativeTabs.OCEAN_EXPANSION_TAB;
+import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class DecorativeAquamarine extends Component {
 
@@ -17,7 +17,7 @@ public class DecorativeAquamarine extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumAquamarineVariants aquamarineVariants : EnumAquamarineVariants.values()) {
-            decorativeAquamarine[aquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(OCEAN_EXPANSION_TAB);
+            decorativeAquamarine[aquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, aquamarineVariants.getName(), false).setCreativeTab(NEUTRONIA_MAIN);
             VanillaStairsAndSlabs.add(aquamarineVariants.getName(), decorativeAquamarine[aquamarineVariants.getID()], 0, true);
         }
     }

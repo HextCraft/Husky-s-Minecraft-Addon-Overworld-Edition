@@ -48,7 +48,7 @@ public class ColoredPlanks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumDyeColor color : EnumDyeColor.values()) {
-            coloredPlanks[color.getMetadata()] = new BlockColoredAlt("colored_plank", color).setCreativeTab(NCreativeTabs.WOOD_EXPANSION_TAB);
+            coloredPlanks[color.getMetadata()] = new BlockColoredAlt("colored_plank", color).setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
             addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
 //            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
         }

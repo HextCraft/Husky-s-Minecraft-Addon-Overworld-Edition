@@ -1,9 +1,11 @@
-package net.hdt.neutronia.world.gen;
+package net.hdt.neutronia.groups.world.world;
 
 import com.google.common.collect.Lists;
-import net.hdt.neutronia.world.gen.generators.WorldGenStructure;
+import net.hdt.neutronia.groups.world.world.gen.WorldGenStructure;
 import net.hdt.neutronia.world.utils.WorldGenUtils;
 import net.minecraft.block.Block;
+import net.minecraft.init.Biomes;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -21,10 +23,12 @@ import java.util.Set;
 /**
  * TODO: Add Mini Castle, More Village Stuff, Spider Nests, Endermite Nests, Guardian Ruins, Mesa Temple, Mesa Village, Desert Labyrinth, Actual Pyramids,
  **/
-public class WorldGenCustomStructures implements IWorldGenerator {
+public class CustomStructureGenerator implements IWorldGenerator {
 
     private static final WorldGenStructure CORALS = new WorldGenStructure(Lists.newArrayList("ocean_structures/coral_1", "ocean_structures/coral_2", "ocean_structures/coral_3", "ocean_structures/coral_4", "ocean_structures/coral_5", "ocean_structures/coral_blue", "ocean_structures/coral_pink", "ocean_structures/coral_purple", "ocean_structures/coral_yellow", "ocean_structures/coral_red"));
-    private static final WorldGenStructure MISC_STRUCTURES = new WorldGenStructure(Lists.newArrayList("random_building"));
+    private static final WorldGenStructure DESERT_BUILDS = new WorldGenStructure(Lists.newArrayList("SandHouse1", "tyruswoo/pyramid01", "tyruswoo/pyramid02", "tyruswoo/pyramid03", "tyruswoo/sandstonecorridor01", "tyruswoo/sandstonecorridor02"));
+    private static final WorldGenStructure SPRUCE_BUILDS = new WorldGenStructure(Lists.newArrayList("Tavern", "tyruswoo/megataigatreehouse01", "tyruswoo/megataigatreehouse02"));
+    private static final WorldGenStructure RANDOM = new WorldGenStructure(Lists.newArrayList("tyruswoo/bearcave01", "tyruswoo/bearcave01_deep", "tyruswoo/beachtree01", "tyruswoo/beachtree02", "tyruswoo/beachtree03", "tyruswoo/beachtree04", "tyruswoo/beachtree05", "tyruswoo/beachtree06", "tyruswoo/beachtree07", "tyruswoo/beachtree08", "tyruswoo/beachtree09", "tyruswoo/beachtree10"));
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
@@ -32,6 +36,9 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             case 0:
 //                generateCoral(world, random, chunkX, chunkZ);
 //                generateStructure(MISC_STRUCTURES, world, random, chunkX, chunkZ, 40, Blocks.GRASS, Biomes.PLAINS);
+                generateStructure(DESERT_BUILDS, world, random, chunkX, chunkZ, 0, Blocks.SAND, Biomes.DESERT, Biomes.BEACH);
+                generateStructure(SPRUCE_BUILDS, world, random, chunkX, chunkZ, 0, Blocks.GRASS, Biomes.FOREST, Biomes.PLAINS, Biomes.TAIGA);
+                generateStructure(RANDOM, world, random, chunkX, chunkZ, 0, Blocks.GRASS, Biomes.FOREST, Biomes.PLAINS, Biomes.TAIGA);
                 break;
         }
     }
@@ -45,7 +52,10 @@ public class WorldGenCustomStructures implements IWorldGenerator {
         BlockPos pos = new BlockPos(x, y, z);
         Biome biome = world.getBiome(pos);
         if (world.getWorldInfo().isMapFeaturesEnabled() && biomeSet.contains(biome))
-            if (random.nextInt(spawnChance) == 0) generator.generate(world, random, pos);
+            if (random.nextInt(spawnChance) == 0) {
+                generator.generate(world, random, pos);
+                System.out.println(String.format("Spawned a structure at [X=%s, Y=%s, Z=%s]", pos.getX(), pos.getY(), pos.getZ()));
+            }
     }
 
     private void generateUndergroundStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, int structureHeight, Block topBlock, Biome... classes) {

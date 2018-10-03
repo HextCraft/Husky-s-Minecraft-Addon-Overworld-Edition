@@ -23,7 +23,7 @@ public class BlockColoredRedstoneLamp extends BlockColoredAlt {
         super(Material.REDSTONE_LIGHT, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
-        setCreativeTab(!isOn ? NCreativeTabs.OVERWORLD_EXPANSION_TAB : null);
+        setCreativeTab(!isOn ? NCreativeTabs.NEUTRONIA_MAIN : null);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
     }
 

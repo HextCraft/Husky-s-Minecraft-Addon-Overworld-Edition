@@ -9,7 +9,7 @@ public class BlockNetherBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNetherBase(Material material, String name) {
         super(name, material);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
 }

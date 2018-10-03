@@ -13,7 +13,7 @@ public class BlockOverworldBase extends BlockMod implements INeutroniaBlock {
 
     public BlockOverworldBase(Material material, String name, boolean flammable) {
         super(name, material);
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         if (flammable) {
             addFlammable(this);
         }
@@ -21,7 +21,7 @@ public class BlockOverworldBase extends BlockMod implements INeutroniaBlock {
 
     public BlockOverworldBase(Material material, String name, boolean flammable, String... variants) {
         super(name, material, variants);
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         if (flammable) {
             addFlammable(this);
         }

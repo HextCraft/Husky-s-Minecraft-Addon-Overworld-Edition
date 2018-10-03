@@ -17,7 +17,7 @@ public class BlockEndStairBase extends BlockModStairs implements INeutroniaBlock
 
     public BlockEndStairBase(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(NCreativeTabs.END_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

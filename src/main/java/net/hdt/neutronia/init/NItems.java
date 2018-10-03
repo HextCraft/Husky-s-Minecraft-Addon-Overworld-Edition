@@ -57,7 +57,7 @@ public class NItems {
     public static Item[] planksShields = new Item[6];
 
     static {
-        CreativeTabs tab = NCreativeTabs.ITEM_EXPANSION_TAB;
+        CreativeTabs tab = NCreativeTabs.NEUTRONIA_MAIN;
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();

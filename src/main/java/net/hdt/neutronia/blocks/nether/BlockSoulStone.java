@@ -19,7 +19,7 @@ public class BlockSoulStone extends BlockMod implements INeutroniaBlock {
 
     public BlockSoulStone(String name) {
         super(name, Material.SAND);
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Nullable

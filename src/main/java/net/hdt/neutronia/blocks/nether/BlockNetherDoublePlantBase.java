@@ -37,7 +37,7 @@ public class BlockNetherDoublePlantBase extends BlockModBush {
     public BlockNetherDoublePlantBase(String name) {
         super(name, Material.PLANTS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockNetherDoublePlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH));
-        setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

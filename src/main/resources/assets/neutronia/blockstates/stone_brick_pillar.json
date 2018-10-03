@@ -1,13 +1,20 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "transform": "forge:default-block"
+    "transform": "forge:default-block",
+    "model": "cube_column",
+    "textures": {
+      "end": "neutronia:block/stone_brick_pillar_top",
+      "side": "neutronia:block/stone_brick_pillar"
+    }
   },
   "variants": {
-    "axis=y":    { "model": "neutronia:stone_brick_pillar" },
-    "axis=z":     { "model": "neutronia:stone_brick_pillar", "x": 90 },
-    "axis=x":     { "model": "neutronia:stone_brick_pillar", "x": 90, "y": 90 },
-    "axis=none":   { "model": "neutronia:stone_brick_pillar" },
-    "inventory": { "model": "neutronia:stone_brick_pillar" }
+    "axis": {
+      "x": { "x": 90, "y": 90 },
+      "y": {},
+      "z": { "x": 90 },
+      "none": {}
+    },
+    "inventory": [{}]
   }
 }

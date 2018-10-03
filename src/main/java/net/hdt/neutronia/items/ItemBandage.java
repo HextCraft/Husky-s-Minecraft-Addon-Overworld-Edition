@@ -20,7 +20,7 @@ public class ItemBandage extends ItemMod implements INeutroniaItem {
 
     public ItemBandage() {
         super("bandage");
-        this.setCreativeTab(NCreativeTabs.ITEM_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

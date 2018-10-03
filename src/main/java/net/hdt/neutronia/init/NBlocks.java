@@ -23,8 +23,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Objects;
 
-import static net.hdt.neutronia.init.NCreativeTabs.OCEAN_EXPANSION_TAB;
-import static net.hdt.neutronia.init.NCreativeTabs.OVERWORLD_EXPANSION_TAB;
+import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class NBlocks {
 
@@ -56,10 +55,10 @@ public class NBlocks {
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
-        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(OCEAN_EXPANSION_TAB);
-        wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
-        wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(OCEAN_EXPANSION_TAB);
-        wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(OCEAN_EXPANSION_TAB);
+        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(NEUTRONIA_MAIN);
 
         //Wood Blocks
         /*for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
@@ -71,9 +70,9 @@ public class NBlocks {
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
 //            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            terracottaPots[dyeColor.getMetadata()] = new BlockTerracottaFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
-            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, OVERWORLD_EXPANSION_TAB);
-            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false, OVERWORLD_EXPANSION_TAB);
-            add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, dyeColor.getMetadata(), true, false, NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, NEUTRONIA_MAIN);
+            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false, NEUTRONIA_MAIN);
+            add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, dyeColor.getMetadata(), true, false, NCreativeTabs.NEUTRONIA_MAIN);
         }
 
         //Misc
@@ -88,7 +87,7 @@ public class NBlocks {
         redSandstoneBricks = new BlockOverworldBase(Material.ROCK, "red_sandstone_bricks", false);
         sandstoneBricks = new BlockOverworldBase(Material.ROCK, "sandstone_bricks", false);
 
-        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, NCreativeTabs.NEUTRONIA_MAIN);
         add("smooth_red_sandstone", smoothRedSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
         add("smooth_sandstone", smoothSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
 
@@ -133,7 +132,7 @@ public class NBlocks {
 //        ironAnvil = new BlockModAnvil("iron_anvil", OVERWORLD_EXPANSION_TAB);
 //        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
 
-        blackSand = new BlockFalling("black_sand", OVERWORLD_EXPANSION_TAB);
+        blackSand = new BlockFalling("black_sand", NEUTRONIA_MAIN);
 
         for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
 //            closet[woodType.getMetadata()] = new BlockRandom(woodType);

@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.init.NCreativeTabs.OVERWORLD_EXPANSION_TAB;
+import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class FrostedBlocks extends Component {
 
@@ -21,7 +21,7 @@ public class FrostedBlocks extends Component {
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             frostedClay[dyeColor.getMetadata()] = new BlockOverworldBase(Material.ROCK, String.format("frozen_%s_terracotta", dyeColor.getName()), false);
-            VanillaStairsAndSlabs.add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()],0, true, false, true, OVERWORLD_EXPANSION_TAB);
+            VanillaStairsAndSlabs.add(String.format("frozen_%s_terracotta", dyeColor.getName()), frostedClay[dyeColor.getMetadata()],0, true, false, true, NEUTRONIA_MAIN);
         }
     }
 

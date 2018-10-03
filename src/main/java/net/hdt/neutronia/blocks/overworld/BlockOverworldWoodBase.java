@@ -14,7 +14,7 @@ public class BlockOverworldWoodBase extends BlockMod implements INeutroniaBlock 
 
     public BlockOverworldWoodBase(Material material, String name, boolean flammable) {
         super(name, material);
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         if (flammable) {
             addFlammable(this);
         }

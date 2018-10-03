@@ -41,7 +41,7 @@ public class BlockColoredDoubleWaterPlantBase extends BlockModBush {
     public BlockColoredDoubleWaterPlantBase(EnumCoralColor coralColor, String name) {
         super(coralColor + "_" + name, Material.WATER);
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockColoredDoubleWaterPlantBase.EnumBlockHalf.LOWER).withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

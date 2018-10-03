@@ -42,7 +42,7 @@ public class BlockColoredVase extends BlockFlowerPot implements INeutroniaBlock,
 
         setHardness(0.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(NCreativeTabs.OVERWORLD_EXPANSION_TAB);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
 
         register(name);
     }

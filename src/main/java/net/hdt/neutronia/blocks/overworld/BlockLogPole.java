@@ -27,7 +27,7 @@ public class BlockLogPole extends BlockRodBase {
     private boolean stripped;
 
     public BlockLogPole(BlockPlanks.EnumType type, boolean stripped) {
-        super(stripped ? String.format("stripped_%s_log_pole", type.getName()) : String.format("%s_log_pole", type.getName()), NCreativeTabs.OVERWORLD_EXPANSION_TAB, false);
+        super(stripped ? String.format("stripped_%s_log_pole", type.getName()) : String.format("%s_log_pole", type.getName()), NCreativeTabs.NEUTRONIA_MAIN, false);
         this.type = type;
         this.stripped = stripped;
     }

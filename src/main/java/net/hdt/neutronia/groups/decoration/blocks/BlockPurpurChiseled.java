@@ -23,7 +23,7 @@ public class BlockPurpurChiseled extends BlockMod implements INeutroniaBlock {
     public BlockPurpurChiseled(String name, boolean filled) {
         super(name, Material.ROCK);
         this.filled = filled;
-        setCreativeTab(filled ? null : NCreativeTabs.END_EXPANSION_TAB);
+        setCreativeTab(filled ? null : NCreativeTabs.NEUTRONIA_MAIN);
         setHardness(1.5F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);

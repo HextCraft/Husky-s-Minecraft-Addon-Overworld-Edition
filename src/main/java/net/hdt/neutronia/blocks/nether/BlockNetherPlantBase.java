@@ -11,7 +11,7 @@ public class BlockNetherPlantBase extends BlockModBush {
 
     public BlockNetherPlantBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(NCreativeTabs.NETHER_EXPANSION_TAB);
+        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     public boolean isOpaqueCube(IBlockState state) {
