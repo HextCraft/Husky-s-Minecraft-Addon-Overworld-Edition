@@ -14,8 +14,8 @@ import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class WoodBlocks extends Component {
 
-    private static final Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], strippedBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6], barkButtons = new Block[6],
-            barkPressurePlates = new Block[6];
+    public static final Block[] barkBlocks = new Block[6], chiseledBarkBlocks = new Block[6], strippedBarkBlocks = new Block[6], unnamedChiseledBarkBlock = new Block[6]/*, barkButtons = new Block[6],
+            barkPressurePlates = new Block[6]*/;
 
     private boolean enableSlabsAndStairs, enableWalls;
 

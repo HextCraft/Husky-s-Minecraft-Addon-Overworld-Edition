@@ -26,11 +26,7 @@ import java.util.List;
 
 public class VariedBookshelves extends Component {
 
-    private static BlockMod acacia_bookshelf;
-    private static BlockMod birch_bookshelf;
-    private static BlockMod dark_oak_bookshelf;
-    private static BlockMod jungle_bookshelf;
-    private static BlockMod spruce_bookshelf;
+    public static BlockMod acacia_bookshelf, birch_bookshelf, dark_oak_bookshelf, jungle_bookshelf, spruce_bookshelf;
 
     private boolean renameVanillaBookshelves;
 

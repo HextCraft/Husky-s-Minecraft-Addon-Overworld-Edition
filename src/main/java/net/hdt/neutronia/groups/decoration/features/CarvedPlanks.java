@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CarvedPlanks extends Component {
 
     public boolean stairs, walls, slabs;
-    private Block[] carvedPlanks = new Block[6];
+    public static final Block[] carvedPlanks = new Block[6];
 
     @Override
     public void setupConfig() {

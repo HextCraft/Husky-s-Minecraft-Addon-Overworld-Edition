@@ -11,30 +11,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class LogFenceAndWall extends Component {
 
-    public static BlockNeutroniaWall strippedOakLogWall;
-    public static BlockLogWall oakLogWall;
-    public static BlockNeutroniaWall strippedSpruceLogWall;
-    public static BlockLogWall spruceLogWall;
-    public static BlockNeutroniaWall strippedBirchLogWall;
-    public static BlockLogWall birchLogWall;
-    public static BlockNeutroniaWall strippedJungleLogWall;
-    public static BlockLogWall jungleLogWall;
-    public static BlockNeutroniaWall strippedAcaciaLogWall;
-    public static BlockLogWall acaciaLogWall;
-    public static BlockNeutroniaWall strippedDarkOakLogWall;
-    public static BlockLogWall darkOakLogWall;
-    public static BlockNeutroniaFence strippedOakLogFence;
-    public static BlockLogFence oakLogFence;
-    public static BlockNeutroniaFence strippedSpruceLogFence;
-    public static BlockLogFence spruceLogFence;
-    public static BlockNeutroniaFence strippedBirchLogFence;
-    public static BlockLogFence birchLogFence;
-    public static BlockNeutroniaFence strippedJungleLogFence;
-    public static BlockLogFence jungleLogFence;
-    public static BlockNeutroniaFence strippedAcaciaLogFence;
-    public static BlockLogFence acaciaLogFence;
-    public static BlockNeutroniaFence strippedDarkOakLogFence;
-    public static BlockLogFence darkOakLogFence;
+    public static BlockNeutroniaWall strippedOakLogWall, strippedSpruceLogWall, strippedBirchLogWall, strippedJungleLogWall, strippedAcaciaLogWall, strippedDarkOakLogWall;
+    public static BlockLogWall oakLogWall, spruceLogWall, birchLogWall, jungleLogWall, acaciaLogWall, darkOakLogWall;
+    public static BlockNeutroniaFence strippedOakLogFence, strippedSpruceLogFence, strippedBirchLogFence, strippedJungleLogFence, strippedAcaciaLogFence, strippedDarkOakLogFence;
+    public static BlockLogFence oakLogFence, spruceLogFence, birchLogFence, jungleLogFence, acaciaLogFence, darkOakLogFence;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
