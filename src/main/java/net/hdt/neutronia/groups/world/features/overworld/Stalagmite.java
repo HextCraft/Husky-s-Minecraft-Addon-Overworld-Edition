@@ -16,7 +16,8 @@ public class Stalagmite extends Component {
 
     public static Block stone_stalagmite, granite_stalagmite, diorite_stalagmite,
             andesite_stalagmite, basalt_stalagmite, marble_stalagmite, limestone_stalagmite,
-            netherrack_stalagmite, ice_stalagmite, packed_ice_stalagmite;
+            netherrack_stalagmite, ice_stalagmite, packed_ice_stalagmite, crystal_stalagmite,
+            end_stalagmite, clay_stalagmite, dirt_stalagmite, sandstone_stalagmite;
 
     public static int tries, clusterCount, netherTries, netherClusterCount, maxHeight;
     public static DimensionConfig dimensionConfig;
@@ -41,6 +42,11 @@ public class Stalagmite extends Component {
         netherrack_stalagmite = new BlockStalagmite("netherrack").setNetherrack();
         ice_stalagmite = new BlockStalagmite("ice");
         packed_ice_stalagmite = new BlockStalagmite("packed_ice");
+        crystal_stalagmite = new BlockStalagmite("crystal");
+        end_stalagmite = new BlockStalagmite("end_stone");
+        clay_stalagmite = new BlockStalagmite("clay");
+        dirt_stalagmite = new BlockStalagmite("dirt");
+        sandstone_stalagmite = new BlockStalagmite("sandstone");
 
         if (GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
             basalt_stalagmite = new BlockStalagmite("basalt");

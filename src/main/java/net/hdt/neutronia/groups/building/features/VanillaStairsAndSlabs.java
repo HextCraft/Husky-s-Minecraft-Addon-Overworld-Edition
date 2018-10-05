@@ -45,10 +45,10 @@ public class VanillaStairsAndSlabs extends Component {
         IBlockState state = block.getStateFromMeta(meta);
         String stairsName = name + "_stairs";
         BlockModStairs stairBlock = new BlockNeutroniaStairs(stairsName, state);
-        stairBlock.setCreativeTabs(creativeTabs);
+        stairBlock.setCreativeTab(creativeTabs);
 
         BlockModSlab singleSlabBlock = new BlockVanillaSlab(name, state, false);
-        singleSlabBlock.setCreativeTabs(creativeTabs);
+        singleSlabBlock.setCreativeTab(creativeTabs);
 
         BlockModSlab doubleSlabBlock = new BlockVanillaSlab(name, state, true);
 
@@ -72,7 +72,7 @@ public class VanillaStairsAndSlabs extends Component {
         stairBlock.setCreativeTabs(creativeTabs);
 
         BlockModSlab singleSlabBlock = new BlockVanillaSlab(name, state, false);
-        singleSlabBlock.setCreativeTabs(creativeTabs);
+        singleSlabBlock.setCreativeTab(creativeTabs);
 
         BlockModSlab doubleSlabBlock = new BlockVanillaSlab(name, state, true);
 

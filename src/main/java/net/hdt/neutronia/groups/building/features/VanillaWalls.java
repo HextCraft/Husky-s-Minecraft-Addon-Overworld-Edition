@@ -36,7 +36,7 @@ public class VanillaWalls extends Component {
         IBlockState state = block.getStateFromMeta(meta);
         String wallName = name + "_wall";
         BlockNeutroniaWall neutroniaWall = supplier.supply(wallName, state);
-        neutroniaWall.setCreativeTabs(creativeTabs);
+        neutroniaWall.setCreativeTab(creativeTabs);
         BlockNeutroniaWall.initWall(block, meta, neutroniaWall);
     }
 

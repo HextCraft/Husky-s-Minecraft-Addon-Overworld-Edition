@@ -42,12 +42,12 @@ public class StalagmiteGenerator implements IWorldGenerator {
 
         for (int i = 0; i < tries; i++) {
             BlockPos target = new BlockPos(x + random.nextInt(spread), random.nextInt(upperBound) + offset, z + random.nextInt(spread));
-            if (placeSpeleothemCluster(random, world, target, innerSpread, innerTries))
+            if (placeStalagmiteCluster(random, world, target, innerSpread, innerTries))
                 i++;
         }
     }
 
-    private boolean placeSpeleothemCluster(Random random, World world, BlockPos pos, int spread, int tries) {
+    private boolean placeStalagmiteCluster(Random random, World world, BlockPos pos, int spread, int tries) {
         if (!findAndPlaceStalagmite(random, world, pos))
             return false;
 
@@ -63,20 +63,27 @@ public class StalagmiteGenerator implements IWorldGenerator {
         if (!world.isAirBlock(pos))
             return false;
 
+        int off = world.provider.isNether() ? -1000 : 0;
         boolean up = random.nextBoolean();
-        IBlockState stateAt = null;
+        EnumFacing diff = (up ? EnumFacing.UP : EnumFacing.DOWN);
+
+        if(!up && world.canBlockSeeSky(pos))
+            return false;
+
+        IBlockState stateAt;
         do {
-            pos = pos.offset(EnumFacing.UP);
+            pos = pos.offset(diff);
             stateAt = world.getBlockState(pos);
-        } while (pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt));
+            off++;
+        } while(pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt) && off < 10);
 
         Block type = getStalagmiteType(stateAt);
-        placeSpeleothem(random, world, pos, type);
+        placeStalagmite(random, world, pos, type);
 
         return true;
     }
 
-    private void placeSpeleothem(Random random, World world, BlockPos pos, Block type) {
+    private void placeStalagmite(Random random, World world, BlockPos pos, Block type) {
         if (type == null)
             return;
 

@@ -121,4 +121,9 @@ public class BlockNetherSlabBase extends BlockModSlab implements INeutroniaBlock
         return false;
     }
 
+    @Override
+    public String getTranslationKey(int meta) {
+        return getTranslationKey();
+    }
+
 }

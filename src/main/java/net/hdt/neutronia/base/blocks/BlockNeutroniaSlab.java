@@ -9,4 +9,9 @@ public class BlockNeutroniaSlab extends BlockModSlab implements INeutroniaBlock 
         super(name + "_slab", materialIn, doubleSlab);
     }
 
+    @Override
+    public String getTranslationKey(int meta) {
+        return getTranslationKey();
+    }
+
 }

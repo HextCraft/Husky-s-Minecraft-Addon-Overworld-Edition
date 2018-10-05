@@ -8,7 +8,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -22,8 +21,8 @@ public abstract class BlockBasePressurePlate extends BlockMod {
     /**
      * The bounding box for the pressure plate pressed state
      */
-    protected static final AxisAlignedBB PRESSED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.03125D, 0.9375D);
-    protected static final AxisAlignedBB UNPRESSED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.0625D, 0.9375D);
+    private static final AxisAlignedBB PRESSED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.03125D, 0.9375D);
+    private static final AxisAlignedBB UNPRESSED_AABB = new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.0625D, 0.9375D);
     /**
      * This bounding box is used to check for entities in a certain area and then determine the pressed state.
      */
@@ -31,7 +30,7 @@ public abstract class BlockBasePressurePlate extends BlockMod {
 
     protected BlockBasePressurePlate(Material materialIn, String name) {
         super(name, materialIn);
-        this.setCreativeTabs(CreativeTabs.REDSTONE);
+        this.setCreativeTab(CreativeTabs.REDSTONE);
         this.setTickRandomly(true);
     }
 
@@ -129,23 +128,11 @@ public abstract class BlockBasePressurePlate extends BlockMod {
         }
     }
 
-    /**
-     * Called When an Entity Collided with the Block
-     */
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        if (!worldIn.isRemote) {
-            int i = this.getRedstoneStrength(state);
-
-            if (i == 0) {
-                this.updateState(worldIn, pos, state, i);
-            }
-        }
-    }
 
     /**
      * Updates the pressure plate when stepped on
      */
-    protected void updateState(World worldIn, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
+    private void updateState(World worldIn, BlockPos pos, IBlockState state, int oldRedstoneStrength) {
         int i = this.computeRedstoneStrength(worldIn, pos);
         boolean flag = oldRedstoneStrength > 0;
         boolean flag1 = i > 0;

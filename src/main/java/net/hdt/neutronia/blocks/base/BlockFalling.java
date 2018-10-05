@@ -23,7 +23,7 @@ public class BlockFalling extends BlockMod implements INeutroniaBlock {
     public BlockFalling(String name, CreativeTabs creativeTabs) {
         super(name, Material.SAND);
         setSoundType(SoundType.SAND);
-        this.setCreativeTabs(creativeTabs);
+        this.setCreativeTab(creativeTabs);
     }
 
     public BlockFalling(Material materialIn, String name) {

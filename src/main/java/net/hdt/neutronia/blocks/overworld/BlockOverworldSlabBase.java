@@ -33,6 +33,11 @@ public class BlockOverworldSlabBase extends BlockModSlab implements INeutroniaBl
         return true;
     }
 
+    @Override
+    public String getTranslationKey(int meta) {
+        return getTranslationKey();
+    }
+
     @SideOnly(Side.CLIENT)
     public boolean originalShouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         AxisAlignedBB axisalignedbb = blockState.getBoundingBox(blockAccess, pos);

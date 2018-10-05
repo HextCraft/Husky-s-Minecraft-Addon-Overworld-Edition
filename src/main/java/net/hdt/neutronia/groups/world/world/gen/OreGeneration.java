@@ -22,8 +22,8 @@ public class OreGeneration implements IWorldGenerator {
     public static final int VEIN_SIZE = 4;
 
     public static final int ORE_LIME_MIN = 8;
-    public static final int ORE_LIME_MAX = 71;
-    public static final int VEIN_SIZE_LIME = 32;
+    public static final int ORE_LIME_MAX = 45;
+    public static final int VEIN_SIZE_LIME = 8;
 
     public OreGeneration() {
         GameRegistry.registerWorldGenerator(this, 5);

@@ -1,12 +1,11 @@
 package net.hdt.neutronia.groups.world.blocks;
 
 import net.hdt.huskylib2.block.BlockMetaVariants;
-import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
+import net.hdt.neutronia.blocks.base.BlockVertical;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
@@ -23,12 +22,12 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
+public class BlockStalagmite extends BlockVertical implements INeutroniaBlock {
 
     public static PropertyEnum<EnumSize> SIZE = PropertyEnum.create("size", EnumSize.class);
 
     public BlockStalagmite(String name) {
-        super(name + "_stalagmite", Material.ROCK);
+        super(Material.ROCK,name + "_stalagmite");
         setHardness(1.5F);
         setSoundType(SoundType.STONE);
         setCreativeTab(CreativeTabs.DECORATIONS);
@@ -39,11 +38,6 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
     public BlockStalagmite setNetherrack() {
         setHardness(0.4F);
         return this;
-    }
-
-    @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        return getBearing(worldIn, pos) > 0;
     }
 
     @Override
@@ -92,6 +86,73 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
         return 0;
     }
 
+    private boolean canPlaceOn(World worldIn, BlockPos pos)
+    {
+        IBlockState state = worldIn.getBlockState(pos);
+        return state.getBlock().canPlaceTorchOnTop(state, worldIn, pos);
+    }
+
+    /**
+     * Checks if this block can be placed exactly at the given position.
+     */
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        for (EnumFacing enumfacing : FACING.getAllowedValues())
+        {
+            if (this.canPlaceAt(worldIn, pos, enumfacing))
+            {
+                return getBearing(worldIn, pos) > 0;
+            }
+        }
+
+        return getBearing(worldIn, pos) > 0;
+    }
+
+    private boolean canPlaceAt(World worldIn, BlockPos pos, EnumFacing facing)
+    {
+        BlockPos blockpos = pos.offset(facing.getOpposite());
+        IBlockState iblockstate = worldIn.getBlockState(blockpos);
+        Block block = iblockstate.getBlock();
+        BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, blockpos, facing);
+
+        if (facing.equals(EnumFacing.UP) && this.canPlaceOn(worldIn, blockpos))
+        {
+            return true;
+        }
+        else if (facing != EnumFacing.UP && facing != EnumFacing.DOWN)
+        {
+            return !isExceptBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the
+     * IBlockstate
+     */
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        if (this.canPlaceAt(worldIn, pos, facing))
+        {
+            return this.getDefaultState().withProperty(FACING, facing);
+        }
+        else
+        {
+            for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+            {
+                if (this.canPlaceAt(worldIn, pos, enumfacing))
+                {
+                    return this.getDefaultState().withProperty(FACING, enumfacing);
+                }
+            }
+
+            return this.getDefaultState();
+        }
+    }
+
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return state.getValue(SIZE).aabb;
@@ -119,7 +180,7 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
 
     @Override
     public BlockFaceShape getBlockFaceShape(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_) {
-        return BlockFaceShape.UNDEFINED;
+        return BlockFaceShape.MIDDLE_POLE;
     }
 
     @Override
@@ -129,7 +190,7 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[]{SIZE});
+        return new BlockStateContainer(this, SIZE);
     }
 
     @Override
@@ -142,7 +203,7 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
         return getDefaultState().withProperty(SIZE, EnumSize.values()[Math.min(EnumSize.values().length - 1, meta)]);
     }
 
-    public static enum EnumSize implements BlockMetaVariants.EnumBase {
+    public enum EnumSize implements BlockMetaVariants.EnumBase {
 
         SMALL(0, 2),
         MEDIUM(1, 4),
@@ -151,7 +212,7 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
         public final int strength;
         public final AxisAlignedBB aabb;
 
-        private EnumSize(int strength, int width) {
+        EnumSize(int strength, int width) {
             this.strength = strength;
 
             float pad = ((float) ((16 - width) / 2) / 16F);

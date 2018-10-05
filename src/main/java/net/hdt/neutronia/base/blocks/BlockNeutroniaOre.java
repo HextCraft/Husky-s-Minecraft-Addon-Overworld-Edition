@@ -13,16 +13,10 @@ import java.util.Random;
 
 public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
 
-    private Item drop, ingot, nugget;
-
-    public BlockNeutroniaOre(String name, Item drop) {
-        super(name, Material.ROCK);
-        this.drop = drop;
-        registerRecipes();
-    }
+    private Item drop, ingot;
 
     public BlockNeutroniaOre(String name) {
-        super(name, Material.ROCK);
+        super(BlockMod.Builder.create(Material.ROCK).hardnessAndResistance(3.0F, 5.0F), name);
         this.drop = new ItemBlock(this);
         registerRecipes();
     }
@@ -37,26 +31,8 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
         return drop;
     }
 
-    public Block setDrop(Item drop) {
-        this.drop = drop;
-        return this;
-    }
-
-    public Item getIngot() {
-        return ingot;
-    }
-
     public Block setIngot(Item ingot) {
         this.ingot = ingot;
-        return this;
-    }
-
-    public Item getNugget() {
-        return nugget;
-    }
-
-    public Block setNugget(Item nugget) {
-        this.nugget = nugget;
         return this;
     }
 

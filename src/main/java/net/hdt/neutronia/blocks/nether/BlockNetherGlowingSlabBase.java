@@ -176,4 +176,9 @@ public class BlockNetherGlowingSlabBase extends BlockModSlab implements INeutron
         return false;
     }
 
+    @Override
+    public String getTranslationKey(int meta) {
+        return getTranslationKey();
+    }
+
 }

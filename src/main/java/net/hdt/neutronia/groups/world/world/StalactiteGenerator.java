@@ -52,7 +52,7 @@ public class StalactiteGenerator implements IWorldGenerator {
             return false;
 
         for (int i = 0; i < tries; i++) {
-            BlockPos target = pos.add(random.nextInt(spread * 2 + 1) - spread, random.nextInt(spread + 1) - spread / 1, random.nextInt(spread * 2 + 1) - spread);
+            BlockPos target = pos.add(random.nextInt(spread * 2 + 1) - spread, random.nextInt(spread + 1) - spread, random.nextInt(spread * 2 + 1) - spread);
             findAndPlaceStalactite(random, world, target);
         }
 
