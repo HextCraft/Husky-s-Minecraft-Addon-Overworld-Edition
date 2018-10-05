@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.world.caves;
 
-import com.google.common.base.Predicate;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.minecraft.block.Block;
@@ -16,15 +15,16 @@ import net.minecraft.world.biome.Biome;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 public abstract class CaveBiome {
 
-    public static final Predicate<IBlockState> STONE_PREDICATE = state -> {
+    private static final Predicate<IBlockState> STONE_PREDICATE = state -> {
         if (state != null) {
             Block block = state.getBlock();
             if (block == Blocks.STONE) {
-                BlockStone.EnumType blockstone$enumtype = state.getValue(BlockStone.VARIANT);
-                return blockstone$enumtype.isNatural();
+                BlockStone.EnumType stoneType = state.getValue(BlockStone.VARIANT);
+                return stoneType.isNatural();
             }
 
             return block == MoreStoneBlocks.newStoneVariants[5] || block == MoreStoneBlocks.newStoneVariants[7];
@@ -137,7 +137,7 @@ public abstract class CaveBiome {
     }
 
     public boolean isWall(World world, BlockPos pos, IBlockState state) {
-        if (!state.isFullBlock() || !state.isOpaqueCube() || !STONE_PREDICATE.apply(state))
+        if (!state.isFullBlock() || !state.isOpaqueCube() || !STONE_PREDICATE.test(state))
             return false;
 
         return isBorder(world, pos, state);
@@ -160,7 +160,7 @@ public abstract class CaveBiome {
     }
 
     boolean isInside(World world, BlockPos pos, IBlockState state) {
-        return STONE_PREDICATE.apply(state);
+        return STONE_PREDICATE.test(state);
     }
 
 }

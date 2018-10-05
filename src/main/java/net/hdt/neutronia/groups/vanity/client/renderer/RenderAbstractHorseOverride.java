@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.vanity.client.renderer;
 
 import com.google.common.collect.Maps;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.groups.vanity.client.model.ModelHorseOverride;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -18,10 +19,10 @@ public class RenderAbstractHorseOverride extends RenderLiving<AbstractHorse> {
     private static final Map<Class<?>, ResourceLocation> MAP = Maps.newHashMap();
 
     static {
-        MAP.put(EntityDonkey.class, new ResourceLocation("textures/entity/horse/donkey.png"));
-        MAP.put(EntityMule.class, new ResourceLocation("textures/entity/horse/mule.png"));
-        MAP.put(EntityZombieHorse.class, new ResourceLocation("textures/entity/horse/horse_zombie.png"));
-        MAP.put(EntitySkeletonHorse.class, new ResourceLocation("textures/entity/horse/horse_skeleton.png"));
+        MAP.put(EntityDonkey.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/donkey.png"));
+        MAP.put(EntityMule.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/mule.png"));
+        MAP.put(EntityZombieHorse.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/horse_zombie.png"));
+        MAP.put(EntitySkeletonHorse.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/horse_skeleton.png"));
     }
 
     private float scale;
@@ -57,4 +58,5 @@ public class RenderAbstractHorseOverride extends RenderLiving<AbstractHorse> {
     protected ResourceLocation getEntityTexture(AbstractHorse entity) {
         return MAP.get(entity.getClass());
     }
+
 }

@@ -18,7 +18,7 @@ public class CaveBiomeGenerator extends MultiChunkFeatureGenerator {
 
     public final UndergroundBiomeInfo info;
 
-    long seedXor;
+    private long seedXor;
 
     public CaveBiomeGenerator(UndergroundBiomeInfo info) {
         this.info = info;
@@ -67,18 +67,14 @@ public class CaveBiomeGenerator extends MultiChunkFeatureGenerator {
     }
 
     public void apply(World world, BlockPos center, Random random, int chunkX, int chunkZ, int radiusX, int radiusY, int radiusZ) {
-        int centerX = center.getX();
-        int centerY = center.getY();
-        int centerZ = center.getZ();
-
         double radiusX2 = radiusX * radiusX;
         double radiusY2 = radiusY * radiusY;
         double radiusZ2 = radiusZ * radiusZ;
 
-        info.biome.floorList = new ArrayList();
-        info.biome.ceilingList = new ArrayList();
-        info.biome.insideList = new ArrayList();
-        info.biome.wallMap = new HashMap();
+        info.biome.floorList = new ArrayList<>();
+        info.biome.ceilingList = new ArrayList<>();
+        info.biome.insideList = new ArrayList<>();
+        info.biome.wallMap = new HashMap<>();
 
         forEachChunkBlock(chunkX, chunkZ, center.getY() - radiusY, center.getY() + radiusY, (pos) -> {
             int x = pos.getX() - center.getX();
@@ -100,7 +96,7 @@ public class CaveBiomeGenerator extends MultiChunkFeatureGenerator {
         info.biome.insideList.forEach(pos -> info.biome.finalInsidePass(world, pos));
 
         if (info.biome.hasDungeon() && world instanceof WorldServer && random.nextFloat() < info.biome.dungeonChance) {
-            List<BlockPos> candidates = new ArrayList(info.biome.wallMap.keySet());
+            List<BlockPos> candidates = new ArrayList<>(info.biome.wallMap.keySet());
             candidates.removeIf(pos -> {
                 BlockPos down = pos.down();
                 IBlockState state = world.getBlockState(down);
