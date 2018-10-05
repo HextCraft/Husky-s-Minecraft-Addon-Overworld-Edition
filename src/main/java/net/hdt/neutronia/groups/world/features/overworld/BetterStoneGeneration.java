@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
-import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.handler.server.BiomeTypeConfigHandler;
@@ -20,10 +19,6 @@ import java.util.List;
 
 public class BetterStoneGeneration extends Component {
 
-    public static BlockMod marble;
-    public static BlockMod limestone;
-    static boolean enableMarble;
-    static boolean enableLimestone;
     private static StoneInfo graniteInfo, dioriteInfo, andesiteInfo;
 
     private static StoneInfo loadStoneInfo(String configCategory, String name, int clusterSize, int clusterRarity, int upperBound, int lowerBound, boolean enabled, String dims, Type... biomes) {

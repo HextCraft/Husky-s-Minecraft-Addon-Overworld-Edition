@@ -2,7 +2,7 @@ package net.hdt.neutronia.groups.world.world.caves;
 
 import com.google.common.base.Predicate;
 import net.hdt.neutronia.base.groups.GroupLoader;
-import net.hdt.neutronia.groups.world.features.overworld.BetterStoneGeneration;
+import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
@@ -27,7 +27,7 @@ public abstract class CaveBiome {
                 return blockstone$enumtype.isNatural();
             }
 
-            return block == BetterStoneGeneration.limestone || block == BetterStoneGeneration.marble;
+            return block == MoreStoneBlocks.newStoneVariants[5] || block == MoreStoneBlocks.newStoneVariants[7];
         }
 
         return false;

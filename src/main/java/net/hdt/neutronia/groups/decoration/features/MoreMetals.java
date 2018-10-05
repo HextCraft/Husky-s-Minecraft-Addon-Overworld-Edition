@@ -22,6 +22,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MoreMetals extends Component {
 
+    public static int brassVeinFrequency = 2, steelVeinFrequency = 2, copperVeinFrequency = 2, zincVeinFrequency = 2;
+
     public static Block brassBlock, steelBlock, copperBlock/*, bronzeBlock*/;
     public static Block brassOre, steelOre, copperOre/*, bronzeOre, tinOre*/, zincOre;
 

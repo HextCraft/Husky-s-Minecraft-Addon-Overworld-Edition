@@ -12,12 +12,12 @@ public class Corals extends Component {
 
     private static int size = EnumCoralColor.values().length;
 
-    private static final Block[] coralFan = new Block[size];
+    public static final Block[] coralFan = new Block[size];
     private static final Block[] deadCoralFan = new Block[size];
-    private static final Block[] coral = new Block[size];
-    private static final Block[] coralFanWall = new Block[size];
+    public static final Block[] coral = new Block[size];
+    public static final Block[] coralFanWall = new Block[size];
     private static final Block[] deadCoralFanWall = new Block[size];
-    private static final Block[] coralBlock = new Block[size];
+    public static final Block[] coralBlock = new Block[size];
     private static final Block[] deadCoralBlock = new Block[size];
     private static final Block[] deadCoral = new Block[size];
     private static final ArrayList<Block> livingCorals = new ArrayList<>(size);
