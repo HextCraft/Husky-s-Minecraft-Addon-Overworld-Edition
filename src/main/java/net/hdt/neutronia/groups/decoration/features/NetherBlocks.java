@@ -17,8 +17,8 @@ import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class NetherBlocks extends Component {
 
-    private static Block netherGlass, netherRod, netherSponge, ash, burnedBones;
-    private static Block netherbrickPillar;
+    public static Block netherGlass, netherRod, netherSponge, ash, burnedBones;
+    public static Block netherbrickPillar;
     public static final Block[] glowingNetherBlocks = new Block[24];
 
     @Override

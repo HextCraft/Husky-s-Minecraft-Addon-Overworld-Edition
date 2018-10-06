@@ -1,14 +1,15 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
+import net.minecraft.block.BlockWall;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -54,7 +55,7 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         setHardness(hardness);
         setResistance(resistance);
         setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
 
         this.name = name;
     }
@@ -68,22 +69,22 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
 
         addCollisionBoxToList(pos, entityBox, collidingBoxes, PILLAR_AABB);
 
-        if (((Boolean)state.getValue(NORTH)).booleanValue())
+        if (state.getValue(NORTH).booleanValue())
         {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, NORTH_AABB);
         }
 
-        if (((Boolean)state.getValue(EAST)).booleanValue())
+        if (state.getValue(EAST).booleanValue())
         {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, EAST_AABB);
         }
 
-        if (((Boolean)state.getValue(SOUTH)).booleanValue())
+        if (state.getValue(SOUTH).booleanValue())
         {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, SOUTH_AABB);
         }
 
-        if (((Boolean)state.getValue(WEST)).booleanValue())
+        if (state.getValue(WEST).booleanValue())
         {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
         }
@@ -103,22 +104,22 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
     {
         int i = 0;
 
-        if (((Boolean)state.getValue(NORTH)).booleanValue())
+        if (state.getValue(NORTH))
         {
             i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
         }
 
-        if (((Boolean)state.getValue(EAST)).booleanValue())
+        if (state.getValue(EAST))
         {
             i |= 1 << EnumFacing.EAST.getHorizontalIndex();
         }
 
-        if (((Boolean)state.getValue(SOUTH)).booleanValue())
+        if (state.getValue(SOUTH))
         {
             i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
         }
 
-        if (((Boolean)state.getValue(WEST)).booleanValue())
+        if (state.getValue(WEST))
         {
             i |= 1 << EnumFacing.WEST.getHorizontalIndex();
         }
@@ -250,7 +251,9 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         if(connector instanceof BlockFence || connector instanceof BlockNeutroniaFence) {
             return connector != Blocks.NETHER_BRICK_FENCE;
         }
-        return false;
+        else {
+            return connector instanceof BlockNeutroniaWall || connector instanceof BlockWall;
+        }
     }
 
     private boolean canFenceConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {

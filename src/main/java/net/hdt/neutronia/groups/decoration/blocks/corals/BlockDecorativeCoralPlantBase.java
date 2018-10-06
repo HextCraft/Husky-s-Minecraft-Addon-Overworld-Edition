@@ -24,7 +24,7 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
     private static final PropertyEnum<EnumFacing> FACING = BlockHorizontal.FACING;
 
     public BlockDecorativeCoralPlantBase(String name) {
-        super(name, Material.CORAL);
+        super(name, Material.PLANTS);
         this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }

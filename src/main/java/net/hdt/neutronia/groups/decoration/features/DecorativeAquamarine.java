@@ -12,7 +12,7 @@ import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class DecorativeAquamarine extends Component {
 
-    private static final Block[] decorativeAquamarine = new Block[6];
+    public static final Block[] decorativeAquamarine = new Block[6];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

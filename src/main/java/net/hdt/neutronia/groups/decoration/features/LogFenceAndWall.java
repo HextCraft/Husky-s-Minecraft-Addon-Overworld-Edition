@@ -3,7 +3,7 @@ package net.hdt.neutronia.groups.decoration.features;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaFence;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.building.blocks.BlockLogFence;
+import net.hdt.neutronia.groups.decoration.blocks.BlockLogFence;
 import net.hdt.neutronia.groups.decoration.blocks.BlockLogWall;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.init.Blocks;

@@ -3,6 +3,7 @@ package net.hdt.neutronia.groups.world.blocks;
 import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.blocks.base.BlockVertical;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -11,7 +12,6 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -31,7 +31,7 @@ public class BlockStalactite extends BlockVertical implements INeutroniaBlock {
         super(Material.ROCK,name + "_stalactite");
         setHardness(1.5F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
 
         setDefaultState(blockState.getBaseState().withProperty(SIZE, EnumSize.MEDIUM));
     }

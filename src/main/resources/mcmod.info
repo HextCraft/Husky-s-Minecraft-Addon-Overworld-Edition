@@ -10,8 +10,8 @@
       "Blommm",
       "Polar"
     ],
-    "credits": "Thanks to Nox, AguilaPapi, AbsolemJackdaw, SnakeBlock, YoshiSalad, Paul, Zontic, Igrek and King of Creepers for their awesome art. Also Mistral__ for the amazing logo and banner he made :) And Axoladdy and KingVampyre for their awesome ideas. Thanks to MCvinnyq, Dion6103, cybercat5555 and AguilaPapi for their amazing entity models",
-    "logoFile": "/assets/neutronia/textures/logo.png",
+    "credits": "Thanks to Nox, AguilaPapi, SnakeBlock, YoshiSalad, Paul, Zontic, Igrek and King of Creepers for their awesome art. Also Mistral__ for the amazing logo and banner he made :) And Axoladdy and KingVampyre for their awesome ideas. Thanks to MCvinnyq, cybercat5555 and AguilaPapi for their amazing entity models",
+    "logoFile": "/assets/neutronia/textures/logo_halloween.png",
     "url": "https://github.com/HuskysDevelopmentTeam/Neutronia"
   }
 ]

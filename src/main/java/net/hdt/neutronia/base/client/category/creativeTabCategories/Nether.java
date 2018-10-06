@@ -1,6 +1,10 @@
 package net.hdt.neutronia.base.client.category.creativeTabCategories;
 
 import net.hdt.neutronia.base.client.category.AbstractCreativeCategory;
+import net.hdt.neutronia.groups.building.features.SoulStone;
+import net.hdt.neutronia.groups.decoration.features.NetherBlocks;
+import net.hdt.neutronia.groups.world.features.overworld.Stalactite;
+import net.hdt.neutronia.groups.world.features.overworld.Stalagmite;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -12,7 +16,13 @@ public class Nether extends AbstractCreativeCategory {
 
     @Override
     public void init() {
-
+        add(NetherBlocks.glowingNetherBlocks);
+        add(SoulStone.soulStone);
+        add(SoulStone.soulStoneSlabSingle);
+        add(Stalactite.basalt_stalactite);
+        add(Stalactite.netherrack_stalactite);
+        add(Stalagmite.basalt_stalagmite);
+        add(Stalagmite.netherrack_stalagmite);
     }
 
 }

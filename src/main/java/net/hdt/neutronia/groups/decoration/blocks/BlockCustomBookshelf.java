@@ -2,11 +2,11 @@ package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.properties.EnumVanillaWoodTypes;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +21,7 @@ public class BlockCustomBookshelf extends BlockMod implements INeutroniaBlock {
         super(String.format("%s_bookshelf", woodTypes.getName()), Material.WOOD);
         setHardness(1.5F);
         setSoundType(SoundType.WOOD);
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
     }
 
     @Override

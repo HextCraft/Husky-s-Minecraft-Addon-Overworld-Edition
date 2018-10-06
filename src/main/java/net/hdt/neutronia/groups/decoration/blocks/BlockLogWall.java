@@ -1,17 +1,17 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaFence;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
+import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -47,7 +47,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
         super(name, state.getMaterial());
         setSoundType(state.getBlock().getSoundType());
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
 
         this.logWall = logWall;
         this.barkItem = barkItem;
@@ -158,7 +158,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
     @Override
     public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
     {
-        return side == EnumFacing.DOWN ? super.shouldSideBeRendered(blockState, blockAccess, pos, side) : true;
+        return side != EnumFacing.DOWN || super.shouldSideBeRendered(blockState, blockAccess, pos, side);
     }
 
     /**
@@ -193,7 +193,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] {UP, NORTH, EAST, WEST, SOUTH});
+        return new BlockStateContainer(this, UP, NORTH, EAST, WEST, SOUTH);
     }
 
     @Override
@@ -212,7 +212,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
     @Override
     public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
         Block connector = world.getBlockState(pos.offset(facing)).getBlock();
-        return connector instanceof BlockWall || connector instanceof BlockFenceGate || connector instanceof BlockNeutroniaWall;
+        return connector instanceof BlockWall || connector instanceof BlockFenceGate || connector instanceof BlockNeutroniaWall || connector instanceof BlockNeutroniaFence;
     }
 
     private boolean canWallConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
