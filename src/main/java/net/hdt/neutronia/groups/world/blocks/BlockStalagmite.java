@@ -33,7 +33,7 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
         super(name + "_stalagmite", Material.ROCK);
         setHardness(1.5F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         setLightLevel(glowing ? 3.0F : 0.0F);
 
         setDefaultState(blockState.getBaseState().withProperty(SIZE, EnumSize.MEDIUM));

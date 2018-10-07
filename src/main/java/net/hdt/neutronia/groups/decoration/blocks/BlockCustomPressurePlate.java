@@ -16,14 +16,14 @@ public class BlockCustomPressurePlate extends BlockNeutroniaPressurePlate {
         super(variant + "_pressure_plate", Material.WOOD, Sensitivity.EVERYTHING);
         setHardness(0.5F);
         setSoundType(SoundType.WOOD);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public BlockCustomPressurePlate(String variant, Material material, SoundType soundType, Sensitivity sensitivity) {
         super(variant + "_pressure_plate", material, sensitivity);
         setHardness(0.5F);
         setSoundType(soundType);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

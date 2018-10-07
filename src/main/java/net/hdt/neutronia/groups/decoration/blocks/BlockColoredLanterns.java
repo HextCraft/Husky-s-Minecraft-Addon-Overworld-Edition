@@ -26,7 +26,7 @@ public class BlockColoredLanterns extends BlockColoredAlt {
         super(isOn ? "lit_lantern" : "lantern", color);
         this.color = color;
         this.isOn = isOn;
-        setCreativeTab(!isOn ? Neutronia.NEUTRONIA_MAIN : null);
+        setCreativeTab(!isOn ? Neutronia.CREATIVE_TAB : null);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
         this.setTickRandomly(isOn);
     }

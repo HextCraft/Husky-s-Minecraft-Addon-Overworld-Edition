@@ -18,7 +18,7 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaPillar(Material materialIn, String name, String... variants) {
         super(name, materialIn, variants);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs, String... variants) {

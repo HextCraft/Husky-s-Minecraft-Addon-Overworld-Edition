@@ -51,7 +51,7 @@ public class ItemRune extends ItemMod implements IItemColorProvider, ICustomEnch
         super("rune", VARIANTS);
         if (!stack)
             setMaxStackSize(1);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public static int getColor(int meta) {

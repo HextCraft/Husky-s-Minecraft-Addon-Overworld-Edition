@@ -42,7 +42,7 @@ public class BlockTerracottaFlowerPot extends BlockFlowerPot implements INeutron
 
         setHardness(0.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
 
         setTranslationKey(name);
     }

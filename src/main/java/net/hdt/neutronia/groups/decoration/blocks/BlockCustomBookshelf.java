@@ -21,7 +21,7 @@ public class BlockCustomBookshelf extends BlockMod implements INeutroniaBlock {
         super(String.format("%s_bookshelf", woodTypes.getName()), Material.WOOD);
         setHardness(1.5F);
         setSoundType(SoundType.WOOD);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

@@ -31,7 +31,7 @@ public class BlockPotteryClayMachine extends BlockFacing implements INeutroniaBl
         super(name, Material.WOOD);
         this.meta = meta;
         this.isBurning = isBurning;
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     /**

@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.earlyGame.features;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.items.ItemNeutroniaBase;
 import net.hdt.neutronia.items.base.tools.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClayTools extends Component {
 
-    public static ItemBase UNFIRED_CLAY_AXE, UNFIRED_CLAY_PICKAXE, UNFIRED_CLAY_SWORD, UNFIRED_CLAY_SHOVEL, UNFIRED_CLAY_HOE;
+    public static ItemNeutroniaBase UNFIRED_CLAY_AXE, UNFIRED_CLAY_PICKAXE, UNFIRED_CLAY_SWORD, UNFIRED_CLAY_SHOVEL, UNFIRED_CLAY_HOE;
     public static BaseAxe FIRED_CLAY_AXE;
     public static BasePickaxe FIRED_CLAY_PICKAXE;
     public static BaseSword FIRED_CLAY_SWORD;
@@ -19,11 +19,11 @@ public class ClayTools extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        UNFIRED_CLAY_AXE = new ItemBase("unfired_clay_axe", Neutronia.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_PICKAXE = new ItemBase("unfired_clay_pickaxe", Neutronia.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_SWORD = new ItemBase("unfired_clay_sword", Neutronia.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_SHOVEL = new ItemBase("unfired_clay_shovel", Neutronia.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_HOE = new ItemBase("unfired_clay_hoe", Neutronia.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_AXE = new ItemNeutroniaBase("unfired_clay_axe");
+        UNFIRED_CLAY_PICKAXE = new ItemNeutroniaBase("unfired_clay_pickaxe");
+        UNFIRED_CLAY_SWORD = new ItemNeutroniaBase("unfired_clay_sword");
+        UNFIRED_CLAY_SHOVEL = new ItemNeutroniaBase("unfired_clay_shovel");
+        UNFIRED_CLAY_HOE = new ItemNeutroniaBase("unfired_clay_hoe");
         FIRED_CLAY_AXE = new BaseAxe("fired_clay_axe", CLAY);
         FIRED_CLAY_PICKAXE = new BasePickaxe("fired_clay_pickaxe", CLAY);
         FIRED_CLAY_SWORD = new BaseSword("fired_clay_sword", CLAY);

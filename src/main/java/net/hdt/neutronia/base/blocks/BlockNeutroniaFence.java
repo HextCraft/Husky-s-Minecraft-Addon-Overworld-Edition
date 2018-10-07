@@ -61,7 +61,7 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         setHardness(hardness);
         setResistance(resistance);
         setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     /**

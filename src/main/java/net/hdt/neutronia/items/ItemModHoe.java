@@ -31,7 +31,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder, INeutroniaIte
         ItemMod.variantHolders.add(this);
         this.toolMaterial = material;
         this.maxStackSize = 1;
-        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public Item setTranslationKey(String name) {

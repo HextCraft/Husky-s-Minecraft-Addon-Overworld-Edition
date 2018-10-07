@@ -26,7 +26,7 @@ public class BlockNeutroniaHotGlowing extends BlockMod implements INeutroniaBloc
 
     public BlockNeutroniaHotGlowing(Material material, String name) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

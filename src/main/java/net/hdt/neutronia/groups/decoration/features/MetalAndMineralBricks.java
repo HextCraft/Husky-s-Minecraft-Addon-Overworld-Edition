@@ -15,10 +15,10 @@ public class MetalAndMineralBricks extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        diamondBricks = new BlockSpecialBrick(Material.IRON, "diamond_bricks", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        emeraldBricks = new BlockSpecialBrick(Material.IRON, "emerald_bricks", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        ironBricks = new BlockSpecialBrick(Material.IRON, "iron_bricks", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        goldBricks = new BlockSpecialBrick(Material.IRON, "gold_bricks", Neutronia.NEUTRONIA_MAIN, 3.0F, 10.0F);
+        diamondBricks = new BlockSpecialBrick(Material.IRON, "diamond_bricks", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        emeraldBricks = new BlockSpecialBrick(Material.IRON, "emerald_bricks", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        ironBricks = new BlockSpecialBrick(Material.IRON, "iron_bricks", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        goldBricks = new BlockSpecialBrick(Material.IRON, "gold_bricks", Neutronia.CREATIVE_TAB, 3.0F, 10.0F);
     }
 
 }

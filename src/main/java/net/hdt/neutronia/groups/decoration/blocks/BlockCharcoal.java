@@ -16,7 +16,7 @@ public class BlockCharcoal extends BlockMod implements INeutroniaBlock {
         setHardness(5.0F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

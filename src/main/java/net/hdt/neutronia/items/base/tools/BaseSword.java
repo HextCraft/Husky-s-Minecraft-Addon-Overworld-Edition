@@ -8,7 +8,7 @@ public class BaseSword extends ItemModSword implements INeutroniaItem {
 
     public BaseSword(String name, ToolMaterial material) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

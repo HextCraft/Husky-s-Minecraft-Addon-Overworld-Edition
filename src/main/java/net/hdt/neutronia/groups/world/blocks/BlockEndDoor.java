@@ -9,7 +9,7 @@ public class BlockEndDoor extends BlockModDoor implements INeutroniaBlock {
 
     public BlockEndDoor(Material materialIn, String name) {
         super(materialIn, name);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

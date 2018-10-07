@@ -29,7 +29,7 @@ public class BlockFalling extends BlockMod implements INeutroniaBlock {
 
     public BlockFalling(Material materialIn, String name) {
         super(name, materialIn);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public static boolean canFallThrough(IBlockState state) {

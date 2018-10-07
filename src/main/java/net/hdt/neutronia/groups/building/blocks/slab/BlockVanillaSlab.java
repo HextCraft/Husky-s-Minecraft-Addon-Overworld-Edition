@@ -16,7 +16,7 @@ public class BlockVanillaSlab extends BlockNeutroniaSlab {
         setHardness(state.getBlockHardness(null, new BlockPos(0, 0, 0)));
         setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);
         setSoundType(state.getBlock().getSoundType());
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

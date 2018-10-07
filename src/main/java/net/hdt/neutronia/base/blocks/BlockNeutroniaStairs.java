@@ -8,7 +8,7 @@ public class BlockNeutroniaStairs extends BlockModStairs implements INeutroniaBl
 
     public BlockNeutroniaStairs(String name, IBlockState state) {
         super(name, state);
-        setCreativeTabs(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTabs(Neutronia.CREATIVE_TAB);
     }
 
 }

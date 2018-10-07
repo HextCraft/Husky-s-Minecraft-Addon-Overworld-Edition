@@ -8,7 +8,7 @@ public class ItemNeutroniaBase extends ItemMod implements INeutroniaItem {
 
     public ItemNeutroniaBase(String name, String... variants) {
         super(name, variants);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

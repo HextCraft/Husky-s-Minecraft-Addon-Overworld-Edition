@@ -1,6 +1,7 @@
 package net.hdt.neutronia.base.client;
 
 import com.google.common.collect.Lists;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.client.category.AbstractCreativeCategory;
 import net.hdt.neutronia.base.client.category.creativeTabCategories.CreativeTabCategories;
 import net.minecraft.client.Minecraft;
@@ -56,7 +57,7 @@ public class GuiDrawHandler {
             updateCategories();
 
             GuiContainerCreative creative = (GuiContainerCreative) event.getGui();
-            if (creative.getSelectedTabIndex() == Neutronia.NEUTRONIA_MAIN.getIndex()) {
+            if (creative.getSelectedTabIndex() == Neutronia.CREATIVE_TAB.getIndex()) {
                 viewingFurnitureTab = true;
                 categoryButtons.forEach(guiCategoryButton -> guiCategoryButton.visible = true);
                 updateItems(creative);
@@ -81,7 +82,7 @@ public class GuiDrawHandler {
     public void onDrawGui(DrawScreenEvent.Pre event) {
         if (event.getGui() instanceof GuiContainerCreative) {
             GuiContainerCreative creative = (GuiContainerCreative) event.getGui();
-            if (creative.getSelectedTabIndex() == Neutronia.NEUTRONIA_MAIN.getIndex()) {
+            if (creative.getSelectedTabIndex() == Neutronia.CREATIVE_TAB.getIndex()) {
                 if (!viewingFurnitureTab) {
                     updateItems(creative);
                     viewingFurnitureTab = true;
@@ -98,7 +99,7 @@ public class GuiDrawHandler {
             GuiContainerCreative creative = (GuiContainerCreative) event.getGui();
             this.guiCenterX = creative.getGuiLeft();
             this.guiCenterY = creative.getGuiTop();
-            if (creative.getSelectedTabIndex() == Neutronia.NEUTRONIA_MAIN.getIndex()) {
+            if (creative.getSelectedTabIndex() == Neutronia.CREATIVE_TAB.getIndex()) {
                 categoryUp.visible = true;
                 categoryDown.visible = true;
                 categoryEnableAll.visible = true;
@@ -155,7 +156,7 @@ public class GuiDrawHandler {
             }
             updateCategories();
             GuiContainerCreative creative = (GuiContainerCreative) event.getGui();
-            if (creative.getSelectedTabIndex() == Neutronia.NEUTRONIA_MAIN.getIndex()) {
+            if (creative.getSelectedTabIndex() == Neutronia.CREATIVE_TAB.getIndex()) {
                 categoryButtons.forEach(guiCategoryButton -> guiCategoryButton.visible = true);
             }
         }

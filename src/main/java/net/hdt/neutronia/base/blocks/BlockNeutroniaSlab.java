@@ -9,7 +9,7 @@ public class BlockNeutroniaSlab extends BlockModSlab implements INeutroniaBlock 
 
     public BlockNeutroniaSlab(String name, Material materialIn, boolean doubleSlab) {
         super(name + "_slab", materialIn, doubleSlab);
-        setCreativeTab(doubleSlab ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(doubleSlab ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
     }
 
     @Override

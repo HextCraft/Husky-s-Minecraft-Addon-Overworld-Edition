@@ -8,7 +8,7 @@ public class BasePickaxe extends ItemModPickaxe implements INeutroniaItem {
 
     public BasePickaxe(String name, ToolMaterial material) {
         super(material, name);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

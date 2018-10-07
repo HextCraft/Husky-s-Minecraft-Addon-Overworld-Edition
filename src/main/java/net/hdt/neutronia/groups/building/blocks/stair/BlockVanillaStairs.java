@@ -8,7 +8,7 @@ public class BlockVanillaStairs extends BlockNeutroniaStairs {
 
     public BlockVanillaStairs(String name, IBlockState state) {
         super(name, state);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

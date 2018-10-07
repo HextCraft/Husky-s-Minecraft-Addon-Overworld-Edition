@@ -9,7 +9,7 @@ public class BlockDecorativeCoralBlockBase extends BlockMod implements INeutroni
 
     public BlockDecorativeCoralBlockBase(String name) {
         super(name, Material.CORAL);
-        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

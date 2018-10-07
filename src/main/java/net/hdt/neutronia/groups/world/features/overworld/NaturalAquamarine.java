@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.CREATIVE_TAB;
 
 public class NaturalAquamarine extends Component {
 
@@ -16,7 +16,7 @@ public class NaturalAquamarine extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
-            naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockNeutroniaBase(Material.ROCK, naturalAquamarineVariants.getName(), false).setCreativeTab(NEUTRONIA_MAIN);
+            naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockNeutroniaBase(Material.ROCK, naturalAquamarineVariants.getName(), false).setCreativeTab(CREATIVE_TAB);
         }
     }
 

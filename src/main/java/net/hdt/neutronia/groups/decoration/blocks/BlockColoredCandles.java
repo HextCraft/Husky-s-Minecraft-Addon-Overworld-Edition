@@ -30,7 +30,7 @@ public class BlockColoredCandles extends BlockNeutroniaColored {
         super(lit ? "lit_candle" : "candle", color);
         this.color = color;
         this.lit = lit;
-        setCreativeTab(lit ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(lit ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
         this.setLightLevel(lit ? 1.0F : 0.0F);
         this.setTickRandomly(lit);
     }

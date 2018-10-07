@@ -47,7 +47,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
         super(name, state.getMaterial());
         setSoundType(state.getBlock().getSoundType());
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
 
         this.logWall = logWall;
         this.barkItem = barkItem;

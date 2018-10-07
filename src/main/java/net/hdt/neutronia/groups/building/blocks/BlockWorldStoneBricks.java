@@ -18,7 +18,7 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
         setHardness(1.5F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

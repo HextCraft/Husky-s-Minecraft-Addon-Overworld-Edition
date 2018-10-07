@@ -29,7 +29,7 @@ public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @SuppressWarnings("unused")
@@ -40,7 +40,7 @@ public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

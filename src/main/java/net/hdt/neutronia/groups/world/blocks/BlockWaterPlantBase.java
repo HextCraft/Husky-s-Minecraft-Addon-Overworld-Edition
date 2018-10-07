@@ -29,7 +29,7 @@ public class BlockWaterPlantBase extends BlockModBush {
 
     public BlockWaterPlantBase(String name) {
         super(name, Material.WATER);
-        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.CREATIVE_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 

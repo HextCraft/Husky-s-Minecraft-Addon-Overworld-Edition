@@ -18,7 +18,7 @@ public class BlockColoredSlime extends BlockNeutroniaBreakable {
 
     public BlockColoredSlime(EnumDyeColor color) {
         super(Material.CLAY, "colored_slime_block", color, false);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         this.slipperiness = 0.8F;
         setSoundType(SoundType.SLIME);
     }

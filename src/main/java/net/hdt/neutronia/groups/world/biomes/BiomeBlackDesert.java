@@ -1,12 +1,12 @@
 package net.hdt.neutronia.groups.world.biomes;
 
 import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
-import net.hdt.neutronia.init.NBlocks;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;
 import net.minecraft.entity.passive.EntityRabbit;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -20,7 +20,7 @@ public class BiomeBlackDesert extends Biome {
 
     public BiomeBlackDesert() {
         super((new BiomeProperties("Black Desert")).setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setWaterColor(0x1b1b1b).setRainDisabled());
-        topBlock = NBlocks.blackSand.getDefaultState();
+        topBlock = Blocks.SAND.getDefaultState();
         fillerBlock = MoreStoneBlocks.newStoneVariants[EnumNewStoneVariants.BASALT_COBBLE.getMetadata()].getDefaultState();
         setMobSpawns();
     }

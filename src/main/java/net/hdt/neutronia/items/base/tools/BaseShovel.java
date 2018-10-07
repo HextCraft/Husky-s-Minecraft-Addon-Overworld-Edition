@@ -8,7 +8,7 @@ public class BaseShovel extends ItemModSpade implements INeutroniaItem {
 
     public BaseShovel(String name, ToolMaterial material) {
         super(material, name);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

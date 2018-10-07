@@ -18,7 +18,7 @@ public class ItemBandage extends ItemNeutroniaBase {
 
     public ItemBandage() {
         super("bandage");
-        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

@@ -7,7 +7,7 @@ public class BlockCustomButton extends BlockNeutroniaButton {
 
     public BlockCustomButton(String variant) {
         super(variant + "_button", true);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public BlockCustomButton(String variant, boolean wooden) {

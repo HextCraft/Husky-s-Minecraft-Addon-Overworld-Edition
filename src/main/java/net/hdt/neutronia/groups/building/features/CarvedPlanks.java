@@ -26,8 +26,8 @@ public class CarvedPlanks extends Component {
         for (BlockPlanks.EnumType plankTypes : BlockPlanks.EnumType.values()) {
             carvedPlanks[plankTypes.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", plankTypes.getName()), true);
             if (GlobalConfig.enableVariants) {
-                VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, Neutronia.NEUTRONIA_MAIN);
-                VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, Neutronia.NEUTRONIA_MAIN);
+                VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, Neutronia.CREATIVE_TAB);
+                VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, Neutronia.CREATIVE_TAB);
             }
         }
     }

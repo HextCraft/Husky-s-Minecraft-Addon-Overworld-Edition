@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Objects;
 
-import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.CREATIVE_TAB;
 
 public class NBlocks {
 
@@ -49,10 +49,10 @@ public class NBlocks {
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
-        driedKelpBlock = new BlockNeutroniaBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnaut = new BlockNeutroniaBase(Material.IRON, "wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnautOld = new BlockNeutroniaBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnautPorthole = new BlockNeutroniaBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(NEUTRONIA_MAIN);
+        driedKelpBlock = new BlockNeutroniaBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(CREATIVE_TAB);
+        wrautnaut = new BlockNeutroniaBase(Material.IRON, "wrautnaut", false).setCreativeTab(CREATIVE_TAB);
+        wrautnautOld = new BlockNeutroniaBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(CREATIVE_TAB);
+        wrautnautPorthole = new BlockNeutroniaBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(CREATIVE_TAB);
 
         //Wood Blocks
         /*for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
@@ -81,7 +81,7 @@ public class NBlocks {
         redSandstoneBricks = new BlockOverworldBase(Material.ROCK, "red_sandstone_bricks", false);
         sandstoneBricks = new BlockOverworldBase(Material.ROCK, "sandstone_bricks", false);
 
-        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, Neutronia.NEUTRONIA_MAIN);
+        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, Neutronia.CREATIVE_TAB);
         add("smooth_red_sandstone", smoothRedSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
         add("smooth_sandstone", smoothSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
 
@@ -126,10 +126,10 @@ public class NBlocks {
         String stairsName = name + "_stairs";
 
         if (stairs) {
-            BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(Neutronia.NEUTRONIA_MAIN));
+            BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(Neutronia.CREATIVE_TAB));
         }
         if (slabs) {
-            BlockModSlab.initSlab(block, meta, (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), false).setCreativeTab(Neutronia.NEUTRONIA_MAIN), (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), true).setCreativeTab(Neutronia.NEUTRONIA_MAIN));
+            BlockModSlab.initSlab(block, meta, (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), false).setCreativeTab(Neutronia.CREATIVE_TAB), (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), true).setCreativeTab(Neutronia.CREATIVE_TAB));
         }
     }
 

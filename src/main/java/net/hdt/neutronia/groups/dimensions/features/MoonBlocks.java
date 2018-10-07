@@ -14,7 +14,7 @@ public class MoonBlocks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumMoonBlockVariants moonBlockVariants : EnumMoonBlockVariants.values()) {
-            MOON_BLOCKS[moonBlockVariants.getID()] = new BlockMoonBase(moonBlockVariants.getName(), moonBlockVariants.getMaterial(), Neutronia.NEUTRONIA_MAIN);
+            MOON_BLOCKS[moonBlockVariants.getID()] = new BlockMoonBase(moonBlockVariants.getName(), moonBlockVariants.getMaterial(), Neutronia.CREATIVE_TAB);
         }
     }
 

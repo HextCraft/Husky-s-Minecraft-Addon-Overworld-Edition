@@ -27,7 +27,7 @@ public class ColoredPlanks extends Component {
         IBlockState state = block.getStateFromMeta(meta);
 
         if (stairs) {
-            coloredStairs[color.getMetadata()] = new BlockNeutroniaColoredStair(name, state, color, Neutronia.NEUTRONIA_MAIN);
+            coloredStairs[color.getMetadata()] = new BlockNeutroniaColoredStair(name, state, color, Neutronia.CREATIVE_TAB);
             BlockModStairs.initStairs(block, meta, coloredStairs[color.getMetadata()]);
         }
         if (slab) {
@@ -47,7 +47,7 @@ public class ColoredPlanks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumDyeColor color : EnumDyeColor.values()) {
-            coloredPlanks[color.getMetadata()] = new BlockNeutroniaColored("colored_plank", color).setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+            coloredPlanks[color.getMetadata()] = new BlockNeutroniaColored("colored_plank", color).setCreativeTab(Neutronia.CREATIVE_TAB);
             addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
 //            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
         }

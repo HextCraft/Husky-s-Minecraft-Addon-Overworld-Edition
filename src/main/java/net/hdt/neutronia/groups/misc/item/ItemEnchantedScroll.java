@@ -14,7 +14,7 @@ public class ItemEnchantedScroll extends ItemMod implements INeutroniaItem {
     public ItemEnchantedScroll() {
         super("enchanted_scroll");
         setMaxStackSize(1);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

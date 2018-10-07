@@ -5,6 +5,7 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.items.ItemArmorBase;
+import net.hdt.neutronia.items.ItemNeutroniaBase;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
 import net.hdt.neutronia.items.base.tools.BaseShovel;
@@ -50,7 +51,7 @@ public class MoreMetals extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        CreativeTabs tab = Neutronia.NEUTRONIA_MAIN;
+        CreativeTabs tab = Neutronia.CREATIVE_TAB;
 
         brassBlock = new BlockNeutroniaBase(Material.IRON, "brass_block", false);
         steelBlock = new BlockNeutroniaBase(Material.IRON, "steel_block", false);
@@ -104,22 +105,22 @@ public class MoreMetals extends Component {
 //        BRONZE_LEGGINGS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.LEGS);
 //        BRONZE_BOOTS = new ItemArmorBase("bronze", BRONZE_ARMOR, 1, EntityEquipmentSlot.FEET);
 
-        brassIngot = new ItemBase("brass_ingot", tab);
-        brassNugget = new ItemBase("brass_nugget", tab);
+        brassIngot = new ItemNeutroniaBase("brass_ingot");
+        brassNugget = new ItemNeutroniaBase("brass_nugget");
 
-        copperIngot = new ItemBase("copper_ingot", tab);
-        copperNugget = new ItemBase("copper_nugget", tab);
+        copperIngot = new ItemNeutroniaBase("copper_ingot");
+        copperNugget = new ItemNeutroniaBase("copper_nugget");
 
-        steelIngot = new ItemBase("steel_ingot", tab);
-        steelNugget = new ItemBase("steel_nugget", tab);
+        steelIngot = new ItemNeutroniaBase("steel_ingot");
+        steelNugget = new ItemNeutroniaBase("steel_nugget");
 
-        zincChunk = new ItemBase("zinc_chunk", tab);
+        zincChunk = new ItemNeutroniaBase("zinc_chunk");
 
-//        tinIngot = new ItemBase("tin_ingot", tab);
-//        tinNugget = new ItemBase("tin_nugget", tab);
+//        tinIngot = new ItemNeutroniaBase("tin_ingot");
+//        tinNugget = new ItemNeutroniaBase("tin_nugget");
 
-//        bronzeIngot = new ItemBase("bronze_ingot", tab);
-//        bronzeNugget = new ItemBase("bronze_nugget", tab);
+//        bronzeIngot = new ItemNeutroniaBase("bronze_ingot");
+//        bronzeNugget = new ItemNeutroniaBase("bronze_nugget");
     }
 
     @Override

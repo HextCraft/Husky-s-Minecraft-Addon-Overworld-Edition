@@ -14,7 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.CREATIVE_TAB;
 
 public class LogBlocks extends Component {
 
@@ -40,7 +40,7 @@ public class LogBlocks extends Component {
     public void preInit(FMLPreInitializationEvent event) {
         for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
             logPoles[enumType.getMetadata()] = new BlockLogPole(enumType, false);
-            strippedLogs[enumType.getMetadata()] = new BlockNeutroniaPillar(Material.WOOD, String.format("stripped_%s_log", enumType.getName())).setCreativeTab(NEUTRONIA_MAIN);
+            strippedLogs[enumType.getMetadata()] = new BlockNeutroniaPillar(Material.WOOD, String.format("stripped_%s_log", enumType.getName())).setCreativeTab(CREATIVE_TAB);
             strippedLogPoles[enumType.getMetadata()] = new BlockLogPole(enumType, true);
             VanillaStairsAndSlabs.add(String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true);
             plankPoles[enumType.getMetadata()] = new BlockPlankPole(enumType);
@@ -49,20 +49,20 @@ public class LogBlocks extends Component {
         }
 
         if (enableSlabsAndStairs) {
-            VanillaStairsAndSlabs.add("acacia_log", Blocks.LOG2, 0, acacia, NEUTRONIA_MAIN);
-            VanillaStairsAndSlabs.add("birch_log", Blocks.LOG, 2, birch, NEUTRONIA_MAIN);
-            VanillaStairsAndSlabs.add("dark_oak_log", Blocks.LOG2, 1, darkOak, NEUTRONIA_MAIN);
-            VanillaStairsAndSlabs.add("jungle_log", Blocks.LOG, 3, jungle, NEUTRONIA_MAIN);
-            VanillaStairsAndSlabs.add("oak_log", Blocks.LOG, 0, oak, NEUTRONIA_MAIN);
-            VanillaStairsAndSlabs.add("spruce_log", Blocks.LOG, 1, spruce, NEUTRONIA_MAIN);
+            VanillaStairsAndSlabs.add("acacia_log", Blocks.LOG2, 0, acacia, CREATIVE_TAB);
+            VanillaStairsAndSlabs.add("birch_log", Blocks.LOG, 2, birch, CREATIVE_TAB);
+            VanillaStairsAndSlabs.add("dark_oak_log", Blocks.LOG2, 1, darkOak, CREATIVE_TAB);
+            VanillaStairsAndSlabs.add("jungle_log", Blocks.LOG, 3, jungle, CREATIVE_TAB);
+            VanillaStairsAndSlabs.add("oak_log", Blocks.LOG, 0, oak, CREATIVE_TAB);
+            VanillaStairsAndSlabs.add("spruce_log", Blocks.LOG, 1, spruce, CREATIVE_TAB);
         }
         if (enableWalls) {
-            VanillaWalls.add("acacia_log", Blocks.LOG2, 0, acacia, NEUTRONIA_MAIN);
-            VanillaWalls.add("birch_log", Blocks.LOG, 2, birch, NEUTRONIA_MAIN);
-            VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, darkOak, NEUTRONIA_MAIN);
-            VanillaWalls.add("jungle_log", Blocks.LOG, 3, jungle, NEUTRONIA_MAIN);
-            VanillaWalls.add("oak_log", Blocks.LOG, 0, oak, NEUTRONIA_MAIN);
-            VanillaWalls.add("spruce_log", Blocks.LOG, 1, spruce, NEUTRONIA_MAIN);
+            VanillaWalls.add("acacia_log", Blocks.LOG2, 0, acacia, CREATIVE_TAB);
+            VanillaWalls.add("birch_log", Blocks.LOG, 2, birch, CREATIVE_TAB);
+            VanillaWalls.add("dark_oak_log", Blocks.LOG2, 1, darkOak, CREATIVE_TAB);
+            VanillaWalls.add("jungle_log", Blocks.LOG, 3, jungle, CREATIVE_TAB);
+            VanillaWalls.add("oak_log", Blocks.LOG, 0, oak, CREATIVE_TAB);
+            VanillaWalls.add("spruce_log", Blocks.LOG, 1, spruce, CREATIVE_TAB);
         }
     }
 

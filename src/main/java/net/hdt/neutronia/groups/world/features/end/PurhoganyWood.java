@@ -17,7 +17,7 @@ import java.util.Objects;
 public class PurhoganyWood extends Component {
 
     public static Block purhoganyLog, purhoganyPlanks, purhoganyDoor, purhoganyTrapdoor;
-    private CreativeTabs TAB = Neutronia.NEUTRONIA_MAIN;
+    private CreativeTabs TAB = Neutronia.CREATIVE_TAB;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

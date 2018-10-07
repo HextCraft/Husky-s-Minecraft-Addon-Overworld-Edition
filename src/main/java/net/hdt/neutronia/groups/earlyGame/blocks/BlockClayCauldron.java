@@ -6,7 +6,7 @@ import net.hdt.neutronia.blocks.base.BlockModCauldron;
 public class BlockClayCauldron extends BlockModCauldron {
 
     public BlockClayCauldron() {
-        super("clay_cauldron", Neutronia.NEUTRONIA_MAIN);
+        super("clay_cauldron", Neutronia.CREATIVE_TAB);
     }
 
 }

@@ -27,7 +27,7 @@ public class BlockCoralPlantBase extends BlockModBush {
 
     public BlockCoralPlantBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.CREATIVE_TAB);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 15));
     }
 

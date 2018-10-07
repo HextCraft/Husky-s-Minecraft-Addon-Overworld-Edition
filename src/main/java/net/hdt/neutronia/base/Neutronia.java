@@ -29,7 +29,7 @@ import static net.hdt.neutronia.base.util.Reference.*;
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
 public class Neutronia {
 
-    public static final CreativeTabs NEUTRONIA_MAIN = new CreativeTabs(I18n.format("itemGroup.main")) {
+    public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(I18n.format("itemGroup.main")) {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(Blocks.BOOKSHELF);
@@ -42,7 +42,6 @@ public class Neutronia {
     public static CommonProxy proxy;
     private List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>() {{
         add(new EventHandlers());
-        add(new RecipeHandlers());
     }};
 
     public static DamageSource func_203096_a(Entity p_203096_0_, @Nullable Entity p_203096_1_) {

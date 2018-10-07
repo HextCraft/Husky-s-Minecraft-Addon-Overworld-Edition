@@ -16,10 +16,10 @@ public class MetalAndMineralPillars extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        diamondPillar = new BlockSpecialPillar(Material.IRON, "diamond_pillar", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        emeraldPillar = new BlockSpecialPillar(Material.IRON, "emerald_pillar", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        ironPillar = new BlockSpecialPillar(Material.IRON, "iron_pillar", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
-        goldPillar = new BlockSpecialPillar(Material.IRON, "gold_pillar", Neutronia.NEUTRONIA_MAIN, 5.0F, 10.0F);
+        diamondPillar = new BlockSpecialPillar(Material.IRON, "diamond_pillar", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        emeraldPillar = new BlockSpecialPillar(Material.IRON, "emerald_pillar", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        ironPillar = new BlockSpecialPillar(Material.IRON, "iron_pillar", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
+        goldPillar = new BlockSpecialPillar(Material.IRON, "gold_pillar", Neutronia.CREATIVE_TAB, 5.0F, 10.0F);
     }
 
 }

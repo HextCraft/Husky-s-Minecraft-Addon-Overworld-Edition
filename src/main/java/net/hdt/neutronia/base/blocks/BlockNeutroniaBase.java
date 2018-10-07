@@ -13,7 +13,7 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name, boolean flammable) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         if (flammable) {
             addFlammable(this);
         }
@@ -21,12 +21,12 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     public BlockNeutroniaBase(Material material, String name, boolean flammable, String... variants) {
         super(name, material, variants);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         if (flammable) {
             addFlammable(this);
         }
@@ -34,7 +34,7 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name, float hardness, float resistance, float slipperiness, float lightValue, SoundType soundType) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         setHardness(hardness);
         setResistance(resistance);
         setDefaultSlipperiness(slipperiness);

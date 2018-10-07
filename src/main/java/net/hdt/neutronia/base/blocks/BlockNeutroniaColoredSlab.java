@@ -9,7 +9,7 @@ public class BlockNeutroniaColoredSlab extends BlockModColoredSlab implements IN
 
     public BlockNeutroniaColoredSlab(String name, EnumDyeColor color, Material materialIn, boolean doubleSlab) {
         super(name + "_slab", color, materialIn, doubleSlab);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
 }

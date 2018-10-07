@@ -26,7 +26,7 @@ public class BlockRedNetherBrickChiseled extends BlockMod implements INeutroniaB
 
         this.filled = filled;
 
-        setCreativeTab(filled ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(filled ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
         setHardness(2.0F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);

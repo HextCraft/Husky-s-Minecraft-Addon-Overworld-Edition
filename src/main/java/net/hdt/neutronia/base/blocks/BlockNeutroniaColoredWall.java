@@ -47,7 +47,7 @@ public class BlockNeutroniaColoredWall extends BlockMod implements INeutroniaBlo
         setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);
         setSoundType(state.getBlock().getSoundType());
         setDefaultState(blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     private static int getAABBIndex(IBlockState state) {

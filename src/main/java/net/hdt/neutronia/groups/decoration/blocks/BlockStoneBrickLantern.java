@@ -21,7 +21,7 @@ public class BlockStoneBrickLantern extends BlockMod implements INeutroniaBlock 
 
     public BlockStoneBrickLantern(Material material, String name) {
         super(name, material);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(0.9F);

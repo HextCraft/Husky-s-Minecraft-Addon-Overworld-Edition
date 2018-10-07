@@ -26,23 +26,23 @@ public class WoodBlocks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
-//            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(NEUTRONIA_MAIN);
+//            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(CREATIVE_TAB);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
             barkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_wood", enumType.getName()), true);
             VanillaStairsAndSlabs.add(String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, enableSlabsAndStairs);
             VanillaWalls.add(String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, enableWalls);
-//            addFenceAndFenceGate(enumType, String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
-//            addFenceAndFenceGate(enumType, String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
-//            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
+//            addFenceAndFenceGate(enumType, String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, CREATIVE_TAB);
+//            addFenceAndFenceGate(enumType, String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, CREATIVE_TAB);
+//            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, CREATIVE_TAB);
             chiseledBarkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_wood_chiseled", enumType.getName()), true);
             unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("unnamed_%s_wood_chiseled", enumType.getName()), true);
             strippedBarkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("stripped_%s_wood", enumType.getName()), true);
             VanillaStairsAndSlabs.add(String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, enableSlabsAndStairs);
             VanillaWalls.add(String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, enableWalls);
-//            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), NEUTRONIA_MAIN, false);
-//            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), NEUTRONIA_MAIN, false);
-//            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), NEUTRONIA_MAIN, false);
-//            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin", true).setCreativeTab(NEUTRONIA_MAIN);
+//            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), CREATIVE_TAB, false);
+//            strippedLogDowels[enumType.getMetadata()] = new BlockRodBase(String.format("stripped_%s_log_dowel", enumType.getName()), CREATIVE_TAB, false);
+//            plankDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_plank_dowel", enumType.getName()), CREATIVE_TAB, false);
+//            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin", true).setCreativeTab(CREATIVE_TAB);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.logStripper);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(chiseledBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.chisel);
         }

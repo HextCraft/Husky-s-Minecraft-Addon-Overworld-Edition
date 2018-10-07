@@ -21,7 +21,7 @@ public class BlockFireflyBulb extends BlockNeutroniaBase {
     public BlockFireflyBulb(boolean isOn) {
         super(Material.ROCK, isOn ? "lit_firefly_bulb" : "firefly_bulb", false);
         this.isOn = isOn;
-        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
         this.setTickRandomly(isOn);
     }

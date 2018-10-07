@@ -16,7 +16,7 @@ public class BlockDirtCraftingTable extends BlockMod implements INeutroniaBlock 
 
     public BlockDirtCraftingTable() {
         super("crafting_table_dirt", Material.GROUND);
-        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

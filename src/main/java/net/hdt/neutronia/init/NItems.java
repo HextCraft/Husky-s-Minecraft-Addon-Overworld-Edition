@@ -58,7 +58,7 @@ public class NItems {
     public static Item[] planksShields = new Item[6];
 
     static {
-        CreativeTabs tab = Neutronia.NEUTRONIA_MAIN;
+        CreativeTabs tab = Neutronia.CREATIVE_TAB;
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();

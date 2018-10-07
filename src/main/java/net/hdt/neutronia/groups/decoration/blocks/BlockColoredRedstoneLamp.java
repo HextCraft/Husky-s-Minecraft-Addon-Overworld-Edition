@@ -24,7 +24,7 @@ public class BlockColoredRedstoneLamp extends BlockNeutroniaColored {
         super(Material.REDSTONE_LIGHT, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
-        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
+        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
     }
 
