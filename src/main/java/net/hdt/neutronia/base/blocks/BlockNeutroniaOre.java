@@ -38,9 +38,10 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return drop;
+        return new ItemStack(drop).getItem();
     }
 
+    @Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
         if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
             int i = random.nextInt(fortune + 2) - 1;

@@ -18,6 +18,11 @@ public class GroupButton extends GuiButton {
         this.group = group;
     }
 
+    public GroupButton(int id, int x, int y, int width, int height, Group group) {
+        super(id, x, y, width, height, I18n.translateToLocal("neutronia.config.group." + group.getName().toLowerCase().replace(" ", "_")));
+        this.group = group;
+    }
+
     @Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
 

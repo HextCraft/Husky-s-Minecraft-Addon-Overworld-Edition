@@ -11,7 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@ComponentRegistry(name = "Stalagmite", icon = "block", iconStack = "minecraft:bricks", description = "")
+@ComponentRegistry(name = "Stalagmite", iconStack = "minecraft:bricks")
 public class Stalagmite extends Component {
 
     public static Block stone_stalagmite, granite_stalagmite, diorite_stalagmite,

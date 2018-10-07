@@ -19,6 +19,10 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
         }
     }
 
+    public BlockNeutroniaBase(Builder builder, String name) {
+        super(builder, name);
+    }
+
     public BlockNeutroniaBase(Material material, String name) {
         super(name, material);
         setCreativeTab(Neutronia.CREATIVE_TAB);

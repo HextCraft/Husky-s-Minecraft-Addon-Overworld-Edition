@@ -25,7 +25,6 @@ public class FirstLoadScreen extends GuiConfigBase {
 
         buttonList.add(backButton = new GuiButton(0, x, y + 167, 200, 20, I18n.translateToLocal("neutronia.config.skip")));
         buttonList.add(new GuiButton(1, x, y + 142, 98, 20, I18n.translateToLocal("neutronia.config.configure")));
-        buttonList.add(new GuiButton(2, x + 102, y + 142, 98, 20, I18n.translateToLocal("neutronia.config.opensite")));
     }
 
     @Override
@@ -39,9 +38,6 @@ public class FirstLoadScreen extends GuiConfigBase {
             case 1: // Configure
                 mc.displayGuiScreen(new RootConfigGui(parent));
                 break;
-            /*case 2: // Import Config
-                tryOpenWebsite();
-                break;*/
         }
     }
 

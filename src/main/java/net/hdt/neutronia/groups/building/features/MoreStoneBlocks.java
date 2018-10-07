@@ -1,5 +1,6 @@
 package net.hdt.neutronia.groups.building.features;
 
+import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
@@ -8,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+@net.hdt.neutronia.base.new_groups.Component(name = "More Stone Blocks", icon = "minecraft:bricks")
 public class MoreStoneBlocks extends Component {
 
     //Stone Blocks
@@ -18,7 +20,7 @@ public class MoreStoneBlocks extends Component {
     public void preInit(FMLPreInitializationEvent event) {
         // New Stone Blocks
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
-            newStoneVariants[newStoneVariant.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, newStoneVariant.getName(), false);
+            newStoneVariants[newStoneVariant.getMetadata()] = new BlockNeutroniaBase(BlockMod.Builder.create(Material.ROCK).hardnessAndResistance(3.0F, 5.0F), newStoneVariant.getName());
         }
         for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
             VanillaStairsAndSlabs.add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], 0, true, false, true);

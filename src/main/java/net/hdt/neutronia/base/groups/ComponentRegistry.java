@@ -4,10 +4,8 @@ public @interface ComponentRegistry {
 
     String name();
 
-    String icon();
-
     String iconStack();
 
-    String description();
+    String description() default "";
 
 }

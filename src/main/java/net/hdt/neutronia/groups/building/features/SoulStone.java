@@ -23,7 +23,7 @@ public class SoulStone extends Component {
         for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
             soulStoneSlabSingle[soulStoneTypes.getMetadata()] = new BlockVanillaSlab(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()].getDefaultState(), false);
-            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockVanillaSlab(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()].getDefaultState(), false);
+            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockVanillaSlab(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()].getDefaultState(), true);
             BlockModSlab.initSlab(soulStone[soulStoneTypes.getMetadata()], 0, (BlockModSlab) soulStoneSlabSingle[soulStoneTypes.getMetadata()], (BlockModSlab) soulStoneSlabDouble[soulStoneTypes.getMetadata()]);
         }
 

@@ -6,6 +6,7 @@ import net.hdt.neutronia.base.client.gui.ConfigEvents;
 import net.hdt.neutronia.base.client.gui.GuiReplacementEvents;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibObfuscation;
+import net.hdt.neutronia.base.util.Localization;
 import net.hdt.neutronia.base.util.handlers.EntityEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResourcePack;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
+        Localization.initialize(Side.CLIENT);
         MinecraftForge.EVENT_BUS.register(EntityEventHandler.class);
         MinecraftForge.EVENT_BUS.register(new GuiDrawHandler());
         GroupLoader.preInitClient(event);

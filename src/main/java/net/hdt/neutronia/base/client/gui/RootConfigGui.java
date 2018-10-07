@@ -6,36 +6,23 @@ import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.util.Color;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@SideOnly(Side.CLIENT)
 public class RootConfigGui extends GuiConfigBase {
 
-    protected static final int MARGIN = 10;
-    protected static final int INSET = 5;
-    protected static final int MAX_PRESETS_PAGE = 5;
-    protected static final int BUTTON_WIDTH = 100;
-    protected static final int BUTTON_HEIGHT = 20;
-    protected static final int PRESET_BUTTON_WIDTH = 200;
-    protected static final int PRESET_BUTTON_HEIGHT = 20;
-    protected static final int NAV_BUTTON_WIDTH = 25;
-    protected static final int NAV_BUTTON_INSET = 5;
     private static int MODULES_PER_PAGE = 10;
-    protected final StandardPanel backgroundPanel = new StandardPanel();
-    protected final StandardPanel presetPanel = new StandardPanel(0, 0, Color.GOLD, Color.BLACK, Color.GRAY);
     private final List<Group> groups;
-    protected int anchorX;
-    protected int anchorY;
-    protected int regionWidth;
-    protected int regionHeight;
     private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
     private boolean nEnabled;
     private int page = 0;
@@ -45,12 +32,9 @@ public class RootConfigGui extends GuiConfigBase {
 
     RootConfigGui(GuiScreen parent) {
         super(parent);
-
         groups = new ArrayList<>(GroupLoader.enabledGroups);
         Collections.sort(groups);
-
         nEnabled = GlobalConfig.enableNButton;
-
         System.out.println(groups.size());
         totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
     }
@@ -170,11 +154,6 @@ public class RootConfigGui extends GuiConfigBase {
 
         if (s != null)
             drawCenteredString(mc.fontRenderer, s, width / 2, backButton.y + 22, 0xFFFF00);
-
-        /*drawDefaultBackground();
-        this.backgroundPanel.render(this.anchorX, this.anchorY, Panel.Reference.UPPER_LEFT);
-        this.presetPanel.render(this.anchorX + MARGIN, this.anchorY + MARGIN + INSET * 3, Panel.Reference.UPPER_LEFT);
-        super.drawScreen(mouseX, mouseY, partialTicks);*/
     }
 
     @Override
@@ -194,9 +173,6 @@ public class RootConfigGui extends GuiConfigBase {
             case 1: // General Settings
                 mc.displayGuiScreen(new ConfigCategory(this, "_global"));
                 break;
-            /*case 2: // Import Config
-                mc.displayGuiScreen(new GuiConfigImport(this));
-                break;*/
             case 3: // Open Website
                 tryOpenWebsite(LibMisc.MOD_WEBSITE);
                 break;

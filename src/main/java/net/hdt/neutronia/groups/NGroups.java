@@ -30,7 +30,7 @@ import java.time.Month;
 
 public class NGroups {
 
-    private static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
+    public static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
 
     public static void registerGroups() {
         building = Group.builder()
