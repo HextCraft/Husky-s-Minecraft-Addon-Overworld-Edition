@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
 import net.hdt.neutronia.properties.EnumNaturalAquamarineVariants;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
 
 public class NaturalAquamarine extends Component {
 
@@ -16,7 +16,7 @@ public class NaturalAquamarine extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumNaturalAquamarineVariants naturalAquamarineVariants : EnumNaturalAquamarineVariants.values()) {
-            naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockOverworldBase(Material.ROCK, naturalAquamarineVariants.getName(), false).setCreativeTab(NEUTRONIA_MAIN);
+            naturalAquamarine[naturalAquamarineVariants.getID()] = new BlockNeutroniaBase(Material.ROCK, naturalAquamarineVariants.getName(), false).setCreativeTab(NEUTRONIA_MAIN);
         }
     }
 

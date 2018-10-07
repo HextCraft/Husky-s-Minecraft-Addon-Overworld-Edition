@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.building.blocks;
 
 import net.hdt.huskylib2.block.BlockMetaVariants;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.WorldStoneBricks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 
 import java.util.function.Supplier;
 
@@ -18,7 +18,7 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
         setHardness(1.5F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     @Override

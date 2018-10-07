@@ -20,9 +20,9 @@ public enum EnumGlowingNetherBlocks implements IStringSerializable {
     private final int meta;
     private final String name;
 
-    EnumGlowingNetherBlocks(int p_i46384_3_, String p_i46384_5_) {
-        this.meta = p_i46384_3_;
-        this.name = p_i46384_5_;
+    EnumGlowingNetherBlocks(int meta, String name) {
+        this.meta = meta;
+        this.name = name;
     }
 
     public static EnumGlowingNetherBlocks byMetadata(int meta) {

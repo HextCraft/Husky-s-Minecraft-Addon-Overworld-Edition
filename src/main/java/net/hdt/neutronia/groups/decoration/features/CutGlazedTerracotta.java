@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CutGlazedTerracotta extends Component {
 
-    private Block[] cutGlazedTerracotta = new Block[16];
+    public static Block[] cutGlazedTerracotta = new Block[16];
 
     public CutGlazedTerracotta() {
         super(GlobalConfig.enableExperimentalFeatures);

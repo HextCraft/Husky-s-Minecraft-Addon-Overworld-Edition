@@ -77,7 +77,7 @@ public class ModelClayGolem extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Head4.render(f5);
         this.Body1.render(f5);
         this.Head2.render(f5);

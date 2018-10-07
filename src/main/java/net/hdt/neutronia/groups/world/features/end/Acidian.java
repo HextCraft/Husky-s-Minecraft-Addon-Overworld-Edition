@@ -1,10 +1,10 @@
 package net.hdt.neutronia.groups.world.features.end;
 
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.end.BlockEndBase;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,14 +15,14 @@ import java.util.Objects;
 public class Acidian extends Component {
 
     public static Block naturalAcidian, acidianBricks, acidianPillar, chiseledAcidian, acidianBars;
-    private CreativeTabs TAB = NCreativeTabs.NEUTRONIA_MAIN;
+    private CreativeTabs TAB = Neutronia.NEUTRONIA_MAIN;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        naturalAcidian = new BlockEndBase(Material.ROCK, "natural_acidian").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
-        acidianBricks = new BlockEndBase(Material.ROCK, "acidian_bricks").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
+        naturalAcidian = new BlockNeutroniaBase(Material.ROCK, "natural_acidian").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
+        acidianBricks = new BlockNeutroniaBase(Material.ROCK, "acidian_bricks").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
         acidianPillar = new BlockNeutroniaPillar(Material.ROCK, "acidian_pillar").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
-        chiseledAcidian = new BlockEndBase(Material.ROCK, "chiseled_acidian").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
+        chiseledAcidian = new BlockNeutroniaBase(Material.ROCK, "chiseled_acidian").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
 //        acidianBars = new BlockNeutroniaPane("acidian_bars", Material.ROCK).setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
         VanillaStairsAndSlabs.add(Objects.requireNonNull(acidianBricks.getRegistryName()).getPath(), acidianBricks, 0, true);
         VanillaStairsAndSlabs.add(Objects.requireNonNull(chiseledAcidian.getRegistryName()).getPath(), chiseledAcidian, 0, true);

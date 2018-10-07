@@ -20,53 +20,53 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockCoralPlant extends Block {
-   protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
+    protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
-   protected BlockCoralPlant(Block.Builder builder) {
-      super(builder);
-   }
+    protected BlockCoralPlant(Block.Builder builder) {
+        super(builder);
+    }
 
-   protected boolean canSilkHarvest() {
-      return true;
-   }
+    protected boolean canSilkHarvest() {
+        return true;
+    }
 
-   public int quantityDropped(IBlockState state, Random random) {
-      return 0;
-   }
+    public int quantityDropped(IBlockState state, Random random) {
+        return 0;
+    }
 
-   public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-      return SHAPE;
-   }
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+        return SHAPE;
+    }
 
-   @Nullable
-   public IBlockState getStateForPlacement(BlockItemUseContext context) {
-      IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-      return ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8 ? super.getStateForPlacement(context) : null;
-   }
+    @Nullable
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
+        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        return ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8 ? super.getStateForPlacement(context) : null;
+    }
 
-   public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
-      BlockPos blockpos = pos.down();
-      return Block.doesSideFillSquare(worldIn.getBlockState(blockpos).getCollisionShape(worldIn, blockpos), EnumFacing.UP);
-   }
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.down();
+        return Block.doesSideFillSquare(worldIn.getBlockState(blockpos).getCollisionShape(worldIn, blockpos), EnumFacing.UP);
+    }
 
-   public boolean isFullCube(IBlockState state) {
-      return false;
-   }
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
 
-   public IFluidState getFluidState(IBlockState state) {
-      return Fluids.WATER.getStillFluidState(false);
-   }
+    public IFluidState getFluidState(IBlockState state) {
+        return Fluids.WATER.getStillFluidState(false);
+    }
 
-   public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-      worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-      return facing == EnumFacing.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-   }
+    public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        return facing == EnumFacing.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
 
-   public BlockRenderLayer getRenderLayer() {
-      return BlockRenderLayer.CUTOUT;
-   }
+    public BlockRenderLayer getRenderLayer() {
+        return BlockRenderLayer.CUTOUT;
+    }
 
-   public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-      return BlockFaceShape.UNDEFINED;
-   }
+    public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        return BlockFaceShape.UNDEFINED;
+    }
 }

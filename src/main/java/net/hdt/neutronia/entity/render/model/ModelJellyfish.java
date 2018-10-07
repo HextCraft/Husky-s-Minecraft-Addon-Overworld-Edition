@@ -84,7 +84,7 @@ public class ModelJellyfish extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.shape8_6.render(f5);
         this.shape8_1.render(f5);
         this.shape8_7.render(f5);

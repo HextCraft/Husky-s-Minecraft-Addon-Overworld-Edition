@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.groups.decoration.features.ChiseledBlocks;
 import net.minecraft.block.SoundType;
@@ -23,7 +24,7 @@ public class BlockEndStoneChiseled extends BlockMod implements INeutroniaBlock {
     public BlockEndStoneChiseled(String name, boolean filled) {
         super(name, Material.ROCK);
         this.filled = filled;
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(filled ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
         setHardness(1.5F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);

@@ -35,23 +35,23 @@ public class Stalagmite extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        stone_stalagmite = new BlockStalagmite("stone");
-        granite_stalagmite = new BlockStalagmite("granite");
-        diorite_stalagmite = new BlockStalagmite("diorite");
-        andesite_stalagmite = new BlockStalagmite("andesite");
-        netherrack_stalagmite = new BlockStalagmite("netherrack").setNetherrack();
-        ice_stalagmite = new BlockStalagmite("ice");
-        packed_ice_stalagmite = new BlockStalagmite("packed_ice");
-        crystal_stalagmite = new BlockStalagmite("crystal");
-        end_stalagmite = new BlockStalagmite("end_stone");
-        clay_stalagmite = new BlockStalagmite("clay");
-        dirt_stalagmite = new BlockStalagmite("dirt");
-        sandstone_stalagmite = new BlockStalagmite("sandstone");
+        stone_stalagmite = new BlockStalagmite("stone", false);
+        granite_stalagmite = new BlockStalagmite("granite", false);
+        diorite_stalagmite = new BlockStalagmite("diorite", false);
+        andesite_stalagmite = new BlockStalagmite("andesite", false);
+        netherrack_stalagmite = new BlockStalagmite("netherrack", false).setNetherrack();
+        ice_stalagmite = new BlockStalagmite("ice", false);
+        packed_ice_stalagmite = new BlockStalagmite("packed_ice", false);
+        crystal_stalagmite = new BlockStalagmite("crystal", true);
+        end_stalagmite = new BlockStalagmite("end_stone", false);
+        clay_stalagmite = new BlockStalagmite("clay", false);
+        dirt_stalagmite = new BlockStalagmite("dirt", false);
+        sandstone_stalagmite = new BlockStalagmite("sandstone", false);
 
         if (GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
-            basalt_stalagmite = new BlockStalagmite("basalt");
-            marble_stalagmite = new BlockStalagmite("marble");
-            limestone_stalagmite = new BlockStalagmite("limestone");
+            basalt_stalagmite = new BlockStalagmite("basalt", false);
+            marble_stalagmite = new BlockStalagmite("marble", false);
+            limestone_stalagmite = new BlockStalagmite("limestone", false);
         }
 
         GameRegistry.registerWorldGenerator(new StalagmiteGenerator(), 1000);

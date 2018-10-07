@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 /**
- * The Wrapped - 
+ * The Wrapped -
  * Created using Tabula 7.0.0
  */
 public class ModelTheWrapped extends ModelBase {
@@ -46,7 +46,7 @@ public class ModelTheWrapped extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.UpperTorso.render(f5);
     }
 

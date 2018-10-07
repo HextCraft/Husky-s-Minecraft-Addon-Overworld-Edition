@@ -1,6 +1,7 @@
 package net.hdt.neutronia.groups.misc.item;
 
 import net.hdt.huskylib2.item.ItemMod;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.groups.misc.feature.EnchantedScrolls;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,7 +14,7 @@ public class ItemEnchantedScroll extends ItemMod implements INeutroniaItem {
     public ItemEnchantedScroll() {
         super("enchanted_scroll");
         setMaxStackSize(1);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     @Override

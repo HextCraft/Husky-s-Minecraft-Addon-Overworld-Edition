@@ -9,9 +9,7 @@ import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.earlyGame.features.ClayCauldron;
 import net.hdt.neutronia.groups.earlyGame.features.ClayTools;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
-import net.hdt.neutronia.groups.misc.feature.EnchantedScrolls;
-import net.hdt.neutronia.groups.misc.feature.NoteBlocksMobSounds;
-import net.hdt.neutronia.groups.misc.feature.UtilityRecipes;
+import net.hdt.neutronia.groups.misc.feature.*;
 import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
@@ -22,7 +20,6 @@ import net.hdt.neutronia.groups.world.features.end.PurhoganyWood;
 import net.hdt.neutronia.groups.world.features.nether.NetherFossils;
 import net.hdt.neutronia.groups.world.features.nether.NetherMushrooms;
 import net.hdt.neutronia.groups.world.features.overworld.*;
-import net.hdt.neutronia.groups.world.features.overworld.HCStructures;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -34,8 +31,6 @@ import java.time.Month;
 
 public class NGroups {
 
-    private static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
-
     @Register.RegisterGroup(name = "Test", icon = "minecraft:stone", description = "This is a test")
     public static Group test = new Group();
     @Register.RegisterGroup(name = "Test2", icon = "minecraft:stone", description = "This is a test")
@@ -44,6 +39,7 @@ public class NGroups {
     public static Group test3 = new Group();
     @Register.RegisterGroup(name = "Test4", icon = "minecraft:stone", description = "This is a test")
     public static Group test4 = new Group();
+    private static Group building, christmas, client, decoration, dimensions, earlyGame, easter, experimental, halloween, misc, summer, tweaks, vanity, winter, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -90,18 +86,19 @@ public class NGroups {
                 .addComponent(new CenteredGlazedTerracotta())
                 .addComponent(new CharcoalBlock())
                 .addComponent(new ChiseledBlocks())
-                .addComponent(new ColoredPlanks())
-                .addComponent(new ColoredCandles())
-                .addComponent(new ColoredRedstoneLamps())
-                .addComponent(new ColoredSlimeBlocks())
-                .addComponent(new CutGlazedTerracotta())
+//                .addComponent(new ColoredPlanks())
+//                .addComponent(new ColoredCandles())
+//                .addComponent(new ColoredRedstoneLamps())
+//                .addComponent(new ColoredSlimeBlocks())
+//                .addComponent(new CutGlazedTerracotta())
                 .addComponent(new DecorativeAquamarine())
 //                .addComponent(new DecorativeCorals())
-                .addComponent(new FrostedBlocks())
-                .addComponent(new GlazedTerracottaPillar())
-                .addComponent(new GlazedTerracottaStripes())
+//                .addComponent(new FrostedBlocks())
+//                .addComponent(new GlazedTerracottaPillar())
+//                .addComponent(new GlazedTerracottaStripes())
                 .addComponent(new LogFenceAndWall())
                 .addComponent(new MetalAndMineralBricks())
+                .addComponent(new MetalAndMineralPillars())
                 .addComponent(new MoreBanners())
                 .addComponent(new MoreMetals())
                 .addComponent(new NetherBlocks())
@@ -164,7 +161,11 @@ public class NGroups {
                 .iconStack(new ItemStack(Items.CARROT_ON_A_STICK))
 //                .addComponent(new ColorRunes())
                 .addComponent(new EnchantedScrolls())
+                .addComponent(new EndermitesIntoShulkers())
+                .addComponent(new MapMarkers())
+                .addComponent(new MiscRecipes())
                 .addComponent(new NoteBlocksMobSounds())
+                .addComponent(new PoisonPotatoUsage())
                 .addComponent(new UtilityRecipes())
                 .enabled(true)
                 .register();

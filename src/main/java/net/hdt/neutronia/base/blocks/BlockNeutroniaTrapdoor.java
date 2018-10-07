@@ -2,8 +2,8 @@ package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.item.ItemModBlock;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
@@ -29,7 +29,7 @@ public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaB
 
         setHardness(3.0F);
         setSoundType(SoundType.WOOD);
-        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
 
         variants = new String[]{name};
         bareName = name;

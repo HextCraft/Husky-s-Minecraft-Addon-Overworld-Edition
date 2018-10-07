@@ -19,10 +19,10 @@ public class RenderAbstractHorseOverride extends RenderLiving<AbstractHorse> {
     private static final Map<Class<?>, ResourceLocation> MAP = Maps.newHashMap();
 
     static {
-        MAP.put(EntityDonkey.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/donkey.png"));
-        MAP.put(EntityMule.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/mule.png"));
-        MAP.put(EntityZombieHorse.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/horse_zombie.png"));
-        MAP.put(EntitySkeletonHorse.class, new ResourceLocation(LibMisc.MOD_ID,"textures/entity/horse/horse_skeleton.png"));
+        MAP.put(EntityDonkey.class, new ResourceLocation(LibMisc.MOD_ID, "textures/entity/horse/donkey.png"));
+        MAP.put(EntityMule.class, new ResourceLocation(LibMisc.MOD_ID, "textures/entity/horse/mule.png"));
+        MAP.put(EntityZombieHorse.class, new ResourceLocation(LibMisc.MOD_ID, "textures/entity/horse/horse_zombie.png"));
+        MAP.put(EntitySkeletonHorse.class, new ResourceLocation(LibMisc.MOD_ID, "textures/entity/horse/horse_skeleton.png"));
     }
 
     private float scale;

@@ -1,5 +1,8 @@
 package net.hdt.neutronia.blocks.overworld;
 
+import net.hdt.huskylib2.block.BlockFacing;
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,18 +21,17 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static net.hdt.neutronia.base.util.Reference.MOD_ID;
-
-public class BlockPotteryClayMachine extends BlockOverworldFacing {
+public class BlockPotteryClayMachine extends BlockFacing implements INeutroniaBlock {
 
     private static boolean keepInventory;
     private final boolean isBurning;
     private int meta;
 
     public BlockPotteryClayMachine(int meta, String name, boolean isBurning) {
-        super(Material.WOOD, MOD_ID, name);
+        super(name, Material.WOOD);
         this.meta = meta;
         this.isBurning = isBurning;
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     /**

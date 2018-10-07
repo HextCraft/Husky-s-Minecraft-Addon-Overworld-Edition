@@ -1,13 +1,12 @@
 package net.hdt.neutronia.items;
 
 import net.hdt.neutronia.base.util.ColorUtilsIdk;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class ItemPhantomMembrane extends ItemBase {
+public class ItemPhantomMembrane extends ItemNeutroniaBase {
 
     public ItemPhantomMembrane() {
-        super("phantom_membrane", NCreativeTabs.NEUTRONIA_MAIN);
+        super("phantom_membrane");
     }
 
     @Override

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.world.gen.structure;
 
-import net.hdt.neutronia.init.NBiomes;
 import net.minecraft.init.Biomes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +20,7 @@ public class MapGenVillage extends MapGenStructure {
     /**
      * A list of all the biomes villages can spawn in.
      */
-    public static List<Biome> VILLAGE_SPAWN_BIOMES = Arrays.asList(Biomes.PLAINS, Biomes.DESERT, Biomes.SAVANNA, Biomes.TAIGA, NBiomes.RED_DESERT, NBiomes.BLACK_DESERT);
+    public static List<Biome> VILLAGE_SPAWN_BIOMES = Arrays.asList(Biomes.PLAINS, Biomes.DESERT, Biomes.SAVANNA, Biomes.TAIGA);
     private final int minTownSeparation;
     /**
      * None

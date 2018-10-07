@@ -1,9 +1,13 @@
 package net.hdt.neutronia.base.client.category.creativeTabCategories;
 
 import net.hdt.neutronia.base.client.category.AbstractCreativeCategory;
+import net.hdt.neutronia.groups.building.features.CarvedPlanks;
 import net.hdt.neutronia.groups.building.features.LogBlocks;
+import net.hdt.neutronia.groups.building.features.LogFenceAndWall;
 import net.hdt.neutronia.groups.building.features.WoodBlocks;
-import net.hdt.neutronia.groups.decoration.features.*;
+import net.hdt.neutronia.groups.decoration.features.VariedBookshelves;
+import net.hdt.neutronia.groups.decoration.features.VariedButtonsAndPressurePlates;
+import net.hdt.neutronia.groups.decoration.features.VariedTrapdoors;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 

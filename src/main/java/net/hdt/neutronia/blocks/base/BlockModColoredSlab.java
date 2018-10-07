@@ -16,7 +16,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
@@ -63,7 +62,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
             setDefaultState(blockState.getBaseState().withProperty(HALF, EnumBlockHalf.BOTTOM));
         }
 
-        setCreativeTab(doubleSlab ? null : CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(doubleSlab ? null : Neutronia.NEUTRONIA_MAIN);
     }
 
     private static Material hacky(Material m, boolean doubleSlab) {

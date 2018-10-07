@@ -57,6 +57,7 @@ public abstract class Panel<T extends Panel<?>> {
     protected int textureHeight;
     protected Vec2f U = new Vec2f(0, 0);
     protected Vec2f V = new Vec2f(1, 1);
+
     public Panel() {
         this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }

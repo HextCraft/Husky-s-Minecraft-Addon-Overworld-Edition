@@ -15,7 +15,7 @@ public class Stalactite extends Component {
     public static Block stone_stalactite, granite_stalactite, diorite_stalactite,
             andesite_stalactite, basalt_stalactite, marble_stalactite, limestone_stalactite,
             netherrack_stalactite, ice_stalactite, packed_ice_stalactite, crystal_stalactite,
-            end_stalactite, clay_stactite, dirt_stalactite, sandstone_stalactite;
+            end_stalactite, clay_stalactite, dirt_stalactite, sandstone_stalactite;
 
     public static int tries, clusterCount, netherTries, netherClusterCount, maxHeight;
     public static DimensionConfig dimensionConfig;
@@ -33,23 +33,23 @@ public class Stalactite extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        stone_stalactite = new BlockStalactite("stone");
-        granite_stalactite = new BlockStalactite("granite");
-        diorite_stalactite = new BlockStalactite("diorite");
-        andesite_stalactite = new BlockStalactite("andesite");
-        netherrack_stalactite = new BlockStalactite("netherrack").setNetherrack();
-        ice_stalactite = new BlockStalactite("ice");
-        packed_ice_stalactite = new BlockStalactite("packed_ice");
-        crystal_stalactite = new BlockStalactite("crystal");
-        end_stalactite = new BlockStalactite("end_stone");
-        clay_stactite = new BlockStalactite("clay");
-        dirt_stalactite = new BlockStalactite("dirt");
-        sandstone_stalactite = new BlockStalactite("sandstone");
+        stone_stalactite = new BlockStalactite("stone", false);
+        granite_stalactite = new BlockStalactite("granite", false);
+        diorite_stalactite = new BlockStalactite("diorite", false);
+        andesite_stalactite = new BlockStalactite("andesite", false);
+        netherrack_stalactite = new BlockStalactite("netherrack", false).setNetherrack();
+        ice_stalactite = new BlockStalactite("ice", false);
+        packed_ice_stalactite = new BlockStalactite("packed_ice", false);
+        crystal_stalactite = new BlockStalactite("crystal", true);
+        end_stalactite = new BlockStalactite("end_stone", false);
+        clay_stalactite = new BlockStalactite("clay", false);
+        dirt_stalactite = new BlockStalactite("dirt", false);
+        sandstone_stalactite = new BlockStalactite("sandstone", false);
 
         if (GroupLoader.isFeatureEnabled(MoreStoneBlocks.class)) {
-            basalt_stalactite = new BlockStalactite("basalt");
-            marble_stalactite = new BlockStalactite("marble");
-            limestone_stalactite = new BlockStalactite("limestone");
+            basalt_stalactite = new BlockStalactite("basalt", false);
+            marble_stalactite = new BlockStalactite("marble", false);
+            limestone_stalactite = new BlockStalactite("limestone", false);
         }
 
         GameRegistry.registerWorldGenerator(new StalactiteGenerator(), 1000);

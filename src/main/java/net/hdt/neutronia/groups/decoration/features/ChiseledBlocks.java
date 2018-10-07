@@ -44,5 +44,5 @@ public class ChiseledBlocks extends Component {
     public boolean isEnabledByDefault() {
         return true;
     }
-    
+
 }

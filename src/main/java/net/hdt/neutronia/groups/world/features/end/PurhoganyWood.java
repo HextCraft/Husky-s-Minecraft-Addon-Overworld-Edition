@@ -1,12 +1,12 @@
 package net.hdt.neutronia.groups.world.features.end;
 
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaTrapdoor;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.base.BlockModPillar;
-import net.hdt.neutronia.blocks.end.BlockEndBase;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockEndDoor;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,14 +17,14 @@ import java.util.Objects;
 public class PurhoganyWood extends Component {
 
     public static Block purhoganyLog, purhoganyPlanks, purhoganyDoor, purhoganyTrapdoor;
-    private CreativeTabs TAB = NCreativeTabs.NEUTRONIA_MAIN;
+    private CreativeTabs TAB = Neutronia.NEUTRONIA_MAIN;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        purhoganyLog = new BlockModPillar("purhogany_log", Material.WOOD).setCreativeTab(TAB);
-        purhoganyPlanks = new BlockEndBase(Material.WOOD, "purhogany_planks").setCreativeTab(TAB);
-        purhoganyDoor = new BlockEndDoor(Material.WOOD, "purhogany_door").setCreativeTab(TAB);
-        purhoganyTrapdoor = new BlockNeutroniaTrapdoor("purhogany_trapdoor").setCreativeTab(TAB);
+        purhoganyLog = new BlockNeutroniaPillar(Material.WOOD, "purhogany_log");
+        purhoganyPlanks = new BlockNeutroniaBase(Material.WOOD, "purhogany_planks");
+        purhoganyDoor = new BlockEndDoor(Material.WOOD, "purhogany_door");
+        purhoganyTrapdoor = new BlockNeutroniaTrapdoor("purhogany_trapdoor");
         VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyPlanks.getRegistryName()).getPath(), purhoganyPlanks, 0, true, TAB);
         VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyLog.getRegistryName()).getPath(), purhoganyLog, 0, true, TAB);
 //        VanillaWalls.add(purhoganyPlanks.getRegistryName().getPath(), purhoganyPlanks, 0, true);

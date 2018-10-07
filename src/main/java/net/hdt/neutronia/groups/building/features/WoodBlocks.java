@@ -2,15 +2,13 @@ package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldWoodBase;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
 
 public class WoodBlocks extends Component {
 
@@ -30,15 +28,15 @@ public class WoodBlocks extends Component {
         for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
 //            potterySpinner[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine", enumType.getName()), false).setCreativeTab(NEUTRONIA_MAIN);
 //            potterySpinnerActive[enumType.getMetadata()] = new BlockPotteryClayMachine(enumType.getMetadata(), String.format("%s_pottery_clay_machine_active", enumType.getName()), true).setCreativeTab(null);
-            barkBlocks[enumType.getMetadata()] = new BlockOverworldWoodBase(Material.WOOD, String.format("%s_wood", enumType.getName()), true).setCreativeTab(NEUTRONIA_MAIN);
+            barkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_wood", enumType.getName()), true);
             VanillaStairsAndSlabs.add(String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, enableSlabsAndStairs);
             VanillaWalls.add(String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], 0, enableWalls);
 //            addFenceAndFenceGate(enumType, String.format("%s_wood", enumType.getName()), barkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
 //            addFenceAndFenceGate(enumType, String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
 //            addFenceAndFenceGate(enumType, String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], Material.WOOD, 0, true, true, NEUTRONIA_MAIN);
-            chiseledBarkBlocks[enumType.getMetadata()] = new BlockOverworldWoodBase(Material.WOOD, String.format("%s_wood_chiseled", enumType.getName()), true).setCreativeTab(NEUTRONIA_MAIN);
-            unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockOverworldWoodBase(Material.WOOD, String.format("unnamed_%s_wood_chiseled", enumType.getName()), true).setCreativeTab(NEUTRONIA_MAIN);
-            strippedBarkBlocks[enumType.getMetadata()] = new BlockOverworldWoodBase(Material.WOOD, String.format("stripped_%s_wood", enumType.getName()), true).setCreativeTab(NEUTRONIA_MAIN);
+            chiseledBarkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_wood_chiseled", enumType.getName()), true);
+            unnamedChiseledBarkBlock[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("unnamed_%s_wood_chiseled", enumType.getName()), true);
+            strippedBarkBlocks[enumType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("stripped_%s_wood", enumType.getName()), true);
             VanillaStairsAndSlabs.add(String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, enableSlabsAndStairs);
             VanillaWalls.add(String.format("stripped_%s_wood", enumType.getName()), strippedBarkBlocks[enumType.getMetadata()], 0, enableWalls);
 //            logDowels[enumType.getMetadata()] = new BlockRodBase(String.format("%s_log_dowel", enumType.getName()), NEUTRONIA_MAIN, false);

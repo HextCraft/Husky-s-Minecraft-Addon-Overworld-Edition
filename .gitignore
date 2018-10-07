@@ -20,5 +20,4 @@ build
 # other
 eclipse
 run
-src/main/java/vazkii/*
-src/main/resources/assets/quark/*
+src/main/resources/assets/neutronia/textures/*

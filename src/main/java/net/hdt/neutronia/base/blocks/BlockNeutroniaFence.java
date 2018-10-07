@@ -1,7 +1,7 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.init.NCreativeTabs;
+import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
@@ -32,22 +32,28 @@ import java.util.List;
 
 public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
 
-    /** Whether this fence connects in the northern direction */
+    /**
+     * Whether this fence connects in the northern direction
+     */
     public static final PropertyBool NORTH = PropertyBool.create("north");
-    /** Whether this fence connects in the eastern direction */
+    /**
+     * Whether this fence connects in the eastern direction
+     */
     public static final PropertyBool EAST = PropertyBool.create("east");
-    /** Whether this fence connects in the southern direction */
+    /**
+     * Whether this fence connects in the southern direction
+     */
     public static final PropertyBool SOUTH = PropertyBool.create("south");
-    /** Whether this fence connects in the western direction */
+    /**
+     * Whether this fence connects in the western direction
+     */
     public static final PropertyBool WEST = PropertyBool.create("west");
-    protected static final AxisAlignedBB[] BOUNDING_BOXES = new AxisAlignedBB[] {new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
     public static final AxisAlignedBB PILLAR_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.5D, 0.625D);
     public static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.625D, 0.625D, 1.5D, 1.0D);
     public static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.375D, 1.5D, 0.625D);
     public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.5D, 0.375D);
     public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.625D, 0.0D, 0.375D, 1.0D, 1.5D, 0.625D);
-
-    protected String name;
+    protected static final AxisAlignedBB[] BOUNDING_BOXES = new AxisAlignedBB[]{new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.625D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.375D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.375D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.625D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
 
     public BlockNeutroniaFence(String name, IBlockState state, float hardness, float resistance) {
         super(name, state.getMaterial());
@@ -55,96 +61,83 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         setHardness(hardness);
         setResistance(resistance);
         setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
-
-        this.name = name;
-    }
-
-    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState)
-    {
-        if (!isActualState)
-        {
-            state = state.getActualState(worldIn, pos);
-        }
-
-        addCollisionBoxToList(pos, entityBox, collidingBoxes, PILLAR_AABB);
-
-        if (state.getValue(NORTH).booleanValue())
-        {
-            addCollisionBoxToList(pos, entityBox, collidingBoxes, NORTH_AABB);
-        }
-
-        if (state.getValue(EAST).booleanValue())
-        {
-            addCollisionBoxToList(pos, entityBox, collidingBoxes, EAST_AABB);
-        }
-
-        if (state.getValue(SOUTH).booleanValue())
-        {
-            addCollisionBoxToList(pos, entityBox, collidingBoxes, SOUTH_AABB);
-        }
-
-        if (state.getValue(WEST).booleanValue())
-        {
-            addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
-        }
-    }
-
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
-        state = this.getActualState(state, source, pos);
-        return BOUNDING_BOXES[getBoundingBoxIdx(state)];
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     /**
      * Returns the correct index into boundingBoxes, based on what the fence is connected to.
      */
-    private static int getBoundingBoxIdx(IBlockState state)
-    {
+    private static int getBoundingBoxIdx(IBlockState state) {
         int i = 0;
 
-        if (state.getValue(NORTH))
-        {
+        if (state.getValue(NORTH)) {
             i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
         }
 
-        if (state.getValue(EAST))
-        {
+        if (state.getValue(EAST)) {
             i |= 1 << EnumFacing.EAST.getHorizontalIndex();
         }
 
-        if (state.getValue(SOUTH))
-        {
+        if (state.getValue(SOUTH)) {
             i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
         }
 
-        if (state.getValue(WEST))
-        {
+        if (state.getValue(WEST)) {
             i |= 1 << EnumFacing.WEST.getHorizontalIndex();
         }
 
         return i;
     }
 
+    protected static boolean isExcepBlockForAttachWithPiston(Block block) {
+        return Block.isExceptBlockForAttachWithPiston(block) || block == Blocks.BARRIER || block == Blocks.MELON_BLOCK || block == Blocks.PUMPKIN || block == Blocks.LIT_PUMPKIN;
+    }
+
+    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
+        if (!isActualState) {
+            state = state.getActualState(worldIn, pos);
+        }
+
+        addCollisionBoxToList(pos, entityBox, collidingBoxes, PILLAR_AABB);
+
+        if (state.getValue(NORTH).booleanValue()) {
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, NORTH_AABB);
+        }
+
+        if (state.getValue(EAST).booleanValue()) {
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, EAST_AABB);
+        }
+
+        if (state.getValue(SOUTH).booleanValue()) {
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, SOUTH_AABB);
+        }
+
+        if (state.getValue(WEST).booleanValue()) {
+            addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
+        }
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        state = this.getActualState(state, source, pos);
+        return BOUNDING_BOXES[getBoundingBoxIdx(state)];
+    }
+
     /**
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
      */
     @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
-    {
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return false;
     }
 
@@ -154,10 +147,6 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         Block block = iblockstate.getBlock();
         boolean flag = blockfaceshape == BlockFaceShape.MIDDLE_POLE && (iblockstate.getMaterial() == this.material || (block instanceof BlockFenceGate || block instanceof BlockNeutroniaFence));
         return !isExcepBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID || flag;
-    }
-
-    protected static boolean isExcepBlockForAttachWithPiston(Block block) {
-        return Block.isExceptBlockForAttachWithPiston(block) || block == Blocks.BARRIER || block == Blocks.MELON_BLOCK || block == Blocks.PUMPKIN || block == Blocks.LIT_PUMPKIN;
     }
 
     @Override
@@ -180,8 +169,7 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
      * Convert the BlockState into the correct metadata value
      */
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         return 0;
     }
 
@@ -192,9 +180,9 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
         return state.withProperty(NORTH, canFenceConnectTo(worldIn, pos, EnumFacing.NORTH))
-                .withProperty(EAST,  canFenceConnectTo(worldIn, pos, EnumFacing.EAST))
+                .withProperty(EAST, canFenceConnectTo(worldIn, pos, EnumFacing.EAST))
                 .withProperty(SOUTH, canFenceConnectTo(worldIn, pos, EnumFacing.SOUTH))
-                .withProperty(WEST,  canFenceConnectTo(worldIn, pos, EnumFacing.WEST));
+                .withProperty(WEST, canFenceConnectTo(worldIn, pos, EnumFacing.WEST));
     }
 
     /**
@@ -248,10 +236,9 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
     public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
         Block connector = world.getBlockState(pos.offset(facing)).getBlock();
 
-        if(connector instanceof BlockFence || connector instanceof BlockNeutroniaFence) {
+        if (connector instanceof BlockFence || connector instanceof BlockNeutroniaFence) {
             return connector != Blocks.NETHER_BRICK_FENCE;
-        }
-        else {
+        } else {
             return connector instanceof BlockNeutroniaWall || connector instanceof BlockWall;
         }
     }

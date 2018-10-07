@@ -17,8 +17,7 @@ public abstract class AbstractConfigComponentCategory {
     private boolean enabled = true;
     private List<Component> components = Lists.newArrayList();
 
-    public AbstractConfigComponentCategory(String titleKey, ItemStack icon)
-    {
+    public AbstractConfigComponentCategory(String titleKey, ItemStack icon) {
         this.titleKey = titleKey;
         this.icon = icon;
         this.init();
@@ -26,38 +25,31 @@ public abstract class AbstractConfigComponentCategory {
 
     public abstract void init();
 
-    public String getTitleKey()
-    {
+    public String getTitleKey() {
         return titleKey;
     }
 
-    public ItemStack getIcon()
-    {
+    public ItemStack getIcon() {
         return icon;
     }
 
-    public void setEnabled(boolean enabled)
-    {
-        this.enabled = enabled;
-    }
-
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    protected void add(Component component)
-    {
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    protected void add(Component component) {
         components.add(component);
     }
 
-    protected void add(Group group)
-    {
+    protected void add(Group group) {
         components.addAll(group.components.values());
     }
 
-    public List<Component> getComponents()
-    {
+    public List<Component> getComponents() {
         return components;
     }
 

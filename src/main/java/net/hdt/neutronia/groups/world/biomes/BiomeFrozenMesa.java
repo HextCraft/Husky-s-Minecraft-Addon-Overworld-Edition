@@ -1,6 +1,7 @@
+/*
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.decoration.features.FrostedBlocks;
+import net.hdt.neutronia.groups.building.features.FrostedBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -52,9 +53,15 @@ public class BiomeFrozenMesa extends Biome {
         }
     }
 
-    /**
-     * Allocate a new BiomeDecorator for this BiomeGenBase
-     */
+    */
+/**
+ * Allocate a new BiomeDecorator for this BiomeGenBase
+ * <p>
+ * Generates ores in the current chunk
+ * <p>
+ * Generates ores in the current chunk
+ *//*
+
     public BiomeDecorator createBiomeDecorator() {
         return new BiomeFrozenMesa.Decorator();
     }
@@ -272,13 +279,15 @@ public class BiomeFrozenMesa extends Biome {
         private Decorator() {
         }
 
-        /**
-         * Generates ores in the current chunk
-         */
+        */
+/**
+ * Generates ores in the current chunk
+ *//*
+
         protected void generateOres(World worldIn, Random random) {
             super.generateOres(worldIn, random);
             if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, random, goldGen, chunkPos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.GOLD))
                 this.genStandardOre1(worldIn, random, 20, this.goldGen, 32, 80);
         }
     }
-}
+}*/

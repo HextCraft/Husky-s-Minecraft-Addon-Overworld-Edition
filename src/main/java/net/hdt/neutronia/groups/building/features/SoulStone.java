@@ -3,9 +3,9 @@ package net.hdt.neutronia.groups.building.features;
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.nether.BlockNetherBase;
-import net.hdt.neutronia.blocks.nether.BlockNetherSlabBase;
+import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.hdt.neutronia.properties.EnumSoulStoneTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,9 +21,9 @@ public class SoulStone extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
-            soulStone[soulStoneTypes.getMetadata()] = new BlockNetherBase(Material.ROCK, soulStoneTypes.getName());
-            soulStoneSlabSingle[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), false);
-            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockNetherSlabBase(soulStoneTypes.getName(), true);
+            soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
+            soulStoneSlabSingle[soulStoneTypes.getMetadata()] = new BlockVanillaSlab(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()].getDefaultState(), false);
+            soulStoneSlabDouble[soulStoneTypes.getMetadata()] = new BlockVanillaSlab(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()].getDefaultState(), false);
             BlockModSlab.initSlab(soulStone[soulStoneTypes.getMetadata()], 0, (BlockModSlab) soulStoneSlabSingle[soulStoneTypes.getMetadata()], (BlockModSlab) soulStoneSlabDouble[soulStoneTypes.getMetadata()]);
         }
 

@@ -1,9 +1,9 @@
 package net.hdt.neutronia.base.handler.client;
 
+import net.hdt.neutronia.base.blocks.BlockNeutroniaColored;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredSlab;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredStair;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredWall;
-import net.hdt.neutronia.blocks.base.BlockColoredAlt;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredSlab;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldColoredStair;
 import net.hdt.neutronia.items.ItemModBlockColoredSlab;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -27,11 +27,11 @@ public class ClientEventHandler {
     public static final List<Block[]> stairs = new ArrayList<>();
     public static final List<Block[]> walls = new ArrayList<>();
     private static IBlockColor blockHandler = (s, w, p, t) -> t == 0 ?
-            ((BlockColoredAlt) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+            ((BlockNeutroniaColored) s.getBlock()).color.getColorValue() : 0xFFFFFF;
     private static IBlockColor slabHandler = (s, w, p, t) -> t == 0 ?
-            ((BlockOverworldColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+            ((BlockNeutroniaColoredSlab) s.getBlock()).color.getColorValue() : 0xFFFFFF;
     private static IBlockColor stairHandler = (s, w, p, t) -> t == 0 ?
-            ((BlockOverworldColoredStair) s.getBlock()).color.getColorValue() : 0xFFFFFF;
+            ((BlockNeutroniaColoredStair) s.getBlock()).color.getColorValue() : 0xFFFFFF;
     private static IBlockColor wallHandler = (s, w, p, t) -> t == 0 ?
             ((BlockNeutroniaColoredWall) s.getBlock()).color.getColorValue() : 0xFFFFFF;
     private static IItemColor itemBlockHandler = (s, t) -> blockHandler.colorMultiplier(((ItemBlock) s.getItem())

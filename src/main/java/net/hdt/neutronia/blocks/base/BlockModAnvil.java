@@ -1,5 +1,7 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.huskylib2.block.BlockModFalling;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -32,7 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class BlockModAnvil extends BlockFalling {
+public class BlockModAnvil extends BlockModFalling implements INeutroniaBlock {
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
     public static final PropertyInteger DAMAGE = PropertyInteger.create("damage", 0, 2);
     protected static final AxisAlignedBB X_AXIS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.125D, 1.0D, 1.0D, 0.875D);
@@ -40,7 +42,7 @@ public class BlockModAnvil extends BlockFalling {
     protected static final Logger LOGGER = LogManager.getLogger();
 
     public BlockModAnvil(String name, CreativeTabs creativeTabs) {
-        super(Material.ANVIL, name);
+        super(Builder.create(Material.ANVIL), name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(DAMAGE, 0));
         this.setLightOpacity(0);
         this.setCreativeTab(creativeTabs);

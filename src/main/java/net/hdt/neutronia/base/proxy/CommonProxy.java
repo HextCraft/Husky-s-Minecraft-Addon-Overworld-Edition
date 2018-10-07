@@ -3,15 +3,10 @@ package net.hdt.neutronia.base.proxy;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.NGroups;
 import net.hdt.neutronia.groups.world.world.gen.OreGeneration;
-import net.hdt.neutronia.tileentity.TileEntityPot;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 public class CommonProxy implements IProxy {
 
@@ -23,7 +18,6 @@ public class CommonProxy implements IProxy {
 
     @Override
     public void init(FMLInitializationEvent event) {
-        GameRegistry.registerTileEntity(TileEntityPot.class, new ResourceLocation(MOD_ID, "pot"));
         GroupLoader.init(event);
         new OreGeneration();
     }

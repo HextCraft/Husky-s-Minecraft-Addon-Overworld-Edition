@@ -1,10 +1,10 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaFence;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
@@ -37,8 +37,8 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
     public static final PropertyBool EAST = PropertyBool.create("east");
     public static final PropertyBool SOUTH = PropertyBool.create("south");
     public static final PropertyBool WEST = PropertyBool.create("west");
-    protected static final AxisAlignedBB[] AABB_BY_INDEX = new AxisAlignedBB[] {new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.3125D, 0.0D, 0.0D, 0.6875D, 0.875D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.3125D, 1.0D, 0.875D, 0.6875D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
-    protected static final AxisAlignedBB[] CLIP_AABB_BY_INDEX = new AxisAlignedBB[] {AABB_BY_INDEX[0].setMaxY(1.5D), AABB_BY_INDEX[1].setMaxY(1.5D), AABB_BY_INDEX[2].setMaxY(1.5D), AABB_BY_INDEX[3].setMaxY(1.5D), AABB_BY_INDEX[4].setMaxY(1.5D), AABB_BY_INDEX[5].setMaxY(1.5D), AABB_BY_INDEX[6].setMaxY(1.5D), AABB_BY_INDEX[7].setMaxY(1.5D), AABB_BY_INDEX[8].setMaxY(1.5D), AABB_BY_INDEX[9].setMaxY(1.5D), AABB_BY_INDEX[10].setMaxY(1.5D), AABB_BY_INDEX[11].setMaxY(1.5D), AABB_BY_INDEX[12].setMaxY(1.5D), AABB_BY_INDEX[13].setMaxY(1.5D), AABB_BY_INDEX[14].setMaxY(1.5D), AABB_BY_INDEX[15].setMaxY(1.5D)};
+    protected static final AxisAlignedBB[] AABB_BY_INDEX = new AxisAlignedBB[]{new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.3125D, 0.0D, 0.0D, 0.6875D, 0.875D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.75D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.75D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.25D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.3125D, 1.0D, 0.875D, 0.6875D), new AxisAlignedBB(0.0D, 0.0D, 0.25D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.25D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 0.75D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D)};
+    protected static final AxisAlignedBB[] CLIP_AABB_BY_INDEX = new AxisAlignedBB[]{AABB_BY_INDEX[0].setMaxY(1.5D), AABB_BY_INDEX[1].setMaxY(1.5D), AABB_BY_INDEX[2].setMaxY(1.5D), AABB_BY_INDEX[3].setMaxY(1.5D), AABB_BY_INDEX[4].setMaxY(1.5D), AABB_BY_INDEX[5].setMaxY(1.5D), AABB_BY_INDEX[6].setMaxY(1.5D), AABB_BY_INDEX[7].setMaxY(1.5D), AABB_BY_INDEX[8].setMaxY(1.5D), AABB_BY_INDEX[9].setMaxY(1.5D), AABB_BY_INDEX[10].setMaxY(1.5D), AABB_BY_INDEX[11].setMaxY(1.5D), AABB_BY_INDEX[12].setMaxY(1.5D), AABB_BY_INDEX[13].setMaxY(1.5D), AABB_BY_INDEX[14].setMaxY(1.5D), AABB_BY_INDEX[15].setMaxY(1.5D)};
 
     protected IBlockState logWall;
     protected Item barkItem;
@@ -47,16 +47,42 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
         super(name, state.getMaterial());
         setSoundType(state.getBlock().getSoundType());
         this.setDefaultState(this.blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
 
         this.logWall = logWall;
         this.barkItem = barkItem;
     }
 
+    private static int getAABBIndex(IBlockState state) {
+        int i = 0;
+
+        if (state.getValue(NORTH)) {
+            i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
+        }
+
+        if (state.getValue(EAST)) {
+            i |= 1 << EnumFacing.EAST.getHorizontalIndex();
+        }
+
+        if (state.getValue(SOUTH)) {
+            i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
+        }
+
+        if (state.getValue(WEST)) {
+            i |= 1 << EnumFacing.WEST.getHorizontalIndex();
+        }
+
+        return i;
+    }
+
+    protected static boolean isExcepBlockForAttachWithPiston(Block block) {
+        return Block.isExceptBlockForAttachWithPiston(block) || block == Blocks.BARRIER || block == Blocks.MELON_BLOCK || block == Blocks.PUMPKIN || block == Blocks.LIT_PUMPKIN;
+    }
+
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         Item heldItem = playerIn.getHeldItem(hand).getItem();
 
-        if(worldIn.isRemote) return (heldItem instanceof ItemAxe);
+        if (worldIn.isRemote) return (heldItem instanceof ItemAxe);
 
         if (heldItem instanceof ItemAxe) {
             worldIn.setBlockState(pos, logWall.getBlock().getDefaultState(), 2);
@@ -88,37 +114,13 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
         return CLIP_AABB_BY_INDEX[getAABBIndex(blockState)];
     }
 
-    private static int getAABBIndex(IBlockState state) {
-        int i = 0;
-
-        if (state.getValue(NORTH)) {
-            i |= 1 << EnumFacing.NORTH.getHorizontalIndex();
-        }
-
-        if (state.getValue(EAST)) {
-            i |= 1 << EnumFacing.EAST.getHorizontalIndex();
-        }
-
-        if (state.getValue(SOUTH)) {
-            i |= 1 << EnumFacing.SOUTH.getHorizontalIndex();
-        }
-
-        if (state.getValue(WEST)) {
-            i |= 1 << EnumFacing.WEST.getHorizontalIndex();
-        }
-
-        return i;
-    }
-
     @Override
-    public boolean isFullCube(IBlockState state)
-    {
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
 
     @Override
-    public boolean isPassable(IBlockAccess worldIn, BlockPos pos)
-    {
+    public boolean isPassable(IBlockAccess worldIn, BlockPos pos) {
         return false;
     }
 
@@ -126,8 +128,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
      * Used to determine ambient occlusion and culling when rebuilding chunks for render
      */
     @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
@@ -139,25 +140,19 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
         return !isExcepBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID || flag;
     }
 
-    protected static boolean isExcepBlockForAttachWithPiston(Block block) {
-        return Block.isExceptBlockForAttachWithPiston(block) || block == Blocks.BARRIER || block == Blocks.MELON_BLOCK || block == Blocks.PUMPKIN || block == Blocks.LIT_PUMPKIN;
-    }
-
     /**
      * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It
      * returns the metadata of the dropped item based on the old metadata of the block.
      */
     @Override
-    public int damageDropped(IBlockState state)
-    {
+    public int damageDropped(IBlockState state) {
         return 0;
     }
 
     @SuppressWarnings("deprecation")
     @SideOnly(Side.CLIENT)
     @Override
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         return side != EnumFacing.DOWN || super.shouldSideBeRendered(blockState, blockAccess, pos, side);
     }
 
@@ -183,7 +178,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
      */
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        boolean flag =  canWallConnectTo(worldIn, pos, EnumFacing.NORTH);
+        boolean flag = canWallConnectTo(worldIn, pos, EnumFacing.NORTH);
         boolean flag1 = canWallConnectTo(worldIn, pos, EnumFacing.EAST);
         boolean flag2 = canWallConnectTo(worldIn, pos, EnumFacing.SOUTH);
         boolean flag3 = canWallConnectTo(worldIn, pos, EnumFacing.WEST);
@@ -197,8 +192,7 @@ public class BlockLogWall extends BlockMod implements INeutroniaBlock {
     }
 
     @Override
-    public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos)
-    {
+    public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
         return true;
     }
 

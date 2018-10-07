@@ -195,12 +195,12 @@ public class Group implements Comparable<Group> {
         }
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public void setIconStack(ItemStack stack) {
         this.iconStack = stack;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public void forEachComponent(Consumer<Component> consumer) {

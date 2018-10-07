@@ -2,20 +2,16 @@ package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.huskylib2.recipe.RecipeHandler;
-import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.blocks.base.BlockFalling;
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.blocks.overworld.BlockFireflyBulb;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldStairBase;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
+import net.hdt.neutronia.groups.building.blocks.stair.BlockVanillaStairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.BlockStoneSlab;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
@@ -23,12 +19,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Objects;
 
-import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
 
 public class NBlocks {
 
-    // Misc
-    public static final Block blackSand;
     //Wood Blocks
     public static final Block[] potterySpinner = new Block[6], potterySpinnerActive = new Block[6];
     public static final Block fireflyBulbOff, fireflyBulbOn;
@@ -55,10 +49,10 @@ public class NBlocks {
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
-        driedKelpBlock = new BlockOverworldBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnaut = new BlockOverworldBase(Material.IRON, "wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnautOld = new BlockOverworldBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
-        wrautnautPorthole = new BlockOverworldBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(NEUTRONIA_MAIN);
+        driedKelpBlock = new BlockNeutroniaBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnaut = new BlockNeutroniaBase(Material.IRON, "wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnautOld = new BlockNeutroniaBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(NEUTRONIA_MAIN);
+        wrautnautPorthole = new BlockNeutroniaBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(NEUTRONIA_MAIN);
 
         //Wood Blocks
         /*for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
@@ -70,9 +64,9 @@ public class NBlocks {
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
 //            coloredVases[dyeColor.getMetadata()] = new BlockColoredVase(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
 //            terracottaPots[dyeColor.getMetadata()] = new BlockTerracottaFlowerPot(EnumDyeColor.byMetadata(dyeColor.getMetadata()));
-            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true, NEUTRONIA_MAIN);
-            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false, NEUTRONIA_MAIN);
-            add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, dyeColor.getMetadata(), true, false, NCreativeTabs.NEUTRONIA_MAIN);
+            add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true);
+            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false);
+            add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, dyeColor.getMetadata(), true, false);
         }
 
         //Misc
@@ -87,7 +81,7 @@ public class NBlocks {
         redSandstoneBricks = new BlockOverworldBase(Material.ROCK, "red_sandstone_bricks", false);
         sandstoneBricks = new BlockOverworldBase(Material.ROCK, "sandstone_bricks", false);
 
-        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, NCreativeTabs.NEUTRONIA_MAIN);
+        add("smooth_quartz", smoothQuartz, Material.ROCK, 0, true, false, Neutronia.NEUTRONIA_MAIN);
         add("smooth_red_sandstone", smoothRedSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
         add("smooth_sandstone", smoothSandstone, Material.ROCK, 0, true, false, OVERWORLD_EXPANSION_TAB);
 
@@ -116,24 +110,6 @@ public class NBlocks {
                 "SS", "SS",
                 'S', ProxyRegistry.newStack(smoothRedSandstone, 1));*/
 
-        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.SAND, 4),
-                ProxyRegistry.newStack(Blocks.SANDSTONE, 1));
-
-        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.SAND, 4),
-                ProxyRegistry.newStack(Blocks.SANDSTONE, 1));
-
-        RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.STONE_SLAB.getDefaultState().withProperty(BlockStoneSlab.VARIANT, BlockStoneSlab.EnumType.SAND).getBlock(), 4),
-                ProxyRegistry.newStack(Blocks.SANDSTONE.getDefaultState().withProperty(BlockSandStone.TYPE, BlockSandStone.EnumType.CHISELED).getBlock(), 1));
-
-//        stoneAnvil = new BlockModAnvil("stone_anvil", OVERWORLD_EXPANSION_TAB);
-//        carbonAnvil = new BlockModAnvil("carbon_anvil", OVERWORLD_EXPANSION_TAB);
-//        goldenAnvil = new BlockModAnvil("golden_anvil", OVERWORLD_EXPANSION_TAB);
-//        marbleAnvil = new BlockModAnvil("marble_anvil", OVERWORLD_EXPANSION_TAB);
-//        ironAnvil = new BlockModAnvil("iron_anvil", OVERWORLD_EXPANSION_TAB);
-//        darkIronAnvil = new BlockModAnvil("dark_iron_anvil", OVERWORLD_EXPANSION_TAB);
-
-        blackSand = new BlockFalling("black_sand", NEUTRONIA_MAIN);
-
         for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
 //            closet[woodType.getMetadata()] = new BlockRandom(woodType);
         }
@@ -145,15 +121,15 @@ public class NBlocks {
 
     }
 
-    private static void add(String name, Block block, int meta, boolean slabs, boolean stairs, CreativeTabs creativeTabs) {
+    private static void add(String name, Block block, int meta, boolean slabs, boolean stairs) {
         IBlockState state = block.getStateFromMeta(meta);
         String stairsName = name + "_stairs";
 
         if (stairs) {
-            BlockModStairs.initStairs(block, meta, new BlockOverworldStairBase(stairsName, state, creativeTabs));
+            BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(Neutronia.NEUTRONIA_MAIN));
         }
         if (slabs) {
-            BlockModSlab.initSlab(block, meta, (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), false).setCreativeTab(creativeTabs), (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), true).setCreativeTab(creativeTabs));
+            BlockModSlab.initSlab(block, meta, (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), false).setCreativeTab(Neutronia.NEUTRONIA_MAIN), (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), true).setCreativeTab(Neutronia.NEUTRONIA_MAIN));
         }
     }
 

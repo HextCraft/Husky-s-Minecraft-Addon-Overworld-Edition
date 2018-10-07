@@ -11,6 +11,7 @@ public class InventoryIterator implements Iterator<ItemStack> {
     private final ItemStackHandler handler;
     private final int end;
     private int index;
+
     private InventoryIterator(ItemStackHandler handler, int start, int end) {
         this.handler = handler;
         this.index = start;

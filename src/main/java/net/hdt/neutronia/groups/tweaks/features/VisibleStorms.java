@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.tweaks.features;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.init.NBiomes;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
@@ -115,7 +114,7 @@ public class VisibleStorms extends Component {
             BlockPos[] probes = new BlockPos[]{pos, pos.add(1, 0, 0), pos.add(0, 0, 1), pos.add(-1, 0, 0), pos.add(0, 0, -1)};
             for (BlockPos probepos : probes) {
                 boolean aboveground = world.canSeeSky(probepos);
-                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT || world.getBiome(probepos) == NBiomes.BLACK_DESERT || world.getBiome(probepos) == NBiomes.RED_DESERT && aboveground) {
+                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT && aboveground) {
                     desiredDistance += fogEvent.getFarPlaneDistance() / 3f;
                     desiredDistanceScale += -1.0f;
                     totalweight += 1;
@@ -159,7 +158,7 @@ public class VisibleStorms extends Component {
             BlockPos[] probes = new BlockPos[]{pos, pos.add(1, 0, 0), pos.add(0, 0, 1), pos.add(-1, 0, 0), pos.add(0, 0, -1)};
             for (BlockPos probepos : probes) {
                 boolean aboveground = world.canSeeSky(probepos);
-                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT || world.getBiome(probepos) == NBiomes.BLACK_DESERT || world.getBiome(probepos) == NBiomes.RED_DESERT) {
+                if (world.getBiome(probepos) == Biomes.DESERT || world.getBiome(probepos) == Biomes.DESERT_HILLS || world.getBiome(probepos) == Biomes.MUTATED_DESERT) {
                     Biome biome = world.getBiome(probepos);
                     MapColor mapcolor = biome.topBlock.getMapColor(world, probepos);
                     Color color = new Color(mapcolor.colorValue);
@@ -197,8 +196,8 @@ public class VisibleStorms extends Component {
 
     @Override
     public String[] getIncompatibleMods() {
-        return new String[] {
-          ""
+        return new String[]{
+                ""
         };
     }
 

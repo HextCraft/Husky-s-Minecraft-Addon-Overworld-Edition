@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.building.features;
 
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
 import net.hdt.neutronia.properties.EnumNewStoneVariantsSlabsAndStairs;
 import net.minecraft.block.Block;
@@ -10,16 +10,15 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MoreStoneBlocks extends Component {
 
-    public static int limestoneVeinFrequency = 50, marbleVeinFrequency = 50;
-
     //Stone Blocks
     public static final Block[] newStoneVariants = new Block[24];
+    public static int limestoneVeinFrequency = 50, marbleVeinFrequency = 50;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         // New Stone Blocks
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
-            newStoneVariants[newStoneVariant.getMetadata()] = new BlockOverworldBase(Material.ROCK, newStoneVariant.getName(), false);
+            newStoneVariants[newStoneVariant.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, newStoneVariant.getName(), false);
         }
         for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
             VanillaStairsAndSlabs.add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], 0, true, false, true);

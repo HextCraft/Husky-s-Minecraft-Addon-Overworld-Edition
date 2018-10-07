@@ -24,108 +24,108 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockCoralFan extends Block implements IBucketPickupHandler, ILiquidContainer {
-   public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-   private static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
 
-   protected BlockCoralFan(Block.Builder builder) {
-      super(builder);
-      this.setDefaultState((IBlockState)(this.stateContainer.getBaseState()).with(WATERLOGGED, Boolean.valueOf(true)));
-   }
+    protected BlockCoralFan(Block.Builder builder) {
+        super(builder);
+        this.setDefaultState((IBlockState) (this.stateContainer.getBaseState()).with(WATERLOGGED, Boolean.valueOf(true)));
+    }
 
-   protected void checkForDeath(IBlockState p_212240_1_, IWorld p_212240_2_, BlockPos p_212240_3_) {
-      if (!canSurvive(p_212240_1_, p_212240_2_, p_212240_3_)) {
-         p_212240_2_.getPendingBlockTicks().scheduleTick(p_212240_3_, this, 60 + p_212240_2_.getRandom().nextInt(40));
-      }
-
-   }
-
-   protected static boolean canSurvive(IBlockState p_212241_0_, IBlockReader p_212241_1_, BlockPos p_212241_2_) {
-      if (p_212241_0_.get(WATERLOGGED)) {
-         return true;
-      } else {
-         for(EnumFacing enumfacing : EnumFacing.values()) {
-            if (p_212241_1_.getFluidState(p_212241_2_.offset(enumfacing)).isTagged(FluidTags.WATER)) {
-               return true;
+    protected static boolean canSurvive(IBlockState p_212241_0_, IBlockReader p_212241_1_, BlockPos p_212241_2_) {
+        if (p_212241_0_.get(WATERLOGGED)) {
+            return true;
+        } else {
+            for (EnumFacing enumfacing : EnumFacing.values()) {
+                if (p_212241_1_.getFluidState(p_212241_2_.offset(enumfacing)).isTagged(FluidTags.WATER)) {
+                    return true;
+                }
             }
-         }
 
-         return false;
-      }
-   }
+            return false;
+        }
+    }
 
-   protected boolean canSilkHarvest() {
-      return true;
-   }
+    protected void checkForDeath(IBlockState p_212240_1_, IWorld p_212240_2_, BlockPos p_212240_3_) {
+        if (!canSurvive(p_212240_1_, p_212240_2_, p_212240_3_)) {
+            p_212240_2_.getPendingBlockTicks().scheduleTick(p_212240_3_, this, 60 + p_212240_2_.getRandom().nextInt(40));
+        }
 
-   public int quantityDropped(IBlockState state, Random random) {
-      return 0;
-   }
+    }
 
-   @Nullable
-   public IBlockState getStateForPlacement(BlockItemUseContext context) {
-      IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-      return (IBlockState)this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8));
-   }
+    protected boolean canSilkHarvest() {
+        return true;
+    }
 
-   public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-      return SHAPE;
-   }
+    public int quantityDropped(IBlockState state, Random random) {
+        return 0;
+    }
 
-   public boolean isFullCube(IBlockState state) {
-      return false;
-   }
+    @Nullable
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
+        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        return (IBlockState) this.getDefaultState().with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8));
+    }
 
-   public BlockRenderLayer getRenderLayer() {
-      return BlockRenderLayer.CUTOUT;
-   }
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+        return SHAPE;
+    }
 
-   public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-      return BlockFaceShape.UNDEFINED;
-   }
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
 
-   public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-      if (stateIn.get(WATERLOGGED)) {
-         worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-      }
+    public BlockRenderLayer getRenderLayer() {
+        return BlockRenderLayer.CUTOUT;
+    }
 
-      return facing == EnumFacing.DOWN && !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-   }
+    public BlockFaceShape getBlockFaceShape(IBlockReader worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        return BlockFaceShape.UNDEFINED;
+    }
 
-   public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
-      return worldIn.getBlockState(pos.down()).isTopSolid();
-   }
+    public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.get(WATERLOGGED)) {
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        }
 
-   protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
-      builder.add(WATERLOGGED);
-   }
+        return facing == EnumFacing.DOWN && !this.isValidPosition(stateIn, worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    }
 
-   public IFluidState getFluidState(IBlockState state) {
-      return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-   }
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
+        return worldIn.getBlockState(pos.down()).isTopSolid();
+    }
 
-   public Fluid pickupFluid(IWorld worldIn, BlockPos pos, IBlockState state) {
-      if (state.get(WATERLOGGED)) {
-         worldIn.setBlockState(pos, (IBlockState)state.with(WATERLOGGED, Boolean.valueOf(false)), 3);
-         return Fluids.WATER;
-      } else {
-         return Fluids.EMPTY;
-      }
-   }
+    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
+        builder.add(WATERLOGGED);
+    }
 
-   public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, IBlockState state, Fluid fluidIn) {
-      return !state.get(WATERLOGGED) && fluidIn == Fluids.WATER;
-   }
+    public IFluidState getFluidState(IBlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
 
-   public boolean receiveFluid(IWorld worldIn, BlockPos pos, IBlockState state, IFluidState fluidStateIn) {
-      if (!state.get(WATERLOGGED) && fluidStateIn.getFluid() == Fluids.WATER) {
-         if (!worldIn.isRemote()) {
-            worldIn.setBlockState(pos, (IBlockState)state.with(WATERLOGGED, Boolean.valueOf(true)), 3);
-            worldIn.getPendingFluidTicks().scheduleTick(pos, fluidStateIn.getFluid(), fluidStateIn.getFluid().getTickRate(worldIn));
-         }
+    public Fluid pickupFluid(IWorld worldIn, BlockPos pos, IBlockState state) {
+        if (state.get(WATERLOGGED)) {
+            worldIn.setBlockState(pos, (IBlockState) state.with(WATERLOGGED, Boolean.valueOf(false)), 3);
+            return Fluids.WATER;
+        } else {
+            return Fluids.EMPTY;
+        }
+    }
 
-         return true;
-      } else {
-         return false;
-      }
-   }
+    public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, IBlockState state, Fluid fluidIn) {
+        return !state.get(WATERLOGGED) && fluidIn == Fluids.WATER;
+    }
+
+    public boolean receiveFluid(IWorld worldIn, BlockPos pos, IBlockState state, IFluidState fluidStateIn) {
+        if (!state.get(WATERLOGGED) && fluidStateIn.getFluid() == Fluids.WATER) {
+            if (!worldIn.isRemote()) {
+                worldIn.setBlockState(pos, (IBlockState) state.with(WATERLOGGED, Boolean.valueOf(true)), 3);
+                worldIn.getPendingFluidTicks().scheduleTick(pos, fluidStateIn.getFluid(), fluidStateIn.getFluid().getTickRate(worldIn));
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

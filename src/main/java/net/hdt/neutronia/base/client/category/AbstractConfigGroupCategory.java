@@ -16,8 +16,7 @@ public abstract class AbstractConfigGroupCategory {
     private boolean enabled = true;
     private List<Group> groups = Lists.newArrayList();
 
-    public AbstractConfigGroupCategory(String titleKey, ItemStack icon)
-    {
+    public AbstractConfigGroupCategory(String titleKey, ItemStack icon) {
         this.titleKey = titleKey;
         this.icon = icon;
         this.init();
@@ -25,33 +24,27 @@ public abstract class AbstractConfigGroupCategory {
 
     public abstract void init();
 
-    public String getTitleKey()
-    {
+    public String getTitleKey() {
         return titleKey;
     }
 
-    public ItemStack getIcon()
-    {
+    public ItemStack getIcon() {
         return icon;
     }
 
-    public void setEnabled(boolean enabled)
-    {
-        this.enabled = enabled;
-    }
-
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    protected void add(Group group)
-    {
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    protected void add(Group group) {
         groups.add(group);
     }
 
-    public List<Group> getGroups()
-    {
+    public List<Group> getGroups() {
         return groups;
     }
 

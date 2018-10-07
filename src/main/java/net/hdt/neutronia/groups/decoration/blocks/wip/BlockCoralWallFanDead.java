@@ -24,61 +24,61 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 public class BlockCoralWallFanDead extends BlockCoralFan {
-   public static final DirectionProperty FACING = BlockHorizontal.HORIZONTAL_FACING;
-   private static final Map<EnumFacing, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, Block.makeCuboidShape(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, Block.makeCuboidShape(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
+    public static final DirectionProperty FACING = BlockHorizontal.HORIZONTAL_FACING;
+    private static final Map<EnumFacing, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(EnumFacing.NORTH, Block.makeCuboidShape(0.0D, 4.0D, 5.0D, 16.0D, 12.0D, 16.0D), EnumFacing.SOUTH, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 16.0D, 12.0D, 11.0D), EnumFacing.WEST, Block.makeCuboidShape(5.0D, 4.0D, 0.0D, 16.0D, 12.0D, 16.0D), EnumFacing.EAST, Block.makeCuboidShape(0.0D, 4.0D, 0.0D, 11.0D, 12.0D, 16.0D)));
 
-   protected BlockCoralWallFanDead(Block.Builder builder) {
-      super(builder);
-      this.setDefaultState((IBlockState)((IBlockState)(this.stateContainer.getBaseState()).with(FACING, EnumFacing.NORTH)).with(WATERLOGGED, Boolean.valueOf(true)));
-   }
+    protected BlockCoralWallFanDead(Block.Builder builder) {
+        super(builder);
+        this.setDefaultState((IBlockState) ((IBlockState) (this.stateContainer.getBaseState()).with(FACING, EnumFacing.NORTH)).with(WATERLOGGED, Boolean.valueOf(true)));
+    }
 
-   public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
-      return SHAPES.get(state.get(FACING));
-   }
+    public VoxelShape getShape(IBlockState state, IBlockReader worldIn, BlockPos pos) {
+        return SHAPES.get(state.get(FACING));
+    }
 
-   public IBlockState rotate(IBlockState state, Rotation rot) {
-      return (IBlockState)state.with(FACING, rot.rotate((EnumFacing)state.get(FACING)));
-   }
+    public IBlockState rotate(IBlockState state, Rotation rot) {
+        return (IBlockState) state.with(FACING, rot.rotate((EnumFacing) state.get(FACING)));
+    }
 
-   public IBlockState mirror(IBlockState state, Mirror mirrorIn) {
-      return state.rotate(mirrorIn.toRotation((EnumFacing)state.get(FACING)));
-   }
+    public IBlockState mirror(IBlockState state, Mirror mirrorIn) {
+        return state.rotate(mirrorIn.toRotation((EnumFacing) state.get(FACING)));
+    }
 
-   protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
-      builder.add(FACING, WATERLOGGED);
-   }
+    protected void fillStateContainer(StateContainer.Builder<Block, IBlockState> builder) {
+        builder.add(FACING, WATERLOGGED);
+    }
 
-   public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-      if (stateIn.get(WATERLOGGED)) {
-         worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-      }
+    public IBlockState updatePostPlacement(IBlockState stateIn, EnumFacing facing, IBlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.get(WATERLOGGED)) {
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        }
 
-      return facing.getOpposite() == stateIn.get(FACING) && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : stateIn;
-   }
+        return facing.getOpposite() == stateIn.get(FACING) && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : stateIn;
+    }
 
-   public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
-      EnumFacing enumfacing = (EnumFacing)state.get(FACING);
-      BlockPos blockpos = pos.offset(enumfacing.getOpposite());
-      IBlockState iblockstate = worldIn.getBlockState(blockpos);
-      return iblockstate.getBlockFaceShape(worldIn, blockpos, enumfacing) == BlockFaceShape.SOLID && !isExceptBlockForAttachWithPiston(iblockstate.getBlock());
-   }
+    public boolean isValidPosition(IBlockState state, IWorldReaderBase worldIn, BlockPos pos) {
+        EnumFacing enumfacing = (EnumFacing) state.get(FACING);
+        BlockPos blockpos = pos.offset(enumfacing.getOpposite());
+        IBlockState iblockstate = worldIn.getBlockState(blockpos);
+        return iblockstate.getBlockFaceShape(worldIn, blockpos, enumfacing) == BlockFaceShape.SOLID && !isExceptBlockForAttachWithPiston(iblockstate.getBlock());
+    }
 
-   @Nullable
-   public IBlockState getStateForPlacement(BlockItemUseContext context) {
-      IBlockState iblockstate = super.getStateForPlacement(context);
-      IWorldReaderBase iworldreaderbase = context.getWorld();
-      BlockPos blockpos = context.getPos();
-      EnumFacing[] aenumfacing = context.getNearestLookingDirections();
+    @Nullable
+    public IBlockState getStateForPlacement(BlockItemUseContext context) {
+        IBlockState iblockstate = super.getStateForPlacement(context);
+        IWorldReaderBase iworldreaderbase = context.getWorld();
+        BlockPos blockpos = context.getPos();
+        EnumFacing[] aenumfacing = context.getNearestLookingDirections();
 
-      for(EnumFacing enumfacing : aenumfacing) {
-         if (enumfacing.getAxis().isHorizontal()) {
-            iblockstate = (IBlockState)iblockstate.with(FACING, enumfacing.getOpposite());
-            if (iblockstate.isValidPosition(iworldreaderbase, blockpos)) {
-               return iblockstate;
+        for (EnumFacing enumfacing : aenumfacing) {
+            if (enumfacing.getAxis().isHorizontal()) {
+                iblockstate = (IBlockState) iblockstate.with(FACING, enumfacing.getOpposite());
+                if (iblockstate.isValidPosition(iworldreaderbase, blockpos)) {
+                    return iblockstate;
+                }
             }
-         }
-      }
+        }
 
-      return null;
-   }
+        return null;
+    }
 }

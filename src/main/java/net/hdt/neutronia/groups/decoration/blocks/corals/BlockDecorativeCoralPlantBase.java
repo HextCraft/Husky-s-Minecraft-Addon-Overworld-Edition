@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.decoration.blocks.corals;
 
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.blocks.base.BlockModBush;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -25,7 +25,7 @@ public class BlockDecorativeCoralPlantBase extends BlockModBush {
 
     public BlockDecorativeCoralPlantBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
     }
 

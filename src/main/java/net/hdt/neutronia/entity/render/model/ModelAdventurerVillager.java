@@ -67,7 +67,7 @@ public class ModelAdventurerVillager extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.BackPack3.render(f5);
         this.RightLeg.render(f5);
         this.BackPack2.render(f5);

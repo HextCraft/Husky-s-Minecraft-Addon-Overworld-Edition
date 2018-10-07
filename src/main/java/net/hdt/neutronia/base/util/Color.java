@@ -105,9 +105,11 @@ public class Color {
     public float red;
     public float green;
     public float blue;
+
     public Color(@Nonnull final Color color) {
         this(color.red, color.green, color.blue);
     }
+
     public Color(final int red, final int green, final int blue) {
         this(red / 255.0F, green / 255.0F, blue / 255.0F);
     }

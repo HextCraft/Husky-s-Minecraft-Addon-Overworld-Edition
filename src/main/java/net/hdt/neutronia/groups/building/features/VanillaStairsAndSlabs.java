@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.neutronia.base.ModCreativeTab;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
@@ -46,30 +45,6 @@ public class VanillaStairsAndSlabs extends Component {
         String stairsName = name + "_stairs";
         BlockModStairs stairBlock = new BlockNeutroniaStairs(stairsName, state);
         stairBlock.setCreativeTab(creativeTabs);
-
-        BlockModSlab singleSlabBlock = new BlockVanillaSlab(name, state, false);
-        singleSlabBlock.setCreativeTab(creativeTabs);
-
-        BlockModSlab doubleSlabBlock = new BlockVanillaSlab(name, state, true);
-
-        if (stairs)
-            BlockModStairs.initStairs(block, meta, stairBlock);
-        if (slab)
-            BlockModSlab.initSlab(block, meta, singleSlabBlock, doubleSlabBlock);
-    }
-
-    public static void add(String name, Block block, int meta, boolean doit, ModCreativeTab creativeTabs) {
-        add(name, block, meta, true, true, doit, creativeTabs);
-    }
-
-    public static void add(String name, Block block, int meta, boolean slab, boolean stairs, boolean doit, ModCreativeTab creativeTabs) {
-        if (!doit)
-            return;
-
-        IBlockState state = block.getStateFromMeta(meta);
-        String stairsName = name + "_stairs";
-        BlockModStairs stairBlock = new BlockNeutroniaStairs(stairsName, state);
-        stairBlock.setCreativeTabs(creativeTabs);
 
         BlockModSlab singleSlabBlock = new BlockVanillaSlab(name, state, false);
         singleSlabBlock.setCreativeTab(creativeTabs);

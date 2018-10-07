@@ -3,7 +3,7 @@ package net.hdt.neutronia.base.blocks;
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.init.NCreativeTabs;
+import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
@@ -41,7 +41,7 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
         setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);
         setSoundType(state.getBlock().getSoundType());
         setDefaultState(blockState.getBaseState().withProperty(UP, Boolean.FALSE).withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     public BlockNeutroniaWall(IBlockState state, String name) {

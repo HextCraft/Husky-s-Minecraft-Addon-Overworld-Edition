@@ -1,8 +1,7 @@
 package net.hdt.neutronia.groups.earlyGame.features;
 
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.init.NCreativeTabs;
-import net.hdt.neutronia.items.ItemBase;
 import net.hdt.neutronia.items.base.tools.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
@@ -20,11 +19,11 @@ public class ClayTools extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        UNFIRED_CLAY_AXE = new ItemBase("unfired_clay_axe", NCreativeTabs.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_PICKAXE = new ItemBase("unfired_clay_pickaxe", NCreativeTabs.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_SWORD = new ItemBase("unfired_clay_sword", NCreativeTabs.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_SHOVEL = new ItemBase("unfired_clay_shovel", NCreativeTabs.NEUTRONIA_MAIN);
-        UNFIRED_CLAY_HOE = new ItemBase("unfired_clay_hoe", NCreativeTabs.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_AXE = new ItemBase("unfired_clay_axe", Neutronia.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_PICKAXE = new ItemBase("unfired_clay_pickaxe", Neutronia.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_SWORD = new ItemBase("unfired_clay_sword", Neutronia.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_SHOVEL = new ItemBase("unfired_clay_shovel", Neutronia.NEUTRONIA_MAIN);
+        UNFIRED_CLAY_HOE = new ItemBase("unfired_clay_hoe", Neutronia.NEUTRONIA_MAIN);
         FIRED_CLAY_AXE = new BaseAxe("fired_clay_axe", CLAY);
         FIRED_CLAY_PICKAXE = new BasePickaxe("fired_clay_pickaxe", CLAY);
         FIRED_CLAY_SWORD = new BaseSword("fired_clay_sword", CLAY);

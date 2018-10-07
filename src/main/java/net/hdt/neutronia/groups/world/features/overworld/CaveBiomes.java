@@ -35,10 +35,13 @@ public class CaveBiomes extends Component {
         biomes.add(loadUndergrondBiomeInfo("Sandstone", new CaveBiomeSandstone(), 160, Type.SANDY));
         biomes.add(loadUndergrondBiomeInfo("Slime", new CaveBiomeSlime(), 240, Type.SWAMP));
         biomes.add(loadUndergrondBiomeInfo("Prismarine", new CaveBiomePrismarine(), 200, Type.OCEAN));
+        biomes.add(loadUndergrondBiomeInfo("Wet", new CaveBiomeWet(), 200, Type.OCEAN));
         biomes.add(loadUndergrondBiomeInfo("Spider", new CaveBiomeSpiderNest(), 160, Type.PLAINS));
         biomes.add(loadUndergrondBiomeInfo("Overgrown", new CaveBiomeOvergrown(), 160, Type.FOREST));
         biomes.add(loadUndergrondBiomeInfo("Icy", new CaveBiomeIcy(), 160, Type.COLD));
         biomes.add(loadUndergrondBiomeInfo("Lava", new CaveBiomeLava(), 160, Type.MESA));
+        biomes.add(loadUndergrondBiomeInfo("Nether", new CaveBiomeNether(), 160, Type.NETHER));
+        biomes.add(loadUndergrondBiomeInfo("End", new CaveBiomeEnd(), 160, Type.END));
     }
 
     @SubscribeEvent

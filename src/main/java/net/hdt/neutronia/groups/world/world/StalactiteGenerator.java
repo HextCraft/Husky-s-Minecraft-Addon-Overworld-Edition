@@ -67,7 +67,7 @@ public class StalactiteGenerator implements IWorldGenerator {
         boolean up = random.nextBoolean();
         EnumFacing diff = (up ? EnumFacing.UP : EnumFacing.DOWN);
 
-        if(!up && world.canBlockSeeSky(pos))
+        if (!up && world.canBlockSeeSky(pos))
             return false;
 
         IBlockState stateAt;
@@ -75,7 +75,7 @@ public class StalactiteGenerator implements IWorldGenerator {
             pos = pos.offset(diff);
             stateAt = world.getBlockState(pos);
             off++;
-        } while(pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt) && off < 10);
+        } while (pos.getY() > 4 && pos.getY() < 200 && !stateAt.getBlock().isFullBlock(stateAt) && off < 10);
 
         Block type = getStalactiteType(stateAt);
         placeStalactite(random, world, pos, type);
@@ -124,6 +124,14 @@ public class StalactiteGenerator implements IWorldGenerator {
             return Stalactite.ice_stalactite;
         else if (block == Blocks.PACKED_ICE)
             return Stalactite.packed_ice_stalactite;
+        else if (block == Blocks.HARDENED_CLAY || block == Blocks.STAINED_HARDENED_CLAY)
+            return Stalactite.clay_stalactite;
+        else if (block == Blocks.END_STONE)
+            return Stalactite.end_stalactite;
+        else if (block == Blocks.DIRT)
+            return Stalactite.dirt_stalactite;
+        else if (block == Blocks.SANDSTONE)
+            return Stalactite.sandstone_stalactite;
         else if (block == MoreStoneBlocks.newStoneVariants[0])
             return Stalactite.basalt_stalactite;
         else if (block == MoreStoneBlocks.newStoneVariants[5])

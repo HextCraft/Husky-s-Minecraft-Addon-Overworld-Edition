@@ -12,14 +12,14 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.ArrayList;
 
-public class ItemModFood extends ItemFood implements IVariantHolder {
+public abstract class ItemModFood extends ItemFood implements IVariantHolder {
 
     public static final ArrayList<IVariantHolder> variantHolders = new ArrayList<>();
 
     private final String[] variants;
-    private final String bareName, modid;
+    private final String bareName;
 
-    public ItemModFood(String modid, String name, CreativeTabs creativeTabs, int amount, float saturation, boolean isWolfFood, String... variants) {
+    public ItemModFood(String name, CreativeTabs creativeTabs, int amount, float saturation, boolean isWolfFood, String... variants) {
         super(amount, saturation, isWolfFood);
         setCreativeTab(creativeTabs);
         if (variants.length > 1)
@@ -30,13 +30,12 @@ public class ItemModFood extends ItemFood implements IVariantHolder {
 
         bareName = name;
         this.variants = variants;
-        this.modid = modid;
         setTranslationKey(name);
         variantHolders.add(this);
     }
 
-    public ItemModFood(String modid, String name, CreativeTabs creativeTabs, int amount, boolean isWolfFood, String... variants) {
-        this(modid, name, creativeTabs, amount, 0.6F, isWolfFood, variants);
+    public ItemModFood(String name, CreativeTabs creativeTabs, int amount, boolean isWolfFood, String... variants) {
+        this(name, creativeTabs, amount, 0.6F, isWolfFood, variants);
     }
 
     public Item setTranslationKey(String name) {
@@ -57,16 +56,6 @@ public class ItemModFood extends ItemFood implements IVariantHolder {
         else name = variants[dmg];
 
         return "item." + name;
-    }
-
-    @Override
-    public String getPrefix() {
-        return this.modid;
-    }
-
-    @Override
-    public String getModNamespace() {
-        return this.modid;
     }
 
     @Override

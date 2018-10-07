@@ -1,10 +1,11 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaColored;
 import net.hdt.neutronia.groups.decoration.features.ColoredCandles;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
@@ -20,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
-public class BlockColoredCandles extends BlockColoredAlt {
+public class BlockColoredCandles extends BlockNeutroniaColored {
 
     public EnumDyeColor color;
     private boolean lit;
@@ -29,7 +30,7 @@ public class BlockColoredCandles extends BlockColoredAlt {
         super(lit ? "lit_candle" : "candle", color);
         this.color = color;
         this.lit = lit;
-        setCreativeTab(!lit ? NCreativeTabs.NEUTRONIA_MAIN : null);
+        setCreativeTab(lit ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
         this.setLightLevel(lit ? 1.0F : 0.0F);
         this.setTickRandomly(lit);
     }

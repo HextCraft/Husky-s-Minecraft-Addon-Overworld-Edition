@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import static net.hdt.neutronia.init.NCreativeTabs.NEUTRONIA_MAIN;
+import static net.hdt.neutronia.base.Neutronia.NEUTRONIA_MAIN;
 
 public class MorePillars extends Component {
 

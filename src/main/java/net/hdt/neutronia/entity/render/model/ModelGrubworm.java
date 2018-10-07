@@ -2,9 +2,8 @@ package net.hdt.neutronia.entity.render.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.GlStateManager;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.entity.Entity;
 
 /**
  * Grubworm - Undefined
@@ -31,7 +30,7 @@ public class ModelGrubworm extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
         GlStateManager.translate(this.Head.offsetX, this.Head.offsetY, this.Head.offsetZ);
         GlStateManager.translate(this.Head.rotationPointX * f5, this.Head.rotationPointY * f5, this.Head.rotationPointZ * f5);

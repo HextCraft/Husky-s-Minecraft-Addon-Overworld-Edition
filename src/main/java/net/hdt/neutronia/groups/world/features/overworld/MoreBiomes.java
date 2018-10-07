@@ -64,15 +64,15 @@ public class MoreBiomes extends Component {
     private static void addBiome(Biome biome, String name, int weight, boolean hasVillage, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
         biome.setRegistryName(Reference.MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
-        System.out.println(String.format("Biome: %s is now registered", name));
+        System.out.println(String.format("Biome: %s is now registered", biome.getBiomeName()));
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addSpawnBiome(biome);
         BiomeManager.addStrongholdBiome(biome);
         BiomeManager.addVillageBiome(biome, hasVillage);
 
-        System.out.println(String.format("Biome: %s is now added to the spawn biome's", name));
-        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
+        System.out.println(String.format("Biome: %s is now added to the spawn biome's", biome.getBiomeName()));
+        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", biome.getBiomeName(), weight));
     }
 
     @Override
@@ -88,7 +88,7 @@ public class MoreBiomes extends Component {
         addBiome(hills, "hills", 6, true, BiomeType.WARM, Type.HILLS);
 
         //COOL
-        addBiome(cliffs, "cliffs", 7, false, BiomeType.COOL, Type.MOUNTAIN ,Type.CONIFEROUS);
+        addBiome(cliffs, "cliffs", 7, false, BiomeType.COOL, Type.MOUNTAIN, Type.CONIFEROUS);
         addBiome(pineland, "pineland", 6, false, BiomeType.COOL, Type.HILLS, Type.CONIFEROUS);
         addBiome(pineforest, "pine_forest", 5, false, BiomeType.COOL, Type.CONIFEROUS);
 
@@ -113,10 +113,11 @@ public class MoreBiomes extends Component {
         addBiome(coldroofedforesthills, "cold_roofed_forest_hills", 2, false, BiomeType.ICY, Type.FOREST, Type.SNOWY);
         addBiome(coldflowerforesthills, "cold_flower_forest_hills", 1, false, BiomeType.ICY, Type.FOREST, Type.SNOWY);
         addBiome(coldmegataigahills, "cold_mega_taiga_hills", 2, false, BiomeType.ICY, Type.CONIFEROUS, Type.SNOWY);
-        addBiome(coldmegasprucetaigahills, "cold_mega_spruce_taiga_hills", 2, false, BiomeType.ICY, Type.CONIFEROUS, Type.SNOWY);;
+        addBiome(coldmegasprucetaigahills, "cold_mega_spruce_taiga_hills", 2, false, BiomeType.ICY, Type.CONIFEROUS, Type.SNOWY);
+        ;
         addBiome(icytundra, "icy_tundra", 5, false, BiomeType.ICY, Type.COLD, Type.SNOWY);
         addBiome(tundra, "tundra", 6, false, BiomeType.ICY, Type.COLD);
-        addBiome(snowypineforest, "snowy_pine_forest", 6, false, BiomeType.ICY, Type.CONIFEROUS ,Type.SNOWY);
+        addBiome(snowypineforest, "snowy_pine_forest", 6, false, BiomeType.ICY, Type.CONIFEROUS, Type.SNOWY);
         addBiome(snowdune, "snowdune", 2, false, BiomeType.ICY, Type.COLD, Type.SNOWY);
 
         BiomeManager.addVillageBiome(Biomes.JUNGLE_EDGE, true);

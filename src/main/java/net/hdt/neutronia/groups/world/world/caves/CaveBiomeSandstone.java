@@ -27,7 +27,7 @@ import java.util.Map.Entry;
 
 public class CaveBiomeSandstone extends BasicCaveBiome {
 
-    public static final ResourceLocation HUSK_GRAVE_STRUCTURE = new ResourceLocation("quark", "husk_grave");
+    public static final ResourceLocation HUSK_GRAVE_STRUCTURE = new ResourceLocation("neutronia", "husk_grave");
 
     int stalactiteChance, chiseledSandstoneChance, deadBushChance;
     boolean enableSand, allowGenInMesa;

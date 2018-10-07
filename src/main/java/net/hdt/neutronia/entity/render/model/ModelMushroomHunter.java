@@ -70,7 +70,7 @@ public class ModelMushroomHunter extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Hat.render(f5);
         this.BodyLayer.render(f5);
         this.Head.render(f5);

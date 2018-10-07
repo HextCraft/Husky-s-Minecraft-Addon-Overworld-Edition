@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
@@ -18,12 +18,10 @@ import net.minecraft.world.World;
 public class BlockStoneBrickLantern extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    protected String name;
 
     public BlockStoneBrickLantern(Material material, String name) {
         super(name, material);
-        this.name = name;
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(0.9F);

@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.blocks.corals;
 
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.blocks.base.BlockModBush;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -27,7 +27,7 @@ public class BlockCoralPlantBase extends BlockModBush {
 
     public BlockCoralPlantBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(NCreativeTabs.NEUTRONIA_MAIN);
+        this.setCreativeTab(Neutronia.NEUTRONIA_MAIN);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, 15));
     }
 

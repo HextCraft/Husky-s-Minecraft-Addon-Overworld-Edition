@@ -1,0 +1,16 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "minecraft:cube_all",
+        "transform": "forge:default-block",
+        "textures": {
+            "block": "neutronia:block/stalacrystal"
+        }
+    },
+    "variants": {
+        "inventory": [{ "model": "neutronia:speleothem_medium" }],
+        "size=small": [{ "model": "neutronia:speleothem_small" }],
+        "size=medium": [{ "model": "neutronia:speleothem_medium" }],
+        "size=big": [{ "model": "neutronia:speleothem_big" }]
+    }
+}

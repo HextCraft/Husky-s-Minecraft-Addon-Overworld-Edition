@@ -11,9 +11,9 @@ import net.minecraft.util.ResourceLocation;
 
 public class Icon extends Part {
 
-    private int iconX, iconY, iconWidth, iconHeight, textureX, textureY;
     public ItemStack icon;
     public ResourceLocation textureIcon;
+    private int iconX, iconY, iconWidth, iconHeight, textureX, textureY;
 
     public Icon(ItemStack stack) {
         this(0, 0, 16, 16, stack);
@@ -76,7 +76,7 @@ public class Icon extends Part {
     protected void render() {
         boolean isTexture = false;
         Minecraft mc = Minecraft.getMinecraft();
-        if(isTexture) {
+        if (isTexture) {
             mc.getTextureManager().bindTexture(textureIcon);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             GlStateManager.enableBlend();
@@ -91,15 +91,14 @@ public class Icon extends Part {
         }
     }
 
-    private void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height)
-    {
+    private void drawTexturedModalRect(int x, int y, int textureX, int textureY, int width, int height) {
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
-        bufferbuilder.pos((double)(x), (double)(y + height), 0).tex((double)((float)(textureX) * 0.00390625F), (double)((float)(textureY + height) * 0.00390625F)).endVertex();
-        bufferbuilder.pos((double)(x + width), (double)(y + height), 0).tex((double)((float)(textureX + width) * 0.00390625F), (double)((float)(textureY + height) * 0.00390625F)).endVertex();
-        bufferbuilder.pos((double)(x + width), (double)(y), 0).tex((double)((float)(textureX + width) * 0.00390625F), (double)((float)(textureY) * 0.00390625F)).endVertex();
-        bufferbuilder.pos((double)(x), (double)(y), 0).tex((double)((float)(textureX) * 0.00390625F), (double)((float)(textureY) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double) (x), (double) (y + height), 0).tex((double) ((float) (textureX) * 0.00390625F), (double) ((float) (textureY + height) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double) (x + width), (double) (y + height), 0).tex((double) ((float) (textureX + width) * 0.00390625F), (double) ((float) (textureY + height) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double) (x + width), (double) (y), 0).tex((double) ((float) (textureX + width) * 0.00390625F), (double) ((float) (textureY) * 0.00390625F)).endVertex();
+        bufferbuilder.pos((double) (x), (double) (y), 0).tex((double) ((float) (textureX) * 0.00390625F), (double) ((float) (textureY) * 0.00390625F)).endVertex();
         tessellator.draw();
     }
 

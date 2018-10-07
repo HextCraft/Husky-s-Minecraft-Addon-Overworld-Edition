@@ -4,6 +4,7 @@ import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IRecipeGrouped;
 import net.hdt.huskylib2.item.ItemModBlock;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
@@ -14,7 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
@@ -42,7 +42,7 @@ public class BlockTerracottaFlowerPot extends BlockFlowerPot implements INeutron
 
         setHardness(0.0F);
         setSoundType(SoundType.STONE);
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
 
         setTranslationKey(name);
     }

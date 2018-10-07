@@ -18,8 +18,7 @@ public abstract class AbstractCreativeCategory {
     private boolean enabled = true;
     private List<Item> items = Lists.newArrayList();
 
-    public AbstractCreativeCategory(String titleKey, ItemStack icon)
-    {
+    public AbstractCreativeCategory(String titleKey, ItemStack icon) {
         this.titleKey = titleKey;
         this.icon = icon;
         this.init();
@@ -27,28 +26,23 @@ public abstract class AbstractCreativeCategory {
 
     public abstract void init();
 
-    public String getTitleKey()
-    {
+    public String getTitleKey() {
         return titleKey;
     }
 
-    public ItemStack getIcon()
-    {
+    public ItemStack getIcon() {
         return icon;
     }
 
-    public void setEnabled(boolean enabled)
-    {
-        this.enabled = enabled;
-    }
-
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    protected void add(Item item)
-    {
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    protected void add(Item item) {
         items.add(item);
     }
 
@@ -61,13 +55,12 @@ public abstract class AbstractCreativeCategory {
     }
 
     protected void add(Block... blocks) {
-        for(Block block : blocks) {
+        for (Block block : blocks) {
             items.add(Item.getItemFromBlock(block));
         }
     }
 
-    public List<Item> getItems()
-    {
+    public List<Item> getItems() {
         return items;
     }
 

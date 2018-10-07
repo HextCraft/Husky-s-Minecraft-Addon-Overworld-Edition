@@ -40,6 +40,7 @@ public class GuiTooltip {
     protected final ITooltipRenderer renderer;
     protected final HoverChecker checker;
     protected final List<String> tooltip;
+
     public GuiTooltip(@Nonnull final ITooltipRenderer renderer, @Nonnull GuiButton button,
                       @Nonnull final String tipText) {
         this(renderer, button, tipText, 200);

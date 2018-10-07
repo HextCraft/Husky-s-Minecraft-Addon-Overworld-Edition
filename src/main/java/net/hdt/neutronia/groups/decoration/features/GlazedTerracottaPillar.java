@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class GlazedTerracottaPillar extends Component {
 
-    private Block[] glazedTerracottaPillar = new Block[16];
+    public static Block[] glazedTerracottaPillar = new Block[16];
 
     public GlazedTerracottaPillar() {
         super(GlobalConfig.enableExperimentalFeatures);

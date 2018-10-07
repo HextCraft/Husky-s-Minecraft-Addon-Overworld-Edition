@@ -1,12 +1,13 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.groups.decoration.features.ChiseledBlocks;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -23,7 +24,7 @@ public class BlockBrickChiseled extends BlockMod implements INeutroniaBlock {
     public BlockBrickChiseled(String name, boolean filled) {
         super(name, Material.ROCK);
         this.filled = filled;
-        setCreativeTab(filled ? null : NCreativeTabs.NEUTRONIA_MAIN);
+        setCreativeTab(filled ? CreativeTabs.SEARCH : Neutronia.NEUTRONIA_MAIN);
         setHardness(2.0F);
         setResistance(10.0F);
         setSoundType(SoundType.STONE);

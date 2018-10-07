@@ -1,11 +1,11 @@
 package net.hdt.neutronia.blocks.base;
 
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -21,33 +21,26 @@ public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
     protected static final AxisAlignedBB BB_AXIS_Z = new AxisAlignedBB(0.375D, 0.375D, 0.0D, 0.625D, 0.625D, 1.0D);
     protected static final AxisAlignedBB BB_AXIS_X = new AxisAlignedBB(0.0D, 0.375D, 0.375D, 1.0D, 0.625D, 0.625D);
 
-    private Material mapColor = Material.SAND;
-
-    public BlockRodBase(String name, CreativeTabs creativeTabs, boolean emitsLight) {
-        super(Material.CIRCUITS, name);
+    @SuppressWarnings("unused")
+    public BlockRodBase(String name, boolean emitsLight) {
+        super(Material.ROCK, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
-        this.setCreativeTab(creativeTabs);
         if (emitsLight) {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     @SuppressWarnings("unused")
-    public BlockRodBase(Material color, String name, CreativeTabs creativeTabs, boolean emitsLight) {
-        super(color, name);
-        mapColor = color;
+    public BlockRodBase(Material material, String name, boolean emitsLight) {
+        super(material, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.UP));
-        this.setCreativeTab(creativeTabs);
         if (emitsLight) {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
-    }
-
-    @Override
-    public Material getMaterial(IBlockState state) {
-        return this.mapColor;
+        setCreativeTab(Neutronia.NEUTRONIA_MAIN);
     }
 
     @Override

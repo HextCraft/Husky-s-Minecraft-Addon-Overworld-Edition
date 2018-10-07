@@ -1,11 +1,10 @@
 package net.hdt.neutronia.groups.decoration.features;
 
+import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.blocks.overworld.BlockOverworldBase;
-import net.hdt.neutronia.init.NCreativeTabs;
 import net.hdt.neutronia.items.ItemArmorBase;
-import net.hdt.neutronia.items.ItemBase;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
 import net.hdt.neutronia.items.base.tools.BaseShovel;
@@ -22,21 +21,17 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MoreMetals extends Component {
 
-    public static int brassVeinFrequency = 2, steelVeinFrequency = 2, copperVeinFrequency = 2, zincVeinFrequency = 2;
-
-    public static Block brassBlock, steelBlock, copperBlock/*, bronzeBlock*/;
-    public static Block brassOre, steelOre, copperOre/*, bronzeOre, tinOre*/, zincOre;
-
     public static final Item.ToolMaterial BRASS = EnumHelper.addToolMaterial("brass", 1, 240, 4.0F, 1.0F, 5);
     public static final Item.ToolMaterial STEEL = EnumHelper.addToolMaterial("steel", 3, 502, 10F, 6.0F, 22);
     public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("bronze", 1, 131, 4.0F, 1.0F, 5);
     public static final Item.ToolMaterial COPPER = EnumHelper.addToolMaterial("copper", 1, 172, 4.0F, 1.0F, 5);
-
     public static final ItemArmor.ArmorMaterial BRASS_ARMOR = EnumHelper.addArmorMaterial("brass", "brass", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
     public static final ItemArmor.ArmorMaterial STEEL_ARMOR = EnumHelper.addArmorMaterial("steel", "steel", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
     public static final ItemArmor.ArmorMaterial BRONZE_ARMOR = EnumHelper.addArmorMaterial("bronze", "bronze", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
     public static final ItemArmor.ArmorMaterial COPPER_ARMOR = EnumHelper.addArmorMaterial("copper", "copper", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
-
+    public static int brassVeinFrequency = 2, steelVeinFrequency = 2, copperVeinFrequency = 2, zincVeinFrequency = 2;
+    public static Block brassBlock, steelBlock, copperBlock/*, bronzeBlock*/;
+    public static Block brassOre, steelOre, copperOre/*, bronzeOre, tinOre*/, zincOre;
     public static Item BRASS_AXE, BRASS_PICKAXE, BRASS_SHOVEL, BRASS_SWORD;
     public static Item STEEL_AXE, STEEL_PICKAXE, STEEL_SHOVEL, STEEL_SWORD;
     public static Item COPPER_AXE, COPPER_PICKAXE, COPPER_SHOVEL, COPPER_SWORD;
@@ -55,11 +50,11 @@ public class MoreMetals extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        CreativeTabs tab = NCreativeTabs.NEUTRONIA_MAIN;
+        CreativeTabs tab = Neutronia.NEUTRONIA_MAIN;
 
-        brassBlock = new BlockOverworldBase(Material.IRON, "brass_block", false);
-        steelBlock = new BlockOverworldBase(Material.IRON, "steel_block", false);
-        copperBlock = new BlockOverworldBase(Material.IRON, "copper_block", false);
+        brassBlock = new BlockNeutroniaBase(Material.IRON, "brass_block", false);
+        steelBlock = new BlockNeutroniaBase(Material.IRON, "steel_block", false);
+        copperBlock = new BlockNeutroniaBase(Material.IRON, "copper_block", false);
 //        bronzeBlock = new BlockOverworldBase(Material.IRON, "bronze_block", false);
 
         brassOre = new BlockNeutroniaOre("brass_ore").setIngot(brassIngot);

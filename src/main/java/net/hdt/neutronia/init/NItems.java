@@ -2,6 +2,7 @@ package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
@@ -57,20 +58,20 @@ public class NItems {
     public static Item[] planksShields = new Item[6];
 
     static {
-        CreativeTabs tab = NCreativeTabs.NEUTRONIA_MAIN;
+        CreativeTabs tab = Neutronia.NEUTRONIA_MAIN;
 
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();
-//        witherBone = new ItemBase("wither_bone", tab);
-//        witherBonemeal = new ItemBase("wither_bonemeal", tab);
+//        witherBone = new ItemNeutroniaBase("wither_bone");
+//        witherBonemeal = new ItemNeutroniaBase("wither_bonemeal");
         phantomMembrane = new ItemPhantomMembrane();
-        nautilusShell = new ItemBase("nautilus_shell", tab);
-        heartOfTheSea = new ItemBase("heart_of_the_sea", tab);
-        heartOfTheNether = new ItemBase("heart_of_the_nether", tab);
-        heartOfTheEnd = new ItemBase("heart_of_the_end", tab);
-        scute = new ItemBase("scute", tab);
-        chisel = new ItemBase("chisel", tab);
-        logStripper = new ItemBase("log_stripper", tab);
+        nautilusShell = new ItemNeutroniaBase("nautilus_shell");
+        heartOfTheSea = new ItemNeutroniaBase("heart_of_the_sea");
+        heartOfTheNether = new ItemNeutroniaBase("heart_of_the_nether");
+        heartOfTheEnd = new ItemNeutroniaBase("heart_of_the_end");
+        scute = new ItemNeutroniaBase("scute");
+        chisel = new ItemNeutroniaBase("chisel");
+        logStripper = new ItemNeutroniaBase("log_stripper");
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
 
@@ -120,7 +121,7 @@ public class NItems {
         for (BlockPlanks.EnumType woodTypes : BlockPlanks.EnumType.values()) {
 //            logShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_log_%s", woodTypes.getName()));
 //            planksShields[woodTypes.getMetadata()] = new ItemShieldBase(String.format("shield_planks_%s", woodTypes.getName()));
-            barkItem[woodTypes.getMetadata()] = new ItemBase(String.format("%s_bark_item", woodTypes.getName()), tab);
+            barkItem[woodTypes.getMetadata()] = new ItemNeutroniaBase(String.format("%s_bark_item", woodTypes.getName()));
         }
 
     }
