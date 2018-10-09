@@ -1,4 +1,4 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.elements;
 
 import net.hdt.neutronia.base.groups.Group;
 import net.minecraft.client.Minecraft;
@@ -11,7 +11,7 @@ import net.minecraft.util.text.translation.I18n;
 
 public class GroupButton extends GuiButton {
 
-    final Group group;
+    public final Group group;
 
     public GroupButton(int x, int y, Group group) {
         super(0, x, y, 150, 20, I18n.translateToLocal("neutronia.config.group." + group.getName().toLowerCase().replace(" ", "_")));
@@ -25,7 +25,6 @@ public class GroupButton extends GuiButton {
 
     @Override
     public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks) {
-
         if (visible) {
             FontRenderer fontrenderer = mc.fontRenderer;
             mc.getTextureManager().bindTexture(BUTTON_TEXTURES);

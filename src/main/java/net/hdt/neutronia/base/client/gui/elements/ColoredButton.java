@@ -1,4 +1,4 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.elements;
 
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;

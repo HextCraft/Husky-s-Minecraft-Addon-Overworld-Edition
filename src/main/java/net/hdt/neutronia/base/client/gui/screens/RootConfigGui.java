@@ -1,7 +1,12 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.screens;
 
-import net.hdt.neutronia.base.client.IconRenderer;
-import net.hdt.neutronia.base.client.gui.elements.GroupElement;
+import net.hdt.neutronia.base.client.gui.ConfigCategory;
+import net.hdt.neutronia.base.client.gui.GuiConfigBase;
+import net.hdt.neutronia.base.client.gui.GuiConfigGroup;
+import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
+import net.hdt.neutronia.base.client.gui.elements.ConfigSettingsButton;
+import net.hdt.neutronia.base.client.gui.elements.CustomGroupButton;
+import net.hdt.neutronia.base.client.gui.elements.GroupButton;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
@@ -21,21 +26,19 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class RootConfigGui extends GuiConfigBase {
 
-    private static int MODULES_PER_PAGE = 10;
+    private static int MODULES_PER_PAGE = 8;
     private final List<Group> groups;
-    private ResourceLocation CUSTOM_BUTTON_ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/custom_button_icons.png");
+    private ResourceLocation ICONS = new ResourceLocation(LibMisc.MOD_ID, "textures/misc/config_screen_misc.png");
     private boolean nEnabled;
     private int page = 0;
     private int totalPages;
     private GuiButton left, right;
-    private IconRenderer renderer;
 
-    RootConfigGui(GuiScreen parent) {
+    public RootConfigGui(GuiScreen parent) {
         super(parent);
         groups = new ArrayList<>(GroupLoader.enabledGroups);
         Collections.sort(groups);
         nEnabled = GlobalConfig.enableNButton;
-        System.out.println(groups.size());
         totalPages = (groups.size() - 1) / MODULES_PER_PAGE + 1;
     }
 
@@ -53,16 +56,6 @@ public class RootConfigGui extends GuiConfigBase {
         }
 
         addFeatureButtons();
-
-        /*final int presetWidth = PRESET_BUTTON_WIDTH + INSET * 2;
-        final int presetHeight = (int) (PRESET_BUTTON_HEIGHT * (MAX_PRESETS_PAGE + 1.5F)) + INSET;
-        this.presetPanel.setWidth(presetWidth);
-        this.presetPanel.setHeight(presetHeight);
-
-        this.regionWidth = MARGIN * 2 + presetWidth + INSET + BUTTON_WIDTH;
-        this.regionHeight = MARGIN * 2 + presetHeight + BUTTON_HEIGHT * 2;
-        this.backgroundPanel.setWidth(this.regionWidth);
-        this.backgroundPanel.setHeight(this.regionHeight);*/
     }
 
     private void addFeatureButtons() {
@@ -72,17 +65,15 @@ public class RootConfigGui extends GuiConfigBase {
         int startX = width / 2 - 185;
         int startY = height / 5 + 3;
 
-        buttonList.removeIf((b) -> b instanceof GroupButton || b instanceof ConfigSettingsButton);
+        buttonList.removeIf((b) -> b instanceof GroupButton || b instanceof CustomGroupButton || b instanceof ConfigSettingsButton);
 
         int start = page * MODULES_PER_PAGE;
         for (int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
             int k = j - start;
             x = startX + k % 2 * 180;
-            y = startY + k / 2 * 22;
+            y = startY + k / 2 * 35;
             Group group = groups.get(j);
-            buttonList.add(new GroupButton(x, y, group));
-            GroupElement element = new GroupElement(group);
-            element.addParts();
+            buttonList.add(new CustomGroupButton(x, y, group));
             buttonList.add(new ConfigSettingsButton(x + 150, y, group.prop, false));
         }
 
@@ -92,7 +83,7 @@ public class RootConfigGui extends GuiConfigBase {
         }
 
         x = width / 2;
-        y = startY + 113;
+        y = startY + 117;
         buttonList.add(new ConfigSettingsButton(x + 85, y + 22, GlobalConfig.NButtonProp, true, I18n.translateToLocal("neutronia.config.enableq")));
         buttonList.add(new GuiButton(1, x - 100, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.general")));
 //        buttonList.add(new GuiButton(2, x  + 2, y + 22, 98, 20, I18n.translateToLocal("neutronia.config.import")));
@@ -117,35 +108,6 @@ public class RootConfigGui extends GuiConfigBase {
         else if (nEnabled && !GlobalConfig.enableNButton)
             s = I18n.translateToLocal("neutronia.config.qdisabled");
 
-        /*for(int i = 0; i < groups.size(); i++) {
-            int nextHeight = 79 * i;
-            int nextHeightIcon = 60 * i;
-            int nextHeightLine = 79 * i;
-            ItemStack stack = groups.get(i).getIconStack();
-            if(groups.size() < 2) {
-                drawRect(80, 0, Minecraft.getMinecraft().displayWidth - 80, 80, Color.GRAY.getRGB());
-                drawRect(0, 0, 80, 80, Color.WHITE.getRGB());
-                RenderHelper.enableGUIStandardItemLighting();
-                GlStateManager.enableDepth();
-                mc.getRenderItem().renderItemIntoGUI(stack, 35, 40);
-                drawString(fontRenderer, groups.get(i).name, 65, 20, 0xFFFFFF);
-                drawString(fontRenderer, groups.get(i).desc, 65, 40, 0xFFFFFF);
-                drawRect(80, 79, Minecraft.getMinecraft().displayWidth - 80, 80, Color.DARK_GRAY.getRGB());
-            } else {
-//                drawRect(0, 0, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight, Color.DARK_GRAY.getRGB());
-                drawRect(60, 0, Minecraft.getMinecraft().displayWidth - 60, 59 + nextHeight, Color.GRAY.getRGB());
-                drawRect(0, 0, 60, nextHeightIcon, Color.WHITE.getRGB());
-                RenderHelper.enableGUIStandardItemLighting();
-                GlStateManager.enableDepth();
-                ZoomRenderHelper.renderZoomedStack(stack, this, mc, 8, 10 + nextHeightIcon);
-                drawString(fontRenderer, groups.get(i).name, 85, 20 + nextHeightIcon, 0xFFFFFF);
-                drawString(fontRenderer, groups.get(i).desc, 85, 40 + nextHeightIcon, 0xFFFFFF);
-            }
-        }*/
-
-//        mc.getTextureManager().bindTexture(new ResourceLocation("textures/blocks/dirt.png"));
-//        drawTexturedModalRect(0, 0, 0, 0, this.width, this.height);
-
         if (totalPages > 1) {
             int x = width / 2;
             int y = height / 6 - 7;
@@ -162,6 +124,9 @@ public class RootConfigGui extends GuiConfigBase {
 
         if (button instanceof GroupButton) {
             GroupButton moduleButton = (GroupButton) button;
+            mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
+        } else if (button instanceof CustomGroupButton){
+            CustomGroupButton moduleButton = (CustomGroupButton) button;
             mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
         } else if (button == left || button == right) {
             if (button == left)

@@ -1,21 +1,31 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.utils;
 
+import com.google.common.collect.ImmutableList;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec2f;
+import net.minecraftforge.common.ForgeVersion;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 @SideOnly(Side.CLIENT)
 public final class GuiUtils {
+
+    public static GuiUtils instance() {
+        return new GuiUtils();
+    }
 
     private GuiUtils() {
 
@@ -124,4 +134,34 @@ public final class GuiUtils {
     public static Vec2f calculateSpan(final int sheetDimension, final int first, final int second) {
         return new Vec2f(first / (float) sheetDimension, second / (float) sheetDimension);
     }
+
+    private static List<String> brandings;
+    private static List<String> brandingsNoMC;
+
+    public static void computeBranding()
+    {
+        if (brandings == null)
+        {
+            ImmutableList.Builder<String> brd = ImmutableList.builder();
+            brd.add(I18n.format("fml.mainMenu.minecraft", Loader.instance().getMCVersionString()));
+            brd.add(I18n.format("fml.mainMenu.mcp", Loader.instance().getMCPVersionString()));
+            brd.add(I18n.format("fml.mainMenu.forge", ForgeVersion.getVersion()));
+            brd.add(I18n.format("neutronia.mainMenu.version", LibMisc.MOD_NAME, LibMisc.VERSION));
+            int tModCount = Loader.instance().getModList().size();
+            int aModCount = Loader.instance().getActiveModList().size();
+            brd.add(I18n.format("fml.menu.loadingMods", tModCount, tModCount != 1 ? "s" : "", aModCount, aModCount != 1 ? "s" : ""));
+            brandings = brd.build();
+            brandingsNoMC = brandings.subList(1, brandings.size());
+        }
+    }
+
+    public static List<String> getBrandings(boolean includeMC)
+    {
+        if (brandings == null)
+        {
+            computeBranding();
+        }
+        return includeMC ? ImmutableList.copyOf(brandings) : ImmutableList.copyOf(brandingsNoMC);
+    }
+
 }

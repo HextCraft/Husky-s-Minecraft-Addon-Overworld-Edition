@@ -1,5 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
+import net.hdt.neutronia.base.client.gui.elements.ConfigSettingsButton;
+import net.hdt.neutronia.base.client.gui.screens.ConfigLinkScreen;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.gui.GuiButton;
@@ -16,13 +18,13 @@ import java.util.List;
 
 public class GuiConfigBase extends GuiScreen {
 
-    static boolean mayRequireRestart = false;
+    public static boolean mayRequireRestart = false;
     private static List<Property> restartRequiringProperties = new LinkedList<>();
-    String title;
-    GuiScreen parent;
-    GuiButton backButton;
+    public String title;
+    public GuiScreen parent;
+    public GuiButton backButton;
 
-    GuiConfigBase(GuiScreen parent) {
+    public GuiConfigBase(GuiScreen parent) {
         this.parent = parent;
     }
 
@@ -76,7 +78,7 @@ public class GuiConfigBase extends GuiScreen {
             mc.setIngameFocus();
     }
 
-    void tryOpenWebsite(String url) {
+    public void tryOpenWebsite(String url) {
         GuiConfirmOpenLink gui = new ConfigLinkScreen(this, url);
         mc.displayGuiScreen(gui);
     }

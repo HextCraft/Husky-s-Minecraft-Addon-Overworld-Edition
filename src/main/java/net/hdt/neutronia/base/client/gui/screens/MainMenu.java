@@ -1,7 +1,9 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.screens;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.Runnables;
+import net.hdt.neutronia.base.client.gui.utils.GuiUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -531,7 +533,7 @@ public class MainMenu extends GuiScreen
     }
 
     /**
-     * Draws the screen and all the components in it.
+     * Draws the screen and all the elements in it.
      */
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
@@ -574,23 +576,11 @@ public class MainMenu extends GuiScreen
         GlStateManager.scale(f, f, f);
         this.drawCenteredString(this.fontRenderer, this.splashText, 0, -8, -256);
         GlStateManager.popMatrix();
-        String s = "Minecraft 1.12.2";
 
-        if (this.mc.isDemo())
-        {
-            s = s + " Demo";
-        }
-        else
-        {
-            s = s + ("release".equalsIgnoreCase(this.mc.getVersionType()) ? "" : "/" + this.mc.getVersionType());
-        }
-
-        java.util.List<String> brandings = com.google.common.collect.Lists.reverse(net.minecraftforge.fml.common.FMLCommonHandler.instance().getBrandings(true));
-        for (int brdline = 0; brdline < brandings.size(); brdline++)
-        {
+        List<String> brandings = Lists.reverse(GuiUtils.getBrandings(true));
+        for (int brdline = 0; brdline < brandings.size(); brdline++) {
             String brd = brandings.get(brdline);
-            if (!com.google.common.base.Strings.isNullOrEmpty(brd))
-            {
+            if (!Strings.isNullOrEmpty(brd)) {
                 this.drawString(this.fontRenderer, brd, 2, this.height - ( 10 + brdline * (this.fontRenderer.FONT_HEIGHT + 1)), 16777215);
             }
         }

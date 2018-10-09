@@ -1,6 +1,9 @@
 package net.hdt.neutronia.base.client.gui;
 
 import com.google.common.collect.ImmutableSet;
+import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
+import net.hdt.neutronia.base.client.gui.screens.FirstLoadScreen;
+import net.hdt.neutronia.base.client.gui.screens.RootConfigGui;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.Minecraft;

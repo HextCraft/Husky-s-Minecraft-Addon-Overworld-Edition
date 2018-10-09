@@ -47,4 +47,8 @@ public final class LibMisc {
     public static final String MOD_TWITTER = "https://github.com/HuskysDevelopmentTeam/Neutronia";
     public static final String MOD_DISCORD = "https://github.com/HuskysDevelopmentTeam/Neutronia";
 
+    public static ResourceLocation location(String id) {
+        return new ResourceLocation(MOD_ID, id);
+    }
+
 }

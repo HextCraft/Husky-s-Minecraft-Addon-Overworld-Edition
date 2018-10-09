@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.Display;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class Neutronia {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        Display.setTitle(String.format("%s %s | Minecraft 1.13.1", LibMisc.MOD_NAME, LibMisc.VERSION));
         LOGGER = event.getModLog();
         handlers.forEach(handler -> handler.preInit(event));
         proxy.preInit(event);

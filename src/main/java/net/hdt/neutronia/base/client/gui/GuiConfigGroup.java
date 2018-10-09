@@ -1,5 +1,7 @@
 package net.hdt.neutronia.base.client.gui;
 
+import net.hdt.neutronia.base.client.gui.elements.ConfigSettingsButton;
+import net.hdt.neutronia.base.client.gui.elements.FeatureSettingsButton;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.base.groups.GroupLoader;
@@ -23,7 +25,7 @@ public class GuiConfigGroup extends GuiConfigBase {
 
     private GuiButton left, right;
 
-    GuiConfigGroup(GuiScreen parent, Group group) {
+    public GuiConfigGroup(GuiScreen parent, Group group) {
         super(parent);
         this.group = group;
 
@@ -110,8 +112,8 @@ public class GuiConfigGroup extends GuiConfigBase {
             drawCenteredString(mc.fontRenderer, (page + 1) + "/" + totalPages, x, y, 0xFFFFFF);
         }
 
-        /*for(int i = 0; i < components.size(); i++) {
-            if(components.size() < 2)
+        /*for(int i = 0; i < elements.size(); i++) {
+            if(elements.size() < 2)
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100, Color.WHITE.getRGB());
             else
                 drawRect(0, 0, Minecraft.getMinecraft().displayWidth, 100 * i, Color.WHITE.getRGB());

@@ -1,7 +1,7 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.screens;
 
+import net.hdt.neutronia.base.client.gui.GuiConfigBase;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
@@ -33,7 +33,7 @@ public class FirstLoadScreen extends GuiConfigBase {
 
         switch (button.id) {
             case 0:
-                mc.displayGuiScreen(new GuiMainMenu());
+                mc.displayGuiScreen(new MainMenu());
                 break;
             case 1: // Configure
                 mc.displayGuiScreen(new RootConfigGui(parent));

@@ -1,4 +1,4 @@
-package net.hdt.neutronia.base.client.gui;
+package net.hdt.neutronia.base.client.gui.elements;
 
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.client.Minecraft;
