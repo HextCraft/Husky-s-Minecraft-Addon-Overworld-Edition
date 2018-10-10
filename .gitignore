@@ -20,7 +20,7 @@ build
 # other
 eclipse
 run
-src/main/resources/assets/neutronia/textures/*
+src/main/resources/assets/neutronia/textures/maby_textures/*
 saves/*
 config/*
 logs*
