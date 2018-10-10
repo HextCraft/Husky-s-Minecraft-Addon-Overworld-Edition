@@ -30,7 +30,7 @@ public class Component implements Comparable<Component> {
     }
 
     public Component() {
-        this.enabled = true;
+        this(true);
     }
 
     @SideOnly(Side.CLIENT)

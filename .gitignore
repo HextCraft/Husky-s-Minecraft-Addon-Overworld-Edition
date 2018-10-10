@@ -21,3 +21,9 @@ build
 eclipse
 run
 src/main/resources/assets/neutronia/textures/*
+saves/*
+config/*
+logs*
+*.txt
+*.json
+screenshots/*
