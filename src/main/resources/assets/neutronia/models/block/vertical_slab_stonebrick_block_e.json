@@ -1,0 +1,8 @@
+{
+  "parent": "neutronia:block/vertical_slab_block_plain_e",
+  "textures": {
+    "end": "blocks/stonebrick",
+    "side": "blocks/stonebrick",
+    "particle": "blocks/stonebrick"
+  }
+}
