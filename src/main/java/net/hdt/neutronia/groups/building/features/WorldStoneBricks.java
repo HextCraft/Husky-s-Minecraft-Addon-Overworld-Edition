@@ -3,7 +3,6 @@ package net.hdt.neutronia.groups.building.features;
 import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
@@ -12,7 +11,6 @@ import net.hdt.neutronia.groups.building.blocks.BlockWorldStoneBricks;
 import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockVanillaStairs;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -66,10 +64,10 @@ public class WorldStoneBricks extends Component {
 
     @Override
     public void postPreInit(FMLPreInitializationEvent event) {
-        for (int i = 0; i < 6; i++)
+        /*for (int i = 0; i < 6; i++)
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(world_stone_bricks, 4, i),
                     "SS", "SS",
-                    'S', ProxyRegistry.newStack(Blocks.STONE, 1, i * 2 + 2));
+                    'S', ProxyRegistry.newStack(Blocks.STONE, 1, i * 2 + 2));*/
     }
 
     @Override

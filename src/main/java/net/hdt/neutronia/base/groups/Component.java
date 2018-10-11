@@ -29,8 +29,13 @@ public class Component implements Comparable<Component> {
         this.enabled = enabled;
     }
 
+    public Component(boolean enabled, boolean enabledByDefault) {
+        this.enabled = enabled;
+        this.enabledByDefault = enabledByDefault;
+    }
+
     public Component() {
-        this(true);
+        this(true, true);
     }
 
     @SideOnly(Side.CLIENT)

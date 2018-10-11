@@ -1,6 +1,8 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.huskylib2.recipe.RecipeHandler;
+import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -115,6 +117,12 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         if (state.getValue(WEST).booleanValue()) {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
         }
+    }
+
+    public static void initWall(Block base, int meta, Block block) {
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
+                "BBB", "BBB",
+                'B', ProxyRegistry.newStack(base, 1, meta));
     }
 
     @Override

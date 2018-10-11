@@ -45,6 +45,7 @@ public class NGroups {
                 .addComponent(new WoodBlocks())
                 .addComponent(new WorldStoneBricks())
                 .addComponent(new SoulStone())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
 
@@ -62,6 +63,7 @@ public class NGroups {
                 .addComponent(new PastelColors())
                 .addComponent(new BetterEndTextures())
 //                .addComponent(new MoreDetailedModels())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
 
@@ -95,6 +97,7 @@ public class NGroups {
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
                 .addComponent(new VariedTrapdoors())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
 
@@ -111,6 +114,7 @@ public class NGroups {
                 .addComponent(new SunDimension())
                 .addComponent(new RevampedEnd())
                 .addComponent(new RevampedNether())
+                .enabled(false)
                 .enabledByDefault(false)
                 .register();
 
@@ -120,6 +124,7 @@ public class NGroups {
                 .iconStack(new ItemStack(Items.WOODEN_AXE))
                 .addComponent(new ClayCauldron())
                 .addComponent(new ClayTools())
+                .enabled(false)
                 .enabledByDefault(false)
                 .register();
 
@@ -128,13 +133,15 @@ public class NGroups {
                 .description("Experimental Features. All components in this group are disabled by default. Use at your own risk.")
                 .iconStack(new ItemStack(Blocks.TNT))
                 .addComponent(new BiggerCaves())
-                .enabledByDefault(true)
+                .enabled(false)
+                .enabledByDefault(false)
                 .register();
 
         holidays = Group.builder()
                 .name("Holidays")
                 .iconStack(new ItemStack(Blocks.LIT_PUMPKIN))
                 .enabledByDefault(isHalloween() || isChristmas() || isEaster())
+                .enabled(isHalloween() || isChristmas() || isEaster())
                 .register();
 
         misc = Group.builder()
@@ -149,12 +156,14 @@ public class NGroups {
                 .addComponent(new NoteBlocksMobSounds())
                 .addComponent(new PoisonPotatoUsage())
                 .addComponent(new UtilityRecipes())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
 
         seasons = Group.builder()
                 .name("Seasons")
                 .description("This module adds different season related things")
+                .enabled(false)
                 .enabledByDefault(false)
                 .register();
 
@@ -198,6 +207,7 @@ public class NGroups {
                 .addComponent(new MobDropBuffs())
                 .addComponent(new SwingThroughGrass())
 //                .addComponent(new HarderLogs())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
 
@@ -236,6 +246,7 @@ public class NGroups {
                 .addComponent(new Stalactite())
                 .addComponent(new Stalagmite())
                 .addComponent(new VariedDungeons())
+                .enabled(true)
                 .enabledByDefault(true)
                 .register();
     }

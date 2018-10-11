@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.building.blocks;
 
-import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.neutronia.base.Neutronia;
+import net.hdt.neutronia.base.blocks.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GroupLoader;

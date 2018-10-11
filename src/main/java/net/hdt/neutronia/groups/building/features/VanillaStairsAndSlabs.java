@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaStairsAndSlabs extends Component {
 
-    boolean stone, granite, diorite, andesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks;
+    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, true, true, doit);
@@ -63,6 +63,9 @@ public class VanillaStairsAndSlabs extends Component {
         granite = loadPropBool("Granite", "", true);
         diorite = loadPropBool("Diorite", "", true);
         andesite = loadPropBool("Andesite", "", true);
+        polishedGranite = loadPropBool("Polished Granite", "", true);
+        polishedDiorite = loadPropBool("Polished Diorite", "", true);
+        polishedAndesite = loadPropBool("Polished Andesite", "", true);
         endBricks = loadPropBool("End Bricks", "", true);
         prismarine = loadPropBool("Prismarine", "", true);
         prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
@@ -76,13 +79,16 @@ public class VanillaStairsAndSlabs extends Component {
             return;
 
         add("stone", Blocks.STONE, 0, false, true, stone);
-        add("stone_granite", Blocks.STONE, 1, granite);
-        add("stone_diorite", Blocks.STONE, 3, diorite);
-        add("stone_andesite", Blocks.STONE, 5, andesite);
+        add("granite", Blocks.STONE, 1, granite);
+        add("diorite", Blocks.STONE, 3, diorite);
+        add("andesite", Blocks.STONE, 5, andesite);
+        add("polished_granite", Blocks.STONE, 2, polishedGranite);
+        add("polished_diorite", Blocks.STONE, 4, polishedDiorite);
+        add("polished_andesite", Blocks.STONE, 6, polishedAndesite);
         add("end_bricks", Blocks.END_BRICKS, 0, endBricks);
         add("prismarine", Blocks.PRISMARINE, 0, prismarine);
         add("prismarine_bricks", Blocks.PRISMARINE, 1, prismarineBricks);
-        add("prismarine_dark", Blocks.PRISMARINE, 2, darkPrismarine);
+        add("dark_prismarine", Blocks.PRISMARINE, 2, darkPrismarine);
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, redNetherBricks);
     }
 

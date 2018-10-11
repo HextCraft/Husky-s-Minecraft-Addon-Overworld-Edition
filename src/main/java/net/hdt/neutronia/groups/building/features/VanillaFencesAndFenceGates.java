@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class VanillaWalls extends Component {
+public class VanillaFencesAndFenceGates extends Component {
 
     boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, sandstone, chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, smoothRedSandstone, stoneBricks, bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks;
 
@@ -22,7 +22,7 @@ public class VanillaWalls extends Component {
 
         IBlockState state = block.getStateFromMeta(meta);
         String wallName = name + "_wall";
-        BlockNeutroniaWall.initWall(block, meta, supplier.supply(wallName, state));
+//        BlockNeutroniaFence.(block, meta, supplier.supply(wallName, state));
     }
 
     public static void add(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
