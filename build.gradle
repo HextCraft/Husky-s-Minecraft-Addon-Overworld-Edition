@@ -2,7 +2,6 @@ buildscript {
     repositories {
         jcenter()
         maven { url = "http://files.minecraftforge.net/maven" }
-        maven { url = "http://repo.spongepowered.org/maven" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -12,34 +11,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-def versionPropsFile = file('version.properties')
-def build
-
-/*Setting default value for versionBuild which is the last incremented value stored in the file */
-if (versionPropsFile.canRead()) {
-    Properties versionProps = new Properties()
-    versionProps.load(new FileInputStream(versionPropsFile))
-    build = versionProps['BUILD'].toInteger()
-} else {
-    throw new FileNotFoundException("Could not read version.properties!")
-}
-
-
-/*Wrapping inside a method avoids auto incrementing on every gradle task run. Now it runs only when we build apk*/
-ext.autoIncrementBuildNumber = {
-
-    if (versionPropsFile.canRead()) {
-        Properties versionProps = new Properties()
-        versionProps.load(new FileInputStream(versionPropsFile))
-        build = versionProps['BUILD'].toInteger() + 1
-        versionProps['BUILD'] = build.toString()
-        versionProps.store(versionPropsFile.newWriter(), null)
-    } else {
-        throw new FileNotFoundException("Could not read version.properties!")
-    }
-}
-
-version= "0.4.$build"
+version= "${major_version}.${minor_version}.${build_number}"
 group= "net.hdt.neutronia"
 archivesBaseName = "${mod_name}"
 
@@ -54,22 +26,12 @@ minecraft {
     mappings = "${mcp_mappings}"
 }
 
-configurations {
-    embed
-    implementation.extendsFrom(embed)
-}
-
 repositories {
     mavenCentral()
     jcenter()
-    maven { url = "http://chickenbones.net/maven" }
     maven { url = "http://dvs1.progwml6.com/files/maven" }
     maven { url = "http://tehnut.info/maven" }
     maven { url = "http://maven.tterrag.com" }
-    maven { url = "http://maven.covers1624.net" }
-    flatDir {
-        dirs 'libs'
-    }
 }
 
 dependencies {
