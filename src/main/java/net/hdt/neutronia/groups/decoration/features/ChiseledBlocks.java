@@ -30,9 +30,9 @@ public class ChiseledBlocks extends Component {
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);
         chiseledBricksFilled = new BlockBrickChiseled("filled_chiseled_bricks", true);
         chiseledRedNetherBrick = new BlockRedNetherBrickChiseled("chiseled_red_nether_brick", false);
-        chiseledRedNetherBrickFilled = new BlockRedNetherBrickChiseled("chiseled_red_nether_brick_filled", true);
+        chiseledRedNetherBrickFilled = new BlockRedNetherBrickChiseled("filled_chiseled_red_nether_brick", true);
         chiseledEndStoneBrick = new BlockEndStoneChiseled("chiseled_end_brick", false);
-        chiseledEndStoneBrickFilled = new BlockEndStoneChiseled("chiseled_end_brick_filled", true);
+        chiseledEndStoneBrickFilled = new BlockEndStoneChiseled("filled_chiseled_end_brick", true);
     }
 
     @Override
