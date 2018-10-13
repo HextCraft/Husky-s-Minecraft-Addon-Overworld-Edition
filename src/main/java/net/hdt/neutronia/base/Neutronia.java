@@ -30,7 +30,7 @@ import static net.hdt.neutronia.base.util.Reference.*;
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
 public class Neutronia {
 
-    public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(I18n.format("itemGroup.main")) {
+    public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(I18n.format("main")) {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(Blocks.BOOKSHELF);
