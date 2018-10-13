@@ -12,6 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class FileHelper {
+
     public static void copyDirectoryToDirectory(URL sourceDirectory, File destinationDirectory) {
         String sourcePath = sourceDirectory.getPath();
 

@@ -4,12 +4,9 @@ import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockMetaVariants;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GroupLoader;
 import net.hdt.neutronia.groups.building.features.WorldStoneBricks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-
-import java.util.function.Supplier;
 
 public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutroniaBlock {
 
@@ -35,19 +32,13 @@ public class BlockWorldStoneBricks extends BlockMetaVariants implements INeutron
         RED_SANDSTONE_BRICKS(WorldStoneBricks.class);
 
         public final Class<? extends Component> featureLink;
-        private final Supplier<Boolean> enabledCond;
 
         Variants(Class<? extends Component> clazz) {
-            this(clazz, () -> true);
-        }
-
-        Variants(Class<? extends Component> clazz, Supplier<Boolean> enabledCond) {
             featureLink = clazz;
-            this.enabledCond = enabledCond;
         }
 
         public boolean isEnabled() {
-            return GroupLoader.isFeatureEnabled(featureLink) && enabledCond.get();
+            return true;
         }
 
     }
