@@ -57,33 +57,35 @@
 * Moved textures for new horse models because of conflicting textures when having a resource pack
 * Changed the title of the Minecraft window
 * Made more text translatable
+* Updated forge update checker url
+* Fixed new creative tab name
 
 ## 0.5.0 - The Underground & Dungeon Update
 
- ## 0.6.0 - The Holiday Update
+## 0.6.0 - The Holiday Update
 
-### 0.6.1 - The Halloween Update
+ ### 0.6.1 - The Halloween Update
 
-### 0.6.2 - The Christmas Update
+ ### 0.6.2 - The Christmas Update
 
-### 0.6.3 - The Valentine Update
+ ### 0.6.3 - The Valentine Update
 
-### 0.6.4 - The Easter Update
+ ### 0.6.4 - The Easter Update
 
-### 0.7.0 - The Season Update
+## 0.7.0 - The Season Update
 
-### 0.8.0 - The Village & Pillage Update
+## 0.8.0 - The Village & Pillage Update
 
- ## 0.9.0 - The Biome Update
+## 0.9.0 - The Biome Update
 
-### 0.9.1 - The Desert Update
+ ### 0.9.1 - The Desert Update
 
-### 0.9.2 - The Taiga Update
+ ### 0.9.2 - The Taiga Update
 
-### 0.9.3 - The Savanna Update
+ ### 0.9.3 - The Savanna Update
 
-### 0.9.4 - The Mesa Update
+ ### 0.9.4 - The Mesa Update
 
-### 0.9.5 - The Swamp Update
+ ### 0.9.5 - The Swamp Update
 
-### 0.9.6 - The Hills Update
+ ### 0.9.6 - The Hills Update
