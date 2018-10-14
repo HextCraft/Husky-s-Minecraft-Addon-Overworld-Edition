@@ -59,6 +59,7 @@
 * Made more text translatable
 * Updated forge update checker url
 * Fixed new creative tab name
+* Fixed Slabs chrashing and having strange textures
 
 ## 0.5.0 - The Underground & Dungeon Update
 
