@@ -4,7 +4,6 @@ import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaSlab;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -12,17 +11,13 @@ public class BlockVanillaSlab extends BlockNeutroniaSlab {
 
     public BlockVanillaSlab(String name, IBlockState state, boolean doubleSlab) {
         super(name, state.getMaterial(), doubleSlab);
-
-        setHardness(state.getBlockHardness(null, new BlockPos(0, 0, 0)));
-        setResistance(state.getBlock().getExplosionResistance(null) * 5F / 3F);
-        setSoundType(state.getBlock().getSoundType());
         setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT;
     }
 
     /**

@@ -5,6 +5,7 @@ import net.hdt.neutronia.groups.building.features.SoulStone;
 import net.hdt.neutronia.groups.decoration.features.NetherBlocks;
 import net.hdt.neutronia.groups.world.features.overworld.Stalactite;
 import net.hdt.neutronia.groups.world.features.overworld.Stalagmite;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
@@ -18,7 +19,9 @@ public class Nether extends AbstractCreativeCategory {
     public void init() {
         add(NetherBlocks.glowingNetherBlocks);
         add(SoulStone.soulStone);
-        add(SoulStone.soulStoneSlabSingle);
+        add(Block.getBlockFromName("neutronia:normal_soulstone_slab"));
+        add(Block.getBlockFromName("neutronia:cracked_soulstone_slab"));
+        add(Block.getBlockFromName("neutronia:smooth_soulstone_slab"));
         add(Stalactite.basalt_stalactite);
         add(Stalactite.netherrack_stalactite);
         add(Stalagmite.basalt_stalagmite);

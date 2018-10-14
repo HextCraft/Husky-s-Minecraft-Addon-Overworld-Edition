@@ -77,6 +77,9 @@ public class VanillaWalls extends Component {
         add("chiseled_red_sandstone", Blocks.RED_SANDSTONE, 1, chiseledRedSandstone);
         add("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2, smoothRedSandstone);
         add("stone_brick", Blocks.STONEBRICK, 0, stoneBricks);
+        add("mossy_stone_brick", Blocks.STONEBRICK, 1, stoneBricks);
+        add("cracked_stone_brick", Blocks.STONEBRICK, 2, stoneBricks);
+        add("chiseled_stone_brick", Blocks.STONEBRICK, 2, stoneBricks);
         add("brick", Blocks.BRICK_BLOCK, 0, bricks);
         add("quartz", Blocks.QUARTZ_BLOCK, 0, quartz);
         add("prismarine_rough", Blocks.PRISMARINE, 0, prismarine);

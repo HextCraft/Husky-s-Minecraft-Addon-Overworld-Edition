@@ -26,52 +26,44 @@ public class EntityEventHandler {
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
-        if (event.getEntity() instanceof EntityVillager) {
-            World world = event.getEntity().world;
-            BlockPos pos = event.getEntity().getPosition();
-            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS && !world.isRemote) {
-                EntityMummyVillager mummyVillager = new EntityMummyVillager(world);
-                if (mummyVillager.isAIDisabled())
-                    mummyVillager.setNoAI(false);
-                mummyVillager.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummyVillager.rotationYaw, mummyVillager.cameraPitch);
-                mummyVillager.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummyVillager)), null);
-                world.spawnEntity(mummyVillager);
+        World world = event.getEntity().world;
+        BlockPos pos = event.getEntity().getPosition();
+        if(world.isRemote) {
+            if (event.getEntity() instanceof EntityVillager) {
+                if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS) {
+                    EntityMummyVillager mummyVillager = new EntityMummyVillager(world);
+                    mummyVillager.setNoAI(mummyVillager.isAIDisabled());
+                    mummyVillager.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummyVillager.rotationYaw, mummyVillager.cameraPitch);
+                    mummyVillager.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummyVillager)), null);
+                    world.spawnEntity(mummyVillager);
+                }
             }
-        }
-        if (event.getEntity() instanceof EntityZombie) {
-            World world = event.getEntity().world;
-            BlockPos pos = event.getEntity().getPosition();
-            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS && !world.isRemote) {
-                EntityMummy mummy = new EntityMummy(world);
-                if (mummy.isAIDisabled())
-                    mummy.setNoAI(false);
-                mummy.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummy.rotationYaw, mummy.cameraPitch);
-                mummy.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummy)), null);
-                world.spawnEntity(mummy);
+            if (event.getEntity() instanceof EntityZombie) {
+                if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS) {
+                    EntityMummy mummy = new EntityMummy(world);
+                    mummy.setNoAI(mummy.isAIDisabled());
+                    mummy.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, mummy.rotationYaw, mummy.cameraPitch);
+                    mummy.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(mummy)), null);
+                    world.spawnEntity(mummy);
+                }
             }
-        }
-        if (event.getEntity() instanceof EntityScubaVillager) {
-            World world = event.getEntity().world;
-            BlockPos pos = event.getEntity().getPosition();
-            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DEEP_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.RIVER || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_RIVER && !world.isRemote) {
-                EntityDrownedScubaVillager drowned = new EntityDrownedScubaVillager(world);
-                if (drowned.isAIDisabled())
-                    drowned.setNoAI(false);
-                drowned.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, drowned.rotationYaw, drowned.cameraPitch);
-                drowned.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(drowned)), null);
-                world.spawnEntity(drowned);
+            if (event.getEntity() instanceof EntityScubaVillager) {
+                if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DEEP_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.RIVER || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_RIVER) {
+                    EntityDrownedScubaVillager drowned = new EntityDrownedScubaVillager(world);
+                    drowned.setNoAI(drowned.isAIDisabled());
+                    drowned.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, drowned.rotationYaw, drowned.cameraPitch);
+                    drowned.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(drowned)), null);
+                    world.spawnEntity(drowned);
+                }
             }
-        }
-        if (event.getEntity() instanceof EntityZombie) {
-            World world = event.getEntity().world;
-            BlockPos pos = event.getEntity().getPosition();
-            if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DEEP_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.RIVER || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_RIVER && !world.isRemote) {
-                EntityDrowned drowned = new EntityDrowned(world);
-                if (drowned.isAIDisabled())
-                    drowned.setNoAI(false);
-                drowned.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, drowned.rotationYaw, drowned.cameraPitch);
-                drowned.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(drowned)), null);
-                world.spawnEntity(drowned);
+            if (event.getEntity() instanceof EntityZombie) {
+                if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DEEP_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_OCEAN || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.RIVER || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.FROZEN_RIVER) {
+                    EntityDrowned drowned = new EntityDrowned(world);
+                    drowned.setNoAI(drowned.isAIDisabled());
+                    drowned.setPositionAndRotation(pos.getX() + 1D, pos.getY() + 0.5D, pos.getZ() + 1D, drowned.rotationYaw, drowned.cameraPitch);
+                    drowned.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(drowned)), null);
+                    world.spawnEntity(drowned);
+                }
             }
         }
     }
@@ -79,7 +71,7 @@ public class EntityEventHandler {
     @SubscribeEvent
     public void onHurt(LivingHurtEvent event) {
         Entity e = event.getEntity();
-        if (e instanceof EntitySquid && !e.world.isRemote) {
+        if (e instanceof EntitySquid && e.world.isRemote) {
             List<EntityPlayer> players = e.world.getEntitiesWithinAABB(EntityPlayer.class, e.getEntityBoundingBox().grow(4, 4, 4));
             for (EntityPlayer player : players)
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 80, 0));

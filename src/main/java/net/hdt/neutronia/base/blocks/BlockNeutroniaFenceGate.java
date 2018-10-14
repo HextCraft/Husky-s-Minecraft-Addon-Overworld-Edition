@@ -1,6 +1,7 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
@@ -27,16 +28,21 @@ public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroni
         variants = new String[]{name};
         bareName = name;
 
-        setTranslationKey(name);
+        register(name);
     }
 
-    @Override
-    public Block setTranslationKey(String name) {
+    public Block register(String name) {
         super.setTranslationKey(name);
         setRegistryName(LibMisc.PREFIX_MOD + name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
         return this;
+    }
+
+    public static void initFenceGate(Block base, ItemStack baseTwo, int meta, Block block) {
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
+                "OXO", "OXO",
+                'O', baseTwo,'X', ProxyRegistry.newStack(base, 1, meta));
     }
 
     @Override

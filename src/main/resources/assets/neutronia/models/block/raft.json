@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "block/dried_bamboo_stem",
+		"1": "neutronia:block/dried_bamboo_stem",
 		"2": "blocks/wool_colored_silver"
 	},
 	"elements": [

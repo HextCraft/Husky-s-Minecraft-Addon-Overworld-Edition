@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockNeutroniaSlab extends BlockModSlab implements INeutroniaBlock {
 
     public BlockNeutroniaSlab(String name, Material materialIn, boolean doubleSlab) {
-        super(name + "_slab", materialIn, doubleSlab);
+        super(BlockModSlab.Builder.create(materialIn), name + "_slab", doubleSlab);
         setCreativeTab(doubleSlab ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
     }
 

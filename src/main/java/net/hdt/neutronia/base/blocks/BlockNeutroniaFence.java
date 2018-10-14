@@ -114,15 +114,15 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, SOUTH_AABB);
         }
 
-        if (state.getValue(WEST).booleanValue()) {
+        if (state.getValue(WEST)) {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
         }
     }
 
-    public static void initWall(Block base, int meta, Block block) {
+    public static void initFence(Block base, ItemStack baseTwo, int meta, Block block) {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
-                "BBB", "BBB",
-                'B', ProxyRegistry.newStack(base, 1, meta));
+                "XOX", "XOX",
+                'X', baseTwo, 'O', ProxyRegistry.newStack(base, 1, meta));
     }
 
     @Override
