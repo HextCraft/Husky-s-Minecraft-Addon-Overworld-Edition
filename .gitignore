@@ -20,4 +20,5 @@ build
 # other
 eclipse
 run
+run-server
 src/main/resources/assets/neutronia/textures/maby_textures/*

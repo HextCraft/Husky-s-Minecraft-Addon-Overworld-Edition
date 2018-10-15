@@ -27,12 +27,12 @@ public class MoreOceanBiomes extends Component {
     private static void addOceanBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
         biome.setRegistryName(MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
-        System.out.println(String.format("Biome: %s is now registered", biome.getBiomeName()));
+        System.out.println(String.format("Biome: %s is now registered", biome.getRegistryName()));
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addSpawnBiome(biome);
-        System.out.println(String.format("Biome: %s is now added to the spawn biome's", biome.getBiomeName()));
-        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", biome.getBiomeName(), weight));
+        System.out.println(String.format("Biome: %s is now added to the spawn biome's", biome.getRegistryName()));
+        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", biome.getRegistryName(), weight));
         BiomeManager.oceanBiomes.add(biome);
     }
 

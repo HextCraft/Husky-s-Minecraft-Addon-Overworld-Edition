@@ -64,15 +64,15 @@ public class MoreBiomes extends Component {
     private static void addBiome(Biome biome, String name, int weight, boolean hasVillage, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types) {
         biome.setRegistryName(Reference.MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
-        System.out.println(String.format("Biome: %s is now registered", biome.getBiomeName()));
+        System.out.println(String.format("Biome: %s is now registered", biome.getRegistryName()));
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addSpawnBiome(biome);
         BiomeManager.addStrongholdBiome(biome);
         BiomeManager.addVillageBiome(biome, hasVillage);
 
-        System.out.println(String.format("Biome: %s is now added to the spawn biome's", biome.getBiomeName()));
-        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", biome.getBiomeName(), weight));
+        System.out.println(String.format("Biome: %s is now added to the spawn biome's", biome.getRegistryName()));
+        System.out.println(String.format("Biome: %s has a %d percent chance to spawn", biome.getRegistryName(), weight));
     }
 
     @Override

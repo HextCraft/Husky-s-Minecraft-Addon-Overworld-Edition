@@ -29,7 +29,9 @@ public enum EnumNewStoneVariants implements IStringSerializable {
     SMOOTH_TINTED_ARDUIN(22, "smooth_tinted_arduin"),
     RED_COBBLE(23, "red_cobble"),
     MIXED_COBBLE(24, "mixed_cobble"),
-    DARK_ANDESITE(25, "dark_andesite");
+    DARK_ANDESITE(25, "dark_andesite"),
+    POLISHED_DARK_ANDESITE(26, "polished_dark_andesite"),
+    DARK_ANDESITE_BRICKS(27, "dark_andesite_bricks");
 
     private static final EnumNewStoneVariants[] META_LOOKUP = new EnumNewStoneVariants[values().length];
 

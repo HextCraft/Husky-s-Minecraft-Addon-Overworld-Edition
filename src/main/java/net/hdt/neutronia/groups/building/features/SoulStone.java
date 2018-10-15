@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class SoulStone extends Component {
 
-    public static final Block[] soulStone = new Block[3];
+    public static final Block[] soulStone = new Block[4];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

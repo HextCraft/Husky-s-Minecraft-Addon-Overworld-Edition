@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class MoreStoneBlocks extends Component {
 
     //Stone Blocks
-    public static final Block[] newStoneVariants = new Block[24];
+    public static final Block[] newStoneVariants = new Block[28];
     public static int limestoneVeinFrequency = 50, marbleVeinFrequency = 50;
 
     @Override
