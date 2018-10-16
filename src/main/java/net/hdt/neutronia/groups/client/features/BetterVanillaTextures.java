@@ -33,6 +33,11 @@ public class BetterVanillaTextures extends Component {
     }
 
     @Override
+    public boolean isEnabled() {
+        return isClient();
+    }
+
+    @Override
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }

@@ -24,6 +24,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -53,7 +55,7 @@ public class NGroups {
                 .name("Client")
                 .description("This group adds components that alter the client, not needing Neutronia to be loaded on the server.")
                 .iconStack(new ItemStack(Items.ENDER_EYE))
-                .addComponent(new BetterVanillaTextures())
+//                .addComponent(new BetterVanillaTextures())
                 .addComponent(new FoodTooltip())
                 .addComponent(new MapTooltip())
                 .addComponent(new NoPotionShift())
@@ -63,8 +65,8 @@ public class NGroups {
                 .addComponent(new PastelColors())
                 .addComponent(new BetterEndTextures())
 //                .addComponent(new MoreDetailedModels())
-                .enabled(true)
-                .enabledByDefault(true)
+                .enabled(isClient())
+                .enabledByDefault(isClient())
                 .register();
 
         decoration = Group.builder()
@@ -249,6 +251,10 @@ public class NGroups {
                 .enabled(true)
                 .enabledByDefault(true)
                 .register();
+    }
+
+    private static boolean isClient() {
+        return FMLCommonHandler.instance().getSide() == Side.CLIENT;
     }
 
     private static boolean isHalloween() {

@@ -32,7 +32,7 @@ public class GuiNeutroniaConfig extends GuiScreen {
 		List<Group> groups = new ArrayList<>(GroupLoader.enabledGroups);
 		Collections.sort(groups);
 		for(Group group : groups) {
-			ModuleFold fold = new ModuleFold(group.name, group.desc);
+			ModuleFold fold = new ModuleFold(group.name, group.desc, group.getIconStack());
 			this.modules.add(fold);
 		}
 	}
@@ -50,10 +50,8 @@ public class GuiNeutroniaConfig extends GuiScreen {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		if(button instanceof ModuleFold.GuiUnfoldButton) {
 			ModuleFold fold = ((ModuleFold.GuiUnfoldButton) button).fold;
-			int oldHeight = fold.getHeight();
 			boolean unfolded = !fold.isUnfolded();
 			fold.setUnfolded(unfolded);
-			int newHeight = fold.getHeight();
 			button.displayString = unfolded ? "v" : "<";
 			this.repositionFolds();
 		}
