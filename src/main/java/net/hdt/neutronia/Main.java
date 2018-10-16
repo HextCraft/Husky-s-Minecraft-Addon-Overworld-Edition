@@ -16,7 +16,7 @@ import java.util.List;
 
 import static net.hdt.neutronia.util.Reference.*;
 
-@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, updateJSON = UPDATE_JSON)
+@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, updateJSON = UPDATE_JSON, guiFactory = GUI_FACTORY)
 public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(NAME);
