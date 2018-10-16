@@ -16,6 +16,7 @@ public class SoulStone extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
+
         for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
             VanillaStairsAndSlabs.add(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], 0, true);

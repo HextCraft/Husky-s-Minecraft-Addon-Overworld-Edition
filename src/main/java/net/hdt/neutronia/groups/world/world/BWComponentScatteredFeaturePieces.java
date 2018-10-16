@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.world;
 
-import net.hdt.neutronia.groups.world.features.HCStructures;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityWitch;

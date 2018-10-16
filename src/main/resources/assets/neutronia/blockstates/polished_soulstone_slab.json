@@ -4,7 +4,7 @@
     "textures": {
       "bottom": "neutronia:block/soulsand_stone_top",
       "top": "neutronia:block/soulsand_stone_top",
-      "side": "neutronia:block/soulsand_stone_normal"
+      "side": "neutronia:block/polished_soul_stone"
     }
   },
   "variants": {

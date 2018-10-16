@@ -24,7 +24,7 @@ import java.util.Set;
 public class CustomStructureGenerator implements IWorldGenerator {
 
     private static final WorldGenStructure CORALS = new WorldGenStructure(Lists.newArrayList("ocean_structures/coral_1", "ocean_structures/coral_2", "ocean_structures/coral_3", "ocean_structures/coral_4", "ocean_structures/coral_5", "ocean_structures/coral_blue", "ocean_structures/coral_pink", "ocean_structures/coral_purple", "ocean_structures/coral_yellow", "ocean_structures/coral_red"));
-    private static final WorldGenStructure DESERT_BUILDS = new WorldGenStructure(Lists.newArrayList("SandHouse1", "tyruswoo/pyramid01", "tyruswoo/pyramid02", "tyruswoo/pyramid03", "tyruswoo/sandstonecorridor01", "tyruswoo/sandstonecorridor02"));
+    private static final WorldGenStructure DESERT_BUILDS = new WorldGenStructure(Lists.newArrayList("ttb/"));
     private static final WorldGenStructure SPRUCE_BUILDS = new WorldGenStructure(Lists.newArrayList("Tavern", "tyruswoo/megataigatreehouse01", "tyruswoo/megataigatreehouse02"));
     private static final WorldGenStructure RANDOM = new WorldGenStructure(Lists.newArrayList("tyruswoo/beachtree01", "tyruswoo/beachtree02", "tyruswoo/beachtree03", "tyruswoo/beachtree04", "tyruswoo/beachtree05", "tyruswoo/beachtree06", "tyruswoo/beachtree07", "tyruswoo/beachtree08", "tyruswoo/beachtree09", "tyruswoo/beachtree10"));
 
