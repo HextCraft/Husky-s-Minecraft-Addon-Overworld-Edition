@@ -36,7 +36,7 @@ public class FirstLoadScreen extends GuiConfigBase {
                 mc.displayGuiScreen(new MainMenu());
                 break;
             case 1: // Configure
-                mc.displayGuiScreen(new RootConfigGui(parent));
+                mc.displayGuiScreen(new GuiNeutroniaConfig(parent));
                 break;
         }
     }
