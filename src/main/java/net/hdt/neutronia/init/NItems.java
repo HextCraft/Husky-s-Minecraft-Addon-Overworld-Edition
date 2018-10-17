@@ -2,14 +2,12 @@ package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.items.*;
 import net.hdt.neutronia.items.base.tools.BaseAxe;
 import net.hdt.neutronia.items.base.tools.BasePickaxe;
 import net.hdt.neutronia.items.base.tools.BaseShovel;
 import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -58,8 +56,6 @@ public class NItems {
     public static Item[] planksShields = new Item[6];
 
     static {
-        CreativeTabs tab = Neutronia.CREATIVE_TAB;
-
         ancientSword = new ItemAncientSword();
         bandage = new ItemBandage();
 //        witherBone = new ItemNeutroniaBase("wither_bone");
