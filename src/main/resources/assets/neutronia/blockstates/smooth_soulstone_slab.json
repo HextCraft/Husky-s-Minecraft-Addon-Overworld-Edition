@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_smooth_soulstone_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_smooth_soulstone_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/soulsand_stone_top",
+      "top": "neutronia:block/soulsand_stone_top",
+      "side": "neutronia:block/soulsand_stone_smooth"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

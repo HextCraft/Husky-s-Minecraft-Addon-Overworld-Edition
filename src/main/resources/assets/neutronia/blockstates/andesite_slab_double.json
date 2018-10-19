@@ -1,5 +1,13 @@
 {
-    "variants": {
-        "variant=default": { "model": "neutronia:andesite_slab_double" }
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "blocks/stone_andesite"
     }
+  },
+  "variants": {
+    "inventory": { "model": "cube_all" },
+    "half=bottom,prop=blarg":  { "model": "cube_all" },
+    "half=top,prop=blarg":  { "model": "cube_all" }
+  }
 }
