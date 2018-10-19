@@ -1,6 +1,15 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/obsidian",
+            "top": "blocks/obsidian",
+            "side": "blocks/obsidian"
+        }
+    },
     "variants": {
-        "half=bottom,variant=default": { "model": "neutronia:bottom_obsidian_slab" },
-        "half=top,variant=default": { "model": "neutronia:upper_obsidian_slab" }
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
     }
 }

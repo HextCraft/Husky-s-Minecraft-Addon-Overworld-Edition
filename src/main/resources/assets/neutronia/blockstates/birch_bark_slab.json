@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/log_birch",
+            "top": "blocks/log_birch",
+            "side": "blocks/log_birch"
+        }
+    },
+    "variants": {
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+    }
+}

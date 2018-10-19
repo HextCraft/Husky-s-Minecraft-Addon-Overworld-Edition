@@ -1,6 +1,15 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/emerald_bricks",
+      "top": "neutronia:block/emerald_bricks",
+      "side": "neutronia:block/emerald_bricks"
+    }
+  },
   "variants": {
-    "half=bottom,variant=default": { "model": "neutronia:bottom_emerald_brick_slab" },
-    "half=top,variant=default": { "model": "neutronia:upper_emerald_brick_slab" }
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

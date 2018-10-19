@@ -1,8 +1,31 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/andesite_pillar_top",
+      "side": "neutronia:block/andesite_pillar_side"
+    }
+  },
   "variants": {
-    "axis=y":    { "model": "neutronia:andesite_pillar" },
-    "axis=z":     { "model": "neutronia:andesite_pillar", "x": 90 },
-    "axis=x":     { "model": "neutronia:andesite_pillar", "x": 90, "y": 90 },
-    "axis=none":   { "model": "neutronia:andesite_pillar" }
+    "axis": {
+      "y": {
+        "submodel": "cube_column"
+      },
+      "z": {
+        "submodel": "cube_column",
+        "x": 90
+      },
+      "x": {
+        "submodel": "cube_column",
+        "x": 90,
+        "y": 90
+      },
+      "none": {
+        "submodel": "cube_column"
+      }
+    },
+    "inventory": [{
+      "model": "cube_column"
+    }]
   }
 }

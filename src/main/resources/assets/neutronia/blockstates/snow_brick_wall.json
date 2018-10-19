@@ -6,6 +6,7 @@
     }
   },
   "variants": {
+    "inventory": { "model": "wall_inventory" },
     "up": {
       "true": {
         "submodel": "wall_post"

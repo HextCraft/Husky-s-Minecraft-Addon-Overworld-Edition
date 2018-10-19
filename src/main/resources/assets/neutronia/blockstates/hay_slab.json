@@ -1,6 +1,15 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/hay_block_top",
+            "top": "blocks/hay_block_top",
+            "side": "blocks/hay_block_side"
+        }
+    },
     "variants": {
-        "half=bottom,variant=default": { "model": "neutronia:bottom_hay_slab" },
-        "half=top,variant=default": { "model": "neutronia:upper_hay_slab" }
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
     }
 }

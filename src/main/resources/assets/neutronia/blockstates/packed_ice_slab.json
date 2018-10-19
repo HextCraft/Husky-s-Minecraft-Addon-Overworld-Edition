@@ -1,6 +1,15 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "neutronia:block/packed_ice_brick",
+            "top": "neutronia:block/packed_ice_brick",
+            "side": "neutronia:block/packed_ice_brick"
+        }
+    },
     "variants": {
-        "half=bottom,variant=default": { "model": "neutronia:bottom_packed_ice_slab" },
-        "half=top,variant=default": { "model": "neutronia:upper_packed_ice_slab" }
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
     }
 }

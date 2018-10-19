@@ -2,15 +2,16 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/chiseled_netherbrick"
-    }
+      "end": "neutronia:block/smooth_nether_brick",
+      "side": "neutronia:block/chiseled_netherbrick"
+    },
+    "model": "cube_column",
+    "uvlock": true
   },
   "variants": {
-    "normal": {
-      "model": "neutronia:chiseled_netherbrick"
-    },
-    "inventory": {
-      "model": "neutronia:chiseled_netherbrick"
-    }
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
   }
 }

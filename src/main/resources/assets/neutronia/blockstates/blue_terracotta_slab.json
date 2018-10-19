@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_blue_terracotta_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_blue_terracotta_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/hardened_clay_stained_blue",
+      "top": "blocks/hardened_clay_stained_blue",
+      "side": "blocks/hardened_clay_stained_blue"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

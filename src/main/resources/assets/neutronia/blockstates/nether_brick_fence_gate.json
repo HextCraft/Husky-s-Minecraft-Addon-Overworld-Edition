@@ -1,88 +1,93 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "texture": "blocks/nether_brick"
+    }
+  },
   "variants": {
-    "inventory": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
-      "uvlock": true
-    },
-    "normal": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
+    "facing=south,in_wall=false,open=false": {
+      "model": "minecraft:fence_gate_closed",
       "uvlock": true
     },
     "facing=south,in_wall=false,open=false": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
+      "model": "minecraft:fence_gate_closed",
       "uvlock": true
     },
     "facing=west,in_wall=false,open=false": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
+      "model": "minecraft:fence_gate_closed",
       "uvlock": true,
       "y": 90
     },
     "facing=north,in_wall=false,open=false": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
+      "model": "minecraft:fence_gate_closed",
       "uvlock": true,
       "y": 180
     },
     "facing=east,in_wall=false,open=false": {
-      "model": "neutronia:nether_brick_fence_gate_closed",
+      "model": "minecraft:fence_gate_closed",
       "uvlock": true,
       "y": 270
     },
     "facing=south,in_wall=false,open=true": {
-      "model": "neutronia:nether_brick_fence_gate_open",
+      "model": "minecraft:fence_gate_open",
       "uvlock": true
     },
     "facing=west,in_wall=false,open=true": {
-      "model": "neutronia:nether_brick_fence_gate_open",
+      "model": "minecraft:fence_gate_open",
       "uvlock": true,
       "y": 90
     },
     "facing=north,in_wall=false,open=true": {
-      "model": "neutronia:nether_brick_fence_gate_open",
+      "model": "minecraft:fence_gate_open",
       "uvlock": true,
       "y": 180
     },
     "facing=east,in_wall=false,open=true": {
-      "model": "neutronia:nether_brick_fence_gate_open",
+      "model": "minecraft:fence_gate_open",
       "uvlock": true,
       "y": 270
     },
     "facing=south,in_wall=true,open=false": {
-      "model": "neutronia:nether_brick_wall_gate_closed",
+      "model": "minecraft:wall_gate_closed",
       "uvlock": true
     },
     "facing=west,in_wall=true,open=false": {
-      "model": "neutronia:nether_brick_wall_gate_closed",
+      "model": "minecraft:wall_gate_closed",
       "uvlock": true,
       "y": 90
     },
     "facing=north,in_wall=true,open=false": {
-      "model": "neutronia:nether_brick_wall_gate_closed",
+      "model": "minecraft:wall_gate_closed",
       "uvlock": true,
       "y": 180
     },
     "facing=east,in_wall=true,open=false": {
-      "model": "neutronia:nether_brick_wall_gate_closed",
+      "model": "minecraft:wall_gate_closed",
       "uvlock": true,
       "y": 270
     },
     "facing=south,in_wall=true,open=true": {
-      "model": "neutronia:nether_brick_wall_gate_open",
+      "model": "minecraft:wall_gate_open",
       "uvlock": true
     },
     "facing=west,in_wall=true,open=true": {
-      "model": "neutronia:nether_brick_wall_gate_open",
+      "model": "minecraft:wall_gate_open",
       "uvlock": true,
       "y": 90
     },
     "facing=north,in_wall=true,open=true": {
-      "model": "neutronia:nether_brick_wall_gate_open",
+      "model": "minecraft:wall_gate_open",
       "uvlock": true,
       "y": 180
     },
     "facing=east,in_wall=true,open=true": {
-      "model": "neutronia:nether_brick_wall_gate_open",
+      "model": "minecraft:wall_gate_open",
       "uvlock": true,
       "y": 270
-    }
+    },
+    "inventory": [{
+      "model": "minecraft:fence_gate_closed"
+    }]
   }
 }

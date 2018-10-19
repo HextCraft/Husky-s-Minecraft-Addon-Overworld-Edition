@@ -1,26 +1,15 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "minecraft:half_slab",
-    "textures": {
-      "bottom": "minecraft:blocks/red_nether_brick",
-      "top": "minecraft:blocks/red_nether_brick",
-      "side": "minecraft:blocks/red_nether_brick"
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/red_nether_brick",
+            "top": "blocks/red_nether_brick",
+            "side": "blocks/red_nether_brick"
+        }
     },
-    "transform": "forge:default-block"
-  },
-  "variants": {
-    "half=top": [
-      {
-        "x": 180,
-        "uvlock": true
-      }
-    ],
-    "half=bottom": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
-  }
+    "variants": {
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+    }
 }

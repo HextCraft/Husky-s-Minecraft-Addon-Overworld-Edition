@@ -1,26 +1,15 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "minecraft:half_slab",
-    "textures": {
-      "bottom": "minecraft:blocks/prismarine_rough",
-      "top": "minecraft:blocks/prismarine_rough",
-      "side": "minecraft:blocks/prismarine_rough"
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/prismarine_rough",
+            "top": "blocks/prismarine_rough",
+            "side": "blocks/prismarine_rough"
+        }
     },
-    "transform": "forge:default-block"
-  },
-  "variants": {
-    "half=top": [
-      {
-        "x": 180,
-        "uvlock": true
-      }
-    ],
-    "half=bottom": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
-  }
+    "variants": {
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+    }
 }

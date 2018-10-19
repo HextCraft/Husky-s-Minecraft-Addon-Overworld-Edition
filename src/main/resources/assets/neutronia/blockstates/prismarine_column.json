@@ -1,18 +1,31 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "block/cube_column",
     "textures": {
       "end": "neutronia:block/prismarine_column_top",
       "side": "neutronia:block/prismarine_column_side"
-    },
-    "transform": "forge:default-block"
+    }
   },
   "variants": {
-    "axis=y":    { "model": "neutronia:prismarine_column" },
-    "axis=z":     { "model": "neutronia:prismarine_column", "x": 90 },
-    "axis=x":     { "model": "neutronia:prismarine_column", "x": 90, "y": 90 },
-    "axis=none":   { "model": "neutronia:prismarine_column" },
-    "inventory": [{}]
+    "axis": {
+      "y": {
+        "submodel": "cube_column"
+      },
+      "z": {
+        "submodel": "cube_column",
+        "x": 90
+      },
+      "x": {
+        "submodel": "cube_column",
+        "x": 90,
+        "y": 90
+      },
+      "none": {
+        "submodel": "cube_column"
+      }
+    },
+    "inventory": [{
+      "model": "cube_column"
+    }]
   }
 }

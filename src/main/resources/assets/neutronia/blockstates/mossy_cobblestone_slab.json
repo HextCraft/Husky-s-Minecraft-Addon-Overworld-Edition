@@ -1,6 +1,15 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/cobblestone_mossy",
+            "top": "blocks/cobblestone_mossy",
+            "side": "blocks/cobblestone_mossy"
+        }
+    },
     "variants": {
-        "half=bottom,variant=default": { "model": "neutronia:bottom_mossy_cobblestone_slab" },
-        "half=top,variant=default": { "model": "neutronia:upper_mossy_cobblestone_slab" }
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
     }
 }

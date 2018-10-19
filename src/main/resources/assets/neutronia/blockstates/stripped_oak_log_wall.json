@@ -6,22 +6,23 @@
     }
   },
   "variants": {
+    "inventory": { "model": "wall_inventory" },
     "up": {
       "true": {
-        "model": "block/wall_post"
+        "submodel": "wall_post"
       },
       "false": {}
     },
     "north": {
       "true": {
-        "model": "block/wall_side",
+        "submodel": "wall_side",
         "uvlock": true
       },
       "false": {}
     },
     "east": {
       "true": {
-        "model": "block/wall_side",
+        "submodel": "wall_side",
         "y": 90,
         "uvlock": true
       },
@@ -29,7 +30,7 @@
     },
     "south": {
       "true": {
-        "model": "block/wall_side",
+        "submodel": "wall_side",
         "y": 180,
         "uvlock": true
       },
@@ -37,7 +38,7 @@
     },
     "west": {
       "true": {
-        "model": "block/wall_side",
+        "submodel": "wall_side",
         "y": 270,
         "uvlock": true
       },

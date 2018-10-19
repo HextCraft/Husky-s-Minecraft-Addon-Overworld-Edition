@@ -1,23 +1,5 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "minecraft:cube_all",
-    "transform": "forge:default-block"
-  },
-  "variants": {
-    "normal": [
-      {
-        "textures": {
-          "all": "minecraft:blocks/prismarine_rough"
-        }
-      }
-    ],
-    "prop=blarg": [
-      {
-        "textures": {
-          "all": "minecraft:blocks/prismarine_rough"
-        }
-      }
-    ]
-  }
+    "variants": {
+        "variant=default": { "model": "minecraft:prismarine_rough" }
+    }
 }

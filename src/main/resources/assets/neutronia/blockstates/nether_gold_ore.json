@@ -3,14 +3,14 @@
   "defaults": {
     "textures": {
       "all": "neutronia:block/nether_gold_ore"
-    }
+    },
+    "model": "cube_all",
+    "uvlock": true
   },
   "variants": {
-    "normal": {
-      "model": "neutronia:nether_gold_ore"
-    },
-    "inventory": {
-      "model": "neutronia:nether_gold_ore"
-    }
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
   }
 }

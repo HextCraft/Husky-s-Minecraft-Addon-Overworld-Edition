@@ -1,5 +1,5 @@
 {
     "variants": {
-        "variant=default": { "model": "neutronia:double_bone_slab" }
+        "variant=default": { "model": "bone_block" }
     }
 }

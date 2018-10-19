@@ -3,14 +3,14 @@
   "defaults": {
     "textures": {
       "all": "neutronia:block/soul_glass"
-    }
+    },
+    "model": "cube_all",
+    "uvlock": true
   },
   "variants": {
-    "normal": {
-      "model": "neutronia:soul_glass"
-    },
-    "inventory": {
-      "model": "neutronia:soul_glass"
-    }
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
   }
 }

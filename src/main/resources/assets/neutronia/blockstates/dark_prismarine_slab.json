@@ -1,6 +1,15 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/prismarine_dark",
+            "top": "blocks/prismarine_dark",
+            "side": "blocks/prismarine_dark"
+        }
+    },
     "variants": {
-        "half=bottom,variant=default": { "model": "neutronia:bottom_dark_prismarine_brick_slab" },
-        "half=top,variant=default": { "model": "neutronia:upper_dark_prismarine_slab" }
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
     }
 }

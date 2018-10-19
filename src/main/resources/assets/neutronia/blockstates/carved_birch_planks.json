@@ -1,19 +1,16 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "cube_all",
     "textures": {
       "all": "neutronia:block/carved_birch_planks"
     },
-    "transform": "forge:default-block"
+    "model": "cube_all",
+    "uvlock": true
   },
   "variants": {
-    "normal": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
   }
 }

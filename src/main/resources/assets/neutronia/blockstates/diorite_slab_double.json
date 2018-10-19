@@ -1,13 +1,5 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "textures": {
-      "all": "blocks/stone_diorite"
+    "variants": {
+        "variant=default": { "model": "neutronia:diorite_slab_double" }
     }
-  },
-  "variants": {
-    "inventory": { "model": "cube_all" },
-    "half=bottom,prop=blarg":  { "model": "cube_all" },
-    "half=top,prop=blarg":  { "model": "cube_all" }
-  }
 }

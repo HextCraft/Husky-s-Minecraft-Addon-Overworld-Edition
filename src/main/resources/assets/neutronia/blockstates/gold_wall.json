@@ -2,10 +2,11 @@
   "forge_marker": 1,
   "defaults":{
     "textures": {
-      "wall": "<neutronia:block/gold_brick_pillar_side"
+      "wall": "neutronia:block/gold_brick_pillar_side"
     }
   },
   "variants": {
+    "inventory": { "model": "wall_inventory" },
     "up": {
       "true": {
         "submodel": "wall_post"

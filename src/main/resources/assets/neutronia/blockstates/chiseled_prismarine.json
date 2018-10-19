@@ -2,15 +2,16 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/chiseled_prismarine"
-    }
+      "end": "neutronia:block/smooth_prismarine_brick",
+      "side": "neutronia:block/chiseled_prismarine"
+    },
+    "model": "cube_column",
+    "uvlock": true
   },
   "variants": {
-    "normal": {
-      "model": "neutronia:chiseled_prismarine"
-    },
-    "inventory": {
-      "model": "neutronia:chiseled_prismarine"
-    }
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
   }
 }

@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/smooth_elder_prismarine_brick",
+      "side": "neutronia:block/chiseled_elder_prismarine_filled"
+    },
+    "model": "cube_column",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}
