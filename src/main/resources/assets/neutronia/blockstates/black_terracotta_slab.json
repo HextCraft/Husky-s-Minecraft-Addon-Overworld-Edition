@@ -9,7 +9,7 @@
   },
   "variants": {
     "inventory": { "model": "minecraft:half_slab" },
-    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
-    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+    "half=bottom":  { "model": "minecraft:half_slab" },
+    "half=top":  { "model": "minecraft:upper_slab" }
   }
 }

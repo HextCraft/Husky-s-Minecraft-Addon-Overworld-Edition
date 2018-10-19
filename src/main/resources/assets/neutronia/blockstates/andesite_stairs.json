@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "blocks/stone_andesite_smooth",
-      "top": "blocks/stone_andesite_smooth",
-      "side": "neutronia:block/andesite_slab_side"
+      "bottom": "blocks/stone_andesite",
+      "top": "blocks/stone_andesite",
+      "side": "blocks/stone_andesite"
     }
   },
   "variants": {

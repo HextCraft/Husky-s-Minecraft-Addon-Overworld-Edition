@@ -2,14 +2,14 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "bottom": "blocks/stone_andesite_smooth",
-            "top": "blocks/stone_andesite_smooth",
-            "side": "blocks/stone_andesite_smooth"
+            "bottom": "blocks/stone_andesite",
+            "top": "blocks/stone_andesite",
+            "side": "blocks/stone_andesite"
         }
     },
     "variants": {
         "inventory": { "model": "minecraft:half_slab" },
-        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
-        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+        "half=bottom":  { "model": "minecraft:half_slab" },
+        "half=top":  { "model": "minecraft:upper_slab" }
     }
 }
