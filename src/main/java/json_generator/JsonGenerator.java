@@ -5,9 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
-import net.hdt.neutronia.properties.EnumCoralColor;
-import net.minecraft.block.BlockStairs;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.CharEncoding;
@@ -20,14 +17,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.Objects;
 
 public class JsonGenerator {
 
     private static String modid = "neutronia";
 
     public static void main(String[] args) {
-        for (EnumCoralColor coralColor : EnumCoralColor.values()) {
+        /*for (EnumCoralColor coralColor : EnumCoralColor.values()) {
             genBlock(new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_block", coralColor.getName())));
             genBlock(new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_block", coralColor.getName())));
             genCoralPlant(new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral", coralColor.getName())));
@@ -41,7 +37,8 @@ public class JsonGenerator {
             genCoralPlant(new ResourceLocation(modid, String.format("decorative_dead_%s_coral", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral", coralColor.getName())));
             genCoralFan(new ResourceLocation(modid, String.format("decorative_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("%s_coral_fan", coralColor.getName())));
             genCoralFan(new ResourceLocation(modid, String.format("decorative_dead_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getName())));
-        }
+        }*/
+        genStair(new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"));
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
@@ -661,42 +658,6 @@ public class JsonGenerator {
         }
     }
 
-    public static void genStair(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Path base = Paths.get("src", "main", "resources", "assets", modId, "blockstates");
-        if (!base.toFile().exists()) {
-            base.toFile().mkdirs();
-        }
-
-        JsonArray empty = new JsonArray();
-        empty.add(new JsonObject());
-
-        JsonObject root = new JsonObject();
-        root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("forge_marker", 1);
-
-        JsonObject defaults = new JsonObject();
-
-        JsonObject textures = new JsonObject();
-        textures.addProperty("bottom", modId + ":block/" + bottomTexture);
-        textures.addProperty("side", modId + ":block/" + sideTexture);
-        textures.addProperty("top", modId + ":block/" + topTexture);
-
-        defaults.add("textures", textures);
-        defaults.addProperty("transform", "forge:default-block");
-        root.add("defaults", defaults);
-
-        JsonObject variants = new JsonObject();
-
-        JsonObject straight = new JsonObject();
-        straight.addProperty("model", "minecraft:stairs");
-        straight.addProperty("y", 270);
-        straight.addProperty("uvlock", true);
-
-        JsonObject innerLeft = new JsonObject();
-        innerLeft.addProperty("model", "minecraft:inner_stairs");
-        innerLeft.addProperty("y", 270);
         innerLeft.addProperty("uvlock", true);
 
         JsonObject innerRight = new JsonObject();
@@ -822,18 +783,103 @@ public class JsonGenerator {
         facing.add("west", west);
 
         variants.add("facing", facing);
+        outerRightTop2.addProperty("uvlock", true);
+        variants.add("facing=west,half=top,shape=outer_right", outerRightTop2);
 
-        variants.add("inventory", empty);
+        JsonObject outerRightTop3 = new JsonObject();
+        outerRightTop3.addProperty("model", stairModel);
+        outerRightTop3.addProperty("y", 90);
+        outerRightTop3.addProperty("uvlock", true);
+        variants.add("facing=south,half=top,shape=outer_right", outerRightTop3);
+
+        JsonObject outerRightTop4 = new JsonObject();
+        outerRightTop4.addProperty("model", stairModel);
+        outerRightTop4.addProperty("y", 270);
+        outerRightTop4.addProperty("uvlock", true);
+        variants.add("facing=north,half=top,shape=outer_right", outerRightTop4);
+
+        //sss
+
+        JsonObject outerLeftTop1 = new JsonObject();
+        outerLeftTop1.addProperty("model", stairModel);
+        variants.add("facing=east,half=top,shape=outer_left", outerLeftTop1);
+
+        JsonObject outerLeftTop2 = new JsonObject();
+        outerLeftTop2.addProperty("model", stairModel);
+        outerLeftTop2.addProperty("y", 180);
+        outerLeftTop2.addProperty("uvlock", true);
+        variants.add("facing=west,half=top,shape=outer_left", outerLeftTop2);
+
+        JsonObject outerLeftTop3 = new JsonObject();
+        outerLeftTop3.addProperty("model", stairModel);
+        outerLeftTop3.addProperty("y", 90);
+        outerLeftTop3.addProperty("uvlock", true);
+        variants.add("facing=south,half=top,shape=outer_left", outerLeftTop3);
+
+        JsonObject outerLeftTop4 = new JsonObject();
+        outerLeftTop4.addProperty("model", stairModel);
+        outerLeftTop4.addProperty("y", 270);
+        outerLeftTop4.addProperty("uvlock", true);
+        variants.add("facing=north,half=top,shape=outer_left", outerLeftTop4);
+
+        //sss
+
+        JsonObject innerRightTop1 = new JsonObject();
+        innerRightTop1.addProperty("model", stairModel);
+        variants.add("facing=east,half=top,shape=inner_right", innerRightTop1);
+
+        JsonObject innerRightTop2 = new JsonObject();
+        innerRightTop2.addProperty("model", stairModel);
+        innerRightTop2.addProperty("y", 180);
+        innerRightTop2.addProperty("uvlock", true);
+        variants.add("facing=west,half=top,shape=inner_right", innerRightTop2);
+
+        JsonObject innerRightTop3 = new JsonObject();
+        innerRightTop3.addProperty("model", stairModel);
+        innerRightTop3.addProperty("y", 90);
+        innerRightTop3.addProperty("uvlock", true);
+        variants.add("facing=south,half=top,shape=inner_right", innerRightTop3);
+
+        JsonObject innerRightTop4 = new JsonObject();
+        innerRightTop4.addProperty("model", stairModel);
+        innerRightTop4.addProperty("y", 270);
+        innerRightTop4.addProperty("uvlock", true);
+        variants.add("facing=north,half=top,shape=inner_right", innerRightTop4);
+
+        //sss
+
+        JsonObject innerLeftTop1 = new JsonObject();
+        innerLeftTop1.addProperty("model", stairModel);
+        variants.add("facing=east,half=top,shape=inner_left", innerLeftTop1);
+
+        JsonObject innerLeftTop2 = new JsonObject();
+        innerLeftTop2.addProperty("model", stairModel);
+        innerLeftTop2.addProperty("y", 180);
+        innerLeftTop2.addProperty("uvlock", true);
+        variants.add("facing=west,half=top,shape=inner_left", innerLeftTop2);
+
+        JsonObject innerLeftTop3 = new JsonObject();
+        innerLeftTop3.addProperty("model", stairModel);
+        innerLeftTop3.addProperty("y", 90);
+        innerLeftTop3.addProperty("uvlock", true);
+        variants.add("facing=south,half=top,shape=inner_left", innerLeftTop3);
+
+        JsonObject innerLeftTop4 = new JsonObject();
+        innerLeftTop4.addProperty("model", stairModel);
+        innerLeftTop4.addProperty("y", 270);
+        innerLeftTop4.addProperty("uvlock", true);
+        variants.add("facing=north,half=top,shape=inner_left", innerLeftTop4);
+
         root.add("variants", variants);
 
-        String json = gson.toJson(root);
+        StringBuilder builder = new StringBuilder();
+        builder.append(gson.toJson(root));
 
         try {
-            FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
+            FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(builder.toString()), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
         }
-        genStairItemModel(modId, blockName, topTexture, sideTexture, bottomTexture);
     }
 
     public static void genTestItemModel(String modId, String blockName, String topTexture, String sideTexture, String bottomTexture) {
