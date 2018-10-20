@@ -1,11 +1,10 @@
 package net.hdt.neutronia.init;
 
-import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
+import net.hdt.huskylib2.block.MRSlab;
 import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.blocks.overworld.BlockFireflyBulb;
-import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockVanillaStairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
@@ -14,6 +13,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -129,7 +129,10 @@ public class NBlocks {
             BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(Neutronia.CREATIVE_TAB));
         }
         if (slabs) {
-            BlockModSlab.initSlab(block, meta, (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), false).setCreativeTab(Neutronia.CREATIVE_TAB), (BlockModSlab) new BlockVanillaSlab(name, block.getDefaultState(), true).setCreativeTab(Neutronia.CREATIVE_TAB));
+            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
+//            MRSlab doubleSlab = new MRSlab.Double("double_" + name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
+            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
+            MRSlab.registerSlab(singleSlab, new ItemSlab(singleSlab, singleSlab, doubleSlab), doubleSlab);
         }
     }
 
