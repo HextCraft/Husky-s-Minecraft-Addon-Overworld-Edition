@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "blocks/pumpkin_top",
+    "front": "neutronia:block/pumpkin_face_7",
+    "side": "blocks/pumpkin_side"
+  }
+}
