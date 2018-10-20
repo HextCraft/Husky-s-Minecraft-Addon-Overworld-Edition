@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_diorite_bricks_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_diorite_bricks_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/diorite_bricks",
+      "top": "neutronia:block/diorite_bricks",
+      "side": "neutronia:block/diorite_bricks"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

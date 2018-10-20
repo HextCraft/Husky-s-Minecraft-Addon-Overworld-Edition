@@ -5,11 +5,11 @@
 		"transform": "forge:default-block"
 	},
 	"variants": {
-		"variant=stone_diorite_bricks": [{ "textures": { "all": "neutronia:block/stone_diorite_bricks" } }],
-		"variant=stone_granite_bricks": [{ "textures": { "all": "neutronia:block/stone_granite_bricks" } }],
-		"variant=stone_andesite_bricks": [{ "textures": { "all": "neutronia:block/stone_andesite_bricks" } }],
-		"variant=stone_basalt_bricks": [{ "textures": { "all": "neutronia:block/stone_basalt_bricks" } }],
-		"variant=stone_marble_bricks": [{ "textures": { "all": "neutronia:block/stone_marble_bricks" } }],
-		"variant=stone_limestone_bricks": [{ "textures": { "all": "neutronia:block/stone_limestone_bricks" } }]
+		"variant=diorite_bricks": [{ "textures": { "all": "neutronia:block/diorite_bricks" } }],
+		"variant=granite_bricks": [{ "textures": { "all": "neutronia:block/granite_bricks" } }],
+		"variant=andesite_bricks": [{ "textures": { "all": "neutronia:block/andesite_bricks" } }],
+		"variant=quartz_bricks": [{ "textures": { "all": "neutronia:block/quartz_bricks" } }],
+		"variant=sandstone_bricks": [{ "textures": { "all": "neutronia:block/sandstone_bricks" } }],
+		"variant=red_sandstone_bricks": [{ "textures": { "all": "neutronia:block/red_sandstone_bricks" } }]
 	}
 }

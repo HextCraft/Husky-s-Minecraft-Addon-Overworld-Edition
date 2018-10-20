@@ -1,26 +1,15 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "minecraft:half_slab",
     "textures": {
-      "bottom": "minecraft:blocks/prismarine_bricks",
-      "top": "minecraft:blocks/prismarine_bricks",
-      "side": "minecraft:blocks/prismarine_bricks"
-    },
-    "transform": "forge:default-block"
+      "bottom": "blocks/prismarine_bricks",
+      "top": "blocks/prismarine_bricks",
+      "side": "blocks/prismarine_bricks"
+    }
   },
   "variants": {
-    "half=top": [
-      {
-        "x": 180,
-        "uvlock": true
-      }
-    ],
-    "half=bottom": [
-      {}
-    ],
-    "inventory": [
-      {}
-    ]
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

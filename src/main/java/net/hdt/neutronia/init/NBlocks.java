@@ -13,7 +13,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -132,7 +131,7 @@ public class NBlocks {
             MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
 //            MRSlab doubleSlab = new MRSlab.Double("double_" + name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
             MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-            MRSlab.registerSlab(singleSlab, new ItemSlab(singleSlab, singleSlab, doubleSlab), doubleSlab);
+            MRSlab.registerSlab(block, meta, singleSlab, doubleSlab);
         }
     }
 

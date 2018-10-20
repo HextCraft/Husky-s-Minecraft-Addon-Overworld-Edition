@@ -9,7 +9,6 @@
     "variants": {
         "inventory":                  { "model": "minecraft:button_inventory" },
         "facing=up,powered=false":    { "model": "minecraft:button", "uvlock": true },
-        "facing=up,powered=false":    { "model": "minecraft:button", "uvlock": true },
         "facing=down,powered=false":  { "model": "minecraft:button", "uvlock": true, "x": 180 },
         "facing=east,powered=false":  { "model": "minecraft:button", "uvlock": true, "x": 90, "y": 90 },
         "facing=west,powered=false":  { "model": "minecraft:button", "uvlock": true, "x": 90, "y": 270 },

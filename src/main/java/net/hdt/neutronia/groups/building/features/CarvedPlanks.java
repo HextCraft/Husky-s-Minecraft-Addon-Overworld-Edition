@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.building.features;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
@@ -26,8 +25,8 @@ public class CarvedPlanks extends Component {
         for (BlockPlanks.EnumType plankTypes : BlockPlanks.EnumType.values()) {
             carvedPlanks[plankTypes.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", plankTypes.getName()), true);
             if (GlobalConfig.enableVariants) {
-                VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true, Neutronia.CREATIVE_TAB);
-                VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls, Neutronia.CREATIVE_TAB);
+                VanillaStairsAndSlabs.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, stairs, slabs, true);
+                VanillaWalls.add(String.format("carved_%s_planks", plankTypes.getName()), carvedPlanks[plankTypes.getMetadata()], 0, walls);
             }
         }
     }

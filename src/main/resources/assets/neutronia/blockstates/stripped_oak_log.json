@@ -2,7 +2,6 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "block/cube_column",
     "textures": {
       "end": "neutronia:block/stripped_oak_log_top",
       "side": "neutronia:block/stripped_oak_log"
@@ -11,22 +10,24 @@
   },
   "variants": {
     "axis": {
+      "y": {
+        "submodel": "cube_column"
+      },
+      "z": {
+        "submodel": "cube_column",
+        "x": 90
+      },
       "x": {
+        "submodel": "cube_column",
         "x": 90,
         "y": 90
       },
-      "y": {
-        "x": 0
-      },
-      "z": {
-        "x": 90
-      },
       "none": {
-        "model": "neutronia:stripped_oak_bark"
+        "submodel": "cube_column"
       }
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{
+      "model": "cube_column"
+    }]
   }
 }

@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults":{
     "textures": {
-      "wall": "neutronia:block/diamond_brick_pillar_side"
+      "wall": "blocks/diamond_block"
     }
   },
   "variants": {

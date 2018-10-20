@@ -4,6 +4,7 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.handler.server.WoodVariantReplacer;
+import net.hdt.neutronia.groups.building.features.WoodBlocks;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomButton;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomPressurePlate;
 import net.minecraft.block.Block;
@@ -17,11 +18,12 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class VariedButtonsAndPressurePlates extends Component {
 
-    public static Block spruce_pressure_plate, spruce_button;
-    public static Block birch_pressure_plate, birch_button;
-    public static Block jungle_pressure_plate, jungle_button;
-    public static Block acacia_pressure_plate, acacia_button;
-    public static Block dark_oak_pressure_plate, dark_oak_button;
+    public static Block oak_bark_pressure_plate, stripped_oak_bark_pressure_plate, oak_bark_button, stripped_oak_bark_button;
+    public static Block spruce_pressure_plate, spruce_bark_pressure_plate, stripped_spruce_bark_pressure_plate, spruce_button, spruce_bark_button, stripped_spruce_bark_button;
+    public static Block birch_pressure_plate, birch_bark_pressure_plate, stripped_birch_bark_pressure_plate, birch_button, birch_bark_button, stripped_birch_bark_button;
+    public static Block jungle_pressure_plate, jungle_bark_pressure_plate, stripped_jungle_bark_pressure_plate, jungle_button, jungle_bark_button, stripped_jungle_bark_button;
+    public static Block acacia_pressure_plate, acacia_bark_pressure_plate, stripped_acacia_bark_pressure_plate, acacia_button, acacia_bark_button, stripped_acacia_bark_button;
+    public static Block dark_oak_pressure_plate, dark_oak_bark_pressure_plate, stripped_dark_oak_bark_pressure_plate, dark_oak_button, dark_oak_bark_button, stripped_dark_oak_bark_button;
     public static Block andesite_pressure_plate, andesite_button;
     public static Block granite_pressure_plate, granite_button;
     public static Block diorite_pressure_plate, diorite_button;
@@ -48,6 +50,20 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_pressure_plate = new BlockCustomPressurePlate("acacia");
             dark_oak_pressure_plate = new BlockCustomPressurePlate("dark_oak");
 
+            oak_bark_pressure_plate = new BlockCustomPressurePlate("oak_bark");
+            spruce_bark_pressure_plate = new BlockCustomPressurePlate("spruce_bark");
+            birch_bark_pressure_plate = new BlockCustomPressurePlate("birch_bark");
+            jungle_bark_pressure_plate = new BlockCustomPressurePlate("jungle_bark");
+            acacia_bark_pressure_plate = new BlockCustomPressurePlate("acacia_bark");
+            dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("dark_oak_bark");
+
+            stripped_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_oak_bark");
+            stripped_spruce_bark_pressure_plate = new BlockCustomPressurePlate("stripped_spruce_bark");
+            stripped_birch_bark_pressure_plate = new BlockCustomPressurePlate("stripped_birch_bark");
+            stripped_jungle_bark_pressure_plate = new BlockCustomPressurePlate("stripped_jungle_bark");
+            stripped_acacia_bark_pressure_plate = new BlockCustomPressurePlate("stripped_acacia_bark");
+            stripped_dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_dark_oak_bark");
+
             andesite_pressure_plate = new BlockCustomPressurePlate("andesite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
             granite_pressure_plate = new BlockCustomPressurePlate("granite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
             diorite_pressure_plate = new BlockCustomPressurePlate("diorite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
@@ -62,6 +78,20 @@ public class VariedButtonsAndPressurePlates extends Component {
             jungle_button = new BlockCustomButton("jungle");
             acacia_button = new BlockCustomButton("acacia");
             dark_oak_button = new BlockCustomButton("dark_oak");
+
+            oak_bark_button = new BlockCustomButton("oak_bark");
+            spruce_bark_button = new BlockCustomButton("spruce_bark");
+            birch_bark_button = new BlockCustomButton("birch_bark");
+            jungle_bark_button = new BlockCustomButton("jungle_bark");
+            acacia_bark_button = new BlockCustomButton("acacia_bark");
+            dark_oak_bark_button = new BlockCustomButton("dark_oak_bark");
+
+            stripped_oak_bark_button = new BlockCustomButton("stripped_oak_bark");
+            stripped_spruce_bark_button = new BlockCustomButton("stripped_spruce_bark");
+            stripped_birch_bark_button = new BlockCustomButton("stripped_birch_bark");
+            stripped_jungle_bark_button = new BlockCustomButton("stripped_jungle_bark");
+            stripped_acacia_bark_button = new BlockCustomButton("stripped_acacia_bark");
+            stripped_dark_oak_bark_button = new BlockCustomButton("stripped_dark_oak_bark");
 
             andesite_button = new BlockCustomButton("andesite", false);
             granite_button = new BlockCustomButton("granite", false);
@@ -88,6 +118,32 @@ public class VariedButtonsAndPressurePlates extends Component {
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(dark_oak_pressure_plate, 1),
                     "WW", 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 5));
 
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(oak_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[0], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(spruce_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[1], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(birch_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[2], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(jungle_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[3], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(acacia_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[4], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(dark_oak_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[5], 1));
+
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_oak_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[0], 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_spruce_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[1], 1, 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_birch_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[2], 1, 2));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_jungle_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[3], 1, 3));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_acacia_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[4], 1, 4));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(stripped_dark_oak_bark_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[5], 1, 5));
+
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(andesite_pressure_plate, 1),
                     "SS", 'S', ProxyRegistry.newStack(Blocks.STONE, 1, 0));
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(diorite_pressure_plate, 1),
@@ -113,6 +169,20 @@ public class VariedButtonsAndPressurePlates extends Component {
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(jungle_button, 1), ProxyRegistry.newStack(Blocks.PLANKS, 1, 3));
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(acacia_button, 1), ProxyRegistry.newStack(Blocks.PLANKS, 1, 4));
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(dark_oak_button, 1), ProxyRegistry.newStack(Blocks.PLANKS, 1, 5));
+
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(oak_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[0], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(spruce_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[1], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(birch_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[2], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(jungle_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[3], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(acacia_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[4], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(dark_oak_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.barkBlocks[5], 1));
+
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_oak_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[0], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_acacia_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[1], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_birch_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[2], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_jungle_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[3], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_acacia_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[4], 1));
+            RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(stripped_dark_oak_bark_button, 1), ProxyRegistry.newStack(WoodBlocks.strippedBarkBlocks[5], 1));
 
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(andesite_button, 1),
                     ProxyRegistry.newStack(Blocks.STONE, 1, 0));
@@ -142,6 +212,20 @@ public class VariedButtonsAndPressurePlates extends Component {
             OreDictionary.registerOre("pressurePlateWood", acacia_pressure_plate);
             OreDictionary.registerOre("pressurePlateWood", dark_oak_pressure_plate);
 
+            OreDictionary.registerOre("pressurePlateWood", oak_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", spruce_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", birch_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", jungle_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", acacia_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", dark_oak_bark_pressure_plate);
+
+            OreDictionary.registerOre("pressurePlateWood", stripped_oak_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", stripped_spruce_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", stripped_birch_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", stripped_jungle_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", stripped_acacia_bark_pressure_plate);
+            OreDictionary.registerOre("pressurePlateWood", stripped_dark_oak_bark_pressure_plate);
+
             OreDictionary.registerOre("pressurePlateStone", andesite_pressure_plate);
             OreDictionary.registerOre("pressurePlateStone", diorite_pressure_plate);
             OreDictionary.registerOre("pressurePlateStone", granite_pressure_plate);
@@ -157,6 +241,20 @@ public class VariedButtonsAndPressurePlates extends Component {
             OreDictionary.registerOre("buttonWood", jungle_button);
             OreDictionary.registerOre("buttonWood", acacia_button);
             OreDictionary.registerOre("buttonWood", dark_oak_button);
+
+            OreDictionary.registerOre("buttonWood", oak_bark_button);
+            OreDictionary.registerOre("buttonWood", spruce_bark_button);
+            OreDictionary.registerOre("buttonWood", birch_bark_button);
+            OreDictionary.registerOre("buttonWood", jungle_bark_button);
+            OreDictionary.registerOre("buttonWood", acacia_bark_button);
+            OreDictionary.registerOre("buttonWood", dark_oak_bark_button);
+
+            OreDictionary.registerOre("buttonWood", stripped_oak_bark_button);
+            OreDictionary.registerOre("buttonWood", stripped_spruce_bark_button);
+            OreDictionary.registerOre("buttonWood", stripped_birch_bark_button);
+            OreDictionary.registerOre("buttonWood", stripped_jungle_bark_button);
+            OreDictionary.registerOre("buttonWood", stripped_acacia_bark_button);
+            OreDictionary.registerOre("buttonWood", stripped_dark_oak_bark_button);
 
             OreDictionary.registerOre("buttonStone", andesite_button);
             OreDictionary.registerOre("buttonStone", diorite_button);

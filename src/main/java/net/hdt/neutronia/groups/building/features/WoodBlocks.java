@@ -3,9 +3,7 @@ package net.hdt.neutronia.groups.building.features;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
-import net.hdt.neutronia.base.blocks.BlockNeutroniaButton;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.decoration.blocks.BlockCustomPressurePlate;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
@@ -16,8 +14,7 @@ public class WoodBlocks extends Component {
     
     private static int woodAmount = 6;
 
-    public static final Block[] barkBlocks = new Block[woodAmount], chiseledBarkBlocks = new Block[woodAmount], strippedBarkBlocks = new Block[woodAmount], unnamedChiseledBarkBlock = new Block[woodAmount], barkButtons = new Block[woodAmount],
-            barkPressurePlates = new Block[woodAmount], strippedBarkButton = new Block[woodAmount], strippedBarkPressurePlate = new Block[woodAmount];
+    public static final Block[] barkBlocks = new Block[woodAmount], chiseledBarkBlocks = new Block[woodAmount], strippedBarkBlocks = new Block[woodAmount], unnamedChiseledBarkBlock = new Block[woodAmount];
 
     private boolean enableSlabsAndStairs, enableWalls;
 
@@ -46,10 +43,6 @@ public class WoodBlocks extends Component {
 //            coffins[enumType.getMetadata()] = new BlockOverworldBase(Material.WOOD, enumType.getName() + "_coffin", true).setCreativeTab(CREATIVE_TAB);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.logStripper);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(chiseledBarkBlocks[enumType.getMetadata()], 1), ProxyRegistry.newStack(barkBlocks[enumType.getMetadata()], 1), NItems.chisel);
-            barkButtons[enumType.getMetadata()] = new BlockNeutroniaButton(String.format("%s_bark_button", enumType.getName()), true);
-            barkPressurePlates[enumType.getMetadata()] = new BlockCustomPressurePlate(String.format("%s_bark", enumType.getName()));
-            strippedBarkButton[enumType.getMetadata()] = new BlockNeutroniaButton(String.format("stripped_%s_bark_button", enumType.getName()), true);
-            strippedBarkPressurePlate[enumType.getMetadata()] = new BlockCustomPressurePlate(String.format("stripped_%s_bark", enumType.getName()));
         }
     }
 

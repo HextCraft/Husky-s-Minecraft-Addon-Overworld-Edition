@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "blocks/stone_diorite_smooth",
-      "top": "blocks/stone_diorite_smooth",
-      "side": "neutronia:block/diorite_slab_side"
+      "bottom": "blocks/stone_diorite",
+      "top": "blocks/stone_diorite",
+      "side": "blocks/stone_diorite"
     }
   },
   "variants": {

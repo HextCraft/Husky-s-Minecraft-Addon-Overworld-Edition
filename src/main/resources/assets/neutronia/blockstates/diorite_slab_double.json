@@ -1,5 +1,5 @@
 {
     "variants": {
-        "variant=default": { "model": "neutronia:diorite_slab_double" }
+        "variant=default": { "model": "diorite" }
     }
 }

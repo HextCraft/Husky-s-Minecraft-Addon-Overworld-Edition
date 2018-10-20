@@ -1,5 +1,5 @@
 {
     "variants": {
-        "variant=default": { "model": "neutronia:andesite_slab_double" }
+        "variant=default": { "model": "andesite" }
     }
 }

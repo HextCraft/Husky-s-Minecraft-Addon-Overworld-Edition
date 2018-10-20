@@ -1,18 +1,14 @@
 package net.hdt.neutronia.groups.building.features;
 
-import net.hdt.huskylib2.block.BlockModSlab;
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.block.MRSlab;
 import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
-import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaSlab;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaStairsAndSlabs extends Component {
@@ -36,32 +32,8 @@ public class VanillaStairsAndSlabs extends Component {
             MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
 //            MRSlab doubleSlab = new MRSlab.Double("double_" + name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
             MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-            MRSlab.registerSlab(singleSlab, new ItemSlab(singleSlab, singleSlab, doubleSlab), doubleSlab);
+            MRSlab.registerSlab(block,  meta, singleSlab, doubleSlab);
         }
-    }
-
-    public static void add(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
-        add(name, block, meta, true, true, doit, creativeTabs);
-    }
-
-    public static void add(String name, Block block, int meta, boolean slab, boolean stairs, boolean doit, CreativeTabs creativeTabs) {
-        if (!doit)
-            return;
-
-        IBlockState state = block.getStateFromMeta(meta);
-        String stairsName = name + "_stairs";
-        BlockModStairs stairBlock = new BlockNeutroniaStairs(stairsName, state);
-        stairBlock.setCreativeTab(creativeTabs);
-
-        BlockModSlab singleSlabBlock = new BlockVanillaSlab(name, state, false);
-        singleSlabBlock.setCreativeTab(creativeTabs);
-
-        BlockModSlab doubleSlabBlock = new BlockVanillaSlab(name, state, true);
-
-        if (stairs)
-            BlockModStairs.initStairs(block, meta, stairBlock);
-        if (slab)
-            BlockModSlab.initSlab(block, meta, singleSlabBlock, doubleSlabBlock);
     }
 
     @Override

@@ -7,13 +7,10 @@ import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +19,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+
+import static net.hdt.neutronia.base.blocks.BlockNeutroniaFence.isExcepBlockForAttachWithPiston;
 
 public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
 
@@ -91,11 +90,6 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
     }
 
     @Override
-    public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return true;
-    }
-
-    @Override
     public boolean isFullCube(IBlockState state) {
         return false;
     }
@@ -110,11 +104,12 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
         return false;
     }
 
-    private boolean canConnectTo(IBlockAccess worldIn, BlockPos pos) {
+    private boolean canConnectTo(IBlockAccess worldIn, BlockPos pos, EnumFacing facing) {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         Block block = iblockstate.getBlock();
-        Material material = iblockstate.getMaterial();
-        return block != Blocks.BARRIER && (block == this || block instanceof BlockFenceGate || (material.isOpaque() && iblockstate.isFullCube() ? material != Material.GOURD : block instanceof BlockNeutroniaWall || block instanceof BlockWall));
+        BlockFaceShape blockfaceshape = iblockstate.getBlockFaceShape(worldIn, pos, facing);
+        boolean flag = blockfaceshape == BlockFaceShape.MIDDLE_POLE_THICK || blockfaceshape == BlockFaceShape.MIDDLE_POLE && (block instanceof BlockFenceGate);
+        return !isExcepBlockForAttachWithPiston(block) && blockfaceshape == BlockFaceShape.SOLID || flag;
     }
 
     @Override
@@ -125,10 +120,10 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
 
     @Override
     public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-        boolean flag = canConnectTo(worldIn, pos.north());
-        boolean flag1 = canConnectTo(worldIn, pos.east());
-        boolean flag2 = canConnectTo(worldIn, pos.south());
-        boolean flag3 = canConnectTo(worldIn, pos.west());
+        boolean flag = canWallConnectTo(worldIn, pos, EnumFacing.NORTH);
+        boolean flag1 = canWallConnectTo(worldIn, pos, EnumFacing.EAST);
+        boolean flag2 = canWallConnectTo(worldIn, pos, EnumFacing.SOUTH);
+        boolean flag3 = canWallConnectTo(worldIn, pos, EnumFacing.WEST);
         boolean flag4 = flag && !flag1 && flag2 && !flag3 || !flag && flag1 && !flag2 && flag3;
         return state.withProperty(UP, !flag4 || !worldIn.isAirBlock(pos.up())).withProperty(NORTH, flag).withProperty(EAST, flag1).withProperty(SOUTH, flag2).withProperty(WEST, flag3);
     }
@@ -139,13 +134,28 @@ public class BlockNeutroniaWall extends BlockMod implements INeutroniaBlock {
     }
 
     @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-        return face != EnumFacing.UP && face != EnumFacing.DOWN ? BlockFaceShape.MIDDLE_POLE_THICK : BlockFaceShape.CENTER_BIG;
+    public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return true;
     }
 
     @Override
-    public IProperty[] getIgnoredProperties() {
-        return new IProperty[]{UP, NORTH, EAST, WEST, SOUTH};
+    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing facing) {
+        return facing != EnumFacing.UP && facing != EnumFacing.DOWN ? BlockFaceShape.MIDDLE_POLE_THICK : BlockFaceShape.CENTER_BIG;
+    }
+
+
+    /* ======================================== FORGE START ======================================== */
+
+    @Override
+    public boolean canBeConnectedTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+        Block connector = world.getBlockState(pos.offset(facing)).getBlock();
+        return connector instanceof BlockWall || connector instanceof BlockFenceGate || connector instanceof BlockNeutroniaWall || connector instanceof BlockNeutroniaFence;
+    }
+
+    private boolean canWallConnectTo(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+        BlockPos other = pos.offset(facing);
+        Block block = world.getBlockState(other).getBlock();
+        return block.canBeConnectedTo(world, other, facing.getOpposite()) || canConnectTo(world, other, facing.getOpposite());
     }
 
 }

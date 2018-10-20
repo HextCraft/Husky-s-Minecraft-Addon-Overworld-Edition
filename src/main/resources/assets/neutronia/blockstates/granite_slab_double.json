@@ -1,5 +1,5 @@
 {
     "variants": {
-        "variant=default": { "model": "neutronia:granite_slab_double" }
+        "variant=default": { "model": "granite" }
     }
 }

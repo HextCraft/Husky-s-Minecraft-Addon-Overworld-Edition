@@ -15,7 +15,7 @@ public final class LibMisc {
     // Mod Constants
     public static final String MOD_ID = "neutronia";
     public static final String MOD_NAME = "Neutronia";
-    public static final String VERSION = "0.4.0";
+    public static final String VERSION = "0.4.1";
     public static final String DEPENDENCIES = "required-before:huskylib2;";
     public static final String PREFIX_MOD = MOD_ID + ":";
 
