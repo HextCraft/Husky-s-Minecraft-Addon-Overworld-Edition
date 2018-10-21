@@ -1,6 +1,10 @@
 package net.hdt.neutronia.init;
 
 import net.hdt.neutronia.entity.*;
+import net.hdt.neutronia.entity.items.EntityCoconut;
+import net.hdt.neutronia.entity.neutral.EntityBlackBear;
+import net.hdt.neutronia.entity.neutral.EntityGrizzlyBear;
+import net.hdt.neutronia.entity.neutral.EntityPanda;
 import net.hdt.neutronia.entity.render.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -35,7 +39,7 @@ public class NEntities {
                 createBuilder("snake").entity(EntitySnake.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
 //                createBuilder("mammoth")e
 //                createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
-//                createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),mine
+//                createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
 //                createBuilder("ender_phantom").entity(EntityEnderPhantom.class).tracker(80, 3, true).egg(0x352D56, 0x8C9579).build(),
 //                createBuilder("shadow_phantom").entity(EntityShadowPhantom.class).tracker(80, 3, true).egg(0x101010, 0x101010).build(),
                 createBuilder("inferno").entity(EntityInferno.class).tracker(80, 3, true).egg(0x211114, 0xd17800).build(),
@@ -61,7 +65,11 @@ public class NEntities {
                 createBuilder("ancient_golem").entity(EntityAncientGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("yeti_golem").entity(EntityYetiGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0, 0).build(),
-                createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build()
+                createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),
+                createBuilder("black_bear").entity(EntityBlackBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
+                createBuilder("grizzly_bear").entity(EntityGrizzlyBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
+                createBuilder("panda").entity(EntityPanda.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build()
         };
         event.getRegistry().registerAll(entries);
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
@@ -75,6 +83,9 @@ public class NEntities {
 
     private static void addSpawns() {
         EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 3, EnumCreatureType.MONSTER, Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.BEACH);
+        EntityRegistry.addSpawn(EntityGrizzlyBear.class, 5, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).toArray(new Biome[0]));
+        EntityRegistry.addSpawn(EntityBlackBear.class, 5, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).toArray(new Biome[0]));
+        EntityRegistry.addSpawn(EntityPanda.class, 5, 1, 2, EnumCreatureType.CREATURE, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
 //        EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
 //        EntityRegistry.addSpawn(EntityAnchored.class, 5, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
 //        EntityRegistry.addSpawn(EntityForsakenDiver.class, 60, 1, 2, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
@@ -123,6 +134,9 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityScorp.class, RenderScorp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityOwl.class, RenderOwl::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySnake.class, RenderSnake::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBlackBear.class, RenderBlackBear::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityGrizzlyBear.class, RenderGrizzlyBear::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityPanda.class, RenderPanda::new);
     }
 
 }

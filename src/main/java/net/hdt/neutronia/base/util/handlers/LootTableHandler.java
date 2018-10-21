@@ -21,4 +21,10 @@ public class LootTableHandler {
     public static final ResourceLocation FORSAKEN_DIVER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "forsaken_diver"));
     public static final ResourceLocation ANCHORED = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "anchored"));
     public static final ResourceLocation GREAT_HUNGER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "great_hunger"));
+    public static final ResourceLocation BLACK_BEAR = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "black_bear"));
+    public static final ResourceLocation GRIZZLY_BEAR = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "grizzly_bear"));
+    public static final ResourceLocation PANDA = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "panda"));
+    public static final ResourceLocation SNAKE = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "snake"));
+    public static final ResourceLocation OWL = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "owl"));
+
 }
