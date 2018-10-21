@@ -51,12 +51,12 @@ public class CommandFindBiome extends CommandBase {
 
     @Override
     public String getName() {
-        return "locatebiome";
+        return "locate biome";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/locatebiome <name>";
+        return "/locate biome <name>";
     }
 
     @Override

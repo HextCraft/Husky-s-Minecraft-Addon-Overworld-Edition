@@ -152,10 +152,9 @@ public class BlockStalagmite extends BlockMod implements INeutroniaBlock {
 
     public enum EnumSize implements BlockMetaVariants.EnumBase {
 
-        MINI(0, 2),
-        SMALL(0, 4),
-        MEDIUM(1, 8),
-        BIG(2, 16);
+        SMALL(0, 2),
+        MEDIUM(1, 4),
+        BIG(2, 8);
 
         public final int strength;
         public final AxisAlignedBB aabb;
