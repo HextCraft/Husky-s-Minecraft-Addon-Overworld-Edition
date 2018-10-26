@@ -2,6 +2,7 @@ package net.hdt.neutronia.items;
 
 import net.hdt.neutronia.entity.items.EntityCoconut;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ public class ItemCoconut extends ItemPVJBlock
 	public ItemCoconut(Block block)
 	{
 		super(block);
+		setCreativeTab(CreativeTabs.MISC);
 	}
 	
 	@Override

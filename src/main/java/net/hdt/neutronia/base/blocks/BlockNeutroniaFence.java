@@ -12,6 +12,7 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -63,7 +64,7 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         setHardness(hardness);
         setResistance(resistance);
         setDefaultState(this.blockState.getBaseState().withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     /**

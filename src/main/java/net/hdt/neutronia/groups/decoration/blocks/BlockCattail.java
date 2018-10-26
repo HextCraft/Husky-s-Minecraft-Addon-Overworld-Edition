@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,6 +35,7 @@ public class BlockCattail extends BlockModBush
         this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockCattail.EnumBlockHalf.LOWER));
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @Override

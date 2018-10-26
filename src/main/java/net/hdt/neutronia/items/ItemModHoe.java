@@ -3,9 +3,9 @@ package net.hdt.neutronia.items;
 import net.hdt.huskylib2.interf.IVariantHolder;
 import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
@@ -31,7 +31,7 @@ public class ItemModHoe extends ItemHoe implements IVariantHolder, INeutroniaIte
         ItemMod.variantHolders.add(this);
         this.toolMaterial = material;
         this.maxStackSize = 1;
-        this.setCreativeTab(Neutronia.CREATIVE_TAB);
+        this.setCreativeTab(CreativeTabs.TOOLS);
     }
 
     public Item setTranslationKey(String name) {

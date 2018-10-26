@@ -1,11 +1,11 @@
 package net.hdt.neutronia.blocks.base;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -29,7 +29,7 @@ public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @SuppressWarnings("unused")
@@ -40,7 +40,7 @@ public class BlockRodBase extends BlockDirectional implements INeutroniaBlock {
             this.setHardness(0.3F);
             this.setLightLevel(1.0F);
         }
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @Override

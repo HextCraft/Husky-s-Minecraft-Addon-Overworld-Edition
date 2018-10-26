@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.building.blocks;
 
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockMod;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.groups.building.items.ItemVerticalSlab;
@@ -33,7 +32,7 @@ public class BlockVerticalSlab extends BlockMod implements INeutroniaBlock {
     {
         super(name, materialIn);
         setDefaultState(blockState.getBaseState().withProperty(PROPERTYFACING, EnumFacing.NORTH));
-        setCreativeTab(isDouble ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
+        setCreativeTab(isDouble ? CreativeTabs.SEARCH : CreativeTabs.BUILDING_BLOCKS);
         if (isDouble)
             name += "_double";
         if(registerInConstruction())

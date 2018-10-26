@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.groups.decoration.features.ChiseledBlocks;
 import net.minecraft.block.material.Material;
@@ -25,7 +24,7 @@ public class BlockPrismarineChiseled extends BlockMod implements INeutroniaBlock
         this.filled = filled;
         setHardness(1.5F);
         setResistance(10.0F);
-        setCreativeTab(filled ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
+        setCreativeTab(filled ? CreativeTabs.SEARCH : CreativeTabs.DECORATIONS);
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

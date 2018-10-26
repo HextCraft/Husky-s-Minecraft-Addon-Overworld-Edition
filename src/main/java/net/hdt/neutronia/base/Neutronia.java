@@ -6,14 +6,11 @@ import net.hdt.neutronia.base.util.Reference;
 import net.hdt.neutronia.events.ILifeCycleHandler;
 import net.hdt.neutronia.events.handlers.EventHandlers;
 import net.hdt.neutronia.init.NEnchantments;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -29,12 +26,6 @@ import static net.hdt.neutronia.base.util.Reference.*;
 @Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
 public class Neutronia {
 
-    public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(I18n.translateToLocal("main")) {
-        @Override
-        public ItemStack createIcon() {
-            return new ItemStack(Blocks.BOOKSHELF);
-        }
-    };
     public static Logger LOGGER;
     @Mod.Instance
     public static Neutronia instance;

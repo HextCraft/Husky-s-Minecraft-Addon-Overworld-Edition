@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColored;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredStair;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColoredWall;
@@ -11,6 +10,7 @@ import net.hdt.neutronia.groups.building.blocks.slab.BlockVanillaColoredSlab;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -27,7 +27,7 @@ public class ColoredPlanks extends Component {
         IBlockState state = block.getStateFromMeta(meta);
 
         if (stairs) {
-            coloredStairs[color.getMetadata()] = new BlockNeutroniaColoredStair(name, state, color, Neutronia.CREATIVE_TAB);
+            coloredStairs[color.getMetadata()] = new BlockNeutroniaColoredStair(name, state, color, CreativeTabs.BUILDING_BLOCKS);
             BlockModStairs.initStairs(block, meta, coloredStairs[color.getMetadata()]);
         }
         if (slab) {
@@ -47,7 +47,7 @@ public class ColoredPlanks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumDyeColor color : EnumDyeColor.values()) {
-            coloredPlanks[color.getMetadata()] = new BlockNeutroniaColored("colored_plank", color).setCreativeTab(Neutronia.CREATIVE_TAB);
+            coloredPlanks[color.getMetadata()] = new BlockNeutroniaColored("colored_plank", color).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
             addColored("colored_planks", coloredPlanks[color.getMetadata()], 0, true, false, color);
 //            addColoredWalls("colored_planks", coloredPlanks[color.getMetadata()], 0, color);
         }

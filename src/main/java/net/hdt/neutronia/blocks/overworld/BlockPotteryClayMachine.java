@@ -1,11 +1,11 @@
 package net.hdt.neutronia.blocks.overworld;
 
 import net.hdt.huskylib2.block.BlockFacing;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -31,7 +31,7 @@ public class BlockPotteryClayMachine extends BlockFacing implements INeutroniaBl
         super(name, Material.WOOD);
         this.meta = meta;
         this.isBurning = isBurning;
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     /**

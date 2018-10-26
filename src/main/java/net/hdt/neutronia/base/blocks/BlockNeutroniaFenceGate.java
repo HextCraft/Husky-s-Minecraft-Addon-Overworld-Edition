@@ -10,6 +10,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -29,6 +30,7 @@ public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroni
         bareName = name;
 
         register(name);
+        setCreativeTab(CreativeTabs.REDSTONE);
     }
 
     public Block register(String name) {

@@ -1,8 +1,8 @@
 package net.hdt.neutronia.items;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.util.ColorUtilsIdk;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -18,7 +18,7 @@ public class ItemBandage extends ItemNeutroniaBase {
 
     public ItemBandage() {
         super("bandage");
-        this.setCreativeTab(Neutronia.CREATIVE_TAB);
+        this.setCreativeTab(CreativeTabs.MISC);
     }
 
     @Override

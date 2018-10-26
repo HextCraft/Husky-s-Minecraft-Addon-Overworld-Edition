@@ -10,7 +10,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaWalls extends Component {
 
-    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, sandstone, chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, smoothRedSandstone, stoneBricks, bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks;
+    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, sandstone,
+            chiseledSandstone, cutSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, cutRedSandstone,
+            smoothRedSandstone, stoneBricks,
+            bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks, mossyStoneBrick,
+            crackedStoneBrick, chiseledStoneBrick, mossyCobblestone;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, doit, BlockNeutroniaWall::new);
@@ -59,6 +63,17 @@ public class VanillaWalls extends Component {
         darkPrismarine = loadPropBool("Dark Prismarine", "", false);
         purpurBlock = loadPropBool("Purpur", "", false);
         endBricks = loadPropBool("End Bricks", "", false);
+        mossyStoneBrick = loadPropBool("Mossy Stone Bricks", "", false);
+        mossyCobblestone = loadPropBool("Mossy Cobblestone", "", false);
+        mossyStoneBrick = loadPropBool("Red Nether Brick", "", true);
+        crackedStoneBrick = loadPropBool("Red Nether Brick", "", true);
+        smoothSandstone = loadPropBool("Smooth Sandstone", "", true);
+        chiseledSandstone = loadPropBool("Chiseled Sandstone", "", true);
+        cutSandstone = loadPropBool("Cut Sandstone", "", true);
+        smoothRedSandstone = loadPropBool("Smooth Red Sandstone", "", true);
+        chiseledRedSandstone = loadPropBool("Chiseled Red Sandstone", "", true);
+        cutRedSandstone = loadPropBool("Cut Red Sandstone", "", true);
+        mossyCobblestone = loadPropBool("Mossy Cobblestone", "", true);
     }
 
     @Override
@@ -78,8 +93,8 @@ public class VanillaWalls extends Component {
         add("smooth_red_sandstone", Blocks.RED_SANDSTONE, 2, smoothRedSandstone);
         add("stone_brick", Blocks.STONEBRICK, 0, stoneBricks);
         add("mossy_stone_brick", Blocks.STONEBRICK, 1, stoneBricks);
-        add("cracked_stone_brick", Blocks.STONEBRICK, 2, stoneBricks);
-        add("chiseled_stone_brick", Blocks.STONEBRICK, 2, stoneBricks);
+        add("cracked_stone_brick", Blocks.STONEBRICK, 2, crackedStoneBrick);
+        add("chiseled_stone_brick", Blocks.STONEBRICK, 2, chiseledStoneBrick);
         add("brick", Blocks.BRICK_BLOCK, 0, bricks);
         add("quartz", Blocks.QUARTZ_BLOCK, 0, quartz);
         add("prismarine_rough", Blocks.PRISMARINE, 0, prismarine);

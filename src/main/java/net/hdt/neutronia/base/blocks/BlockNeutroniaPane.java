@@ -9,6 +9,7 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
@@ -36,6 +37,7 @@ public class BlockNeutroniaPane extends BlockMod implements INeutroniaBlock {
     public BlockNeutroniaPane(String name, Material materialIn) {
         super(name, materialIn);
         setDefaultState(blockState.getBaseState().withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE).withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE));
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     // COPYPASTA

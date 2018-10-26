@@ -1,10 +1,10 @@
 package net.hdt.neutronia.groups.dimensions.features;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.dimensions.blocks.BlockMoonBase;
 import net.hdt.neutronia.groups.dimensions.properties.EnumMoonBlockVariants;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MoonBlocks extends Component {
@@ -14,7 +14,7 @@ public class MoonBlocks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumMoonBlockVariants moonBlockVariants : EnumMoonBlockVariants.values()) {
-            MOON_BLOCKS[moonBlockVariants.getID()] = new BlockMoonBase(moonBlockVariants.getName(), moonBlockVariants.getMaterial(), Neutronia.CREATIVE_TAB);
+            MOON_BLOCKS[moonBlockVariants.getID()] = new BlockMoonBase(moonBlockVariants.getName(), moonBlockVariants.getMaterial(), CreativeTabs.BUILDING_BLOCKS);
         }
     }
 

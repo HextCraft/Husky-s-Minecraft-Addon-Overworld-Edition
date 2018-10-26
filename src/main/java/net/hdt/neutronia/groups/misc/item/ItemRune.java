@@ -14,10 +14,10 @@ import net.hdt.huskylib2.interf.IItemColorProvider;
 import net.hdt.huskylib2.item.ItemMod;
 import net.hdt.huskylib2.util.ClientTicker;
 import net.hdt.neutronia.api.ICustomEnchantColor;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.items.INeutroniaItem;
 import net.hdt.neutronia.groups.misc.feature.ColorRunes;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -51,7 +51,7 @@ public class ItemRune extends ItemMod implements IItemColorProvider, ICustomEnch
         super("rune", VARIANTS);
         if (!stack)
             setMaxStackSize(1);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.MISC);
     }
 
     public static int getColor(int meta) {

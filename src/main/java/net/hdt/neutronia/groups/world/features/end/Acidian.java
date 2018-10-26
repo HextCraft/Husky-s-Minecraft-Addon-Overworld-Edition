@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.features.end;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
@@ -15,7 +14,7 @@ import java.util.Objects;
 public class Acidian extends Component {
 
     public static Block naturalAcidian, acidianBricks, acidianPillar, chiseledAcidian, acidianBars;
-    private CreativeTabs TAB = Neutronia.CREATIVE_TAB;
+    private CreativeTabs TAB = CreativeTabs.BUILDING_BLOCKS;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

@@ -1,10 +1,10 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,7 +26,7 @@ public class BlockNeutroniaHotGlowing extends BlockMod implements INeutroniaBloc
 
     public BlockNeutroniaHotGlowing(Material material, String name) {
         super(name, material);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
         this.setLightLevel(0.2F);
         this.setTickRandomly(true);
     }

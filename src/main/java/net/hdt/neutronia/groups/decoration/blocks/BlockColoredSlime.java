@@ -1,10 +1,10 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBreakable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumDyeColor;
@@ -18,7 +18,7 @@ public class BlockColoredSlime extends BlockNeutroniaBreakable {
 
     public BlockColoredSlime(EnumDyeColor color) {
         super(Material.CLAY, "colored_slime_block", color, false);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
         this.slipperiness = 0.8F;
         setSoundType(SoundType.SLIME);
     }

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.features.end;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaTrapdoor;
@@ -9,7 +8,6 @@ import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockEndDoor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.util.Objects;
@@ -17,7 +15,6 @@ import java.util.Objects;
 public class PurhoganyWood extends Component {
 
     public static Block purhoganyLog, purhoganyPlanks, purhoganyDoor, purhoganyTrapdoor;
-    private CreativeTabs TAB = Neutronia.CREATIVE_TAB;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

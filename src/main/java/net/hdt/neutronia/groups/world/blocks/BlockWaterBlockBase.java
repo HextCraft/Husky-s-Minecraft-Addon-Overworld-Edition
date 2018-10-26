@@ -1,10 +1,10 @@
 package net.hdt.neutronia.groups.world.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -15,7 +15,7 @@ public class BlockWaterBlockBase extends BlockMod implements INeutroniaBlock {
 
     public BlockWaterBlockBase(String name) {
         super(name, Material.PLANTS);
-        this.setCreativeTab(Neutronia.CREATIVE_TAB);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @SideOnly(Side.CLIENT)

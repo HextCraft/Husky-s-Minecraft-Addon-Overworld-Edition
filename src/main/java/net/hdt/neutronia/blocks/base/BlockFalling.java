@@ -1,7 +1,6 @@
 package net.hdt.neutronia.blocks.base;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -29,7 +28,7 @@ public class BlockFalling extends BlockMod implements INeutroniaBlock {
 
     public BlockFalling(Material materialIn, String name) {
         super(name, materialIn);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     public static boolean canFallThrough(IBlockState state) {

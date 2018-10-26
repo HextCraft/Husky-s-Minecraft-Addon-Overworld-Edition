@@ -4,6 +4,7 @@ import net.hdt.huskylib2.block.BlockMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
         super(BlockMod.Builder.create(Material.ROCK).hardnessAndResistance(3.0F, 5.0F), name);
         this.drop = new ItemBlock(this);
         registerRecipes();
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     private void registerRecipes() {

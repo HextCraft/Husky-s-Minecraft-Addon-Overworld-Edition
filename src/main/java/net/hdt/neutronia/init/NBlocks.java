@@ -2,7 +2,6 @@ package net.hdt.neutronia.init;
 
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.block.MRSlab;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.blocks.overworld.BlockFireflyBulb;
 import net.hdt.neutronia.groups.building.blocks.stair.BlockVanillaStairs;
@@ -11,14 +10,13 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.Objects;
-
-import static net.hdt.neutronia.base.Neutronia.CREATIVE_TAB;
 
 public class NBlocks {
 
@@ -48,10 +46,10 @@ public class NBlocks {
     private static Block tombstoneBig, tombstoneBigDark, tombstoneMedium, tombstoneMediumDark, tombstoneSmall, tombstoneSmallDark;
 
     static {
-        driedKelpBlock = new BlockNeutroniaBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(CREATIVE_TAB);
-        wrautnaut = new BlockNeutroniaBase(Material.IRON, "wrautnaut", false).setCreativeTab(CREATIVE_TAB);
-        wrautnautOld = new BlockNeutroniaBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(CREATIVE_TAB);
-        wrautnautPorthole = new BlockNeutroniaBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(CREATIVE_TAB);
+        driedKelpBlock = new BlockNeutroniaBase(Material.PLANTS, "dried_kelp_block", false).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        wrautnaut = new BlockNeutroniaBase(Material.IRON, "wrautnaut", false).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        wrautnautOld = new BlockNeutroniaBase(Material.IRON, "old_wrautnaut", false).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        wrautnautPorthole = new BlockNeutroniaBase(Material.IRON, "wrautnaut_porthole", false).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
         //Wood Blocks
         /*for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
@@ -125,12 +123,11 @@ public class NBlocks {
         String stairsName = name + "_stairs";
 
         if (stairs) {
-            BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(Neutronia.CREATIVE_TAB));
+            BlockModStairs.initStairs(block, meta, (BlockStairs) new BlockVanillaStairs(stairsName, state).setCreativeTab(CreativeTabs.BUILDING_BLOCKS));
         }
         if (slabs) {
-            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-//            MRSlab doubleSlab = new MRSlab.Double("double_" + name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
+            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
+            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
             MRSlab.registerSlab(block, meta, singleSlab, doubleSlab);
         }
     }

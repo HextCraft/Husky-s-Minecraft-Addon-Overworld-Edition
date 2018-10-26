@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColored;
 import net.hdt.neutronia.groups.decoration.features.ColoredRedstoneLamps;
 import net.minecraft.block.Block;
@@ -24,7 +23,7 @@ public class BlockColoredRedstoneLamp extends BlockNeutroniaColored {
         super(Material.REDSTONE_LIGHT, isOn ? "colored_lit_redstone_lamp" : "colored_redstone_lamp", color);
         this.color = color;
         this.isOn = isOn;
-        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
+        setCreativeTab(isOn ? CreativeTabs.SEARCH : CreativeTabs.REDSTONE);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
     }
 

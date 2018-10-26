@@ -1,6 +1,6 @@
 @echo off
 
-set modid=quark
+set modid=neutronia
 
 setlocal enabledelayedexpansion
 

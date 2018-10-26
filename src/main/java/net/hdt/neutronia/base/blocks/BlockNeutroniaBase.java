@@ -1,11 +1,11 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockRenderLayer;
 
@@ -13,7 +13,7 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name, boolean flammable) {
         super(name, material);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         if (flammable) {
             addFlammable(this);
         }
@@ -25,12 +25,12 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name) {
         super(name, material);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     public BlockNeutroniaBase(Material material, String name, boolean flammable, String... variants) {
         super(name, material, variants);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         if (flammable) {
             addFlammable(this);
         }
@@ -38,7 +38,7 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaBase(Material material, String name, float hardness, float resistance, float slipperiness, float lightValue, SoundType soundType) {
         super(name, material);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         setHardness(hardness);
         setResistance(resistance);
         setDefaultSlipperiness(slipperiness);
@@ -52,7 +52,7 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
 
     @Override
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.TRANSLUCENT;
+        return BlockRenderLayer.CUTOUT;
     }
 
     /**

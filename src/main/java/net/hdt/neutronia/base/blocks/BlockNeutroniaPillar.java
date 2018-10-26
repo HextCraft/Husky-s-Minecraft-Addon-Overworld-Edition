@@ -1,7 +1,6 @@
 package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.block.BlockMod;
-import net.hdt.neutronia.base.Neutronia;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -18,12 +17,7 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaPillar(Material materialIn, String name, String... variants) {
         super(name, materialIn, variants);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
-    }
-
-    public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs, String... variants) {
-        super(name, materialIn, variants);
-        setCreativeTab(creativeTabs);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @Override

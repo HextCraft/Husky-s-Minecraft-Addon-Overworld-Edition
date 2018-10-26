@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.building.blocks.slab;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaSlab;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
@@ -11,7 +10,6 @@ public class BlockVanillaSlab extends BlockNeutroniaSlab {
 
     public BlockVanillaSlab(String name, IBlockState state, boolean doubleSlab) {
         super(name, state.getMaterial(), doubleSlab);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
     }
 
     @Override

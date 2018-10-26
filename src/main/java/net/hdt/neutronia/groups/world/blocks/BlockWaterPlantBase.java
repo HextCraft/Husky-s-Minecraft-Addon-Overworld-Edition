@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.world.blocks;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
@@ -8,6 +7,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
@@ -29,7 +29,7 @@ public class BlockWaterPlantBase extends BlockModBush {
 
     public BlockWaterPlantBase(String name) {
         super(name, Material.WATER);
-        this.setCreativeTab(Neutronia.CREATIVE_TAB);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(LEVEL, 15));
     }
 

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.decoration.features;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaOre;
 import net.hdt.neutronia.base.groups.Component;
@@ -12,7 +11,6 @@ import net.hdt.neutronia.items.base.tools.BaseShovel;
 import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -51,8 +49,6 @@ public class MoreMetals extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        CreativeTabs tab = Neutronia.CREATIVE_TAB;
-
         brassBlock = new BlockNeutroniaBase(Material.IRON, "brass_block", false);
         steelBlock = new BlockNeutroniaBase(Material.IRON, "steel_block", false);
         copperBlock = new BlockNeutroniaBase(Material.IRON, "copper_block", false);

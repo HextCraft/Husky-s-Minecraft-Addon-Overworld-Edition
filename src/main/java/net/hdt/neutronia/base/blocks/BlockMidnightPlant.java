@@ -1,10 +1,10 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.blocks.base.BlockModBush;
 import net.hdt.neutronia.groups.dimensions.features.AlienOverworld;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,7 +29,7 @@ public class BlockMidnightPlant extends BlockModBush implements IShearable {
         this.behaviorType = behaviorType;
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
-        this.setCreativeTab(Neutronia.CREATIVE_TAB);
+        this.setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     public BlockMidnightPlant(String name) {

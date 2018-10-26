@@ -6,6 +6,7 @@ import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.base.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -16,7 +17,7 @@ public class BlockDirtCraftingTable extends BlockMod implements INeutroniaBlock 
 
     public BlockDirtCraftingTable() {
         super("crafting_table_dirt", Material.GROUND);
-        setCreativeTab(Neutronia.CREATIVE_TAB);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     @Override

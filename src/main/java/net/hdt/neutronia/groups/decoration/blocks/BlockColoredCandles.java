@@ -1,6 +1,5 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaColored;
 import net.hdt.neutronia.groups.decoration.features.ColoredCandles;
 import net.minecraft.block.Block;
@@ -30,7 +29,7 @@ public class BlockColoredCandles extends BlockNeutroniaColored {
         super(lit ? "lit_candle" : "candle", color);
         this.color = color;
         this.lit = lit;
-        setCreativeTab(lit ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
+        setCreativeTab(lit ? CreativeTabs.SEARCH : CreativeTabs.DECORATIONS);
         this.setLightLevel(lit ? 1.0F : 0.0F);
         this.setTickRandomly(lit);
     }

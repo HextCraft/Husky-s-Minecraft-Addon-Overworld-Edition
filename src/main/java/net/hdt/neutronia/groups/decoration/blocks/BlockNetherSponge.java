@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
 import com.google.common.collect.Lists;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -33,7 +32,7 @@ public class BlockNetherSponge extends BlockNeutroniaBase {
     public BlockNetherSponge() {
         super(Material.SPONGE, "nether_sponge");
         this.setDefaultState(this.blockState.getBaseState().withProperty(WET, Boolean.FALSE));
-        setCreativeTab(WET.equals(false) ? Neutronia.CREATIVE_TAB : CreativeTabs.SEARCH);
+        setCreativeTab(WET.equals(false) ? CreativeTabs.BUILDING_BLOCKS : CreativeTabs.SEARCH);
     }
 
     /**

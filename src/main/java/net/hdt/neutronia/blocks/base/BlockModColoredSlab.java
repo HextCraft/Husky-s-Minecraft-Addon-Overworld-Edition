@@ -4,7 +4,6 @@ import net.hdt.huskylib2.block.BlockMetaVariants;
 import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.hdt.neutronia.items.ItemModBlockColoredSlab;
 import net.minecraft.block.Block;
@@ -17,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
@@ -63,7 +63,7 @@ public abstract class BlockModColoredSlab extends BlockSlab implements INeutroni
             setDefaultState(blockState.getBaseState().withProperty(HALF, EnumBlockHalf.BOTTOM));
         }
 
-        setCreativeTab(doubleSlab ? null : Neutronia.CREATIVE_TAB);
+        setCreativeTab(doubleSlab ? null : CreativeTabs.BUILDING_BLOCKS);
     }
 
     private static Material hacky(Material m, boolean doubleSlab) {

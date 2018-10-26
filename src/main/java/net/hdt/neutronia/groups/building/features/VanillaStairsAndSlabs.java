@@ -2,18 +2,20 @@ package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.block.BlockModStairs;
 import net.hdt.huskylib2.block.MRSlab;
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaStairsAndSlabs extends Component {
 
-    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks;
+    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine,
+            prismarineBricks, darkPrismarine, redNetherBricks, mossyStoneBrick, crackedStoneBrick, smoothSandstone,
+    chiseledSandstone, cutSandstone, smoothRedSandstone, chiseledRedSandstone, cutRedSandstone, mossyCobblestone;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, true, true, doit);
@@ -29,9 +31,8 @@ public class VanillaStairsAndSlabs extends Component {
         if (stairs)
             BlockModStairs.initStairs(block, meta, new BlockNeutroniaStairs(stairsName, state));
         if (slab) {
-            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-//            MRSlab doubleSlab = new MRSlab.Double("double_" + name + "_slab", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
-            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), Neutronia.CREATIVE_TAB, 0.0F);
+            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
+            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
             MRSlab.registerSlab(block,  meta, singleSlab, doubleSlab);
         }
     }
@@ -50,6 +51,15 @@ public class VanillaStairsAndSlabs extends Component {
         prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
         darkPrismarine = loadPropBool("Dark Prismarine", "", true);
         redNetherBricks = loadPropBool("Red Nether Brick", "", true);
+        mossyStoneBrick = loadPropBool("Red Nether Brick", "", true);
+        crackedStoneBrick = loadPropBool("Red Nether Brick", "", true);
+        smoothSandstone = loadPropBool("Smooth Sandstone", "", true);
+        chiseledSandstone = loadPropBool("Chiseled Sandstone", "", true);
+        cutSandstone = loadPropBool("Cut Sandstone", "", true);
+        smoothRedSandstone = loadPropBool("Smooth Red Sandstone", "", true);
+        chiseledRedSandstone = loadPropBool("Chiseled Red Sandstone", "", true);
+        cutRedSandstone = loadPropBool("Cut Red Sandstone", "", true);
+        mossyCobblestone = loadPropBool("Mossy Cobblestone", "", true);
     }
 
     @Override

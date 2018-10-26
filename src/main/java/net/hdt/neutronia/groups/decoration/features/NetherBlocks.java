@@ -11,9 +11,8 @@ import net.hdt.neutronia.groups.decoration.blocks.BlockNetherSponge;
 import net.hdt.neutronia.properties.EnumGlowingNetherBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import static net.hdt.neutronia.base.Neutronia.CREATIVE_TAB;
 
 public class NetherBlocks extends Component {
 
@@ -24,7 +23,7 @@ public class NetherBlocks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         // Nether Blocks
-        netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(CREATIVE_TAB);
+        netherGlass = new BlockGlassBase("nether_glass").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         netherRod = new BlockRodBase("nether_rod", true);
         netherSponge = new BlockNetherSponge();
         burnedBones = new BlockBurnedBones();
@@ -34,7 +33,7 @@ public class NetherBlocks extends Component {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNeutroniaHotGlowing(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
 
-        netherbrickPillar = new BlockNeutroniaPillar(Material.ROCK, "netherbrick_pillar").setCreativeTab(CREATIVE_TAB);
+        netherbrickPillar = new BlockNeutroniaPillar(Material.ROCK, "netherbrick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override

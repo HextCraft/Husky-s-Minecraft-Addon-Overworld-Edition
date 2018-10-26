@@ -8,6 +8,7 @@ import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -32,6 +33,7 @@ public abstract class BlockNeutroniaPressurePlate extends BlockPressurePlate imp
         variants = new String[]{bareName};
 
         setTranslationKey(bareName);
+        setCreativeTab(CreativeTabs.REDSTONE);
     }
 
     @Override

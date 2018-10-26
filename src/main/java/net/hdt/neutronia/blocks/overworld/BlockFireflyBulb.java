@@ -1,6 +1,5 @@
 package net.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.base.Neutronia;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.init.NBlocks;
 import net.minecraft.block.Block;
@@ -23,7 +22,7 @@ public class BlockFireflyBulb extends BlockNeutroniaBase {
     public BlockFireflyBulb(boolean isOn) {
         super(Material.ROCK, isOn ? "lit_firefly_bulb" : "firefly_bulb", false);
         this.isOn = isOn;
-        setCreativeTab(isOn ? CreativeTabs.SEARCH : Neutronia.CREATIVE_TAB);
+        setCreativeTab(isOn ? CreativeTabs.SEARCH : CreativeTabs.DECORATIONS);
         this.setLightLevel(isOn ? 1.0F : 0.0F);
         this.setTickRandomly(isOn);
     }
