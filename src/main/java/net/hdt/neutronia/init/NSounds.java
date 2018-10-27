@@ -119,6 +119,10 @@ public class NSounds {
     public static final SoundEvent ENTITY_TURTLE_SWIM;
     public static final SoundEvent ENTITY_ZOMBIE_CONVERT_TO_DROWNED;
     public static final SoundEvent ENTITY_ZOMBIE_DESTROY_EGG;
+    public static final SoundEvent WELL_WISHER_LAUGH;
+    public static final SoundEvent WELL_WISHER_I_CAN_HEAR_YOU_I_CAN_SMELL_YOU;
+    public static final SoundEvent WELL_WISHER_CRY_LAUGH;
+    public static final SoundEvent WELL_WISHER_I_GOT_YOU;
     private static List<SoundEvent> soundEvents = Lists.newArrayList();
 
     static {
@@ -227,6 +231,10 @@ public class NSounds {
         ENTITY_TURTLE_SWIM = registerSound("entity.turtle.swim");
         ENTITY_ZOMBIE_CONVERT_TO_DROWNED = registerSound("entity.zombie.converted_to_drowned");
         ENTITY_ZOMBIE_DESTROY_EGG = registerSound("entity.zombie.destroy_egg");
+        WELL_WISHER_LAUGH = registerSound("entity.well_wisher.laugh");
+        WELL_WISHER_I_CAN_HEAR_YOU_I_CAN_SMELL_YOU = registerSound("entity.well_wisher.i_can_hear_you_i_can_smell_you");
+        WELL_WISHER_CRY_LAUGH = registerSound("entity.well_wisher.dry_laugh");
+        WELL_WISHER_I_GOT_YOU = registerSound("entity.well_wisher.i_got_you");
     }
 
     private static SoundEvent registerSound(String name) {
@@ -237,9 +245,7 @@ public class NSounds {
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-        for (SoundEvent soundEvent : soundEvents) {
-            event.getRegistry().register(soundEvent);
-        }
+        for (SoundEvent soundEvent : soundEvents) event.getRegistry().register(soundEvent);
     }
 
 }

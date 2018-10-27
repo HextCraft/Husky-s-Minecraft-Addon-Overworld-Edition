@@ -1,0 +1,9 @@
+{
+  "entity.well_wisher.laugh": {
+    "category": "hostile",
+    "replace": false,
+    "sounds": [
+      "neutronia/wellWisher/laugh"
+    ]
+  }
+}
