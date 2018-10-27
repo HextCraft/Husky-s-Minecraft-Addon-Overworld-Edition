@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreePine;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreePine;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityRabbit;

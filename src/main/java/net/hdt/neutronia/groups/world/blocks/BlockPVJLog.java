@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockPVJLog extends BlockNeutroniaPillar
 {
-    public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
+    public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.create("axis", BlockLog.EnumAxis.class);
 
     public BlockPVJLog(String name)
     {
@@ -66,9 +66,9 @@ public class BlockPVJLog extends BlockNeutroniaPillar
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int i = 0;
+        int i;
 
-        switch ((BlockLog.EnumAxis)state.getValue(LOG_AXIS))
+        switch (state.getValue(LOG_AXIS))
         {
             case Y:
                 i = 0;

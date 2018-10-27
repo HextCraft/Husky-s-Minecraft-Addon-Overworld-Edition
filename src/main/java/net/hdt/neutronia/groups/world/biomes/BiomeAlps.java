@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenPatches;
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeTallSpruce;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenPatches;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeTallSpruce;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockSilverfish;
 import net.minecraft.block.BlockTallGrass;

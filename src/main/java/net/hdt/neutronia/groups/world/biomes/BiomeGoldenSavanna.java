@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenPatches;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenPatches;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;

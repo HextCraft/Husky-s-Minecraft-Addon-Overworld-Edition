@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockGlowingPlant extends BlockMidnightPlant {
-    
+
     public BlockGlowingPlant(String name) {
         super(name);
         this.setLightLevel(0.8F);

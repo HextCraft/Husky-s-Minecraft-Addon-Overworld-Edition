@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeOak;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeOak;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;

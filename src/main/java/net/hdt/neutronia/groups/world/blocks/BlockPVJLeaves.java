@@ -46,6 +46,18 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
         		.withProperty(DECAYABLE, Boolean.TRUE));
     }
 
+    public BlockPVJLeaves(String name)
+    {
+        super(name, Material.LEAVES);
+        this.setDefaultState(this.blockState.getBaseState()
+                .withProperty(CHECK_DECAY, Boolean.TRUE)
+                .withProperty(DECAYABLE, Boolean.TRUE));
+    }
+
+    public void setSapling(Block sapling) {
+        this.sapling = sapling;
+    }
+
     @Override
     protected BlockStateContainer createBlockState()
     {

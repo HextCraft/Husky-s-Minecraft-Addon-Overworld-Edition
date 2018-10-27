@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenPatches;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenPatches;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityStray;

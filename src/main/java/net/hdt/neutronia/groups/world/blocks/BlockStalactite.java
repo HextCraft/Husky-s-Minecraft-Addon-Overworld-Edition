@@ -16,11 +16,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -86,6 +89,23 @@ public class BlockStalactite extends BlockMod implements INeutroniaBlock {
 
     private int getBearing(IBlockAccess world, BlockPos pos) {
         return Math.max(getStrength(world, pos.down()), getStrength(world, pos.up()));
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        EnumFacing enumfacing = EnumFacing.random(rand);
+
+        if (enumfacing != EnumFacing.UP && !worldIn.getBlockState(pos.offset(enumfacing)).isTopSolid()) {
+            double d0 = (double)pos.getX();
+            double d1 = (double)pos.getY();
+            double d2 = (double)pos.getZ();
+
+            d1 = d1 - 0.05D;
+            d0 += rand.nextDouble();
+            d2 += rand.nextDouble();
+
+            worldIn.spawnParticle(EnumParticleTypes.DRIP_WATER, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
     }
 
     private int getStrength(IBlockAccess world, BlockPos pos) {

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world;
 
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenFallenTree;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenFallenTree;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

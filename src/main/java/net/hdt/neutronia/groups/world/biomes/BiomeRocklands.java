@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenLine;
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeShrubOak;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenLine;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeShrubOak;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.EntityZombieVillager;

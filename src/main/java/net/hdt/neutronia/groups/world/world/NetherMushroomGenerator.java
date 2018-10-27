@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.world;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenNetherMushroom;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenNetherMushroom;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;

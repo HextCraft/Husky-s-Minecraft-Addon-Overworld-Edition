@@ -1,8 +1,8 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenLine;
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeShrubSpruce;
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeTallSpruce;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenLine;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeShrubSpruce;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeTallSpruce;
 import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;

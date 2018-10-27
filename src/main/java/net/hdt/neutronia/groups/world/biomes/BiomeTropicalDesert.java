@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.world.world.gen.WorldGenPatches;
-import net.hdt.neutronia.groups.world.world.gen.tree.WorldGenTreeShrubJungle;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenPatches;
+import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenTreeShrubJungle;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityHusk;

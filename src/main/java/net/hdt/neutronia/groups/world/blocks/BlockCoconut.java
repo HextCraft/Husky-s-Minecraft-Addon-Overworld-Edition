@@ -30,7 +30,7 @@ public class BlockCoconut extends BlockMod implements INeutroniaBlock
     public boolean canBlockStay(World worldIn, BlockPos pos)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos.up());
-        return iblockstate.getBlock() == PalmTrees.palmLeaf;
+        return iblockstate.getBlock() == PalmTrees.palmLeaves;
     }
 
 	@Override

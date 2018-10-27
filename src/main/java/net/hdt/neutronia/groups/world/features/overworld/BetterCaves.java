@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.world.world.gen.WorldGenNewCave;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenNewCave;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 

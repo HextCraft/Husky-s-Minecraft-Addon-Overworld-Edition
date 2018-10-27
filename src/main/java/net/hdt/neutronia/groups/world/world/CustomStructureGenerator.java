@@ -1,7 +1,7 @@
 package net.hdt.neutronia.groups.world.world;
 
 import com.google.common.collect.Lists;
-import net.hdt.neutronia.groups.world.world.gen.WorldGenStructure;
+import net.hdt.neutronia.groups.world.world.gen.features.WorldGenStructure;
 import net.minecraft.block.Block;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
