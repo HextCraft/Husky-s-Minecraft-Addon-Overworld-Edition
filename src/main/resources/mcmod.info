@@ -10,6 +10,9 @@
     ],
     "credits": "Thanks to Nox, AguilaPapi, snake, YoshiSalad, Paul, Zontic, Igrek, bee, VampireRedEye, Endergized, MCvinnyq and Pugz for their awesome art. Also Mistral__ for the amazing logo and banner he made :) And Axoladdy and KingVampyre for their awesome ideas. Thanks to MCvinnyq, cybercat5555 and AguilaPapi for their amazing entity models",
     "logoFile": "/assets/neutronia/textures/logo_halloween.png",
-    "url": "https://github.com/HuskysDevelopmentTeam/Neutronia"
+    "url": "https://github.com/HuskysDevelopmentTeam/Neutronia",
+    "dependencies": [
+        "huskylib2"
+    ]
   }
 ]
