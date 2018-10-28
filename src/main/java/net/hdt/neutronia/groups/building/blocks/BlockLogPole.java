@@ -85,7 +85,7 @@ public class BlockLogPole extends BlockRodBase {
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (playerIn.getActiveItemStack() == new ItemStack(Items.WOODEN_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.STONE_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.IRON_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.GOLDEN_AXE) || playerIn.getActiveItemStack() == new ItemStack(Items.DIAMOND_AXE) || playerIn.getActiveItemStack() == new ItemStack(NItems.OBSIDIAN_AXE) && hand == EnumHand.MAIN_HAND) {
+        if (playerIn.getActiveItemStack().equals(new ItemStack(Items.WOODEN_AXE)) || playerIn.getActiveItemStack().equals(new ItemStack(Items.STONE_AXE)) || playerIn.getActiveItemStack().equals(new ItemStack(Items.IRON_AXE)) || playerIn.getActiveItemStack().equals(new ItemStack(Items.GOLDEN_AXE)) || playerIn.getActiveItemStack().equals(new ItemStack(Items.DIAMOND_AXE)) /*|| playerIn.getActiveItemStack().equals(new ItemStack(NItems.OBSIDIAN_AXE))*/ && hand == EnumHand.MAIN_HAND) {
             if (worldIn.getBlockState(pos) == LogBlocks.logPoles[type.getMetadata()].getDefaultState()) {
                 worldIn.setBlockState(pos, LogBlocks.strippedLogPoles[type.getMetadata()].getDefaultState(), 2);
                 worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(NItems.barkItem[type.getMetadata()], 4)));
