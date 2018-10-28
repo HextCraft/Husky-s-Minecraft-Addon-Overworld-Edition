@@ -233,7 +233,7 @@ public class NSounds {
         ENTITY_ZOMBIE_DESTROY_EGG = registerSound("entity.zombie.destroy_egg");
         WELL_WISHER_LAUGH = registerSound("entity.well_wisher.laugh");
         WELL_WISHER_I_CAN_HEAR_YOU_I_CAN_SMELL_YOU = registerSound("entity.well_wisher.i_can_hear_you_i_can_smell_you");
-        WELL_WISHER_CRY_LAUGH = registerSound("entity.well_wisher.dry_laugh");
+        WELL_WISHER_CRY_LAUGH = registerSound("entity.well_wisher.cry_laugh");
         WELL_WISHER_I_GOT_YOU = registerSound("entity.well_wisher.i_got_you");
     }
 

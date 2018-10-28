@@ -3,7 +3,28 @@
     "category": "hostile",
     "replace": false,
     "sounds": [
-      "neutronia/wellWisher/laugh"
+      "neutronia:well_wisher/laugh"
+    ]
+  },
+  "entity.well_wisher.i_can_hear_you_i_can_smell_you": {
+    "category": "hostile",
+    "replace": false,
+    "sounds": [
+      "neutronia:well_wisher/i_can_hear_you_i_can_smell_you"
+    ]
+  },
+  "entity.well_wisher.cry_laugh": {
+    "category": "hostile",
+    "replace": false,
+    "sounds": [
+      "neutronia:well_wisher/cry_laugh"
+    ]
+  },
+  "entity.well_wisher.i_got_you": {
+    "category": "hostile",
+    "replace": false,
+    "sounds": [
+      "neutronia:well_wisher/i_got_you"
     ]
   }
 }
