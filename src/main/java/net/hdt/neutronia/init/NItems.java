@@ -3,10 +3,6 @@ package net.hdt.neutronia.init;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.items.*;
-import net.hdt.neutronia.items.base.tools.BaseAxe;
-import net.hdt.neutronia.items.base.tools.BasePickaxe;
-import net.hdt.neutronia.items.base.tools.BaseShovel;
-import net.hdt.neutronia.items.base.tools.BaseSword;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
@@ -31,7 +27,7 @@ public class NItems {
     public static final Item ancientSword, bandage/*, witherBone, witherBonemeal*/,
             phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
 
-    public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
+//    public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
 
     public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
     public static final Item BIRCH_HELMET, BIRCH_CHESTPLATE, BIRCH_LEGGINGS, BIRCH_BOOTS;
@@ -71,10 +67,10 @@ public class NItems {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
 
-        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSIDIAN);
-        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSIDIAN);
-        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSIDIAN);
-        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSIDIAN);
+//        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSIDIAN);
+//        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSIDIAN);
+//        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSIDIAN);
+//        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSIDIAN);
 
         ACACIA_HELMET = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.HEAD);
         ACACIA_CHESTPLATE = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.CHEST);
