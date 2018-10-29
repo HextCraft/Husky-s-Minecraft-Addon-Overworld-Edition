@@ -30,12 +30,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityYetiGolem extends EntityGolem {
+public class EntityYeti extends EntityGolem {
 
     private static final DataParameter<Byte> PLAYER_CREATED = EntityDataManager.createKey(EntitySteampunkGolem.class, DataSerializers.BYTE);
     private int attackTimer;
 
-    public EntityYetiGolem(World worldIn) {
+    public EntityYeti(World worldIn) {
         super(worldIn);
         this.setSize(1.4F, 2.7F);
     }

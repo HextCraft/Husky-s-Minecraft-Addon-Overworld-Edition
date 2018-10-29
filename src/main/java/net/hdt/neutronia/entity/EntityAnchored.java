@@ -44,8 +44,6 @@ import java.util.Random;
 public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
 
     public static final DataParameter<Boolean> ARMS_RAISED = EntityDataManager.createKey(EntityAnchored.class, DataSerializers.BOOLEAN);
-    private final PathNavigateSwimmer pathNavigateSwimmer;
-    private final PathNavigateGround pathNavigateGround;
     private boolean field_204718_bx;
 
     public EntityAnchored(World worldIn) {
@@ -53,14 +51,8 @@ public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
         this.setSize(0.6F, 1.95F);
         this.stepHeight = 1.0F;
         this.moveHelper = new EntityAnchored.MoveHelper(this);
-        this.setPathPriority(PathNodeType.WATER, 0.0F);
-        this.pathNavigateSwimmer = new PathNavigateSwimmer(this, worldIn);
-        this.pathNavigateGround = new PathNavigateGround(this, worldIn);
+        this.setPathPriority(PathNodeType.WATER, 8.0F);
         setBreakDoorsAItask(false);
-    }
-
-    protected boolean canBreakDoors() {
-        return false;
     }
 
     @Override
@@ -142,19 +134,6 @@ public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
 
     public boolean isPushedByWater() {
         return false;
-    }
-
-    @Override
-    public boolean attackEntityAsMob(Entity entityIn) {
-        boolean flag = super.attackEntityAsMob(entityIn);
-
-        if (flag) {
-            float f = this.world.getDifficultyForLocation(new BlockPos(this)).getAdditionalDifficulty();
-
-            if (this.getHeldItemMainhand().isEmpty() && this.isBurning() && this.rand.nextFloat() < f * 0.3F)
-                entityIn.setFire(2 * (int) f);
-        }
-        return flag;
     }
 
     /**
@@ -364,7 +343,6 @@ public class EntityAnchored extends EntityZombie implements IRangedAttackMob {
 
         public void startExecuting() {
             this.drownedIn.setSwingingArms(false);
-            this.drownedIn.navigator = this.drownedIn.pathNavigateGround;
             super.startExecuting();
         }
 

@@ -63,7 +63,7 @@ public class NEntities {
 //                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("pharaoh_golem").entity(EntityPharaohGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("ancient_golem").entity(EntityAncientGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("yeti_golem").entity(EntityYetiGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("yeti_golem").entity(EntityYeti.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0, 0).build(),
                 createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),
@@ -115,7 +115,7 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityInferno.class, RenderInferno::new);
 //        RenderingRegistry.registerEntityRenderingHandler(EntityAnchored.class, RenderAnchored::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLostMiner.class, RenderLostMiner::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityYetiGolem.class, RenderYetiGolem::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityYeti.class, RenderYetiGolem::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySteampunkGolem.class, RenderSteampunkGolem::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityPharaohGolem.class, RenderPharaoGolem::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityForsakenDiver.class, RenderForsakenDiver::new);

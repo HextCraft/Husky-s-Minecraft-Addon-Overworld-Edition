@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.render.model;
 
-import net.hdt.neutronia.entity.EntityYetiGolem;
+import net.hdt.neutronia.entity.EntityYeti;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -101,7 +101,7 @@ public class ModelYetiGolem extends ModelBase {
      * and third as in the setRotationAngles method.
      */
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
-        EntityYetiGolem entityirongolem = (EntityYetiGolem) entitylivingbaseIn;
+        EntityYeti entityirongolem = (EntityYeti) entitylivingbaseIn;
         int i = entityirongolem.getAttackTimer();
 
         if (i > 0) {

@@ -1,6 +1,6 @@
 package net.hdt.neutronia.entity.render;
 
-import net.hdt.neutronia.entity.EntityYetiGolem;
+import net.hdt.neutronia.entity.EntityYeti;
 import net.hdt.neutronia.entity.render.model.ModelYetiGolem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class RenderYetiGolem extends RenderLiving<EntityYetiGolem> {
+public class RenderYetiGolem extends RenderLiving<EntityYeti> {
 
     private static final ResourceLocation IRON_GOLEM_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/golems/yeti_golem.png");
 
@@ -20,11 +20,11 @@ public class RenderYetiGolem extends RenderLiving<EntityYetiGolem> {
     /**
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
-    protected ResourceLocation getEntityTexture(EntityYetiGolem entity) {
+    protected ResourceLocation getEntityTexture(EntityYeti entity) {
         return IRON_GOLEM_TEXTURES;
     }
 
-    protected void applyRotations(EntityYetiGolem entityLiving, float p_77043_2_, float rotationYaw, float partialTicks) {
+    protected void applyRotations(EntityYeti entityLiving, float p_77043_2_, float rotationYaw, float partialTicks) {
         super.applyRotations(entityLiving, p_77043_2_, rotationYaw, partialTicks);
 
         if ((double) entityLiving.limbSwingAmount >= 0.01D) {
