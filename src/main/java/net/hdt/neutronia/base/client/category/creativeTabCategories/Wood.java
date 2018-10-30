@@ -19,10 +19,10 @@ public class Wood extends AbstractCreativeCategory {
 
     @Override
     public void init() {
-        add(LogBlocks.strippedLogPoles);
-        add(LogBlocks.logPoles);
+//        add(LogBlocks.strippedLogPoles);
+//        add(LogBlocks.logPoles);
         add(LogBlocks.strippedLogs);
-        add(LogBlocks.plankPoles);
+//        add(LogBlocks.plankPoles);
 //        add(LogBlocks.logDowels);
 //        add(LogBlocks.strippedLogDowels);
         add(WoodBlocks.barkBlocks);

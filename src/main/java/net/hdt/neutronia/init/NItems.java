@@ -15,8 +15,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class NItems {
 
-    public static final Item.ToolMaterial OBSIDIAN = EnumHelper.addToolMaterial("obsidian", 3, 1561 * 2, 10F, 6.0F, 22);
-
     public static final ItemArmor.ArmorMaterial ACACIA_ARMOR = EnumHelper.addArmorMaterial("acacia", "acacia", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor.ArmorMaterial DARK_OAK_ARMOR = EnumHelper.addArmorMaterial("dark_oak", "big_oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor.ArmorMaterial BIRCH_ARMOR = EnumHelper.addArmorMaterial("birch", "birch", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
@@ -26,8 +24,6 @@ public class NItems {
 
     public static final Item ancientSword, bandage/*, witherBone, witherBonemeal*/,
             phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
-
-//    public static final Item OBSIDIAN_AXE, OBSIDIAN_PICKAXE, OBSIDIAN_SHOVEL, OBSIDIAN_SWORD;
 
     public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
     public static final Item BIRCH_HELMET, BIRCH_CHESTPLATE, BIRCH_LEGGINGS, BIRCH_BOOTS;
@@ -66,11 +62,6 @@ public class NItems {
         logStripper = new ItemNeutroniaBase("log_stripper");
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
-
-//        OBSIDIAN_AXE = new BaseAxe("obsidian_axe", OBSIDIAN);
-//        OBSIDIAN_PICKAXE = new BasePickaxe("obsidian_pickaxe", OBSIDIAN);
-//        OBSIDIAN_SHOVEL = new BaseShovel("obsidian_shovel", OBSIDIAN);
-//        OBSIDIAN_SWORD = new BaseSword("obsidian_sword", OBSIDIAN);
 
         ACACIA_HELMET = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.HEAD);
         ACACIA_CHESTPLATE = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.CHEST);

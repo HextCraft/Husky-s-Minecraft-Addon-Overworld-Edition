@@ -43,7 +43,6 @@ public class NGroups {
                 .addComponent(new MoreStoneBlocks())
                 .addComponent(new VanillaStairsAndSlabs())
                 .addComponent(new VanillaWalls())
-                .addComponent(new VerticalSlabs())
                 .addComponent(new WoodBlocks())
                 .addComponent(new WorldStoneBricks())
                 .addComponent(new SoulStone())
@@ -62,9 +61,6 @@ public class NGroups {
                 .addComponent(new ShulkerBoxTooltip())
                 .addComponent(new VisualStatDisplay())
                 .addComponent(new ConsoleHudFeatures())
-                .addComponent(new PastelColors())
-                .addComponent(new BetterEndTextures())
-//                .addComponent(new MoreDetailedModels())
                 .enabled(isClient())
                 .enabledByDefault(isClient())
                 .register();
@@ -77,16 +73,20 @@ public class NGroups {
                 .addComponent(new CenteredGlazedTerracotta())
                 .addComponent(new CharcoalBlock())
                 .addComponent(new ChiseledBlocks())
-//                .addComponent(new ColoredPlanks())
-//                .addComponent(new ColoredCandles())
-//                .addComponent(new ColoredRedstoneLamps())
-//                .addComponent(new ColoredSlimeBlocks())
-//                .addComponent(new CutGlazedTerracotta())
+
+                .addComponent(new ColoredPlanks(), false)
+                .addComponent(new ColoredCandles(), false)
+                .addComponent(new ColoredRedstoneLamps(), false)
+                .addComponent(new ColoredSlimeBlocks(), false)
+                .addComponent(new CutGlazedTerracotta(), false)
+
                 .addComponent(new DecorativeAquamarine())
-//                .addComponent(new DecorativeCorals())
-//                .addComponent(new FrostedBlocks())
-//                .addComponent(new GlazedTerracottaPillar())
-//                .addComponent(new GlazedTerracottaStripes())
+
+                .addComponent(new DecorativeCorals(), false)
+                .addComponent(new FrostedBlocks(), false)
+                .addComponent(new GlazedTerracottaPillar(), false)
+                .addComponent(new GlazedTerracottaStripes(), false)
+
                 .addComponent(new LogFenceAndWall())
                 .addComponent(new MetalAndMineralBricks())
                 .addComponent(new MetalAndMineralPillars())
@@ -95,7 +95,9 @@ public class NGroups {
                 .addComponent(new NetherBlocks())
                 .addComponent(new SmoothBlocks())
                 .addComponent(new MorePillars())
-//                .addComponent(new TerracottaFlowerPots())
+
+                .addComponent(new TerracottaFlowerPots(), false)
+
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
                 .addComponent(new VariedTrapdoors())

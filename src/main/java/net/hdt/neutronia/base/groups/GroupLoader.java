@@ -1,7 +1,6 @@
 package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.base.lib.LibMisc;
-import net.hdt.neutronia.base.util.Reference;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -83,7 +82,7 @@ public final class GroupLoader {
 
         loadConfig();
 
-        forEachEnabledGroup(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
+//        forEachEnabledGroup(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
 
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }

@@ -9,14 +9,14 @@
   ],
   "key": {
     "B": {
-      "item": "neutronia:acacia_bark_item"
+      "item": "neutronia:jungle_bark_item"
     },
     "L": {
-      "item": "neutronia:stripped_acacia_log"
+      "item": "neutronia:stripped_jungle_log"
     }
   },
   "result": {
-    "item": "neutronia:acacia_bark",
+    "item": "neutronia:jungle_wood",
     "count": 4
   }
 }

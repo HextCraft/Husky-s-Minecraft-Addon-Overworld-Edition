@@ -40,8 +40,10 @@ public class Group implements Comparable<Group> {
         this.desc = builder.desc;
         this.enabled = builder.enabled;
         this.enabledByDefault = builder.enabledByDefault;
-        for (Component component : builder.components) {
-            registerComponent(component, component.enabledByDefault);
+        for (Component component : builder.components.keySet()) {
+            for (boolean enabled : builder.components.values()) {
+                registerComponent(component, enabled);
+            }
         }
     }
 
@@ -50,7 +52,7 @@ public class Group implements Comparable<Group> {
     }
 
     public void addComponents() {
-        // NO-OP
+
     }
 
     public void registerComponent(Component component, boolean enabledByDefault) {
@@ -250,7 +252,7 @@ public class Group implements Comparable<Group> {
         private ItemStack icon;
         private Group group;
         private boolean enabled, enabledByDefault;
-        private List<Component> components = new ArrayList<>();
+        private Map<Component, Boolean> components = new HashMap<>();
 
         public Builder name(String name) {
             this.name = name;
@@ -263,7 +265,12 @@ public class Group implements Comparable<Group> {
         }
 
         public Builder addComponent(Component component) {
-            components.add(component);
+            components.put(component, true);
+            return this;
+        }
+
+        public Builder addComponent(Component component, boolean enabled) {
+            components.put(component, enabled);
             return this;
         }
 

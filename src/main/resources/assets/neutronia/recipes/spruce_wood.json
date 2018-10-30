@@ -9,14 +9,14 @@
   ],
   "key": {
     "B": {
-      "item": "neutronia:dark_oak_bark_item"
+      "item": "neutronia:spruce_bark_item"
     },
     "L": {
-      "item": "neutronia:stripped_dark_oak_log"
+      "item": "neutronia:stripped_spruce_log"
     }
   },
   "result": {
-    "item": "neutronia:dark_oak_bark",
+    "item": "neutronia:spruce_wood",
     "count": 4
   }
 }
