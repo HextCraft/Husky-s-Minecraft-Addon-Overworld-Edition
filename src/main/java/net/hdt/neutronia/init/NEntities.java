@@ -37,7 +37,7 @@ public class NEntities {
                 createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("owl").entity(EntityOwl.class).tracker(48, 3, true).egg(0xFFFFFF, 0xFF0FFF).build(),
                 createBuilder("snake").entity(EntitySnake.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
-//                createBuilder("mammoth")e
+//                createBuilder("mammoth")
 //                createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
 //                createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
 //                createBuilder("ender_phantom").entity(EntityEnderPhantom.class).tracker(80, 3, true).egg(0x352D56, 0x8C9579).build(),
@@ -54,18 +54,14 @@ public class NEntities {
                 createBuilder("bird").entity(EntityBird.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("fox").entity(EntityFox.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("arctic_wolf").entity(EntityArcticWolf.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
-                createBuilder("mushroom_shroom_glutton").entity(EntityMushroomShroomGlutton.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("well_wisher").entity(EntityWellWisher.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("ol_diggy").entity(EntityOlDiggy.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
                 createBuilder("sea_swallowed_captain").entity(EntitySeaSwallowedCaptain.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
 //                createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("pharaoh_golem").entity(EntityPharaohGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("ancient_golem").entity(EntityAncientGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("yeti_golem").entity(EntityYeti.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("yeti").entity(EntityYeti.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0, 0).build(),
-                createBuilder("steampunk_golem").entity(EntitySteampunkGolem.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),
                 createBuilder("black_bear").entity(EntityBlackBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
                 createBuilder("grizzly_bear").entity(EntityGrizzlyBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
@@ -107,17 +103,13 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityMummyVillager.class, RenderMummyVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrowned.class, RenderDrowned::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityClayGolem.class, RenderClayGolem::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityAncientGolem.class, RenderAncientGolem::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBloodPhantom.class, RenderRedPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderPhantom.class, RenderEnderPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityShadowPhantom.class, RenderShadowPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityInferno.class, RenderInferno::new);
 //        RenderingRegistry.registerEntityRenderingHandler(EntityAnchored.class, RenderAnchored::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLostMiner.class, RenderLostMiner::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityYeti.class, RenderYetiGolem::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntitySteampunkGolem.class, RenderSteampunkGolem::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityPharaohGolem.class, RenderPharaoGolem::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityYeti.class, RenderYeti::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityForsakenDiver.class, RenderForsakenDiver::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityScubaVillager.class, RenderScubaVillager::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrownedScubaVillager.class, RenderDrownedScubaVillager::new);
@@ -127,7 +119,6 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityArcticWolf.class, RenderArcticWolf::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityFox.class, RenderFox::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBird.class, RenderBird::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityMushroomShroomGlutton.class, RenderMushroomShroomGlutton::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySeaSwallowedCaptain.class, RenderSeaSwallowedCaptain::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityOlDiggy.class, RenderOlDiggy::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityWellWisher.class, RenderWellWisher::new);
