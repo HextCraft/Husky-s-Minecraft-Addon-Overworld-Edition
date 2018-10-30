@@ -40,6 +40,7 @@ public class NGroups {
                 .description("This group adds new structural building blocks and building utensils.")
                 .iconStack(new ItemStack(Blocks.BRICK_BLOCK))
                 .addComponent(new LogBlocks())
+                .addComponent(new LogPiles())
                 .addComponent(new MoreStoneBlocks())
                 .addComponent(new VanillaStairsAndSlabs())
                 .addComponent(new VanillaWalls())
@@ -247,6 +248,8 @@ public class NGroups {
 //                .addComponent(new Stalactite())
 //                .addComponent(new Stalagmite())
                 .addComponent(new VariedDungeons())
+                .addComponent(new WillowTree())
+                .addComponent(new WorldDecorationFeatures())
                 .enabled(true)
                 .enabledByDefault(true)
                 .register();
