@@ -9,11 +9,11 @@ import net.minecraft.util.ResourceLocation;
 
 import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
-public class RenderYetiGolem extends RenderLiving<EntityYeti> {
+public class RenderYeti extends RenderLiving<EntityYeti> {
 
     private static final ResourceLocation IRON_GOLEM_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/golems/yeti_golem.png");
 
-    public RenderYetiGolem(RenderManager renderManagerIn) {
+    public RenderYeti(RenderManager renderManagerIn) {
         super(renderManagerIn, new ModelYetiGolem(), 0.5F);
     }
 
