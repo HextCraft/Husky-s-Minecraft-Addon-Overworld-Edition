@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:block/cherry_planks"
+      "all": "neutronia:block/stick_block"
     },
     "transform": "forge:default-block"
   },

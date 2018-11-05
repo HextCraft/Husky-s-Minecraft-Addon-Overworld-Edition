@@ -112,4 +112,5 @@ public class VanillaWalls extends Component {
     public interface WallSupplier {
         BlockNeutroniaWall supply(String wallName, IBlockState state);
     }
+
 }

@@ -13,7 +13,7 @@ import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
 import net.hdt.neutronia.groups.vanity.feature.SimplerHorseModel;
-import net.hdt.neutronia.groups.vanity.feature.SitInStairs;
+import net.hdt.neutronia.groups.vanity.feature.SitOnStairsAndSlabs;
 import net.hdt.neutronia.groups.world.features.end.Acidian;
 import net.hdt.neutronia.groups.world.features.end.PurhoganyWood;
 import net.hdt.neutronia.groups.world.features.nether.NetherFossils;
@@ -32,14 +32,18 @@ import java.time.Month;
 
 public class NGroups {
 
-    public static Group building, client, decoration, dimensions, earlyGame, experimental, holidays, misc, seasons, tweaks, vanity, world;
+    public static Group building, client, craftingExtenbsion, decoration, dimensions, earlyGame, experimental, holidays, misc, seasons, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
                 .name("Building")
                 .description("This group adds new structural building blocks and building utensils.")
                 .iconStack(new ItemStack(Blocks.BRICK_BLOCK))
+                .addComponent(new CarvedPlanks())
+                .addComponent(new ColoredPlanks(), false)
+                .addComponent(new FrostedBlocks(), false)
                 .addComponent(new LogBlocks())
+                .addComponent(new LogFenceAndWall())
                 .addComponent(new LogPiles())
                 .addComponent(new MoreStoneBlocks())
                 .addComponent(new VanillaStairsAndSlabs())
@@ -70,12 +74,10 @@ public class NGroups {
                 .name("Decoration")
                 .description("This group adds new decorative building blocks and improves vanilla ones.")
                 .iconStack(new ItemStack(Blocks.RED_FLOWER))
-                .addComponent(new CarvedPlanks())
                 .addComponent(new CenteredGlazedTerracotta())
                 .addComponent(new CharcoalBlock())
                 .addComponent(new ChiseledBlocks())
 
-                .addComponent(new ColoredPlanks(), false)
                 .addComponent(new ColoredCandles(), false)
                 .addComponent(new ColoredRedstoneLamps(), false)
                 .addComponent(new ColoredSlimeBlocks(), false)
@@ -84,11 +86,9 @@ public class NGroups {
                 .addComponent(new DecorativeAquamarine())
 
                 .addComponent(new DecorativeCorals(), false)
-                .addComponent(new FrostedBlocks(), false)
                 .addComponent(new GlazedTerracottaPillar(), false)
                 .addComponent(new GlazedTerracottaStripes(), false)
 
-                .addComponent(new LogFenceAndWall())
                 .addComponent(new MetalAndMineralBricks())
                 .addComponent(new MetalAndMineralPillars())
                 .addComponent(new MoreBanners())
@@ -194,12 +194,9 @@ public class NGroups {
                 .addComponent(new AnimalBirth())
                 .addComponent(new BabyJumping())
                 .addComponent(new BetterBlockHardness())
-                .addComponent(new CactusSkeleton())
                 .addComponent(new EnchantmentTooltip())
                 .addComponent(new EquipmentDrop())
                 .addComponent(new GrassPath())
-                .addComponent(new HCMovement())
-//                .addComponent(new HCTools())
                 .addComponent(new ImprovedFlee())
                 .addComponent(new MobEating())
                 .addComponent(new MoreTempting())
@@ -222,7 +219,7 @@ public class NGroups {
                 .iconStack(new ItemStack(Items.LEATHER_HELMET))
                 .addComponent(new DyableElytra())
                 .addComponent(new DyeItemNames())
-                .addComponent(new SitInStairs())
+                .addComponent(new SitOnStairsAndSlabs())
                 .addComponent(new SimplerHorseModel())
                 .enabledByDefault(true)
                 .register();

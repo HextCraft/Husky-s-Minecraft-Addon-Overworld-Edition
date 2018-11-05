@@ -24,9 +24,4 @@ public class ColoredCandles extends Component {
         return true;
     }
 
-    @Override
-    public boolean isEnabledByDefault() {
-        return true;
-    }
-
 }

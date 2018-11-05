@@ -31,11 +31,11 @@ public class ConfigFileGenerator {
         for (Component component : group.components.values()) {
             feature.addProperty("name", component.getComponentInGameConfigName());
             feature.addProperty("description", component.getFeatureDescription());
-
-            JsonArray features = new JsonArray();
-            features.add(feature);
-            root.add("features", features);
         }
+
+        JsonArray features = new JsonArray();
+        features.add(feature);
+        root.add("features", features);
 
         String json = gson.toJson(root);
 

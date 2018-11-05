@@ -22,9 +22,4 @@ public class ColoredSlimeBlocks extends Component {
         return true;
     }
 
-    @Override
-    public boolean isEnabledByDefault() {
-        return true;
-    }
-
 }

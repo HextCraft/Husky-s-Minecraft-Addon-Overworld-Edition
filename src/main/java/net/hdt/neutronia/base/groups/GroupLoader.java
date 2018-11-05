@@ -82,8 +82,6 @@ public final class GroupLoader {
 
         loadConfig();
 
-//        forEachEnabledGroup(group -> new ConfigFileGenerator(new File(Reference.CONFIG_DIRECTORY + "/Neutronia/groups/" + group.name.toLowerCase().replace(" ", "_"), "main.json"), group));
-
         MinecraftForge.EVENT_BUS.register(new ChangeListener());
     }
 
@@ -111,7 +109,7 @@ public final class GroupLoader {
     }
 
     public static boolean isFeatureEnabled(Class<? extends Component> clazz) {
-        return componentInstances.get(clazz).enabled;
+        return componentInstances.get(clazz).stateManager.enabled;
     }
 
     private static void forEachGroup(Consumer<Group> consumer) {

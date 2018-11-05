@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/palm_log_top",
-      "side": "neutronia:block/palm_log"
+      "end": "neutronia:block/cherry_log_top",
+      "side": "neutronia:block/cherry_log"
     },
     "transform": "forge:default-block"
   },

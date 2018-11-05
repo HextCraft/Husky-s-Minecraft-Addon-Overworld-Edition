@@ -21,6 +21,21 @@ public class WillowTree extends Component {
         willowLeaves.setSapling(willowSapling);
     }
 
+    /*@SubscribeEvent
+    public void onChunkDecorate(DecorateBiomeEvent.Decorate event) {
+        if(event.getWorld().getBiome(Objects.requireNonNull(event.getPlacementPos())) == Biomes.SWAMPLAND) {
+            if(event.getType() == DecorateBiomeEvent.Decorate.EventType.TREE) {
+                event.setResult(Event.Result.DENY);
+                new WorldGenWillowTree().generate(event.getWorld(), event.getRand(), event.getPlacementPos());
+            }
+        }
+    }
+
+    @Override
+    public boolean hasTerrainSubscriptions() {
+        return true;
+    }*/
+
     @Override
     public boolean hasSubscriptions() {
         return true;

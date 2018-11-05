@@ -31,10 +31,6 @@ public class VisibleStorms extends Component {
     private float desiredRed, desiredGreen, desiredBlue;
     private float desiredDistance, desiredDistanceScale;
 
-    public VisibleStorms() {
-        super(false);
-    }
-
     @SideOnly(Side.CLIENT)
     private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale) {
         if (fogMode < 0) {
@@ -134,7 +130,6 @@ public class VisibleStorms extends Component {
         if (Math.abs(fogEvent.getFarPlaneDistance() - currentDistance) > 0.001f)
             renderFog(fogEvent.getFogMode(), currentDistance, currentDistanceScale);
 
-        //renderFog(fogEvent.getFogMode(),fogEvent.getFarPlaneDistance(),-1.0f);
     }
 
     @SideOnly(Side.CLIENT)

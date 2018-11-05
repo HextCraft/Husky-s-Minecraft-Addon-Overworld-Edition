@@ -28,31 +28,18 @@ public class Group implements Comparable<Group> {
     public Property prop;
     private ItemStack iconStack;
 
-    public Group() {
-        name = "This is a missing name";
-        desc = "This is a missing description text since this component does not have a description defined";
-        enabled = true;
-        enabledByDefault = true;
-    }
-
     public Group(Builder builder) {
         this.name = builder.name;
         this.desc = builder.desc;
         this.enabled = builder.enabled;
         this.enabledByDefault = builder.enabledByDefault;
-        for (Component component : builder.components.keySet()) {
-            for (boolean enabled : builder.components.values()) {
-                registerComponent(component, enabled);
-            }
+        for (Component component : builder.components) {
+            registerComponent(component, component.stateManager.enabledByDefault);
         }
     }
 
     public static Builder builder() {
         return new Builder();
-    }
-
-    public void addComponents() {
-
     }
 
     public void registerComponent(Component component, boolean enabledByDefault) {
@@ -72,7 +59,7 @@ public class Group implements Comparable<Group> {
         GroupLoader.componentInstances.put(clazz, component);
         components.put(name, component);
 
-        component.enabledByDefault = enabledByDefault;
+        component.stateManager.enabledByDefault = enabledByDefault;
         component.prevEnabled = false;
 
         component.group = this;
@@ -83,7 +70,7 @@ public class Group implements Comparable<Group> {
     public void setupConfig() {
         forEachComponent(component -> {
             ConfigHelper.needsRestart = component.requiresMinecraftRestartToEnable();
-            component.enabled = loadPropBool(component.configName, component.getFeatureDescription(), component.enabledByDefault) && enabled;
+            component.stateManager.enabled = loadPropBool(component.configName, component.getFeatureDescription(), component.stateManager.enabledByDefault) && enabled;
             component.prop = ConfigHelper.lastProp;
 
             component.setupConstantConfig();
@@ -95,7 +82,7 @@ public class Group implements Comparable<Group> {
 
                     for (String s : incompatibilities)
                         if (Loader.isModLoaded(s)) {
-                            component.enabled = false;
+                            component.stateManager.enabled = false;
                             failiures.add(s);
                         }
 
@@ -105,18 +92,18 @@ public class Group implements Comparable<Group> {
             }
 
             if (!component.loadtimeDone) {
-                component.enabledAtLoadtime = component.enabled;
+                component.enabledAtLoadtime = component.stateManager.enabled;
                 component.loadtimeDone = true;
             }
 
-            if (component.enabled && !enabledComponents.contains(component))
+            if (component.stateManager.enabled && !enabledComponents.contains(component))
                 enabledComponents.add(component);
-            else if (!component.enabled)
+            else if (!component.stateManager.enabled)
                 enabledComponents.remove(component);
 
             component.setupConfig();
 
-            if (!component.enabled && component.prevEnabled) {
+            if (!component.stateManager.enabled && component.prevEnabled) {
                 if (component.hasSubscriptions())
                     MinecraftForge.EVENT_BUS.unregister(component);
                 if (component.hasTerrainSubscriptions())
@@ -124,7 +111,7 @@ public class Group implements Comparable<Group> {
                 if (component.hasOreGenSubscriptions())
                     MinecraftForge.ORE_GEN_BUS.unregister(component);
                 component.onDisabled();
-            } else if (component.enabled && (component.enabledAtLoadtime || !component.requiresMinecraftRestartToEnable()) && !component.prevEnabled) {
+            } else if (component.stateManager.enabled && (component.enabledAtLoadtime || !component.requiresMinecraftRestartToEnable()) && !component.prevEnabled) {
                 if (component.hasSubscriptions())
                     MinecraftForge.EVENT_BUS.register(component);
                 if (component.hasTerrainSubscriptions())
@@ -134,7 +121,7 @@ public class Group implements Comparable<Group> {
                 component.onEnabled();
             }
 
-            component.prevEnabled = component.enabled;
+            component.prevEnabled = component.stateManager.enabled;
         });
     }
 
@@ -197,14 +184,6 @@ public class Group implements Comparable<Group> {
         }
     }
 
-    public void setIconStack(ItemStack stack) {
-        this.iconStack = stack;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public void forEachComponent(Consumer<Component> consumer) {
         components.values().forEach(consumer);
     }
@@ -252,7 +231,7 @@ public class Group implements Comparable<Group> {
         private ItemStack icon;
         private Group group;
         private boolean enabled, enabledByDefault;
-        private Map<Component, Boolean> components = new HashMap<>();
+        private List<Component> components = new ArrayList<>();
 
         public Builder name(String name) {
             this.name = name;
@@ -265,12 +244,13 @@ public class Group implements Comparable<Group> {
         }
 
         public Builder addComponent(Component component) {
-            components.put(component, true);
+            components.add(component);
             return this;
         }
 
         public Builder addComponent(Component component, boolean enabled) {
-            components.put(component, enabled);
+            component.stateManager.enabled = enabled;
+            components.add(component);
             return this;
         }
 
@@ -295,7 +275,7 @@ public class Group implements Comparable<Group> {
 
         public Group register() {
             group = new Group(this);
-            group.setIconStack(icon);
+            group.iconStack = icon;
             group.enabled = enabled;
             group.enabledByDefault = enabledByDefault;
             GroupLoader.registerGroup(group);

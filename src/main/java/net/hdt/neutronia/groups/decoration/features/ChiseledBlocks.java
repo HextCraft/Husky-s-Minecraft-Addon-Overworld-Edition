@@ -40,9 +40,4 @@ public class ChiseledBlocks extends Component {
         return true;
     }
 
-    @Override
-    public boolean isEnabledByDefault() {
-        return true;
-    }
-
 }

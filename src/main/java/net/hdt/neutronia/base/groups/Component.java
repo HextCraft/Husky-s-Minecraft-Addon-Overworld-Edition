@@ -15,8 +15,7 @@ import java.util.List;
 public class Component implements Comparable<Component> {
 
     public Group group;
-    public boolean enabledByDefault;
-    public boolean enabled;
+    public ComponentStateManager stateManager = new ComponentStateManager(this);
     public String configCategory;
     public Property prop;
     boolean loadtimeDone;
@@ -26,12 +25,12 @@ public class Component implements Comparable<Component> {
     boolean forceLoad;
 
     public Component(boolean enabled) {
-        this.enabled = enabled;
+        stateManager.enabled = enabled;
     }
 
     public Component(boolean enabled, boolean enabledByDefault) {
-        this.enabled = enabled;
-        this.enabledByDefault = enabledByDefault;
+        stateManager.enabled = enabled;
+        stateManager.enabledByDefault = enabledByDefault;
     }
 
     public Component() {
@@ -190,14 +189,6 @@ public class Component implements Comparable<Component> {
     @Override
     public int compareTo(Component o) {
         return configName.compareTo(o.configName);
-    }
-
-    public boolean isEnabledByDefault() {
-        return enabledByDefault;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
     }
 
     public boolean isEnabledAtLoadtime() {

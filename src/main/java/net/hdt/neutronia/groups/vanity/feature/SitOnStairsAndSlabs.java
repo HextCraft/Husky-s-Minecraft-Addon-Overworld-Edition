@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.List;
 
-public class SitInStairs extends Component {
+public class SitOnStairsAndSlabs extends Component {
 
     public static boolean canBeAbove(World world, BlockPos pos) {
         BlockPos upPos = pos.up();
