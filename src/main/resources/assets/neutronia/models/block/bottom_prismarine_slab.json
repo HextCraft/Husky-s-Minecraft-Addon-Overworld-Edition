@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-    "textures": {
-        "bottom": "blocks/prismarine_rough",
-        "top": "blocks/prismarine_rough",
-        "side": "blocks/prismarine_rough"
-    }
-}

@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "minecraft:block/upper_slab",
-  "textures": {
-    "bottom": "neutronia:block/carved_acacia_planks",
-    "side": "neutronia:block/carved_acacia_planks",
-    "top": "neutronia:block/carved_acacia_planks"
-  }
-}

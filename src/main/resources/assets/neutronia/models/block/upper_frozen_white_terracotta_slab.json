@@ -1,8 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/cube_top_half_overlay_all",
-  "textures": {
-    "all": "minecraft:blocks/hardened_clay_stained_white",
-    "overlay": "neutronia:block/ice_packed"
-  }
-}

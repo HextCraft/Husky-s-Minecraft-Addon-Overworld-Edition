@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "neutronia:block/emerald_bricks",
-        "top": "neutronia:block/emerald_bricks",
-        "side": "neutronia:block/emerald_bricks"
-    }
-}

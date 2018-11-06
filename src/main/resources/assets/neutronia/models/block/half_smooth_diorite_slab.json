@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/slab",
-  "textures": {
-    "bottom": "neutronia:block/smooth_diorite",
-    "side": "neutronia:block/smooth_diorite",
-    "top": "neutronia:block/smooth_diorite"
-  }
-}

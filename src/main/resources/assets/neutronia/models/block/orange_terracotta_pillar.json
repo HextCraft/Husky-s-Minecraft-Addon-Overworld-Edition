@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "neutronia:block/orange_terracotta_pillar_top",
-    "front": "neutronia:block/orange_terracotta_pillar",
-    "side": "neutronia:block/orange_terracotta_pillar"
-  }
-}

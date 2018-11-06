@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/slab_top",
-  "textures": {
-    "bottom": "minecraft:blocks/hardened_clay_stained_blue",
-    "side": "minecraft:blocks/hardened_clay_stained_blue",
-    "top": "minecraft:blocks/hardened_clay_stained_blue"
-  }
-}

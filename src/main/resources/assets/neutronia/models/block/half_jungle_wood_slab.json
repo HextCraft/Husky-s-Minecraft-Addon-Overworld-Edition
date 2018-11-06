@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "minecraft:block/half_slab",
-  "textures": {
-    "bottom": "minecraft:blocks/log_jungle",
-    "side": "minecraft:blocks/log_jungle",
-    "top": "minecraft:blocks/log_jungle"
-  }
-}

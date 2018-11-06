@@ -1,8 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "neutronia:block/glazed_terracotta_stripes/gray_glazed_terracotta_stripes_top",
-    "side": "neutronia:block/glazed_terracotta_stripes/gray_glazed_terracotta_stripes"
-  }
-}

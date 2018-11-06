@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-    "textures": {
-        "bottom": "neutronia:block/elder_prismarine",
-        "top": "neutronia:block/elder_prismarine",
-        "side": "neutronia:block/elder_prismarine"
-    }
-}

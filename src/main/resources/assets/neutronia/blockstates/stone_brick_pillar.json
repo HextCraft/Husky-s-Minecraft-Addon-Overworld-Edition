@@ -3,7 +3,7 @@
   "defaults": {
     "textures": {
       "end": "neutronia:block/stone_brick_pillar_top",
-      "side": "neutronia:block/stone_brick_pillar_side"
+      "side": "neutronia:block/stone_brick_pillar"
     }
   },
   "variants": {

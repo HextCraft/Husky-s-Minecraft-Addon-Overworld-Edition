@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "neutronia:block/basalt_bricks",
-    "side": "neutronia:block/basalt_bricks",
-    "top": "neutronia:block/basalt_bricks"
-  }
-}

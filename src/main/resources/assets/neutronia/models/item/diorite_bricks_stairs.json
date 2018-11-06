@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "neutronia:block/diorite_bricks",
-    "side": "neutronia:block/diorite_bricks",
-    "top": "neutronia:block/diorite_bricks"
-  }
-}

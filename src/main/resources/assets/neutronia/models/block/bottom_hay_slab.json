@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-    "textures": {
-        "bottom": "blocks/hay_block_top",
-        "top": "blocks/hay_block_top",
-        "side": "blocks/hay_block_side"
-    }
-}

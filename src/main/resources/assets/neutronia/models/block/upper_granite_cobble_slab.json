@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/slab_top",
-  "textures": {
-    "bottom": "neutronia:block/granite_cobble",
-    "side": "neutronia:block/granite_cobble",
-    "top": "neutronia:block/granite_cobble"
-  }
-}
