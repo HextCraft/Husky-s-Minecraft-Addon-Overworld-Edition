@@ -3,7 +3,7 @@
   "defaults": {
     "model": "cross",
     "textures": {
-      "cross": "neutronia:block/willow_sapling"
+      "cross": "neutronia:block/palm_sapling"
     }
   },
   "variants": {

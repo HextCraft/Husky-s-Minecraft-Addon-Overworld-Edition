@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "texture": "neutronia:block/purhogany_trapdoor"
+            "texture": "neutronia:block/palm_trapdoor"
         }
     },
     "variants": {

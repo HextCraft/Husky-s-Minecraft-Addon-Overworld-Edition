@@ -1,13 +1,13 @@
 package net.hdt.neutronia.groups.building.features;
 
 import net.hdt.huskylib2.block.BlockModStairs;
-import net.hdt.huskylib2.block.MRSlab;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaDoubleSlab;
+import net.hdt.neutronia.base.blocks.BlockNeutroniaSlab;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -31,9 +31,10 @@ public class VanillaStairsAndSlabs extends Component {
         if (stairs)
             BlockModStairs.initStairs(block, meta, new BlockNeutroniaStairs(stairsName, state));
         if (slab) {
-            MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
-            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
-            MRSlab.registerSlab(block,  meta, singleSlab, doubleSlab);
+            BlockNeutroniaSlab singleSlab;
+            BlockNeutroniaDoubleSlab doubleSlab;
+            singleSlab = new BlockNeutroniaSlab(name + "_slab", block::getDefaultState);
+            doubleSlab = new BlockNeutroniaDoubleSlab( name + "_slab_double", () -> singleSlab);
         }
     }
 

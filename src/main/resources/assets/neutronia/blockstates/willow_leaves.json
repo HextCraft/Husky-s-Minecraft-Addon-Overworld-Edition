@@ -1,15 +1,13 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "block/leaves",
+    "model": "leaves",
     "textures": {
-      "all": "neutronia:block/palm_leaves"
+      "all": "neutronia:block/willow_leaves"
     }
   },
   "variants": {
-    "check_decay=false,decayable=false": {},
-    "check_decay=false,decayable=true": {},
-    "check_decay=true,decayable=false": {},
-    "check_decay=true,decayable=true": {}
+    "normal": [{}],
+    "inventory": [{}]
   }
 }

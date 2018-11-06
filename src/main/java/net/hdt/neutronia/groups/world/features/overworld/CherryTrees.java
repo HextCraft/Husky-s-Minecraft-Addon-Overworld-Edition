@@ -2,6 +2,7 @@ package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.blocks.*;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.items.ItemNeutroniaDoor;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLeaves;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLog;
@@ -29,7 +30,7 @@ public class CherryTrees extends Component {
         cherrySapling = new BlockPVJSapling("cherry_sapling", new WorldGenCherryTree());
         cherryLeaves.setSapling(cherrySapling);
         cherryTrapdoor = new BlockNeutroniaTrapdoor("cherry_trapdoor");
-        cherryDoor = new BlockNeutroniaDoor("cherry_door");
+        cherryDoor = new BlockNeutroniaDoor("cherry_door", () -> new ItemNeutroniaDoor(cherryDoor));
         cherryFence = new BlockNeutroniaFence("cherry_fence", cherryPlanks.getDefaultState());
         cherryFenceGate = new BlockNeutroniaFenceGate("cherry_fence_gate");
         VanillaStairsAndSlabs.add("cherry", cherryPlanks, 0, true);
