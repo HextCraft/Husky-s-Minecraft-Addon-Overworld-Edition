@@ -4,6 +4,7 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaFence;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaFenceGate;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLog;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJSapling;
 import net.hdt.neutronia.groups.world.world.gen.features.tree.WorldGenDeadTree;
@@ -25,6 +26,7 @@ public class DeadTree extends Component {
         deadSapling = new BlockPVJSapling("dead_sapling", new WorldGenDeadTree());
         deadFence = new BlockNeutroniaFence("dead_fence", deadPlanks.getDefaultState());
         deadFenceGate = new BlockNeutroniaFenceGate("dead_fence_gate");
+        VanillaStairsAndSlabs.add("dead", deadPlanks, 0, true);
     }
 
     @Override
