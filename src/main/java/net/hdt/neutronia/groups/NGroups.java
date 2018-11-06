@@ -3,6 +3,9 @@ package net.hdt.neutronia.groups;
 import net.hdt.neutronia.base.groups.Group;
 import net.hdt.neutronia.groups.building.features.*;
 import net.hdt.neutronia.groups.client.features.*;
+import net.hdt.neutronia.groups.craftingExtension.features.NewCraftingBlocks;
+import net.hdt.neutronia.groups.craftingExtension.features.NewMiscBlocks;
+import net.hdt.neutronia.groups.craftingExtension.features.NewStorageBlocks;
 import net.hdt.neutronia.groups.decoration.features.*;
 import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.earlyGame.features.ClayCauldron;
@@ -32,7 +35,7 @@ import java.time.Month;
 
 public class NGroups {
 
-    public static Group building, client, craftingExtenbsion, decoration, dimensions, earlyGame, experimental, holidays, misc, seasons, tweaks, vanity, world;
+    public static Group building, client, craftingExtension, decoration, dimensions, earlyGame, experimental, holidays, misc, seasons, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -40,8 +43,8 @@ public class NGroups {
                 .description("This group adds new structural building blocks and building utensils.")
                 .iconStack(new ItemStack(Blocks.BRICK_BLOCK))
                 .addComponent(new CarvedPlanks())
-                .addComponent(new ColoredPlanks(), false)
-                .addComponent(new FrostedBlocks(), false)
+//                .addComponent(new ColoredPlanks(), false)
+//                .addComponent(new FrostedBlocks(), false)
                 .addComponent(new LogBlocks())
                 .addComponent(new LogFenceAndWall())
                 .addComponent(new LogPiles())
@@ -70,6 +73,14 @@ public class NGroups {
                 .enabledByDefault(isClient())
                 .register();
 
+        craftingExtension = Group.builder()
+                .name("Crafting Extension")
+                .iconStack(new ItemStack(Blocks.CRAFTING_TABLE))
+                .addComponent(new NewCraftingBlocks())
+                .addComponent(new NewMiscBlocks())
+                .addComponent(new NewStorageBlocks())
+                .register();
+
         decoration = Group.builder()
                 .name("Decoration")
                 .description("This group adds new decorative building blocks and improves vanilla ones.")
@@ -78,16 +89,16 @@ public class NGroups {
                 .addComponent(new CharcoalBlock())
                 .addComponent(new ChiseledBlocks())
 
-                .addComponent(new ColoredCandles(), false)
-                .addComponent(new ColoredRedstoneLamps(), false)
-                .addComponent(new ColoredSlimeBlocks(), false)
-                .addComponent(new CutGlazedTerracotta(), false)
+//                .addComponent(new ColoredCandles(), false)
+//                .addComponent(new ColoredRedstoneLamps(), false)
+//                .addComponent(new ColoredSlimeBlocks(), false)
+//                .addComponent(new CutGlazedTerracotta(), false)
 
                 .addComponent(new DecorativeAquamarine())
 
-                .addComponent(new DecorativeCorals(), false)
-                .addComponent(new GlazedTerracottaPillar(), false)
-                .addComponent(new GlazedTerracottaStripes(), false)
+//                .addComponent(new DecorativeCorals(), false)
+//                .addComponent(new GlazedTerracottaPillar(), false)
+//                .addComponent(new GlazedTerracottaStripes(), false)
 
                 .addComponent(new MetalAndMineralBricks())
                 .addComponent(new MetalAndMineralPillars())
@@ -97,7 +108,7 @@ public class NGroups {
                 .addComponent(new SmoothBlocks())
                 .addComponent(new MorePillars())
 
-                .addComponent(new TerracottaFlowerPots(), false)
+//                .addComponent(new TerracottaFlowerPots(), false)
 
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
@@ -235,6 +246,7 @@ public class NGroups {
                 .addComponent(new CaveBiomes())
                 .addComponent(new CherryTrees())
 //                .addComponent(new Corals())
+                .addComponent(new DeadTree())
                 .addComponent(new MineshaftGeneration())
                 .addComponent(new MoreBiomes())
                 .addComponent(new MoreOceanBiomes())

@@ -1,17 +1,18 @@
 {
-  "multipart": [
-    {   "apply": { "model": "neutronia:stripped_birch_log_fence_post" }},
-    {   "when": { "north": "true" },
-      "apply": { "model": "neutronia:stripped_birch_log_fence_side", "uvlock": true }
+  "forge_marker": 1,
+  "defaults": {
+    "model": "fence_post",
+    "textures": {
+      "texture": "neutronia:block/stripped_birch_log"
     },
-    {   "when": { "east": "true" },
-      "apply": { "model": "neutronia:stripped_birch_log_fence_side", "y": 90, "uvlock": true }
-    },
-    {   "when": { "south": "true" },
-      "apply": { "model": "neutronia:stripped_birch_log_fence_side", "y": 180, "uvlock": true }
-    },
-    {   "when": { "west": "true" },
-      "apply": { "model": "neutronia:stripped_birch_log_fence_side", "y": 270, "uvlock": true }
-    }
-  ]
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "north": {"true": {"submodel": "fence_side"}, "false": {}},
+    "east": {"true": {"submodel": "fence_side", "y": 90}, "false": {}},
+    "south": {"true": {"submodel": "fence_side", "y": 180}, "false": {}},
+    "west": {"true": {"submodel": "fence_side", "y": 270}, "false": {}},
+    "inventory": {"model": "fence_inventory"}
+  }
 }
