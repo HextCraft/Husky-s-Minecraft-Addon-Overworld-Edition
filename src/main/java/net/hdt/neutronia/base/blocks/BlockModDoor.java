@@ -2,15 +2,14 @@ package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.interf.IModBlock;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.items.ItemNeutroniaDoor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,7 +36,7 @@ public abstract class BlockModDoor extends BlockDoor implements IModBlock {
         super.setTranslationKey(name);
         this.setRegistryName(this.getPrefix() + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(new ItemDoor(this).setRegistryName(new ResourceLocation(this.getPrefix() + name)).setTranslationKey(name));
+        ProxyRegistry.register(new ItemNeutroniaDoor(this));
         return this;
     }
 

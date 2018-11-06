@@ -9,7 +9,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockGlowingPlant extends BlockMidnightPlant {
+public class BlockGlowingPlant extends BlockNeutroniaPlant {
 
     public BlockGlowingPlant(String name) {
         super(name);

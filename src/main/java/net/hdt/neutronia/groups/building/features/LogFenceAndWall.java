@@ -33,17 +33,17 @@ public class LogFenceAndWall extends Component {
         acaciaLogWall = new BlockLogWall(Blocks.LOG.getDefaultState(), "acacia_log_wall", strippedAcaciaLogWall.getDefaultState(), NItems.barkItem[4]);
         strippedDarkOakLogWall = new BlockNeutroniaWall(Blocks.LOG.getDefaultState(), "stripped_dark_oak_log_wall");
         darkOakLogWall = new BlockLogWall(Blocks.LOG.getDefaultState(), "dark_oak_log_wall", strippedDarkOakLogWall.getDefaultState(), NItems.barkItem[5]);
-        strippedOakLogFence = new BlockNeutroniaFence("stripped_oak_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedOakLogFence = new BlockNeutroniaFence("stripped_oak_log_fence", Blocks.LOG.getDefaultState());
         oakLogFence = new BlockLogFence("oak_log_fence", Blocks.LOG.getDefaultState(), strippedOakLogFence.getDefaultState());
-        strippedSpruceLogFence = new BlockNeutroniaFence("stripped_spruce_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedSpruceLogFence = new BlockNeutroniaFence("stripped_spruce_log_fence", Blocks.LOG.getDefaultState());
         spruceLogFence = new BlockLogFence("spruce_log_fence", Blocks.LOG.getDefaultState(), strippedSpruceLogFence.getDefaultState());
-        strippedBirchLogFence = new BlockNeutroniaFence("stripped_birch_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedBirchLogFence = new BlockNeutroniaFence("stripped_birch_log_fence", Blocks.LOG.getDefaultState());
         birchLogFence = new BlockLogFence("birch_log_fence", Blocks.LOG.getDefaultState(), strippedBirchLogFence.getDefaultState());
-        strippedJungleLogFence = new BlockNeutroniaFence("stripped_jungle_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedJungleLogFence = new BlockNeutroniaFence("stripped_jungle_log_fence", Blocks.LOG.getDefaultState());
         jungleLogFence = new BlockLogFence("jungle_log_fence", Blocks.LOG.getDefaultState(), strippedJungleLogFence.getDefaultState());
-        strippedAcaciaLogFence = new BlockNeutroniaFence("stripped_acacia_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedAcaciaLogFence = new BlockNeutroniaFence("stripped_acacia_log_fence", Blocks.LOG.getDefaultState());
         acaciaLogFence = new BlockLogFence("acacia_log_fence", Blocks.LOG.getDefaultState(), strippedAcaciaLogFence.getDefaultState());
-        strippedDarkOakLogFence = new BlockNeutroniaFence("stripped_dark_oak_log_fence", Blocks.LOG.getDefaultState(), 2.0F, 5.0F);
+        strippedDarkOakLogFence = new BlockNeutroniaFence("stripped_dark_oak_log_fence", Blocks.LOG.getDefaultState());
         darkOakLogFence = new BlockLogFence("dark_oak_log_fence", Blocks.LOG.getDefaultState(), strippedDarkOakLogFence.getDefaultState());
 
         VanillaFencesAndFenceGates.add("acacia_log", Blocks.LOG2, new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);

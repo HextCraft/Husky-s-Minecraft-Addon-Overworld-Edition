@@ -19,12 +19,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class BlockMidnightPlant extends BlockModBush implements IShearable {
+public class BlockNeutroniaPlant extends BlockModBush implements IShearable {
     private static final AxisAlignedBB BOUNDS = new AxisAlignedBB(0.1, 0.0, 0.1, 0.9, 0.8, 0.9);
 
     private final PlantBehaviorType behaviorType;
 
-    public BlockMidnightPlant(String name, PlantBehaviorType behaviorType) {
+    public BlockNeutroniaPlant(String name, PlantBehaviorType behaviorType) {
         super(name, behaviorType.getMaterial());
         this.behaviorType = behaviorType;
         this.setHardness(0.0F);
@@ -32,7 +32,7 @@ public class BlockMidnightPlant extends BlockModBush implements IShearable {
         this.setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
-    public BlockMidnightPlant(String name) {
+    public BlockNeutroniaPlant(String name) {
         this(name, PlantBehaviorType.FLOWER);
     }
 

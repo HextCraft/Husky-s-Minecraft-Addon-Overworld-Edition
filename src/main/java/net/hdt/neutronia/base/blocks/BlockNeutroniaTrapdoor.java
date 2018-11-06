@@ -2,7 +2,6 @@ package net.hdt.neutronia.base.blocks;
 
 import net.hdt.huskylib2.item.ItemModBlock;
 import net.hdt.huskylib2.util.ProxyRegistry;
-import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
@@ -34,7 +33,7 @@ public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaB
         variants = new String[]{name};
         bareName = name;
 
-        setTranslationKey(name);
+        register(name);
         useNeighborBrightness = true;
     }
 
@@ -49,12 +48,11 @@ public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaB
         return false;
     }
 
-    @Override
-    public Block setTranslationKey(String name) {
-        super.setTranslationKey(name);
-        setRegistryName(LibMisc.PREFIX_MOD + name);
+    public Block register(String name) {
+        setTranslationKey(name);
+        setRegistryName(getPrefix() + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(getPrefix() + name)));
         return this;
     }
 
