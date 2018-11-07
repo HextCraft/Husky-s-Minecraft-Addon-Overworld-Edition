@@ -1,9 +1,10 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.huskylib2.item.ItemModBlockSlab;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
+import net.hdt.neutronia.base.items.ItemNeutroniaSlab;
 import net.hdt.neutronia.base.lib.LibMisc;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -32,11 +33,13 @@ public class BlockNeutroniaSlab extends BlockSlab implements INeutroniaBlock {
 
     private Supplier<IBlockState> parentSupplier;
     private String bareName;
+    private Block doubleBlock;
 
-    public BlockNeutroniaSlab(String name, Supplier<IBlockState> parentSupplier) {
+    public BlockNeutroniaSlab(Block doubleSlab, String name, Supplier<IBlockState> parentSupplier) {
         super(parentSupplier.get().getBlock().getMaterial(parentSupplier.get()));
         this.parentSupplier = parentSupplier;
         this.bareName = name;
+        this.doubleBlock = doubleSlab;
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         setDefaultState(buildDefaultState(this.blockState.getBaseState()));
 
@@ -59,8 +62,7 @@ public class BlockNeutroniaSlab extends BlockSlab implements INeutroniaBlock {
     public void register(String name) {
         setRegistryName(LibMisc.PREFIX_MOD + name);
         ProxyRegistry.register(this);
-        if (!isDouble())
-            ProxyRegistry.register(new ItemModBlockSlab(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        ProxyRegistry.register(new ItemNeutroniaSlab(this, new ResourceLocation(LibMisc.PREFIX_MOD + name), doubleBlock));
     }
 
     @Override

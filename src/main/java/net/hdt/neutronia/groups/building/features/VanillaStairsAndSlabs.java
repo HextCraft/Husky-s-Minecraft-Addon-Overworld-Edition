@@ -31,9 +31,9 @@ public class VanillaStairsAndSlabs extends Component {
         if (stairs)
             BlockModStairs.initStairs(block, meta, new BlockNeutroniaStairs(stairsName, state));
         if (slab) {
-            BlockNeutroniaSlab singleSlab;
-            BlockNeutroniaDoubleSlab doubleSlab;
-            singleSlab = new BlockNeutroniaSlab(name + "_slab", block::getDefaultState);
+            Block singleSlab;
+            Block doubleSlab = Blocks.AIR;
+            singleSlab = new BlockNeutroniaSlab(doubleSlab,name + "_slab", block::getDefaultState);
             doubleSlab = new BlockNeutroniaDoubleSlab( name + "_slab_double", () -> singleSlab);
         }
     }

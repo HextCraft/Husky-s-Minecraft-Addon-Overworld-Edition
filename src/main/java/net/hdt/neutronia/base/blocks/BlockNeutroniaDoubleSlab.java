@@ -13,7 +13,7 @@ public class BlockNeutroniaDoubleSlab extends BlockNeutroniaSlab {
     private final Supplier<Block> singleSlabSupplier;
 
     public BlockNeutroniaDoubleSlab(String name, Supplier<Block> singleSlabSupplier) {
-        super(name, () -> singleSlabSupplier.get().getDefaultState());
+        super(new BlockNeutroniaDoubleSlab(name, singleSlabSupplier), name, () -> singleSlabSupplier.get().getDefaultState());
         this.singleSlabSupplier = singleSlabSupplier;
         this.setCreativeTab(null);
     }

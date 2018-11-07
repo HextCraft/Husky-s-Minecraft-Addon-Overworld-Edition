@@ -1,7 +1,6 @@
 package net.hdt.neutronia.base.client.category.creativeTabCategories;
 
 import net.hdt.neutronia.base.client.category.AbstractCreativeCategory;
-import net.hdt.neutronia.groups.building.features.FrostedBlocks;
 import net.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import net.hdt.neutronia.groups.building.features.WorldStoneBricks;
 import net.hdt.neutronia.groups.decoration.features.CenteredGlazedTerracotta;
@@ -22,7 +21,6 @@ public class Overworld extends AbstractCreativeCategory {
 
     @Override
     public void init() {
-        add(FrostedBlocks.frostedClay);
         add(GlazedTerracottaPillar.glazedTerracottaPillar);
         add(GlazedTerracottaStripes.glazedTerracottaStriped);
         add(CutGlazedTerracotta.cutGlazedTerracotta);
