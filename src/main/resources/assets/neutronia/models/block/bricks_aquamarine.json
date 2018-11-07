@@ -1,7 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v1.",
-  "parent": "neutronia:block/bricks_aquamarine",
-  "textures": {
-    "normal": "neutronia:block/bricks_aquamarine"
-  }
-}
