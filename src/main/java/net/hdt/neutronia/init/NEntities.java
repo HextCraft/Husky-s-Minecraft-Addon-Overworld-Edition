@@ -5,6 +5,7 @@ import net.hdt.neutronia.entity.items.EntityCoconut;
 import net.hdt.neutronia.entity.neutral.EntityBlackBear;
 import net.hdt.neutronia.entity.neutral.EntityGrizzlyBear;
 import net.hdt.neutronia.entity.neutral.EntityPanda;
+import net.hdt.neutronia.entity.passive.EntityBrownMooshroom;
 import net.hdt.neutronia.entity.render.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -65,7 +66,8 @@ public class NEntities {
                 createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),
                 createBuilder("black_bear").entity(EntityBlackBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
                 createBuilder("grizzly_bear").entity(EntityGrizzlyBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
-                createBuilder("panda").entity(EntityPanda.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build()
+                createBuilder("panda").entity(EntityPanda.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
+                createBuilder("brown_mooshroom").entity(EntityBrownMooshroom.class).tracker(30, 3, true).egg(0xFFFFFF, 0x00FF00).build()
         };
         event.getRegistry().registerAll(entries);
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
@@ -86,6 +88,7 @@ public class NEntities {
 //        EntityRegistry.addSpawn(EntityAnchored.class, 5, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
 //        EntityRegistry.addSpawn(EntityForsakenDiver.class, 60, 1, 2, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
         EntityRegistry.addSpawn(EntityInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
+        EntityRegistry.addSpawn(EntityBrownMooshroom.class, 8, 4, 8, EnumCreatureType.AMBIENT, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE);
 //        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, Biomes.BEACH, Biomes.STONE_BEACH);
     }
 
