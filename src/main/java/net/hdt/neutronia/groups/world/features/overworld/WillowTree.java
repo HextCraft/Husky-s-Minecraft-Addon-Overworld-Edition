@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.blocks.*;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.items.ItemNeutroniaDoor;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLeaves;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLog;
@@ -30,7 +29,7 @@ public class WillowTree extends Component {
         willowSapling = new BlockPVJSapling("willow_sapling", new WorldGenWillowTree());
         willowLeaves.setSapling(willowSapling);
         willowTrapdoor = new BlockNeutroniaTrapdoor("willow_trapdoor");
-        willowDoor = new BlockNeutroniaDoor("willow_door", () -> new ItemNeutroniaDoor(willowDoor));
+        willowDoor = new BlockNeutroniaDoor("willow_door");
         willowFence = new BlockNeutroniaFence("willow_fence", willowPlanks.getDefaultState());
         willowFenceGate = new BlockNeutroniaFenceGate("willow_fence_gate");
         VanillaStairsAndSlabs.add("willow", willowPlanks, 0, true);

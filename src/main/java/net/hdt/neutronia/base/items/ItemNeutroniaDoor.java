@@ -1,6 +1,7 @@
 package net.hdt.neutronia.base.items;
 
 import net.hdt.huskylib2.item.ItemModBlock;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.SoundType;
@@ -8,17 +9,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemNeutroniaDoor extends ItemModBlock {
 
-    public ItemNeutroniaDoor(Block block) {
-        super(block, block.getRegistryName());
+    public ItemNeutroniaDoor(Block block, String name) {
+        super(block, new ResourceLocation(LibMisc.PREFIX_MOD + name));
         this.setCreativeTab(CreativeTabs.REDSTONE);
     }
 

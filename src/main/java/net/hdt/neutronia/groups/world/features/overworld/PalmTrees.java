@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.blocks.*;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.items.ItemNeutroniaDoor;
 import net.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import net.hdt.neutronia.groups.world.blocks.BlockCoconut;
 import net.hdt.neutronia.groups.world.blocks.BlockPVJLeaves;
@@ -38,7 +37,7 @@ public class PalmTrees extends Component {
         palmSapling = new BlockPVJSapling("palm_sapling", new WorldGenPalmTree());
         palmLeaves.setSapling(palmSapling);
         palmTrapdoor = new BlockNeutroniaTrapdoor("palm_trapdoor");
-        palmDoor = new BlockNeutroniaDoor("palm_door", () -> new ItemNeutroniaDoor(palmDoor));
+        palmDoor = new BlockNeutroniaDoor("palm_door");
         palmFence = new BlockNeutroniaFence("palm_fence", palmPlanks.getDefaultState());
         palmFenceGate = new BlockNeutroniaFenceGate("palm_fence_gate");
         VanillaStairsAndSlabs.add("palm", palmPlanks, 0, true);

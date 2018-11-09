@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity.render;
 
 import net.hdt.neutronia.entity.EntityYeti;
-import net.hdt.neutronia.entity.render.model.ModelYetiGolem;
+import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -14,7 +14,7 @@ public class RenderYeti extends RenderLiving<EntityYeti> {
     private static final ResourceLocation IRON_GOLEM_TEXTURES = new ResourceLocation(MOD_ID, "textures/entity/golems/yeti_golem.png");
 
     public RenderYeti(RenderManager renderManagerIn) {
-        super(renderManagerIn, new ModelYetiGolem(), 0.5F);
+        super(renderManagerIn, new ModelPlayer(1.0f, false), 0.5F);
     }
 
     /**

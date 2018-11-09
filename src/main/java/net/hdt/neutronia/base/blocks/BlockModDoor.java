@@ -36,7 +36,7 @@ public abstract class BlockModDoor extends BlockDoor implements IModBlock {
         super.setTranslationKey(name);
         this.setRegistryName(this.getPrefix() + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(new ItemNeutroniaDoor(this));
+        ProxyRegistry.register(new ItemNeutroniaDoor(this, name));
         return this;
     }
 
