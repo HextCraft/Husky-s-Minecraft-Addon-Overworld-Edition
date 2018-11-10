@@ -1,6 +1,7 @@
 # Neutronia Changelog
 
 ## 0.2.0 - The Color, Sea and Nether Update
+
 * Added Colored Candles
 * Added Colored Lanterns
 * Added Colored Redstone Lamps
@@ -21,11 +22,13 @@
 * Added Chisel for wood recipes
 
 ### 0.2.1
+
 * Changed the name of the Log Stripper to Bark Stripper
 * Added recipes for chisel and bark stripper
 * Added more wood recipes
 
 ## 0.3.0 - The Grouping Update
+
 * Renamed Corals to Coral Blocks and Coral Plants into Corals
 * Added Dead Coral Fans
 * Added Dead Corals (plants)
@@ -43,6 +46,7 @@
 ## 0.4.0 - The I don't remember what it's called Update
 
 ### 0.4.1 - Misc Updates
+
 * Renamed the findbiome command to locatebiome
 * Fixed hardness for some blocks
 * Added some new modules
@@ -61,17 +65,21 @@
 * Fixed new creative tab name
 * Fixed Slabs chrashing and having strange textures
 
+### 0.4.2 - Misc 2 Update
+
+
+
 ## 0.5.0 - The Underground & Dungeon Update
 
 ## 0.6.0 - The Holiday Update
 
- ### 0.6.1 - The Halloween Update
+### 0.6.1 - The Halloween Update
 
- ### 0.6.2 - The Christmas Update
+### 0.6.2 - The Christmas Update
 
- ### 0.6.3 - The Valentine Update
+### 0.6.3 - The Valentine Update
 
- ### 0.6.4 - The Easter Update
+### 0.6.4 - The Easter Update
 
 ## 0.7.0 - The Season Update
 
@@ -79,14 +87,14 @@
 
 ## 0.9.0 - The Biome Update
 
- ### 0.9.1 - The Desert Update
+### 0.9.1 - The Desert Update
 
- ### 0.9.2 - The Taiga Update
+### 0.9.2 - The Taiga Update
 
- ### 0.9.3 - The Savanna Update
+### 0.9.3 - The Savanna Update
 
- ### 0.9.4 - The Mesa Update
+### 0.9.4 - The Mesa Update
 
- ### 0.9.5 - The Swamp Update
+### 0.9.5 - The Swamp Update
 
- ### 0.9.6 - The Hills Update
+### 0.9.6 - The Hills Update
