@@ -5,79 +5,69 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 /**
- * ModelFox - AguilaDaddy
+ * ModelFox - Undefined
  * Created using Tabula 7.0.0
  */
 public class ModelFox extends ModelBase {
-    public ModelRenderer armleft;
-    public ModelRenderer body1;
-    public ModelRenderer body2;
-    public ModelRenderer legleft;
-    public ModelRenderer legright;
-    public ModelRenderer armright;
-    public ModelRenderer tail;
-    public ModelRenderer head;
-    public ModelRenderer earright;
-    public ModelRenderer earleft;
-    public ModelRenderer snout;
+    public ModelRenderer Head;
+    public ModelRenderer Body;
+    public ModelRenderer RightFrontLeg;
+    public ModelRenderer LeftFrontLeg;
+    public ModelRenderer RightBackLeg;
+    public ModelRenderer LeftBackLeg;
+    public ModelRenderer Tail;
+    public ModelRenderer RightEar;
+    public ModelRenderer LeftEar;
+    public ModelRenderer Snout;
 
     public ModelFox() {
         this.textureWidth = 64;
         this.textureHeight = 32;
-        this.armleft = new ModelRenderer(this, 0, 18);
-        this.armleft.setRotationPoint(0.5F, 18.0F, -4.0F);
-        this.armleft.addBox(0.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
-        this.tail = new ModelRenderer(this, 42, 17);
-        this.tail.setRotationPoint(-1.5F, 15.0F, 5.0F);
-        this.tail.addBox(0.0F, 0.0F, -1.0F, 3, 8, 3, 0.0F);
-        this.snout = new ModelRenderer(this, 0, 10);
-        this.snout.setRotationPoint(-0.5F, 15.5F, -7.0F);
-        this.snout.addBox(-0.5F, 0.0F, -5.0F, 2, 3, 4, 0.0F);
-        this.setRotateAngle(snout, 0.0F, -0.016406094968746697F, 0.0F);
-        this.body2 = new ModelRenderer(this, 18, 14);
-        this.body2.setRotationPoint(0.0F, 16.0F, 1.0F);
-        this.body2.addBox(-3.0F, -2.0F, -3.0F, 6, 8, 6, 0.0F);
-        this.setRotateAngle(body2, 1.5707963267948966F, 0.0F, 0.0F);
-        this.head = new ModelRenderer(this, 0, 0);
-        this.head.setRotationPoint(-1.0F, 15.5F, -7.0F);
-        this.head.addBox(-2.0F, -3.0F, -2.0F, 6, 6, 4, 0.0F);
-        this.setRotateAngle(head, 0.0F, -0.016406094968746697F, 0.0F);
-        this.body1 = new ModelRenderer(this, 21, 0);
-        this.body1.setRotationPoint(-0.5F, 16.5F, -3.0F);
-        this.body1.addBox(-3.0F, -3.0F, -3.0F, 7, 7, 7, 0.0F);
-        this.setRotateAngle(body1, 1.5707963267948966F, 0.0F, 0.0F);
-        this.legright = new ModelRenderer(this, 0, 18);
-        this.legright.setRotationPoint(-2.5F, 18.0F, 5.0F);
-        this.legright.addBox(0.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
-        this.earleft = new ModelRenderer(this, 16, 14);
-        this.earleft.setRotationPoint(-1.0F, 15.5F, -7.0F);
-        this.earleft.addBox(2.0F, -5.0F, 0.0F, 3, 3, 1, 0.0F);
-        this.setRotateAngle(earleft, 0.0F, -0.016406094968746697F, 0.0F);
-        this.legleft = new ModelRenderer(this, 0, 18);
-        this.legleft.setRotationPoint(0.5F, 18.0F, 5.0F);
-        this.legleft.addBox(0.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
-        this.earright = new ModelRenderer(this, 16, 14);
-        this.earright.setRotationPoint(-2.0F, 15.5F, -7.0F);
-        this.earright.addBox(-2.0F, -5.0F, 0.0F, 3, 3, 1, 0.0F);
-        this.setRotateAngle(earright, 0.0F, -0.016406094968746697F, 0.0F);
-        this.armright = new ModelRenderer(this, 0, 18);
-        this.armright.setRotationPoint(-2.5F, 18.0F, -4.0F);
-        this.armright.addBox(0.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
+        this.RightFrontLeg = new ModelRenderer(this, 0, 17);
+        this.RightFrontLeg.setRotationPoint(-1.9F, 19.0F, 1.1F);
+        this.RightFrontLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 5, 2, 0.0F);
+        this.LeftEar = new ModelRenderer(this, 0, 0);
+        this.LeftEar.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.LeftEar.addBox(1.5F, -5.0F, 0.0F, 2, 2, 1, 0.0F);
+        this.Body = new ModelRenderer(this, 0, 18);
+        this.Body.setRotationPoint(0.0F, 17.5F, 2.0F);
+        this.Body.addBox(-3.0F, -2.0F, -2.0F, 6, 4, 10, 0.0F);
+        this.Head = new ModelRenderer(this, 0, 0);
+        this.Head.setRotationPoint(0.0F, 16.0F, 0.0F);
+        this.Head.addBox(-4.0F, -3.0F, -4.0F, 8, 5, 6, 0.0F);
+        this.RightEar = new ModelRenderer(this, 0, 0);
+        this.RightEar.setRotationPoint(0.0F, 0.0F, 0.0F);
+        this.RightEar.addBox(-3.5F, -5.0F, 0.0F, 2, 2, 1, 0.0F);
+        this.Snout = new ModelRenderer(this, 0, 11);
+        this.Snout.setRotationPoint(0.0F, 0.5F, 0.0F);
+        this.Snout.addBox(-1.5F, -0.5F, -8.0F, 3, 2, 4, 0.0F);
+        this.Tail = new ModelRenderer(this, 32, 22);
+        this.Tail.setRotationPoint(0.0F, 15.5F, 10.0F);
+        this.Tail.addBox(-1.5F, -1.0F, -1.0F, 3, 3, 7, 0.0F);
+        this.setRotateAngle(Tail, 0.6108652381980153F, 0.0F, 0.0F);
+        this.LeftFrontLeg = new ModelRenderer(this, 0, 17);
+        this.LeftFrontLeg.setRotationPoint(1.9F, 19.0F, 1.1F);
+        this.LeftFrontLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 5, 2, 0.0F);
+        this.RightBackLeg = new ModelRenderer(this, 0, 17);
+        this.RightBackLeg.setRotationPoint(-1.9F, 19.0F, 8.5F);
+        this.RightBackLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 5, 2, 0.0F);
+        this.LeftBackLeg = new ModelRenderer(this, 0, 17);
+        this.LeftBackLeg.setRotationPoint(1.9F, 19.0F, 8.5F);
+        this.LeftBackLeg.addBox(-1.0F, 0.0F, -1.0F, 2, 5, 2, 0.0F);
+        this.Head.addChild(this.LeftEar);
+        this.Head.addChild(this.RightEar);
+        this.Head.addChild(this.Snout);
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        this.armleft.render(f5);
-        this.tail.render(f5);
-        this.snout.render(f5);
-        this.body2.render(f5);
-        this.head.render(f5);
-        this.body1.render(f5);
-        this.legright.render(f5);
-        this.earleft.render(f5);
-        this.legleft.render(f5);
-        this.earright.render(f5);
-        this.armright.render(f5);
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+        this.RightFrontLeg.render(f5);
+        this.Body.render(f5);
+        this.Head.render(f5);
+        this.Tail.render(f5);
+        this.LeftFrontLeg.render(f5);
+        this.RightBackLeg.render(f5);
+        this.LeftBackLeg.render(f5);
     }
 
     /**

@@ -1,6 +1,5 @@
 package net.hdt.neutronia.entity;
 
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -9,6 +8,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -17,7 +17,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -39,6 +38,10 @@ public class EntityInferno extends EntityMob {
      * ticks until heightOffset is randomized
      */
     private int heightOffsetUpdateTime;
+    /**
+     * Are the inferno passive
+     */
+    private boolean passive;
 
     public EntityInferno(World worldIn) {
         super(worldIn);
@@ -48,10 +51,6 @@ public class EntityInferno extends EntityMob {
         this.setPathPriority(PathNodeType.DAMAGE_FIRE, 0.0F);
         this.isImmuneToFire = true;
         this.experienceValue = 10;
-    }
-
-    public static void registerFixesBlaze(DataFixer fixer) {
-        EntityLiving.registerFixesMob(fixer, EntityInferno.class);
     }
 
     protected void initEntityAI() {
@@ -91,6 +90,17 @@ public class EntityInferno extends EntityMob {
     @SideOnly(Side.CLIENT)
     public int getBrightnessForRender() {
         return 15728880;
+    }
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound.setBoolean("passive", false);
+        return compound;
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        this.passive = compound.getBoolean("passive");
     }
 
     /**
@@ -179,6 +189,10 @@ public class EntityInferno extends EntityMob {
      * Checks to make sure the light is not too bright where the mob is spawning
      */
     protected boolean isValidLightLevel() {
+        return true;
+    }
+
+    public boolean isPassive() {
         return true;
     }
 

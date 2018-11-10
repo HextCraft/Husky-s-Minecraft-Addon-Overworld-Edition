@@ -67,7 +67,10 @@ public class NEntities {
                 createBuilder("black_bear").entity(EntityBlackBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
                 createBuilder("grizzly_bear").entity(EntityGrizzlyBear.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
                 createBuilder("panda").entity(EntityPanda.class).tracker(64, 3, true).egg(0x7A452B, 0x3C2113).build(),
-                createBuilder("brown_mooshroom").entity(EntityBrownMooshroom.class).tracker(30, 3, true).egg(0xFFFFFF, 0x00FF00).build()
+                createBuilder("brown_mooshroom").entity(EntityBrownMooshroom.class).tracker(30, 3, true).egg(0xFFFFFF, 0x00FF00).build(),
+                createBuilder("host").entity(EntityHost.class).tracker(64, 3, true).egg(0xFFFFFF, 0x00FF00).build(),
+                createBuilder("snapshot_frog").entity(EntitySnapshotFrog.class).tracker(64, 3, true).egg(0xFFFFFF, 0x00FF00).build(),
+                createBuilder("jungle_frog").entity(EntityJungleFrog.class).tracker(64, 3, true).egg(0xFFFFFF, 0x00FF00).build()
         };
         event.getRegistry().registerAll(entries);
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
@@ -131,6 +134,9 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityBlackBear.class, RenderBlackBear::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityGrizzlyBear.class, RenderGrizzlyBear::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityPanda.class, RenderPanda::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityHost.class, RenderHost::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySnapshotFrog.class, RenderSnapshotFrog::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityJungleFrog.class, RenderJungleFrog::new);
     }
 
 }
