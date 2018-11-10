@@ -79,6 +79,8 @@ public class NGroups {
                 .addComponent(new NewCraftingBlocks())
                 .addComponent(new NewMiscBlocks())
                 .addComponent(new NewStorageBlocks())
+                .enabled(true)
+                .enabledByDefault(true)
                 .register();
 
         decoration = Group.builder()
@@ -94,7 +96,7 @@ public class NGroups {
 //                .addComponent(new ColoredSlimeBlocks(), false)
 //                .addComponent(new CutGlazedTerracotta(), false)
 
-                .addComponent(new DecorativeAquamarine())
+//                .addComponent(new DecorativeAquamarine())
 
 //                .addComponent(new DecorativeCorals(), false)
 //                .addComponent(new GlazedTerracottaPillar(), false)
@@ -104,11 +106,12 @@ public class NGroups {
                 .addComponent(new MetalAndMineralPillars())
                 .addComponent(new MoreBanners())
                 .addComponent(new MoreMetals())
-                .addComponent(new NetherBlocks())
-                .addComponent(new SmoothBlocks())
                 .addComponent(new MorePillars())
+                .addComponent(new NetherBlocks())
+                .addComponent(new Shelves())
+                .addComponent(new SmoothBlocks())
 
-//                .addComponent(new TerracottaFlowerPots(), false)
+//                .addComponent(new TerracottaFlowerPots())
 
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
@@ -251,7 +254,8 @@ public class NGroups {
                 .addComponent(new MoreBiomes())
                 .addComponent(new MoreOceanBiomes())
                 .addComponent(new MoreStructures())
-                .addComponent(new NaturalAquamarine())
+                .addComponent(new MudBlocks())
+//                .addComponent(new NaturalAquamarine())
                 .addComponent(new NetherFossils())
                 .addComponent(new NetherMushrooms())
                 .addComponent(new PalmTrees())

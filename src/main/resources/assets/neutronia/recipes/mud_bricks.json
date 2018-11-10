@@ -1,0 +1,18 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v2.",
+  "type": "forge:ore_shaped",
+  "group": "mud",
+  "pattern": [
+    "XX",
+    "XX"
+  ],
+  "key": {
+    "X": {
+      "item": "neutronia:mud"
+    }
+  },
+  "result": {
+    "item": "neutronia:mud_bricks",
+    "count": 4
+  }
+}

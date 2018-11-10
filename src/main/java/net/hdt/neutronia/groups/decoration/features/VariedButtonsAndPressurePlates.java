@@ -24,6 +24,14 @@ public class VariedButtonsAndPressurePlates extends Component {
     public static Block jungle_pressure_plate, jungle_bark_pressure_plate, stripped_jungle_bark_pressure_plate, jungle_button, jungle_bark_button, stripped_jungle_bark_button;
     public static Block acacia_pressure_plate, acacia_bark_pressure_plate, stripped_acacia_bark_pressure_plate, acacia_button, acacia_bark_button, stripped_acacia_bark_button;
     public static Block dark_oak_pressure_plate, dark_oak_bark_pressure_plate, stripped_dark_oak_bark_pressure_plate, dark_oak_button, dark_oak_bark_button, stripped_dark_oak_bark_button;
+
+
+    public static Block cherry_pressure_plate, cherry_bark_pressure_plate, stripped_cherry_bark_pressure_plate, cherry_button, cherry_bark_button, stripped_cherry_bark_button;
+    public static Block baobab_pressure_plate, baobab_bark_pressure_plate, stripped_baobab_bark_pressure_plate, baobab_button, baobab_bark_button, stripped_baobab_bark_button;
+    public static Block willow_pressure_plate, willow_bark_pressure_plate, stripped_willow_bark_pressure_plate, willow_button, willow_bark_button, stripped_willow_bark_button;
+    public static Block palm_pressure_plate, palm_bark_pressure_plate, stripped_palm_bark_pressure_plate, palm_button, palm_bark_button, stripped_palm_bark_button;
+    public static Block purhogany_pressure_plate, purhogany_bark_pressure_plate, stripped_purhogany_bark_pressure_plate, purhogany_button, purhogany_bark_button, stripped_purhogany_bark_button;
+
     public static Block andesite_pressure_plate, andesite_button;
     public static Block granite_pressure_plate, granite_button;
     public static Block diorite_pressure_plate, diorite_button;
@@ -50,6 +58,12 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_pressure_plate = new BlockCustomPressurePlate("acacia");
             dark_oak_pressure_plate = new BlockCustomPressurePlate("dark_oak");
 
+            /*cherry_pressure_plate = new BlockCustomPressurePlate("cherry");
+            baobab_pressure_plate = new BlockCustomPressurePlate("baobab");
+            willow_pressure_plate = new BlockCustomPressurePlate("willow");
+            palm_pressure_plate = new BlockCustomPressurePlate("palm");
+            purhogany_pressure_plate = new BlockCustomPressurePlate("purhogany");*/
+
             oak_bark_pressure_plate = new BlockCustomPressurePlate("oak_bark");
             spruce_bark_pressure_plate = new BlockCustomPressurePlate("spruce_bark");
             birch_bark_pressure_plate = new BlockCustomPressurePlate("birch_bark");
@@ -57,12 +71,24 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_bark_pressure_plate = new BlockCustomPressurePlate("acacia_bark");
             dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("dark_oak_bark");
 
+            /*cherry_bark_pressure_plate = new BlockCustomPressurePlate("cherry_bark");
+            baobab_bark_pressure_plate = new BlockCustomPressurePlate("baobab_bark");
+            willow_bark_pressure_plate = new BlockCustomPressurePlate("willow_bark");
+            palm_bark_pressure_plate = new BlockCustomPressurePlate("palm_bark");
+            purhogany_bark_pressure_plate = new BlockCustomPressurePlate("purhogany_bark");*/
+
             stripped_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_oak_bark");
             stripped_spruce_bark_pressure_plate = new BlockCustomPressurePlate("stripped_spruce_bark");
             stripped_birch_bark_pressure_plate = new BlockCustomPressurePlate("stripped_birch_bark");
             stripped_jungle_bark_pressure_plate = new BlockCustomPressurePlate("stripped_jungle_bark");
             stripped_acacia_bark_pressure_plate = new BlockCustomPressurePlate("stripped_acacia_bark");
             stripped_dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_dark_oak_bark");
+
+            /*stripped_cherry_bark_pressure_plate = new BlockCustomPressurePlate("stripped_cherry_bark");
+            stripped_baobab_bark_pressure_plate = new BlockCustomPressurePlate("stripped_baobab_bark");
+            stripped_willow_bark_pressure_plate = new BlockCustomPressurePlate("stripped_willow_bark");
+            stripped_palm_bark_pressure_plate = new BlockCustomPressurePlate("stripped_palm_bark");
+            stripped_purhogany_bark_pressure_plate = new BlockCustomPressurePlate("stripped_purhogany_bark");*/
 
             andesite_pressure_plate = new BlockCustomPressurePlate("andesite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
             granite_pressure_plate = new BlockCustomPressurePlate("granite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
@@ -79,6 +105,12 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_button = new BlockCustomButton("acacia");
             dark_oak_button = new BlockCustomButton("dark_oak");
 
+            /*cherry_button = new BlockCustomButton("cherry");
+            baobab_button = new BlockCustomButton("baobab");
+            willow_button = new BlockCustomButton("willow");
+            palm_button = new BlockCustomButton("palm");
+            purhogany_button = new BlockCustomButton("purhogany");*/
+
             oak_bark_button = new BlockCustomButton("oak_bark");
             spruce_bark_button = new BlockCustomButton("spruce_bark");
             birch_bark_button = new BlockCustomButton("birch_bark");
@@ -86,12 +118,24 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_bark_button = new BlockCustomButton("acacia_bark");
             dark_oak_bark_button = new BlockCustomButton("dark_oak_bark");
 
+            /*cherry_bark_button = new BlockCustomButton("cherry_bark");
+            baobab_bark_button = new BlockCustomButton("baobab_bark");
+            willow_bark_button = new BlockCustomButton("willow_bark");
+            palm_bark_button = new BlockCustomButton("palm_bark");
+            purhogany_bark_button = new BlockCustomButton("purhogany_bark");*/
+
             stripped_oak_bark_button = new BlockCustomButton("stripped_oak_bark");
             stripped_spruce_bark_button = new BlockCustomButton("stripped_spruce_bark");
             stripped_birch_bark_button = new BlockCustomButton("stripped_birch_bark");
             stripped_jungle_bark_button = new BlockCustomButton("stripped_jungle_bark");
             stripped_acacia_bark_button = new BlockCustomButton("stripped_acacia_bark");
             stripped_dark_oak_bark_button = new BlockCustomButton("stripped_dark_oak_bark");
+
+            /*stripped_cherry_bark_button = new BlockCustomButton("stripped_cherry_bark");
+            stripped_baobab_bark_button = new BlockCustomButton("stripped_baobab_bark");
+            stripped_willow_bark_button = new BlockCustomButton("stripped_willow_bark");
+            stripped_palm_bark_button = new BlockCustomButton("stripped_palm_bark");
+            stripped_purhogany_bark_button = new BlockCustomButton("stripped_purhogany_bark");*/
 
             andesite_button = new BlockCustomButton("andesite", false);
             granite_button = new BlockCustomButton("granite", false);

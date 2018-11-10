@@ -1,7 +1,7 @@
 package net.hdt.neutronia.entity.render;
 
 import net.hdt.neutronia.entity.EntityYeti;
-import net.hdt.neutronia.entity.render.model.ModelYeti;
+import net.hdt.neutronia.entity.render.model.ModelYetiAlt;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -11,10 +11,10 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 
 public class RenderYeti extends RenderLiving<EntityYeti> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/yeti.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/yeti_alt.png");
 
     public RenderYeti(RenderManager renderManagerIn) {
-        super(renderManagerIn, new ModelYeti(), 0.5F);
+        super(renderManagerIn, new ModelYetiAlt(), 0.5F);
     }
 
     protected ResourceLocation getEntityTexture(EntityYeti entity) {

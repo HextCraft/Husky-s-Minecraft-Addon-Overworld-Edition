@@ -1,6 +1,6 @@
 package net.hdt.neutronia.groups.world.world.gen.features;
 
-import net.hdt.neutronia.groups.world.features.overworld.WorldDecorationFeatures;
+import net.hdt.neutronia.groups.world.features.overworld.MudBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -16,7 +16,7 @@ import java.util.Random;
 public class WorldGenMuddyLake extends WorldGenerator
 {
     private final Block block;
-    private static final IBlockState MUD = WorldDecorationFeatures.mud.getDefaultState();
+    private static final IBlockState MUD = MudBlocks.MUD.getDefaultState();
 
     public WorldGenMuddyLake(Block blockIn)
     {

@@ -15,8 +15,6 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.Objects;
-
 public class NBlocks {
 
     //Wood Blocks
@@ -35,8 +33,6 @@ public class NBlocks {
         // Frosted versions of vanilla stones & dirt
         for (EnumDyeColor dyeColor : EnumDyeColor.values()) {
             add(String.format("%s_terracotta", dyeColor.getName()), Blocks.STAINED_HARDENED_CLAY, dyeColor.getMetadata(), true, true);
-            add(String.format("%s_glazed_terracotta", dyeColor.getName()), Objects.requireNonNull(Block.getBlockFromName(String.format("minecraft:%s_glazed_terracotta", dyeColor.getName()))), dyeColor.getMetadata(), true, false);
-            add(String.format("%s_glass", dyeColor.getName()), Blocks.STAINED_GLASS, dyeColor.getMetadata(), true, false);
         }
 
         //Misc

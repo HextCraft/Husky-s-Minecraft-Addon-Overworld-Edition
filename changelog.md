@@ -2,6 +2,8 @@
 
 ## 0.2.0 - The Color, Sea and Nether Update
 
+#### Features
+
 * Added Colored Candles
 * Added Colored Lanterns
 * Added Colored Redstone Lamps
@@ -14,14 +16,19 @@
 * Changed Corals to have better names
 * Added Decorative Corals which don't die when not touching water
 * Added a useless dried kelp block
-* Fixed Nether Sponge Textures
 * Added Burned Bones block
 * Added Centered Glazed Terracotta Blocks
 * Added Soul Glass
 * Added Log Stripper for wood recipes
 * Added Chisel for wood recipes
 
+#### Bug Fixes
+
+* Fixed Nether Sponge Textures
+
 ### 0.2.1
+
+#### Features
 
 * Changed the name of the Log Stripper to Bark Stripper
 * Added recipes for chisel and bark stripper
@@ -29,45 +36,88 @@
 
 ## 0.3.0 - The Grouping Update
 
+#### Features
+
 * Renamed Corals to Coral Blocks and Coral Plants into Corals
 * Added Dead Coral Fans
 * Added Dead Corals (plants)
-* Fixed Basalt Biome Top Block
-* Fixed Red Desert Fill Block
 * Renamed a lot of wood blocks
 * Divided the whole mod into groups that have their own components/features
 * Updated to latest mappings (this version will not work on earlier versions)
-* Fixed a lot of bugs
 * Added Brass, Copper and Steel armor, tools and materials
 * Added Wood armor
 * Made new stats for vanilla tools and armor
 * Added sand and dust storms
 
+##### Bug Fixes
+
+* Fixed Basalt Biome Top Block
+* Fixed Red Desert Fill Block
+* Fixed a lot of bugs
+
 ## 0.4.0 - The I don't remember what it's called Update
 
 ### 0.4.1 - Misc Updates
 
-* Renamed the findbiome command to locatebiome
+#### Bug Fixes
+
+* Fixed new creative tab name
+* Fixed Slabs crashing and having strange textures
 * Fixed hardness for some blocks
+* Fixed horse texture bug with resource packs causing horse to look strange
+
+#### Features
+
+* Made stalactite only able to be placed on the ground and stalagmite in the roof
+* Renamed the findbiome command to locatebiome
 * Added some new modules
 * Changed some textures
 * Added a lot of more biomes
 * WIP New config screen
-* Made stalactite only able to be placed on the ground and stalagmite in the roof
 * Moved more blocks and items into modules
 * Added a lot of new blocks
 * Moved everything to 1 creative tab for now
 * Added more structures that generate in the world
-* Moved textures for new horse models because of conflicting textures when having a resource pack
 * Changed the title of the Minecraft window
 * Made more text translatable
 * Updated forge update checker url
-* Fixed new creative tab name
-* Fixed Slabs chrashing and having strange textures
 
 ### 0.4.2 - Misc 2 Update
 
+#### Features
 
+* Removed custom creative tabs and moved every block into vanilla creative tabs
+* Added Palm Trees with planks, doors, fences, fence gates, trapdoors and more
+* Added Dead Trees with planks, doors, fences, fence gates, trapdoors and more
+* Added Willow Trees with planks, doors, fences, fence gates, trapdoors and more
+* Added Baobab Trees with planks, doors, fences, fence gates, trapdoors and more
+* Added Cherry Trees with planks, doors, fences, fence gates, trapdoors and more
+* Added black and grizzly bear
+* Added most of the mobs from #progress in the discord server as basic mobs
+* Added Mermaids
+* Removed some modules
+* Added some new sounds for the well wisher
+* Updated lib-mod
+* Removed obsidian tools
+* Added mud block, mud bricks and dried mud bricks
+* Added stick block
+* Made mud spawn in rivers
+* Added beaver dams in forests
+* Removed all of the golems
+* Made all console hud features disabled by default
+* Removed the the chiseled bark blocks called "Unnamed *wood type* Wood Chiseled"
+* Removed aquamarine
+* Added a lot of the blocks from 1.14
+* Added brown mooshroom
+* Added the snapshot day frog and a jungle frog
+* Added a yeti
+* Changed some mob textures
+* Added "The Host"
+* Made the Inferno a lot better
+* Updated fox model
+* New textures for Ol' Diggy and Sea Swallowed Captain
+* Removed glass slabs and glazed terracotta slabs
+* Added Shelves for each wood type!
 
 ## 0.5.0 - The Underground & Dungeon Update
 

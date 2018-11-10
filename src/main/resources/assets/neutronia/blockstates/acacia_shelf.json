@@ -1,16 +1,26 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "forge_marker": 1,
+  "forge_marker":  1,
   "defaults": {
-    "model": "neutronia:shelf",
+    "model":  "neutronia:shelf_alt",
     "textures": {
-      "0": "minecraft:blocks/log_acacia",
-      "2": "neutronia:block/planks_acacia"
-    },
-    "transform": "forge:default-block"
+      "particle": "blocks/planks_acacia",
+      "shelf": "neutronia:block/acacia_shelf"
+    }
   },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}]
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    }
   }
 }

@@ -12,7 +12,7 @@ public class Reference {
     public static final String NAME = LibMisc.MOD_NAME;
     public static final String VERSION = LibMisc.VERSION;
     public static final String DEPENDENCIES = LibMisc.DEPENDENCIES;
-    public static final String UPDATE_JSON = "https://gist.githubusercontent.com/sindrefag/be19331edf8ae73628450304918911cc/raw/77436c5e3d0480819467e81bc6514479aff71a83/update_json_neutronia.json";
+    public static final String UPDATE_JSON = "https://github.com/HuskysDevelopmentTeam/Neutronia/tree/module-system/update.json";
     public static final String CLIENT_PROXY = LibMisc.PROXY_CLIENT;
     public static final String SERVER_PROXY = LibMisc.PROXY_COMMON;
     public static final boolean IS_DEV_ENV = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");

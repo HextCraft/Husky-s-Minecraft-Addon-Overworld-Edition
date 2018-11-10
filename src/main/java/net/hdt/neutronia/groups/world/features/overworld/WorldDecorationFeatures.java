@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.world.features.overworld;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.groups.world.blocks.BlockMud;
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenBeaverDam;
 import net.hdt.neutronia.groups.world.world.gen.features.WorldGenMuddyLake;
 import net.minecraft.block.Block;
@@ -26,7 +25,7 @@ import java.util.Random;
 
 public class WorldDecorationFeatures extends Component {
 
-    public static Block mud, stickBlock, mossyStone;
+    public static Block stickBlock, mossyStone;
 
     private static final IBlockState WATER = Blocks.WATER.getDefaultState();
     private static WorldGenSand MUD_FEATURE;
@@ -46,13 +45,12 @@ public class WorldDecorationFeatures extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        mud = new BlockMud();
         stickBlock = new BlockNeutroniaBase(Material.WOOD, "stick_block");
         mossyStone = new BlockNeutroniaBase(Material.ROCK, "mossy_stone");
 
-        MUD_FEATURE = new WorldGenSand(mud, 4);
+        MUD_FEATURE = new WorldGenSand(MudBlocks.MUD, 4);
         MOSSY_FEATURE = new WorldGenBlockBlob(mossyStone, 2);
-        DAM_FEATURE = new WorldGenBeaverDam(stickBlock.getDefaultState(), mud.getDefaultState(), true);
+        DAM_FEATURE = new WorldGenBeaverDam(stickBlock.getDefaultState(), MudBlocks.MUD.getDefaultState(), true);
     }
 
     //Replace vanilla lakes with our lakes that contains mud blocks around the edges
@@ -199,7 +197,7 @@ public class WorldDecorationFeatures extends Component {
             if (world.getBiome(pos) == Biomes.SWAMPLAND) {
                 pos = pos.add(0, rand.nextInt(event.getWorld().getTopSolidOrLiquidBlock(pos).getY() - 10) + 5, 0);
                 if(world.getBlockState(pos).getBlock() == Blocks.WATER) {
-                    world.setBlockState(pos, mud.getDefaultState());
+                    world.setBlockState(pos, MudBlocks.MUD.getDefaultState());
                 }
             }
         }

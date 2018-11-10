@@ -1,0 +1,20 @@
+{
+  "homepage": "https://www.mediafire.com/folder/b8zrptx24fw46/Neutronia_Beta_Builds",
+  "1.12.2": {
+    "0.1.1": "* First working beta",
+    "0.1.2": "* Some more stuff",
+    "0.1.3": "* idk what to write here",
+    "0.1.4": "* More Stuff",
+    "0.2.0": "* The Color, Sea and Nether Update",
+    "0.2.1": "* Fixed different things",
+    "0.3.0": "* The Grouping Update",
+    "0.4.0": "* The I don't remember what it's called Update",
+    "0.4.1": "* Misc Updates",
+    "0.4.2": "* Misc Updates p2",
+    "0.5.0": "* The Underground & Dungeon Update"
+  },
+  "promos": {
+    "1.12.2-latest": "0.5.0",
+    "1.12.2-recommended": "0.4.2"
+  }
+}
