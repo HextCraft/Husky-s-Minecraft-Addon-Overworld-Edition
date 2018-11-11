@@ -12,41 +12,34 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockPVJLog extends BlockNeutroniaPillar
-{
+public class BlockPVJLog extends BlockNeutroniaPillar {
     public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.create("axis", BlockLog.EnumAxis.class);
 
-    public BlockPVJLog(String name)
-    {
+    public BlockPVJLog(String name) {
         super(Material.WOOD, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
     }
 
     @Override
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-    	return MapColor.WOOD;
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        return MapColor.WOOD;
     }
-    
-	@Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
-    	return Blocks.LOG.getFlammability(world, pos, face);
+
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return Blocks.LOG.getFlammability(world, pos, face);
     }
-	
-	@Override
-    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
         return Blocks.LOG.getFireSpreadSpeed(world, pos, face);
     }
 
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         IBlockState iblockstate = this.getDefaultState();
 
-        switch (meta)
-        {
+        switch (meta) {
             case 0:
                 iblockstate = iblockstate.withProperty(LOG_AXIS, BlockLog.EnumAxis.Y);
                 break;
@@ -62,14 +55,12 @@ public class BlockPVJLog extends BlockNeutroniaPillar
 
         return iblockstate;
     }
-    
+
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i;
 
-        switch (state.getValue(LOG_AXIS))
-        {
+        switch (state.getValue(LOG_AXIS)) {
             case Y:
                 i = 0;
                 break;
@@ -80,16 +71,15 @@ public class BlockPVJLog extends BlockNeutroniaPillar
                 i = 2;
                 break;
             default:
-			i = 0;
-				break;
+                i = 0;
+                break;
         }
 
         return i;
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, LOG_AXIS);
     }
 

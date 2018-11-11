@@ -14,56 +14,45 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-public class WorldGenOvergrownCaves implements IWorldGenerator
-{
-	private Biome[] biomes;
-	
-	public WorldGenOvergrownCaves(Biome... biomes)
-	{
-		this.biomes = biomes;
-	}
+public class WorldGenOvergrownCaves implements IWorldGenerator {
+    private Biome[] biomes;
 
-	@Override
-	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-	{
-		Random random = new Random();
-		if(world.provider.getDimensionType() != DimensionType.OVERWORLD && world.provider.getDimensionType() != DimensionType.NETHER)
-			return;
-		
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
-		
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
-		boolean isValidBiome = false;
-		for(int i = 0; i < biomes.length; i++)
-		{
-			if(biome == biomes[i])
-			{
-				isValidBiome = true;
-				break;
-			}
-		}
-		
-		if(isValidBiome)
-		{
-			int y = 30;
-			for(BlockPos position : BlockPos.getAllInBoxMutable(x - 7, y - 28, z - 7, x + 7, y + 40, z + 7))
-			{	
-				if(!world.canSeeSky(position) && world.getBlockState(position).getBlock() instanceof BlockStone)
-				{
-					for(EnumFacing facing : EnumFacing.VALUES)
-					{
-						if(world.isAirBlock(position.offset(facing)) && random.nextInt(9) < 3)
-						{
-							if(facing != EnumFacing.UP)
-							{
-								world.setBlockState(position.offset(facing), Blocks.VINE.getDefaultState().withProperty(BlockVine.getPropertyFor(facing.getOpposite()), true));
-								break;
-							}
-						}
-					}
-				}
-		}
-		}
-	}
+    public WorldGenOvergrownCaves(Biome... biomes) {
+        this.biomes = biomes;
+    }
+
+    @Override
+    public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+        Random random = new Random();
+        if (world.provider.getDimensionType() != DimensionType.OVERWORLD && world.provider.getDimensionType() != DimensionType.NETHER)
+            return;
+
+        int x = chunkX * 16 + 8;
+        int z = chunkZ * 16 + 8;
+
+        Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+        boolean isValidBiome = false;
+        for (int i = 0; i < biomes.length; i++) {
+            if (biome == biomes[i]) {
+                isValidBiome = true;
+                break;
+            }
+        }
+
+        if (isValidBiome) {
+            int y = 30;
+            for (BlockPos position : BlockPos.getAllInBoxMutable(x - 7, y - 28, z - 7, x + 7, y + 40, z + 7)) {
+                if (!world.canSeeSky(position) && world.getBlockState(position).getBlock() instanceof BlockStone) {
+                    for (EnumFacing facing : EnumFacing.VALUES) {
+                        if (world.isAirBlock(position.offset(facing)) && random.nextInt(9) < 3) {
+                            if (facing != EnumFacing.UP) {
+                                world.setBlockState(position.offset(facing), Blocks.VINE.getDefaultState().withProperty(BlockVine.getPropertyFor(facing.getOpposite()), true));
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

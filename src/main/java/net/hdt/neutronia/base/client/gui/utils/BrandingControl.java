@@ -10,15 +10,12 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.stream.IntStream;
 
-public class BrandingControl
-{
+public class BrandingControl {
     private static List<String> brandings;
     private static List<String> brandingsNoMC;
 
-    private static void computeBranding()
-    {
-        if (brandings == null)
-        {
+    private static void computeBranding() {
+        if (brandings == null) {
             ImmutableList.Builder<String> brd = ImmutableList.builder();
             brd.add(I18n.format("fml.mainMenu.mcVersion", Loader.instance().getMCVersionString()));
             brd.add(I18n.format("fml.mainMenu.mcpVersion", Loader.instance().getMCPVersionString()));
@@ -31,8 +28,7 @@ public class BrandingControl
         }
     }
 
-    private static List<String> getBrandings(boolean includeMC, boolean reverse)
-    {
+    private static List<String> getBrandings(boolean includeMC, boolean reverse) {
         computeBranding();
         if (includeMC) {
             return reverse ? Lists.reverse(brandings) : brandings;

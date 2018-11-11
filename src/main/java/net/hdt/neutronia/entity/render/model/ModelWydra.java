@@ -2,9 +2,8 @@ package net.hdt.neutronia.entity.render.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.GlStateManager;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.entity.Entity;
 
 /**
  * wydra.tcn - TechneToTabulaImporter
@@ -101,7 +100,7 @@ public class ModelWydra extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.pushMatrix();
         GlStateManager.translate(this.Shoulder.offsetX, this.Shoulder.offsetY, this.Shoulder.offsetZ);
         GlStateManager.translate(this.Shoulder.rotationPointX * f5, this.Shoulder.rotationPointY * f5, this.Shoulder.rotationPointZ * f5);

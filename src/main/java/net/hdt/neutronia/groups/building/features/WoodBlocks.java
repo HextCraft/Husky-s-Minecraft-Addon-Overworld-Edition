@@ -11,7 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class WoodBlocks extends Component {
-    
+
     private static int woodAmount = 6;
 
     public static final Block[] barkBlocks = new Block[woodAmount], chiseledBarkBlocks = new Block[woodAmount], strippedBarkBlocks = new Block[woodAmount], unnamedChiseledBarkBlock = new Block[woodAmount];

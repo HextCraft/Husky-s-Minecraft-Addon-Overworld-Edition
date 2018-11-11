@@ -21,7 +21,7 @@ public class LayerInfernoActiveGlow implements LayerRenderer<EntityInferno> {
     }
 
     public void doRenderLayer(EntityInferno entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        if(!entitylivingbaseIn.isPassive()) {
+        if (!entitylivingbaseIn.isPassive()) {
             this.renderer.bindTexture(GLOWING_TEXTURE);
             GlStateManager.enableBlend();
 //            GlStateManager.disableAlpha();

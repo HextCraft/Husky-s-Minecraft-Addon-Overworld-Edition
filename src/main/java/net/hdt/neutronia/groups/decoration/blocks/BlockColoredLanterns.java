@@ -60,6 +60,8 @@ public class BlockColoredLanterns extends BlockColoredAlt {
  * Get the Item that this Block should drop when harvested.
  * <p>
  * Get the Item that this Block should drop when harvested.
+ * <p>
+ * Get the Item that this Block should drop when harvested.
  *//*
 
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {

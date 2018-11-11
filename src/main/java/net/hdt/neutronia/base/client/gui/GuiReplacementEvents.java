@@ -22,10 +22,10 @@ public class GuiReplacementEvents {
         if (event.getGui() instanceof GuiMainMenu) {
             event.setGui(new MainMenu());
         }
-        if(event.getGui() instanceof GuiModList) {
-            if(event.getGui() instanceof GuiMainMenu) {
+        if (event.getGui() instanceof GuiModList) {
+            if (event.getGui() instanceof GuiMainMenu) {
                 mainMenu = new GuiMainMenu();
-            } else if(event.getGui() instanceof MainMenu) {
+            } else if (event.getGui() instanceof MainMenu) {
                 mainMenu = new MainMenu();
             }
             event.setGui(new ModList(mainMenu));

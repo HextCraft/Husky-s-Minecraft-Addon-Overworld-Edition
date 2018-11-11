@@ -28,7 +28,7 @@ public class EntityEventHandler {
     public static void onLivingDeath(LivingDeathEvent event) {
         World world = event.getEntity().world;
         BlockPos pos = event.getEntity().getPosition();
-        if(!world.isRemote) {
+        if (!world.isRemote) {
             if (event.getEntity() instanceof EntityVillager) {
                 if (event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.BEACH || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.MUTATED_DESERT || event.getEntity().getEntityWorld().getBiome(new BlockPos(pos)) == Biomes.DESERT_HILLS) {
                     EntityMummyVillager mummyVillager = new EntityMummyVillager(world);

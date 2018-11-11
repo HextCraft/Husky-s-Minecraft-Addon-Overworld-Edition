@@ -29,8 +29,7 @@ import java.util.Map;
 /**
  * Created by cpw on 05/06/17.
  */
-public class StringUtils
-{
+public class StringUtils {
     public static String toLowerCase(final String str) {
         return str.toLowerCase(Locale.ROOT);
     }
@@ -45,12 +44,9 @@ public class StringUtils
     }
 
     public static URL toURL(final String string) {
-        try
-        {
+        try {
             return new URL(string);
-        }
-        catch (MalformedURLException e)
-        {
+        } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }

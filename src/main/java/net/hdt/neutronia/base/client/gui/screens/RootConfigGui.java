@@ -125,7 +125,7 @@ public class RootConfigGui extends GuiConfigBase {
         if (button instanceof GroupButton) {
             GroupButton moduleButton = (GroupButton) button;
             mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
-        } else if (button instanceof CustomGroupButton){
+        } else if (button instanceof CustomGroupButton) {
             CustomGroupButton moduleButton = (CustomGroupButton) button;
             mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
         } else if (button == left || button == right) {

@@ -14,37 +14,36 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class GuiTooltip {
 
-	public static interface ITooltipRenderer {
-		void drawTooltip(final int x, final int y, @Nonnull final List<String> text);
-	}
+    protected final ITooltipRenderer renderer;
+    protected final HoverChecker checker;
+    protected final List<String> tooltip;
+    public GuiTooltip(@Nonnull final ITooltipRenderer renderer, @Nonnull GuiButton button,
+                      @Nonnull final String tipText) {
+        this(renderer, button, tipText, 200);
+    }
 
-	protected final ITooltipRenderer renderer;
-	protected final HoverChecker checker;
-	protected final List<String> tooltip;
+    public GuiTooltip(@Nonnull final ITooltipRenderer renderer, @Nonnull GuiButton button,
+                      @Nonnull final String tipText, final int width) {
+        final FontRenderer font = Minecraft.getMinecraft().fontRenderer;
+        this.renderer = renderer;
+        this.checker = new HoverChecker(button, 800);
+        this.tooltip = generateTooltip(font, tipText, width);
+    }
 
-	public GuiTooltip(@Nonnull final ITooltipRenderer renderer, @Nonnull GuiButton button,
-			@Nonnull final String tipText) {
-		this(renderer, button, tipText, 200);
-	}
+    private List<String> generateTooltip(@Nonnull FontRenderer font, @Nonnull final String langKey, final int width) {
+        final String t = Localization.format(langKey);
+        return font.listFormattedStringToWidth(t, width);
+    }
 
-	public GuiTooltip(@Nonnull final ITooltipRenderer renderer, @Nonnull GuiButton button,
-			@Nonnull final String tipText, final int width) {
-		final FontRenderer font = Minecraft.getMinecraft().fontRenderer;
-		this.renderer = renderer;
-		this.checker = new HoverChecker(button, 800);
-		this.tooltip = generateTooltip(font, tipText, width);
-	}
+    public boolean handle(final int mouseX, final int mouseY) {
+        if (this.checker.checkHover(mouseX, mouseY)) {
+            this.renderer.drawTooltip(mouseX, mouseY, this.tooltip);
+            return true;
+        }
+        return false;
+    }
 
-	private List<String> generateTooltip(@Nonnull FontRenderer font, @Nonnull final String langKey, final int width) {
-		final String t = Localization.format(langKey);
-		return font.listFormattedStringToWidth(t, width);
-	}
-
-	public boolean handle(final int mouseX, final int mouseY) {
-		if (this.checker.checkHover(mouseX, mouseY)) {
-			this.renderer.drawTooltip(mouseX, mouseY, this.tooltip);
-			return true;
-		}
-		return false;
-	}
+    public static interface ITooltipRenderer {
+        void drawTooltip(final int x, final int y, @Nonnull final List<String> text);
+    }
 }

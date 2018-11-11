@@ -60,6 +60,8 @@ public class BiomeFrozenMesa extends Biome {
  * Generates ores in the current chunk
  * <p>
  * Generates ores in the current chunk
+ * <p>
+ * Generates ores in the current chunk
  *//*
 
     public BiomeDecorator createBiomeDecorator() {

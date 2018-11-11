@@ -13,7 +13,7 @@ public class LogPiles extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
             logPiles[type.getMetadata()] = new BlockNeutroniaHorizontalPillar(Material.WOOD, String.format("%s_log_pile", type.getName()));
         }
     }

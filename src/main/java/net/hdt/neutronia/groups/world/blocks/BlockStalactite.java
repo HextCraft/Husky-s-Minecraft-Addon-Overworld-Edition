@@ -96,9 +96,9 @@ public class BlockStalactite extends BlockMod implements INeutroniaBlock {
         EnumFacing enumfacing = EnumFacing.random(rand);
 
         if (enumfacing != EnumFacing.UP && !worldIn.getBlockState(pos.offset(enumfacing)).isTopSolid()) {
-            double d0 = (double)pos.getX();
-            double d1 = (double)pos.getY();
-            double d2 = (double)pos.getZ();
+            double d0 = (double) pos.getX();
+            double d1 = (double) pos.getY();
+            double d2 = (double) pos.getZ();
 
             d1 = d1 - 0.05D;
             d0 += rand.nextDouble();

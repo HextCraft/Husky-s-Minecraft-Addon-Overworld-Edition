@@ -1,0 +1,27 @@
+{
+  "forge_marker":  1,
+  "defaults": {
+    "model":  "neutronia:lectern",
+    "textures": {
+      "particle": "blocks/planks_jungle",
+      "all": "neutronia:block/jungle_lectern"
+    }
+  },
+  "variants": {
+    "normal": [{}],
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@
     }
   },
   "variants": {
+    "normal": [{}],
     "facing": {
       "north": {
         "y": 0

@@ -17,55 +17,32 @@ public class MavenVersionStringHelper {
     }
 
     public static String restrictionToString(final Restriction restriction) {
-        if ( restriction.getLowerBound() == null && restriction.getUpperBound() == null )
-        {
+        if (restriction.getLowerBound() == null && restriction.getUpperBound() == null) {
             return ForgeI18n.parseMessage("fml.messages.version.restriction.any");
-        }
-        else if ( restriction.getLowerBound() != null && restriction.getUpperBound() != null )
-        {
-            if (Objects.equals(artifactVersionToString(restriction.getLowerBound()), artifactVersionToString(restriction.getUpperBound())))
-            {
+        } else if (restriction.getLowerBound() != null && restriction.getUpperBound() != null) {
+            if (Objects.equals(artifactVersionToString(restriction.getLowerBound()), artifactVersionToString(restriction.getUpperBound()))) {
                 return artifactVersionToString(restriction.getLowerBound());
-            }
-            else
-            {
-                if (restriction.isLowerBoundInclusive() && restriction.isUpperBoundInclusive())
-                {
+            } else {
+                if (restriction.isLowerBoundInclusive() && restriction.isUpperBoundInclusive()) {
                     return ForgeI18n.parseMessage("fml.messages.version.restriction.bounded.inclusive", restriction.getLowerBound(), restriction.getUpperBound());
-                }
-                else if (restriction.isLowerBoundInclusive())
-                {
+                } else if (restriction.isLowerBoundInclusive()) {
                     return ForgeI18n.parseMessage("fml.messages.version.restriction.bounded.upperexclusive", restriction.getLowerBound(), restriction.getUpperBound());
-                }
-                else if (restriction.isUpperBoundInclusive())
-                {
+                } else if (restriction.isUpperBoundInclusive()) {
                     return ForgeI18n.parseMessage("fml.messages.version.restriction.bounded.lowerexclusive", restriction.getLowerBound(), restriction.getUpperBound());
-                }
-                else
-                {
+                } else {
                     return ForgeI18n.parseMessage("fml.messages.version.restriction.bounded.exclusive", restriction.getLowerBound(), restriction.getUpperBound());
                 }
             }
-        }
-        else if ( restriction.getLowerBound() != null )
-        {
-            if ( restriction.isLowerBoundInclusive() )
-            {
+        } else if (restriction.getLowerBound() != null) {
+            if (restriction.isLowerBoundInclusive()) {
                 return ForgeI18n.parseMessage("fml.messages.version.restriction.lower.inclusive", restriction.getLowerBound());
-            }
-            else
-            {
+            } else {
                 return ForgeI18n.parseMessage("fml.messages.version.restriction.lower.exclusive", restriction.getLowerBound());
             }
-        }
-        else
-        {
-            if ( restriction.isUpperBoundInclusive() )
-            {
+        } else {
+            if (restriction.isUpperBoundInclusive()) {
                 return ForgeI18n.parseMessage("fml.messages.version.restriction.upper.inclusive", restriction.getUpperBound());
-            }
-            else
-            {
+            } else {
                 return ForgeI18n.parseMessage("fml.messages.version.restriction.upper.exclusive", restriction.getUpperBound());
             }
         }

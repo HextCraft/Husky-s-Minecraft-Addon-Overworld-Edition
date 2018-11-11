@@ -105,16 +105,17 @@ public class EntityModelPanda extends ModelQuadruped {
             this.f.pitch = -0.5f * MathUtils.sin(aFloat3 * 0.5f);
         }
     }*/
-    
+
     protected float a(final float aFloat1, final float aFloat2, final float aFloat3) {
         float vFloat4;
-        for (vFloat4 = aFloat2 - aFloat1; vFloat4 < -3.1415927f; vFloat4 += 6.2831855f) {}
+        for (vFloat4 = aFloat2 - aFloat1; vFloat4 < -3.1415927f; vFloat4 += 6.2831855f) {
+        }
         while (vFloat4 >= 3.1415927f) {
             vFloat4 -= 6.2831855f;
         }
         return aFloat1 + aFloat3 * vFloat4;
     }
-    
+
     @Override
     public void render(final Entity aEntity1, final float aFloat2, final float aFloat3, final float aFloat4, final float aFloat5, final float aFloat6, final float aFloat7) {
         this.setRotationAngles(aFloat2, aFloat3, aFloat4, aFloat5, aFloat6, aFloat7, aEntity1);
@@ -136,8 +137,7 @@ public class EntityModelPanda extends ModelQuadruped {
             this.leg3.render(aFloat7);
             this.leg4.render(aFloat7);
             GlStateManager.popMatrix();
-        }
-        else {
+        } else {
             this.head.render(aFloat7);
             this.body.render(aFloat7);
             this.leg1.render(aFloat7);

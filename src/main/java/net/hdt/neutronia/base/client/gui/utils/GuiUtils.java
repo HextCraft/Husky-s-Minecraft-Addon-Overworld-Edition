@@ -23,12 +23,15 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public final class GuiUtils {
 
-    public static GuiUtils instance() {
-        return new GuiUtils();
-    }
+    private static List<String> brandings;
+    private static List<String> brandingsNoMC;
 
     private GuiUtils() {
 
+    }
+
+    public static GuiUtils instance() {
+        return new GuiUtils();
     }
 
     public static void drawCenteredString(FontRenderer fontRendererIn, String text, int x, int y, int color) {
@@ -135,13 +138,8 @@ public final class GuiUtils {
         return new Vec2f(first / (float) sheetDimension, second / (float) sheetDimension);
     }
 
-    private static List<String> brandings;
-    private static List<String> brandingsNoMC;
-
-    public static void computeBranding()
-    {
-        if (brandings == null)
-        {
+    public static void computeBranding() {
+        if (brandings == null) {
             ImmutableList.Builder<String> brd = ImmutableList.builder();
             brd.add(I18n.format("fml.mainMenu.minecraft", Loader.instance().getMCVersionString()));
             brd.add(I18n.format("fml.mainMenu.mcp", Loader.instance().getMCPVersionString()));
@@ -155,10 +153,8 @@ public final class GuiUtils {
         }
     }
 
-    public static List<String> getBrandings(boolean includeMC)
-    {
-        if (brandings == null)
-        {
+    public static List<String> getBrandings(boolean includeMC) {
+        if (brandings == null) {
             computeBranding();
         }
         return includeMC ? ImmutableList.copyOf(brandings) : ImmutableList.copyOf(brandingsNoMC);

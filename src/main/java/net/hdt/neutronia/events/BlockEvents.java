@@ -22,8 +22,8 @@ public class BlockEvents {
         ItemStack stack = e.getItemStack();
         EntityPlayer player = e.getEntityPlayer();
         if (stack.getItem().getToolClasses(stack).contains("axe") && player.getCooldownTracker().getCooldown(stack.getItem(), 0) <= 0) {
-            if(state instanceof BlockLog) {
-                for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
+            if (state instanceof BlockLog) {
+                for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
                     player.sendStatusMessage(new TextComponentString(String.format("Broke a block called %s at [X: %s, Y:%s, Z:%s] and replaced with %s", state.getBlock().getRegistryName(), pos.getX(), pos.getY(), pos.getZ(), LogBlocks.strippedLogs[type.getMetadata()].getRegistryName())), false);
                     world.setBlockState(pos, LogBlocks.strippedLogs[type.getMetadata()].getDefaultState());
                 }

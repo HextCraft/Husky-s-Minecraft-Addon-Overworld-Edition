@@ -20,8 +20,8 @@ public abstract class BlockMod extends Block implements IModBlock {
     public BlockMod(String name, Material materialIn, String... variants) {
         super(materialIn);
 
-        if(variants.length == 0)
-            variants = new String[] { name };
+        if (variants.length == 0)
+            variants = new String[]{name};
 
         bareName = name;
         this.variants = variants;
@@ -40,8 +40,8 @@ public abstract class BlockMod extends Block implements IModBlock {
         this.needsRandomTick = properties.needsRandomTick;
         this.slipperiness = properties.slipperiness;
 
-        if(variants.length == 0)
-            variants = new String[] { name };
+        if (variants.length == 0)
+            variants = new String[]{name};
 
         bareName = name;
         this.variants = variants;
@@ -51,13 +51,13 @@ public abstract class BlockMod extends Block implements IModBlock {
         return true;
     }
 
-    public void setBareName(String bareName) {
-        this.bareName = bareName;
-    }
-
     @Override
     public String getBareName() {
         return bareName;
+    }
+
+    public void setBareName(String bareName) {
+        this.bareName = bareName;
     }
 
     @Override

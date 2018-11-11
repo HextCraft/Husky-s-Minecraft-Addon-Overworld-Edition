@@ -33,18 +33,18 @@ public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroni
         setCreativeTab(CreativeTabs.REDSTONE);
     }
 
+    public static void initFenceGate(Block base, ItemStack baseTwo, int meta, Block block) {
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
+                "OXO", "OXO",
+                'O', baseTwo, 'X', ProxyRegistry.newStack(base, 1, meta));
+    }
+
     public Block register(String name) {
         super.setTranslationKey(name);
         setRegistryName(LibMisc.PREFIX_MOD + name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
         return this;
-    }
-
-    public static void initFenceGate(Block base, ItemStack baseTwo, int meta, Block block) {
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
-                "OXO", "OXO",
-                'O', baseTwo,'X', ProxyRegistry.newStack(base, 1, meta));
     }
 
     @Override

@@ -1,0 +1,33 @@
+{
+  "forge_marker":  1,
+  "defaults": {
+    "model": "cube",
+    "textures": {
+      "particle": "neutronia:block/birch_cartography_table_front",
+      "down": "blocks/planks_birch",
+      "up": "neutronia:block/birch_cartography_table_top",
+      "north": "neutronia:block/birch_cartography_table_front",
+      "east": "neutronia:block/birch_cartography_table_side",
+      "south": "neutronia:block/birch_cartography_table_front",
+      "west": "neutronia:block/birch_cartography_table_side"
+    }
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    }
+  }
+}

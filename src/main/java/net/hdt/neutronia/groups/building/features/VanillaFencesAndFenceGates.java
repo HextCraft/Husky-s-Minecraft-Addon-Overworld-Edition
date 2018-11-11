@@ -17,12 +17,12 @@ public class VanillaFencesAndFenceGates extends Component {
         String wallName;
         IBlockState state = block.getStateFromMeta(meta);
 
-        if(fence) {
+        if (fence) {
             wallName = name + "_fence";
             BlockNeutroniaFence.initFence(block, materialTwo, meta, new BlockNeutroniaFence(wallName, state));
         }
 
-        if(fenceGate) {
+        if (fenceGate) {
             wallName = name + "_fence_gate";
             BlockNeutroniaFenceGate.initFenceGate(block, materialTwo, meta, new BlockNeutroniaFenceGate(wallName));
         }
@@ -35,14 +35,14 @@ public class VanillaFencesAndFenceGates extends Component {
         String wallName;
         IBlockState state = block.getStateFromMeta(meta);
 
-        if(fence) {
+        if (fence) {
             wallName = name + "_fence";
             BlockNeutroniaFence neutroniaWall = new BlockNeutroniaFence(wallName, state);
             neutroniaWall.setCreativeTab(creativeTabs);
             BlockNeutroniaFence.initFence(block, materialTwo, meta, neutroniaWall);
         }
 
-        if(fenceGate) {
+        if (fenceGate) {
             wallName = name + "_fence_gate";
             BlockNeutroniaFenceGate neutroniaFenceGate = new BlockNeutroniaFenceGate(wallName);
             neutroniaFenceGate.setCreativeTab(creativeTabs);

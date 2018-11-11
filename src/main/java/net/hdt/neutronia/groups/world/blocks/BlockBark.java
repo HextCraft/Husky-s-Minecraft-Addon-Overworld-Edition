@@ -12,34 +12,29 @@ import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
-public class BlockBark extends Block
-{
-	private Block baseWood;
-	
-	public BlockBark(Block base)
-	{
-		super(Material.WOOD);
-		
+public class BlockBark extends Block {
+    private Block baseWood;
+
+    public BlockBark(Block base) {
+        super(Material.WOOD);
+
         this.setHardness(2.0F);
         this.setSoundType(SoundType.WOOD);
-		this.baseWood = base;
-	}
-	
-	@Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+        this.baseWood = base;
+    }
+
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(baseWood);
     }
-	
-	@Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
-    	return Blocks.LOG.getFlammability(world, pos, face);
+
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return Blocks.LOG.getFlammability(world, pos, face);
     }
-	
-	@Override
-    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
         return Blocks.LOG.getFireSpreadSpeed(world, pos, face);
     }
 }

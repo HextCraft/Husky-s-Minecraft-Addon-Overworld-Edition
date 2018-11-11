@@ -13,51 +13,41 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityCoconut extends EntityThrowable
-{
-	public EntityCoconut(World worldIn)
-	{
-		super(worldIn);
-	}
-	
-	public EntityCoconut(World worldIn, double x, double y, double z)
-	{
-		super(worldIn, x, y, z);
-	}
-	
-    public EntityCoconut(World worldIn, EntityLivingBase throwerIn)
-    {
-        super(worldIn, throwerIn);
-        this.setPosition(throwerIn.posX, throwerIn.posY + (double)throwerIn.getEyeHeight() - 0.30000000149011612D, throwerIn.posZ);
+public class EntityCoconut extends EntityThrowable {
+    public EntityCoconut(World worldIn) {
+        super(worldIn);
     }
 
-	@Override
-	protected void onImpact(RayTraceResult result)
-	{
-        if (result.entityHit != null)
-        {
+    public EntityCoconut(World worldIn, double x, double y, double z) {
+        super(worldIn, x, y, z);
+    }
+
+    public EntityCoconut(World worldIn, EntityLivingBase throwerIn) {
+        super(worldIn, throwerIn);
+        this.setPosition(throwerIn.posX, throwerIn.posY + (double) throwerIn.getEyeHeight() - 0.30000000149011612D, throwerIn.posZ);
+    }
+
+    @Override
+    protected void onImpact(RayTraceResult result) {
+        if (result.entityHit != null) {
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 2.0F);
         }
 
-        if (!this.world.isRemote)
-        {
-        	ItemStack coconut = new ItemStack(PalmTrees.crackedCoconut, 2);
-        	InventoryHelper.spawnItemStack(world, this.posX, this.posY, this.posZ, coconut);
-        	
-            this.world.setEntityState(this, (byte)3);
+        if (!this.world.isRemote) {
+            ItemStack coconut = new ItemStack(PalmTrees.crackedCoconut, 2);
+            InventoryHelper.spawnItemStack(world, this.posX, this.posY, this.posZ, coconut);
+
+            this.world.setEntityState(this, (byte) 3);
             this.setDead();
         }
-	}
-	
+    }
+
     @SideOnly(Side.CLIENT)
     @Override
-    public void handleStatusUpdate(byte id)
-    {
-        if (id == 3)
-        {
-            for (int i = 0; i < 8; ++i)
-            {
-                this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, this.posX, this.posY, this.posZ, ((double)this.rand.nextFloat() - 0.5D) * 0.08D, ((double)this.rand.nextFloat() - 0.5D) * 0.08D, ((double)this.rand.nextFloat() - 0.5D) * 0.08D, Item.getIdFromItem(PalmTrees.crackedCoconut));
+    public void handleStatusUpdate(byte id) {
+        if (id == 3) {
+            for (int i = 0; i < 8; ++i) {
+                this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, this.posX, this.posY, this.posZ, ((double) this.rand.nextFloat() - 0.5D) * 0.08D, ((double) this.rand.nextFloat() - 0.5D) * 0.08D, ((double) this.rand.nextFloat() - 0.5D) * 0.08D, Item.getIdFromItem(PalmTrees.crackedCoconut));
             }
         }
     }

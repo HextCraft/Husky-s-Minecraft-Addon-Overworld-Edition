@@ -95,6 +95,12 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         return Block.isExceptBlockForAttachWithPiston(block) || block == Blocks.BARRIER || block == Blocks.MELON_BLOCK || block == Blocks.PUMPKIN || block == Blocks.LIT_PUMPKIN;
     }
 
+    public static void initFence(Block base, ItemStack baseTwo, int meta, Block block) {
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
+                "XOX", "XOX",
+                'X', baseTwo, 'O', ProxyRegistry.newStack(base, 1, meta));
+    }
+
     public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
         if (!isActualState) {
             state = state.getActualState(worldIn, pos);
@@ -117,12 +123,6 @@ public class BlockNeutroniaFence extends BlockMod implements INeutroniaBlock {
         if (state.getValue(WEST)) {
             addCollisionBoxToList(pos, entityBox, collidingBoxes, WEST_AABB);
         }
-    }
-
-    public static void initFence(Block base, ItemStack baseTwo, int meta, Block block) {
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(block, 6),
-                "XOX", "XOX",
-                'X', baseTwo, 'O', ProxyRegistry.newStack(base, 1, meta));
     }
 
     @Override

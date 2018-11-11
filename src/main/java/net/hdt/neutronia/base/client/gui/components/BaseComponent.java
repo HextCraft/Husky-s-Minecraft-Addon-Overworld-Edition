@@ -21,163 +21,163 @@ import java.util.List;
 
 public abstract class BaseComponent extends Gui {
 
-	public final static ResourceLocation WIDGETS = LibMisc.location("textures/gui/components.png");
+    public final static ResourceLocation WIDGETS = LibMisc.location("textures/gui/components.png");
+    protected int x;
+    protected int y;
+    protected boolean enabled = true;
+    protected IComponentParent parent;
+    private IKeyTypedListener keyListener;
+    private IMouseDownListener mouseDownListener;
+    private IMouseUpListener mouseUpListener;
+    private IMouseDragListener mouseDragListener;
 
-	protected void bindComponentsSheet() {
-		parent.bindTexture(WIDGETS);
-	}
+    public BaseComponent(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
-	protected int x;
-	protected int y;
-	protected boolean enabled = true;
+    protected void bindComponentsSheet() {
+        parent.bindTexture(WIDGETS);
+    }
 
-	private IKeyTypedListener keyListener;
-	private IMouseDownListener mouseDownListener;
-	private IMouseUpListener mouseUpListener;
-	private IMouseDragListener mouseDragListener;
+    public void init(IComponentParent parent) {
+        this.parent = parent;
+    }
 
-	protected IComponentParent parent;
+    public int getX() {
+        return x;
+    }
 
-	public BaseComponent(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
+    public void setX(int x) {
+        this.x = x;
+    }
 
-	public void init(IComponentParent parent) {
-		this.parent = parent;
-	}
+    public int getY() {
+        return y;
+    }
 
-	public void setX(int x) {
-		this.x = x;
-	}
+    public void setY(int y) {
+        this.y = y;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
+    public abstract int getWidth();
 
-	public int getX() {
-		return x;
-	}
+    public abstract int getHeight();
 
-	public int getY() {
-		return y;
-	}
+    public boolean isEnabled() {
+        return enabled;
+    }
 
-	public abstract int getWidth();
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public abstract int getHeight();
+    public boolean isMouseOver(int mouseX, int mouseY) {
+        return mouseX >= x && mouseX < x + getWidth() && mouseY >= y && mouseY < y + getHeight();
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+    public void setListener(IKeyTypedListener keyListener) {
+        this.keyListener = keyListener;
+    }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+    public void setListener(IMouseDownListener mouseDownListener) {
+        this.mouseDownListener = mouseDownListener;
+    }
 
-	public boolean isMouseOver(int mouseX, int mouseY) {
-		return mouseX >= x && mouseX < x + getWidth() && mouseY >= y && mouseY < y + getHeight();
-	}
+    public void setListener(IMouseUpListener mouseUpListener) {
+        this.mouseUpListener = mouseUpListener;
+    }
 
-	public void setListener(IKeyTypedListener keyListener) {
-		this.keyListener = keyListener;
-	}
+    public void setListener(IMouseDragListener mouseDragListener) {
+        this.mouseDragListener = mouseDragListener;
+    }
 
-	public void setListener(IMouseDownListener mouseDownListener) {
-		this.mouseDownListener = mouseDownListener;
-	}
+    public void render(int offsetX, int offsetY, int mouseX, int mouseY) {
+    }
 
-	public void setListener(IMouseUpListener mouseUpListener) {
-		this.mouseUpListener = mouseUpListener;
-	}
+    public void renderOverlay(int offsetX, int offsetY, int mouseX, int mouseY) {
+    }
 
-	public void setListener(IMouseDragListener mouseDragListener) {
-		this.mouseDragListener = mouseDragListener;
-	}
+    public void keyTyped(char keyChar, int keyCode) {
+        if (keyListener != null) keyListener.componentKeyTyped(this, keyChar, keyCode);
+    }
 
-	public void render(int offsetX, int offsetY, int mouseX, int mouseY) {}
+    public void mouseDown(int mouseX, int mouseY, int button) {
+        if (mouseDownListener != null) mouseDownListener.componentMouseDown(this, mouseX, mouseY, button);
+    }
 
-	public void renderOverlay(int offsetX, int offsetY, int mouseX, int mouseY) {}
+    public void mouseUp(int mouseX, int mouseY, int button) {
+        if (mouseUpListener != null) mouseUpListener.componentMouseUp(this, mouseX, mouseY, button);
+    }
 
-	public void keyTyped(char keyChar, int keyCode) {
-		if (keyListener != null) keyListener.componentKeyTyped(this, keyChar, keyCode);
-	}
+    public void mouseDrag(int mouseX, int mouseY, int button, /* love you */long time) {
+        if (mouseDragListener != null) mouseDragListener.componentMouseDrag(this, mouseX, mouseY, button, time);
+    }
 
-	public void mouseDown(int mouseX, int mouseY, int button) {
-		if (mouseDownListener != null) mouseDownListener.componentMouseDown(this, mouseX, mouseY, button);
-	}
+    public boolean isTicking() {
+        return false;
+    }
 
-	public void mouseUp(int mouseX, int mouseY, int button) {
-		if (mouseUpListener != null) mouseUpListener.componentMouseUp(this, mouseX, mouseY, button);
-	}
+    public void tick() {
+    }
 
-	public void mouseDrag(int mouseX, int mouseY, int button, /* love you */long time) {
-		if (mouseDragListener != null) mouseDragListener.componentMouseDrag(this, mouseX, mouseY, button, time);
-	}
+    protected void drawItemStack(@Nonnull ItemStack stack, int x, int y, String overlayText) {
+        if (stack.isEmpty()) return;
 
-	public boolean isTicking() {
-		return false;
-	}
+        RenderHelper.enableGUIStandardItemLighting();
+        final RenderItem itemRenderer = parent.getItemRenderer();
+        GlStateManager.translate(0.0F, 0.0F, 32.0F);
+        this.zLevel = 200.0F;
+        itemRenderer.zLevel = 200.0F;
 
-	public void tick() {}
+        FontRenderer font = null;
+        font = stack.getItem().getFontRenderer(stack);
+        if (font == null) font = parent.getFontRenderer();
 
-	protected void drawItemStack(@Nonnull ItemStack stack, int x, int y, String overlayText) {
-		if (stack.isEmpty()) return;
+        itemRenderer.renderItemAndEffectIntoGUI(stack, x, y);
+        itemRenderer.renderItemOverlayIntoGUI(font, stack, x, y, overlayText);
+        this.zLevel = 0.0F;
+        itemRenderer.zLevel = 0.0F;
+        RenderHelper.disableStandardItemLighting();
+    }
 
-		RenderHelper.enableGUIStandardItemLighting();
-		final RenderItem itemRenderer = parent.getItemRenderer();
-		GlStateManager.translate(0.0F, 0.0F, 32.0F);
-		this.zLevel = 200.0F;
-		itemRenderer.zLevel = 200.0F;
+    protected void drawItemStack(@Nonnull ItemStack stack, int x, int y) {
+        if (stack.isEmpty()) return;
 
-		FontRenderer font = null;
-		font = stack.getItem().getFontRenderer(stack);
-		if (font == null) font = parent.getFontRenderer();
+        RenderHelper.enableGUIStandardItemLighting();
+        final RenderItem itemRenderer = parent.getItemRenderer();
+        GlStateManager.translate(0.0F, 0.0F, 32.0F);
+        this.zLevel = 200.0F;
+        itemRenderer.zLevel = 200.0F;
 
-		itemRenderer.renderItemAndEffectIntoGUI(stack, x, y);
-		itemRenderer.renderItemOverlayIntoGUI(font, stack, x, y, overlayText);
-		this.zLevel = 0.0F;
-		itemRenderer.zLevel = 0.0F;
-		RenderHelper.disableStandardItemLighting();
-	}
+        itemRenderer.renderItemAndEffectIntoGUI(stack, x, y);
+        this.zLevel = 0.0F;
+        itemRenderer.zLevel = 0.0F;
+        RenderHelper.disableStandardItemLighting();
+    }
 
-	protected void drawItemStack(@Nonnull ItemStack stack, int x, int y) {
-		if (stack.isEmpty()) return;
+    protected void drawSprite(Icon icon, int x, int y, int width, int height) {
+        parent.bindTexture(icon.texture);
 
-		RenderHelper.enableGUIStandardItemLighting();
-		final RenderItem itemRenderer = parent.getItemRenderer();
-		GlStateManager.translate(0.0F, 0.0F, 32.0F);
-		this.zLevel = 200.0F;
-		itemRenderer.zLevel = 200.0F;
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder worldrenderer = tessellator.getBuffer();
+        worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
+        worldrenderer.pos(x + 0, y + height, this.zLevel).tex(icon.minU, icon.maxV).endVertex();
+        worldrenderer.pos(x + width, y + height, this.zLevel).tex(icon.maxU, icon.maxV).endVertex();
+        worldrenderer.pos(x + width, y + 0, this.zLevel).tex(icon.maxU, icon.minV).endVertex();
+        worldrenderer.pos(x + 0, y + 0, this.zLevel).tex(icon.minU, icon.minV).endVertex();
+        tessellator.draw();
+    }
 
-		itemRenderer.renderItemAndEffectIntoGUI(stack, x, y);
-		this.zLevel = 0.0F;
-		itemRenderer.zLevel = 0.0F;
-		RenderHelper.disableStandardItemLighting();
-	}
+    protected void drawSprite(Icon icon, int x, int y) {
+        drawSprite(icon, x, y, icon.width, icon.height);
+    }
 
-	protected void drawSprite(Icon icon, int x, int y, int width, int height) {
-		parent.bindTexture(icon.texture);
+    protected void drawHoveringText(List<String> textLines, int x, int y) {
+        parent.drawHoveringText(textLines, x, y);
+    }
 
-		Tessellator tessellator = Tessellator.getInstance();
-		BufferBuilder worldrenderer = tessellator.getBuffer();
-		worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
-		worldrenderer.pos(x + 0, y + height, this.zLevel).tex(icon.minU, icon.maxV).endVertex();
-		worldrenderer.pos(x + width, y + height, this.zLevel).tex(icon.maxU, icon.maxV).endVertex();
-		worldrenderer.pos(x + width, y + 0, this.zLevel).tex(icon.maxU, icon.minV).endVertex();
-		worldrenderer.pos(x + 0, y + 0, this.zLevel).tex(icon.minU, icon.minV).endVertex();
-		tessellator.draw();
-	}
-
-	protected void drawSprite(Icon icon, int x, int y) {
-		drawSprite(icon, x, y, icon.width, icon.height);
-	}
-
-	protected void drawHoveringText(List<String> textLines, int x, int y) {
-		parent.drawHoveringText(textLines, x, y);
-	}
-
-	protected void drawHoveringText(String line, int x, int y) {
-		parent.drawHoveringText(ImmutableList.of(line), x, y);
-	}
+    protected void drawHoveringText(String line, int x, int y) {
+        parent.drawHoveringText(ImmutableList.of(line), x, y);
+    }
 }

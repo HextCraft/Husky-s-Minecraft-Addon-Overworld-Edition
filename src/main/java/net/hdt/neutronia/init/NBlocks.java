@@ -54,7 +54,7 @@ public class NBlocks {
         }
         if (slabs) {
             MRSlab singleSlab = new MRSlab.Half(name + "_slab", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
-            MRSlab doubleSlab = new MRSlab.Double( name + "_slab_double", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
+            MRSlab doubleSlab = new MRSlab.Double(name + "_slab_double", block.getMaterial(block.getDefaultState()), CreativeTabs.BUILDING_BLOCKS, 0.0F);
             MRSlab.registerSlab(block, meta, singleSlab, doubleSlab);
         }
     }

@@ -7,6 +7,11 @@ import net.hdt.neutronia.base.handler.server.WoodVariantReplacer;
 import net.hdt.neutronia.groups.building.features.WoodBlocks;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomButton;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomPressurePlate;
+import net.hdt.neutronia.groups.world.features.end.PurhoganyWood;
+import net.hdt.neutronia.groups.world.features.overworld.BaobabTrees;
+import net.hdt.neutronia.groups.world.features.overworld.CherryTrees;
+import net.hdt.neutronia.groups.world.features.overworld.PalmTrees;
+import net.hdt.neutronia.groups.world.features.overworld.WillowTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.SoundType;
@@ -58,11 +63,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_pressure_plate = new BlockCustomPressurePlate("acacia");
             dark_oak_pressure_plate = new BlockCustomPressurePlate("dark_oak");
 
-            /*cherry_pressure_plate = new BlockCustomPressurePlate("cherry");
+            cherry_pressure_plate = new BlockCustomPressurePlate("cherry");
             baobab_pressure_plate = new BlockCustomPressurePlate("baobab");
             willow_pressure_plate = new BlockCustomPressurePlate("willow");
             palm_pressure_plate = new BlockCustomPressurePlate("palm");
-            purhogany_pressure_plate = new BlockCustomPressurePlate("purhogany");*/
+            purhogany_pressure_plate = new BlockCustomPressurePlate("purhogany");
 
             oak_bark_pressure_plate = new BlockCustomPressurePlate("oak_bark");
             spruce_bark_pressure_plate = new BlockCustomPressurePlate("spruce_bark");
@@ -71,11 +76,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_bark_pressure_plate = new BlockCustomPressurePlate("acacia_bark");
             dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("dark_oak_bark");
 
-            /*cherry_bark_pressure_plate = new BlockCustomPressurePlate("cherry_bark");
+            cherry_bark_pressure_plate = new BlockCustomPressurePlate("cherry_bark");
             baobab_bark_pressure_plate = new BlockCustomPressurePlate("baobab_bark");
             willow_bark_pressure_plate = new BlockCustomPressurePlate("willow_bark");
             palm_bark_pressure_plate = new BlockCustomPressurePlate("palm_bark");
-            purhogany_bark_pressure_plate = new BlockCustomPressurePlate("purhogany_bark");*/
+            purhogany_bark_pressure_plate = new BlockCustomPressurePlate("purhogany_bark");
 
             stripped_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_oak_bark");
             stripped_spruce_bark_pressure_plate = new BlockCustomPressurePlate("stripped_spruce_bark");
@@ -84,11 +89,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             stripped_acacia_bark_pressure_plate = new BlockCustomPressurePlate("stripped_acacia_bark");
             stripped_dark_oak_bark_pressure_plate = new BlockCustomPressurePlate("stripped_dark_oak_bark");
 
-            /*stripped_cherry_bark_pressure_plate = new BlockCustomPressurePlate("stripped_cherry_bark");
+            stripped_cherry_bark_pressure_plate = new BlockCustomPressurePlate("stripped_cherry_bark");
             stripped_baobab_bark_pressure_plate = new BlockCustomPressurePlate("stripped_baobab_bark");
             stripped_willow_bark_pressure_plate = new BlockCustomPressurePlate("stripped_willow_bark");
             stripped_palm_bark_pressure_plate = new BlockCustomPressurePlate("stripped_palm_bark");
-            stripped_purhogany_bark_pressure_plate = new BlockCustomPressurePlate("stripped_purhogany_bark");*/
+            stripped_purhogany_bark_pressure_plate = new BlockCustomPressurePlate("stripped_purhogany_bark");
 
             andesite_pressure_plate = new BlockCustomPressurePlate("andesite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
             granite_pressure_plate = new BlockCustomPressurePlate("granite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
@@ -105,11 +110,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_button = new BlockCustomButton("acacia");
             dark_oak_button = new BlockCustomButton("dark_oak");
 
-            /*cherry_button = new BlockCustomButton("cherry");
+            cherry_button = new BlockCustomButton("cherry");
             baobab_button = new BlockCustomButton("baobab");
             willow_button = new BlockCustomButton("willow");
             palm_button = new BlockCustomButton("palm");
-            purhogany_button = new BlockCustomButton("purhogany");*/
+            purhogany_button = new BlockCustomButton("purhogany");
 
             oak_bark_button = new BlockCustomButton("oak_bark");
             spruce_bark_button = new BlockCustomButton("spruce_bark");
@@ -118,11 +123,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             acacia_bark_button = new BlockCustomButton("acacia_bark");
             dark_oak_bark_button = new BlockCustomButton("dark_oak_bark");
 
-            /*cherry_bark_button = new BlockCustomButton("cherry_bark");
+            cherry_bark_button = new BlockCustomButton("cherry_bark");
             baobab_bark_button = new BlockCustomButton("baobab_bark");
             willow_bark_button = new BlockCustomButton("willow_bark");
             palm_bark_button = new BlockCustomButton("palm_bark");
-            purhogany_bark_button = new BlockCustomButton("purhogany_bark");*/
+            purhogany_bark_button = new BlockCustomButton("purhogany_bark");
 
             stripped_oak_bark_button = new BlockCustomButton("stripped_oak_bark");
             stripped_spruce_bark_button = new BlockCustomButton("stripped_spruce_bark");
@@ -131,11 +136,11 @@ public class VariedButtonsAndPressurePlates extends Component {
             stripped_acacia_bark_button = new BlockCustomButton("stripped_acacia_bark");
             stripped_dark_oak_bark_button = new BlockCustomButton("stripped_dark_oak_bark");
 
-            /*stripped_cherry_bark_button = new BlockCustomButton("stripped_cherry_bark");
+            stripped_cherry_bark_button = new BlockCustomButton("stripped_cherry_bark");
             stripped_baobab_bark_button = new BlockCustomButton("stripped_baobab_bark");
             stripped_willow_bark_button = new BlockCustomButton("stripped_willow_bark");
             stripped_palm_bark_button = new BlockCustomButton("stripped_palm_bark");
-            stripped_purhogany_bark_button = new BlockCustomButton("stripped_purhogany_bark");*/
+            stripped_purhogany_bark_button = new BlockCustomButton("stripped_purhogany_bark");
 
             andesite_button = new BlockCustomButton("andesite", false);
             granite_button = new BlockCustomButton("granite", false);
@@ -161,6 +166,17 @@ public class VariedButtonsAndPressurePlates extends Component {
                     "WW", 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 4));
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(dark_oak_pressure_plate, 1),
                     "WW", 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 5));
+
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(cherry_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(CherryTrees.cherryPlanks));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(baobab_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(BaobabTrees.baobabPlanks, 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(willow_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(WillowTree.willowPlanks, 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(palm_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(PalmTrees.palmPlanks, 1));
+            RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(purhogany_pressure_plate, 1),
+                    "WW", 'W', ProxyRegistry.newStack(PurhoganyWood.purhoganyPlanks, 1));
 
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(oak_bark_pressure_plate, 1),
                     "WW", 'W', ProxyRegistry.newStack(WoodBlocks.barkBlocks[0], 1));

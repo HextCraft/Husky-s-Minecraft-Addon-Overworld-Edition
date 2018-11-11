@@ -21,61 +21,64 @@ import javax.annotation.Nullable;
 
 public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock {
 
-	public static final PropertyBool POWERED = PropertyBool.create("powered");
+    public static final PropertyBool POWERED = PropertyBool.create("powered");
     protected static final AxisAlignedBB AABB_DOWN = new AxisAlignedBB(0.3125D, 0.875D, 0.375D, 0.6875D, 1.0D, 0.625D);
     protected static final AxisAlignedBB AABB_UP = new AxisAlignedBB(0.3125D, 0.0D, 0.375D, 0.6875D, 0.125D, 0.625D);
     protected static final AxisAlignedBB AABB_NORTH = new AxisAlignedBB(0.3125D, 0.375D, 0.875D, 0.6875D, 0.625D, 1.0D);
     protected static final AxisAlignedBB AABB_SOUTH = new AxisAlignedBB(0.3125D, 0.375D, 0.0D, 0.6875D, 0.625D, 0.125D);
     protected static final AxisAlignedBB AABB_WEST = new AxisAlignedBB(0.875D, 0.375D, 0.3125D, 1.0D, 0.625D, 0.6875D);
     protected static final AxisAlignedBB AABB_EAST = new AxisAlignedBB(0.0D, 0.375D, 0.3125D, 0.125D, 0.625D, 0.6875D);
-    
-	public BlockLightbulb(String name)
-	{
-		super(Material.CIRCUITS, name);
-	}
-	
-	@Override
-    public int getLightValue(IBlockState state)
-    {
-		if(state.getValue(POWERED))
-		{
-			return 13;
-		}
+
+    public BlockLightbulb(String name) {
+        super(Material.CIRCUITS, name);
+    }
+
+    protected static boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction) {
+        BlockPos blockpos = pos.offset(direction.getOpposite());
+        IBlockState iblockstate = worldIn.getBlockState(blockpos);
+        boolean flag = iblockstate.getBlockFaceShape(worldIn, blockpos, direction) == BlockFaceShape.SOLID;
+        Block block = iblockstate.getBlock();
+
+        if (direction == EnumFacing.UP) {
+            return iblockstate.isSideSolid(worldIn, blockpos, EnumFacing.UP) || !isExceptionBlockForAttaching(block) && flag;
+        } else {
+            return !isExceptBlockForAttachWithPiston(block) && flag;
+        }
+    }
+
+    @Override
+    public int getLightValue(IBlockState state) {
+        if (state.getValue(POWERED)) {
+            return 13;
+        }
         return 0;
     }
 
-	@Override
+    @Override
     @Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return NULL_AABB;
     }
-	
-	@Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-	@Override
-    public boolean isFullCube(IBlockState state)
-    {
+    @Override
+    public boolean isFullCube(IBlockState state) {
         return false;
     }
-	
-	@Override
-    public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side)
-    {
+
+    @Override
+    public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side) {
         return canPlaceBlock(worldIn, pos, side);
     }
 
-	@Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
-    {
-        for (EnumFacing enumfacing : EnumFacing.values())
-        {
-            if (canPlaceBlock(worldIn, pos, enumfacing))
-            {
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        for (EnumFacing enumfacing : EnumFacing.values()) {
+            if (canPlaceBlock(worldIn, pos, enumfacing)) {
                 return true;
             }
         }
@@ -83,66 +86,39 @@ public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock 
         return false;
     }
 
-    protected static boolean canPlaceBlock(World worldIn, BlockPos pos, EnumFacing direction)
-    {
-        BlockPos blockpos = pos.offset(direction.getOpposite());
-        IBlockState iblockstate = worldIn.getBlockState(blockpos);
-        boolean flag = iblockstate.getBlockFaceShape(worldIn, blockpos, direction) == BlockFaceShape.SOLID;
-        Block block = iblockstate.getBlock();
-
-        if (direction == EnumFacing.UP)
-        {
-            return iblockstate.isSideSolid(worldIn, blockpos, EnumFacing.UP) || !isExceptionBlockForAttaching(block) && flag;
-        }
-        else
-        {
-            return !isExceptBlockForAttachWithPiston(block) && flag;
-        }
-    }
-
-	@Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
+    @Override
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return canPlaceBlock(worldIn, pos, facing) ? this.getDefaultState().withProperty(FACING, facing).withProperty(POWERED, Boolean.valueOf(false)) : this.getDefaultState().withProperty(FACING, EnumFacing.DOWN).withProperty(POWERED, Boolean.valueOf(false));
     }
 
-	@Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
-    {
-        if (this.checkForDrop(worldIn, pos, state) && !canPlaceBlock(worldIn, pos, state.getValue(FACING)))
-        {
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        if (this.checkForDrop(worldIn, pos, state) && !canPlaceBlock(worldIn, pos, state.getValue(FACING))) {
             this.dropBlockAsItem(worldIn, pos, state, 0);
             worldIn.setBlockToAir(pos);
         }
     }
-	
-	@Override
-    public int damageDropped(IBlockState state)
-    {
+
+    @Override
+    public int damageDropped(IBlockState state) {
         return 0;
     }
 
-    private boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state)
-    {
-        if (this.canPlaceBlockAt(worldIn, pos))
-        {
+    private boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
+        if (this.canPlaceBlockAt(worldIn, pos)) {
             return true;
-        }
-        else
-        {
+        } else {
             this.dropBlockAsItem(worldIn, pos, state, 0);
             worldIn.setBlockToAir(pos);
             return false;
         }
     }
-    
+
     @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    {
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         EnumFacing enumfacing = state.getValue(FACING);
 
-        switch (enumfacing)
-        {
+        switch (enumfacing) {
             case EAST:
                 return AABB_EAST;
             case WEST:
@@ -160,30 +136,24 @@ public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock 
     }
 
     @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         world.notifyNeighborsOfStateChange(pos, this, true);
-        if(state.getValue(POWERED))
-        {
-        	world.setBlockState(pos, state.withProperty(POWERED, false), 3);
+        if (state.getValue(POWERED)) {
+            world.setBlockState(pos, state.withProperty(POWERED, false), 3);
             world.playSound(player, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_OFF, SoundCategory.BLOCKS, 0.3F, 0.6F);
             return true;
-        }
-        else
-        {
+        } else {
             world.setBlockState(pos, state.withProperty(POWERED, Boolean.valueOf(true)), 3);
             world.playSound(player, pos, SoundEvents.BLOCK_WOOD_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 0.3F, 0.6F);
             return true;
         }
     }
-    
+
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
+    public IBlockState getStateFromMeta(int meta) {
         EnumFacing enumfacing;
 
-        switch (meta & 7)
-        {
+        switch (meta & 7) {
             case 0:
                 enumfacing = EnumFacing.DOWN;
                 break;
@@ -208,12 +178,10 @@ public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock 
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state) {
         int i;
 
-        switch (state.getValue(FACING))
-        {
+        switch (state.getValue(FACING)) {
             case EAST:
                 i = 1;
                 break;
@@ -234,8 +202,7 @@ public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock 
                 i = 0;
         }
 
-        if (state.getValue(POWERED).booleanValue())
-        {
+        if (state.getValue(POWERED).booleanValue()) {
             i |= 8;
         }
 
@@ -243,26 +210,22 @@ public class BlockLightbulb extends BlockDirectional implements INeutroniaBlock 
     }
 
     @Override
-    public IBlockState withRotation(IBlockState state, Rotation rot)
-    {
+    public IBlockState withRotation(IBlockState state, Rotation rot) {
         return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     @Override
-    public IBlockState withMirror(IBlockState state, Mirror mirrorIn)
-    {
+    public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, POWERED);
     }
 
     @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
         return BlockFaceShape.UNDEFINED;
     }
 

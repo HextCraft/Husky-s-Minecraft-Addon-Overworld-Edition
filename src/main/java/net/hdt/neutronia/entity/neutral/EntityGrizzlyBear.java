@@ -7,17 +7,14 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityGrizzlyBear extends EntityPolarBear
-{
-	public EntityGrizzlyBear(World worldIn)
-	{
-		super(worldIn);
-	}
-	
+public class EntityGrizzlyBear extends EntityPolarBear {
+    public EntityGrizzlyBear(World worldIn) {
+        super(worldIn);
+    }
+
     @Nullable
     @Override
-    protected ResourceLocation getLootTable()
-    {
+    protected ResourceLocation getLootTable() {
         return LootTableHandler.GRIZZLY_BEAR;
     }
 }

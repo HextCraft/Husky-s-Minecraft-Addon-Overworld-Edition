@@ -14,24 +14,24 @@ import java.util.List;
 
 public interface IComponentParent {
 
-	public Minecraft getMinecraft();
+    public Minecraft getMinecraft();
 
-	public TextureMap getBlocksTextureMap();
+    public TextureMap getBlocksTextureMap();
 
-	public TextureAtlasSprite getIcon(ResourceLocation location);
+    public TextureAtlasSprite getIcon(ResourceLocation location);
 
-	public FontRenderer getFontRenderer();
+    public FontRenderer getFontRenderer();
 
-	public RenderItem getItemRenderer();
+    public RenderItem getItemRenderer();
 
-	public SoundHandler getSoundHandler();
+    public SoundHandler getSoundHandler();
 
-	public void bindTexture(ResourceLocation texture);
+    public void bindTexture(ResourceLocation texture);
 
-	public void drawHoveringText(List<String> textLines, int x, int y);
+    public void drawHoveringText(List<String> textLines, int x, int y);
 
-	public void drawItemStackTooltip(@Nonnull ItemStack stack, int x, int y);
+    public void drawItemStackTooltip(@Nonnull ItemStack stack, int x, int y);
 
-	public void drawGradientRect(int left, int top, int right, int bottom, int startColor, int endColor);
+    public void drawGradientRect(int left, int top, int right, int bottom, int startColor, int endColor);
 
 }

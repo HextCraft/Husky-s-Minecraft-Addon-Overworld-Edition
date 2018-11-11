@@ -16,7 +16,7 @@ public class NewCraftingBlocks extends Component {
     public void preInit(FMLPreInitializationEvent event) {
         grindstone = new BlockNeutroniaBase(Material.ROCK, "grindstone");
         stoneCutter = new BlockNeutroniaBase(Material.ROCK, "stone_cutter");
-        for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
             smithingTables[type.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_smithing_table", type.getName()));
             fletchingTables[type.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_fletching_table", type.getName()));
             cartographerTables[type.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_cartographer_table", type.getName()));

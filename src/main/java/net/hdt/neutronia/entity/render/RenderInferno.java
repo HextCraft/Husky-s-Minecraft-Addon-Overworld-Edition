@@ -21,13 +21,13 @@ public class RenderInferno extends RenderLiving<EntityInferno> {
 
     @Override
     protected ResourceLocation getEntityTexture(EntityInferno entity) {
-        if(entity.isPassive()) return TEXTURE_PASSIVE;
+        if (entity.isPassive()) return TEXTURE_PASSIVE;
         else return TEXTURE_ACTIVE;
     }
 
     @Override
     public void doRender(EntityInferno entity, double x, double y, double z, float entityYaw, float partialTicks) {
-        if(entity.isPassive()) {
+        if (entity.isPassive()) {
             this.mainModel = new ModelInfernoProtect();
             this.layerRenderers.clear();
         }

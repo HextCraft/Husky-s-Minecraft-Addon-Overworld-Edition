@@ -29,25 +29,22 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.Random;
 
-public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, IShearable
-{
-	private Block sapling;
+public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, IShearable {
     public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
     public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
     protected boolean leavesFancy;
     int[] surroundings;
+    private Block sapling;
 
-    public BlockPVJLeaves(String name, Block sapling)
-    {
+    public BlockPVJLeaves(String name, Block sapling) {
         super(name, Material.LEAVES);
         this.sapling = sapling;
         this.setDefaultState(this.blockState.getBaseState()
-        		.withProperty(CHECK_DECAY, Boolean.TRUE)
-        		.withProperty(DECAYABLE, Boolean.TRUE));
+                .withProperty(CHECK_DECAY, Boolean.TRUE)
+                .withProperty(DECAYABLE, Boolean.TRUE));
     }
 
-    public BlockPVJLeaves(String name)
-    {
+    public BlockPVJLeaves(String name) {
         super(name, Material.LEAVES);
         this.setDefaultState(this.blockState.getBaseState()
                 .withProperty(CHECK_DECAY, Boolean.TRUE)
@@ -59,119 +56,94 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
     }
 
     @Override
-    protected BlockStateContainer createBlockState()
-    {
+    protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
     }
 
     @Override
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
-    {
-        if (!worldIn.isRemote && stack.getItem() == Items.SHEARS)
-        {
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
+        if (!worldIn.isRemote && stack.getItem() == Items.SHEARS) {
             player.addStat(Objects.requireNonNull(StatList.getBlockStats(this)));
-        }
-        else
-        {
+        } else {
             super.harvestBlock(worldIn, player, pos, state, te, stack);
         }
     }
-    
+
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(sapling);
     }
-    
+
     @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-    	boolean decayable = false;
-    	if(meta < 2)
-    		decayable = true;
-    	
-    	boolean check_decay = false;
-    	if(meta == 1 || meta == 2)
-    		check_decay = true;
-    	
+    public IBlockState getStateFromMeta(int meta) {
+        boolean decayable = false;
+        if (meta < 2)
+            decayable = true;
+
+        boolean check_decay = false;
+        if (meta == 1 || meta == 2)
+            check_decay = true;
+
         return this.getDefaultState()
-        		.withProperty(DECAYABLE, decayable)
-        		.withProperty(CHECK_DECAY, check_decay);
+                .withProperty(DECAYABLE, decayable)
+                .withProperty(CHECK_DECAY, check_decay);
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        if(state.getValue(DECAYABLE) && state.getValue(CHECK_DECAY))
-        {
+    public int getMetaFromState(IBlockState state) {
+        if (state.getValue(DECAYABLE) && state.getValue(CHECK_DECAY)) {
             return 1;
-        }
-        else if(!state.getValue(DECAYABLE) && state.getValue(CHECK_DECAY))
-        {
-        	return 2;
-        }
-        else if(!state.getValue(DECAYABLE) && !state.getValue(CHECK_DECAY))
-        {
-        	return 3;
-        }
-        else
-        {
-        	return 0;
+        } else if (!state.getValue(DECAYABLE) && state.getValue(CHECK_DECAY)) {
+            return 2;
+        } else if (!state.getValue(DECAYABLE) && !state.getValue(CHECK_DECAY)) {
+            return 3;
+        } else {
+            return 0;
         }
     }
-	
-	//Note: The following 3 methods are not inherited from BlockLeaves and must be manually written
-	//--------------------------------------------------------------
-	@Override
-	public boolean isOpaqueCube(IBlockState state)
-	{
-		return Blocks.LEAVES.isOpaqueCube(state);
-	}
 
-	//---------------------------------------------------------------
-	
-	@Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
-    	return Blocks.LEAVES.getFlammability(world, pos, face);
+    //Note: The following 3 methods are not inherited from BlockLeaves and must be manually written
+    //--------------------------------------------------------------
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return Blocks.LEAVES.isOpaqueCube(state);
     }
-	
-	@Override
-    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
-    {
+
+    //---------------------------------------------------------------
+
+    @Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+        return Blocks.LEAVES.getFlammability(world, pos, face);
+    }
+
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
         return Blocks.LEAVES.getFireSpreadSpeed(world, pos, face);
     }
 
     @Override
-    public NonNullList<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
-    {
+    public NonNullList<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
         return NonNullList.withSize(1, new ItemStack(this, 1, 3));
     }
 
     /**
      * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
      */
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         int i = 1;
         int j = 2;
         int k = pos.getX();
         int l = pos.getY();
         int i1 = pos.getZ();
 
-        if (worldIn.isAreaLoaded(new BlockPos(k - 2, l - 2, i1 - 2), new BlockPos(k + 2, l + 2, i1 + 2)))
-        {
-            for (int j1 = -1; j1 <= 1; ++j1)
-            {
-                for (int k1 = -1; k1 <= 1; ++k1)
-                {
-                    for (int l1 = -1; l1 <= 1; ++l1)
-                    {
+        if (worldIn.isAreaLoaded(new BlockPos(k - 2, l - 2, i1 - 2), new BlockPos(k + 2, l + 2, i1 + 2))) {
+            for (int j1 = -1; j1 <= 1; ++j1) {
+                for (int k1 = -1; k1 <= 1; ++k1) {
+                    for (int l1 = -1; l1 <= 1; ++l1) {
                         BlockPos blockpos = pos.add(j1, k1, l1);
                         IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-                        if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos))
-                        {
+                        if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos)) {
                             iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
                         }
                     }
@@ -180,12 +152,9 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
         }
     }
 
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (state.getValue(CHECK_DECAY).booleanValue() && state.getValue(DECAYABLE).booleanValue())
-            {
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (!worldIn.isRemote) {
+            if (state.getValue(CHECK_DECAY).booleanValue() && state.getValue(DECAYABLE).booleanValue()) {
                 int i = 4;
                 int j = 5;
                 int k = pos.getX();
@@ -195,81 +164,61 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
                 int k1 = 1024;
                 int l1 = 16;
 
-                if (this.surroundings == null)
-                {
+                if (this.surroundings == null) {
                     this.surroundings = new int[32768];
                 }
 
-                if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent decaying leaves from updating neighbors and loading unloaded chunks
+                if (!worldIn.isAreaLoaded(pos, 1))
+                    return; // Forge: prevent decaying leaves from updating neighbors and loading unloaded chunks
                 if (worldIn.isAreaLoaded(pos, 6)) // Forge: extend range from 5 to 6 to account for neighbor checks in world.markAndNotifyBlock -> world.updateObservingBlocksAt
                 {
                     BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
-                    for (int i2 = -4; i2 <= 4; ++i2)
-                    {
-                        for (int j2 = -4; j2 <= 4; ++j2)
-                        {
-                            for (int k2 = -4; k2 <= 4; ++k2)
-                            {
+                    for (int i2 = -4; i2 <= 4; ++i2) {
+                        for (int j2 = -4; j2 <= 4; ++j2) {
+                            for (int k2 = -4; k2 <= 4; ++k2) {
                                 IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2));
                                 Block block = iblockstate.getBlock();
 
-                                if (!block.canSustainLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
-                                {
-                                    if (block.isLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
-                                    {
+                                if (!block.canSustainLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2))) {
+                                    if (block.isLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2))) {
                                         this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -2;
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -1;
                                     }
-                                }
-                                else
-                                {
+                                } else {
                                     this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = 0;
                                 }
                             }
                         }
                     }
 
-                    for (int i3 = 1; i3 <= 4; ++i3)
-                    {
-                        for (int j3 = -4; j3 <= 4; ++j3)
-                        {
-                            for (int k3 = -4; k3 <= 4; ++k3)
-                            {
-                                for (int l3 = -4; l3 <= 4; ++l3)
-                                {
-                                    if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16] == i3 - 1)
-                                    {
-                                        if (this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
-                                        {
+                    for (int i3 = 1; i3 <= 4; ++i3) {
+                        for (int j3 = -4; j3 <= 4; ++j3) {
+                            for (int k3 = -4; k3 <= 4; ++k3) {
+                                for (int l3 = -4; l3 <= 4; ++l3) {
+                                    if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16] == i3 - 1) {
+                                        if (this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2) {
                                             this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
                                         }
 
-                                        if (this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
-                                        {
+                                        if (this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2) {
                                             this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
                                         }
 
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] == -2)
-                                        {
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] == -2) {
                                             this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] = i3;
                                         }
 
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] == -2)
-                                        {
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] == -2) {
                                             this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] = i3;
                                         }
 
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] == -2)
-                                        {
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] == -2) {
                                             this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] = i3;
                                         }
 
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] == -2)
-                                        {
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] == -2) {
                                             this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] = i3;
                                         }
                                     }
@@ -281,20 +230,16 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
 
                 int l2 = this.surroundings[16912];
 
-                if (l2 >= 0)
-                {
+                if (l2 >= 0) {
                     worldIn.setBlockState(pos, state.withProperty(CHECK_DECAY, Boolean.FALSE), 4);
-                }
-                else
-                {
+                } else {
                     this.destroy(worldIn, pos);
                 }
             }
         }
     }
 
-    private void destroy(World worldIn, BlockPos pos)
-    {
+    private void destroy(World worldIn, BlockPos pos) {
         this.dropBlockAsItem(worldIn, pos, worldIn.getBlockState(pos), 0);
         worldIn.setBlockToAir(pos);
     }
@@ -305,13 +250,11 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
      * of whether the block can receive random update ticks
      */
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
-    {
-        if (worldIn.isRainingAt(pos.up()) && !worldIn.getBlockState(pos.down()).isTopSolid() && rand.nextInt(15) == 1)
-        {
-            double d0 = (double)((float)pos.getX() + rand.nextFloat());
-            double d1 = (double)pos.getY() - 0.05D;
-            double d2 = (double)((float)pos.getZ() + rand.nextFloat());
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+        if (worldIn.isRainingAt(pos.up()) && !worldIn.getBlockState(pos.down()).isTopSolid() && rand.nextInt(15) == 1) {
+            double d0 = (double) ((float) pos.getX() + rand.nextFloat());
+            double d1 = (double) pos.getY() - 0.05D;
+            double d2 = (double) ((float) pos.getZ() + rand.nextFloat());
             worldIn.spawnParticle(EnumParticleTypes.DRIP_WATER, d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
     }
@@ -319,25 +262,21 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
     /**
      * Returns the quantity of items to drop on block destruction.
      */
-    public int quantityDropped(Random random)
-    {
+    public int quantityDropped(Random random) {
         return random.nextInt(20) == 0 ? 1 : 0;
     }
 
     /**
      * Spawns this Block's drops into the World as EntityItems.
      */
-    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
-    {
+    public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
         super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
     }
 
-    protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
-    {
+    protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance) {
     }
 
-    protected int getSaplingDropChance(IBlockState state)
-    {
+    protected int getSaplingDropChance(IBlockState state) {
         return 20;
     }
 
@@ -345,8 +284,7 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
      * Pass true to draw this block using fancy graphics, or false for fast graphics.
      */
     @SideOnly(Side.CLIENT)
-    public void setGraphicsLevel(boolean fancy)
-    {
+    public void setGraphicsLevel(boolean fancy) {
         this.leavesFancy = fancy;
     }
 
@@ -355,71 +293,69 @@ public class BlockPVJLeaves extends BlockMod implements INeutroniaBlock, ISheara
      * transparency (glass, reeds), TRANSLUCENT for fully blended transparency (stained glass)
      */
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getRenderLayer()
-    {
+    public BlockRenderLayer getRenderLayer() {
         return this.leavesFancy ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
     }
 
     /**
      * @deprecated call via {@link IBlockState#causesSuffocation()} whenever possible. Implementing/overriding is fine.
      */
-    public boolean causesSuffocation(IBlockState state)
-    {
+    public boolean causesSuffocation(IBlockState state) {
         return false;
     }
 
-    @Override public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos){ return true; }
-    @Override public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos){ return true; }
+    @Override
+    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
+        return true;
+    }
 
     @Override
-    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos)
-    {
-        if (!state.getValue(CHECK_DECAY))
-        {
+    public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return true;
+    }
+
+    @Override
+    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos) {
+        if (!state.getValue(CHECK_DECAY)) {
             world.setBlockState(pos, state.withProperty(CHECK_DECAY, true), 4);
         }
     }
 
     @Override
-    public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
-        Random rand = world instanceof World ? ((World)world).rand : new Random();
+    public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        Random rand = world instanceof World ? ((World) world).rand : new Random();
         int chance = this.getSaplingDropChance(state);
 
-        if (fortune > 0)
-        {
+        if (fortune > 0) {
             chance -= 2 << fortune;
             if (chance < 10) chance = 10;
         }
 
-        if (rand.nextInt(chance) == 0)
-        {
+        if (rand.nextInt(chance) == 0) {
             ItemStack drop = new ItemStack(getItemDropped(state, rand, fortune), 1, damageDropped(state));
             if (!drop.isEmpty())
                 drops.add(drop);
         }
 
         chance = 200;
-        if (fortune > 0)
-        {
+        if (fortune > 0) {
             chance -= 10 << fortune;
             if (chance < 40) chance = 40;
         }
 
         this.captureDrops(true);
         if (world instanceof World)
-            this.dropApple((World)world, pos, state, chance); // Dammet mojang
+            this.dropApple((World) world, pos, state, chance); // Dammet mojang
         drops.addAll(this.captureDrops(false));
     }
 
 
     /**
-     * @deprecated call via {@link IBlockState#shouldSideBeRendered(IBlockAccess,BlockPos,EnumFacing)} whenever
+     * @deprecated call via {@link IBlockState#shouldSideBeRendered(IBlockAccess, BlockPos, EnumFacing)} whenever
      * possible. Implementing/overriding is fine.
      */
     @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
-    {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         return (this.leavesFancy || blockAccess.getBlockState(pos.offset(side)).getBlock() != this) && super.shouldSideBeRendered(blockState, blockAccess, pos, side);
     }
 

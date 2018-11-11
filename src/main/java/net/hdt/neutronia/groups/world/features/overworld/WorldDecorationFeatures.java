@@ -25,15 +25,12 @@ import java.util.Random;
 
 public class WorldDecorationFeatures extends Component {
 
-    public static Block stickBlock, mossyStone;
-
     private static final IBlockState WATER = Blocks.WATER.getDefaultState();
+    private static final int DAM_FREQUENCY = 3; //lower numbers = more dams. set this to 0 to crash
+    public static Block stickBlock, mossyStone;
     private static WorldGenSand MUD_FEATURE;
     private static WorldGenBlockBlob MOSSY_FEATURE;
     private static WorldGenBeaverDam DAM_FEATURE;
-    private static final int DAM_FREQUENCY = 3; //lower numbers = more dams. set this to 0 to crash
-    public enum Direction { NE, E, SE, NW, W, SW }
-
     private static int riverMudFrequency, mossyStoneFrequency, swampMudFrequency;
 
     @Override
@@ -56,21 +53,20 @@ public class WorldDecorationFeatures extends Component {
     //Replace vanilla lakes with our lakes that contains mud blocks around the edges
     @SubscribeEvent
     public void onLakeEvent(PopulateChunkEvent.Populate event) {
-        if(event.getType() == PopulateChunkEvent.Populate.EventType.LAKE) {
+        if (event.getType() == PopulateChunkEvent.Populate.EventType.LAKE) {
             event.setResult(Event.Result.DENY);
             Random rand = event.getRand();
             int x = rand.nextInt(16) + 8;
             int y = rand.nextInt(256);
             int z = rand.nextInt(16) + 8;
-            BlockPos pos = new BlockPos(event.getChunkX()*16 + x, y, event.getChunkZ()*16 + z);
+            BlockPos pos = new BlockPos(event.getChunkX() * 16 + x, y, event.getChunkZ() * 16 + z);
             (new WorldGenMuddyLake(Blocks.WATER)).generate(event.getWorld(), rand, pos);
 
-            if(event.getWorld().getBiome(pos) == Biomes.DESERT) {
+            if (event.getWorld().getBiome(pos) == Biomes.DESERT) {
                 event.setResult(Event.Result.DENY);
             }
         }
     }
-
 
     @SubscribeEvent
     public void onBiomeDecoratePre(DecorateBiomeEvent.Pre event) {
@@ -190,13 +186,13 @@ public class WorldDecorationFeatures extends Component {
             }
         }
 
-        for(int i = 0; i < swampMudFrequency; i++) {
+        for (int i = 0; i < swampMudFrequency; i++) {
             int x = rand.nextInt(8) + 12;
             int z = rand.nextInt(8) + 12;
             BlockPos pos = new BlockPos(event.getChunkPos().getXStart() + x, 0, event.getChunkPos().getZStart() + z);
             if (world.getBiome(pos) == Biomes.SWAMPLAND) {
                 pos = pos.add(0, rand.nextInt(event.getWorld().getTopSolidOrLiquidBlock(pos).getY() - 10) + 5, 0);
-                if(world.getBlockState(pos).getBlock() == Blocks.WATER) {
+                if (world.getBlockState(pos).getBlock() == Blocks.WATER) {
                     world.setBlockState(pos, MudBlocks.MUD.getDefaultState());
                 }
             }
@@ -233,4 +229,6 @@ public class WorldDecorationFeatures extends Component {
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }
+
+    public enum Direction {NE, E, SE, NW, W, SW}
 }

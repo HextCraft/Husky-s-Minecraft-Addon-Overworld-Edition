@@ -1,64 +1,11 @@
 package net.hdt.neutronia.groups.world.util;
 
-import net.hdt.neutronia.groups.world.features.overworld.Corals;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class GeneratorUtils {
-    public static final IBlockState[] CORAL_BLOCK_TYPES = {
-            Corals.coralBlock[0].getDefaultState(),
-            Corals.coralBlock[1].getDefaultState(),
-            Corals.coralBlock[2].getDefaultState(),
-            Corals.coralBlock[3].getDefaultState(),
-            Corals.coralBlock[4].getDefaultState(),
-            Corals.coralBlock[5].getDefaultState(),
-            Corals.coralBlock[6].getDefaultState(),
-            Corals.coralBlock[7].getDefaultState(),
-            Corals.coralBlock[8].getDefaultState(),
-            Corals.coralBlock[9].getDefaultState(),
-            Corals.coralBlock[10].getDefaultState()
-    };
-    public static final IBlockState[] CORAL_PLANT_TYPES = {
-            Corals.coral[0].getDefaultState(),
-            Corals.coral[1].getDefaultState(),
-            Corals.coral[2].getDefaultState(),
-            Corals.coral[3].getDefaultState(),
-            Corals.coral[4].getDefaultState(),
-            Corals.coral[5].getDefaultState(),
-            Corals.coral[6].getDefaultState(),
-            Corals.coral[7].getDefaultState(),
-            Corals.coral[8].getDefaultState(),
-            Corals.coral[9].getDefaultState(),
-            Corals.coral[10].getDefaultState()
-    };
-    public static final IBlockState[] CORAL_FAN_TYPES = {
-            Corals.coralFan[0].getDefaultState(),
-            Corals.coralFan[1].getDefaultState(),
-            Corals.coralFan[2].getDefaultState(),
-            Corals.coralFan[3].getDefaultState(),
-            Corals.coralFan[4].getDefaultState(),
-            Corals.coralFan[5].getDefaultState(),
-            Corals.coralFan[6].getDefaultState(),
-            Corals.coralFan[7].getDefaultState(),
-            Corals.coralFan[8].getDefaultState(),
-            Corals.coralFan[9].getDefaultState(),
-            Corals.coralFan[10].getDefaultState()
-    };
-    public static final IBlockState[] CORAL_WALL_FAN_TYPES = {
-            Corals.coralFanWall[0].getDefaultState(),
-            Corals.coralFanWall[1].getDefaultState(),
-            Corals.coralFanWall[2].getDefaultState(),
-            Corals.coralFanWall[3].getDefaultState(),
-            Corals.coralFanWall[4].getDefaultState(),
-            Corals.coralFanWall[5].getDefaultState(),
-            Corals.coralFanWall[6].getDefaultState(),
-            Corals.coralFanWall[7].getDefaultState(),
-            Corals.coralFanWall[8].getDefaultState(),
-            Corals.coralFanWall[9].getDefaultState(),
-            Corals.coralFanWall[10].getDefaultState()
-    };
     private static final IBlockState WATER = Blocks.WATER.getDefaultState();
 
     //returns the top block that isn't water

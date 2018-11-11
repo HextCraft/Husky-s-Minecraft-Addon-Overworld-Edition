@@ -101,7 +101,7 @@ public class ModelIceBerlaze extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Shield3.render(f5);
         this.Shield7.render(f5);
         this.Head1.render(f5);

@@ -14,7 +14,7 @@ public class NewStorageBlocks extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
             barrels[type.getMetadata()] = new BlockBarrel(type);
             lecterns[type.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("%s_lectern", type.getName()));
         }
