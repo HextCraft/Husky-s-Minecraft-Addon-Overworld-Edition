@@ -1,0 +1,11 @@
+{
+  "name": "More Stone Blocks",
+  "icon": "minecraft:writable_book",
+  "category": "test_category",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    }
+  ]
+}

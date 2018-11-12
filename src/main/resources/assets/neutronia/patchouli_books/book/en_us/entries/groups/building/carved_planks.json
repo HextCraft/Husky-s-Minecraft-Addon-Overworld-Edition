@@ -1,0 +1,20 @@
+{
+  "name": "Carved Planks",
+  "icon": "minecraft:writable_book",
+  "category": "test_category",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "neutronia:carved_acacia_planks",
+      "recipe2": "neutronia:carved_acacia_planks",
+      "recipe3": "neutronia:carved_acacia_planks",
+      "recipe4": "neutronia:carved_acacia_planks",
+      "recipe5": "neutronia:carved_acacia_planks",
+      "recipe6": "neutronia:carved_acacia_planks"
+    }
+  ]
+}
