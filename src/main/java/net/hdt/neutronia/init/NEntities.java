@@ -38,7 +38,8 @@ public class NEntities {
                 createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("owl").entity(EntityOwl.class).tracker(48, 3, true).egg(0xFFFFFF, 0xFF0FFF).build(),
                 createBuilder("snake").entity(EntitySnake.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
-//                createBuilder("mammoth")
+                createBuilder("lion").entity(EntityLion.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
+                createBuilder("lioness").entity(EntityLioness.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
 //                createBuilder("phantom").entity(EntityPhantom.class).tracker(80, 3, true).egg(0x2d3f56, 0x958c79).build(),
 //                createBuilder("red_phantom").entity(EntityBloodPhantom.class).tracker(80, 3, true).egg(0x4A2929, 0x799591).build(),
 //                createBuilder("ender_phantom").entity(EntityEnderPhantom.class).tracker(80, 3, true).egg(0x352D56, 0x8C9579).build(),
@@ -137,6 +138,8 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityHost.class, RenderHost::new);
         RenderingRegistry.registerEntityRenderingHandler(EntitySnapshotFrog.class, RenderSnapshotFrog::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityJungleFrog.class, RenderJungleFrog::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityLion.class, RenderLion::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityLioness.class, RenderLioness::new);
     }
 
 }

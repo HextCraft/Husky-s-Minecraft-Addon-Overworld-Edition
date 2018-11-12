@@ -12,7 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderPanda extends RenderLiving<EntityPanda> {
-    private static final ResourceLocation GRIZZLY_BEAR_TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/bears/panda/panda.png");
+
+    private static final ResourceLocation GRIZZLY_BEAR_TEXTURE = new ResourceLocation(Reference.MOD_ID, "textures/entity/panda/panda.png");
 
     public RenderPanda(RenderManager manager) {
         super(manager, new ModelPanda(), 0.7F);
