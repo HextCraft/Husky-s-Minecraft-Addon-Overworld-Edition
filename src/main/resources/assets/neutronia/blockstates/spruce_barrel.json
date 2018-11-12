@@ -1,0 +1,29 @@
+{
+  "forge_marker":  1,
+  "defaults": {
+    "model": "cube_bottom_top",
+    "textures": {
+      "top": "neutronia:block/spruce_barrel_top",
+      "side": "neutronia:block/spruce_barrel_side",
+      "bottom": "neutronia:block/spruce_barrel_bottom"
+    }
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    }
+  }
+}
