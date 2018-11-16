@@ -3,65 +3,65 @@
       {
         "name": "Granite",
         "files": [
-          	"textures/block//stone_granite.png"
+          	"textures/blocks//stone_granite.png"
         ]
       },
       {
         "name": "Andesite",
       	"files": [
-          	"textures/block//stone_andesite.png"
+          	"textures/blocks//stone_andesite.png"
         ]
       },
       {
         "name": "Diorite",
         "files": [
-          	"textures/block//stone_diorite.png"
+          	"textures/blocks//stone_diorite.png"
         ]
       },
       {
         "name": "Bricks",
         "files": [
-          	"textures/block//stone_bricks.png"
+          	"textures/blocks//stone_bricks.png"
         ]
       },
       {
         "name": "Glass",
         "files": [
-          	"textures/block//stone_glass.png"
+          	"textures/blocks//stone_glass.png"
         ]
       },
       {
         "name": "Polished Granite",
         "files":[
-            "textures/block//stone_granite_smooth.png"
+            "textures/blocks//stone_granite_smooth.png"
         ]
       },
       {
         "name": "Polished Andesite",
         "files":[
-            "textures/block//stone_andesite_smooth.png"
+            "textures/blocks//stone_andesite_smooth.png"
         ]
       },
       {
         "name": "Polished Diorite",
         "files": [
-            "textures/block//stone_diorite_smooth.png"
+            "textures/blocks//stone_diorite_smooth.png"
         ]
       },
       {
         "name": "Red Sand",
         "files": [
-          	"textures/block//red_sand.png"
+          	"textures/blocks//red_sand.png"
         ]
       },
       {
         "name": "Red Sandstone",
         "files": [
-        	"textures/block//red_sandstone_bottom.png",
-          	"textures/block//red_sandstone_carved.png",
-          	"textures/block//red_sandstone_normal.png",
-          	"textures/block//red_sandstone_smooth.png",
-          	"textures/block//red_sandstone_top.png"
+        	"textures/blocks//red_sandstone_bottom.png",
+          	"textures/blocks//red_sandstone_carved.png",
+          	"textures/blocks//red_sandstone_normal.png",
+          	"textures/blocks//red_sandstone_smooth.png",
+          	"textures/blocks//red_sandstone_top.png"
         ]
       },
       {
@@ -73,15 +73,15 @@
       {
       	"name": "Enchantment Table",
       	"files": [
-      		"textures/block//enchanting_table_bottom.png",
-      		"textures/block//enchanting_table_side.png",
-      		"textures/block//enchanting_table_top.png"
+      		"textures/blocks//enchanting_table_bottom.png",
+      		"textures/blocks//enchanting_table_side.png",
+      		"textures/blocks//enchanting_table_top.png"
       	]
       },
       {
       	"name": "Obsidian",
       	"files": [
-      		"textures/block//obsidian.png"
+      		"textures/blocks//obsidian.png"
       	]
       }
     ]
