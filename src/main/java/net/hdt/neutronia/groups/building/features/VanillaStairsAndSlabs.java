@@ -6,14 +6,17 @@ import net.hdt.neutronia.base.blocks.BlockNeutroniaStairs;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockColored;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaStairsAndSlabs extends Component {
 
-    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks;
+    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks,
+            stainedTerracotta, terracotta;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, true, true, doit);
@@ -50,6 +53,8 @@ public class VanillaStairsAndSlabs extends Component {
         prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
         darkPrismarine = loadPropBool("Dark Prismarine", "", true);
         redNetherBricks = loadPropBool("Red Nether Brick", "", true);
+        stainedTerracotta = loadPropBool("Stained Terracotta", "", true);
+        terracotta = loadPropBool("Terracotta", "", true);
     }
 
     @Override
@@ -69,6 +74,10 @@ public class VanillaStairsAndSlabs extends Component {
         add("prismarine_bricks", Blocks.PRISMARINE, 1, prismarineBricks);
         add("dark_prismarine", Blocks.PRISMARINE, 2, darkPrismarine);
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, redNetherBricks);
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            add(String.format("%s_terracotta", color.getName()), Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), stainedTerracotta);
+        }
+        add("terracotta", Blocks.HARDENED_CLAY, 0, terracotta);
     }
 
     @Override

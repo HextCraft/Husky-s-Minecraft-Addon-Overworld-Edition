@@ -140,6 +140,7 @@ public class NEntities {
         RenderingRegistry.registerEntityRenderingHandler(EntityJungleFrog.class, RenderJungleFrog::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLion.class, RenderLion::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityLioness.class, RenderLioness::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityBrownMooshroom.class, RenderBrownMooshroom::new);
     }
 
 }

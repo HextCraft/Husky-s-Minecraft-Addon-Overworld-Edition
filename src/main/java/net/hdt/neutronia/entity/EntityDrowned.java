@@ -199,7 +199,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         return super.createNavigator(p_createNavigator_1_);
     }
 
-    public IEntityLivingData onInitialSpawn(DifficultyInstance p_onInitialSpawn_1_, @Nullable IEntityLivingData p_onInitialSpawn_2_) {
+    /*public IEntityLivingData onInitialSpawn(DifficultyInstance p_onInitialSpawn_1_, @Nullable IEntityLivingData p_onInitialSpawn_2_) {
         p_onInitialSpawn_2_ = super.onInitialSpawn(p_onInitialSpawn_1_, p_onInitialSpawn_2_);
         if (this.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND).isEmpty() && this.rand.nextFloat() < 0.03F) {
             this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(NItems.nautilusShell));
@@ -207,7 +207,7 @@ public class EntityDrowned extends EntityZombie implements IRangedAttackMob {
         }
 
         return p_onInitialSpawn_2_;
-    }
+    }*/
 
     /*public boolean canSpawn(World p_canSpawn_1_) {
         Biome lvt_2_1_ = p_canSpawn_1_.getBiome(new BlockPos(this.posX, this.posY, this.posZ));

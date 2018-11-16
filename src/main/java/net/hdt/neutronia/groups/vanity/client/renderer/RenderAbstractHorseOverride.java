@@ -56,6 +56,7 @@ public class RenderAbstractHorseOverride extends RenderLiving<AbstractHorse> {
      * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
      */
     protected ResourceLocation getEntityTexture(AbstractHorse entity) {
+        System.out.println(MAP.get(entity.getClass()).toString());
         return MAP.get(entity.getClass());
     }
 

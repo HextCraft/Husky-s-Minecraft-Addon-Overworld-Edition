@@ -45,9 +45,9 @@ public class MoreBanners extends Component {
         addPattern(eye, "eye", "ey", ProxyRegistry.newStack(Items.ENDER_EYE));
         addPattern(shield, "shield", "sh", ProxyRegistry.newStack(Items.IRON_CHESTPLATE));
         addPattern(sword, "sword", "sw", ProxyRegistry.newStack(Items.IRON_SWORD));
-        addPattern(scute, "scute", "sc", ProxyRegistry.newStack(NItems.scute));
-        addPattern(phantom, "phantom", "ph", ProxyRegistry.newStack(NItems.phantomMembrane));
-        addPattern(nautilus, "nautilus", "nt", ProxyRegistry.newStack(NItems.nautilusShell));
+//        addPattern(scute, "scute", "sc", ProxyRegistry.newStack(NItems.scute));
+//        addPattern(phantom, "phantom", "ph", ProxyRegistry.newStack(NItems.phantomMembrane));
+//        addPattern(nautilus, "nautilus", "nt", ProxyRegistry.newStack(NItems.nautilusShell));
         addPattern(trident, "trident", "tr", ProxyRegistry.newStack(NItems.trident));
         addPattern(anchor, "anchor", "an", ProxyRegistry.newStack(NItems.anchor));
         addPattern(true, "bread", "br", new ItemStack(Items.BREAD));

@@ -22,4 +22,5 @@ public class SimplerHorseModel extends Component {
     public boolean requiresMinecraftRestartToEnable() {
         return true;
     }
+
 }

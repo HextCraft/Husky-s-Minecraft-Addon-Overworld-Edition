@@ -4,8 +4,8 @@
   "defaults": {
     "model": "minecraft:cube_column",
     "textures": {
-      "end": "minecraft:blocks/planks_big_oak",
-      "side": "neutronia:block/bookshelf_dark_oak"
+      "end": "blocks/planks_big_oak",
+      "side": "neutronia:block/empty_dark_oak_bookshelf"
     },
     "transform": "forge:default-block"
   },

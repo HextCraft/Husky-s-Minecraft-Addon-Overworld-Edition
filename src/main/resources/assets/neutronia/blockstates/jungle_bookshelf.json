@@ -4,8 +4,8 @@
   "defaults": {
     "model": "minecraft:cube_column",
     "textures": {
-      "end": "minecraft:blocks/planks_jungle",
-      "side": "neutronia:block/bookshelf_jungle"
+      "end": "blocks/planks_jungle",
+      "side": "neutronia:block/empty_jungle_bookshelf"
     },
     "transform": "forge:default-block"
   },

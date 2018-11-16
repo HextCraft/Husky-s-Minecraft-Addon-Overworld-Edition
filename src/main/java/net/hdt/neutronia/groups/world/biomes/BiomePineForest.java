@@ -40,7 +40,7 @@ public class BiomePineForest extends Biome {
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 
-        return (WorldGenAbstractTree) (rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
+        return (rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
     }
 
     public WorldGenerator getRandomWorldGenForGrass(Random rand) {

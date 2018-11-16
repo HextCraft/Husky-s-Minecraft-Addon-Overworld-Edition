@@ -6,13 +6,9 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.fml.client.GuiModList;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
-import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
-
-@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
+//@Mod.EventBusSubscriber(modid = MOD_ID, value = Side.CLIENT)
 public class GuiReplacementEvents {
 
     private static GuiScreen mainMenu;

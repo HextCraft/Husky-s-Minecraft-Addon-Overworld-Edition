@@ -9,7 +9,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class MorePillars extends Component {
 
-    public static Block sandstonePillar, redSandstonePillar, stonePillar, polishedAndesitePillar, polishedGranitePillar, polishedDioritePillar, stoneBrickPillar, prismarineColumn;
+    public static Block sandstonePillar, redSandstonePillar, stonePillar, polishedAndesitePillar, polishedGranitePillar, polishedDioritePillar,
+            stoneBrickPillar, prismarineColumn, brickPillar, endStonePillar;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -21,6 +22,8 @@ public class MorePillars extends Component {
         polishedDioritePillar = new BlockNeutroniaPillar(Material.ROCK, "polished_diorite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         polishedGranitePillar = new BlockNeutroniaPillar(Material.ROCK, "polished_granite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         stoneBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "stone_brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        brickPillar = new BlockNeutroniaPillar(Material.ROCK, "brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        endStonePillar = new BlockNeutroniaPillar(Material.ROCK, "end_stone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override

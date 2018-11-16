@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class VanillaWalls extends Component {
 
     boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, sandstone,
-            chiseledSandstone, cutSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, cutRedSandstone,
+            chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone,
             smoothRedSandstone, stoneBricks,
             bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks, mossyStoneBrick,
             crackedStoneBrick, chiseledStoneBrick, mossyCobblestone;
@@ -46,33 +46,29 @@ public class VanillaWalls extends Component {
 
     @Override
     public void setupConfig() {
-        stone = loadPropBool("Stone", "", false);
-        granite = loadPropBool("Granite", "", false);
-        diorite = loadPropBool("Diorite", "", false);
-        andesite = loadPropBool("Andesite", "", false);
+        stone = loadPropBool("Stone", "", true);
+        granite = loadPropBool("Granite", "", true);
+        diorite = loadPropBool("Diorite", "", true);
+        andesite = loadPropBool("Andesite", "", true);
         polishedGranite = loadPropBool("Polished Granite", "", true);
         polishedDiorite = loadPropBool("Polished Diorite", "", true);
         polishedAndesite = loadPropBool("Polished Andesite", "", true);
         sandstone = loadPropBool("Sandstone", "", true);
-        redSandstone = loadPropBool("Red Sandstone", "", true);
-        stoneBricks = loadPropBool("Stone Bricks", "", false);
-        bricks = loadPropBool("Bricks", "", false);
-        quartz = loadPropBool("Quartz", "", false);
-        prismarine = loadPropBool("Prismarine", "", false);
-        prismarineBricks = loadPropBool("Prismarine Bricks", "", false);
-        darkPrismarine = loadPropBool("Dark Prismarine", "", false);
-        purpurBlock = loadPropBool("Purpur", "", false);
-        endBricks = loadPropBool("End Bricks", "", false);
-        mossyStoneBrick = loadPropBool("Mossy Stone Bricks", "", false);
-        mossyCobblestone = loadPropBool("Mossy Cobblestone", "", false);
-        mossyStoneBrick = loadPropBool("Red Nether Brick", "", true);
-        crackedStoneBrick = loadPropBool("Red Nether Brick", "", true);
         smoothSandstone = loadPropBool("Smooth Sandstone", "", true);
         chiseledSandstone = loadPropBool("Chiseled Sandstone", "", true);
-        cutSandstone = loadPropBool("Cut Sandstone", "", true);
+        redSandstone = loadPropBool("Red Sandstone", "", true);
         smoothRedSandstone = loadPropBool("Smooth Red Sandstone", "", true);
         chiseledRedSandstone = loadPropBool("Chiseled Red Sandstone", "", true);
-        cutRedSandstone = loadPropBool("Cut Red Sandstone", "", true);
+        stoneBricks = loadPropBool("Stone Bricks", "", true);
+        mossyStoneBrick = loadPropBool("Mossy Stone Bricks", "", true);
+        crackedStoneBrick = loadPropBool("Cracked Stone Bricks", "", true);
+        bricks = loadPropBool("Bricks", "", true);
+        quartz = loadPropBool("Quartz", "", true);
+        prismarine = loadPropBool("Prismarine", "", true);
+        prismarineBricks = loadPropBool("Prismarine Bricks", "", true);
+        darkPrismarine = loadPropBool("Dark Prismarine", "", true);
+        purpurBlock = loadPropBool("Purpur", "", true);
+        endBricks = loadPropBool("End Bricks", "", true);
         mossyCobblestone = loadPropBool("Mossy Cobblestone", "", true);
     }
 

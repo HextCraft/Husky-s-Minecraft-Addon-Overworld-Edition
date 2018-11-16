@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "texture": "neutronia:block/trapdoor_dark_oak"
+            "texture": "neutronia:block/dark_oak_trapdoor"
         }
     },
     "variants": {

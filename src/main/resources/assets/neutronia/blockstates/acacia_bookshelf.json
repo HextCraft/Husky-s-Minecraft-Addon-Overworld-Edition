@@ -4,8 +4,8 @@
   "defaults": {
     "model": "minecraft:cube_column",
     "textures": {
-      "end": "minecraft:blocks/planks_acacia",
-      "side": "neutronia:block/bookshelf_acacia"
+      "end": "blocks/planks_acacia",
+      "side": "neutronia:block/empty_acacia_bookshelf"
     },
     "transform": "forge:default-block"
   },

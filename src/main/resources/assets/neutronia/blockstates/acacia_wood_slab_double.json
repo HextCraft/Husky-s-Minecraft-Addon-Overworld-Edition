@@ -1,14 +1,5 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "forge_marker": 1,
   "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "minecraft:blocks/log_acacia"
-        }
-      }
-    }
+    "variant=default": { "parent": "neutronia:blockstates/acacia_bark_block" }
   }
 }

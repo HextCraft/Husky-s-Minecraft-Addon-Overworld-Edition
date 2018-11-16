@@ -6,7 +6,6 @@ import net.hdt.neutronia.items.*;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
@@ -22,15 +21,15 @@ public class NItems {
     public static final ItemArmor.ArmorMaterial OAK_ARMOR = EnumHelper.addArmorMaterial("oak", "oak", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
     public static final ItemArmor.ArmorMaterial SPRUCE_ARMOR = EnumHelper.addArmorMaterial("spruce", "spruce", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
 
-    public static final Item ancientSword, bandage/*, witherBone, witherBonemeal*/,
-            phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute;
+    public static final Item ancientSword, bandage/*, witherBone, witherBonemeal,
+            phantomMembrane, nautilusShell, heartOfTheSea, heartOfTheNether, heartOfTheEnd, scute*/;
 
-    public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
+    /*public static final Item ACACIA_HELMET, ACACIA_CHESTPLATE, ACACIA_LEGGINGS, ACACIA_BOOTS;
     public static final Item BIRCH_HELMET, BIRCH_CHESTPLATE, BIRCH_LEGGINGS, BIRCH_BOOTS;
     public static final Item DARK_OAK_HELMET, DARK_OAK_CHESTPLATE, DARK_OAK_LEGGINGS, DARK_OAK_BOOTS;
     public static final Item JUNGLE_HELMET, JUNGLE_CHESTPLATE, JUNGLE_LEGGINGS, JUNGLE_BOOTS;
     public static final Item OAK_HELMET, OAK_CHESTPLATE, OAK_LEGGINGS, OAK_BOOTS;
-    public static final Item SPRUCE_HELMET, SPRUCE_CHESTPLATE, SPRUCE_LEGGINGS, SPRUCE_BOOTS;
+    public static final Item SPRUCE_HELMET, SPRUCE_CHESTPLATE, SPRUCE_LEGGINGS, SPRUCE_BOOTS;*/
 
     public static final Item woodSpear;
     public static final Item stoneSpear;
@@ -52,18 +51,18 @@ public class NItems {
         bandage = new ItemBandage();
 //        witherBone = new ItemNeutroniaBase("wither_bone");
 //        witherBonemeal = new ItemNeutroniaBase("wither_bonemeal");
-        phantomMembrane = new ItemPhantomMembrane();
-        nautilusShell = new ItemNeutroniaBase("nautilus_shell");
-        heartOfTheSea = new ItemNeutroniaBase("heart_of_the_sea");
-        heartOfTheNether = new ItemNeutroniaBase("heart_of_the_nether");
-        heartOfTheEnd = new ItemNeutroniaBase("heart_of_the_end");
-        scute = new ItemNeutroniaBase("scute");
+//        phantomMembrane = new ItemPhantomMembrane();
+//        nautilusShell = new ItemNeutroniaBase("nautilus_shell");
+//        heartOfTheSea = new ItemNeutroniaBase("heart_of_the_sea");
+//        heartOfTheNether = new ItemNeutroniaBase("heart_of_the_nether");
+//        heartOfTheEnd = new ItemNeutroniaBase("heart_of_the_end");
+//        scute = new ItemNeutroniaBase("scute");
         chisel = new ItemNeutroniaBase("chisel");
         logStripper = new ItemNeutroniaBase("log_stripper");
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(chisel, 1), "I", "S", 'I', Items.IRON_INGOT, 'S', Items.STICK);
         RecipeHandler.addShapedRecipe(ProxyRegistry.newStack(logStripper, 1), "II ", " I ", " S ", 'I', Items.IRON_INGOT, 'S', Items.STICK);
 
-        ACACIA_HELMET = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.HEAD);
+        /*ACACIA_HELMET = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.HEAD);
         ACACIA_CHESTPLATE = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.CHEST);
         ACACIA_LEGGINGS = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.LEGS);
         ACACIA_BOOTS = new ItemArmorBase("acacia", ACACIA_ARMOR, 1, EntityEquipmentSlot.FEET);
@@ -91,7 +90,7 @@ public class NItems {
         SPRUCE_HELMET = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.HEAD);
         SPRUCE_CHESTPLATE = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.CHEST);
         SPRUCE_LEGGINGS = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.LEGS);
-        SPRUCE_BOOTS = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.FEET);
+        SPRUCE_BOOTS = new ItemArmorBase("spruce", SPRUCE_ARMOR, 1, EntityEquipmentSlot.FEET);*/
 
         woodSpear = new ItemSpear("wood_spear", Item.ToolMaterial.WOOD).setCreativeTab(null);
         stoneSpear = new ItemSpear("stone_spear", Item.ToolMaterial.STONE).setCreativeTab(null);

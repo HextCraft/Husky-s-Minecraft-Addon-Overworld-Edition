@@ -23,11 +23,11 @@ import java.util.List;
 
 public class SitOnStairsAndSlabs extends Component {
 
-    public static boolean canBeAbove(World world, BlockPos pos) {
+    private static boolean canBeAbove(World world, BlockPos pos) {
         BlockPos upPos = pos.up();
         IBlockState state = world.getBlockState(upPos);
         Block block = state.getBlock();
-        return block.getCollisionBoundingBox(state, world, upPos) == null;
+        return block.getDefaultState().getCollisionBoundingBox(world, upPos) == null;
     }
 
     @SubscribeEvent
@@ -97,12 +97,12 @@ public class SitOnStairsAndSlabs extends Component {
 
     public static class SeatStair extends Entity {
 
-        public SeatStair(World world, BlockPos pos) {
+        SeatStair(World world, BlockPos pos) {
             this(world);
             setPosition(pos.getX() + 0.5, pos.getY() + 0.29, pos.getZ() + 0.5);
         }
 
-        public SeatStair(World par1World) {
+        SeatStair(World par1World) {
             super(par1World);
             setSize(0F, 0F);
         }
@@ -140,13 +140,13 @@ public class SitOnStairsAndSlabs extends Component {
 
     public static class SeatEntity extends Entity {
 
-        public SeatEntity(EntityPlayer player, World par1World) {
+        SeatEntity(EntityPlayer player, World par1World) {
             this(par1World);
             player.rotationYaw = this.rotationYaw;
             player.rotationPitch = this.rotationPitch;
         }
 
-        public SeatEntity(World worldIn) {
+        SeatEntity(World worldIn) {
             super(worldIn);
             setSize(0F, 0F);
         }
@@ -171,13 +171,13 @@ public class SitOnStairsAndSlabs extends Component {
 
     public static class SeatSlab extends Entity {
 
-        public SeatSlab(World world, BlockPos pos) {
+        SeatSlab(World world, BlockPos pos) {
             this(world);
 
             setPosition(pos.getX() + 0.5, pos.getY() + 0.25, pos.getZ() + 0.5);
         }
 
-        public SeatSlab(World par1World) {
+        SeatSlab(World par1World) {
             super(par1World);
 
             setSize(0F, 0F);
@@ -189,51 +189,6 @@ public class SitOnStairsAndSlabs extends Component {
 
             BlockPos pos = getPosition();
             if (!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockSlab) || !canBeAbove(getEntityWorld(), pos)) {
-                setDead();
-                return;
-            }
-
-            List<Entity> passengers = getPassengers();
-            if (passengers.isEmpty())
-                setDead();
-            for (Entity e : passengers)
-                if (e.isSneaking())
-                    setDead();
-        }
-
-        @Override
-        protected void entityInit() {
-        }
-
-        @Override
-        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
-        }
-
-        @Override
-        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
-        }
-    }
-
-    public static class SeatFullBlock extends Entity {
-
-        public SeatFullBlock(World world, BlockPos pos) {
-            this(world);
-
-            setPosition(pos.getX() + 0.5, pos.getY() + 0.75, pos.getZ() + 0.5);
-        }
-
-        public SeatFullBlock(World par1World) {
-            super(par1World);
-
-            setSize(0F, 0F);
-        }
-
-        @Override
-        public void onUpdate() {
-            super.onUpdate();
-
-            BlockPos pos = getPosition();
-            if (!canBeAbove(getEntityWorld(), pos)) {
                 setDead();
                 return;
             }

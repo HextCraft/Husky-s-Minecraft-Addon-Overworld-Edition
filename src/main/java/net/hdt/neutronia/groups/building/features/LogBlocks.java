@@ -4,6 +4,7 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
@@ -27,8 +28,8 @@ public class LogBlocks extends Component {
         jungle = loadPropBool("Acacia Log blocks", "", true);
         oak = loadPropBool("Acacia Log blocks", "", true);
         spruce = loadPropBool("Acacia Log blocks", "", true);
-        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true);
-        enableWalls = loadPropBool("Enable walls", "", false);
+        enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true) & GlobalConfig.enableVariants;
+        enableWalls = loadPropBool("Enable walls", "", false) & GlobalConfig.enableVariants;
     }
 
     @Override
