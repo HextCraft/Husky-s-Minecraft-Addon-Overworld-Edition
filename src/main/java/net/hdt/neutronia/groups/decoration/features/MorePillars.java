@@ -23,7 +23,7 @@ public class MorePillars extends Component {
         polishedGranitePillar = new BlockNeutroniaPillar(Material.ROCK, "polished_granite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         stoneBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "stone_brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         brickPillar = new BlockNeutroniaPillar(Material.ROCK, "brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        endStonePillar = new BlockNeutroniaPillar(Material.ROCK, "end_stone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        endStonePillar = new BlockNeutroniaPillar(Material.ROCK, "end_brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override

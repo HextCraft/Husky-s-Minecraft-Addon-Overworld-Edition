@@ -3,18 +3,19 @@ package net.hdt.neutronia.groups.building.features;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaWall;
 import net.hdt.neutronia.base.groups.Component;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockColored;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaWalls extends Component {
 
     boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, sandstone,
-            chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone,
-            smoothRedSandstone, stoneBricks,
+            chiseledSandstone, smoothSandstone, redSandstone, chiseledRedSandstone, smoothRedSandstone, stoneBricks,
             bricks, quartz, prismarine, prismarineBricks, darkPrismarine, purpurBlock, endBricks, mossyStoneBrick,
-            crackedStoneBrick, chiseledStoneBrick, mossyCobblestone;
+            crackedStoneBrick, chiseledStoneBrick, mossyCobblestone, stainedTerracotta, terracotta, concrete;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, doit, BlockNeutroniaWall::new);
@@ -70,6 +71,9 @@ public class VanillaWalls extends Component {
         purpurBlock = loadPropBool("Purpur", "", true);
         endBricks = loadPropBool("End Bricks", "", true);
         mossyCobblestone = loadPropBool("Mossy Cobblestone", "", true);
+        stainedTerracotta = loadPropBool("Stained Terracotta", "", true);
+        concrete = loadPropBool("Concrete", "", true);
+        terracotta = loadPropBool("Terracotta", "", true);
     }
 
     @Override
@@ -98,6 +102,11 @@ public class VanillaWalls extends Component {
         add("dark_prismarine", Blocks.PRISMARINE, 2, darkPrismarine);
         add("purpur_block", Blocks.PURPUR_BLOCK, 0, purpurBlock);
         add("end_bricks", Blocks.END_BRICKS, 0, endBricks);
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            add(String.format("%s_terracotta", color.getName()), Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), stainedTerracotta);
+            add(String.format("%s_concrete", color.getName()), Blocks.CONCRETE.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), concrete);
+        }
+        add("terracotta", Blocks.HARDENED_CLAY, 0, terracotta);
     }
 
     @Override

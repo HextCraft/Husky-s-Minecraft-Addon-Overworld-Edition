@@ -6,6 +6,7 @@ import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.BlockLogFence;
 import net.hdt.neutronia.groups.decoration.blocks.BlockLogWall;
 import net.hdt.neutronia.init.NItems;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -52,12 +53,12 @@ public class LogFenceAndWall extends Component {
         VanillaFencesAndFenceGates.add("jungle_log", Blocks.LOG, new ItemStack(Items.STICK), 3, false, true, true, CreativeTabs.BUILDING_BLOCKS);
         VanillaFencesAndFenceGates.add("oak_log", Blocks.LOG, new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);
         VanillaFencesAndFenceGates.add("spruce_log", Blocks.LOG, new ItemStack(Items.STICK), 1, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_acacia_log", Blocks.LOG2, new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_birch_log", Blocks.LOG, new ItemStack(Items.STICK), 2, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_dark_oak_log", Blocks.LOG2, new ItemStack(Items.STICK), 1, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_jungle_log", Blocks.LOG, new ItemStack(Items.STICK), 3, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_oak_log", Blocks.LOG, new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);
-        VanillaFencesAndFenceGates.add("stripped_spruce_log", Blocks.LOG, new ItemStack(Items.STICK), 1, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_acacia_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.ACACIA.getMetadata()], new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_birch_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.BIRCH.getMetadata()], new ItemStack(Items.STICK), 2, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_dark_oak_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.DARK_OAK.getMetadata()], new ItemStack(Items.STICK), 1, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_jungle_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.JUNGLE.getMetadata()], new ItemStack(Items.STICK), 3, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_oak_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.OAK.getMetadata()], new ItemStack(Items.STICK), 0, false, true, true, CreativeTabs.BUILDING_BLOCKS);
+        VanillaFencesAndFenceGates.add("stripped_spruce_log", LogBlocks.strippedLogs[BlockPlanks.EnumType.SPRUCE.getMetadata()], new ItemStack(Items.STICK), 1, false, true, true, CreativeTabs.BUILDING_BLOCKS);
     }
 
 }

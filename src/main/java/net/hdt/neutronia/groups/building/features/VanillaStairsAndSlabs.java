@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class VanillaStairsAndSlabs extends Component {
 
-    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine, prismarineBricks, darkPrismarine, redNetherBricks,
-            stainedTerracotta, terracotta;
+    boolean stone, granite, diorite, andesite, polishedGranite, polishedDiorite, polishedAndesite, endBricks, prismarine,
+            prismarineBricks, darkPrismarine, redNetherBricks, stainedTerracotta, terracotta, concrete, obsidian;
 
     public static void add(String name, Block block, int meta, boolean doit) {
         add(name, block, meta, true, true, doit);
@@ -54,7 +54,9 @@ public class VanillaStairsAndSlabs extends Component {
         darkPrismarine = loadPropBool("Dark Prismarine", "", true);
         redNetherBricks = loadPropBool("Red Nether Brick", "", true);
         stainedTerracotta = loadPropBool("Stained Terracotta", "", true);
+        concrete = loadPropBool("Concrete", "", true);
         terracotta = loadPropBool("Terracotta", "", true);
+        obsidian = loadPropBool("Obsidian", "", true);
     }
 
     @Override
@@ -76,8 +78,10 @@ public class VanillaStairsAndSlabs extends Component {
         add("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, redNetherBricks);
         for(EnumDyeColor color : EnumDyeColor.values()) {
             add(String.format("%s_terracotta", color.getName()), Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), stainedTerracotta);
+            add(String.format("%s_concrete", color.getName()), Blocks.CONCRETE.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), concrete);
         }
         add("terracotta", Blocks.HARDENED_CLAY, 0, terracotta);
+        add("obsidian", Blocks.OBSIDIAN, 0, obsidian);
     }
 
     @Override

@@ -25,11 +25,11 @@ public class FoodTooltip extends Component {
             int pips = ((ItemFood) event.getItemStack().getItem()).getHealAmount(event.getItemStack());
             int len = (int) Math.ceil((double) pips / divisor);
 
-            String s = " ";
+            StringBuilder s = new StringBuilder(" ");
             for (int i = 0; i < len; i++)
-                s += "  ";
+                s.append("  ");
 
-            event.getToolTip().add(1, s);
+            event.getToolTip().add(1, s.toString());
         }
     }
 
