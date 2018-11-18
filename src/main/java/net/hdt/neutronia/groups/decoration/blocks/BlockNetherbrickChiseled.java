@@ -48,14 +48,14 @@ public class BlockNetherbrickChiseled extends BlockMod implements INeutroniaBloc
             if (item == Items.LAVA_BUCKET) {
                 if (!filled) {
                     worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherbrickFilled.getDefaultState(), 2);
+                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherBrickFilled.getDefaultState(), 2);
                     playerIn.setHeldItem(hand, new ItemStack(Items.BUCKET));
                 }
                 return true;
             } else if (item == Items.BUCKET) {
                 if (filled) {
                     worldIn.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherbrick.getDefaultState(), 2);
+                    worldIn.setBlockState(pos, ChiseledBlocks.chiseledNetherBrick.getDefaultState(), 2);
                     itemstack.shrink(1);
                     playerIn.setHeldItem(hand, new ItemStack(Items.LAVA_BUCKET));
                     return true;

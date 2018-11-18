@@ -1,14 +1,14 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "minecraft:blocks/log_acacia"
-        }
-      }
+  "defaults": {
+    "textures": {
+      "particles": "blocks/log_acacia",
+      "end": "blocks/log_acacia_top",
+      "side": "blocks/log_acacia"
     }
+  },
+  "variants": {
+    "inventory": { "model": "cube_column" },
+    "variant=default":  { "model": "cube_column" }
   }
 }

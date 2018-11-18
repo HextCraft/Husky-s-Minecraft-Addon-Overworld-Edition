@@ -104,7 +104,7 @@ public class VanillaWalls extends Component {
         add("end_bricks", Blocks.END_BRICKS, 0, endBricks);
         for(EnumDyeColor color : EnumDyeColor.values()) {
             add(String.format("%s_terracotta", color.getName()), Blocks.STAINED_HARDENED_CLAY.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), stainedTerracotta);
-            add(String.format("%s_concrete", color.getName()), Blocks.CONCRETE.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), concrete);
+//            add(String.format("%s_concrete", color.getName()), Blocks.CONCRETE.getDefaultState().withProperty(BlockColored.COLOR, color).getBlock(), color.getMetadata(), concrete);
         }
         add("terracotta", Blocks.HARDENED_CLAY, 0, terracotta);
     }

@@ -1,11 +1,14 @@
 package net.hdt.neutronia.base.groups;
 
 import net.hdt.neutronia.base.handler.client.ClientEventHandler;
+import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.text.WordUtils;
@@ -152,6 +155,10 @@ public class Component implements Comparable<Component> {
 
     public boolean requiresMinecraftRestartToEnable() {
         return hasSubscriptions() || hasOreGenSubscriptions() || hasTerrainSubscriptions();
+    }
+
+    public static void registerTile(Class<? extends TileEntity> clazz, String key) {
+        GameRegistry.registerTileEntity(clazz, LibMisc.PREFIX_MOD + key);
     }
 
     public final boolean isClient() {

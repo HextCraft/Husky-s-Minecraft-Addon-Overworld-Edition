@@ -1,10 +1,15 @@
 package net.hdt.neutronia.base.handler.server;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 
 public final class ModIntegrationHandler {
+
+    public static void addCharsetCarry(Block b) {
+        FMLInterModComms.sendMessage("charset", "addCarry", b.getRegistryName());
+    }
 
     public static void registerChiselVariant(String group, ItemStack stack) {
         NBTTagCompound cmp = new NBTTagCompound();
@@ -14,6 +19,10 @@ public final class ModIntegrationHandler {
         cmp.setTag("stack", stackCmp);
 
         FMLInterModComms.sendMessage("chisel", "add_variation", cmp);
+    }
+
+    public static void allowChiselAndBitsChiseling(Block b) {
+        FMLInterModComms.sendMessage("chiselsandbits", "ignoreblocklogic", b.getRegistryName());
     }
 
 }

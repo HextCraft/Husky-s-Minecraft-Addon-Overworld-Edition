@@ -8,8 +8,8 @@ public class ChiseledBlocks extends Component {
 
     public static BlockPrismarineChiseled chiseledPrismarine;
     public static BlockPrismarineChiseled chiseledPrismarineFilled;
-    public static BlockNetherbrickChiseled chiseledNetherbrick;
-    public static BlockNetherbrickChiseled chiseledNetherbrickFilled;
+    public static BlockNetherbrickChiseled chiseledNetherBrick;
+    public static BlockNetherbrickChiseled chiseledNetherBrickFilled;
     public static BlockPurpurChiseled chiseledPurpur;
     public static BlockPurpurChiseled chiseledPurpurFilled;
     public static BlockBrickChiseled chiseledBricks;
@@ -23,8 +23,8 @@ public class ChiseledBlocks extends Component {
     public void preInit(FMLPreInitializationEvent event) {
         chiseledPrismarine = new BlockPrismarineChiseled("chiseled_prismarine", false);
         chiseledPrismarineFilled = new BlockPrismarineChiseled("filled_chiseled_prismarine", true);
-        chiseledNetherbrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
-        chiseledNetherbrickFilled = new BlockNetherbrickChiseled("filled_chiseled_netherbrick", true);
+        chiseledNetherBrick = new BlockNetherbrickChiseled("chiseled_netherbrick", false);
+        chiseledNetherBrickFilled = new BlockNetherbrickChiseled("filled_chiseled_netherbrick", true);
         chiseledPurpur = new BlockPurpurChiseled("chiseled_purpur", false);
         chiseledPurpurFilled = new BlockPurpurChiseled("filled_chiseled_purpur", true);
         chiseledBricks = new BlockBrickChiseled("chiseled_bricks", false);

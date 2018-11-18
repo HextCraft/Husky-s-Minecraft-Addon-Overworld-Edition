@@ -1,31 +1,13 @@
 {
   "forge_marker": 1,
   "defaults": {
+    "model": "cube_all",
     "textures": {
-      "end": "neutronia:block/mossy_stone",
-      "side": "neutronia:block/iron_pillar"
+      "all": "neutronia:block/mossy_stone"
     }
   },
   "variants": {
-    "axis": {
-      "y": {
-        "submodel": "cube_column"
-      },
-      "z": {
-        "submodel": "cube_column",
-        "x": 90
-      },
-      "x": {
-        "submodel": "cube_column",
-        "x": 90,
-        "y": 90
-      },
-      "none": {
-        "submodel": "cube_column"
-      }
-    },
-    "inventory": [{
-      "model": "cube_column"
-    }]
+    "normal": [{}],
+    "inventory": [{}]
   }
 }

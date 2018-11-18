@@ -22,10 +22,10 @@ public class NEnchantments {
     public static final Enchantment CHANNELING;
 
     static {
-        LOYALTY = new EnchantmentLoyalty(Enchantment.Rarity.UNCOMMON, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "loyalty"));
-        IMPALING = new EnchantmentImpaling(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "impaling"));
-        RIPTIDE = new EnchantmentRiptide(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "riptide"));
-        CHANNELING = new EnchantmentChanneling(Enchantment.Rarity.VERY_RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "channeling"));
+        LOYALTY = new EnchantmentLoyalty(Enchantment.Rarity.UNCOMMON, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "loyalty")).setName("Loyalty");
+        IMPALING = new EnchantmentImpaling(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "impaling")).setName("Impaling");
+        RIPTIDE = new EnchantmentRiptide(Enchantment.Rarity.RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "riptide")).setName("Riptide");
+        CHANNELING = new EnchantmentChanneling(Enchantment.Rarity.VERY_RARE, EntityEquipmentSlot.MAINHAND).setRegistryName(new ResourceLocation(MOD_ID, "channeling")).setName("Channeling");
     }
 
     @SubscribeEvent

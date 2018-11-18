@@ -1,14 +1,16 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/soulsand_stone_carved",
+      "top": "neutronia:block/soulsand_stone_carved",
+      "side": "neutronia:block/soulsand_stone_carved"
+    },
+    "transform": "forge:default-block"
+  },
   "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_chiseled_soulstone_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_chiseled_soulstone_slab"
-      }
-    }
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

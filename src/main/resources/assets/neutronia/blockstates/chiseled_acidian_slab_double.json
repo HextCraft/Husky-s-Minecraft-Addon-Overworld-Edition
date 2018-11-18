@@ -1,11 +1,12 @@
 {
-"forge_marker": 1,
-"defaults": {
-	"model": "minecraft:cube_all",
-	"transform": "forge:default-block"
-},
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"all": "neutronia:block/chiseled_acidian"
+		},
+		"transform": "forge:default-block"
+	},
 	"variants": {
-		"normal": [{ "textures": { "all": "neutronia:block/chiseled_acidian" } }],
-		"prop=blarg": [{ "textures": { "all": "neutronia:block/chiseled_acidian" } }]
+		"variant=default": { "model": "cube_all" }
 	}
 }

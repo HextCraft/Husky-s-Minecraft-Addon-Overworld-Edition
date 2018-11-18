@@ -1,5 +1,13 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "particles": "blocks/log_acacia",
+            "all": "blocks/log_acacia"
+        }
+    },
     "variants": {
-        "variant=default": { "parent": "neutronia:blockstates/acacia_bark_block" }
+        "inventory": { "model": "cube_all" },
+        "variant=default":  { "model": "cube_all" }
     }
 }

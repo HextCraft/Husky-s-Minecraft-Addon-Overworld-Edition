@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_dark_oak_log_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_dark_oak_log_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/log_big_oak_top",
+      "top": "blocks/log_big_oak_top",
+      "side": "blocks/log_big_oak"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

@@ -9,13 +9,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ColoredCandles extends Component {
 
     public static BlockNeutroniaColored[] coloredCandles = new BlockNeutroniaColored[16];
-    public static BlockNeutroniaColored[] coloredLitCandles = new BlockNeutroniaColored[16];
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (EnumDyeColor color : EnumDyeColor.values()) {
-            coloredCandles[color.getMetadata()] = new BlockColoredCandles(color, false);
-            coloredLitCandles[color.getMetadata()] = new BlockColoredCandles(color, true);
+            coloredCandles[color.getMetadata()] = new BlockColoredCandles(color);
         }
     }
 

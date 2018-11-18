@@ -1,14 +1,11 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "minecraft:blocks/log_dark_oak"
-        }
-      }
+  "defaults": {
+    "textures": {
+      "all": "blocks/log_big_oak"
     }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_all" }
   }
 }

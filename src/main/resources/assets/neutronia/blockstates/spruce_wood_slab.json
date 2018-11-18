@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_spruce_wood_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_spruce_wood_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/log_spruce",
+      "top": "blocks/log_spruce",
+      "side": "blocks/log_spruce"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

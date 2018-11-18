@@ -4,7 +4,6 @@ import net.hdt.huskylib2.block.BlockMod;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.properties.EnumNewStoneVariants;
-import net.hdt.neutronia.properties.EnumNewStoneVariantsSlabsAndStairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -22,11 +21,11 @@ public class MoreStoneBlocks extends Component {
         for (EnumNewStoneVariants newStoneVariant : EnumNewStoneVariants.values()) {
             newStoneVariants[newStoneVariant.getMetadata()] = new BlockNeutroniaBase(BlockMod.Builder.create(Material.ROCK).hardnessAndResistance(3.0F, 5.0F), newStoneVariant.getName());
         }
-        for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
+        /*for (EnumNewStoneVariantsSlabsAndStairs newStoneVariantsSlabsAndStairs : EnumNewStoneVariantsSlabsAndStairs.values()) {
             VanillaStairsAndSlabs.add(newStoneVariantsSlabsAndStairs.getName(), newStoneVariants[newStoneVariantsSlabsAndStairs.getMetadata()], 0, true, false, true);
         }
         VanillaStairsAndSlabs.add("andesite_cobble", newStoneVariants[EnumNewStoneVariants.ANDESITE_COBBLE.getMetadata()], 0, false, true, true);
-        VanillaStairsAndSlabs.add("granite_cobble", newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], 0, false, true, true);
+        VanillaStairsAndSlabs.add("granite_cobble", newStoneVariants[EnumNewStoneVariants.GRANITE_COBBLE.getMetadata()], 0, false, true, true);*/
     }
 
     @Override

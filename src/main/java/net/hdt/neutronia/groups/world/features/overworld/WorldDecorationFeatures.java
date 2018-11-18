@@ -35,9 +35,9 @@ public class WorldDecorationFeatures extends Component {
 
     @Override
     public void setupConfig() {
-        riverMudFrequency = loadPropInt("River Mud Frequency", "How frequent mud will spawn in rivers", 4);
+        riverMudFrequency = loadPropInt("River Mud Frequency", "How frequent mud will spawn in rivers", 8);
         mossyStoneFrequency = loadPropInt("Mossy Stone Frequency", "How frequent mossy stone would spawn in the world", 4);
-        swampMudFrequency = loadPropInt("Swamp Mud Frequency", "How frequent mud will spawn in swamps", 4);
+        swampMudFrequency = loadPropInt("Swamp Mud Frequency", "How frequent mud will spawn in swamps", 1);
     }
 
     @Override

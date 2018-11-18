@@ -1,0 +1,43 @@
+Wallpaper:
+    Flat
+    It would be kind of like item frames how it can be placed corner to corner
+    Could come in 16 colours with unique patterns
+    Would be crafted with 8 paper and 1 dye for 3 wallpaper
+
+Roofing Blocks
+
+Oriental Blocks
+    Blocks for things from areas like Arabia, India, China, Japan, etc.
+    Tatami, Bamboo Planks, Slabs, Stairs, & Walls, Shoji Screens, Chinese Ribbed Shingles, Decorative Metal Fences, Lattice,
+    Vertical Planks, Dark Marble(Quartz), Decorative Sandstone, Decorative Rugs, Decorative Tiles, etc.
+
+Obsidian slabs and stairs.
+Cracked stone brick slabs, stairs, and walls.
+Polished stone stairs and walls.
+Bookshelves of all wood types.
+Ladders of all wood types.
+Chests of all wood types.
+Concrete slabs and stairs (not dust, and all 16 colors).
+Ornate wood planks.
+Basalt.
+Ash blocks.
+A black netherbrick variant (with all variants included).
+Walls for dark and brick prismarine.
+Prismarine pillars.
+Netherbrick pillars.
+Stone brick pillars.
+Polished andesite/granite/diorite pillars.
+Some kind of shingle block for roofing (any material, any color).
+Quark's midori blocks and iron plate blocks.
+Brick versions of diorite/andesite/granite.
+Bamboo blocks (proper ones).
+Some kind of thatch block.
+Purpur walls.
+Quartz walls.
+Candles.
+Carpets with ornate designs on them.
+More paintings.
+Mud blocks.
+Vertical slabs.
+
+Painted wood

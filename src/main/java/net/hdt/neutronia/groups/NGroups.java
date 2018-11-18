@@ -45,6 +45,7 @@ public class NGroups {
                 .addComponent(new CarvedPlanks())
 //                .addComponent(new ColoredPlanks(), false)
 //                .addComponent(new FrostedBlocks(), false)
+                .addComponent(new FrostedGlass())
                 .addComponent(new LogBlocks())
                 .addComponent(new LogFenceAndWall())
                 .addComponent(new LogPiles())
@@ -89,12 +90,9 @@ public class NGroups {
                 .description("This group adds new decorative building blocks and improves vanilla ones.")
                 .iconStack(new ItemStack(Blocks.BOOKSHELF))
                 .addComponent(new CenteredGlazedTerracotta())
-                .addComponent(new CharcoalBlock())
                 .addComponent(new ChiseledBlocks())
 
-//                .addComponent(new ColoredCandles(), false)
-//                .addComponent(new ColoredRedstoneLamps(), false)
-//                .addComponent(new ColoredSlimeBlocks(), false)
+                .addComponent(new ColoredCandles())
 //                .addComponent(new CutGlazedTerracotta(), false)
 
 //                .addComponent(new DecorativeAquamarine())
@@ -109,13 +107,15 @@ public class NGroups {
                 .addComponent(new MoreMetals())
                 .addComponent(new MorePillars())
                 .addComponent(new NetherBlocks())
-                .addComponent(new Shelves())
                 .addComponent(new SmoothBlocks())
 
 //                .addComponent(new TerracottaFlowerPots())
 
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
+                .addComponent(new VariedChests())
+                .addComponent(new VariedLadders())
+                .addComponent(new VariedShelfs())
                 .addComponent(new VariedTrapdoors())
                 .addComponent(new VariedWoodenLanterns())
                 .enabled(true)

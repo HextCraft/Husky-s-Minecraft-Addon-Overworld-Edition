@@ -1,7 +1,6 @@
 package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaHotGlowing;
-import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.blocks.base.BlockGlassBase;
 import net.hdt.neutronia.blocks.base.BlockRodBase;
@@ -18,7 +17,6 @@ public class NetherBlocks extends Component {
 
     public static final Block[] glowingNetherBlocks = new Block[24];
     public static Block netherGlass, netherRod, netherSponge, ash, burnedBones;
-    public static Block netherbrickPillar;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -32,8 +30,6 @@ public class NetherBlocks extends Component {
         for (EnumGlowingNetherBlocks enumGlowingNetherBlocks : EnumGlowingNetherBlocks.values()) {
             glowingNetherBlocks[enumGlowingNetherBlocks.getMetadata()] = new BlockNeutroniaHotGlowing(Material.GLASS, enumGlowingNetherBlocks.getName());
         }
-
-        netherbrickPillar = new BlockNeutroniaPillar(Material.ROCK, "netherbrick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override
