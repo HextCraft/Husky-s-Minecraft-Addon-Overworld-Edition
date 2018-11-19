@@ -1,20 +1,12 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "minecraft:half_slab",
     "textures": {
-      "bottom": "neutronia:block/acidian_bricks",
-      "top": "neutronia:block/acidian_bricks",
-      "side": "neutronia:block/acidian_bricks"
+      "all": "neutronia:block/acidian_bricks"
     },
     "transform": "forge:default-block"
   },
   "variants": {
-    "half=top": [{
-      "x": 180,
-      "uvlock": true
-    }],
-    "half=bottom": [{}],
-    "inventory": [{}]
+    "variant=default": { "model": "cube_all" }
   }
 }

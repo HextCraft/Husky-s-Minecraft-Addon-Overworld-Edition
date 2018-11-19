@@ -2,10 +2,11 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:block/stripped_jungle_log",
-      "top": "neutronia:block/stripped_jungle_log_top",
-      "side": "neutronia:block/stripped_jungle_log"
-    }
+      "bottom": "neutronia:block/willow_planks",
+      "top": "neutronia:block/willow_planks",
+      "side": "neutronia:block/willow_planks"
+    },
+    "transform": "forge:default-block"
   },
   "variants": {
     "inventory": { "model": "minecraft:half_slab" },

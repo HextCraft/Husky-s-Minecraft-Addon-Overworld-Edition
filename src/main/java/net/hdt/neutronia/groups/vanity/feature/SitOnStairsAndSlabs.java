@@ -70,6 +70,16 @@ public class SitOnStairsAndSlabs extends Component {
                 event.getEntityPlayer().startRiding(seat);
             }
         }
+
+        if (state.getBlock() instanceof BlockSlab && state.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.TOP && canBeAbove(world, pos)) {
+            List<SeatSlabFull> seats = world.getEntitiesWithinAABB(SeatSlabFull.class, new AxisAlignedBB(pos, pos.add(1, 1, 1)));
+
+            if (seats.isEmpty()) {
+                SeatSlabFull seat = new SeatSlabFull(world, pos);
+                world.spawnEntity(seat);
+                event.getEntityPlayer().startRiding(seat);
+            }
+        }
     }
 
     @SubscribeEvent
@@ -178,6 +188,51 @@ public class SitOnStairsAndSlabs extends Component {
         }
 
         SeatSlab(World par1World) {
+            super(par1World);
+
+            setSize(0F, 0F);
+        }
+
+        @Override
+        public void onUpdate() {
+            super.onUpdate();
+
+            BlockPos pos = getPosition();
+            if (!(getEntityWorld().getBlockState(pos).getBlock() instanceof BlockSlab) || !canBeAbove(getEntityWorld(), pos)) {
+                setDead();
+                return;
+            }
+
+            List<Entity> passengers = getPassengers();
+            if (passengers.isEmpty())
+                setDead();
+            for (Entity e : passengers)
+                if (e.isSneaking())
+                    setDead();
+        }
+
+        @Override
+        protected void entityInit() {
+        }
+
+        @Override
+        protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        }
+
+        @Override
+        protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        }
+    }
+
+    public static class SeatSlabFull extends Entity {
+
+        SeatSlabFull(World world, BlockPos pos) {
+            this(world);
+
+            setPosition(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
+        }
+
+        SeatSlabFull(World par1World) {
             super(par1World);
 
             setSize(0F, 0F);

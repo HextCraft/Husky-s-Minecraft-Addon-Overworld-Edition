@@ -1,14 +1,13 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "neutronia:block/quartz_bricks"
-        }
-      }
+  "defaults": {
+    "textures": {
+      "particles": "neutronia:block/quartz_bricks",
+      "all": "neutronia:block/quartz_bricks"
     }
+  },
+  "variants": {
+    "inventory": { "model": "cube_all" },
+    "variant=default":  { "model": "cube_all" }
   }
 }

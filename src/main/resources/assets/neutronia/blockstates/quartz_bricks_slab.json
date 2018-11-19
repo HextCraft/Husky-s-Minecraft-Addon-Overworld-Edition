@@ -1,14 +1,15 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "half": {
-      "top": {
-        "model": "neutronia:upper_quartz_bricks_slab"
-      },
-      "bottom": {
-        "model": "neutronia:half_quartz_bricks_slab"
-      }
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/quartz_bricks",
+      "top": "neutronia:block/quartz_bricks",
+      "side": "neutronia:block/quartz_bricks"
     }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }

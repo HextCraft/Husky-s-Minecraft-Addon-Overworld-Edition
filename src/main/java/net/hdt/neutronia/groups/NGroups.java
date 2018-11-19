@@ -43,8 +43,6 @@ public class NGroups {
                 .description("This group adds new structural building blocks and building utensils.")
                 .iconStack(new ItemStack(Blocks.BRICK_BLOCK))
                 .addComponent(new CarvedPlanks())
-//                .addComponent(new ColoredPlanks(), false)
-//                .addComponent(new FrostedBlocks(), false)
                 .addComponent(new FrostedGlass())
                 .addComponent(new LogBlocks())
                 .addComponent(new LogFenceAndWall())

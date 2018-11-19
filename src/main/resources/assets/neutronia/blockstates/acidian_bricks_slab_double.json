@@ -1,11 +1,16 @@
 {
-"forge_marker": 1,
-"defaults": {
-	"model": "minecraft:cube_all",
-	"transform": "forge:default-block"
-},
-	"variants": {
-		"normal": [{ "textures": { "all": "neutronia:block/acidian_bricks" } }],
-		"prop=blarg": [{ "textures": { "all": "neutronia:block/acidian_bricks" } }]
-	}
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "neutronia:block/acidian_bricks",
+      "top": "neutronia:block/acidian_bricks",
+      "side": "neutronia:block/acidian_bricks"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+  }
 }

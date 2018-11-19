@@ -4,7 +4,7 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.properties.EnumSoulStoneTypes;
+import net.hdt.neutronia.properties.EnumSoulStoneVariants;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -17,7 +17,7 @@ public class SoulStone extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
 
-        for (EnumSoulStoneTypes soulStoneTypes : EnumSoulStoneTypes.values()) {
+        for (EnumSoulStoneVariants soulStoneTypes : EnumSoulStoneVariants.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
             VanillaStairsAndSlabs.add(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], 0, true);
         }

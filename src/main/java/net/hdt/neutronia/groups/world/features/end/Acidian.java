@@ -9,8 +9,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import java.util.Objects;
-
 public class Acidian extends Component {
 
     public static Block naturalAcidian, acidianBricks, acidianPillar, chiseledAcidian, acidianBars;
@@ -23,9 +21,9 @@ public class Acidian extends Component {
         acidianPillar = new BlockNeutroniaPillar(Material.ROCK, "acidian_pillar").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
         chiseledAcidian = new BlockNeutroniaBase(Material.ROCK, "chiseled_acidian").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
 //        acidianBars = new BlockNeutroniaPane("acidian_bars", Material.ROCK).setHardness(50.0F).setResistance(2000.0F).setCreativeTab(TAB);
-        VanillaStairsAndSlabs.add(Objects.requireNonNull(acidianBricks.getRegistryName()).getPath(), acidianBricks, 0, true);
-        VanillaStairsAndSlabs.add(Objects.requireNonNull(chiseledAcidian.getRegistryName()).getPath(), chiseledAcidian, 0, true);
-        VanillaStairsAndSlabs.add(Objects.requireNonNull(naturalAcidian.getRegistryName()).getPath(), naturalAcidian, 0, true);
+        VanillaStairsAndSlabs.add("acidian_bricks", acidianBricks, 0, true);
+        VanillaStairsAndSlabs.add("chiseled_acidian", chiseledAcidian, 0, true);
+        VanillaStairsAndSlabs.add("natural_acidian", naturalAcidian, 0, true);
 //        VanillaWalls.add(acidianBricks.getRegistryName().getPath(), acidianBricks, 0, true);
 //        VanillaWalls.add(chiseledAcidian.getRegistryName().getPath(), chiseledAcidian, 0, true);
 //        VanillaWalls.add(naturalAcidian.getRegistryName().getPath(), naturalAcidian, 0, true);
