@@ -1,20 +1,25 @@
 {
   "name": "Carved Planks",
-  "icon": "minecraft:writable_book",
+  "icon": "neutronia:carved_acacia_planks",
   "category": "test_category",
-  "pages": [
-    {
-      "type": "text",
-      "text": "This is a test entry, but it should show up!"
-    },
+  "pages": [{
+    "type": "text",
+    "text": "This is a test entry, but it should show up!"
+  },
     {
       "type": "crafting",
       "recipe": "neutronia:carved_acacia_planks",
-      "recipe2": "neutronia:carved_acacia_planks",
-      "recipe3": "neutronia:carved_acacia_planks",
-      "recipe4": "neutronia:carved_acacia_planks",
-      "recipe5": "neutronia:carved_acacia_planks",
-      "recipe6": "neutronia:carved_acacia_planks"
+      "recipe2": "neutronia:carved_birch_planks"
+    },
+    {
+      "type": "crafting",
+      "recipe": "neutronia:carved_dark_oak_planks",
+      "recipe2": "neutronia:carved_jungle_planks"
+    },
+    {
+      "type": "crafting",
+      "recipe": "neutronia:carved_oak_planks",
+      "recipe2": "neutronia:carved_spruce_planks"
     }
   ]
 }
