@@ -1,7 +1,7 @@
 {
   "name": "Log Blocks",
-  "icon": "minecraft:writable_book",
-  "category": "test_category",
+  "icon": "neutronia:stripped_acacia_log",
+  "category": "building",
   "pages": [
     {
       "type": "text",

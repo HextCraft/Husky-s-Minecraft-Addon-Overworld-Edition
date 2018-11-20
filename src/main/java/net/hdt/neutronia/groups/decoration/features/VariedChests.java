@@ -80,11 +80,11 @@ public class VariedChests extends Component {
 
 		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST),
 				"WWW", "W W", "WWW",
-				'W', ProxyRegistry.newStack(Blocks.PLANKS));
+				'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 0));
 		if(addLogRecipe)
 			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST, 4),
 					"WWW", "W W", "WWW",
-					'W', ProxyRegistry.newStack(Blocks.LOG));
+					'W', ProxyRegistry.newStack(Blocks.LOG, 1, 0));
 
 		int i = 1;
 		for(ChestType type : ChestType.VALID_TYPES) {
@@ -109,13 +109,13 @@ public class VariedChests extends Component {
 			RecipeHandler.addShapelessOreDictRecipe(outTrap, out.copy(), ProxyRegistry.newStack(Blocks.TRIPWIRE_HOOK));
 			i++;
 		}
+
 		// Low priority ore dictionary recipes
-		Ingredient wood = new BlacklistOreIngredient("plankWood", (stack) -> stack.getItem() == Item.getItemFromBlock(Blocks.PLANKS));
 		Ingredient chest = new BlacklistOreIngredient("chestWood", (stack) -> stack.getItem() == Item.getItemFromBlock(custom_chest));
 
 		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST),
 				"WWW", "W W", "WWW",
-				'W', wood);
+				'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 0));
 		RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(Blocks.TRAPPED_CHEST), chest, ProxyRegistry.newStack(Blocks.TRIPWIRE_HOOK));
 
 		// Vanilla recipe replacement

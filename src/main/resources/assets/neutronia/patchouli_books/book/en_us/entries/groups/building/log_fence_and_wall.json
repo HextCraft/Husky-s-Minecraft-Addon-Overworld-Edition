@@ -1,7 +1,7 @@
 {
   "name": "Log Fence and Walls",
-  "icon": "minecraft:writable_book",
-  "category": "test_category",
+  "icon": "neutronia:acacia_log_wall",
+  "category": "building",
   "pages": [
     {
       "type": "text",

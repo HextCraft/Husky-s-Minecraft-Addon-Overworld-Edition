@@ -1,7 +1,7 @@
 {
   "name": "Log Piles",
   "icon": "minecraft:writable_book",
-  "category": "test_category",
+  "category": "building",
   "pages": [
     {
       "type": "text",

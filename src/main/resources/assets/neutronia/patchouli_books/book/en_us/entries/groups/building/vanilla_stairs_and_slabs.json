@@ -1,7 +1,7 @@
 {
   "name": "Vanilla Stairs and Slabs",
-  "icon": "minecraft:writable_book",
-  "category": "test_category",
+  "icon": "neutronia:granite_slab",
+  "category": "building",
   "pages": [
     {
       "type": "text",

@@ -1,11 +1,11 @@
 {
   "name": "Carved Planks",
   "icon": "neutronia:carved_acacia_planks",
-  "category": "test_category",
+  "category": "building",
   "pages": [
     {
       "type": "text",
-      "text": "This is a test entry, but it should show up!"
+      "text": "Carved Planks are like really fancy versions of normal planks!"
     },
     {
       "type": "crafting",

@@ -64,7 +64,7 @@ public class VanillaStairsAndSlabs extends Component {
         if (!GlobalConfig.enableVariants)
             return;
 
-        add("stone", Blocks.STONE, 0, false, true, stone);
+        add("stone", Blocks.STONE, 2, stone);
         add("granite", Blocks.STONE, 1, granite);
         add("diorite", Blocks.STONE, 3, diorite);
         add("andesite", Blocks.STONE, 5, andesite);

@@ -1,0 +1,6 @@
+{
+  "name": "Building",
+  "description": "This will show all of the groups in the mod and info about them!",
+  "icon": "minecraft:brick_block",
+  "parent": "neutronia:modules"
+}
