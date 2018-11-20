@@ -518,6 +518,13 @@ tile.neutronia:smooth_red_sandstone_slab.name=Smooth Red Sandstone Slab
 tile.neutronia:smooth_sandstone_slab.name=Smooth Sandstone Slab
 tile.neutronia:quartz_bricks_slab.name=Quartz Bricks Slab
 
+tile.neutronia:carved_oak_planks.name=Carved Oak Planks
+tile.neutronia:carved_spruce_planks.name=Carved Spruce Planks
+tile.neutronia:carved_birch_planks.name=Carved Birch Planks
+tile.neutronia:carved_jungle_planks.name=Carved Jungle Planks
+tile.neutronia:carved_dark_oak_planks.name=Carved Dark Oak Planks
+tile.neutronia:carved_acacia_planks.name=Carved Acacia Planks
+
 command.neutronia.biome_found=We found a biome at X: %d Z: %d called %s
 command.neutronia.biome_not_found=We could not find a biome called %s
 command.neutronia.biome_not_defined=There is no biome defined

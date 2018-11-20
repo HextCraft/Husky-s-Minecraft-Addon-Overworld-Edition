@@ -11,12 +11,8 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-/**
- * Render an icon of an ItemStack with a background.
- * Used in client config GUIs.
- */
-
 public class IconRenderer {
+
     private final Minecraft minecraft;
     private final double zLevel;
     private RenderItem itemRenderer;
@@ -33,7 +29,6 @@ public class IconRenderer {
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         if (itemStack != null) {
             RenderHelper.enableGUIStandardItemLighting();
-            //this.itemRenderer.renderItemIntoGUI(this.fontRenderer, textureManager, itemStack, renderX + 2, renderY + 2);
             this.itemRenderer.renderItemIntoGUI(itemStack, renderX + 2, renderY + 2);
             RenderHelper.disableStandardItemLighting();
         }

@@ -2,10 +2,11 @@
   "name": "Carved Planks",
   "icon": "neutronia:carved_acacia_planks",
   "category": "test_category",
-  "pages": [{
-    "type": "text",
-    "text": "This is a test entry, but it should show up!"
-  },
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    },
     {
       "type": "crafting",
       "recipe": "neutronia:carved_acacia_planks",

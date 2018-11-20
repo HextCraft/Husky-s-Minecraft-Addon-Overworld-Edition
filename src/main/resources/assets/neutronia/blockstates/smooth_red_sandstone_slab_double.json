@@ -1,14 +1,11 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
-  "variants": {
-    "prop": {
-      "blarg": {
-        "model": "cube_all",
-        "textures": {
-          "all": "minecraft:blocks/red_sandstone_top"
-        }
-      }
+  "defaults": {
+    "textures": {
+      "all": "blocks/red_sandstone_smooth"
     }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_all" }
   }
 }

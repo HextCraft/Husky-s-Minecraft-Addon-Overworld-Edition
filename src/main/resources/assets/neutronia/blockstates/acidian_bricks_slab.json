@@ -2,11 +2,15 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/acidian_bricks"
+      "bottom": "neutronia:block/acidian_bricks",
+      "top": "neutronia:block/acidian_bricks",
+      "side": "neutronia:block/acidian_bricks"
     },
     "transform": "forge:default-block"
   },
   "variants": {
-    "variant=default": { "model": "cube_all" }
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
   }
 }
