@@ -13,7 +13,8 @@
     }
   },
   "result": {
-    "item": "neutronia:diorite_bricks",
+    "item": "neutronia:world_stone_bricks",
+    "data": 1,
     "count": 4
   }
 }

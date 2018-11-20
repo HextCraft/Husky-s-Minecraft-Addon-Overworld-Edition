@@ -13,7 +13,8 @@
     }
   },
   "result": {
-    "item": "neutronia:andesite_bricks",
+    "item": "neutronia:world_stone_bricks",
+    "data": 2,
     "count": 4
   }
 }
