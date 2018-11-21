@@ -112,7 +112,7 @@ public class NGroups {
                 .addComponent(new VariedBookshelves())
                 .addComponent(new VariedButtonsAndPressurePlates())
                 .addComponent(new VariedChests())
-                .addComponent(new VariedCraftingTable())
+//                .addComponent(new VariedCraftingTable())
                 .addComponent(new VariedLadders())
                 .addComponent(new VariedShelfs())
                 .addComponent(new VariedTrapdoors())
