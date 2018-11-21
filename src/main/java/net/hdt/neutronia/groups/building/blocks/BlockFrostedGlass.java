@@ -29,7 +29,7 @@ public class BlockFrostedGlass extends BlockMod implements INeutroniaBlock {
 	@Override
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
+        return BlockRenderLayer.TRANSLUCENT;
     }
 
 	@Override

@@ -1,8 +1,27 @@
 {
+  "forge_marker":  1,
+  "defaults": {
+    "model":  "neutronia:log_pile",
+    "textures": {
+      "0": "neutronia:block/log_pile_birch_side",
+      "1": "neutronia:block/log_pile_birch_top"
+    }
+  },
   "variants": {
-    "axis=y":    { "model": "neutronia:birch_log_pile" },
-    "axis=z":     { "model": "neutronia:birch_log_pile", "x": 90 },
-    "axis=x":     { "model": "neutronia:birch_log_pile", "x": 90, "y": 90 },
-    "axis=none":   { "model": "neutronia:birch_log_pile" }
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    },
+    "inventory": [{}]
   }
 }

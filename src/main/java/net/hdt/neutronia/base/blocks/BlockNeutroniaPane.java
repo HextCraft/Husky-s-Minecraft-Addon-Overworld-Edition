@@ -125,7 +125,7 @@ public class BlockNeutroniaPane extends BlockMod implements INeutroniaBlock {
     @SideOnly(Side.CLIENT)
     @Override
     public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
+        return BlockRenderLayer.TRANSLUCENT;
     }
 
     @Override

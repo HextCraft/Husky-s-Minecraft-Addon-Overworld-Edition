@@ -3,8 +3,8 @@
   "defaults": {
     "model":  "neutronia:log_pile",
     "textures": {
-      "0": "neutronia:block/log_pile_spruce_side",
-      "1": "neutronia:block/log_pile_spruce_top"
+      "0": "neutronia:block/log_pile_acacia_side",
+      "1": "neutronia:block/log_pile_acacia_top"
     }
   },
   "variants": {
