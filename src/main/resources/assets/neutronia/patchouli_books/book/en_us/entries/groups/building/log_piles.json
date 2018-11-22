@@ -1,6 +1,6 @@
 {
   "name": "Log Piles",
-  "icon": "minecraft:writable_book",
+  "icon": "neutronia:acacia_log_pile",
   "category": "building",
   "pages": [
     {

@@ -3,7 +3,7 @@
     "defaults": {
         "model": "cube_all",
         "textures": {
-            "all": "neutronia:block/plank_fancy_birch"
+            "all": "neutronia:block/fancy_birch_planks"
         }
     },
     "variants": {
