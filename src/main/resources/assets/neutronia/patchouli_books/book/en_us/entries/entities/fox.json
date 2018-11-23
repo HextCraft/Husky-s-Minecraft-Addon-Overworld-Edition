@@ -5,13 +5,13 @@
   "pages": [
     {
       "type": "text",
-      "text": "This is a test entry, but it should show up!"
+      "text": "This is a fox, the fox spawns in forests. The fox is silent. The fox is also cute."
     },
     {
       "type": "entity",
       "name": "Fox",
-      "scale": 80,
-      "entity": "neutronia:fox"
+      "entity": "neutronia:fox",
+      "scale": 0.6
     }
   ]
 }
