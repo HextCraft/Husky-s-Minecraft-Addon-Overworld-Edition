@@ -88,12 +88,10 @@ public class NEntities {
         EntityRegistry.addSpawn(EntityGrizzlyBear.class, 5, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).toArray(new Biome[0]));
         EntityRegistry.addSpawn(EntityBlackBear.class, 5, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS).toArray(new Biome[0]));
         EntityRegistry.addSpawn(EntityPanda.class, 5, 1, 2, EnumCreatureType.CREATURE, Biomes.JUNGLE, Biomes.JUNGLE_EDGE, Biomes.JUNGLE_HILLS, Biomes.MUTATED_JUNGLE, Biomes.MUTATED_JUNGLE_EDGE);
-//        EntityRegistry.addSpawn(EntityDrowned.class, 14, 2, 4, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
-//        EntityRegistry.addSpawn(EntityAnchored.class, 5, 1, 3, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
-//        EntityRegistry.addSpawn(EntityForsakenDiver.class, 60, 1, 2, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.OCEAN));
         EntityRegistry.addSpawn(EntityInferno.class, 9, 2, 8, EnumCreatureType.MONSTER, getBiomes(BiomeDictionary.Type.NETHER));
         EntityRegistry.addSpawn(EntityBrownMooshroom.class, 8, 4, 8, EnumCreatureType.AMBIENT, Biomes.MUSHROOM_ISLAND, Biomes.MUSHROOM_ISLAND_SHORE);
-//        EntityRegistry.addSpawn(EntityScubaVillager.class, 10, 1, 3, EnumCreatureType.AMBIENT, Biomes.BEACH, Biomes.STONE_BEACH);
+        EntityRegistry.addSpawn(EntityFox.class, 8, 2, 5, EnumCreatureType.CREATURE, Biomes.TAIGA, Biomes.TAIGA_HILLS, Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.COLD_TAIGA, Biomes.REDWOOD_TAIGA_HILLS);
+        EntityRegistry.addSpawn(EntityLostMiner.class, 10, 1, 2, EnumCreatureType.MONSTER);
     }
 
     private static <E extends Entity> EntityEntryBuilder<E> createBuilder(final String name) {

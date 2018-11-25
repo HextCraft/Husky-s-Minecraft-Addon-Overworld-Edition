@@ -21,7 +21,7 @@ public class WorldStoneBricks extends Component {
     @Override
     public void setupConfig() {
         enableStairsAndSlabs = loadPropBool("Enable stairs and slabs", "", true) && GlobalConfig.enableVariants;
-        enableWalls = loadPropBool("Enable walls", "", false) && GlobalConfig.enableVariants;
+        enableWalls = loadPropBool("Enable walls", "", true) && GlobalConfig.enableVariants;
     }
 
     @Override

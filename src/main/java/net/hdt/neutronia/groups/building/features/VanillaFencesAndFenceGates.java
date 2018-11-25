@@ -10,6 +10,10 @@ import net.minecraft.item.ItemStack;
 
 public class VanillaFencesAndFenceGates extends Component {
 
+    public static void add(String name, Block block, ItemStack materialTwo, int meta, boolean doIt) {
+        add(name, block, materialTwo, meta, true, true, doIt);
+    }
+
     public static void add(String name, Block block, ItemStack materialTwo, int meta, boolean fence, boolean fenceGate, boolean doIt) {
         if (!doIt)
             return;
@@ -26,6 +30,10 @@ public class VanillaFencesAndFenceGates extends Component {
             wallName = name + "_fence_gate";
             BlockNeutroniaFenceGate.initFenceGate(block, materialTwo, meta, new BlockNeutroniaFenceGate(wallName));
         }
+    }
+
+    public static void add(String name, Block block, ItemStack materialTwo, int meta, boolean doIt, CreativeTabs creativeTabs) {
+        add(name, block, materialTwo, meta, true, true, doIt, creativeTabs);
     }
 
     public static void add(String name, Block block, ItemStack materialTwo, int meta, boolean fence, boolean fenceGate, boolean doIt, CreativeTabs creativeTabs) {

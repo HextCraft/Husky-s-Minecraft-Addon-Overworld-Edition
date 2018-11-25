@@ -11,7 +11,10 @@ import net.hdt.neutronia.groups.dimensions.features.*;
 import net.hdt.neutronia.groups.earlyGame.features.ClayCauldron;
 import net.hdt.neutronia.groups.earlyGame.features.ClayTools;
 import net.hdt.neutronia.groups.experimental.features.BiggerCaves;
+import net.hdt.neutronia.groups.foodExpansion.features.MoreCakes;
+import net.hdt.neutronia.groups.foodExpansion.features.MorePies;
 import net.hdt.neutronia.groups.misc.feature.*;
+import net.hdt.neutronia.groups.musicRevamp.features.Composer;
 import net.hdt.neutronia.groups.tweaks.features.*;
 import net.hdt.neutronia.groups.vanity.feature.DyableElytra;
 import net.hdt.neutronia.groups.vanity.feature.DyeItemNames;
@@ -35,7 +38,7 @@ import java.time.Month;
 
 public class NGroups {
 
-    public static Group building, client, craftingExtension, decoration, dimensions, earlyGame, experimental, holidays, misc, seasons, tweaks, vanity, world;
+    public static Group building, client, craftingExtension, decoration, dimensions, earlyGame, experimental, foodExpansion, holidays, misc, musicRevamp, seasons, tweaks, vanity, world;
 
     public static void registerGroups() {
         building = Group.builder()
@@ -99,6 +102,7 @@ public class NGroups {
 //                .addComponent(new GlazedTerracottaPillar(), false)
 //                .addComponent(new GlazedTerracottaStripes(), false)
 
+                .addComponent(new Lanterns())
                 .addComponent(new MetalAndMineralBricks())
                 .addComponent(new MetalAndMineralPillars())
                 .addComponent(new MoreBanners())
@@ -157,6 +161,16 @@ public class NGroups {
                 .enabledByDefault(false)
                 .register();
 
+        foodExpansion = Group.builder()
+                .name("Food Expansion")
+                .description("This module adds a lot more food to Minecraft")
+                .iconStack(new ItemStack(Blocks.CAKE))
+                .addComponent(new MoreCakes())
+                .addComponent(new MorePies())
+                .enabledByDefault(true)
+                .enabled(true)
+                .register();
+
         holidays = Group.builder()
                 .name("Holidays")
                 .iconStack(new ItemStack(Blocks.LIT_PUMPKIN))
@@ -178,6 +192,15 @@ public class NGroups {
                 .addComponent(new UtilityRecipes())
                 .enabled(true)
                 .enabledByDefault(true)
+                .register();
+
+        musicRevamp = Group.builder()
+                .name("Music Revamp")
+                .description("This revamps how music creation work inside of Minecraft so you can now create custom music")
+                .iconStack(new ItemStack(Blocks.NOTEBLOCK))
+                .addComponent(new Composer())
+                .enabledByDefault(true)
+                .enabled(true)
                 .register();
 
         seasons = Group.builder()

@@ -17,6 +17,7 @@ public class MoreBuildingBlocks extends Component {
     public static Block blackRoof, blueRoof, brownRoof, greenRoof, grayRoof, lightBlueRoof, redRoof, whiteRoof;
     public static Block chiseledIce, packedIceBricks, packedIcePillar, smallSnowBricks, snowBricks;
     public static Block fancyAcaciaPlanks, fancyBirchPlanks, fancyDarkOakPlanks, fancyJunglePlanks, fancyOakPlanks, fancySprucePlanks;
+    public static Block chiseledBrick;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
@@ -63,6 +64,8 @@ public class MoreBuildingBlocks extends Component {
         fancyJunglePlanks = new BlockNeutroniaBase(Material.WOOD, "fancy_jungle_planks");
         fancyOakPlanks = new BlockNeutroniaBase(Material.WOOD, "fancy_oak_planks");
         fancySprucePlanks = new BlockNeutroniaBase(Material.WOOD, "fancy_spruce_planks");
+
+        chiseledBrick = new BlockNeutroniaBase(Material.ROCK, "chiseled_brick");
     }
 
 }

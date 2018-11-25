@@ -81,6 +81,11 @@ public class EntityLostMiner extends EntityMob {
         this.getDataManager().register(ARMS_RAISED, Boolean.FALSE);
     }
 
+    @Override
+    public boolean getCanSpawnHere() {
+        return super.getCanSpawnHere() && posY < world.getTopSolidOrLiquidBlock(new BlockPos(posX, posY, posZ)).getY() - 20;
+    }
+
     @SideOnly(Side.CLIENT)
     public boolean isArmsRaised() {
         return this.getDataManager().get(ARMS_RAISED);
@@ -189,11 +194,6 @@ public class EntityLostMiner extends EntityMob {
     @Override
     protected boolean canEquipItem(ItemStack stack) {
         return stack.getItem() == NItems.anchor;
-    }
-
-    @Override
-    public boolean getCanSpawnHere() {
-        return super.getCanSpawnHere() && this.world.getDifficulty() != EnumDifficulty.PEACEFUL && posY < 20;
     }
 
     @Nullable

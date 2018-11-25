@@ -1,192 +1,119 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockWall;
-import net.minecraft.block.SoundType;
+import net.hdt.huskylib2.block.BlockMod;
+import net.hdt.neutronia.base.blocks.INeutroniaBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.Random;
+public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
-public class BlockLantern extends Block {
+	public static final PropertyDirection FACING = PropertyDirection.create("facing");
+	public static final PropertyBool CHAIN_EXTENDED = PropertyBool.create("chain_extended");      //False = Not Extended, True = Model is Extended
 
-    public static final PropertyBool HANGING = PropertyBool.create("hanging");
-    public Type type;
+	public static final double PIXEL_LENGTH = 1D/16D;
 
-    public BlockLantern(Type type) {
-        super(Material.CIRCUITS);
-        this.setSoundType(type == Type.PAPER ? SoundType.PLANT : SoundType.STONE);
-        this.setLightLevel(0.7F + (type == Type.LAVA ? 0.07F : 0.0F));
-        this.type = type;
-        this.setHardness(0.1F);
-        this.setResistance(0.1F);
-        this.setDefaultState(this.getBlockState().getBaseState().withProperty(HANGING, false));
+	public static final AxisAlignedBB LANTERN_NORTH_AABB = new AxisAlignedBB(PIXEL_LENGTH*5D, PIXEL_LENGTH*1D, PIXEL_LENGTH*6.5D, PIXEL_LENGTH*11D, PIXEL_LENGTH*10D, PIXEL_LENGTH*12.5D);
+	public static final AxisAlignedBB LANTERN_SOUTH_AABB = new AxisAlignedBB(PIXEL_LENGTH*5D, PIXEL_LENGTH*1D, PIXEL_LENGTH*3.5D, PIXEL_LENGTH*11D, PIXEL_LENGTH*10D, PIXEL_LENGTH*9.5D);
+	public static final AxisAlignedBB LANTERN_WEST_AABB = new AxisAlignedBB(PIXEL_LENGTH*6.5D, PIXEL_LENGTH*1D, PIXEL_LENGTH*5D, PIXEL_LENGTH*12.5D, PIXEL_LENGTH*10D, PIXEL_LENGTH*11D);
+	public static final AxisAlignedBB LANTERN_EAST_AABB = new AxisAlignedBB(PIXEL_LENGTH*3.5D, PIXEL_LENGTH*1D, PIXEL_LENGTH*5D, PIXEL_LENGTH*9.5D, PIXEL_LENGTH*10D, PIXEL_LENGTH*11D);
+	public static final AxisAlignedBB LANTERN_UP_AABB = new AxisAlignedBB(PIXEL_LENGTH*5D, PIXEL_LENGTH*0D, PIXEL_LENGTH*5D, PIXEL_LENGTH*11D, PIXEL_LENGTH*9D, PIXEL_LENGTH*11D);
+	public static final AxisAlignedBB LANTERN_DOWN_AABB = new AxisAlignedBB(PIXEL_LENGTH*5D, PIXEL_LENGTH*1D, PIXEL_LENGTH*5D, PIXEL_LENGTH*11D, PIXEL_LENGTH*10D, PIXEL_LENGTH*11D);
+
+    public BlockLantern(String name) {
+        super(name, Material.IRON);
+		setCreativeTab(CreativeTabs.DECORATIONS);
+		setLightLevel(1f);
+
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, Boolean.FALSE));
     }
 
-    @Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        if (type != Type.PAPER) {
-            if (state.getValue(HANGING))
-                return new AxisAlignedBB(0.3125D, 0.3125D, 0.3125D, 0.6875D, 1.0D, 0.6875D);
+//	@Override
+//	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+//		if(facing==EnumFacing.DOWN){
+//			if(state.getValue(CHAIN_EXTENDED)){
+//				worldIn.setBlockState(pos, state.withProperty(CHAIN_EXTENDED, Boolean.valueOf(false)), 4);
+//			}else {
+//				worldIn.setBlockState(pos, state.withProperty(CHAIN_EXTENDED, Boolean.valueOf(true)), 4);
+//			}
+//		}
+//		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+//	}
 
-            return new AxisAlignedBB(0.3125D, 0.0D, 0.3125D, 0.6875D, 0.6875D, 0.6875D);
-        } else {
-            if (state.getValue(HANGING))
-                return new AxisAlignedBB(0.1875D, 0.125D, 0.1875D, 0.8125D, 1.0D, 0.8125D);
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		switch (state.getValue(FACING))
+		{
+			case NORTH:
+				return LANTERN_NORTH_AABB;
+			case SOUTH:
+				return LANTERN_SOUTH_AABB;
+			case EAST:
+				return LANTERN_EAST_AABB;
+			case WEST:
+				return LANTERN_WEST_AABB;
+			case UP:
+				return LANTERN_UP_AABB;
+			case DOWN:
+				return LANTERN_DOWN_AABB;
+			default:
+				return LANTERN_UP_AABB;
+		}
+	}
 
-            return new AxisAlignedBB(0.1875D, 0.0D, 0.1875D, 0.8125D, 0.625D, 0.8125D);
-        }
-    }
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return this.getDefaultState().withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer)).withProperty(CHAIN_EXTENDED, Boolean.FALSE);
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
-        double x = (double) pos.getX() + 0.5D;
-        double y;
-        double z = (double) pos.getZ() + 0.5D;
+	@Override
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, FACING, CHAIN_EXTENDED);
+	}
 
-        switch (type) {
-            case NORMAL:
-            default:
-                y = (double) pos.getY() + 0.16D;
-                break;
-            case CANDLE:
-                y = (double) pos.getY() + 0.55D;
-                break;
-            case LAVA:
-            case PAPER:
-                y = 0;
-                break;
-        }
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+		return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0);
+	}
 
-        if (state.getValue(HANGING))
-            y += 0.33D;
+	@Override
+	public int getMetaFromState(IBlockState state)
+	{
+		int i = 0;
+		i = i | state.getValue(FACING).getIndex();
 
-        if (type != Type.LAVA && type != Type.PAPER) {
-            worldIn.spawnParticle(EnumParticleTypes.FLAME, x, y, z, 0.0D, 0.0D, 0.0D);
-        }
-    }
+		if (state.getValue(CHAIN_EXTENDED).booleanValue())
+		{
+			i |= 8;
+		}
 
-    @Override
-    public boolean canPlaceBlockAt(World world, BlockPos pos) {
-        return canPlaceLantern(world, pos);
-    }
+		return i;
+	}
 
-    private boolean canPlaceLantern(World world, BlockPos pos) {
-        if (world.isSideSolid(pos.up(), EnumFacing.DOWN) || world.isSideSolid(pos.down(), EnumFacing.UP))
-            return true;
-        if (world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.down()).getBlock() instanceof BlockFence)
-            return true;
-        return world.getBlockState(pos.up()).getBlock() instanceof BlockWall || world.getBlockState(pos.down()).getBlock() instanceof BlockWall;
+	public boolean isOpaqueCube(IBlockState state)
+	{
+		return false;
+	}
 
-    }
+	public boolean isFullCube(IBlockState state)
+	{
+		return false;
+	}
 
-    @Override
-    public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if (!canBlockStay(world, pos)) {
-            this.dropBlockAsItem(world, pos, state, 0);
-            world.setBlockToAir(pos);
-        }
-    }
-
-    private boolean canBlockStay(World world, BlockPos pos) {
-        return canPlaceLantern(world, pos);
-    }
-
-    @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if (world.isRemote) {
-            return true;
-        } else {
-            if (player.isSneaking()) {
-                if (state.getValue(HANGING) && (world.isSideSolid(pos.down(), EnumFacing.UP) || world.getBlockState(pos.down()).getBlock() instanceof BlockFence || world.getBlockState(pos.down()).getBlock() instanceof BlockWall)) {
-                    world.setBlockState(pos, this.getDefaultState().withProperty(HANGING, false));
-                } else if (!state.getValue(HANGING) && (world.isSideSolid(pos.up(), EnumFacing.DOWN) || world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.up()).getBlock() instanceof BlockWall)) {
-                    world.setBlockState(pos, this.getDefaultState().withProperty(HANGING, true));
-                }
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        if (world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.up()).getBlock() instanceof BlockWall
-                || world.isSideSolid(pos.up(), EnumFacing.DOWN)) {
-            return this.getDefaultState().withProperty(HANGING, true);
-        } else {
-            return this.getDefaultState();
-        }
-    }
-
-    @Override
-    public boolean isFullCube(IBlockState state) {
-        return false;
-    }
-
-    @Override
-    public boolean isOpaqueCube(IBlockState state) {
-        return false;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-        return true;
-    }
-
-    @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
-        return BlockFaceShape.UNDEFINED;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
-
-    @Override
-    protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, HANGING);
-    }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(HANGING, meta != 0);
-    }
-
-    @Override
-    public int getMetaFromState(IBlockState state) {
-        return state.getValue(HANGING) ? 1 : 0;
-    }
-
-    @Override
-    public int damageDropped(IBlockState state) {
-        return 0;
-    }
-
-    public enum Type {
-        NORMAL,
-        CANDLE,
-        LAVA,
-        PAPER
-    }
+	@Override
+	public BlockRenderLayer getRenderLayer() {
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
 
 }

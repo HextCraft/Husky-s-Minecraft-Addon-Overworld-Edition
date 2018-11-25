@@ -22,6 +22,12 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 //        setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
     }
 
+    public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs) {
+        super(name, materialIn);
+        setCreativeTab(creativeTabs);
+//        setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
+    }
+
     @Override
     public boolean rotateBlock(net.minecraft.world.World world, BlockPos pos, EnumFacing axis)
     {

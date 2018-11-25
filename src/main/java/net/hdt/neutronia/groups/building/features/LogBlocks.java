@@ -9,6 +9,7 @@ import net.hdt.neutronia.init.NItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -35,7 +36,7 @@ public class LogBlocks extends Component {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         for (BlockPlanks.EnumType enumType : BlockPlanks.EnumType.values()) {
-            strippedLogs[enumType.getMetadata()] = new BlockNeutroniaPillar(Material.WOOD, String.format("stripped_%s_log", enumType.getName()));
+            strippedLogs[enumType.getMetadata()] = new BlockNeutroniaPillar(Material.WOOD, String.format("stripped_%s_log", enumType.getName()), CreativeTabs.BUILDING_BLOCKS);
             VanillaStairsAndSlabs.add(String.format("stripped_%s_log", enumType.getName()), strippedLogs[enumType.getMetadata()], 0, true);
             ItemStack log = ProxyRegistry.newStack(enumType.getMetadata() > 3 ? Blocks.LOG2 : Blocks.LOG, 1, enumType.getMetadata() % 4);
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(strippedLogs[enumType.getMetadata()], 1), log, NItems.logStripper);
