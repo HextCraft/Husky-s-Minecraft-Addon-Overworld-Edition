@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.commons.lang3.text.WordUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ import java.util.function.Consumer;
 
 public final class GroupLoader {
 
-    public static Map<String, Component> componentClassNames = new HashMap<>();
     public static Configuration config;
     public static List<Group> groups;
     public static List<Group> enabledGroups;
@@ -35,7 +35,7 @@ public final class GroupLoader {
     public static void preInit(FMLPreInitializationEvent event) {
         setupConfig(event);
 
-        forEachGroup(module -> LibMisc.LOGGER.info("Group " + module.name + " is " + (module.enabled ? "enabled" : "disabled")));
+        forEachGroup(module -> LibMisc.LOGGER.info(WordUtils.capitalizeFully(module.name) + " is " + (module.enabled ? "enabled" : "disabled")));
 
         forEachEnabledGroup(module -> module.preInit(event));
         forEachEnabledGroup(module -> module.postPreInit(event));
