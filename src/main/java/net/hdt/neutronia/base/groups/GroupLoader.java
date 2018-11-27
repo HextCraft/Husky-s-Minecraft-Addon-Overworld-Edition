@@ -1,5 +1,6 @@
 package net.hdt.neutronia.base.groups;
 
+import net.hdt.neutronia.base.handler.server.RecipeProcessor;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -39,6 +40,8 @@ public final class GroupLoader {
 
         forEachEnabledGroup(module -> module.preInit(event));
         forEachEnabledGroup(module -> module.postPreInit(event));
+
+        RecipeProcessor.runConsumers();
     }
 
     public static void init(FMLInitializationEvent event) {

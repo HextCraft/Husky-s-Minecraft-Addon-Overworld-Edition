@@ -3,7 +3,7 @@ package net.hdt.neutronia.groups.decoration.features;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.handler.server.WoodVariantReplacer;
+import net.hdt.neutronia.base.handler.server.RecipeProcessor;
 import net.hdt.neutronia.groups.building.features.WoodBlocks;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomButton;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomPressurePlate;
@@ -154,7 +154,7 @@ public class VariedButtonsAndPressurePlates extends Component {
     @Override
     public void postPreInit(FMLPreInitializationEvent event) {
         if (enablePressurePlates) {
-            WoodVariantReplacer.addReplacements(1, Blocks.WOODEN_PRESSURE_PLATE);
+            RecipeProcessor.addReplacements(1, Blocks.WOODEN_PRESSURE_PLATE);
 
             RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(spruce_pressure_plate, 1),
                     "WW", 'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 1));
@@ -222,7 +222,7 @@ public class VariedButtonsAndPressurePlates extends Component {
         }
 
         if (enableButtons) {
-            WoodVariantReplacer.addReplacements(1, Blocks.WOODEN_BUTTON);
+            RecipeProcessor.addReplacements(1, Blocks.WOODEN_BUTTON);
 
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(spruce_button, 1), ProxyRegistry.newStack(Blocks.PLANKS, 1, 1));
             RecipeHandler.addShapelessOreDictRecipe(ProxyRegistry.newStack(birch_button, 1), ProxyRegistry.newStack(Blocks.PLANKS, 1, 2));

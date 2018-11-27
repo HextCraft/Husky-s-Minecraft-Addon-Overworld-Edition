@@ -61,7 +61,7 @@ public class NEntities {
                 createBuilder("sea_swallowed_captain").entity(EntitySeaSwallowedCaptain.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
 //                createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-//                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
+                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("yeti").entity(EntityYeti.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0, 0).build(),
                 createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),

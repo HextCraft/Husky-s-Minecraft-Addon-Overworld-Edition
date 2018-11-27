@@ -5,7 +5,7 @@ import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.base.handler.server.ModIntegrationHandler;
-import net.hdt.neutronia.base.handler.server.WoodVariantReplacer;
+import net.hdt.neutronia.base.handler.server.RecipeProcessor;
 import net.hdt.neutronia.base.lib.LibMisc;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomChest;
 import net.hdt.neutronia.groups.decoration.client.render.RenderTileCustomChest;
@@ -76,7 +76,7 @@ public class VariedChests extends Component {
 			Blocks.TRAPPED_CHEST.setTranslationKey("oak_chest_trap");
 		}
 
-		WoodVariantReplacer.addReplacements(1, Blocks.CHEST, Blocks.TRAPPED_CHEST);
+		RecipeProcessor.addWoodReplacements(1, Blocks.CHEST, Blocks.TRAPPED_CHEST);
 
 		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST),
 				"WWW", "W W", "WWW",
