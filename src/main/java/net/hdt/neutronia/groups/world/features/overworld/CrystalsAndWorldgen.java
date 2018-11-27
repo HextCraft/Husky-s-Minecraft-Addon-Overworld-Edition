@@ -15,7 +15,7 @@ public class CrystalsAndWorldgen extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        parsioliteCrystalBlock = new BlockGlowingPlant("parsionlite_crystal");
+        parsioliteCrystal = new BlockGlowingPlant("parsionlite_crystal");
     }
 
     @Override
