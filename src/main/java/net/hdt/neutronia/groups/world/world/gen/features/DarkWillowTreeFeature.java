@@ -1,3 +1,4 @@
+/*
 package net.hdt.neutronia.groups.world.world.gen.features;
 
 import com.mushroom.midnight.Midnight;
@@ -58,7 +59,7 @@ public class DarkWillowTreeFeature extends NeutroniaAbstractFeature {
 
         BlockPos correctedOrigin = this.computeCorrectedOrigin(origin, template, placementSettings);
         if (correctedOrigin == null) {
-            Midnight.LOGGER.warn("Template '{}' did not have required 'origin' data block", templateId);
+            LibMisc.LOGGER.warn("Template '{}' did not have required 'origin' data block", templateId);
             return false;
         }
 
@@ -159,4 +160,4 @@ public class DarkWillowTreeFeature extends NeutroniaAbstractFeature {
         }
         return result;
     }
-}
+}*/
