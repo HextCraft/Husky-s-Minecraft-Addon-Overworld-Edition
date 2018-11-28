@@ -1,6 +1,5 @@
 package net.hdt.neutronia.base.blocks;
 
-import net.hdt.neutronia.groups.dimensions.features.AlienOverworld;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
@@ -14,11 +13,6 @@ public class BlockGlowingPlant extends BlockNeutroniaPlant {
     public BlockGlowingPlant(String name) {
         super(name);
         this.setLightLevel(0.8F);
-    }
-
-    @Override
-    protected boolean canSustainBush(IBlockState state) {
-        return super.canSustainBush(state) || state.getBlock() == AlienOverworld.ALIEN_STONE;
     }
 
     @Override
