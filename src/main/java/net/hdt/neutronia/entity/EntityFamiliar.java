@@ -98,7 +98,7 @@ public abstract class EntityFamiliar extends EntityTameable {
             return null;
         }
         for (WorldServer ws : Objects.requireNonNull(world.getMinecraftServer()).worlds) {
-            EntityPlayer p = ws.getEntityPlayerByUUID(getOwnerId());
+            EntityPlayer p = ws.getPlayerEntityByUUID(getOwnerId());
             if (p != null) {
                 return p;
             }

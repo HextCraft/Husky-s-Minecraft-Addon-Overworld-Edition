@@ -16,6 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
@@ -25,8 +26,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.OreIngredient;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class VariedChests extends Component {
@@ -55,12 +58,12 @@ public class VariedChests extends Component {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		custom_chest = new BlockCustomChest("custom_chest", CUSTOM_TYPE_NEUTRONIA);
-		custom_chest_trap = new BlockCustomChest("custom_chest_trap", CUSTOM_TYPE_NEUTRONIA_TRAP);
+//		custom_chest_trap = new BlockCustomChest("custom_chest_trap", CUSTOM_TYPE_NEUTRONIA_TRAP);
 
 		registerTile(TileCustomChest.class, "neutronia_chest");
 		
 		ModIntegrationHandler.addCharsetCarry(custom_chest);
-		ModIntegrationHandler.addCharsetCarry(custom_chest_trap);
+//		ModIntegrationHandler.addCharsetCarry(custom_chest_trap);
 	}
 
 	@Override
@@ -73,14 +76,12 @@ public class VariedChests extends Component {
 	public void postPreInit(FMLPreInitializationEvent event) {		
 		if(renameVanillaChests) {
 			Blocks.CHEST.setTranslationKey("oak_chest");
-			Blocks.TRAPPED_CHEST.setTranslationKey("oak_chest_trap");
+//			Blocks.TRAPPED_CHEST.setTranslationKey("oak_chest_trap");
 		}
 
-		RecipeProcessor.addWoodReplacements(1, Blocks.CHEST, Blocks.TRAPPED_CHEST);
+		RecipeProcessor.addWoodReplacements(Blocks.CHEST);
+//		RecipeProcessor.addConsumer(VariedChests::fixTrappedChestRecipe);
 
-		RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST),
-				"WWW", "W W", "WWW",
-				'W', ProxyRegistry.newStack(Blocks.PLANKS, 1, 0));
 		if(addLogRecipe)
 			RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(Blocks.CHEST, 4),
 					"WWW", "W W", "WWW",
@@ -103,10 +104,10 @@ public class VariedChests extends Component {
 						'W', ProxyRegistry.newStack(i > 3 ? Blocks.LOG2 : Blocks.LOG, 1, i % 4));
 			}
 
-			ItemStack outTrap = ProxyRegistry.newStack(custom_chest_trap);
+			/*ItemStack outTrap = ProxyRegistry.newStack(custom_chest_trap);
 			custom_chest.setCustomType(outTrap, type);
 
-			RecipeHandler.addShapelessOreDictRecipe(outTrap, out.copy(), ProxyRegistry.newStack(Blocks.TRIPWIRE_HOOK));
+			RecipeHandler.addShapelessOreDictRecipe(outTrap, out.copy(), ProxyRegistry.newStack(Blocks.TRIPWIRE_HOOK));*/
 			i++;
 		}
 
@@ -132,22 +133,42 @@ public class VariedChests extends Component {
 		// Reversion Recipe
 		if(reversionRecipe) {
 			RecipeHandler.addShapelessOreDictRecipe(new ItemStack(Blocks.CHEST), "chestWood");
-			RecipeHandler.addShapelessOreDictRecipe(new ItemStack(Blocks.TRAPPED_CHEST), "chestTrapped");
+//			RecipeHandler.addShapelessOreDictRecipe(new ItemStack(Blocks.TRAPPED_CHEST), "chestTrapped");
 		}
 	}
 	
 	@Override
 	public void init(FMLInitializationEvent event) {
 		OreDictionary.registerOre("chest", ProxyRegistry.newStack(custom_chest, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("chest", ProxyRegistry.newStack(custom_chest_trap, 1, OreDictionary.WILDCARD_VALUE));
+//		OreDictionary.registerOre("chest", ProxyRegistry.newStack(custom_chest_trap, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("chest", Blocks.CHEST);
 		OreDictionary.registerOre("chest", Blocks.TRAPPED_CHEST);
 		
 		OreDictionary.registerOre("chestWood", ProxyRegistry.newStack(custom_chest, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("chestWood", Blocks.CHEST);
 		
-		OreDictionary.registerOre("chestTrapped", ProxyRegistry.newStack(custom_chest_trap, 1, OreDictionary.WILDCARD_VALUE));
-		OreDictionary.registerOre("chestTrapped", Blocks.TRAPPED_CHEST);
+		/*OreDictionary.registerOre("chestTrapped", ProxyRegistry.newStack(custom_chest_trap, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("chestTrapped", Blocks.TRAPPED_CHEST);*/
+	}
+
+	private static boolean fixedTrappedChest = false;
+	private static void fixTrappedChestRecipe(IRecipe recipe) {
+		if(fixedTrappedChest)
+			return;
+
+		if(recipe.getRegistryName().toString().equals("minecraft:trapped_chest")) {
+			List<Ingredient> ingredients = recipe.getIngredients();
+			for(int i = 0; i < ingredients.size(); i++) {
+				Ingredient ingr = ingredients.get(i);
+				if(ingr instanceof OreIngredient) {
+					Ingredient chest = new BlacklistOreIngredient("chestWood", (stack) -> stack.getItem() == Item.getItemFromBlock(custom_chest));
+					ingredients.set(i, chest);
+					break;
+				}
+			}
+
+			fixedTrappedChest = true;
+		}
 	}
 	
 	@Override
@@ -172,13 +193,13 @@ public class VariedChests extends Component {
 		public static final ChestType[] VALID_TYPES;
 		public static final Map<String, ChestType> NAME_TO_TYPE;
 
-		private ChestType(String name) {
+		ChestType(String name) {
 			this.name = name;
 			nrmTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/" + name + ".png");
 			dblTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/" + name + "_double.png");
 
-			normalModel = new ModelResourceLocation(new ResourceLocation("neutronia", "custom_chest_" + name), "inventory");
-			trapModel = new ModelResourceLocation(new ResourceLocation("neutronia", "custom_chest_trap_" + name), "inventory");
+			normalModel = new ModelResourceLocation(new ResourceLocation("neutronia",  name + "_chest"), "inventory");
+			trapModel = new ModelResourceLocation(new ResourceLocation("neutronia", name + "_trapped_chest"), "inventory");
 		}
 
 		public static ChestType getType(String type) {

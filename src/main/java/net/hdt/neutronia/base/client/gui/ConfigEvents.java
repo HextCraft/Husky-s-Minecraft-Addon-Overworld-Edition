@@ -3,7 +3,7 @@ package net.hdt.neutronia.base.client.gui;
 import com.google.common.collect.ImmutableSet;
 import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
 import net.hdt.neutronia.base.client.gui.screens.FirstLoadScreen;
-import net.hdt.neutronia.base.client.gui.screens.GuiNeutroniaConfig;
+import net.hdt.neutronia.base.client.gui.screens.GuiGroupList;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.Minecraft;
@@ -55,7 +55,7 @@ public final class ConfigEvents {
     @SideOnly(Side.CLIENT)
     public static void onButtonClick(GuiScreenEvent.ActionPerformedEvent event) {
         if (event.getButton() instanceof ColoredButton)
-            Minecraft.getMinecraft().displayGuiScreen(new GuiNeutroniaConfig(event.getGui()));
+            Minecraft.getMinecraft().displayGuiScreen(new GuiGroupList(event.getGui()));
     }
 
 }

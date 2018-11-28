@@ -1,8 +1,8 @@
 package net.hdt.neutronia.groups.decoration.blocks;
 
-import net.hdt.huskylib2.interf.IBlockColorProvider;
 import net.hdt.huskylib2.interf.IStateMapperProvider;
 import net.hdt.neutronia.groups.decoration.client.state.FlowerPotStateMapper;
+import net.hdt.neutronia.groups.decoration.features.BetterVanillaFlowerPot;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
 import net.minecraft.block.SoundType;
@@ -28,11 +28,10 @@ import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemHandlerHelper;
-import vazkii.quark.decoration.feature.ColoredFlowerPots;
 
 import javax.annotation.Nonnull;
 
-public class BlockCustomFlowerPot extends BlockFlowerPot implements IBlockColorProvider, IStateMapperProvider {
+public class BlockCustomFlowerPot extends BlockFlowerPot implements IStateMapperProvider {
 
 	public static final PropertyBool CUSTOM = PropertyBool.create("custom");
 	public static final String TAG_TEXTURE_PATH = "texture_path";
@@ -66,7 +65,7 @@ public class BlockCustomFlowerPot extends BlockFlowerPot implements IBlockColorP
 		ItemStack flower = flowerPot.getFlowerItemStack();
 
 		if(flower.isEmpty()) {
-			if(!ColoredFlowerPots.isFlower(stack)) {
+			if(!BetterVanillaFlowerPot.isFlower(stack)) {
 				return false;
 			}
 

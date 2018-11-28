@@ -5,7 +5,6 @@ import net.hdt.neutronia.base.client.gui.GuiConfigBase;
 import net.hdt.neutronia.base.client.gui.GuiConfigGroup;
 import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
 import net.hdt.neutronia.base.client.gui.elements.ConfigSettingsButton;
-import net.hdt.neutronia.base.client.gui.elements.CustomGroupButton;
 import net.hdt.neutronia.base.client.gui.elements.GroupButton;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.hdt.neutronia.base.groups.Group;
@@ -65,7 +64,7 @@ public class RootConfigGui extends GuiConfigBase {
         int startX = width / 2 - 185;
         int startY = height / 5 + 3;
 
-        buttonList.removeIf((b) -> b instanceof GroupButton || b instanceof CustomGroupButton || b instanceof ConfigSettingsButton);
+        buttonList.removeIf((b) -> b instanceof GroupButton || b instanceof ConfigSettingsButton);
 
         int start = page * MODULES_PER_PAGE;
         for (int j = start; j < Math.min(start + MODULES_PER_PAGE, groups.size()); j++) {
@@ -73,7 +72,7 @@ public class RootConfigGui extends GuiConfigBase {
             x = startX + k % 2 * 180;
             y = startY + k / 2 * 35;
             Group group = groups.get(j);
-            buttonList.add(new CustomGroupButton(x, y, group));
+            buttonList.add(new GroupButton(x, y, group));
             buttonList.add(new ConfigSettingsButton(x + 150, y, group.prop, false));
         }
 
@@ -124,9 +123,6 @@ public class RootConfigGui extends GuiConfigBase {
 
         if (button instanceof GroupButton) {
             GroupButton moduleButton = (GroupButton) button;
-            mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
-        } else if (button instanceof CustomGroupButton) {
-            CustomGroupButton moduleButton = (CustomGroupButton) button;
             mc.displayGuiScreen(new GuiConfigGroup(this, moduleButton.group));
         } else if (button == left || button == right) {
             if (button == left)

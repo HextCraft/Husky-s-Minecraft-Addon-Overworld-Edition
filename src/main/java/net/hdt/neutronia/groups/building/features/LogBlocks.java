@@ -11,6 +11,7 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -19,7 +20,7 @@ public class LogBlocks extends Component {
     public static final Block[] strippedLogs = new Block[6];
 
     private boolean acacia, birch, darkOak, jungle, oak, spruce;
-    private boolean enableSlabsAndStairs, enableWalls;
+    private boolean enableSlabsAndStairs, enableWalls, enableFences;
 
     @Override
     public void setupConfig() {
@@ -31,6 +32,7 @@ public class LogBlocks extends Component {
         spruce = loadPropBool("Acacia Log blocks", "", true);
         enableSlabsAndStairs = loadPropBool("Enable Slabs and Stairs", "", true) & GlobalConfig.enableVariants;
         enableWalls = loadPropBool("Enable walls", "", false) & GlobalConfig.enableVariants;
+        enableFences = loadPropBool("Enable fences", "", true) & GlobalConfig.enableVariants;
     }
 
     @Override
@@ -57,6 +59,15 @@ public class LogBlocks extends Component {
             VanillaWalls.add("jungle_log", Blocks.LOG, 3, jungle);
             VanillaWalls.add("oak_log", Blocks.LOG, 0, oak);
             VanillaWalls.add("spruce_log", Blocks.LOG, 1, spruce);
+        }
+
+        if(enableFences) {
+            VanillaFencesAndFenceGates.add("stripped_acacia_log", strippedLogs[BlockPlanks.EnumType.ACACIA.getMetadata()], new ItemStack(Items.STICK), 0, true);
+            VanillaFencesAndFenceGates.add("stripped_birch_log", strippedLogs[BlockPlanks.EnumType.BIRCH.getMetadata()], new ItemStack(Items.STICK), 2, true);
+            VanillaFencesAndFenceGates.add("stripped_dark_oak_log", strippedLogs[BlockPlanks.EnumType.DARK_OAK.getMetadata()], new ItemStack(Items.STICK), 1, true);
+            VanillaFencesAndFenceGates.add("stripped_jungle_log", strippedLogs[BlockPlanks.EnumType.JUNGLE.getMetadata()], new ItemStack(Items.STICK), 3, true);
+            VanillaFencesAndFenceGates.add("stripped_oak_log", strippedLogs[BlockPlanks.EnumType.OAK.getMetadata()], new ItemStack(Items.STICK), 0, true);
+            VanillaFencesAndFenceGates.add("stripped_spruce_log", strippedLogs[BlockPlanks.EnumType.SPRUCE.getMetadata()], new ItemStack(Items.STICK), 1, true);
         }
     }
 

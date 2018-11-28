@@ -1,5 +1,6 @@
 package net.hdt.neutronia.groups.decoration.features;
 
+import net.hdt.huskylib2.client.RetexturedModel;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomFlowerPot;
@@ -31,7 +32,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.commons.lang3.tuple.Pair;
-import vazkii.arl.client.RetexturedModel;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;

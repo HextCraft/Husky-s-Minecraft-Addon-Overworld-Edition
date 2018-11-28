@@ -5,24 +5,16 @@ import net.hdt.huskylib2.recipe.BlacklistOreIngredient;
 import net.hdt.huskylib2.recipe.RecipeHandler;
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.base.handler.server.RecipeProcessor;
 import net.hdt.neutronia.groups.decoration.blocks.BlockCustomBookshelf;
 import net.hdt.neutronia.properties.EnumVanillaWoodTypes;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class VariedBookshelves extends Component {
 
@@ -51,20 +43,7 @@ public class VariedBookshelves extends Component {
         palm_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
         purhogany_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);*/
 
-        List<ResourceLocation> recipeList = new ArrayList<>(CraftingManager.REGISTRY.getKeys());
-        for (ResourceLocation res : recipeList) {
-            IRecipe recipe = CraftingManager.REGISTRY.getObject(res);
-            ItemStack out = recipe.getRecipeOutput();
-            if (recipe instanceof ShapedRecipes && !out.isEmpty() && (out.getItem() == Item.getItemFromBlock(Blocks.BOOKSHELF))) {
-                ShapedRecipes shaped = (ShapedRecipes) recipe;
-                NonNullList<Ingredient> ingredients = shaped.recipeItems;
-                for (int i = 0; i < ingredients.size(); i++) {
-                    Ingredient ingr = ingredients.get(i);
-                    if (ingr.apply(ProxyRegistry.newStack(Blocks.PLANKS)))
-                        ingredients.set(i, Ingredient.fromStacks(ProxyRegistry.newStack(Blocks.PLANKS, 1, 0)));
-                }
-            }
-        }
+        RecipeProcessor.addWoodReplacements(Blocks.BOOKSHELF);
 
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(acacia_bookshelf, 1, 0),
                 "WWW", "BBB", "WWW",

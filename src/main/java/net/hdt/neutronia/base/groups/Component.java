@@ -24,7 +24,7 @@ public class Component implements Comparable<Component> {
     boolean loadtimeDone;
     boolean enabledAtLoadtime;
     boolean prevEnabled;
-    String configName;
+    public String configName;
     boolean forceLoad;
 
     public Component(boolean enabled) {
