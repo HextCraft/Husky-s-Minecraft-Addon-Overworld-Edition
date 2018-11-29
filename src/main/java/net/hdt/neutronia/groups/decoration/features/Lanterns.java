@@ -8,12 +8,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class Lanterns extends Component {
 
-    private static Block lantern, chain;
+    private static Block ironLantern, goldLantern, ironChain, goldChain;
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        lantern = new BlockLantern("lantern");
-        chain = new BlockChain("chain");
+        ironLantern = new BlockLantern("iron_lantern");
+        goldLantern = new BlockLantern("gold_lantern");
+        ironChain = new BlockChain("iron_chain");
+        goldChain = new BlockChain("gold_chain");
     }
 
 }

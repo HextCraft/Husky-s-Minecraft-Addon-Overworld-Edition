@@ -39,18 +39,6 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, Boolean.FALSE));
     }
 
-//	@Override
-//	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-//		if(facing==EnumFacing.DOWN){
-//			if(state.getValue(CHAIN_EXTENDED)){
-//				worldIn.setBlockState(pos, state.withProperty(CHAIN_EXTENDED, Boolean.valueOf(false)), 4);
-//			}else {
-//				worldIn.setBlockState(pos, state.withProperty(CHAIN_EXTENDED, Boolean.valueOf(true)), 4);
-//			}
-//		}
-//		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
-//	}
-
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		switch (state.getValue(FACING))
