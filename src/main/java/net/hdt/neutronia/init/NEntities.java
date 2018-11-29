@@ -35,6 +35,7 @@ public class NEntities {
         final EntityEntry[] entries = {
                 createBuilder("mummy").entity(EntityMummy.class).tracker(80, 3, true).egg(0xC9CE92, 0x444444).build(),
                 createBuilder("mummy_villager").entity(EntityMummyVillager.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
+                createBuilder("chained").entity(EntityChained.class).tracker(80, 3, true).egg(0xC9CE92, 0x442f00).build(),
                 createBuilder("scorpion").entity(EntityScorp.class).tracker(30, 3, true).egg(0x65401, 0x6201209).build(),
                 createBuilder("owl").entity(EntityOwl.class).tracker(48, 3, true).egg(0xFFFFFF, 0xFF0FFF).build(),
                 createBuilder("snake").entity(EntitySnake.class).tracker(30, 3, true).egg(0x00CC00, 0xFFAAFF).build(),
@@ -61,7 +62,6 @@ public class NEntities {
                 createBuilder("sea_swallowed_captain").entity(EntitySeaSwallowedCaptain.class).tracker(80, 3, true).egg(0x000000, 0x44E4FF).build(),
 //                createBuilder("anchored").entity(EntityAnchored.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("forsaken_diver").entity(EntityForsakenDiver.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
-                createBuilder("lost_miner").entity(EntityLostMiner.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
                 createBuilder("yeti").entity(EntityYeti.class).tracker(80, 3, true).egg(0x13271d, 0x88baad).build(),
 //                createBuilder("firefly").entity(EntityFirefly.class).tracker(64, 20, true).egg(0, 0).build(),
                 createBuilder("coconut").entity(EntityCoconut.class).tracker(64, 3, true).build(),
@@ -107,6 +107,7 @@ public class NEntities {
     public static void registerEntityRenders() {
         RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityMummyVillager.class, RenderMummyVillager::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityChained.class, RenderChained::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityDrowned.class, RenderDrowned::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityBloodPhantom.class, RenderRedPhantom::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityEnderPhantom.class, RenderEnderPhantom::new);
