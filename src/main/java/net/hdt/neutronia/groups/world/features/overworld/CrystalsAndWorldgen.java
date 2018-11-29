@@ -3,9 +3,16 @@ package net.hdt.neutronia.groups.world.features.overworld;
 import net.hdt.neutronia.base.blocks.BlockGlowingPlant;
 import net.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import net.hdt.neutronia.base.groups.Component;
+import net.hdt.neutronia.groups.world.world.gen.features.CrystalClusterFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.Random;
 
 public class CrystalsAndWorldgen extends Component {
 
@@ -35,4 +42,29 @@ public class CrystalsAndWorldgen extends Component {
         return "Crystals";
     }
 
+    @SubscribeEvent
+    public void onBiomeDecoratePost(DecorateBiomeEvent.Post event) {
+        Random rand = event.getRand();
+
+        // Add crystals to all caves
+        for (int n = 0; n < 10; n++) {
+            int x = rand.nextInt(8) + 12;
+            int z = rand.nextInt(8) + 12;
+            BlockPos pos = new BlockPos(event.getChunkPos().getXStart() + x, 0, event.getChunkPos().getZStart() + z);
+            pos = pos.add(new Random().nextInt(10), rand.nextInt(event.getWorld().getTopSolidOrLiquidBlock(pos).getY() - 10) + 5,  + new Random().nextInt(10));
+            if(!event.getWorld().isAirBlock(pos.down()) && event.getWorld().isSideSolid(pos.down(), EnumFacing.UP)) {
+                (new CrystalClusterFeature(1, 4, parsioliteCrystalBlock.getDefaultState(), parsioliteCrystal.getDefaultState())).generate(event.getWorld(), event.getRand(), pos);
+                (new CrystalClusterFeature(1, 4, ajoiteCrystalBlock.getDefaultState(), ajoiteCrystal.getDefaultState())).generate(event.getWorld(), event.getRand(), pos);
+                (new CrystalClusterFeature(1, 4, citrineCrystalBlock.getDefaultState(), citrineCrystal.getDefaultState())).generate(event.getWorld(), event.getRand(), pos);
+                (new CrystalClusterFeature(1, 4, bixbiteCrystalBlock.getDefaultState(), bixbiteCrystal.getDefaultState())).generate(event.getWorld(), event.getRand(), pos);
+                (new CrystalClusterFeature(1, 4, calciteCrystalBlock.getDefaultState(), calciteCrystal.getDefaultState())).generate(event.getWorld(), event.getRand(), pos);
+            }
+        }
+
+    }
+
+    @Override
+    public boolean hasSubscriptions() {
+        return true;
+    }
 }
