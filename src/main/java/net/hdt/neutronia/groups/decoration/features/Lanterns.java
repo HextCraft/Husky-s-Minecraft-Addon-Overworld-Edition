@@ -18,16 +18,12 @@ public class Lanterns extends Component {
         goldLantern = new BlockLantern("gold_lantern");
         redstoneIronLantern = new BlockLanternRedstone("lit_iron_redstone_lantern", true);
         redstoneIronLanternOff = new BlockLanternRedstone("iron_redstone_lantern", false);
-        redstoneIronLantern.setOnBlock(redstoneIronLantern.getDefaultState());
         redstoneIronLantern.setOffBlock(redstoneIronLanternOff.getDefaultState());
         redstoneIronLanternOff.setOnBlock(redstoneIronLantern.getDefaultState());
-        redstoneIronLanternOff.setOffBlock(redstoneIronLanternOff.getDefaultState());
         redstoneGoldLantern = new BlockLanternRedstone("lit_gold_redstone_lantern", true);
         redstoneGoldLanternOff = new BlockLanternRedstone("gold_redstone_lantern", false);
-        redstoneGoldLantern.setOnBlock(redstoneGoldLantern.getDefaultState());
         redstoneGoldLantern.setOffBlock(redstoneGoldLanternOff.getDefaultState());
         redstoneGoldLanternOff.setOnBlock(redstoneGoldLantern.getDefaultState());
-        redstoneGoldLanternOff.setOffBlock(redstoneGoldLanternOff.getDefaultState());
         ironChain = new BlockChain("iron_chain");
         goldChain = new BlockChain("gold_chain");
         ropes = new BlockChain("rope");

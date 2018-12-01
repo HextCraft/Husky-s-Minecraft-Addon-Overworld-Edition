@@ -36,7 +36,6 @@ public class CrystalsAndWorldgen extends Component {
         calciteCrystal = new BlockGlowingPlant("calcite_crystal");
     }
 
-
     @Override
     public String getComponentInGameConfigName() {
         return "Crystals";
@@ -67,4 +66,5 @@ public class CrystalsAndWorldgen extends Component {
     public boolean hasSubscriptions() {
         return true;
     }
+
 }

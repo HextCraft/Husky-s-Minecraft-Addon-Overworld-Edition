@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.huskylib2.util.ProxyRegistry;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.init.NItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -14,7 +13,7 @@ import static net.hdt.neutronia.base.lib.LibMisc.MOD_ID;
 
 public class MoreBanners extends Component {
 
-    private boolean dragon, eye, shield, sword, scute, phantom, nautilus, trident, anchor;
+    private boolean dragon, eye, shield, sword;
 
     public static void addPattern(boolean doit, String name, String id, ItemStack craftingItem) {
         if (!doit)
@@ -32,11 +31,6 @@ public class MoreBanners extends Component {
         eye = loadPropBool("Eye", "", true);
         shield = loadPropBool("Shield", "", true);
         sword = loadPropBool("Sword", "", true);
-        scute = loadPropBool("Scute", "", true);
-        phantom = loadPropBool("Phantom", "", true);
-        nautilus = loadPropBool("Nautilus", "", true);
-        trident = loadPropBool("Trident", "", true);
-        anchor = loadPropBool("Anchor", "", true);
     }
 
     @Override
@@ -45,11 +39,6 @@ public class MoreBanners extends Component {
         addPattern(eye, "eye", "ey", ProxyRegistry.newStack(Items.ENDER_EYE));
         addPattern(shield, "shield", "sh", ProxyRegistry.newStack(Items.IRON_CHESTPLATE));
         addPattern(sword, "sword", "sw", ProxyRegistry.newStack(Items.IRON_SWORD));
-//        addPattern(scute, "scute", "sc", ProxyRegistry.newStack(NItems.scute));
-//        addPattern(phantom, "phantom", "ph", ProxyRegistry.newStack(NItems.phantomMembrane));
-//        addPattern(nautilus, "nautilus", "nt", ProxyRegistry.newStack(NItems.nautilusShell));
-        addPattern(trident, "trident", "tr", ProxyRegistry.newStack(NItems.trident));
-        addPattern(anchor, "anchor", "an", ProxyRegistry.newStack(NItems.anchor));
         addPattern(true, "bread", "br", new ItemStack(Items.BREAD));
         addPattern(true, "fish", "fi", new ItemStack(Items.FISH));
         addPattern(true, "fishn", "fis", new ItemStack(Items.FISHING_ROD));

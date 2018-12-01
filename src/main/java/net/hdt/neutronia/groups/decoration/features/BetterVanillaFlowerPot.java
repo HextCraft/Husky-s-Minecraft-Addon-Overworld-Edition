@@ -252,7 +252,7 @@ public class BetterVanillaFlowerPot extends Component {
 
 	@Override
 	public String getFeatureDescription() {
-		return "Adds the colored flower pot features of supporting additional flowers and comparator power to the vanilla flower pot using a block substitution";
+		return "Makes the flower pot support additional flowers and comparator power to the vanilla flower pot using a block substitution";
 	}
 	
 	@Override

@@ -18,7 +18,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class VariedBookshelves extends Component {
 
-    public static BlockMod acacia_bookshelf, birch_bookshelf, dark_oak_bookshelf, jungle_bookshelf, spruce_bookshelf, cherry_bookshelf, baobab_bookshelf, willow_bookshelf, palm_bookshelf, purhogany_bookshelf;
+    public static BlockMod acacia_bookshelf, birch_bookshelf, dark_oak_bookshelf, jungle_bookshelf, spruce_bookshelf;
 
     private boolean renameVanillaBookshelves;
 
@@ -37,11 +37,6 @@ public class VariedBookshelves extends Component {
         dark_oak_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.DARK_OAK);
         jungle_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.JUNGLE);
         spruce_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
-        /*cherry_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
-        baobab_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
-        willow_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
-        palm_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);
-        purhogany_bookshelf = new BlockCustomBookshelf(EnumVanillaWoodTypes.SPRUCE);*/
 
         RecipeProcessor.addWoodReplacements(Blocks.BOOKSHELF);
 

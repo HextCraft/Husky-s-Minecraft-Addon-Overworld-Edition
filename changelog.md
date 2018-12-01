@@ -119,6 +119,33 @@
 * Removed glass slabs and glazed terracotta slabs
 * Added Shelves for each wood type!
 
+## 0.4.3 - The
+
+#### Bug Fixes
+* Fixed pillars not able to be rotated
+* Fixed a lot of models
+
+#### Features
+* Added a WIP wiki/guide book for the mod only if Patchouli is loaded
+* Added some new tile blocks and also some new brick blocks
+* Added Concrete and Obsidian slabs
+* Added Concrete stairs
+* Added Terracotta walls
+* Added Frosted Glass
+* Added new chests, bookshelves and ladders for each wood type
+* Removed lit versions of candles
+* Added Netherbrick Pillar
+* Added Rope Coil
+* Added different roof tiles
+* Added some new ice and snow blocks
+* Added some fancy planks
+* Added Chiseled Brick
+* Added Crystals
+* Added Iron Lantern, Golden Lantern, Iron Chain, Golden Chain, Iron Redstone Lamp, Golden Redstone Lamp
+* WIP New Config Screen
+* Added Wrougth Iron Block, Door, Bars, Walls, Stairs and Slabs
+* Added Smooth Stone
+
 ## 0.5.0 - The Underground & Dungeon Update
 
 ## 0.6.0 - The Holiday Update

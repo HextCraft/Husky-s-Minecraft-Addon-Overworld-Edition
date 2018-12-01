@@ -107,7 +107,7 @@ public class NGroups {
                 .addComponent(new MetalAndMineralBricks())
                 .addComponent(new MetalAndMineralPillars())
                 .addComponent(new MoreBanners())
-                .addComponent(new MoreMetals())
+//                .addComponent(new MoreMetals())
                 .addComponent(new MorePillars())
                 .addComponent(new NetherBlocks())
                 .addComponent(new SmoothBlocks())
