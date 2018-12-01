@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static net.minecraft.util.text.TextFormatting.RED;
 import static net.minecraft.util.text.TextFormatting.WHITE;
 
 public class GuiGroupList extends GuiScreen {
@@ -58,11 +57,11 @@ public class GuiGroupList extends GuiScreen {
      */
     @Override
     public void initGui() {
-        int slotHeight = 20;
-        for (Group mod : groups) {
-            listWidth = Math.max(listWidth, getFontRenderer().getStringWidth(mod.getName()) + 5);
+        int slotHeight = 30;
+        for (Group group : groups) {
+            listWidth = Math.max(listWidth, getFontRenderer().getStringWidth(group.getName()) + 10);
         }
-        listWidth = Math.min(listWidth, 150);
+        listWidth = Math.min(listWidth, 160);
         this.modList = new GuiSlotGroupList(this, groups, listWidth, slotHeight);
 
         this.buttonList.add(new GuiButton(6, ((modList.right + this.width) / 2) - 100, this.height - 38, I18n.format("gui.done")));
@@ -74,16 +73,6 @@ public class GuiGroupList extends GuiScreen {
         search = new GuiTextField(0, getFontRenderer(), 12, modList.bottom + 17, modList.listWidth - 4, 14);
         search.setFocused(true);
         search.setCanLoseFocus(true);
-
-        int width = (modList.listWidth / numButtons);
-        int x = 10, y = 10;
-        GuiButton normalSort = new GuiButton(SortType.NORMAL.buttonID, x, y, width - buttonMargin, 20, I18n.format("fml.menu.mods.normal"));
-        normalSort.enabled = false;
-        buttonList.add(normalSort);
-        x += width + buttonMargin;
-        buttonList.add(new GuiButton(SortType.A_TO_Z.buttonID, x, y, width - buttonMargin, 20, "A-Z"));
-        x += width + buttonMargin;
-        buttonList.add(new GuiButton(SortType.Z_TO_A.buttonID, x, y, width - buttonMargin, 20, "Z-A"));
 
         updateCache();
     }
@@ -254,8 +243,7 @@ public class GuiGroupList extends GuiScreen {
         lines.add(WHITE + selectedMod.getName());
 
         lines.add(null);
-        lines.add(RED + "No mod information found");
-        lines.add(RED + "Ask your mod author to provide a mod mcmod.info file");
+        lines.add(selectedMod.desc);
 
         modInfo = new Info(this.width - this.listWidth - 30, lines);
     }

@@ -67,14 +67,14 @@ public class GuiSlotGroupList extends GuiScrollingList {
         FontRenderer font = this.parent.getFontRenderer();
 
         if (!mc.enabled || !mc.enabledByDefault) {
-            font.drawString(font.trimStringToWidth(name, listWidth - 10), this.left + 3, top + 2, 0xFF2222);
-            font.drawString(font.trimStringToWidth("DISABLED", listWidth - 10), this.left + 3, top + 22, 0xFF2222);
+            font.drawString(font.trimStringToWidth(name, listWidth - 10), this.left + 21, top + 2, 0xFF2222);
+            font.drawString(font.trimStringToWidth("Disabled", listWidth - 10), this.left + 21, top + 22, 0xFF2222);
         } else {
-            font.drawString(font.trimStringToWidth(name, listWidth - 10), this.left + 3, top + 2, 0xFFFFFF);
+            font.drawString(font.trimStringToWidth(name, listWidth - 10), this.left + 21, top + 8, 0xFFFFFF);
         }
 
         RenderHelper.enableGUIStandardItemLighting();
         GlStateManager.enableDepth();
-        Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(mc.getIconStack(), right + 6, top + 2);
+        Minecraft.getMinecraft().getRenderItem().renderItemIntoGUI(mc.getIconStack(), this.left + 3, top + 4);
     }
 }
