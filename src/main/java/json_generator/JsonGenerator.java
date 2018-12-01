@@ -41,12 +41,12 @@ public class JsonGenerator {
             genCoralFan(new ResourceLocation(modid, String.format("decorative_dead_%s_coral_fan", coralColor.getName())), new ResourceLocation(modid, String.format("dead_%s_coral_fan", coralColor.getName())));
         }*/
         for(EnumDyeColor color : EnumDyeColor.values()) {
-
+            genPillarBlock(new ResourceLocation(modid, String.format("%s_glazed_terracotta_pillar", color.getName())), new ResourceLocation(modid, String.format("block/glazed_terracotta_pillars/gtp_pillar_%s_top", color.getName())), new ResourceLocation(modid, String.format("block/glazed_terracotta_pillars/gtp_pillar_%s", color.getName())));
         }
         for(BlockPlanks.EnumType type : BlockPlanks.EnumType.values()) {
 //            genSlab(new ResourceLocation(modid, String.format("")));
         }
-        genSlab(new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"));
+//        genSlab(new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"), new ResourceLocation("test", "test"));
     }
 
     public static void genBlock(ResourceLocation modIdAndName, ResourceLocation textureName) {
@@ -630,6 +630,9 @@ public class JsonGenerator {
 
         root.add("defaults", defaults);
 
+        JsonArray empty = new JsonArray();
+        empty.add(new JsonObject());
+
         JsonObject variants = new JsonObject();
 
         JsonObject axis = new JsonObject();
@@ -639,20 +642,13 @@ public class JsonGenerator {
         axisX.addProperty("y", 90);
         axis.add("x", axisX);
 
-        JsonObject axisY = new JsonObject();
-        axis.add("y", axisY);
+        axis.add("y", empty);
 
         JsonObject axisZ = new JsonObject();
         axisZ.addProperty("x", 90);
         axis.add("z", axisZ);
 
-        JsonObject axisNone = new JsonObject();
-        axis.add("none", axisNone);
-
         variants.add("axis", axis);
-
-        JsonArray empty = new JsonArray();
-        empty.add(new JsonObject());
 
         variants.add("inventory", empty);
         root.add("variants", variants);

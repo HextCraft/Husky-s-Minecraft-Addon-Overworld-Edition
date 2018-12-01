@@ -2,10 +2,8 @@ package net.hdt.neutronia.base.client.gui;
 
 import com.google.common.collect.ImmutableSet;
 import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
-import net.hdt.neutronia.base.client.gui.screens.FirstLoadScreen;
 import net.hdt.neutronia.base.client.gui.screens.GuiGroupList;
 import net.hdt.neutronia.base.groups.GlobalConfig;
-import net.hdt.neutronia.base.groups.GroupLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiIngameMenu;
@@ -25,10 +23,10 @@ public final class ConfigEvents {
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onGuiOpen(GuiOpenEvent event) {
-        if (GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
+        /*if (GroupLoader.firstLoad && event.getGui() instanceof GuiMainMenu) {
             GroupLoader.firstLoad = true;
             event.setGui(new FirstLoadScreen(event.getGui()));
-        }
+        }*/
     }
 
     @SubscribeEvent

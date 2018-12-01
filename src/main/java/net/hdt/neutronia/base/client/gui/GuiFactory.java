@@ -1,6 +1,6 @@
 package net.hdt.neutronia.base.client.gui;
 
-import net.hdt.neutronia.base.client.gui.screens.GuiNeutroniaConfig;
+import net.hdt.neutronia.base.client.gui.screens.GuiGroupList;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.fml.client.IModGuiFactory;
@@ -26,7 +26,7 @@ public class GuiFactory implements IModGuiFactory {
 
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen) {
-        return new GuiNeutroniaConfig(parentScreen);
+        return new GuiGroupList(parentScreen);
     }
 
 }

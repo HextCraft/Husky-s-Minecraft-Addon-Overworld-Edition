@@ -25,5 +25,4 @@ public class BlockFrostedGlassPane extends BlockNeutroniaPane {
 		return super.canPaneConnectTo(world, pos, dir) || world.getBlockState(pos.offset(dir)).getBlock() instanceof BlockFrostedGlass;
 	}
 
-	
 }

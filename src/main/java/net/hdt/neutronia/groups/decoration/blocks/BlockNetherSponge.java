@@ -32,7 +32,7 @@ public class BlockNetherSponge extends BlockNeutroniaBase {
     public BlockNetherSponge() {
         super(Material.SPONGE, "nether_sponge");
         this.setDefaultState(this.blockState.getBaseState().withProperty(WET, Boolean.FALSE));
-        setCreativeTab(WET.equals(false) ? CreativeTabs.BUILDING_BLOCKS : CreativeTabs.SEARCH);
+        setCreativeTab(WET.equals(false) ? CreativeTabs.BUILDING_BLOCKS : null);
     }
 
     /**

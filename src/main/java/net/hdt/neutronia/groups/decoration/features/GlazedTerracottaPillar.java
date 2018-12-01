@@ -2,7 +2,6 @@ package net.hdt.neutronia.groups.decoration.features;
 
 import net.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import net.hdt.neutronia.base.groups.Component;
-import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,10 +11,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class GlazedTerracottaPillar extends Component {
 
     public static Block[] glazedTerracottaPillar = new Block[16];
-
-    public GlazedTerracottaPillar() {
-        super(GlobalConfig.enableExperimentalFeatures);
-    }
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

@@ -85,4 +85,5 @@ public class BlockStoneBrickLantern extends BlockMod implements INeutroniaBlock 
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING);
     }
+
 }

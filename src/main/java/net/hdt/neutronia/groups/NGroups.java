@@ -66,7 +66,7 @@ public class NGroups {
                 .name("Client")
                 .description("This group adds components that alter the client, not needing Neutronia to be loaded on the server.")
                 .iconStack(new ItemStack(Items.ENDER_EYE))
-                .addComponent(new BetterVanillaTextures())
+//                .addComponent(new BetterVanillaTextures())
                 .addComponent(new FoodTooltip())
                 .addComponent(new MapTooltip())
                 .addComponent(new NoPotionShift())
@@ -100,7 +100,7 @@ public class NGroups {
 //                .addComponent(new DecorativeAquamarine())
 
 //                .addComponent(new DecorativeCorals(), false)
-//                .addComponent(new GlazedTerracottaPillar(), false)
+                .addComponent(new GlazedTerracottaPillar())
 //                .addComponent(new GlazedTerracottaStripes(), false)
 
                 .addComponent(new Lanterns())
@@ -122,6 +122,7 @@ public class NGroups {
                 .addComponent(new VariedShelfs())
                 .addComponent(new VariedTrapdoors())
                 .addComponent(new VariedWoodenLanterns())
+                .addComponent(new WoodPalisades())
                 .enabled(true)
                 .enabledByDefault(true)
                 .register();

@@ -252,7 +252,6 @@ public class GuiGroupList extends GuiScreen {
         List<String> lines = new ArrayList<String>();
 
         lines.add(WHITE + selectedMod.getName());
-        lines.add(WHITE + "Mod State: " + selectedMod.enabled);
 
         lines.add(null);
         lines.add(RED + "No mod information found");

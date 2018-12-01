@@ -24,11 +24,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockNetherbrickChiseled extends BlockMod implements INeutroniaBlock {
+public class BlockNetherBrickChiseled extends BlockMod implements INeutroniaBlock {
 
     private boolean filled;
 
-    public BlockNetherbrickChiseled(String name, boolean filled) {
+    public BlockNetherBrickChiseled(String name, boolean filled) {
         super(name, Material.ROCK);
         this.filled = filled;
         setCreativeTab(filled ? CreativeTabs.SEARCH : CreativeTabs.DECORATIONS);
