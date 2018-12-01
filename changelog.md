@@ -148,18 +148,28 @@
 
 ## 0.5.0 - The Food Update
 
+#### Features
+* Added Chocolate Cake
+* Added Pumpkin Pie Block
+
 ## 0.6.0 - The Mob Update
 
-## 0.7.0 - The Explorers Update
+## 0.7.0 - The Music Update
 
-## 0.8.0 - The Holiday Update
+#### Features
+* Added The Composer
+* Added The Music Box
 
-### 0.8.1 - The Halloween Update
+## 0.8.0 - The Explorers Update
 
-### 0.8.2 - The Christmas Update
+## 0.9.0 - The Holiday Update
 
-### 0.8.3 - The Valentine Update
+### 0.9.1 - The Halloween Update
 
-### 0.8.4 - The Easter Update
+### 0.9.2 - The Christmas Update
 
-## 0.9.0 - The Season Update
+### 0.9.3 - The Valentine Update
+
+### 0.9.4 - The Easter Update
+
+## 0.10.0 - The Season Update
