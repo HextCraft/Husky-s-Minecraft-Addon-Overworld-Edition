@@ -13,7 +13,7 @@ import static net.hdt.neutronia.base.util.Reference.MOD_ID;
 @SideOnly(Side.CLIENT)
 public class RenderMummy extends RenderLiving<EntityMummy> {
 
-    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/mummy/mummy.png");
+    private static final ResourceLocation MUMMY_TEXTURE = new ResourceLocation(MOD_ID, "textures/entity/mummy_villagers/mummy.png");
 
     public RenderMummy(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelMummy(), 0.5F);
