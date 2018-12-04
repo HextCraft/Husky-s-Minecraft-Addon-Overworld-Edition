@@ -100,7 +100,7 @@ public class NGroups {
 //                .addComponent(new DecorativeAquamarine())
 
 //                .addComponent(new DecorativeCorals(), false)
-                .addComponent(new GlazedTerracottaPillar())
+//                .addComponent(new GlazedTerracottaPillar())
 //                .addComponent(new GlazedTerracottaStripes(), false)
 
                 .addComponent(new Lanterns())

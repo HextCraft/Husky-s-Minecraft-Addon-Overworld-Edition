@@ -2,6 +2,7 @@ package net.hdt.neutronia.base.client.gui;
 
 import com.google.common.collect.ImmutableSet;
 import net.hdt.neutronia.base.client.gui.elements.ColoredButton;
+import net.hdt.neutronia.base.client.gui.elements.NeutroniaButton;
 import net.hdt.neutronia.base.client.gui.screens.GuiGroupList;
 import net.hdt.neutronia.base.groups.GlobalConfig;
 import net.minecraft.client.Minecraft;
@@ -42,7 +43,7 @@ public final class ConfigEvents {
             List<GuiButton> buttons = event.getButtonList();
             for (GuiButton b : buttons)
                 if (targets.contains(b.displayString)) {
-                    GuiButton qButton = new ColoredButton(-82392, b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y, 20, "N", 0x48ddbc);
+                    GuiButton qButton = new NeutroniaButton(b.x + (GlobalConfig.NButtonOnRight ? 103 : -24), b.y);
                     buttons.add(qButton);
                     return;
                 }

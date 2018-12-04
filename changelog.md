@@ -119,7 +119,7 @@
 * Removed glass slabs and glazed terracotta slabs
 * Added Shelves for each wood type!
 
-## 0.4.3 - The
+## 0.4.3 - The IDK Update
 
 #### Bug Fixes
 * Fixed pillars not able to be rotated
