@@ -162,6 +162,9 @@
 
 ## 0.8.0 - The Explorers Update
 
+#### Features
+* Added some new cactus plants for the desert
+
 ## 0.9.0 - The Holiday Update
 
 ### 0.9.1 - The Halloween Update
