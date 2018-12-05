@@ -38,7 +38,6 @@ repositories {
 dependencies {
     compile "mezz.jei:jei_${mc_version}:${jei_version}:api"
     compile "mcp.mobius.waila:Hwyla:${hwyla_version}:api"
-    compile "net.hdt.husklylib2:HuskyLib-1.12:${mc_version}-${hl2_version}:universal"
     runtime "mezz.jei:jei_${mc_version}:${jei_version}"
     runtime "mcp.mobius.waila:Hwyla:${hwyla_version}"
 }

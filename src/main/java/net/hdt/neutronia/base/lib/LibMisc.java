@@ -42,7 +42,7 @@ public final class LibMisc {
             "dyeWhite");
 
     public static final ResourceLocation GENERAL_ICONS_RESOURCE = new ResourceLocation(MOD_ID, "textures/misc/general_icons.png");
-    public static final ResourceLocation GENERAL_ICONS_RESOURCE2 = new ResourceLocation(MOD_ID, "textures/misc/general_icons(1).png");
+    public static final ResourceLocation GENERAL_ICONS_RESOURCE2 = new ResourceLocation(MOD_ID, "textures/misc/general_icons_1.png");
 
     public static final String MOD_WEBSITE = "https://github.com/HuskysDevelopmentTeam/Neutronia";
     public static final String MOD_DISCORD = "https://discord.gg/TR9rcQK";

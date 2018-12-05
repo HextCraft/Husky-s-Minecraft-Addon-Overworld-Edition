@@ -21,12 +21,10 @@ import java.util.*;
 
 public class ContributorRewardHandler {
 
-	private static final ImmutableSet<String> CREATORS = ImmutableSet.of("b344687b-ec74-479a-9540-1aa8ccb13e92");
-    private static final ImmutableSet<String> ARTISTS = ImmutableSet.of("5dfe80bb-40e5-4bec-a862-89df71868301",
-            "336375e1-84da-4c08-87b3-40be8c872896", "bf3379cd-efb1-4194-91ba-408bbbb12055");
-    private static final ImmutableSet<String> MODELLERS = ImmutableSet.of("b344687b-ec74-479a-9540-1aa8ccb13e92");
-    private static final ImmutableSet<String> CODERS = ImmutableSet.of("b344687b-ec74-479a-9540-1aa8ccb13e92");
-    private static final ImmutableSet<String> SPECIALS = ImmutableSet.of("caaeff74-cbbc-415c-9c22-21e65ad6c33f");
+    private static final ImmutableSet<String> MOD_CAPE = ImmutableSet.of("75c298f9-27c8-415b-9a16-329e3884054b", "b344687b-ec74-479a-9540-1aa8ccb13e92",
+            "bf3379cd-efb1-4194-91ba-408bbbb12055");
+	private static final ImmutableSet<String> TEAM_CAPE = ImmutableSet.of("0901c870-aa68-4453-8061-42ff2e9172c8", "ddb01615-c982-4fa0-99b4-0aef9480751c",
+            "5dfe80bb-40e5-4bec-a862-89df71868301", "336375e1-84da-4c08-87b3-40be8c872896");
 
 	private static final Set<EntityPlayer> done = Collections.newSetFromMap(new WeakHashMap<>());
 	
@@ -42,12 +40,23 @@ public class ContributorRewardHandler {
 	public static void onRenderPlayerPost(RenderPlayerEvent.Post event) {
 		EntityPlayer player = event.getEntityPlayer();
 		String uuid = EntityPlayer.getUUID(player.getGameProfile()).toString();
-		if(player instanceof AbstractClientPlayer && CREATORS.contains(uuid) && !done.contains(player)) {
+		if(player instanceof AbstractClientPlayer && MOD_CAPE.contains(uuid) && !done.contains(player)) {
 			AbstractClientPlayer clplayer = (AbstractClientPlayer) player;
 			if(clplayer.hasPlayerInfo()) {
 				NetworkPlayerInfo info = ReflectionHelper.getPrivateValue(AbstractClientPlayer.class, clplayer, LibObfuscation.PLAYER_INFO);
 				Map<Type, ResourceLocation> textures = ReflectionHelper.getPrivateValue(NetworkPlayerInfo.class, info, LibObfuscation.PLAYER_TEXTURES);
 				ResourceLocation loc = new ResourceLocation("neutronia", "textures/misc/mod_cape.png");
+				textures.put(Type.CAPE, loc);
+				textures.put(Type.ELYTRA, loc);
+				done.add(player);
+			}
+		}
+		if(player instanceof AbstractClientPlayer && TEAM_CAPE.contains(uuid) && !done.contains(player)) {
+			AbstractClientPlayer clplayer = (AbstractClientPlayer) player;
+			if(clplayer.hasPlayerInfo()) {
+				NetworkPlayerInfo info = ReflectionHelper.getPrivateValue(AbstractClientPlayer.class, clplayer, LibObfuscation.PLAYER_INFO);
+				Map<Type, ResourceLocation> textures = ReflectionHelper.getPrivateValue(NetworkPlayerInfo.class, info, LibObfuscation.PLAYER_TEXTURES);
+				ResourceLocation loc = new ResourceLocation("neutronia", "textures/misc/team_cape.png");
 				textures.put(Type.CAPE, loc);
 				textures.put(Type.ELYTRA, loc);
 				done.add(player);
@@ -92,7 +101,7 @@ public class ContributorRewardHandler {
 		@Override
 		public void run() {
 			try {
-				URL url = new URL("https://raw.githubusercontent.com/HuskysDevelopmentTeam/Neutronia/tree/module-system/contributors.properties");
+				URL url = new URL("https://raw.githubusercontent.com/HuskysDevelopmentTeam/Neutronia/module-system/contributors.properties");
 				Properties props = new Properties();
 				try (InputStreamReader reader = new InputStreamReader(url.openStream())) {
 					props.load(reader);

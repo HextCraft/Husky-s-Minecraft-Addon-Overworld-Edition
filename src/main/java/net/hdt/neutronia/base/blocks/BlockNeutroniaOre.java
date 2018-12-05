@@ -17,9 +17,11 @@ public class BlockNeutroniaOre extends BlockMod implements INeutroniaBlock {
     private Item drop, ingot;
 
     public BlockNeutroniaOre(String name) {
-        super(BlockMod.Builder.create(Material.ROCK).hardnessAndResistance(3.0F, 5.0F), name);
+        super(name, Material.ROCK);
         this.drop = new ItemBlock(this);
         registerRecipes();
+        setHardness(3.0F);
+        setResistance(5.0F);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
