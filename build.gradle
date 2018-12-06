@@ -11,9 +11,9 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version= "${major_version}.${minor_version}.${build_number}"
-group= "net.hdt.neutronia"
-archivesBaseName = "${mod_name}"
+version="${mc_version}-${major_version}.${minor_version}.${build_number}"
+group="team.hdt.neutronia"
+archivesBaseName="${mod_name}"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
