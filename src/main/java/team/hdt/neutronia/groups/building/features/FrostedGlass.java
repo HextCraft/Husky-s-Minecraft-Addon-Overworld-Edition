@@ -1,9 +1,6 @@
 package team.hdt.neutronia.groups.building.features;
 
-import team.hdt.huskylib.recipe.RecipeHandler;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import team.hdt.neutronia.base.groups.Component;
 import team.hdt.neutronia.groups.building.blocks.BlockFrostedGlass;
@@ -19,7 +16,7 @@ public class FrostedGlass extends Component {
         frosted_glass = new BlockFrostedGlass();
         frosted_glass_pane = new BlockFrostedGlassPane();
 
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(frosted_glass, 4),
+        /*RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(frosted_glass, 4),
                 "GGG", "GIG", "GGG",
                 'G', ProxyRegistry.newStack(Blocks.GLASS),
                 'I', Blocks.PACKED_ICE);
@@ -31,7 +28,7 @@ public class FrostedGlass extends Component {
 
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(frosted_glass_pane, 16),
                 "GGG", "GGG",
-                'G', ProxyRegistry.newStack(frosted_glass));
+                'G', ProxyRegistry.newStack(frosted_glass));*/
     }
 
     @Override

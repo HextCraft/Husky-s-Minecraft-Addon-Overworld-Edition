@@ -12,7 +12,7 @@
     "logoFile": "/assets/neutronia/textures/logo_halloween.png",
     "url": "https://github.com/HuskysDevelopmentTeam/Neutronia",
     "dependencies": [
-        "huskylib2"
+        "huskylib"
     ]
   }
 ]

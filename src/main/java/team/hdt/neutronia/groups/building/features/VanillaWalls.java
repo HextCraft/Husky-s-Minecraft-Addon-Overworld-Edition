@@ -27,7 +27,7 @@ public class VanillaWalls extends Component {
 
         IBlockState state = block.getStateFromMeta(meta);
         String wallName = name + "_wall";
-        BlockNeutroniaWall.initWall(block, meta, supplier.supply(wallName, state));
+//        BlockNeutroniaWall.initWall(block, meta, supplier.supply(wallName, state));
     }
 
     public static void add(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
@@ -42,7 +42,7 @@ public class VanillaWalls extends Component {
         String wallName = name + "_wall";
         BlockNeutroniaWall neutroniaWall = supplier.supply(wallName, state);
         neutroniaWall.setCreativeTab(creativeTabs);
-        BlockNeutroniaWall.initWall(block, meta, neutroniaWall);
+//        BlockNeutroniaWall.initWall(block, meta, neutroniaWall);
     }
 
     @Override
