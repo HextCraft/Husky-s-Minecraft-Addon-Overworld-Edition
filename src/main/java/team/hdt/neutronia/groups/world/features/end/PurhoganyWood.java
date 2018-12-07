@@ -7,10 +7,7 @@ import team.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaTrapdoor;
 import team.hdt.neutronia.base.groups.Component;
-import team.hdt.neutronia.groups.building.features.VanillaStairsAndSlabs;
 import team.hdt.neutronia.groups.world.blocks.BlockEndDoor;
-
-import java.util.Objects;
 
 public class PurhoganyWood extends Component {
 
@@ -22,8 +19,8 @@ public class PurhoganyWood extends Component {
         purhoganyPlanks = new BlockNeutroniaBase(Material.WOOD, "purhogany_planks");
         purhoganyDoor = new BlockEndDoor(Material.WOOD, "purhogany_door");
         purhoganyTrapdoor = new BlockNeutroniaTrapdoor("purhogany_trapdoor");
-        VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyPlanks.getRegistryName()).getPath(), purhoganyPlanks, 0, true);
-        VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyLog.getRegistryName()).getPath(), purhoganyLog, 0, true);
+//        VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyPlanks.getRegistryName()).getPath(), purhoganyPlanks, 0, true, false, true);
+//        VanillaStairsAndSlabs.add(Objects.requireNonNull(purhoganyLog.getRegistryName()).getPath(), purhoganyLog, 0, true, false, true);
 //        VanillaWalls.add(purhoganyPlanks.getRegistryName().getPath(), purhoganyPlanks, 0, true);
 //        VanillaWalls.add(purhoganyLog.getRegistryName().getPath(), purhoganyLog, 0, true);
     }
