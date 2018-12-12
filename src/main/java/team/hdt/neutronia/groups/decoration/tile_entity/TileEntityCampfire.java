@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.groups.decoration.tile_entity;
+package team.hdt.neutronia.groups.decoration.tile_entity;
 
 import BlockGroundCover;
 import net.minecraft.block.Block;

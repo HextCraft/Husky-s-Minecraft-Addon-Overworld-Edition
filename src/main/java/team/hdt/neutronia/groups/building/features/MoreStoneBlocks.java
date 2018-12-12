@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import team.hdt.neutronia.properties.EnumNewStoneVariants;
 
-@team.hdt.neutronia.base.new_groups.Component(name = "More Stone Blocks", icon = "minecraft:bricks")
 public class MoreStoneBlocks extends team.hdt.neutronia.base.groups.Component {
 
     //Stone Blocks

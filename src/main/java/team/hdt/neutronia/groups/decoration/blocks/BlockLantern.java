@@ -32,7 +32,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
     public static final AxisAlignedBB LANTERN_DOWN_AABB = new AxisAlignedBB(PIXEL_LENGTH * 5D, PIXEL_LENGTH * 1D, PIXEL_LENGTH * 5D, PIXEL_LENGTH * 11D, PIXEL_LENGTH * 10D, PIXEL_LENGTH * 11D);
 
     public BlockLantern(String name) {
-        super(name, Material.IRON);
+        super(name + "_lantern", Material.IRON);
         setCreativeTab(CreativeTabs.DECORATIONS);
         setLightLevel(1f);
 

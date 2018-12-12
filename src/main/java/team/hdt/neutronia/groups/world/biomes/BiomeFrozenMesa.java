@@ -1,7 +1,7 @@
 /*
-package net.hdt.neutronia.groups.world.biomes;
+package team.hdt.neutronia.groups.world.biomes;
 
-import net.hdt.neutronia.groups.building.features.FrostedBlocks;
+import team.hdt.neutronia.groups.building.features.FrostedBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

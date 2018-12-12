@@ -72,7 +72,7 @@ public class NGroups {
                 .addComponent(new NoPotionShift())
                 .addComponent(new ShulkerBoxTooltip())
                 .addComponent(new VisualStatDisplay())
-                .addComponent(new ConsoleHudFeatures())
+//                .addComponent(new ConsoleHudFeatures())
                 .enabled(isClient())
                 .enabledByDefault(isClient())
                 .register();
@@ -240,7 +240,6 @@ public class NGroups {
                 .addComponent(new ImprovedFlee())
                 .addComponent(new MobEating())
                 .addComponent(new MoreTempting())
-                .addComponent(new MossGeneration())
                 .addComponent(new Sinkholes())
                 .addComponent(new VisibleStorms())
                 .addComponent(new ToolEffTweaks())

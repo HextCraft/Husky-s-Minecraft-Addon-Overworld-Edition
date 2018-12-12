@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.groups.world.world.gen;
+package team.hdt.neutronia.groups.world.world.gen;
 
 import BlockRockFormation;
 import net.minecraft.block.Block;

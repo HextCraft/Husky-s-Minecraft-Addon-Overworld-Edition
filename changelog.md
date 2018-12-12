@@ -165,14 +165,16 @@
 #### Features
 * Added some new cactus plants for the desert
 
-## 0.9.0 - The Holiday Update
+## 0.9.0 - The PVP Revamp
 
-### 0.9.1 - The Halloween Update
+## 0.10.0 - The Holiday Update
 
-### 0.9.2 - The Christmas Update
+### 0.10.1 - The Halloween Update
 
-### 0.9.3 - The Valentine Update
+### 0.10.2 - The Christmas Update
 
-### 0.9.4 - The Easter Update
+### 0.10.3 - The Valentine Update
 
-## 0.10.0 - The Season Update
+### 0.10.4 - The Easter Update
+
+## 0.11.0 - The Season Update

@@ -3,7 +3,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:block/parsiolite_crystal_block"
+      "all": "neutronia:block/prasiolite_crystal_block"
     }
   },
   "variants": {

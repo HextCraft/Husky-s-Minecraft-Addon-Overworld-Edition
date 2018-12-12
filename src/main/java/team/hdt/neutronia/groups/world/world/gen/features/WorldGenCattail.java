@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.groups.world.world.gen;
+package team.hdt.neutronia.groups.world.world.gen;
 
 import BlockCattail;
 import net.minecraft.block.material.Material;

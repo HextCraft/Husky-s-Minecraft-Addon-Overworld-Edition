@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.groups.decoration.blocks;
+package team.hdt.neutronia.groups.decoration.blocks;
 
 import java.util.Random;
 

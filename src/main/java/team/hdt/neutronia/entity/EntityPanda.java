@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.entity;
+package team.hdt.neutronia.entity;
 
 import LibMisc;
 import net.minecraft.entity.passive.EntityWaterMob;

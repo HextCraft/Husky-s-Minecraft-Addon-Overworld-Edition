@@ -4,14 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import team.hdt.neutronia.base.groups.Component;
-import team.hdt.neutronia.base.groups.ComponentRegistry;
 import team.hdt.neutronia.base.groups.GroupLoader;
 import team.hdt.neutronia.base.handler.server.DimensionConfig;
 import team.hdt.neutronia.groups.building.features.MoreStoneBlocks;
 import team.hdt.neutronia.groups.world.blocks.BlockStalagmite;
 import team.hdt.neutronia.groups.world.world.StalagmiteGenerator;
 
-@ComponentRegistry(name = "Stalagmite", iconStack = "minecraft:bricks")
 public class Stalagmite extends Component {
 
     public static Block stone_stalagmite, granite_stalagmite, diorite_stalagmite,

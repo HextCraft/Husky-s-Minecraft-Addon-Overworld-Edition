@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.entity.items;
+package team.hdt.neutronia.entity.items;
 
 import java.util.List;
 

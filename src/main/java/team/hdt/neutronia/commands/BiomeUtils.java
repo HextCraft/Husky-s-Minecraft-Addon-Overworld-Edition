@@ -60,7 +60,7 @@ public class BiomeUtils {
                 if (Character.isUpperCase(c) && Character.isLowerCase(pre) && Character.isAlphabetic(pre)) {
                     fixed.append(" ");
                 }
-                fixed.append(String.valueOf(c));
+                fixed.append(c);
                 pre = c;
             }
 

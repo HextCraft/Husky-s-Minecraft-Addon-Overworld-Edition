@@ -42,7 +42,6 @@ public class GuiGroupList extends GuiScreen {
     private GuiTextField search;
     private boolean sorted = false;
     private SortType sortType = SortType.NORMAL;
-
     /**
      * @param mainMenu
      */
@@ -60,7 +59,7 @@ public class GuiGroupList extends GuiScreen {
     public void initGui() {
         int slotHeight = 30;
         for (Group group : groups) {
-            listWidth = Math.max(listWidth, getFontRenderer().getStringWidth(group.getName()) + 10);
+            listWidth = Math.max(listWidth, getFontRenderer().getStringWidth(group.getName()) + 31);
         }
         listWidth = Math.min(listWidth, 160);
         this.modList = new GuiSlotGroupList(this, groups, listWidth, slotHeight);
@@ -183,9 +182,9 @@ public class GuiGroupList extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.modList.drawScreen(mouseX, mouseY, partialTicks);
-        if (this.modInfo != null)
+        if (this.modInfo != null){
             this.modInfo.drawScreen(mouseX, mouseY, partialTicks);
-
+        }
         int left = ((this.width - this.listWidth - 38) / 2) + this.listWidth + 30;
         this.drawCenteredString(this.fontRenderer, "Groups", left, 16, 0xFFFFFF);
         super.drawScreen(mouseX, mouseY, partialTicks);

@@ -192,7 +192,7 @@ public class VisibleStorms extends Component {
     @Override
     public String[] getIncompatibleMods() {
         return new String[]{
-                ""
+                "bwt"
         };
     }
 

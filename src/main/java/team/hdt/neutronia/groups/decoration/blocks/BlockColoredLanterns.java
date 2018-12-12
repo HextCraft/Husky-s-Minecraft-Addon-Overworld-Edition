@@ -1,9 +1,9 @@
 /*
-package net.hdt.neutronia.blocks.overworld;
+package team.hdt.neutronia.blocks.overworld;
 
-import net.hdt.neutronia.blocks.base.BlockColoredAlt;
+import team.hdt.neutronia.blocks.base.BlockColoredAlt;
 import NBlocks;
-import net.hdt.neutronia.init.NCreativeTabs;
+import team.hdt.neutronia.init.NCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumDyeColor;

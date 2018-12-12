@@ -1,5 +1,6 @@
 package team.hdt.neutronia.base.blocks;
 
+import team.hdt.huskylib.block.BlockMod;
 import team.hdt.huskylib.recipe.RecipeHandler;
 import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;

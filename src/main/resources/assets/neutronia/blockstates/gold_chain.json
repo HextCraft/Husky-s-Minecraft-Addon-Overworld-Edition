@@ -10,6 +10,11 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{}]
+    "inventory": {
+      "model": "item/generated",
+      "textures": {
+        "layer0": "neutronia:items/iron_chain"
+      }
+    }
   }
 }

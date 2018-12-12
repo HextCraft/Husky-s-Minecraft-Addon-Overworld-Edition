@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.groups.world.world.gen.features;
+package team.hdt.neutronia.groups.world.world.gen.features;
 
 import com.mushroom.midnight.Midnight;
 import com.mushroom.midnight.common.block.BlockMidnightLeaves;

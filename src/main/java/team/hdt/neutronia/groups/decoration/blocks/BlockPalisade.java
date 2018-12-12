@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -17,6 +18,7 @@ public class BlockPalisade extends BlockNeutroniaFence {
     public BlockPalisade(String name, IBlockState state) {
         super(name, state);
         setDefaultState(this.blockState.getBaseState().withProperty(POST, false).withProperty(POST_TOP, false).withProperty(NORTH, false).withProperty(EAST, false).withProperty(SOUTH, false).withProperty(WEST, false));
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override

@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.advancement.criterion;
+package team.hdt.neutronia.advancement.criterion;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

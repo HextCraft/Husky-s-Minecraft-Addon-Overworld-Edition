@@ -4,7 +4,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package net.hdt.neutronia.entity.ai;
+package team.hdt.neutronia.entity.ai;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityLookHelper;

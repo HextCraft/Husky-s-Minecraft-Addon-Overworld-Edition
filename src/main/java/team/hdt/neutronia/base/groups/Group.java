@@ -42,6 +42,11 @@ public class Group implements Comparable<Group> {
         return new Builder();
     }
 
+    public static Group createGroup(Builder builder) {
+        GroupLoader.registerGroup(new Group(builder));
+        return new Group(builder);
+    }
+
     public void registerComponent(Component component, boolean enabledByDefault) {
         registerComponent(component, convertName(component.getClass().getSimpleName()), enabledByDefault);
     }

@@ -4,7 +4,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package net.hdt.neutronia.entity;
+package team.hdt.neutronia.entity;
 
 import java.util.Iterator;
 import java.util.List;

@@ -28,11 +28,7 @@ public class GrassPath extends Component {
         Item item = stack.getItem();
         if (!item.getToolClasses(stack).contains("shovel"))
             return -1;
-        if (!HCMovement.dirtpathQuality) {
-            return 3;
-        } else {
-            return item.getHarvestLevel(stack, "shovel", null, null);
-        }
+        return item.getHarvestLevel(stack, "shovel", null, null);
     }
 
     @Override

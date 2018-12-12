@@ -1,10 +1,10 @@
 /*
-package net.hdt.neutronia.groups.world.features.overworld;
+package team.hdt.neutronia.groups.world.features.overworld;
 
 import BlockNeutroniaButton;
 import Reference;
-import net.hdt.neutronia.groups.decoration.blocks.*;
-import net.hdt.neutronia.groups.world.blocks.*;
+import team.hdt.neutronia.groups.decoration.blocks.*;
+import team.hdt.neutronia.groups.world.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;

@@ -10,7 +10,12 @@ import team.hdt.neutronia.base.blocks.INeutroniaBlock;
 public class BlockChain extends BlockMod implements INeutroniaBlock {
 
     public BlockChain(String name) {
-        super(name, Material.IRON);
+        super(name + "_chain", Material.IRON);
+        setCreativeTab(CreativeTabs.DECORATIONS);
+    }
+
+    public BlockChain(Material material, String name) {
+        super(name, material);
         setCreativeTab(CreativeTabs.DECORATIONS);
     }
 

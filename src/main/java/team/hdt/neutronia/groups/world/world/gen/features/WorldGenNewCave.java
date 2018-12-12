@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorSimplex;
 import team.hdt.neutronia.groups.world.world.gen.SimplexNoiseGenerator3D;
 
@@ -198,8 +197,8 @@ public class WorldGenNewCave extends MapGenBase {
     }
 
     /**
-     * Mod of {@link MapGenCaves#addTunnel} by PersonTheCat. Supports object-specific replacement
-     * of most variables, as well as a few new equations to support additional shapes, noise control,
+     * Supports object-specific replacement of most variables,
+     * as well as a few new equations to support additional shapes, noise control,
      * and block replacement alternatives.
      *
      * @param seed          The world's seed. Used to create a local Random object for regen parity.

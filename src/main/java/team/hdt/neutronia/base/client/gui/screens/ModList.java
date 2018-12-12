@@ -84,7 +84,6 @@ public class ModList extends GuiScreen {
     private GuiTextField search;
     private boolean sorted = false;
     private SortType sortType = SortType.NORMAL;
-
     /**
      * @param mainMenu
      */
@@ -297,7 +296,7 @@ public class ModList extends GuiScreen {
         updateCache();
     }
 
-    public boolean modIndexSelected(int index) {
+    boolean modIndexSelected(int index) {
         return index == selected;
     }
 
@@ -447,7 +446,7 @@ public class ModList extends GuiScreen {
         private Dimension logoDims;
         private List<ITextComponent> lines = null;
 
-        public Info(int width, List<String> lines, @Nullable ResourceLocation logoPath, Dimension logoDims) {
+        Info(int width, List<String> lines, @Nullable ResourceLocation logoPath, Dimension logoDims) {
             super(ModList.this.getMinecraftInstance(),
                     width,
                     ModList.this.height,

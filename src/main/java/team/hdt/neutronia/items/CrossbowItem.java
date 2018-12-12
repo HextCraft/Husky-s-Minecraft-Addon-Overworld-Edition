@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.items;
+package team.hdt.neutronia.items;
 
 import NEnchantments;
 import NSounds;

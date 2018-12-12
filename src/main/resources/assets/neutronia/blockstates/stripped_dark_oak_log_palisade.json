@@ -1,0 +1,64 @@
+{
+  "forge_marker": 1,
+  "defaults":{
+    "textures": {
+      "side": "neutronia:block/stripped_dark_oak_log_palisade",
+      "end": "neutronia:block/stripped_dark_oak_log_palisade_end"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "neutronia:palisade_post" },
+    "post": {
+      "true": {
+        "submodel": "neutronia:palisade_post"
+      },
+      "false": {}
+    },
+    "post_top": {
+      "true": {
+        "submodel": "neutronia:palisade_post"
+      },
+      "false": {}
+    },
+    "north": {
+      "true": {
+        "submodel": "neutronia:palisade_side",
+        "uvlock": true,
+        "y": 0
+      },
+      "false": {
+        "submodel": "neutronia:palisade_post"
+      }
+    },
+    "east": {
+      "true": {
+        "submodel": "neutronia:palisade_side",
+        "y": 90,
+        "uvlock": true
+      },
+      "false": {
+        "submodel": "neutronia:palisade_post"
+      }
+    },
+    "south": {
+      "true": {
+        "submodel": "neutronia:palisade_side",
+        "y": 180,
+        "uvlock": true
+      },
+      "false": {
+        "submodel": "neutronia:palisade_post"
+      }
+    },
+    "west": {
+      "true": {
+        "submodel": "neutronia:palisade_side",
+        "y": 270,
+        "uvlock": true
+      },
+      "false": {
+        "submodel": "neutronia:palisade_post"
+      }
+    }
+  }
+}

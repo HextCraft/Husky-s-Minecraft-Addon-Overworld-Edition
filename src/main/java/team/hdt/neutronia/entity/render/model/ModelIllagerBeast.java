@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.entity.render.model;
+package Gold.entity.render.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

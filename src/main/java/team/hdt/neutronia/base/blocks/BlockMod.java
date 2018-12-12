@@ -31,22 +31,6 @@ public abstract class BlockMod extends Block implements IModBlock {
         setSoundType(SoundType.STONE);
     }
 
-    public BlockMod(Builder properties, String name, String... variants) {
-        super(properties.material, properties.mapColor);
-        this.blockSoundType = properties.soundType;
-        this.lightValue = properties.lightValue;
-        this.blockResistance = properties.resistance;
-        this.blockHardness = properties.hardness;
-        this.needsRandomTick = properties.needsRandomTick;
-        this.slipperiness = properties.slipperiness;
-
-        if (variants.length == 0)
-            variants = new String[]{name};
-
-        bareName = name;
-        this.variants = variants;
-    }
-
     public boolean registerInConstruction() {
         return true;
     }

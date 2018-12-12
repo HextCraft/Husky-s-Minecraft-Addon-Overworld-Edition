@@ -117,7 +117,7 @@ public class WorldGenPVJDungeon extends WorldGenerator {
             if (tileentity instanceof TileEntityMobSpawner) {
                 ((TileEntityMobSpawner) tileentity).getSpawnerBaseLogic().setEntityId(this.pickMobSpawner(rand));
             } else {
-                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", Integer.valueOf(pos.getX()), Integer.valueOf(pos.getY()), Integer.valueOf(pos.getZ()));
+                LOGGER.error("Failed to fetch mob spawner entity at ({}, {}, {})", pos.getX(), pos.getY(), pos.getZ());
             }
 
             return true;

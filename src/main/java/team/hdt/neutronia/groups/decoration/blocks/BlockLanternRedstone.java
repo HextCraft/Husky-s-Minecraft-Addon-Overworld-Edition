@@ -35,21 +35,11 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
     public static IBlockState onBlock, offBlock;
     private final boolean isOn;
 
-    public BlockLanternRedstone(String name, boolean isOn, IBlockState on, IBlockState off) {
-        super(name, Material.IRON);
-        this.isOn = isOn;
-        onBlock = on;
-        offBlock = off;
-        if (isOn) this.setLightLevel(1.0F);
-        setCreativeTab(CreativeTabs.DECORATIONS);
-        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, Boolean.FALSE));
-    }
-
     public BlockLanternRedstone(String name, boolean isOn) {
-        super(name, Material.IRON);
+        super(isOn ? "lit_" + name + "_redstone_lantern" : name + "_redstone_lantern", Material.IRON);
         this.isOn = isOn;
         if (isOn) this.setLightLevel(1.0F);
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(CreativeTabs.REDSTONE);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, Boolean.FALSE));
     }
 

@@ -1,5 +1,5 @@
 /*
-package net.hdt.neutronia.init;
+package team.hdt.neutronia.init;
 
 public class NCriteriaTriggers {
 
