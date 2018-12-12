@@ -1,4 +1,4 @@
-package team.hdt.neutronia.groups.building.blocks.tileEntity;
+package team.hdt.neutronia.groups.world.blocks.tileEntity;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -45,7 +45,7 @@ public class TileEntityJigsaw extends TileEntity {
 
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-        writeToNBT(compound);
+        super.writeToNBT(compound);
         compound.setString("attachement_type", this.attachementType.toString());
         compound.setString("target_pool", this.targetPool.toString());
         compound.setString("final_state", this.finalState);
