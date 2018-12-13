@@ -33,4 +33,5 @@ public class BlockJigsaw extends BlockFacing implements INeutroniaBlock, ITileEn
             return false;
         }
     }
+
 }
