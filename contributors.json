@@ -1,0 +1,38 @@
+{
+  "mod_capes": [
+    {
+      "name": "Vinny",
+      "id": "75c298f9-27c8-415b-9a16-329e3884054b"
+    },
+    {
+      "name": "Olivia",
+      "id": "b344687b-ec74-479a-9540-1aa8ccb13e92",
+      "cape": true,
+      "elytra": true
+    }
+  ],
+  "team_capes": [
+    {
+      "name": "Pugz",
+      "id": "bf3379cd-efb1-4194-91ba-408bbbb12055"
+    },
+    {
+      "name": "Paul",
+      "id": "ddb01615-c982-4fa0-99b4-0aef9480751c"
+    },
+    {
+      "name": "Bee",
+      "id": "5dfe80bb-40e5-4bec-a862-89df71868301"
+    },
+    {
+      "name": "Endergized",
+      "id": "336375e1-84da-4c08-87b3-40be8c872896"
+    }
+  ],
+  "mca_capes": [
+    {
+      "name": "Cameron",
+      "id": "caaeff74-cbbc-415c-9c22-21e65ad6c33f"
+    }
+  ]
+}

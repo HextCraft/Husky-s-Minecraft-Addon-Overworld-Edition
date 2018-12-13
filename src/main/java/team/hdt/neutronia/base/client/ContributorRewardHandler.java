@@ -20,6 +20,7 @@ import team.hdt.neutronia.base.lib.LibObfuscation;
 import team.hdt.neutronia.entity.render.layer.LayerCustomVinny;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.*;
@@ -35,12 +36,25 @@ public class ContributorRewardHandler implements ISelectiveResourceReloadListene
 
     private static final Set<EntityPlayer> done = Collections.newSetFromMap(new WeakHashMap<>());
 
+    private static URL contributorJsonFile;
+    private static InputStream file;
+
+    static {
+        try {
+            contributorJsonFile = new URL("https://github.com/HuskysDevelopmentTeam/Neutronia/blob/module-system/contributors.properties");
+            file = contributorJsonFile.openStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static int localPatronTier = 0;
     public static String featuredPatron = "";
 
     public static void init() {
         MinecraftForge.EVENT_BUS.register(ContributorRewardHandler.class);
         new ThreadContributorListLoader();
+        System.out.print(file.toString() + "\n");
     }
 
     @SubscribeEvent
