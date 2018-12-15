@@ -30,7 +30,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import team.hdt.neutronia.base.util.handlers.LootTableHandler;
 import team.hdt.neutronia.entity.ai.EntityAIMummyAttack;
-import team.hdt.neutronia.init.NItems;
 
 import javax.annotation.Nullable;
 import java.util.Calendar;
@@ -226,12 +225,7 @@ public class EntityMummy extends EntityMob {
         super.setEquipmentBasedOnDifficulty(difficulty);
 
         if (this.rand.nextFloat() < (this.world.getDifficulty() == EnumDifficulty.HARD ? 0.05F : 0.01F)) {
-            int i = this.rand.nextInt(3);
-
-            if (i == 0)
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(NItems.ancientSword));
-            else
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
+            this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Item.getItemFromBlock(Blocks.SAND)));
         }
     }
 
@@ -283,11 +277,6 @@ public class EntityMummy extends EntityMob {
         if (this.isChild())
             f = (float) ((double) f - 0.81D);
         return f;
-    }
-
-    @Override
-    protected boolean canEquipItem(ItemStack stack) {
-        return stack.getItem() == NItems.ancientSword;
     }
 
     @Override

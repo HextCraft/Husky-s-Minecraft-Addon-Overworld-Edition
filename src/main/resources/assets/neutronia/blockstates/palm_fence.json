@@ -1,0 +1,48 @@
+{
+  "forge_marker": 1,
+  "defaults":{
+    "textures": {
+      "texture": "neutronia:block/palm_planks"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "fence_inventory" },
+    "up": {
+      "true": {
+        "submodel": "fence_post"
+      },
+      "false": {}
+    },
+    "north": {
+      "true": {
+        "submodel": "fence_side",
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "east": {
+      "true": {
+        "submodel": "fence_side",
+        "y": 90,
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "south": {
+      "true": {
+        "submodel": "fence_side",
+        "y": 180,
+        "uvlock": true
+      },
+      "false": {}
+    },
+    "west": {
+      "true": {
+        "submodel": "fence_side",
+        "y": 270,
+        "uvlock": true
+      },
+      "false": {}
+    }
+  }
+}

@@ -6,21 +6,29 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import team.hdt.neutronia.groups.world.properties.CrystalVariant;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class CrystalClusterFeature extends NeutroniaAbstractFeature {
     private final int radius;
     private final int maxHeight;
 
-    private final IBlockState rock;
-    private final IBlockState crystal;
+    private List<IBlockState> rock = new ArrayList<>();
+    private List<IBlockState> crystal = new ArrayList<>();
+    private CrystalVariant variant;
 
-    public CrystalClusterFeature(int radius, int maxHeight, IBlockState rock, IBlockState crystal) {
+    public CrystalClusterFeature(int radius, int maxHeight, Map<IBlockState, IBlockState> crystalAndRock, CrystalVariant variant) {
         this.radius = radius;
         this.maxHeight = maxHeight;
-        this.rock = rock;
-        this.crystal = crystal;
+        this.variant = variant;
+        crystalAndRock.forEach((state, state2) -> {
+           rock.add(state);
+           crystal.add(state2);
+        });
     }
 
     @Override
@@ -90,11 +98,11 @@ public class CrystalClusterFeature extends NeutroniaAbstractFeature {
         int originY = mutablePos.getY();
         for (int offsetY = 0; offsetY < height; offsetY++) {
             mutablePos.setY(originY + offsetY);
-            this.trySetBlock(world, mutablePos, this.rock);
+            this.trySetBlock(world, mutablePos, this.rock.get(new Random().nextInt(variant.getId())));
         }
         if (rand.nextInt(2) == 0) {
             mutablePos.setY(originY + height);
-            this.trySetBlock(world, mutablePos, this.crystal);
+            this.trySetBlock(world, mutablePos, this.crystal.get(new Random().nextInt(variant.getId())));
         }
     }
 

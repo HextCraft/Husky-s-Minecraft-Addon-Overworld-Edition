@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:custom_chest",
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "facing=north": [{}],
+    "facing=south": [{}],
+    "facing=east": [{}],
+    "facing=west": [{}]
+  }
+}

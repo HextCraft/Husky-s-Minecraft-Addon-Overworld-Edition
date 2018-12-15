@@ -40,17 +40,6 @@ public class MoreBuildingBlocks extends Component {
         smallBrickTile = new BlockNeutroniaBase(Material.ROCK, "small_brick_tile");
 
         ropeCoil = new BlockNeutroniaPillar(Material.CLOTH, "rope_coil");
-        darkThatch = new BlockNeutroniaBase(Material.GRASS, "dark_thatch");
-        thatch = new BlockNeutroniaBase(Material.GRASS, "thatch");
-
-        blackRoof = new BlockNeutroniaBase(Material.ROCK, "black_roof");
-        blueRoof = new BlockNeutroniaBase(Material.ROCK, "blue_roof");
-        brownRoof = new BlockNeutroniaBase(Material.ROCK, "brown_roof");
-        greenRoof = new BlockNeutroniaBase(Material.ROCK, "green_roof");
-        grayRoof = new BlockNeutroniaBase(Material.ROCK, "gray_roof");
-        lightBlueRoof = new BlockNeutroniaBase(Material.ROCK, "light_blue_roof");
-        redRoof = new BlockNeutroniaBase(Material.ROCK, "red_roof");
-        whiteRoof = new BlockNeutroniaBase(Material.ROCK, "white_roof");
 
         chiseledIce = new BlockChiseledIce();
         packedIceBricks = new BlockNeutroniaBase(Material.PACKED_ICE, "packed_ice_bricks");

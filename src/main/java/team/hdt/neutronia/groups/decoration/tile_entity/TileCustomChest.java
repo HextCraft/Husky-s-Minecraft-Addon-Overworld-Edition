@@ -28,7 +28,7 @@ public class TileCustomChest extends TileEntityChest {
     public static VanillaDoubleChestItemHandler getDoubleChestHandler(TileCustomChest chest) {
         World world = chest.getWorld();
         BlockPos pos = chest.getPos();
-        if (world == null || pos == null || !world.isBlockLoaded(pos))
+        if (!world.isBlockLoaded(pos))
             return null; // Still loading
 
         Block blockType = chest.getBlockType();

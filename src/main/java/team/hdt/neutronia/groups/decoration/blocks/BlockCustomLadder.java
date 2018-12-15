@@ -104,7 +104,8 @@ public class BlockCustomLadder extends BlockMod implements INeutroniaBlock {
     }
 
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    @Override
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 

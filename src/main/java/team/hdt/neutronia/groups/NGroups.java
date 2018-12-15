@@ -274,7 +274,7 @@ public class NGroups {
                 .addComponent(new CaveBiomes())
                 .addComponent(new CherryTrees())
 //                .addComponent(new Corals())
-                .addComponent(new CrystalsAndWorldgen())
+                .addComponent(new CrystalsAndWorldGen())
 //                .addComponent(new DeadTree())
                 .addComponent(new JigsawBlock())
                 .addComponent(new MineshaftGeneration())

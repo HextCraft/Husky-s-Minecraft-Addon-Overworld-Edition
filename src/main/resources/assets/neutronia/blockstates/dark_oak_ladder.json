@@ -9,7 +9,20 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "normal": [{}],
+    "facing": {
+      "north": {
+        "y": 0
+      },
+      "south": {
+        "y": 180
+      },
+      "east": {
+        "y": 90
+      },
+      "west": {
+        "y": 270
+      }
+    },
     "inventory": [{}]
   }
 }

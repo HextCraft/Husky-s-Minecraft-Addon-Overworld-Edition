@@ -12,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
 import team.hdt.neutronia.blocks.base.BlockModBush;
-import team.hdt.neutronia.groups.dimensions.features.AlienOverworld;
 
 import javax.annotation.Nonnull;
 import java.util.Collections;
@@ -39,11 +38,6 @@ public class BlockNeutroniaPlant extends BlockModBush implements IShearable {
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return BOUNDS;
-    }
-
-    @Override
-    protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == AlienOverworld.ALIEN_DIRT || state.getBlock() == AlienOverworld.ALIEN_GRASS;
     }
 
     @Override

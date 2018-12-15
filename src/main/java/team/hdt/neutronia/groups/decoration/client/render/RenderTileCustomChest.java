@@ -25,7 +25,7 @@ public class RenderTileCustomChest extends TileEntitySpecialRenderer<TileCustomC
     public RenderTileCustomChest() {
         if (GlobalConfig.enableSeasonalFeatures) {
             Calendar calendar = Calendar.getInstance();
-            xmas = calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DAY_OF_MONTH) >= 24 && calendar.get(Calendar.DAY_OF_MONTH) <= 26;
+            xmas = calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DAY_OF_MONTH) >= 14 && calendar.get(Calendar.DAY_OF_MONTH) <= 16;
         }
     }
 
