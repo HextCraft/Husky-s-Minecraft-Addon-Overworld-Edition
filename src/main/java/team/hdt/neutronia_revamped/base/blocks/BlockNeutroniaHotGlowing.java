@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import java.util.Random;
 

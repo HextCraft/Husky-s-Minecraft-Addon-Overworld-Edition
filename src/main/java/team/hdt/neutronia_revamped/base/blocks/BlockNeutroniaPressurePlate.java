@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.item.ItemModBlock;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
@@ -17,7 +15,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.huskylib.item.ItemModBlock;
+import team.hdt.huskylib.util.ProxyRegistry;
 import team.hdt.neutronia_legacy.base.lib.LibMisc;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import java.util.List;
 

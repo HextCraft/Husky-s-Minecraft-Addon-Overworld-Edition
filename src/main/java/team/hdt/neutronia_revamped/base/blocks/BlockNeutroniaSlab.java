@@ -1,8 +1,9 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.block.BlockModSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import team.hdt.huskylib.block.BlockModSlab;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockNeutroniaSlab extends BlockModSlab implements INeutroniaBlock {
 

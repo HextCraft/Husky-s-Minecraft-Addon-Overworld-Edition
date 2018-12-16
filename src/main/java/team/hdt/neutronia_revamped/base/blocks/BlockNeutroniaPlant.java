@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -11,7 +11,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
-import team.hdt.neutronia_legacy.blocks.base.BlockModBush;
 
 import javax.annotation.Nonnull;
 import java.util.Collections;

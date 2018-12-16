@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.groups.building.blocks;
+package team.hdt.neutronia_revamped.blocks;
 
 import net.minecraft.block.material.Material;
 import team.hdt.huskylib.block.BlockFacing;

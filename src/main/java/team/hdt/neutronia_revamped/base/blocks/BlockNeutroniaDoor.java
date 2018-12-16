@@ -1,6 +1,7 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.material.Material;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockNeutroniaDoor extends BlockModDoor implements INeutroniaBlock {
 

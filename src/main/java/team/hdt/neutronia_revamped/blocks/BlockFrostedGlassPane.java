@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.groups.building.blocks;
+package team.hdt.neutronia_revamped.blocks;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -6,7 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import team.hdt.neutronia_legacy.base.blocks.BlockNeutroniaPane;
+import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaPane;
 
 public class BlockFrostedGlassPane extends BlockNeutroniaPane {
 

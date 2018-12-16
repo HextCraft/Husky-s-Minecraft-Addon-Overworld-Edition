@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.recipe.RecipeHandler;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
@@ -20,6 +18,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
+import team.hdt.huskylib.recipe.RecipeHandler;
+import team.hdt.huskylib.util.ProxyRegistry;
 
 public abstract class MRSlab extends BlockSlab {
     public static final PropertyEnum<MRSlab.Variant> VARIANT = PropertyEnum.create("variant", MRSlab.Variant.class);
@@ -40,7 +40,7 @@ public abstract class MRSlab extends BlockSlab {
         IBlockState iblockstate = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
         this.setDefaultState(iblockstate);
         if (!this.isDouble()) {
-            iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
+            iblockstate.withProperty(HALF, EnumBlockHalf.BOTTOM);
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class MRSlab extends BlockSlab {
         IBlockState iblockstate = this.blockState.getBaseState().withProperty(VARIANT, Variant.DEFAULT);
         this.setDefaultState(iblockstate);
         if (!this.isDouble()) {
-            iblockstate.withProperty(HALF, BlockSlab.EnumBlockHalf.BOTTOM);
+            iblockstate.withProperty(HALF, EnumBlockHalf.BOTTOM);
         }
     }
 

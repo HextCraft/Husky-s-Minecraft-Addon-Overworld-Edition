@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.recipe.RecipeHandler;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
@@ -16,6 +14,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.huskylib.recipe.RecipeHandler;
+import team.hdt.huskylib.util.ProxyRegistry;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import javax.annotation.Nullable;
 

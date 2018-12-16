@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import java.util.Random;
 

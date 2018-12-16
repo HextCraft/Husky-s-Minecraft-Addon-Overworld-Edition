@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.item.ItemModBlock;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;
@@ -17,6 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.huskylib.item.ItemModBlock;
+import team.hdt.huskylib.util.ProxyRegistry;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaBlock {
 

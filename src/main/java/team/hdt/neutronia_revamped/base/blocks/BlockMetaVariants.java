@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.block.BlockMod;
-import team.hdt.huskylib.interf.IVariantEnumHolder;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -13,6 +11,8 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.huskylib.interf.IVariantEnumHolder;
 
 import java.util.Locale;
 

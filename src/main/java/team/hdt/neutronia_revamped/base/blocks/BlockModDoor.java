@@ -1,7 +1,5 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.interf.IModBlock;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
@@ -11,7 +9,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import team.hdt.neutronia_legacy.base.items.ItemNeutroniaDoor;
+import team.hdt.huskylib.interf.IModBlock;
+import team.hdt.huskylib.util.ProxyRegistry;
+import team.hdt.neutronia_revamped.items.ItemNeutroniaDoor;
 
 public abstract class BlockModDoor extends BlockDoor implements IModBlock {
 

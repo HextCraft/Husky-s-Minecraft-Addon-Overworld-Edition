@@ -1,5 +1,6 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -10,6 +11,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 
@@ -21,6 +24,15 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
         setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
     }
 
+    public BlockNeutroniaPillar(Material material, String name, CreativeTabs creativetab, float hardnesss, float resistance, SoundType soundType) {
+        super(name, material);
+        setCreativeTab(creativetab);
+        setHardness(hardnesss);
+        setResistance(resistance);
+        setLightLevel(0.0F);
+        setSoundType(soundType);
+    }
+
     public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs) {
         super(name, materialIn);
         setCreativeTab(creativeTabs);
@@ -28,8 +40,8 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
     }
 
     @Override
-    public boolean rotateBlock(net.minecraft.world.World world, BlockPos pos, EnumFacing axis) {
-        net.minecraft.block.state.IBlockState state = world.getBlockState(pos);
+    public boolean rotateBlock(World world, BlockPos pos, EnumFacing axis) {
+        IBlockState state = world.getBlockState(pos);
         for (net.minecraft.block.properties.IProperty<?> prop : state.getProperties().keySet()) {
             if (prop.getName().equals("axis")) {
                 world.setBlockState(pos, state.cycleProperty(prop));

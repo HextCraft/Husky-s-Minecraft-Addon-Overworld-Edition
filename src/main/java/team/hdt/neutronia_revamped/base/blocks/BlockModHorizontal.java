@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -10,6 +10,8 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockModHorizontal extends BlockMod implements INeutroniaBlock {
 

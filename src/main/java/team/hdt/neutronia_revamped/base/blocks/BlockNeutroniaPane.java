@@ -1,4 +1,4 @@
-package team.hdt.neutronia_legacy.base.blocks;
+package team.hdt.neutronia_revamped.base.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPane;
@@ -21,6 +21,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.huskylib.block.BlockMod;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import java.util.List;
 

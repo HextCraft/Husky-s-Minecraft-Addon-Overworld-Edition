@@ -1,6 +1,5 @@
-package team.hdt.neutronia_legacy.groups.building.blocks;
+package team.hdt.neutronia_revamped.blocks;
 
-import team.hdt.huskylib.block.BlockMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -12,7 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import team.hdt.neutronia_legacy.base.blocks.INeutroniaBlock;
+import team.hdt.huskylib.block.BlockMod;
 
 public class BlockFrostedGlass extends BlockMod implements INeutroniaBlock {
 
