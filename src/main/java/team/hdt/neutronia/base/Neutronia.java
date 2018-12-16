@@ -6,12 +6,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import org.apache.logging.log4j.Logger;
-import team.hdt.neutronia.base.lib.LibMisc;
 import team.hdt.neutronia.base.proxy.CommonProxy;
-import team.hdt.neutronia.base.util.Reference;
 import team.hdt.neutronia.events.ILifeCycleHandler;
 import team.hdt.neutronia.events.handlers.EventHandlers;
 import team.hdt.neutronia.init.NEnchantments;
@@ -21,15 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static team.hdt.neutronia.base.util.Reference.*;
-
-@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
+//@Mod(modid = MOD_ID, name = NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = LibMisc.GUI_FACTORY, updateJSON = UPDATE_JSON)
 public class Neutronia {
 
     public static Logger LOGGER;
-    @Mod.Instance
+//    @Mod.Instance
     public static Neutronia instance;
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
+//    @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
     public static CommonProxy proxy;
     private List<ILifeCycleHandler> handlers = new ArrayList<ILifeCycleHandler>() {{
         add(new EventHandlers());
