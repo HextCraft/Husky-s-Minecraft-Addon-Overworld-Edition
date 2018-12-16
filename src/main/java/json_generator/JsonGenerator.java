@@ -22,7 +22,7 @@ import java.nio.file.StandardOpenOption;
 
 public class JsonGenerator {
 
-    private static String modid = "neutronia";
+    private static String modid = "neutronia_legacy";
 
     public static void main(String[] args) {
         /*for (EnumCoralColor coralColor : EnumCoralColor.values()) {
@@ -184,7 +184,7 @@ public class JsonGenerator {
 
         JsonObject defaults = new JsonObject();
         defaults.addProperty("transform", "forge:default-block");
-        defaults.addProperty("model", "neutronia:coral_fan");
+        defaults.addProperty("model", "neutronia_legacy:coral_fan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
@@ -205,7 +205,7 @@ public class JsonGenerator {
 
         JsonObject defaults2 = new JsonObject();
         defaults2.addProperty("transform", "forge:default-block");
-        defaults2.addProperty("model", "neutronia:coral_wall_fan");
+        defaults2.addProperty("model", "neutronia_legacy:coral_wall_fan");
 
         JsonObject textures2 = new JsonObject();
         textures2.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
@@ -256,7 +256,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "neutronia:block/coral_fan");
+        root.addProperty("parent", "neutronia_legacy:block/coral_fan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
@@ -282,7 +282,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "neutronia:block/coral_wall_fan");
+        root.addProperty("parent", "neutronia_legacy:block/coral_wall_fan");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("fan", textureName.getNamespace() + ":block/" + textureName.getPath());
@@ -388,7 +388,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "neutronia:block/cross");
+        root.addProperty("parent", "neutronia_legacy:block/cross");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("cross", textureName.getNamespace() + ":block/" + textureName.getPath());
@@ -1210,7 +1210,7 @@ public class JsonGenerator {
         JsonObject prop = new JsonObject();
 
         JsonObject blarg = new JsonObject();
-        blarg.addProperty("model", "neutronia:cube_all_colored");
+        blarg.addProperty("model", "neutronia_legacy:cube_all_colored");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("all", sideTextureLocation.toString());
@@ -1290,7 +1290,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", "neutronia:block/slab");
+        root.addProperty("parent", "neutronia_legacy:block/slab");
 
         JsonObject textures = new JsonObject();
         textures.addProperty("bottom", bottomTextureLocation.toString());
@@ -1302,7 +1302,7 @@ public class JsonGenerator {
 
         JsonObject root2 = new JsonObject();
         root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root2.addProperty("parent", "neutronia:block/slab_top");
+        root2.addProperty("parent", "neutronia_legacy:block/slab_top");
 
         JsonObject textures2 = new JsonObject();
         textures2.addProperty("bottom", bottomTextureLocation.toString());
@@ -1417,7 +1417,7 @@ public class JsonGenerator {
 
         JsonObject root = new JsonObject();
         root.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root.addProperty("parent", new ResourceLocation("neutronia", "block/cube_bottom_half_overlay_all").toString());
+        root.addProperty("parent", new ResourceLocation("neutronia_legacy", "block/cube_bottom_half_overlay_all").toString());
 
         JsonObject textures = new JsonObject();
         textures.addProperty("all", mainTexture.toString());
@@ -1428,7 +1428,7 @@ public class JsonGenerator {
 
         JsonObject root2 = new JsonObject();
         root2.addProperty("_comment", "Generated using Husky's JSON Generator v4.");
-        root2.addProperty("parent", new ResourceLocation("neutronia", "block/cube_top_half_overlay_all").toString());
+        root2.addProperty("parent", new ResourceLocation("neutronia_legacy", "block/cube_top_half_overlay_all").toString());
 
         JsonObject textures2 = new JsonObject();
         textures2.addProperty("all", mainTexture.toString());

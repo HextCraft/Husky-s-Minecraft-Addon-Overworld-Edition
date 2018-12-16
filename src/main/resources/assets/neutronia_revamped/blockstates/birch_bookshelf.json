@@ -1,0 +1,16 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_column",
+    "textures": {
+      "end": "blocks/planks_birch",
+      "side": "neutronia_revamped:block/bookshelf/birch"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

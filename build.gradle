@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version="${mc_version}-${major_version}.${minor_version}.${build_number}"
-group="team.hdt.neutronia"
+group="team.hdt.neutronia_legacy"
 archivesBaseName="${mod_name}"
 
 sourceCompatibility = targetCompatibility = '1.8'
