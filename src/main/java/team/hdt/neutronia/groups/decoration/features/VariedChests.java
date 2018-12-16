@@ -31,27 +31,28 @@ import team.hdt.neutronia.groups.decoration.tile_entity.TileCustomChest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class VariedChests extends Component {
 
     public static final Type CUSTOM_TYPE_NEUTRONIA = EnumHelper.addEnum(Type.class, "NEUTRONIA", new Class[0]);
     public static final Type CUSTOM_TYPE_NEUTRONIA_TRAP = EnumHelper.addEnum(Type.class, "NEUTRONIA_TRAP", new Class[0]);
 
-    public static final ResourceLocation TRAP_RESOURCE = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/trap.png");
-    public static final ResourceLocation TRAP_DOUBLE_RESOURCE = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/trap_double.png");
+    public static final ResourceLocation TRAP_RESOURCE = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/entity/chest/trap.png");
+    public static final ResourceLocation TRAP_DOUBLE_RESOURCE = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/entity/chest/trap_double.png");
 
     public static BlockCustomChest custom_chest;
     public static BlockCustomChest custom_chest_trap;
     private static boolean fixedTrappedChest = false;
-    boolean renameVanillaChests;
-    boolean addLogRecipe;
-    boolean reversionRecipe;
+    private boolean renameVanillaChests;
+    private boolean addLogRecipe;
+    private boolean reversionRecipe;
 
     private static void fixTrappedChestRecipe(IRecipe recipe) {
         if (fixedTrappedChest)
             return;
 
-        if (recipe.getRegistryName().toString().equals("minecraft:trapped_chest")) {
+        if (Objects.requireNonNull(recipe.getRegistryName()).toString().equals("minecraft:trapped_chest")) {
             List<Ingredient> ingredients = recipe.getIngredients();
             for (int i = 0; i < ingredients.size(); i++) {
                 Ingredient ingr = ingredients.get(i);
@@ -76,8 +77,8 @@ public class VariedChests extends Component {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        custom_chest = new BlockCustomChest("custom_chest", CUSTOM_TYPE_NEUTRONIA);
-//		custom_chest_trap = new BlockCustomChest("custom_chest_trap", CUSTOM_TYPE_NEUTRONIA_TRAP);
+        custom_chest = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
+//		custom_chest_trap = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
 
         registerTile(TileCustomChest.class, "neutronia_chest");
 
@@ -201,11 +202,11 @@ public class VariedChests extends Component {
 
         ChestType(String name) {
             this.name = name;
-            nrmTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/" + name + ".png");
-            dblTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/blocks/chests/" + name + "_double.png");
+            nrmTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/entity/chest/" + name + ".png");
+            dblTex = new ResourceLocation(LibMisc.PREFIX_MOD + "textures/entity/chest/" + name + "_double.png");
 
-            normalModel = new ModelResourceLocation(new ResourceLocation("neutronia", name + "_chest"), "inventory");
-            trapModel = new ModelResourceLocation(new ResourceLocation("neutronia", name + "_trapped_chest"), "inventory");
+            normalModel = new ModelResourceLocation(new ResourceLocation("neutronia", "wooden_chest"), "inventory");
+            trapModel = new ModelResourceLocation(new ResourceLocation("neutronia", "trapped_wooden_chest"), "inventory");
         }
 
         public static ChestType getType(String type) {

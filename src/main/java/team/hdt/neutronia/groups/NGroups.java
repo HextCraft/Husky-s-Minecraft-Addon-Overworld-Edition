@@ -66,7 +66,7 @@ public class NGroups {
                 .name("Client")
                 .description("This group adds components that alter the client, not needing Neutronia to be loaded on the server.")
                 .iconStack(new ItemStack(Items.ENDER_EYE))
-//                .addComponent(new BetterVanillaTextures())
+                .addComponent(new BetterVanillaTextures())
                 .addComponent(new FoodTooltip())
                 .addComponent(new MapTooltip())
                 .addComponent(new NoPotionShift())

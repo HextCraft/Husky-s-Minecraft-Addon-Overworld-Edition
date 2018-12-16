@@ -83,6 +83,12 @@
       	"files": [
       		"textures/blocks//obsidian.png"
       	]
+      },
+      {
+        "name": "Smooth Stone Slab Top",
+        "files": [
+          "textures/blocks//stone_slab_top.png"
+        ]
       }
     ]
   }

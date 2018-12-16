@@ -140,13 +140,9 @@ public class TileCustomChest extends TileEntityChest {
     }
 
     private boolean isChestAt(BlockPos posIn) {
-        if (getWorld() == null) {
-            return false;
-        } else {
-            Block block = getWorld().getBlockState(posIn).getBlock();
-            TileEntity te = getWorld().getTileEntity(posIn);
-            return block instanceof BlockChest && ((BlockChest) block).chestType == getChestType() && te instanceof TileCustomChest && ((TileCustomChest) te).chestType == chestType;
-        }
+        Block block = getWorld().getBlockState(posIn).getBlock();
+        TileEntity te = getWorld().getTileEntity(posIn);
+        return block instanceof BlockChest && ((BlockChest) block).chestType == getChestType() && te instanceof TileCustomChest && ((TileCustomChest) te).chestType == chestType;
     }
 
     @Override
