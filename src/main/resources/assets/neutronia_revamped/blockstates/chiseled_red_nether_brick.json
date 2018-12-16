@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "minerealms:blocks/smooth_red_nether_brick",
-      "side": "minerealms:blocks/chiseled_red_nether_brick"
+      "end": "neutronia_revamped:block/smooth_red_nether_brick",
+      "side": "neutronia_revamped:block/chiseled_red_nether_brick"
     },
     "model": "cube_column",
     "uvlock": true
@@ -12,14 +12,14 @@
     "filled": {
       "true": {
         "textures": {
-          "end": "minerealms:blocks/smooth_red_nether_brick",
-          "side": "minerealms:blocks/chiseled_red_nether_brick_filled"
+          "end": "neutronia_revamped:block/smooth_red_nether_brick",
+          "side": "neutronia_revamped:block/chiseled_red_nether_brick_filled"
         }
       },
       "false": {
         "textures": {
-          "end": "minerealms:blocks/smooth_red_nether_brick",
-          "side": "minerealms:blocks/chiseled_red_nether_brick"
+          "end": "neutronia_revamped:block/smooth_red_nether_brick",
+          "side": "neutronia_revamped:block/chiseled_red_nether_brick"
         }
       }
     },

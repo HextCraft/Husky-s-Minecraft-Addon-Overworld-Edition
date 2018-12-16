@@ -1,6 +1,6 @@
 package team.hdt.neutronia_revamped;
 
-public class Referece {
+public class Reference {
 
     public static final String MOD_ID = "neutronia_revamped";
     public static final String MOD_NAME = "Neutronia Revamped";

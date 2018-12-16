@@ -13,8 +13,7 @@ public class MoreBuildingBlocks extends Component {
     public static Block dirtyBricks, crackedBricks, mossyBricks, kitchenTiles, smallKitchenTiles;
     public static Block stoneTile, smallStoneTile, andesiteTile, smallAndesiteTile, dioriteTile, smallDioriteTile, graniteTile, smallGraniteTile,
             stoneBrickTile, smallStoneBrickTile, brickTile, smallBrickTile;
-    public static Block ropeCoil, darkThatch, thatch;
-    public static Block blackRoof, blueRoof, brownRoof, greenRoof, grayRoof, lightBlueRoof, redRoof, whiteRoof;
+    public static Block ropeCoil;
     public static Block chiseledIce, packedIceBricks, packedIcePillar, smallSnowBricks, snowBricks;
     public static Block fancyAcaciaPlanks, fancyBirchPlanks, fancyDarkOakPlanks, fancyJunglePlanks, fancyOakPlanks, fancySprucePlanks;
     public static Block chiseledBrick;

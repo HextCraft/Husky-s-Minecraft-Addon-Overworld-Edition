@@ -4,15 +4,10 @@
     "textures": {
       "all": "neutronia_revamped:block/smooth_brick"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
-    "normal": [
-      { "textures": { "all": "neutronia_revamped:block/smooth_brick" }},
-      { "textures": { "all": "neutronia_revamped:block/smooth_brick_1" }}
-    ],
-    "inventory": [{
-    }]
+    "normal": [{}],
+    "inventory": [{}]
   }
 }

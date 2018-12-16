@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import team.hdt.neutronia_revamped.init.NBlocks;
 
-import static team.hdt.neutronia_revamped.Referece.*;
+import static team.hdt.neutronia_revamped.Reference.*;
 
 @Mod(modid = MOD_ID, name = MOD_NAME, version = VERSION)
 public class NeutroniaRevamped {

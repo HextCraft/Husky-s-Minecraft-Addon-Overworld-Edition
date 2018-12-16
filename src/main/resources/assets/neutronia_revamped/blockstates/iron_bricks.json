@@ -4,15 +4,10 @@
     "textures": {
       "all": "neutronia_revamped:block/iron_bricks"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
-    "normal": [
-      { "textures": { "all": "neutronia_revamped:block/iron_bricks" }},
-      { "textures": { "all": "neutronia_revamped:block/iron_bricks_1" }}
-    ],
-    "inventory": [{
-    }]
+    "normal": [{}],
+    "inventory": [{}]
   }
 }

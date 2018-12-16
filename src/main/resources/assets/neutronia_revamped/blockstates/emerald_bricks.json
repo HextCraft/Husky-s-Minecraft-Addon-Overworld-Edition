@@ -4,16 +4,10 @@
     "textures": {
       "all": "neutronia_revamped:block/emerald_bricks"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
-    "normal": [
-      { "textures": { "all": "neutronia_revamped:block/emerald_bricks" }},
-      { "textures": { "all": "neutronia_revamped:block/emerald_bricks_1" }},
-      { "textures": { "all": "neutronia_revamped:block/emerald_bricks_2" }}
-    ],
-    "inventory": [{
-    }]
+    "normal": [{}],
+    "inventory": [{}]
   }
 }

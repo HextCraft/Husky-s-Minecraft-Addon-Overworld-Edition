@@ -15,6 +15,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaBase;
 
 public class BlockDarkPrismarineChiseled extends BlockNeutroniaBase {
 
