@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia_revamped:block/iron_bricks"
+    },
+    "model": "cube_all",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [
+      { "textures": { "all": "neutronia_revamped:block/iron_bricks" }},
+      { "textures": { "all": "neutronia_revamped:block/iron_bricks_1" }}
+    ],
+    "inventory": [{
+    }]
+  }
+}

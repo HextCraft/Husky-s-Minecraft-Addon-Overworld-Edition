@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "neutronia_revamped:elder_prismarine_bricks"
+    }
+  },
+  "result": {
+    "item": "neutronia_revamped:smooth_elder_prismarine_brick",
+    "count": 4
+  }
+}

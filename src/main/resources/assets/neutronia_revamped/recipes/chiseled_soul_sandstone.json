@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "S",
+    "S"
+  ],
+  "key":
+  {
+    "S":
+    {
+      "item": "neutronia_revamped:soul_sandstone_slab",
+      "data": 0
+    }
+  },
+  "result":
+  {
+    "item": "neutronia_revamped:chiseled_soul_sandstone",
+    "count": 1
+  }
+}

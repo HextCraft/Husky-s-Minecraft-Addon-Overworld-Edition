@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "P",
+    "P"
+  ],
+
+  "key":
+  {
+    "P":
+    {
+      "item": "minecraft:prismarine",
+      "data": 2
+    }
+  },
+
+  "result":
+  {
+    "item": "neutronia_revamped:dark_prismarine_column",
+    "count": 2
+  }
+}

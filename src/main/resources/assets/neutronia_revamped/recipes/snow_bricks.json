@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "SS",
+    "SS"
+  ],
+
+  "key":
+  {
+    "S":
+    {
+      "item": "minecraft:snow"
+    }
+  },
+
+  "result":
+  {
+    "item": "neutronia_revamped:snow_bricks",
+    "count": 4
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia_revamped:block/chiseled_dark_prismarine_top",
+      "side": "neutronia_revamped:block/chiseled_dark_prismarine_side"
+    },
+    "model": "cube_column",
+    "uvlock": true
+  },
+  "variants": {
+    "filled": {
+      "true": {
+        "textures": {
+          "end": "neutronia_revamped:block/chiseled_dark_prismarine_top",
+          "side": "neutronia_revamped:block/chiseled_dark_prismarine_side"
+        }
+      },
+      "false": {
+        "textures": {
+          "end": "neutronia_revamped:block/chiseled_dark_prismarine_top",
+          "side": "neutronia_revamped:block/chiseled_dark_prismarine_side"
+        }
+      }
+    },
+    "inventory": [{
+    }]
+  }
+}

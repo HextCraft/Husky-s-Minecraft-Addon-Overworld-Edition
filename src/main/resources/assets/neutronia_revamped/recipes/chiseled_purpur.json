@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "PP",
+    "PP"
+  ],
+  "key":
+  {
+    "P":
+    {
+      "item": "minecraft:purpur_slab",
+      "data": 0
+    }
+  },
+  "result":
+  {
+    "item": "neutronia_revamped:chiseled_purpur",
+    "count": 2
+  }
+}

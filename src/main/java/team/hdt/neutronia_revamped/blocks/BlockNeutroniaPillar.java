@@ -1,5 +1,6 @@
 package team.hdt.neutronia_revamped.blocks;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -20,6 +21,15 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
         super(name, materialIn);
         setCreativeTab(CreativeTabs.DECORATIONS);
         setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
+    }
+
+    public BlockNeutroniaPillar(Material material, String name, CreativeTabs creativetab, float hardnesss, float resistance, SoundType soundType) {
+        super(name, material);
+        setCreativeTab(creativetab);
+        setHardness(hardnesss);
+        setResistance(resistance);
+        setLightLevel(0.0F);
+        setSoundType(soundType);
     }
 
     public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs) {

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G",
+    "G"
+  ],
+  "key": {
+    "G": {
+      "item": "neutronia_revamped:gold_bricks"
+    }
+  },
+  "result": {
+    "item": "neutronia_revamped:gold_brick_pillar",
+    "count": 2
+  }
+}

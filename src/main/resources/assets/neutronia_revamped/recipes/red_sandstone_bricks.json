@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:red_sandstone",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "neutronia_revamped:red_sandstone_bricks",
+    "count": 4
+  }
+}

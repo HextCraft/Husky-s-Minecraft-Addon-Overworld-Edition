@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "N",
+    "N"
+  ],
+  "key":
+  {
+    "N":
+    {
+      "item": "minecraft:stone_slab",
+      "data": 6
+    }
+  },
+  "result":
+  {
+    "item": "neutronia_revamped:chiseled_nether_brick",
+    "count": 1
+  }
+}

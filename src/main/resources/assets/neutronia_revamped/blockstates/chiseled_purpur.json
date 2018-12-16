@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia_revamped:block/smooth_purpur_block",
+      "side": "neutronia_revamped:block/chiseled_purpur"
+    },
+    "model": "cube_column",
+    "uvlock": true
+  },
+  "variants": {
+    "filled": {
+      "true": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_purpur_block",
+          "side": "neutronia_revamped:block/chiseled_purpur_filled"
+        }
+      },
+      "false": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_purpur_block",
+          "side": "neutronia_revamped:block/chiseled_purpur"
+        }
+      }
+    },
+    "inventory": [{
+    }]
+  }
+}

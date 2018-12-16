@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E",
+    "E"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:end_bricks"
+    }
+  },
+  "result": {
+    "item": "neutronia_revamped:end_brick_pillar",
+    "count": 2
+  }
+}

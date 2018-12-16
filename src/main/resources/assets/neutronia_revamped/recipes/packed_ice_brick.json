@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "II",
+    "II"
+  ],
+
+  "key":
+  {
+    "I":
+    {
+      "item": "minecraft:packed_ice"
+    }
+  },
+
+  "result":
+  {
+    "item": "neutronia_revamped:packed_ice_brick",
+    "count": 4
+  }
+}

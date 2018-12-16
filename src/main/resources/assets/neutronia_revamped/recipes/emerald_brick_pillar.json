@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E",
+    "E"
+  ],
+  "key": {
+    "E": {
+      "item": "neutronia_revamped:emerald_bricks"
+    }
+  },
+  "result": {
+    "item": "neutronia_revamped:emerald_brick_pillar",
+    "count": 2
+  }
+}
