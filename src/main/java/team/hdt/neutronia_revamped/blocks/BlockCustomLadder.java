@@ -27,12 +27,12 @@ public class BlockCustomLadder extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-    public BlockCustomLadder(String variant)
-    {
+    public BlockCustomLadder(String variant) {
         super(variant + "_ladder", Material.CIRCUITS);
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         setCreativeTab(CreativeTabs.DECORATIONS);
     }
+
     public BlockCustomLadder(String variant, Material material) {
         super(variant + "_ladder", material);
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));

@@ -17,7 +17,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import team.hdt.huskylib.item.ItemModBlock;
 import team.hdt.huskylib.util.ProxyRegistry;
-import team.hdt.neutronia_legacy.base.lib.LibMisc;
+import team.hdt.neutronia_revamped.Reference;
 import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 import java.util.List;
@@ -55,9 +55,9 @@ public abstract class BlockNeutroniaPressurePlate extends BlockPressurePlate imp
     @Override
     public Block setTranslationKey(String name) {
         super.setTranslationKey(name);
-        setRegistryName(LibMisc.PREFIX_MOD + name);
+        setRegistryName(Reference.PREFIX_MOD + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(Reference.PREFIX_MOD + name)));
         return this;
     }
 

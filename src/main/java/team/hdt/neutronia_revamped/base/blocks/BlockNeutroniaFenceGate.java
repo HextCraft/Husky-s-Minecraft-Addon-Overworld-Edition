@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 import team.hdt.huskylib.item.ItemModBlock;
 import team.hdt.huskylib.recipe.RecipeHandler;
 import team.hdt.huskylib.util.ProxyRegistry;
-import team.hdt.neutronia_legacy.base.lib.LibMisc;
+import team.hdt.neutronia_revamped.Reference;
 import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroniaBlock {
@@ -42,9 +42,9 @@ public class BlockNeutroniaFenceGate extends BlockFenceGate implements INeutroni
 
     public Block register(String name) {
         super.setTranslationKey(name);
-        setRegistryName(LibMisc.PREFIX_MOD + name);
+        setRegistryName(Reference.PREFIX_MOD + name);
         ProxyRegistry.register(this);
-        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(LibMisc.PREFIX_MOD + name)));
+        ProxyRegistry.register(new ItemModBlock(this, new ResourceLocation(Reference.PREFIX_MOD + name)));
         return this;
     }
 

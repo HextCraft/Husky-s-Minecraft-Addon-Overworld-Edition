@@ -15,7 +15,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import team.hdt.huskylib.block.BlockMod;
-import team.hdt.neutronia_legacy.base.blocks.INeutroniaBlock;
 
 public class BlockLantern extends BlockMod implements INeutroniaBlock {
 

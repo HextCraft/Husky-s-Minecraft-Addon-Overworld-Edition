@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import team.hdt.neutronia_legacy.base.blocks.BlockNeutroniaFence;
+import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaFence;
 
 public class BlockPalisade extends BlockNeutroniaFence {
 

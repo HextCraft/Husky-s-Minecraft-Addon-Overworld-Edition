@@ -29,7 +29,6 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
         setCreativeTab(creativetab);
         setHardness(hardnesss);
         setResistance(resistance);
-        setLightLevel(0.0F);
         setSoundType(soundType);
     }
 

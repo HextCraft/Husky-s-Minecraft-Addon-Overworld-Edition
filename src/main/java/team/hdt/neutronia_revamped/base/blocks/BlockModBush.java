@@ -1,7 +1,5 @@
 package team.hdt.neutronia_revamped.base.blocks;
 
-import team.hdt.huskylib.item.ItemModBlock;
-import team.hdt.huskylib.util.ProxyRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
@@ -10,7 +8,9 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-import team.hdt.neutronia_legacy.base.blocks.INeutroniaBlock;
+import team.hdt.huskylib.item.ItemModBlock;
+import team.hdt.huskylib.util.ProxyRegistry;
+import team.hdt.neutronia_revamped.blocks.INeutroniaBlock;
 
 public class BlockModBush extends BlockBush implements INeutroniaBlock {
 

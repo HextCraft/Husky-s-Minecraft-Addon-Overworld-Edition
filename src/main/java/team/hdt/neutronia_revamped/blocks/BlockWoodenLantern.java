@@ -4,7 +4,6 @@ import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import team.hdt.huskylib.block.BlockMod;
-import team.hdt.neutronia_legacy.base.blocks.INeutroniaBlock;
 
 public class BlockWoodenLantern extends BlockMod implements INeutroniaBlock {
 

@@ -10,12 +10,12 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import team.hdt.huskylib.recipe.RecipeHandler;
 import team.hdt.huskylib.util.ProxyRegistry;
-import team.hdt.neutronia_legacy.properties.EnumSoulStoneVariants;
-import team.hdt.neutronia_legacy.properties.EnumVanillaWoodTypes;
 import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaBase;
 import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaPillar;
 import team.hdt.neutronia_revamped.blocks.*;
 import team.hdt.neutronia_revamped.properties.EnumGTPVariants;
+import team.hdt.neutronia_revamped.properties.SoulStoneVariants;
+import team.hdt.neutronia_revamped.properties.VanillaWoodTypes;
 import team.hdt.neutronia_revamped.utils.BlockRegisteringUtils;
 
 public class NBlocks {
@@ -36,25 +36,27 @@ public class NBlocks {
     public static Block stoneTile, smallStoneTile, andesiteTile, smallAndesiteTile, dioriteTile, smallDioriteTile, graniteTile, smallGraniteTile,
             stoneBrickTile, smallStoneBrickTile, brickTile, smallBrickTile;
     public static Block ropeCoil;
-    public static Block chiseledIce, packedIceBricks, packedIcePillar, smallSnowBricks, snowBricks;
+    public static Block chiseledIce, packedIceBricks, packedIcePillar, smallSnowBricks, snowBricks, iceTiles, iceRod;
     public static Block chiseledBrick;
     public static Block frosted_glass;
     public static Block frosted_glass_pane;
+    public static Block ironLantern, goldLantern, prismarineLantern, ironChain, goldChain, prismarineChain, ropes;
+    public static BlockLanternRedstone redstoneIronLantern, redstoneIronLanternOff, redstoneGoldLantern, redstoneGoldLanternOff;
 
     public static void init() {
-        for(EnumVanillaWoodTypes woodType : EnumVanillaWoodTypes.values()) {
+        for (VanillaWoodTypes woodType : VanillaWoodTypes.values()) {
             bookshelfs[woodType.getMetadata()] = new BlockNeutroniaBase(String.format("%s_bookshelf", woodType.getName()), Material.WOOD);
 //            chests[woodType.getMetadata()] = new BlockCustomChest(String.format("%s_chest", woodType.getName()), BlockChest.Type.BASIC);
 //            trappedChests[woodType.getMetadata()] = new BlockCustomChest(String.format("trapped_%s_chest", woodType.getName()), BlockChest.Type.TRAP);
             ladder[woodType.getMetadata()] = new BlockCustomLadder(woodType.getName());
         }
-        for(BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+        for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
             patternedPlanks[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName()));
             carvedPlanks[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodType.getName()));
             lanterns[woodType.getMetadata()] = new BlockWoodenLantern(woodType);
         }
 
-        for(EnumGTPVariants color : EnumGTPVariants.values()) {
+        for (EnumGTPVariants color : EnumGTPVariants.values()) {
             gtp[color.getId()] = new BlockNeutroniaPillar(Material.ROCK, String.format("%s_glazed_terracotta_pillar", color.getName()));
         }
 
@@ -78,11 +80,11 @@ public class NBlocks {
         emeraldBricks = new BlockNeutroniaBase(Material.IRON, "emerald_bricks", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
         ironBricks = new BlockNeutroniaBase(Material.IRON, "iron_bricks", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
         goldBricks = new BlockNeutroniaBase(Material.IRON, "gold_bricks", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
-        
-        diamondBrickPillar = new BlockNeutroniaPillar(Material.IRON, "diamond_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
-        emeraldBrickPillar = new BlockNeutroniaPillar(Material.IRON, "emerald_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
-        ironBrickPillar = new BlockNeutroniaPillar(Material.IRON, "iron_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
-        goldBrickPillar = new BlockNeutroniaPillar(Material.IRON, "gold_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
+
+        diamondBrickPillar = new BlockNeutroniaPillar(Material.IRON, "diamond_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
+        emeraldBrickPillar = new BlockNeutroniaPillar(Material.IRON, "emerald_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
+        ironBrickPillar = new BlockNeutroniaPillar(Material.IRON, "iron_pillar", CreativeTabs.BUILDING_BLOCKS, 5.0F, 10.0F, SoundType.STONE);
+        goldBrickPillar = new BlockNeutroniaPillar(Material.IRON, "gold_pillar", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
 
         dirtyBricks = new BlockNeutroniaBase(Material.ROCK, "dirty_bricks");
         crackedBricks = new BlockNeutroniaBase(Material.ROCK, "cracked_bricks");
@@ -111,6 +113,8 @@ public class NBlocks {
         packedIcePillar = new BlockNeutroniaPillar(Material.PACKED_ICE, "packed_ice_pillar");
         smallSnowBricks = new BlockNeutroniaBase(Material.SNOW, "small_snow_bricks");
         snowBricks = new BlockNeutroniaBase(Material.PACKED_ICE, "snow_bricks");
+        iceTiles = new BlockNeutroniaBase(Material.PACKED_ICE, "ice_tiles");
+        iceRod = new BlockRodBase("ice_rod", true);
 
         sandstonePillar = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         redSandstonePillar = new BlockNeutroniaPillar(Material.ROCK, "red_sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
@@ -124,7 +128,23 @@ public class NBlocks {
         frosted_glass = new BlockFrostedGlass();
         frosted_glass_pane = new BlockFrostedGlassPane();
 
-        for (EnumSoulStoneVariants soulStoneTypes : EnumSoulStoneVariants.values()) {
+        ironLantern = new BlockLantern("iron");
+        goldLantern = new BlockLantern("gold");
+        prismarineLantern = new BlockLantern("prismarine");
+        redstoneIronLantern = new BlockLanternRedstone("iron", true);
+        redstoneIronLanternOff = new BlockLanternRedstone("iron", false);
+        redstoneIronLantern.setOffBlock(redstoneIronLanternOff.getDefaultState());
+        redstoneIronLanternOff.setOnBlock(redstoneIronLantern.getDefaultState());
+        redstoneGoldLantern = new BlockLanternRedstone("gold", true);
+        redstoneGoldLanternOff = new BlockLanternRedstone("gold", false);
+        redstoneGoldLantern.setOffBlock(redstoneGoldLanternOff.getDefaultState());
+        redstoneGoldLanternOff.setOnBlock(redstoneGoldLantern.getDefaultState());
+        ironChain = new BlockChain("iron");
+        goldChain = new BlockChain("gold");
+        prismarineChain = new BlockChain("prismarine");
+        ropes = new BlockChain(Material.CLOTH, "rope");
+
+        for (SoulStoneVariants soulStoneTypes : SoulStoneVariants.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
             BlockRegisteringUtils.addSlabAndStair(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], 0, true);
         }

@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import team.hdt.huskylib.block.BlockMod;
-import team.hdt.neutronia_legacy.base.blocks.INeutroniaBlock;
 
 import java.util.Random;
 
@@ -24,6 +23,7 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
     public static final PropertyBool CHAIN_EXTENDED = PropertyBool.create("chain_extended");      //False = Not Extended, True = Model is Extended
+    public static final PropertyBool LIT = PropertyBool.create("lit");
 
     public static final double PIXEL_LENGTH = 1D / 16D;
     public static final AxisAlignedBB LANTERN_NORTH_AABB = new AxisAlignedBB(PIXEL_LENGTH * 5D, PIXEL_LENGTH * 1D, PIXEL_LENGTH * 6.5D, PIXEL_LENGTH * 11D, PIXEL_LENGTH * 10D, PIXEL_LENGTH * 12.5D);
@@ -74,7 +74,7 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         if (!worldIn.isRemote) {
             if (this.isOn && !worldIn.isBlockPowered(pos)) {
-                worldIn.scheduleUpdate(pos, this, 4);
+                worldIn.scheduleUpdate(pos, offBlock.getBlock(), 4);
             } else if (!this.isOn && worldIn.isBlockPowered(pos)) {
                 worldIn.setBlockState(pos, onBlock, 2);
             }
@@ -117,12 +117,12 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING, CHAIN_EXTENDED);
+        return new BlockStateContainer(this, FACING, CHAIN_EXTENDED, LIT);
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0);
+        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0).withProperty(LIT, (meta & 9) > 0);
     }
 
     @Override
@@ -132,6 +132,10 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
 
         if (state.getValue(CHAIN_EXTENDED)) {
             i |= 8;
+        }
+
+        if(state.getValue(LIT)) {
+            i |= 9;
         }
 
         return i;
