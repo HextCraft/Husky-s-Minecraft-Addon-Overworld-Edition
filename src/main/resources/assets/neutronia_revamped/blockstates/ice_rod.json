@@ -1,0 +1,38 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end_rod": "neutronia_revamped:block/ice_rod"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "facing=up": {
+      "model": "neutronia_revamped:rod_base"
+    },
+    "facing=down": {
+      "model": "neutronia_revamped:rod_base",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "neutronia_revamped:rod_base",
+      "y": 90,
+      "x": 90
+    },
+    "facing=south": {
+      "model": "neutronia_revamped:rod_base",
+      "y": 180,
+      "x": 90
+    },
+    "facing=west": {
+      "model": "neutronia_revamped:rod_base",
+      "y": 270,
+      "x": 90
+    },
+    "facing=north": {
+      "model": "neutronia_revamped:rod_base",
+      "y": 0,
+      "x": 90
+    }
+  }
+}

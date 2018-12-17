@@ -5,8 +5,7 @@
       "end": "neutronia:block/jungle_lantern_top",
       "side": "neutronia:block/jungle_lantern"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
     "normal": [{

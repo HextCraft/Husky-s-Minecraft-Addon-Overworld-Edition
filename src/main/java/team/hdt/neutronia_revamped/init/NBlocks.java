@@ -23,15 +23,17 @@ public class NBlocks {
     public static Block[] bookshelfs = new Block[5], patternedPlanks = new Block[6], carvedPlanks = new Block[6], lanterns = new Block[6], ladder = new Block[5], gtp = new Block[13], soulStone = new Block[4];
     public static BlockChiseled chiseledPrismarine, chiseledNetherbrick, chiseledPurpur, chiseledBricks, chiseledEndStoneBrick, chiseledRedNetherBrick;
     public static BlockDarkPrismarineChiseled chiseledDarkPrismarine;
-    public static BlockNeutroniaBase smoothEndBrick, smoothPrismarineBrick, smoothBrick, smoothPurpurBlock, smoothNetherBrick, smoothRedNetherBrick, smoothStone;
+    public static Block chiseledPrismarineBricks, cutPrismarine, cutPrismarineBricks, engravedPrismarine, engravedPrismarineBricks;
+    public static Block obsidianBricks, obsidianCobble, obsidianTiles;
+    public static Block smoothEndBrick, smoothPrismarineBrick, smoothPrismarine, smoothObsidian, smoothBrick, smoothPurpurBlock, smoothNetherBrick, smoothRedNetherBrick, smoothStone, smoothStoneBrick;
     public static BlockNeutroniaPillar diamondBrickPillar, emeraldBrickPillar, ironBrickPillar, goldBrickPillar;
-    public static BlockNeutroniaBase diamondBricks, emeraldBricks, ironBricks, goldBricks;
+    public static Block diamondBricks, emeraldBricks, ironBricks, goldBricks;
     public static BlockNeutroniaPillar redNetherBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "red_nether_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
     public static BlockNeutroniaPillar endStoneBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "end_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 3.0F, 15.0F, SoundType.STONE);
     public static BlockNeutroniaPillar brickPillar;
     public static BlockNeutroniaPillar darkPrismarineColumn = new BlockNeutroniaPillar(Material.ROCK, "dark_prismarine_column", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
     public static Block sandstonePillar, redSandstonePillar, stonePillar, polishedAndesitePillar, polishedGranitePillar, polishedDioritePillar,
-            stoneBrickPillar, prismarineColumn, endStonePillar, netherBrickPillar;
+            stoneBrickPillar, prismarineColumn, prismarinePillar, prismarineBrickPillar;
     public static Block dirtyBricks, crackedBricks, mossyBricks, kitchenTiles, smallKitchenTiles;
     public static Block stoneTile, smallStoneTile, andesiteTile, smallAndesiteTile, dioriteTile, smallDioriteTile, graniteTile, smallGraniteTile,
             stoneBrickTile, smallStoneBrickTile, brickTile, smallBrickTile;
@@ -61,6 +63,7 @@ public class NBlocks {
         }
 
         chiseledPrismarine = new BlockChiseled(Material.ROCK, "chiseled_prismarine", 1.5F, 10.0F, SoundType.STONE, Items.PRISMARINE_CRYSTALS);
+        chiseledPrismarineBricks = new BlockNeutroniaBase(Material.ROCK, "chiseled_prismarine_bricks");
         chiseledNetherbrick = new BlockChiseled(Material.ROCK, "chiseled_nether_brick", 1.5F, 10.0F, SoundType.STONE, Items.LAVA_BUCKET);
         chiseledPurpur = new BlockChiseled(Material.ROCK, "chiseled_purpur", 1.5F, 10.0F, SoundType.STONE, Items.ENDER_PEARL);
         chiseledBricks = new BlockChiseled(Material.ROCK, "chiseled_bricks", 1.5F, 10.0F, SoundType.STONE, Item.getItemFromBlock(Blocks.STONE_SLAB));
@@ -68,13 +71,26 @@ public class NBlocks {
         chiseledEndStoneBrick = new BlockChiseled(Material.ROCK, "chiseled_end_brick", 3.0F, 15.0F, SoundType.STONE, Items.CHORUS_FRUIT_POPPED);
         chiseledRedNetherBrick = new BlockChiseled(Material.ROCK, "chiseled_red_nether_brick", 1.5F, 10.0F, SoundType.STONE, Item.getItemFromBlock(Blocks.GLOWSTONE));
 
+        cutPrismarine = new BlockNeutroniaBase(Material.ROCK, "cut_prismarine");
+        cutPrismarineBricks = new BlockNeutroniaBase(Material.ROCK, "cut_prismarine_bricks");
+
+        engravedPrismarine = new BlockNeutroniaBase(Material.ROCK, "engraved_prismarine");
+        engravedPrismarineBricks = new BlockNeutroniaBase(Material.ROCK, "engraved_prismarine_bricks");
+
+        obsidianBricks = new BlockNeutroniaBase(Material.ROCK, "obsidian_bricks").setHardness(50.0F).setResistance(2000.0F);
+        obsidianCobble = new BlockNeutroniaBase(Material.ROCK, "obsidian_cobble").setHardness(50.0F).setResistance(2000.0F);
+        obsidianTiles = new BlockNeutroniaBase(Material.ROCK, "obsidian_tiles").setHardness(50.0F).setResistance(2000.0F);
+
         smoothEndBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_end_brick", CreativeTabs.BUILDING_BLOCKS, 0.8F, 10.0F, SoundType.STONE);
-        smoothPrismarineBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine_brick", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
+        smoothPrismarineBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
+        smoothPrismarine = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine");
+        smoothObsidian = new BlockNeutroniaBase(Material.ROCK, "smooth_obsidian").setHardness(50.0F).setResistance(2000.0F);
         smoothBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_brick", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
         smoothPurpurBlock = new BlockNeutroniaBase(Material.ROCK, "smooth_purpur_brick", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
         smoothNetherBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_nether_brick", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
         smoothRedNetherBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_red_nether_brick", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
         smoothStone = new BlockNeutroniaBase(Material.ROCK, "smooth_stone", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
+        smoothStoneBrick = new BlockNeutroniaBase(Material.ROCK, "smooth_stone_brick", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
 
         diamondBricks = new BlockNeutroniaBase(Material.IRON, "diamond_bricks", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
         emeraldBricks = new BlockNeutroniaBase(Material.IRON, "emerald_bricks", CreativeTabs.BUILDING_BLOCKS, 3.0F, 10.0F, SoundType.STONE);
@@ -124,6 +140,9 @@ public class NBlocks {
         polishedGranitePillar = new BlockNeutroniaPillar(Material.ROCK, "polished_granite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         stoneBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "stone_brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         brickPillar = new BlockNeutroniaPillar(Material.ROCK, "brick_pillar", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
+        prismarineColumn = new BlockNeutroniaPillar(Material.ROCK, "prismarine_column");
+        prismarinePillar = new BlockNeutroniaPillar(Material.ROCK, "prismarine_pillar");
+        prismarineBrickPillar = new BlockNeutroniaPillar(Material.ROCK, "prismarine_brick_pillar");
 
         frosted_glass = new BlockFrostedGlass();
         frosted_glass_pane = new BlockFrostedGlassPane();

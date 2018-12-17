@@ -5,8 +5,7 @@
       "end": "neutronia:block/soul_sandstone_top",
       "side": "neutronia:block/chiseled_soul_sandstone"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
     "normal": [{

@@ -4,8 +4,7 @@
     "model": "fence_post",
     "textures": {
       "texture": "neutronia:block/stripped_oak_log"
-    },
-    "uvlock": true
+    }
   },
   "variants": {
     "normal": [{}],

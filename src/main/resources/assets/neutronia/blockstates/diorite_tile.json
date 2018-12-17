@@ -4,8 +4,7 @@
     "textures": {
       "all": "neutronia:block/diorite_tile"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
     "normal": [{

@@ -4,8 +4,7 @@
     "textures": {
       "all": "neutronia:block/smooth_end_brick"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
     "normal": [{

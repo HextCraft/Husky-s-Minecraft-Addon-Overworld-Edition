@@ -4,8 +4,7 @@
     "textures": {
       "all": "blocks/log_jungle"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
     "normal": [{

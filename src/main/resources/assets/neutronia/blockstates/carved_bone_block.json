@@ -5,8 +5,7 @@
       "end": "blocks/bone_block_side",
       "side": "neutronia:block/carved_bone_block"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
     "normal": [{

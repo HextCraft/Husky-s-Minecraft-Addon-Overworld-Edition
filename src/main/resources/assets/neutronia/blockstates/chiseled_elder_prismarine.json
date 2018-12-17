@@ -5,8 +5,7 @@
       "end": "neutronia:block/smooth_elder_prismarine_brick",
       "side": "neutronia:block/chiseled_elder_prismarine"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
     "normal": [{

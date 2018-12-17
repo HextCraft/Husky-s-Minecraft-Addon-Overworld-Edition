@@ -3,8 +3,7 @@
   "defaults": {
     "textures": {
       "texture": "blocks/log_acacia"
-    },
-    "uvlock": true
+    }
   },
   "variants": {
     "facing=south,in_wall=false,open=false": {"model": "fence_gate_closed"},

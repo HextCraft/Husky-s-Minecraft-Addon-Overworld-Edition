@@ -5,8 +5,7 @@
       "end": "neutronia:block/smooth_red_nether_brick",
       "side": "neutronia:block/chiseled_red_nether_brick"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
     "normal": [{

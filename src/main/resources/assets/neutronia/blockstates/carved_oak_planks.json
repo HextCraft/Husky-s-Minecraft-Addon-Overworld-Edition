@@ -4,8 +4,7 @@
     "textures": {
       "all": "neutronia:block/carved_oak_planks"
     },
-    "model": "cube_all",
-    "uvlock": true
+    "model": "cube_all"
   },
   "variants": {
     "normal": [{

@@ -5,13 +5,23 @@
       "end": "neutronia_revamped:block/smooth_nether_brick",
       "side": "neutronia_revamped:block/chiseled_netherbrick"
     },
-    "model": "cube_column",
-    "uvlock": true
+    "model": "cube_column"
   },
   "variants": {
-    "normal": [{
-    }],
-    "inventory": [{
-    }]
+    "filled": {
+      "true": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_nether_brick",
+          "side": "neutronia_revamped:block/chiseled_netherbrick_filled"
+        }
+      },
+      "false": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_nether_brick",
+          "side": "neutronia_revamped:block/chiseled_netherbrick"
+        }
+      }
+    },
+    "inventory": [{}]
   }
 }
