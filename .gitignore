@@ -22,3 +22,6 @@ eclipse
 run
 run-server
 src/main/resources/assets/neutronia_revamped/structures/*.nbt
+
+src/main/resources/assets/neutronia/models/block-todo/*.json
+src/main/resources/assets/neutronia/models/item-todo/*.json
