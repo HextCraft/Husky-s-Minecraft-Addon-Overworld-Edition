@@ -16,7 +16,6 @@ import team.hdt.neutronia_revamped.blocks.*;
 import team.hdt.neutronia_revamped.properties.EnumGTPVariants;
 import team.hdt.neutronia_revamped.properties.SoulStoneVariants;
 import team.hdt.neutronia_revamped.properties.VanillaWoodTypes;
-import team.hdt.neutronia_revamped.utils.BlockRegisteringUtils;
 
 public class NBlocks {
 
@@ -165,7 +164,7 @@ public class NBlocks {
 
         for (SoulStoneVariants soulStoneTypes : SoulStoneVariants.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());
-            BlockRegisteringUtils.addSlabAndStair(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], 0, true);
+//            BlockRegisteringUtils.addSlabAndStair(soulStoneTypes.getName(), soulStone[soulStoneTypes.getMetadata()], 0, true);
         }
 
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[0]),
