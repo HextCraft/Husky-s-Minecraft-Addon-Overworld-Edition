@@ -104,8 +104,8 @@ public class NBlocks {
         dirtyBricks = new BlockNeutroniaBase(Material.ROCK, "dirty_bricks");
         crackedBricks = new BlockNeutroniaBase(Material.ROCK, "cracked_bricks");
         mossyBricks = new BlockNeutroniaBase(Material.ROCK, "mossy_bricks");
-        kitchenTiles = new BlockNeutroniaBase(Material.ROCK, "checkered_floor");
-        smallKitchenTiles = new BlockNeutroniaBase(Material.ROCK, "small_checkered_floor");
+        kitchenTiles = new BlockNeutroniaBase(Material.ROCK, "checkered_tiles");
+        smallKitchenTiles = new BlockNeutroniaBase(Material.ROCK, "small_checkered_tiles");
         stoneTile = new BlockNeutroniaBase(Material.ROCK, "stone_tile");
         smallStoneTile = new BlockNeutroniaBase(Material.ROCK, "small_stone_tile");
         andesiteTile = new BlockNeutroniaBase(Material.ROCK, "andesite_tile");
@@ -123,7 +123,7 @@ public class NBlocks {
 
         ropeCoil = new BlockNeutroniaPillar(Material.CLOTH, "rope_coil");
 
-        chiseledIce = new BlockChiseledIce();
+//        chiseledIce = new BlockChiseledIce();
         packedIceBricks = new BlockNeutroniaBase(Material.PACKED_ICE, "packed_ice_bricks");
         packedIcePillar = new BlockNeutroniaPillar(Material.PACKED_ICE, "packed_ice_pillar");
         smallSnowBricks = new BlockNeutroniaBase(Material.SNOW, "small_snow_bricks");
@@ -160,7 +160,7 @@ public class NBlocks {
         ironChain = new BlockChain("iron");
         goldChain = new BlockChain("gold");
         prismarineChain = new BlockChain("prismarine");
-        ropes = new BlockChain(Material.CLOTH, "rope");
+//        ropes = new BlockChain(Material.CLOTH, "rope");
 
         for (SoulStoneVariants soulStoneTypes : SoulStoneVariants.values()) {
             soulStone[soulStoneTypes.getMetadata()] = new BlockNeutroniaBase(Material.ROCK, soulStoneTypes.getName());

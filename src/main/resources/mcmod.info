@@ -9,7 +9,7 @@
       "HuskyTheArtist"
     ],
     "credits": "Thanks to Nox, AguilaPapi, snake, YoshiSalad, Paul, Zontic, Igrek, bee, VampireRedEye, Endergized, MCvinnyq and Pugz for their awesome art. Also Mistral__ for the amazing logo and banner he made :) And Axoladdy and KingVampyre for their awesome ideas. Thanks to MCvinnyq, cybercat5555 and AguilaPapi for their amazing entity models. And also thanks to everyone at Minecraft Abnormals",
-    "logoFile": "/assets/neutronia/textures/logo_halloween.png",
+    "logoFile": "/assets/neutronia/textures/logo.png",
     "url": "https://github.com/HuskysDevelopmentTeam/Neutronia",
     "dependencies": [
         "huskylib"
@@ -24,6 +24,7 @@
       "HuskyTheArtist",
       "Cameron"
     ],
+    "logoFile": "/assets/neutronia_revamped/textures/logo.png",
     "credits": "Thank you to Endergized for most of the textures and ideas for this mod. Also a big thank you to Cameron which helps me to make this mod even better!",
     "dependencies": [
       "huskylib"

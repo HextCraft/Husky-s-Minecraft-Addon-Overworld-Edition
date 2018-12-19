@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version="${mc_version}-${major_version}.${minor_version}.${build_number}"
-group="team.hdt.neutronia_legacy"
+group="${mod_group}"
 archivesBaseName="${mod_name}"
 
 sourceCompatibility = targetCompatibility = '1.8'
@@ -24,6 +24,15 @@ minecraft {
     version = "${mc_version}-${forge_version}"
     runDir = "run"
     mappings = "${mcp_mappings}"
+}
+
+sourceSets {
+    main {
+        resources {
+            exclude 'java/team/hdt/neutronia_legacy'
+            exclude 'resources/assets/neutronia_legacy'
+        }
+    }
 }
 
 repositories {
