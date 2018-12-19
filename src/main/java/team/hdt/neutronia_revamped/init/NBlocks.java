@@ -173,9 +173,9 @@ public class NBlocks {
         RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[2], 4),
                 "SS", "SS",
                 'S', ProxyRegistry.newStack(soulStone[0], 1));
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[1], 1),
+        /*RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(soulStone[1], 1),
                 "S", "S",
-                'S', ProxyRegistry.newStack(Block.getBlockFromName("neutronia_revamped:normal_soulstone_slab"), 1));
+                'S', ProxyRegistry.newStack(Block.getBlockFromName("neutronia_revamped:normal_soulstone_slab"), 1));*/
     }
 
 }
