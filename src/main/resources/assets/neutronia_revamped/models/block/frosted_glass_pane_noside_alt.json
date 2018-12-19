@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pane_noside_alt",
+  "textures": {
+    "pane": "neutronia_revamped:block/frosted_glass"
+  }
+}

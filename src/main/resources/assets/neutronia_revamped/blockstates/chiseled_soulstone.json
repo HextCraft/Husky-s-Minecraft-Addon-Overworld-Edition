@@ -4,13 +4,17 @@
   "defaults": {
     "model": "cube_column",
     "textures": {
-      "end": "neutronia_revamped:block/smooth_prismarine_bricks",
-      "side": "neutronia_revamped:block/engraved_prismarine_bricks"
+      "end": "neutronia_revamped:block/soulsand_stone_top",
+      "side": "neutronia_revamped:block/soulsand_stone_carved"
     },
     "transform": "forge:default-block"
   },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}]
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
   }
 }
