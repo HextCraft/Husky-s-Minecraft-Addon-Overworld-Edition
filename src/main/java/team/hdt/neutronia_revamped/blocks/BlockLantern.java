@@ -19,7 +19,7 @@ import team.hdt.huskylib.block.BlockMod;
 public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
-    public static final PropertyBool CHAIN_EXTENDED = PropertyBool.create("hanging");      //False = Not Extended, True = Model is Extended
+    public static final PropertyBool HANGING = PropertyBool.create("hanging");      //False = Not Extended, True = Model is Extended
 
     public static final double PIXEL_LENGTH = 1D / 16D;
 
@@ -33,9 +33,9 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
     public BlockLantern(String name) {
         super(name + "_lantern", Material.IRON);
         setCreativeTab(CreativeTabs.DECORATIONS);
-        setLightLevel(1f);
+        setLightLevel(1.0F);
 
-        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, false));
+        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(HANGING, false));
     }
 
     @Override
@@ -60,17 +60,17 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(FACING, facing.getOpposite()).withProperty(CHAIN_EXTENDED, false);
+        return this.getDefaultState().withProperty(FACING, facing).withProperty(HANGING, false);
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING, CHAIN_EXTENDED);
+        return new BlockStateContainer(this, FACING, HANGING);
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0);
+        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(HANGING, (meta & 8) > 0);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
         int i = 0;
         i = i | state.getValue(FACING).getIndex();
 
-        if (state.getValue(CHAIN_EXTENDED)) {
+        if (state.getValue(HANGING)) {
             i |= 8;
         }
 

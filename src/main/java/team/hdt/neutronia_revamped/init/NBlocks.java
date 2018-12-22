@@ -48,9 +48,23 @@ public class NBlocks {
     public static BlockLanternRedstone redstoneIronLantern, redstoneIronLanternOff, redstoneGoldLantern, redstoneGoldLanternOff;
     public static Block stickBundle, chorusBundle, sugarCaneBundle, bambooBundle, netherWartSack, cocoaBeanSack, gunpowderSack,
                         eggCrate, beetrootCrate, potatoCrate, carrotCrate, appleCrate, goldenAppleCrate, cactusBundle;
-    public static final Block BAMBOO_SAPLING;
-    public static final Block BAMBOO;
-    public static final Block POTTED_BAMBOO;
+    public static Block BAMBOO_SAPLING;
+    public static Block BAMBOO;
+    public static Block BLAST_FURNACE;
+    public static Block LIT_BLAST_FURNACE;
+    public static Block SMOKER;
+    public static Block LIT_SMOKER;
+
+    public static Block SWEET_BERRY_BUSH;
+    public static Block GOOSEBERRY_BUSH;
+    public static Block BLUEBERRY_BUSH;
+    public static Block RED_GRAPE_BUSH;
+    public static Block GREEN_GRAPE_BUSH;
+    public static Block BLACKBERRY_BUSH;
+    public static Block POISON_BERRY_BUSH;
+    public static Block RASPBERRY_BUSH;
+    public static Block SOUR_BERRY_BUSH;
+    public static Block CURRANT_BUSH;
 
     public static void init() {
         for (VanillaWoodTypes woodType : VanillaWoodTypes.values()) {
@@ -214,6 +228,23 @@ public class NBlocks {
         appleCrate = new BlockNeutroniaPillar(Material.WOOD, "apple_crate");
         goldenAppleCrate = new BlockNeutroniaPillar(Material.WOOD, "golden_apple_crate");
         cactusBundle = new BlockCactusBundle();
+
+        BAMBOO = new BlockBamboo();
+        BAMBOO_SAPLING = new BlockBambooSapling();
+        BLAST_FURNACE = new BlockBlastFurnace(false);
+        LIT_BLAST_FURNACE = new BlockBlastFurnace(true);
+        SMOKER = new BlockSmoker(false);
+        LIT_SMOKER = new BlockSmoker(true);
+        SWEET_BERRY_BUSH = new BlockBerryBush("sweet_berry", NItems.SWEET_BERRIES);
+        GOOSEBERRY_BUSH = new BlockBerryBush("gooseberry", NItems.GOOSEBERRIES);
+        BLUEBERRY_BUSH = new BlockBerryBush("blueberry", NItems.BLUEBERRIES);
+        RED_GRAPE_BUSH = new BlockGrapeBush("red", NItems.RED_GRAPES);
+        GREEN_GRAPE_BUSH = new BlockGrapeBush("green", NItems.GREEN_GRAPES);
+        BLACKBERRY_BUSH = new BlockBerryBush("blackberry", NItems.BLACKBERRIES);
+        POISON_BERRY_BUSH = new BlockBerryBush("poison_berry", NItems.POISON_BERRIES);
+        RASPBERRY_BUSH = new BlockBerryBush("raspberry", NItems.RASPBERRIES);
+        SOUR_BERRY_BUSH = new BlockBerryBush("sour_berry", NItems.RASPBERRIES);
+        CURRANT_BUSH = new BlockBerryBush("currant", NItems.CURRANTS);
     }
 
 }

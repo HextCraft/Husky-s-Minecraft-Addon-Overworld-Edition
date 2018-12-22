@@ -6,6 +6,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,7 @@ import team.hdt.neutronia_revamped.base.blocks.BlockNeutroniaBase;
 import team.hdt.neutronia_revamped.init.NBlocks;
 import team.hdt.neutronia_revamped.properties.BambooLeaves;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
@@ -29,12 +31,31 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
     protected static final AxisAlignedBB field_9912 = new AxisAlignedBB(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
     protected static final AxisAlignedBB field_9915 = new AxisAlignedBB(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
     protected static final AxisAlignedBB field_9913 = new AxisAlignedBB(6.5D, 0.0D, 6.5D, 9.5D, 16.0D, 9.5D);
-    public static final PropertyInteger field_9914;
-    public static final PropertyEnum<BambooLeaves> field_9917;
-    public static final PropertyInteger field_9916;
+    public static final PropertyInteger AGE;
+    public static final PropertyEnum<BambooLeaves> LEAVES;
+    public static final PropertyInteger STAGE;
 
-    public BlockBamboo(String name, Material materialIn) {
-        super(name, materialIn);
+    public BlockBamboo() {
+        super("bamboo", Material.CACTUS);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, 0).withProperty(LEAVES, BambooLeaves.NONE).withProperty(STAGE, 0));
+    }
+
+    public int getMetaFromState(IBlockState state) {
+        return 0;
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        AxisAlignedBB var4 = state.getValue(LEAVES) == BambooLeaves.LARGE ? field_9915 : field_9912;
+        Vec3d var5 = state.getOffset(source, pos);
+        return var4.offset(var5.x, var5.y, var5.z);
+    }
+
+    @Nullable
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+        Vec3d var5 = blockState.getOffset(worldIn, pos);
+        return field_9913.offset(var5.x, var5.y, var5.z);
     }
 
     @Override
@@ -49,15 +70,15 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
     }
 
     @Override
-    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        IBlockState var3 = world.getBlockState(pos.down());
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        IBlockState var3 = worldIn.getBlockState(pos.down());
         if (var3 == NBlocks.BAMBOO || var3 == NBlocks.BAMBOO_SAPLING || var3 == Blocks.GRAVEL || var3.equals(Blocks.SAND) || var3 == Blocks.DIRT || var3.equals(Blocks.GRASS) || var3.equals(Blocks.MYCELIUM) || var3 == Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT) || var3 == Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL)) {
             Block var4 = var3.getBlock();
             if (var4 == NBlocks.BAMBOO_SAPLING) {
-                return this.getDefaultState().withProperty(field_9914, 0);
+                return this.getDefaultState().withProperty(AGE, 0);
             } else if (var4 == NBlocks.BAMBOO) {
-                int var5 = var3.getValue(field_9914) > 0 ? 1 : 0;
-                return this.getDefaultState().withProperty(field_9914, var5);
+                int var5 = var3.getValue(AGE) > 0 ? 1 : 0;
+                return this.getDefaultState().withProperty(AGE, var5);
             } else {
                 return NBlocks.BAMBOO_SAPLING.getDefaultState();
             }
@@ -67,13 +88,22 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
     }
 
     @Override
-    public IBlockState getStateAtViewpoint(IBlockState state, IBlockAccess world, BlockPos pos, Vec3d viewpoint) {
-        return super.getStateAtViewpoint(state, world, pos, viewpoint);
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+        IBlockState state = world.getBlockState(pos);
+        if (!canPlaceBlockAt(world, pos)) {
+            return Blocks.AIR.getDefaultState();
+        } else {
+            if (facing == EnumFacing.UP && state.getBlock() == NBlocks.BAMBOO && state.getValue(AGE) > getDefaultState().getValue(AGE)) {
+                world.setBlockState(pos, getDefaultState().cycleProperty(AGE), 2);
+            }
+
+            return super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand);
+        }
     }
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (state.getValue(field_9916) == 0) {
+        if (state.getValue(STAGE) == 0) {
             if (rand.nextInt(3) == 0 && worldIn.isAirBlock(pos.up()) && worldIn.getCombinedLight(pos.up(), 0) >= 9) {
                 int var5 = this.method_9386(worldIn, pos) + 1;
                 if (var5 < 16) {
@@ -93,7 +123,7 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         int var5 = this.method_9387(worldIn, pos);
         int var6 = this.method_9386(worldIn, pos);
-        return var5 + var6 + 1 < 16 && (Integer)worldIn.getBlockState(pos.up(var5)).get(field_9916) != 1;
+        return var5 + var6 + 1 < 16 && worldIn.getBlockState(pos.up(var5)).getValue(STAGE) != 1;
     }
 
     @Override
@@ -111,7 +141,7 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
         for(int var9 = 0; var9 < var8; ++var9) {
             BlockPos var10 = pos.up(var5);
             IBlockState var11 = worldIn.getBlockState(var10);
-            if (var7 >= 16 || var11.getValue(field_9916) == 1 || !worldIn.isAirBlock(var10.up())) {
+            if (var7 >= 16 || var11.getValue(STAGE) == 1 || !worldIn.isAirBlock(var10.up())) {
                 return;
             }
 
@@ -127,12 +157,12 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
         IBlockState var8 = var2.getBlockState(var7);
         BambooLeaves var9 = BambooLeaves.NONE;
         if (var5 >= 1) {
-            if (var6.getBlock() == NBlocks.BAMBOO && var6.getValue(field_9917) != BambooLeaves.NONE) {
-                if (var6.getBlock() == NBlocks.BAMBOO && var6.getValue(field_9917) != BambooLeaves.NONE) {
+            if (var6.getBlock() == NBlocks.BAMBOO && var6.getValue(LEAVES) != BambooLeaves.NONE) {
+                if (var6.getBlock() == NBlocks.BAMBOO && var6.getValue(LEAVES) != BambooLeaves.NONE) {
                     var9 = BambooLeaves.LARGE;
                     if (var8.getBlock() == NBlocks.BAMBOO) {
-                        var2.setBlockState(var3.down(), var6.withProperty(field_9917, BambooLeaves.SMALL), 3);
-                        var2.setBlockState(var7, var8.withProperty(field_9917, BambooLeaves.NONE), 3);
+                        var2.setBlockState(var3.down(), var6.withProperty(LEAVES, BambooLeaves.SMALL), 3);
+                        var2.setBlockState(var7, var8.withProperty(LEAVES, BambooLeaves.NONE), 3);
                     }
                 }
             } else {
@@ -140,9 +170,9 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
             }
         }
 
-        int var10 = var1.getValue(field_9914) != 1 && var8.getBlock() != NBlocks.BAMBOO ? 0 : 1;
+        int var10 = var1.getValue(AGE) != 1 && var8.getBlock() != NBlocks.BAMBOO ? 0 : 1;
         int var11 = (var5 < 11 || var4.nextFloat() >= 0.25F) && var5 != 15 ? 0 : 1;
-        var2.setBlockState(var3.up(), this.getDefaultState().withProperty(field_9914, var10).withProperty(field_9917, var9).withProperty(field_9916, var11), 3);
+        var2.setBlockState(var3.up(), this.getDefaultState().withProperty(AGE, var10).withProperty(LEAVES, var9).withProperty(STAGE, var11), 3);
     }
 
     protected int method_9387(World var1, BlockPos var2) {
@@ -161,10 +191,15 @@ public class BlockBamboo extends BlockNeutroniaBase implements IGrowable {
         return var3;
     }
 
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, AGE, LEAVES, STAGE);
+    }
+
     static {
-        field_9914 = PropertyInteger.create("age", 0, 1);
-        field_9917 = PropertyEnum.create("leaves", BambooLeaves.class);
-        field_9916 = PropertyInteger.create("stage", 0, 1);
+        AGE = PropertyInteger.create("age", 0, 1);
+        LEAVES = PropertyEnum.create("leaves", BambooLeaves.class);
+        STAGE = PropertyInteger.create("stage", 0, 1);
     }
 
 }

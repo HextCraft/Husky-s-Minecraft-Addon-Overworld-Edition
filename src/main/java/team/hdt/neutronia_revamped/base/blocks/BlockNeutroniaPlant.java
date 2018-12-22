@@ -1,8 +1,11 @@
 package team.hdt.neutronia_revamped.base.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,6 +13,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
 import javax.annotation.Nonnull;
@@ -30,8 +34,15 @@ public class BlockNeutroniaPlant extends BlockModBush implements IShearable {
         this.setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
-    public BlockNeutroniaPlant(String name) {
-        this(name, PlantBehaviorType.FLOWER);
+    public boolean canPlantOnTop(IBlockState state, World worldIn, BlockPos pos) {
+        Block var4 = state.getBlock();
+        return var4 == Blocks.GRASS || var4 == Blocks.DIRT || var4 == Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT) || var4 == Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL) || var4 == Blocks.FARMLAND;
+    }
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        BlockPos var4 = pos.down();
+        return this.canPlantOnTop(worldIn.getBlockState(var4), worldIn, var4);
     }
 
     @Override

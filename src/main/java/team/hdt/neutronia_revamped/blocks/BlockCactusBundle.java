@@ -1,6 +1,7 @@
 package team.hdt.neutronia_revamped.blocks;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -10,6 +11,7 @@ public class BlockCactusBundle extends BlockNeutroniaBase {
 
     public BlockCactusBundle() {
         super("cactus_bundle", Material.CACTUS);
+        setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
     /**
