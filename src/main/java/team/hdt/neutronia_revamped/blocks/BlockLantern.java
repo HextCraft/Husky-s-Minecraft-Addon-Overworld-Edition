@@ -19,7 +19,7 @@ import team.hdt.huskylib.block.BlockMod;
 public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing");
-    public static final PropertyBool CHAIN_EXTENDED = PropertyBool.create("chain_extended");      //False = Not Extended, True = Model is Extended
+    public static final PropertyBool CHAIN_EXTENDED = PropertyBool.create("hanging");      //False = Not Extended, True = Model is Extended
 
     public static final double PIXEL_LENGTH = 1D / 16D;
 
@@ -35,7 +35,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
         setCreativeTab(CreativeTabs.DECORATIONS);
         setLightLevel(1f);
 
-        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, Boolean.FALSE));
+        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.UP).withProperty(CHAIN_EXTENDED, false));
     }
 
     @Override
@@ -60,7 +60,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.getDirectionFromEntityLiving(pos, placer)).withProperty(CHAIN_EXTENDED, Boolean.FALSE);
+        return this.getDefaultState().withProperty(FACING, facing.getOpposite()).withProperty(CHAIN_EXTENDED, false);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
         int i = 0;
         i = i | state.getValue(FACING).getIndex();
 
-        if (state.getValue(CHAIN_EXTENDED).booleanValue()) {
+        if (state.getValue(CHAIN_EXTENDED)) {
             i |= 8;
         }
 

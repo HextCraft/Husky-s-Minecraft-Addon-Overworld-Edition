@@ -38,6 +38,23 @@ public class BlockNeutroniaTrapdoor extends BlockTrapDoor implements INeutroniaB
         useNeighborBrightness = true;
     }
 
+    public BlockNeutroniaTrapdoor(Material material, String name, SoundType soundType) {
+        super(material);
+
+        setHardness(3.0F);
+        if(material == Material.ICE || material == Material.PACKED_ICE) {
+            this.slipperiness = 0.98F;
+        }
+        setSoundType(soundType);
+        setCreativeTab(CreativeTabs.REDSTONE);
+
+        variants = new String[]{name};
+        bareName = name;
+
+        register(name);
+        useNeighborBrightness = true;
+    }
+
     @Override
     public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity) {
         if (state.getValue(OPEN)) {

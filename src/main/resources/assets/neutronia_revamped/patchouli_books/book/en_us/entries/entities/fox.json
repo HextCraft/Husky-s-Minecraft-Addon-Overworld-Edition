@@ -1,0 +1,17 @@
+{
+  "name": "Fox",
+  "icon": "minecraft:written_book",
+  "category": "entities",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a fox, the fox spawns in forests. The fox is silent. The fox is also cute."
+    },
+    {
+      "type": "entity",
+      "name": "Fox",
+      "entity": "neutronia:fox",
+      "scale": 0.6
+    }
+  ]
+}

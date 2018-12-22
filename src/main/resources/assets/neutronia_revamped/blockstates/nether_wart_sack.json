@@ -1,0 +1,32 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "top": "neutronia_revamped:block/nether_wart_sack_top",
+      "bottom": "neutronia_revamped:block/nether_wart_sack_bottom",
+      "side": "neutronia_revamped:block/nether_wart_sack"
+    }
+  },
+  "variants": {
+    "axis": {
+      "y": {
+        "submodel": "cube_bottom_top"
+      },
+      "z": {
+        "submodel": "cube_bottom_top",
+        "x": 90
+      },
+      "x": {
+        "submodel": "cube_bottom_top",
+        "x": 90,
+        "y": 90
+      },
+      "none": {
+        "submodel": "cube_bottom_top"
+      }
+    },
+    "inventory": [{
+      "model": "cube_bottom_top"
+    }]
+  }
+}

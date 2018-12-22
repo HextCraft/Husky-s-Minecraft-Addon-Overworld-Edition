@@ -1,0 +1,11 @@
+{
+  "name": "Vanilla Fence and Fence Gates",
+  "icon": "neutronia:acacia_log_fence",
+  "category": "building",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    }
+  ]
+}

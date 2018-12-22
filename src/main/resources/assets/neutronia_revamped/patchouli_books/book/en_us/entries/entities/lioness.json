@@ -1,0 +1,17 @@
+{
+  "name": "Lioness",
+  "icon": "minecraft:written_book",
+  "category": "entities",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a lioness, the lioness spawns in savannas. It spawns with it's dear. It is really dangerous."
+    },
+    {
+      "type": "entity",
+      "name": "Lioness",
+      "scale": 0.8,
+      "entity": "neutronia:lioness"
+    }
+  ]
+}

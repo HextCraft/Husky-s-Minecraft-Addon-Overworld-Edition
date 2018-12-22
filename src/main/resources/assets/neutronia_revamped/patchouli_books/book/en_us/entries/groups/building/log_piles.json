@@ -1,0 +1,11 @@
+{
+  "name": "Log Piles",
+  "icon": "neutronia:acacia_log_pile",
+  "category": "building",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    }
+  ]
+}

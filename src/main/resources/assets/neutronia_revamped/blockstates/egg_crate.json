@@ -1,0 +1,32 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "top": "neutronia_revamped:block/egg_crate_top",
+      "bottom": "blocks/planks_oak",
+      "side": "neutronia_revamped:block/egg_crate"
+    }
+  },
+  "variants": {
+    "axis": {
+      "y": {
+        "submodel": "cube_bottom_top"
+      },
+      "z": {
+        "submodel": "cube_bottom_top",
+        "x": 90
+      },
+      "x": {
+        "submodel": "cube_bottom_top",
+        "x": 90,
+        "y": 90
+      },
+      "none": {
+        "submodel": "cube_bottom_top"
+      }
+    },
+    "inventory": [{
+      "model": "cube_bottom_top"
+    }]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Mummy",
+  "icon": "minecraft:written_book",
+  "category": "entities",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a mummy. It spawns in desert temples and pyramids. It is a dead living person and are not smart to get close to."
+    },
+    {
+      "type": "entity",
+      "name": "Mummy",
+      "scale": 0.8,
+      "entity": "neutronia:mummy"
+    }
+  ]
+}

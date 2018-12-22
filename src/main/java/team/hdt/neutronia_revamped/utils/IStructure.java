@@ -1,15 +1,3 @@
-/*
- * Decompiled with CFR 0.137.
- * 
- * Could not load the following classes:
- *  net.minecraft.server.MinecraftServer
- *  net.minecraft.util.Mirror
- *  net.minecraft.util.Rotation
- *  net.minecraft.util.math.ChunkPos
- *  net.minecraft.world.WorldServer
- *  net.minecraft.world.gen.structure.template.PlacementSettings
- *  net.minecraftforge.fml.common.FMLCommonHandler
- */
 package team.hdt.neutronia_revamped.utils;
 
 import net.minecraft.util.Mirror;

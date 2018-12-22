@@ -1,0 +1,11 @@
+{
+  "name": "More Building Blocks",
+  "icon": "neutronia:dirty_bricks",
+  "category": "building",
+  "pages": [
+    {
+      "type": "text",
+      "text": "This is a test entry, but it should show up!"
+    }
+  ]
+}
