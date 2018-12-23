@@ -39,7 +39,7 @@ public class BlockBerryBush extends BlockNeutroniaPlant implements IGrowable {
 
     public int getMetaFromState(IBlockState state)
     {
-        return 0;
+        return state.getValue(AGE);
     }
 
     @Override
@@ -116,7 +116,7 @@ public class BlockBerryBush extends BlockNeutroniaPlant implements IGrowable {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int var10 = state.getValue(AGE);
         boolean var11 = var10 == 3;
-        if (!var11 && playerIn.getHeldItem(hand).getItem() == new ItemStack(Items.DYE, Items.DYE.getMetadata(0)).getItem()) {
+        if (!var11 && playerIn.getHeldItem(hand).getItem() == new ItemStack(Items.DYE, Items.DYE.getMetadata(15)).getItem()) {
             return false;
         } else if (var10 > 1) {
             int var12 = 1 + worldIn.rand.nextInt(2);

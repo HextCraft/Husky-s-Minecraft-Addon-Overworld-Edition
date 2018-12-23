@@ -22,8 +22,8 @@ import team.hdt.neutronia_revamped.properties.VanillaWoodTypes;
 public class NBlocks {
 
     public static Block[] bookshelfs = new Block[5], patternedPlanks = new Block[6], carvedPlanks = new Block[6],
-            barrels = new Block[6], woodLanterns = new Block[6], ladder = new Block[5], gtp = new Block[13],
-            soulStone = new Block[4];
+            barrels = new Block[6], fluidBarrels = new Block[6], woodLanterns = new Block[6], ladder = new Block[5],
+            gtp = new Block[13], soulStone = new Block[4];
     public static BlockChiseled chiseledPrismarine, chiseledNetherbrick, chiseledPurpur, chiseledBricks, chiseledEndStoneBrick, chiseledRedNetherBrick;
     public static BlockDarkPrismarineChiseled chiseledDarkPrismarine;
     public static Block chiseledPrismarineBricks, cutPrismarine, cutPrismarineBricks, engravedPrismarine, engravedPrismarineBricks;
@@ -62,6 +62,7 @@ public class NBlocks {
     public static Block GREEN_GRAPE_BUSH;
     public static Block BLACKBERRY_BUSH;
     public static Block POISON_BERRY_BUSH;
+    public static Block WITHER_BERRY_BUSH;
     public static Block RASPBERRY_BUSH;
     public static Block SOUR_BERRY_BUSH;
     public static Block CURRANT_BUSH;
@@ -77,7 +78,8 @@ public class NBlocks {
             patternedPlanks[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName()));
             carvedPlanks[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodType.getName()));
             woodLanterns[woodType.getMetadata()] = new BlockWoodenLantern(woodType);
-
+            barrels[woodType.getMetadata()] = new BlockBarrel(woodType);
+            fluidBarrels[woodType.getMetadata()] = new BlockFluidBarrel(woodType);
         }
 
         for (EnumGTPVariants color : EnumGTPVariants.values()) {
@@ -242,6 +244,7 @@ public class NBlocks {
         GREEN_GRAPE_BUSH = new BlockGrapeBush("green", NItems.GREEN_GRAPES);
         BLACKBERRY_BUSH = new BlockBerryBush("blackberry", NItems.BLACKBERRIES);
         POISON_BERRY_BUSH = new BlockBerryBush("poison_berry", NItems.POISON_BERRIES);
+        WITHER_BERRY_BUSH = new BlockBerryBush("wither_berry", NItems.WITHER_BERRIES);
         RASPBERRY_BUSH = new BlockBerryBush("raspberry", NItems.RASPBERRIES);
         SOUR_BERRY_BUSH = new BlockBerryBush("sour_berry", NItems.RASPBERRIES);
         CURRANT_BUSH = new BlockBerryBush("currant", NItems.CURRANTS);
