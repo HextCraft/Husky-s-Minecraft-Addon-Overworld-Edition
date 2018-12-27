@@ -42,7 +42,7 @@
 * Added Dead Coral Fans
 * Added Dead Corals (plants)
 * Renamed a lot of wood blocks
-* Divided the whole mod into groups that have their own components/features
+* Divided the whole mod into modules that have their own components/features
 * Updated to latest mappings (this version will not work on earlier versions)
 * Added Brass, Copper and Steel armor, tools and materials
 * Added Wood armor
