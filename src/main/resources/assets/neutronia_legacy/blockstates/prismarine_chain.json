@@ -1,0 +1,20 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "neutronia:chain",
+    "textures":  {
+      "all": "neutronia:block/sea_lantern"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": {
+      "model": "item/generated",
+      "textures": {
+        "layer0": "neutronia:items/prismarine_chain"
+      }
+    }
+  }
+}

@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/stone_brick_pillar_top",
-      "side": "neutronia:block/stone_brick_pillar"
+      "end": "neutronia_revamped:block/stone_brick_pillar_top",
+      "side": "neutronia_revamped:block/stone_brick_pillar"
     }
   },
   "variants": {

@@ -2,9 +2,10 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/diamond_pillar_top",
-      "side": "neutronia:block/diamond_pillar"
-    }
+      "end": "neutronia_revamped:block/diamond_pillar_top",
+      "side": "neutronia_revamped:block/diamond_pillar"
+    },
+    "model": "cube_column"
   },
   "variants": {
     "axis": {
@@ -24,8 +25,6 @@
         "submodel": "cube_column"
       }
     },
-    "inventory": [{
-      "model": "cube_column"
-    }]
+    "inventory": [{}]
   }
 }

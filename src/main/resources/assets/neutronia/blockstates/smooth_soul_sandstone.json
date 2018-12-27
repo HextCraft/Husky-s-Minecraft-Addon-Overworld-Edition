@@ -2,10 +2,11 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/soul_sandstone_top",
-      "side": "neutronia:block/smooth_soul_sandstone"
+      "end": "neutronia_revamped:block/soul_sandstone_top",
+      "side": "neutronia_revamped:block/smooth_soul_sandstone"
     },
-    "model": "cube_column"
+    "model": "cube_column",
+    "uvlock": true
   },
   "variants": {
     "normal": [{

@@ -1,23 +1,21 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "type": "forge:ore_shaped",
-  "group": "ladders",
+  "type": "crafting_shaped",
   "pattern": [
-    "S S",
-    "SWS",
-    "S S"
+    "# #",
+    "#P#",
+    "# #"
   ],
   "key": {
-    "S": {
+    "#": {
       "item": "minecraft:stick"
     },
-    "W": {
-      "item": "minecraft:log",
-      "data":  2
+    "P": {
+      "item": "minecraft:planks",
+      "data": 2
     }
   },
   "result": {
-    "item": "neutronia:birch_ladder",
-    "count": 16
+    "item": "neutronia_revamped:birch_ladder",
+    "count": 8
   }
 }

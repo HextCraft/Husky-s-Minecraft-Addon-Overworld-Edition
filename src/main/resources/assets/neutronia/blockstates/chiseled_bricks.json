@@ -2,14 +2,27 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/smooth_brick",
-      "side": "neutronia:block/chiseled_bricks"
+      "end": "neutronia_revamped:block/smooth_brick",
+      "side": "neutronia_revamped:block/chiseled_bricks"
     },
-    "model": "cube_column"
+    "model": "cube_column",
+    "uvlock": true
   },
   "variants": {
-    "normal": [{
-    }],
+    "filled": {
+      "true": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_brick",
+          "side": "neutronia_revamped:block/chiseled_bricks_filled"
+        }
+      },
+      "false": {
+        "textures": {
+          "end": "neutronia_revamped:block/smooth_brick",
+          "side": "neutronia_revamped:block/chiseled_bricks"
+        }
+      }
+    },
     "inventory": [{
     }]
   }

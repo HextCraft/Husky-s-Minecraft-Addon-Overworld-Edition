@@ -15,5 +15,6 @@ public class Reference {
 
     public static final String COMMON_PROXY = "team.hdt.neutronia.base.proxy.CommonProxy";
     public static final String CLIENT_PROXY = "team.hdt.neutronia.base.proxy.ClientProxy";
+    public static final String GUI_FACTORY = "team.hdt.neutronia.base.config.NGuiFactory";
 
 }

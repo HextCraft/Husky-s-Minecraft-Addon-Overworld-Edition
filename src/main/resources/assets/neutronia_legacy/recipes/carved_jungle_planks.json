@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:wooden_slab",
+      "data": 3
+    }
+  },
+  "result": {
+    "item": "neutronia:carved_jungle_planks",
+    "count": 4
+  }
+}

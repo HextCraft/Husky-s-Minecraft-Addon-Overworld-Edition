@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/gold_pillar_top",
-      "side": "neutronia:block/gold_pillar"
+      "end": "neutronia_revamped:block/gold_pillar_top",
+      "side": "neutronia_revamped:block/gold_pillar"
     }
   },
   "variants": {

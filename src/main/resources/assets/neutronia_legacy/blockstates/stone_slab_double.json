@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particles": "blocks/stone",
+      "all": "blocks/stone"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "cube_all" },
+    "variant=default":  { "model": "cube_all" }
+  }
+}

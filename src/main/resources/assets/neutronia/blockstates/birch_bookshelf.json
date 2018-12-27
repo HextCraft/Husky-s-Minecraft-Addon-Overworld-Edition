@@ -5,7 +5,7 @@
     "model": "minecraft:cube_column",
     "textures": {
       "end": "blocks/planks_birch",
-      "side": "neutronia:block/birch_bookshelf"
+      "side": "neutronia_revamped:block/birch_bookshelf"
     },
     "transform": "forge:default-block"
   },

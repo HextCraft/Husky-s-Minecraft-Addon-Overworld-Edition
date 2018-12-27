@@ -1,0 +1,23 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "cube_column",
+    "textures": {
+      "end": "neutronia:block/netherbrick_pillar_top",
+      "side": "neutronia:block/netherbrick_pillar"
+    }
+  },
+  "variants": {
+    "axis=y": [{}],
+    "axis=z": {
+      "x": 90
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90
+    },
+    "inventory": [{}]
+  }
+}

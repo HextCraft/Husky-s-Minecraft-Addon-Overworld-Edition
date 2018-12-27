@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/pane_side",
   "textures": {
-    "edge": "neutronia:block/frosted_glass_top",
-    "pane": "neutronia:block/frosted_glass"
+    "edge": "neutronia_revamped:block/frosted_glass_top",
+    "pane": "neutronia_revamped:block/frosted_glass"
   }
 }

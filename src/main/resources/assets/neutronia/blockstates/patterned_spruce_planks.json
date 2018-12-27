@@ -3,7 +3,7 @@
     "defaults": {
         "model": "cube_all",
         "textures": {
-            "all": "neutronia:block/patterned_spruce_planks"
+            "all": "neutronia_revamped:block/patterned_spruce_planks"
         }
     },
     "variants": {

@@ -14,7 +14,7 @@ import team.hdt.neutronia.tileentities.TileEntitySmoker;
 
 import static team.hdt.neutronia.base.Reference.*;
 
-@Mod(modid = MOD_ID, name = MOD_NAME, version = VERSION, dependencies = DEPENDENCIES)
+@Mod(modid = MOD_ID, name = MOD_NAME, version = VERSION, dependencies = DEPENDENCIES, guiFactory = GUI_FACTORY)
 public class NeutroniaRevamped {
 
     @Mod.Instance
@@ -25,6 +25,7 @@ public class NeutroniaRevamped {
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
+        proxy.preInit(event);
         NBlocks.init();
         NItems.init();
         GameRegistry.registerTileEntity(TileEntitySmoker.class, "neutronia_revamped:smoker");
@@ -33,7 +34,7 @@ public class NeutroniaRevamped {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        proxy.init(event);
     }
 
     @Mod.EventHandler

@@ -2,28 +2,32 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "cube_column",
     "textures": {
-      "end": "neutronia:block/glazed_terracotta_pillars/gtp_pillar_purple_top",
-      "side": "neutronia:block/glazed_terracotta_pillars/gtp_pillar_purple"
+      "end": "neutronia_revamped:block/glazed_terracotta_pillars/purple_top",
+      "side": "neutronia_revamped:block/glazed_terracotta_pillars/purple"
     },
     "transform": "forge:default-block"
   },
   "variants": {
     "axis": {
+      "y": {
+        "submodel": "cube_column"
+      },
+      "z": {
+        "submodel": "cube_column",
+        "x": 90
+      },
       "x": {
+        "submodel": "cube_column",
         "x": 90,
         "y": 90
       },
-      "y": [
-        {}
-      ],
-      "z": {
-        "x": 90
+      "none": {
+        "submodel": "cube_column"
       }
     },
-    "inventory": [
-      {}
-    ]
+    "inventory": [{
+      "model": "cube_column"
+    }]
   }
 }

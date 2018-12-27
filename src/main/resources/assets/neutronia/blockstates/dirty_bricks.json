@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/dirty_bricks"
+      "all": "neutronia_revamped:block/dirty_bricks"
     },
     "model": "cube_all"
   },

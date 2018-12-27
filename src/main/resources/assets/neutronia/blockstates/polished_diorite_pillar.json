@@ -1,20 +1,31 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "transform": "forge:default-block",
-    "model": "cube_column",
     "textures": {
-      "end": "neutronia:block/diorite_pillar_top",
-      "side": "neutronia:block/diorite_pillar"
+      "end": "neutronia_revamped:block/diorite_pillar_top",
+      "side": "neutronia_revamped:block/diorite_pillar"
     }
   },
   "variants": {
     "axis": {
-      "x": { "x": 90, "y": 90 },
-      "y": {},
-      "z": { "x": 90 },
-      "none": {}
+      "y": {
+        "submodel": "cube_column"
+      },
+      "z": {
+        "submodel": "cube_column",
+        "x": 90
+      },
+      "x": {
+        "submodel": "cube_column",
+        "x": 90,
+        "y": 90
+      },
+      "none": {
+        "submodel": "cube_column"
+      }
     },
-    "inventory": [{}]
+    "inventory": [{
+      "model": "cube_column"
+    }]
   }
 }

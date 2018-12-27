@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:block/dried_mud_brick"
+      "all": "neutronia_revamped:block/dried_mud_brick"
     },
     "transform": "forge:default-block"
   },

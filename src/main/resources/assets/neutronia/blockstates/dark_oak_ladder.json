@@ -2,9 +2,9 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "neutronia:ladder",
+    "model": "neutronia_revamped:ladder",
     "textures": {
-      "texture": "neutronia:block/dark_oak_ladder"
+      "texture": "neutronia_revamped:block/dark_oak_ladder"
     },
     "transform": "forge:default-block"
   },

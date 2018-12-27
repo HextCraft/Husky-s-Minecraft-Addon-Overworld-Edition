@@ -2,13 +2,16 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/smooth_elder_prismarine_brick"
+      "all": "neutronia_revamped:block/smooth_elder_prismarine_brick"
     },
-    "model": "cube_all"
+    "model": "cube_all",
+    "uvlock": true
   },
   "variants": {
-    "normal": [{
-    }],
+    "normal": [
+      { "textures": { "all": "neutronia_revamped:block/smooth_elder_prismarine_brick" }},
+      { "textures": { "all": "neutronia_revamped:block/smooth_elder_prismarine_brick_1" }}
+    ],
     "inventory": [{
     }]
   }

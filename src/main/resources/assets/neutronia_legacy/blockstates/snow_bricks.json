@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:block/snow_bricks"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "neutronia:snow_bricks"
+    },
+    "inventory": {
+      "model": "neutronia:snow_bricks"
+    }
+  }
+}

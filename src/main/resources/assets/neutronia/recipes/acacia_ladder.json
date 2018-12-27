@@ -1,23 +1,21 @@
 {
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "type": "forge:ore_shaped",
-  "group": "ladders",
+  "type": "crafting_shaped",
   "pattern": [
-    "S S",
-    "SWS",
-    "S S"
+    "# #",
+    "#P#",
+    "# #"
   ],
   "key": {
-    "S": {
+    "#": {
       "item": "minecraft:stick"
     },
-    "W": {
-      "item": "minecraft:log2",
-      "data":  0
+    "P": {
+      "item": "minecraft:planks",
+      "data": 4
     }
   },
   "result": {
-    "item": "neutronia:acacia_ladder",
-    "count": 16
+    "item": "neutronia_revamped:acacia_ladder",
+    "count": 8
   }
 }

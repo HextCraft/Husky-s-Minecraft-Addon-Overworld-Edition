@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia:block/carved_dark_oak_planks"
+      "all": "neutronia_revamped:block/carved_dark_oak_planks"
     },
     "model": "cube_all"
   },

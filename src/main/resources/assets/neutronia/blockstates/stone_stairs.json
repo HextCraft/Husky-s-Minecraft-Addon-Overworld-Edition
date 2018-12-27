@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "blocks/stone_slab_top",
-      "top": "blocks/stone_slab_top",
-      "side": "blocks/stone_slab_side"
+      "bottom": "blocks/stone",
+      "top": "blocks/stone",
+      "side": "blocks/stone"
     }
   },
   "variants": {

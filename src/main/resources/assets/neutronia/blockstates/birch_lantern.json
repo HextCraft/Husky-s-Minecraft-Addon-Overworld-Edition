@@ -2,10 +2,11 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia:block/birch_lantern_top",
-      "side": "neutronia:block/birch_lantern"
+      "end": "neutronia_revamped:block/birch_lantern_top",
+      "side": "neutronia_revamped:block/birch_lantern"
     },
-    "model": "cube_column"
+    "model": "cube_column",
+    "uvlock": true
   },
   "variants": {
     "normal": [{

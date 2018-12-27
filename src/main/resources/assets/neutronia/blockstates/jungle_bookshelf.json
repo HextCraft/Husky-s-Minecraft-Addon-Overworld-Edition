@@ -5,7 +5,7 @@
     "model": "minecraft:cube_column",
     "textures": {
       "end": "blocks/planks_jungle",
-      "side": "neutronia:block/jungle_bookshelf"
+      "side": "neutronia_revamped:block/jungle_bookshelf"
     },
     "transform": "forge:default-block"
   },

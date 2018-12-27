@@ -4,7 +4,7 @@
   "defaults": {
     "model": "cube_all",
     "textures": {
-      "all": "neutronia:block/polished_soul_stone"
+      "all": "neutronia_revamped:block/polished_soul_stone"
     },
     "transform": "forge:default-block"
   },
