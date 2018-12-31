@@ -3,8 +3,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/glazed_terracotta_pillars/yellow_top",
-      "side": "neutronia_revamped:block/glazed_terracotta_pillars/yellow"
+      "end": "neutronia:block/glazed_terracotta_pillars/yellow_top",
+      "side": "neutronia:block/glazed_terracotta_pillars/yellow"
     },
     "transform": "forge:default-block"
   },

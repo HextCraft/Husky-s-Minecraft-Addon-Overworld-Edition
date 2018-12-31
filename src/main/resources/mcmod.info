@@ -16,7 +16,7 @@
     ]
   },
   {
-    "modid": "neutronia_revamped",
+    "modid": "neutronia",
     "name": "Neutronia Revamped",
     "version": "0.0.1",
     "mcversion": "1.12.2",
@@ -24,7 +24,7 @@
       "HuskyTheArtist",
       "Cameron"
     ],
-    "logoFile": "/assets/neutronia_revamped/textures/logo.png",
+    "logoFile": "/assets/neutronia/textures/logo.png",
     "credits": "Thank you to Endergized for most of the textures and ideas for this mod. Also a big thank you to Cameron which helps me to make this mod even better!",
     "dependencies": [
       "huskylib"

@@ -6,11 +6,11 @@
   ],
   "key": {
     "G": {
-      "item": "neutronia_revamped:gold_bricks"
+      "item": "neutronia:gold_bricks"
     }
   },
   "result": {
-    "item": "neutronia_revamped:gold_brick_pillar",
+    "item": "neutronia:gold_brick_pillar",
     "count": 2
   }
 }

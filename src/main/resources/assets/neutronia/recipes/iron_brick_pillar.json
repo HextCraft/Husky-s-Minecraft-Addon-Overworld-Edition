@@ -6,11 +6,11 @@
   ],
   "key": {
     "I": {
-      "item": "neutronia_revamped:iron_bricks"
+      "item": "neutronia:iron_bricks"
     }
   },
   "result": {
-    "item": "neutronia_revamped:iron_brick_pillar",
+    "item": "neutronia:iron_brick_pillar",
     "count": 2
   }
 }

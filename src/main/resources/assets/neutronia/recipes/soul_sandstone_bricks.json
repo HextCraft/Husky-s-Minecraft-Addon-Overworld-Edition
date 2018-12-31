@@ -6,11 +6,11 @@
   ],
   "key": {
     "S": {
-      "item": "neutronia_revamped:soul_sandstone"
+      "item": "neutronia:soul_sandstone"
     }
   },
   "result": {
-    "item": "neutronia_revamped:soul_sandstone_bricks",
+    "item": "neutronia:soul_sandstone_bricks",
     "count": 4
   }
 }

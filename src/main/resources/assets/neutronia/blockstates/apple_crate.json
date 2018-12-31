@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/apple_crate_top",
-      "bottom": "neutronia_revamped:block/apple_crate_bottom",
-      "side": "neutronia_revamped:block/apple_crate"
+      "top": "neutronia:block/apple_crate_top",
+      "bottom": "neutronia:block/apple_crate_bottom",
+      "side": "neutronia:block/apple_crate"
     }
   },
   "variants": {

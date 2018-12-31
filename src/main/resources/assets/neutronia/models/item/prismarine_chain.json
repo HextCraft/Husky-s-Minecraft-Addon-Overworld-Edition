@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "neutronia_revamped:item/prismarine_chain"
+    "layer0": "neutronia:item/prismarine_chain"
   }
 }

@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/obsidian_tile"
+      "all": "neutronia:block/obsidian_tile"
     },
     "model": "cube_all"
   },

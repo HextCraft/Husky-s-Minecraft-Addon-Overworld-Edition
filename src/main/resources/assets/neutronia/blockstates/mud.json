@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/mud"
+      "all": "neutronia:block/mud"
     },
     "model": "cube_all"
   },

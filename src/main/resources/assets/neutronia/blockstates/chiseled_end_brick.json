@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/smooth_end_brick",
-      "side": "neutronia_revamped:block/chiseled_end_brick"
+      "end": "neutronia:block/smooth_end_brick",
+      "side": "neutronia:block/chiseled_end_brick"
     },
     "model": "cube_column",
     "uvlock": true
@@ -12,14 +12,14 @@
     "filled": {
       "true": {
         "textures": {
-          "end": "neutronia_revamped:block/smooth_end_brick",
-          "side": "neutronia_revamped:block/chiseled_end_brick_filled"
+          "end": "neutronia:block/smooth_end_brick",
+          "side": "neutronia:block/chiseled_end_brick_filled"
         }
       },
       "false": {
         "textures": {
-          "end": "neutronia_revamped:block/smooth_end_brick",
-          "side": "neutronia_revamped:block/chiseled_end_brick"
+          "end": "neutronia:block/smooth_end_brick",
+          "side": "neutronia:block/chiseled_end_brick"
         }
       }
     },

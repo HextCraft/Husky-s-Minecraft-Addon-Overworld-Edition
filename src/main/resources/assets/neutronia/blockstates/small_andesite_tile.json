@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/small_andesite_tile"
+      "all": "neutronia:block/small_andesite_tile"
     },
     "model": "cube_all"
   },

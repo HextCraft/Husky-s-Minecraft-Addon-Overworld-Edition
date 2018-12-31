@@ -6,11 +6,11 @@
   ],
   "key": {
     "D": {
-      "item": "neutronia_revamped:diamond_bricks"
+      "item": "neutronia:diamond_bricks"
     }
   },
   "result": {
-    "item": "neutronia_revamped:diamond_brick_pillar",
+    "item": "neutronia:diamond_brick_pillar",
     "count": 2
   }
 }

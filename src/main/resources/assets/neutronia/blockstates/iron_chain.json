@@ -2,9 +2,9 @@
   "_comment": "Generated using Husky's JSON Generator v4.",
   "forge_marker": 1,
   "defaults": {
-    "model": "neutronia_revamped:chain",
+    "model": "neutronia:chain",
     "textures":  {
-      "all": "neutronia_revamped:block/iron_lantern"
+      "all": "neutronia:block/iron_lantern"
     },
     "transform": "forge:default-block"
   },
@@ -13,7 +13,7 @@
     "inventory": {
       "model": "item/generated",
       "textures": {
-        "layer0": "neutronia_revamped:items/iron_chain"
+        "layer0": "neutronia:items/iron_chain"
       }
     }
   }

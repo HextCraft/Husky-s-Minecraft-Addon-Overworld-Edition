@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/prismarine_column_top",
-      "side": "neutronia_revamped:block/prismarine_column_side"
+      "end": "neutronia:block/prismarine_column_top",
+      "side": "neutronia:block/prismarine_column_side"
     }
   },
   "variants": {

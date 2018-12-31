@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/packed_ice_bricks"
+      "all": "neutronia:block/packed_ice_bricks"
     },
     "model": "cube_all"
   },

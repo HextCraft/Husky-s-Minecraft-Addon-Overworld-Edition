@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/cocoa_bean_sack_top",
-      "bottom": "neutronia_revamped:block/cocoa_bean_sack_bottom",
-      "side": "neutronia_revamped:block/cocoa_bean_sack"
+      "top": "neutronia:block/cocoa_bean_sack_top",
+      "bottom": "neutronia:block/cocoa_bean_sack_bottom",
+      "side": "neutronia:block/cocoa_bean_sack"
     }
   },
   "variants": {

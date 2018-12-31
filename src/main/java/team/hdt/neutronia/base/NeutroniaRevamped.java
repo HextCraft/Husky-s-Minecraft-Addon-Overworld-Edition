@@ -5,10 +5,15 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import team.hdt.neutronia.base.proxy.CommonProxy;
+import team.hdt.neutronia.commands.CommandFindBiome;
+import team.hdt.neutronia.commands.CommandTeleportToDimension;
+import team.hdt.neutronia.init.NBiomes;
 import team.hdt.neutronia.init.NBlocks;
 import team.hdt.neutronia.init.NItems;
+import team.hdt.neutronia.tileentities.TileCustomChest;
 import team.hdt.neutronia.tileentities.TileEntityBlastFurnace;
 import team.hdt.neutronia.tileentities.TileEntitySmoker;
 
@@ -28,8 +33,10 @@ public class NeutroniaRevamped {
         proxy.preInit(event);
         NBlocks.init();
         NItems.init();
-        GameRegistry.registerTileEntity(TileEntitySmoker.class, "neutronia_revamped:smoker");
-        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "neutronia_revamped:blast_furnace");
+        NBiomes.init();
+        GameRegistry.registerTileEntity(TileEntitySmoker.class, "neutronia:smoker");
+        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "neutronia:blast_furnace");
+        GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:wooden_chest");
     }
 
     @Mod.EventHandler
@@ -40,6 +47,12 @@ public class NeutroniaRevamped {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+    }
+
+    @Mod.EventHandler
+    public void serverInit(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandFindBiome());
+        event.registerServerCommand(new CommandTeleportToDimension());
     }
 
 }

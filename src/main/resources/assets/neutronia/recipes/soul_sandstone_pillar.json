@@ -11,13 +11,13 @@
   {
     "S":
     {
-      "item": "neutronia_revamped:soul_sandstone"
+      "item": "neutronia:soul_sandstone"
     }
   },
 
   "result":
   {
-    "item": "neutronia_revamped:soul_sandstone_pillar",
+    "item": "neutronia:soul_sandstone_pillar",
     "count": 2
   }
 }

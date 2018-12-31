@@ -1,7 +1,9 @@
 package team.hdt.neutronia.init;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import team.hdt.neutronia.items.ItemBerryJuiceBottle;
+import team.hdt.neutronia.items.ItemNeutroniaBase;
 
 public class NItems {
 
@@ -17,6 +19,10 @@ public class NItems {
     public static Item SOUR_BERRIES;
     public static Item CURRANTS;
     public static Item BERRY_JUICE_BOTTLE;
+    public static Item LEATHER_DRAGON_ARMOR;
+    public static Item IRON_DRAGON_ARMOR;
+    public static Item GOLD_DRAGON_ARMOR;
+    public static Item DIAMOND_DRAGON_ARMOR;
 
     public static void init() {
         /*SWEET_BERRIES = new ItemSeedFood("sweet_berries", 2, 0.1F, NBlocks.SWEET_BERRY_BUSH);
@@ -31,6 +37,10 @@ public class NItems {
         SOUR_BERRIES = new ItemSeedFood("sour_berries", 2, 0.1F, NBlocks.SOUR_BERRY_BUSH);
         CURRANTS = new ItemSeedFood("currants", 2, 0.1F, NBlocks.CURRANT_BUSH);*/
         BERRY_JUICE_BOTTLE = new ItemBerryJuiceBottle();
+        LEATHER_DRAGON_ARMOR = new ItemNeutroniaBase("leather_dragon_armor").setCreativeTab(CreativeTabs.MISC);
+        IRON_DRAGON_ARMOR = new ItemNeutroniaBase("iron_dragon_armor").setCreativeTab(CreativeTabs.MISC);
+        GOLD_DRAGON_ARMOR = new ItemNeutroniaBase("gold_dragon_armor").setCreativeTab(CreativeTabs.MISC);
+        DIAMOND_DRAGON_ARMOR = new ItemNeutroniaBase("diamond_dragon_armor").setCreativeTab(CreativeTabs.MISC);
     }
 
 }

@@ -6,11 +6,11 @@
   ],
   "key": {
     "P": {
-      "item": "neutronia_revamped:elder_prismarine_bricks"
+      "item": "neutronia:elder_prismarine_bricks"
     }
   },
   "result": {
-    "item": "neutronia_revamped:smooth_elder_prismarine_brick",
+    "item": "neutronia:smooth_elder_prismarine_brick",
     "count": 4
   }
 }

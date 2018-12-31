@@ -1,6 +1,6 @@
 {
   "parent": "neutronia:block/rod_base",
   "textures": {
-    "end_rod": "neutronia_revamped:block/ice_rod"
+    "end_rod": "neutronia:block/ice_rod"
   }
 }

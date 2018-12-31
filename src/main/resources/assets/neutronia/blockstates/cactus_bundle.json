@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/cactus_bundle_top",
-      "side": "neutronia_revamped:block/cactus_bundle"
+      "end": "neutronia:block/cactus_bundle_top",
+      "side": "neutronia:block/cactus_bundle"
     }
   },
   "variants": {

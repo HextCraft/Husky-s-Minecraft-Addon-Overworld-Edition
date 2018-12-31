@@ -9,13 +9,13 @@
   {
     "N":
     {
-      "item": "neutronia_revamped:red_nether_brick_slab",
+      "item": "neutronia:red_nether_brick_slab",
       "data": 0
     }
   },
   "result":
   {
-    "item": "neutronia_revamped:chiseled_red_nether_brick",
+    "item": "neutronia:chiseled_red_nether_brick",
     "count": 1
   }
 }

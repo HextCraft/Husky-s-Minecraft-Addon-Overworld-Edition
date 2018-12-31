@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/emerald_pillar_top",
-      "side": "neutronia_revamped:block/emerald_pillar"
+      "end": "neutronia:block/emerald_pillar_top",
+      "side": "neutronia:block/emerald_pillar"
     }
   },
   "variants": {

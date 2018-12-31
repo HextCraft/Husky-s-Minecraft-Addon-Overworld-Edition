@@ -4,8 +4,8 @@
   "defaults": {
     "model": "cube_column",
     "textures": {
-      "end": "neutronia_revamped:block/soulsand_stone_top",
-      "side": "neutronia_revamped:block/soulsand_stone_carved"
+      "end": "neutronia:block/soulsand_stone_top",
+      "side": "neutronia:block/soulsand_stone_carved"
     },
     "transform": "forge:default-block"
   },

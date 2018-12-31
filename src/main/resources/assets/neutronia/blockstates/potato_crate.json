@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/potato_crate_top",
-      "bottom": "neutronia_revamped:block/barrel_bottom",
-      "side": "neutronia_revamped:block/potato_crate"
+      "top": "neutronia:block/potato_crate_top",
+      "bottom": "neutronia:block/barrel_bottom",
+      "side": "neutronia:block/potato_crate"
     }
   },
   "variants": {

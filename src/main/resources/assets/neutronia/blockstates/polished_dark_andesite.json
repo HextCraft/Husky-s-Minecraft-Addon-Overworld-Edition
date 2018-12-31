@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:block/dark_polished_andesite"
+    },
+    "model": "cube_all"
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}

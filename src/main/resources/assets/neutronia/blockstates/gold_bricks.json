@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/gold_bricks"
+      "all": "neutronia:block/gold_bricks"
     },
     "model": "cube_all"
   },

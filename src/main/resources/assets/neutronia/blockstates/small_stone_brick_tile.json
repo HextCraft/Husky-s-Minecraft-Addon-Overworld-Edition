@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/small_stone_brick_tile"
+      "all": "neutronia:block/small_stone_brick_tile"
     },
     "model": "cube_all"
   },

@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/rope_coil_top",
-      "side": "neutronia_revamped:block/rope_coil"
+      "end": "neutronia:block/rope_coil_top",
+      "side": "neutronia:block/rope_coil"
     }
   },
   "variants": {

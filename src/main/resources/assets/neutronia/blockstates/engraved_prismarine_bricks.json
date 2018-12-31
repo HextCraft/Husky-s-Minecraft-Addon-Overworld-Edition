@@ -4,8 +4,8 @@
   "defaults": {
     "model": "cube_column",
     "textures": {
-      "end": "neutronia_revamped:block/smooth_prismarine_bricks",
-      "side": "neutronia_revamped:block/engraved_prismarine_bricks"
+      "end": "neutronia:block/smooth_prismarine_bricks",
+      "side": "neutronia:block/engraved_prismarine_bricks"
     },
     "transform": "forge:default-block"
   },

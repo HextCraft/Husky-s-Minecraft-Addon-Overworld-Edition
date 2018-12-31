@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/egg_crate_top",
+      "top": "neutronia:block/egg_crate_top",
       "bottom": "blocks/planks_oak",
-      "side": "neutronia_revamped:block/egg_crate"
+      "side": "neutronia:block/egg_crate"
     }
   },
   "variants": {

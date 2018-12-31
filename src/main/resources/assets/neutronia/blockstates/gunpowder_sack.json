@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/gunpowder_sack_top",
-      "bottom": "neutronia_revamped:block/gunpowder_sack_bottom",
-      "side": "neutronia_revamped:block/gunpowder_sack"
+      "top": "neutronia:block/gunpowder_sack_top",
+      "bottom": "neutronia:block/gunpowder_sack_bottom",
+      "side": "neutronia:block/gunpowder_sack"
     }
   },
   "variants": {

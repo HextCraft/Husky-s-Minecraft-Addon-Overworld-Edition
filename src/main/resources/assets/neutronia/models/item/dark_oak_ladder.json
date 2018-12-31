@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "neutronia_revamped:block/dark_oak_ladder"
+    "layer0": "neutronia:block/dark_oak_ladder"
   }
 }

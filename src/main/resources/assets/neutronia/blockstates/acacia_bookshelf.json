@@ -5,7 +5,7 @@
     "model": "minecraft:cube_column",
     "textures": {
       "end": "blocks/planks_acacia",
-      "side": "neutronia_revamped:block/acacia_bookshelf"
+      "side": "neutronia:block/acacia_bookshelf"
     },
     "transform": "forge:default-block"
   },

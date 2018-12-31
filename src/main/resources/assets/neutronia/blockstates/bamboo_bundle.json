@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/bamboo_bundle_top",
-      "side": "neutronia_revamped:block/bamboo_bundle"
+      "end": "neutronia:block/bamboo_bundle_top",
+      "side": "neutronia:block/bamboo_bundle"
     }
   },
   "variants": {

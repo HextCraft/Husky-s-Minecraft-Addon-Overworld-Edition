@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "neutronia_revamped:item/iron_chain"
+    "layer0": "neutronia:item/iron_chain"
   }
 }

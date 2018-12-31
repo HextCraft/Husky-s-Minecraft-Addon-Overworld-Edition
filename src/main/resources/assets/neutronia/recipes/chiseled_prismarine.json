@@ -9,13 +9,13 @@
   {
     "P":
     {
-      "item": "neutronia_revamped:prismarine_brick_slab",
+      "item": "neutronia:prismarine_brick_slab",
       "data": 0
     }
   },
   "result":
   {
-    "item": "neutronia_revamped:chiseled_prismarine",
+    "item": "neutronia:chiseled_prismarine",
     "count": 1
   }
 }

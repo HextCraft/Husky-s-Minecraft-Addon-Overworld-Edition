@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/smooth_prismarine_bricks",
-      "side": "neutronia_revamped:block/chiseled_prismarine"
+      "end": "neutronia:block/smooth_prismarine_bricks",
+      "side": "neutronia:block/chiseled_prismarine"
     },
     "model": "cube_column",
     "uvlock": true
@@ -12,14 +12,14 @@
     "filled": {
       "true": {
         "textures": {
-          "end": "neutronia_revamped:block/smooth_prismarine_bricks",
-          "side": "neutronia_revamped:block/chiseled_prismarine_filled"
+          "end": "neutronia:block/smooth_prismarine_bricks",
+          "side": "neutronia:block/chiseled_prismarine_filled"
         }
       },
       "false": {
         "textures": {
-          "end": "neutronia_revamped:block/smooth_prismarine_bricks",
-          "side": "neutronia_revamped:block/chiseled_prismarine"
+          "end": "neutronia:block/smooth_prismarine_bricks",
+          "side": "neutronia:block/chiseled_prismarine"
         }
       }
     },

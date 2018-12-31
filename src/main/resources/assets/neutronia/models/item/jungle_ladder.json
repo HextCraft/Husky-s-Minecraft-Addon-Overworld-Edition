@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "neutronia_revamped:block/jungle_ladder"
+    "layer0": "neutronia:block/jungle_ladder"
   }
 }

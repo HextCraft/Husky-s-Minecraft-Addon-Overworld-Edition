@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/golden_apple_crate_top",
-      "bottom": "neutronia_revamped:block/golden_apple_crate_bottom",
-      "side": "neutronia_revamped:block/golden_apple_crate"
+      "top": "neutronia:block/golden_apple_crate_top",
+      "bottom": "neutronia:block/golden_apple_crate_bottom",
+      "side": "neutronia:block/golden_apple_crate"
     }
   },
   "variants": {

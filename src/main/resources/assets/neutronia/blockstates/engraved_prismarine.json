@@ -5,7 +5,7 @@
     "model": "cube_column",
     "textures": {
       "end": "blocks/prismarine_rough",
-      "side": "neutronia_revamped:block/engraved_prismarine"
+      "side": "neutronia:block/engraved_prismarine"
     },
     "transform": "forge:default-block"
   },

@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/dark_oak_lantern_top",
-      "side": "neutronia_revamped:block/dark_oak_lantern"
+      "end": "neutronia:block/dark_oak_lantern_top",
+      "side": "neutronia:block/dark_oak_lantern"
     },
     "model": "cube_column",
     "uvlock": true

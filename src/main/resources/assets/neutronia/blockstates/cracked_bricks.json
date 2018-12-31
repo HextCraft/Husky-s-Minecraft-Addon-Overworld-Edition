@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/cracked_bricks"
+      "all": "neutronia:block/cracked_bricks"
     },
     "model": "cube_all"
   },

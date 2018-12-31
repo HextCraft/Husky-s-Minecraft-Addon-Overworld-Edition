@@ -9,13 +9,13 @@
   {
     "E":
     {
-      "item": "neutronia_revamped:end_brick_slab",
+      "item": "neutronia:end_brick_slab",
       "data": 0
     }
   },
   "result":
   {
-    "item": "neutronia_revamped:chiseled_end_brick",
+    "item": "neutronia:chiseled_end_brick",
     "count": 1
   }
 }

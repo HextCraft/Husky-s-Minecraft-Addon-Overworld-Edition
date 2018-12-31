@@ -2,15 +2,15 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/sandstone_bricks"
+      "all": "neutronia:block/sandstone_bricks"
     },
     "model": "cube_all",
     "uvlock": true
   },
   "variants": {
     "normal": [
-      { "textures": { "all": "neutronia_revamped:block/sandstone_bricks" }},
-      { "textures": { "all": "neutronia_revamped:block/sandstone_bricks_1" }}
+      { "textures": { "all": "neutronia:block/sandstone_bricks" }},
+      { "textures": { "all": "neutronia:block/sandstone_bricks_1" }}
     ],
     "inventory": [{
     }]

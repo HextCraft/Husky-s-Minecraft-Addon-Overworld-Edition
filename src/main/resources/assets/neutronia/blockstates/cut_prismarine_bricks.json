@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "neutronia_revamped:block/cut_prismarine_bricks"
+      "all": "neutronia:block/cut_prismarine_bricks"
     },
     "model": "cube_all"
   },

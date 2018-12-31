@@ -9,13 +9,13 @@
   {
     "P":
     {
-      "item": "neutronia_revamped:dark_prismarine_slab",
+      "item": "neutronia:dark_prismarine_slab",
       "data": 0
     }
   },
   "result":
   {
-    "item": "neutronia_revamped:chiseled_dark_prismarine",
+    "item": "neutronia:chiseled_dark_prismarine",
     "count": 1
   }
 }

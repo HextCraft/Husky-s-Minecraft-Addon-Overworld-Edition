@@ -8,7 +8,11 @@ public enum VanillaWoodTypes implements IStringSerializable {
     BIRCH(1, "birch", MapColor.SAND),
     JUNGLE(2, "jungle", MapColor.DIRT),
     ACACIA(3, "acacia", MapColor.ADOBE),
-    DARK_OAK(4, "dark_oak", "big_oak", MapColor.BROWN);
+    DARK_OAK(4, "dark_oak", MapColor.BROWN),
+    BAMBOO(5, "bamboo", MapColor.DIRT),
+    PALM(6, "palm", MapColor.ADOBE),
+    WILLOW(7, "willow", MapColor.GRASS),
+    CHERRY(8, "cherry", MapColor.PINK);
 
     private static final VanillaWoodTypes[] META_LOOKUP = new VanillaWoodTypes[values().length];
 

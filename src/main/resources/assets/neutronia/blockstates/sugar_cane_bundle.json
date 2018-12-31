@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "end": "neutronia_revamped:block/sugar_cane_bundle_top",
-      "side": "neutronia_revamped:block/sugar_cane_bundle"
+      "end": "neutronia:block/sugar_cane_bundle_top",
+      "side": "neutronia:block/sugar_cane_bundle"
     }
   },
   "variants": {

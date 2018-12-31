@@ -1,6 +1,5 @@
 package team.hdt.neutronia.blocks;
 
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,11 +11,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import team.hdt.huskylib.block.BlockFacing;
 import team.hdt.neutronia.base.NeutroniaRevamped;
+import team.hdt.neutronia.properties.WoodTypes;
 import team.hdt.neutronia.tileentities.TileEntityBarrel;
 
 public class BlockFluidBarrel extends BlockFacing implements INeutroniaBlock {
 
-    public BlockFluidBarrel(BlockPlanks.EnumType type) {
+    public BlockFluidBarrel(WoodTypes type) {
         super(String.format("%s_fluid_barrel", type.getName()), Material.WOOD);
     }
 

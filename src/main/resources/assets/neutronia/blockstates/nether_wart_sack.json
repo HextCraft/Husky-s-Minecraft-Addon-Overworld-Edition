@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "top": "neutronia_revamped:block/nether_wart_sack_top",
-      "bottom": "neutronia_revamped:block/nether_wart_sack_bottom",
-      "side": "neutronia_revamped:block/nether_wart_sack"
+      "top": "neutronia:block/nether_wart_sack_top",
+      "bottom": "neutronia:block/nether_wart_sack_bottom",
+      "side": "neutronia:block/nether_wart_sack"
     }
   },
   "variants": {
