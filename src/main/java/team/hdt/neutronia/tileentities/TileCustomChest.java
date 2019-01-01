@@ -23,18 +23,17 @@ public class TileCustomChest extends TileEntityChest {
 
     public ChestType chestType = ChestType.NONE;
 
-    // Copied from VanillaDoubleChestItemHandler
     @Nullable
     public static VanillaDoubleChestItemHandler getDoubleChestHandler(TileCustomChest chest) {
         World world = chest.getWorld();
         BlockPos pos = chest.getPos();
         if (!world.isBlockLoaded(pos))
-            return null; // Still loading
+            return null;
 
         Block blockType = chest.getBlockType();
 
         EnumFacing[] horizontals = EnumFacing.HORIZONTALS;
-        for (int i = horizontals.length - 1; i >= 0; i--) { // Use reverse order so we can return early
+        for (int i = horizontals.length - 1; i >= 0; i--) {
             EnumFacing enumfacing = horizontals[i];
             BlockPos blockpos = pos.offset(enumfacing);
             Block block = world.getBlockState(blockpos).getBlock();

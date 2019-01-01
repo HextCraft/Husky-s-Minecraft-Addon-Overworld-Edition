@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/ice_door_bottom",
-      "top": "neutronia:blocks/ice_door_top"
+      "bottom": "neutronia:block/ice_door_bottom",
+      "top": "neutronia:block/ice_door_top"
     },
     "uvlock": true
   },

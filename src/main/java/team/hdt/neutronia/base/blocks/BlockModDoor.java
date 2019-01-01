@@ -39,7 +39,7 @@ public abstract class BlockModDoor extends BlockDoor implements IModBlock {
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        return new ItemStack(this.getDefaultState().getBlock());
+        return new ItemStack(this);
     }
 
     public Block register(String name) {

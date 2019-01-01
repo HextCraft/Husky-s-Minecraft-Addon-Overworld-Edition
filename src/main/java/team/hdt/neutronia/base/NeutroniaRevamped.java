@@ -8,8 +8,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import team.hdt.neutronia.base.proxy.CommonProxy;
-import team.hdt.neutronia.commands.CommandFindBiome;
-import team.hdt.neutronia.commands.CommandTeleportToDimension;
 import team.hdt.neutronia.init.NBiomes;
 import team.hdt.neutronia.init.NBlocks;
 import team.hdt.neutronia.init.NItems;
@@ -51,8 +49,7 @@ public class NeutroniaRevamped {
 
     @Mod.EventHandler
     public void serverInit(FMLServerStartingEvent event) {
-        event.registerServerCommand(new CommandFindBiome());
-        event.registerServerCommand(new CommandTeleportToDimension());
+        
     }
 
 }

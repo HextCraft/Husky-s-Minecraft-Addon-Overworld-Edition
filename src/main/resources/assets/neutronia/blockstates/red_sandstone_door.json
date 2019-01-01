@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/red_sandstone_door_bottom",
-      "top": "neutronia:blocks/red_sandstone_door_top"
+      "bottom": "neutronia:block/red_sandstone_door_bottom",
+      "top": "neutronia:block/red_sandstone_door_top"
     },
     "uvlock": true
   },

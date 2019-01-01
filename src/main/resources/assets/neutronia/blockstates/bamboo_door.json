@@ -2,8 +2,8 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "bottom": "neutronia:blocks/bamboo_door_bottom",
-      "top": "neutronia:blocks/bamboo_door_top"
+      "bottom": "neutronia:block/bamboo_door_bottom",
+      "top": "neutronia:block/bamboo_door_top"
     },
     "uvlock": true
   },
