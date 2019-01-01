@@ -10,6 +10,7 @@ import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import team.hdt.neutronia.base.Reference;
 import team.hdt.neutronia.base.utils.IStructure;
+import team.hdt.neutronia.init.NBlocks;
 
 import java.util.ArrayList;
 import java.util.List;

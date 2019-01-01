@@ -1,15 +1,10 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "neutronia:custom_chest",
-    "transform": "forge:default-block"
-  },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}],
-    "facing=north": [{}],
-    "facing=south": [{}],
-    "facing=east": [{}],
-    "facing=west": [{}]
+    "normal": { "model": "neutronia:custom_chest" },
+    "inventory": { "model": "neutronia:custom_chest" },
+    "facing=north": { "model": "neutronia:custom_chest" },
+    "facing=south": { "model": "neutronia:custom_chest" },
+    "facing=east": { "model": "neutronia:custom_chest" },
+    "facing=west": { "model": "neutronia:custom_chest" }
   }
 }

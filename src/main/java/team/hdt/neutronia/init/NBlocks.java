@@ -37,10 +37,12 @@ public class NBlocks {
             GLAZED_TERRACOTTA_PILLAR = new Block[13], SOUL_STONE = new Block[4];
     public static BlockCustomChest CUSTOM_CHEST;
     public static BlockCustomChest CUSTOM_TRAPPED_CHEST;
+    public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
+    public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
     public static BlockChiseled CHISELED_PRISMARINE, CHISELED_NETHER_BRICK, CHISELED_PURPUR, CHISELED_BRICKS, CHISELED_END_BRICK, CHISELED_RED_NETHER_BRICK;
     public static BlockDarkPrismarineChiseled CHISELED_DARK_PRISMARINE;
     public static Block CHISELED_PRISMARINE_BRICKS, CUT_PRISMARINE, CUT_PRISMARINE_BRICKS, ENGRAVED_PRISMARINE, ENGRAVED_PRISMARINE_BRICKS;
-    public static Block OBSIDIAN_BRICKS, OBSIDIAN_COBBLE, OBSIDIAN_PILLAR, CHISELED_OBSIDIAN, CRYING_OBSIDIAN;
+    public static Block OBSIDIAN_BRICKS, OBSIDIAN_COBBLE, OBSIDIAN_PILLAR, CHISELED_OBSIDIAN, GLOWING_OBSIDIAN;
     public static Block SMOOTH_END_BRICK, SMOOTH_PRISMARINE_BRICKS, SMOOTH_PRISMARINE, SMOOTH_OBSIDIAN, SMOOTH_BRICK, SMOOTH_PURPUR_BRICK, SMOOTH_NETHER_BRICK, SMOOTH_RED_NETHER_BRICK, SMOOTH_STONE, SMOOTH_STONE_BRICK;
     public static BlockNeutroniaPillar DIAMOND_PILLAR, EMERALD_PILLAR, IRON_PILLAR, GOLD_PILLAR;
     public static Block DIAMOND_BRICKS, EMERALD_BRICKS, IRON_BRICKS, GOLD_BRICKS;
@@ -53,7 +55,7 @@ public class NBlocks {
     public static Block ROPE_COIL;
     public static Block DARK_ANDESITE, DARK_ANDESITE_BRICKS, POLISHED_DARK_ANDESITE;
     public static Block MUD, MUD_BRICKS, DRIED_MUD, DRIED_MUD_BRICKS;
-    public static Block PACKED_ICE_BRICKS, PACKED_ICE_PILLAR, SMALL_SNOW_BRICKS, SNOW_BRICKS, ICE_TILES, ICE_ROD, ICE_DOOR, ICE_TRAPDOOR;
+    public static Block PACKED_ICE_BRICKS, PACKED_ICE_PILLAR, SMALL_SNOW_BRICKS, SNOW_BRICKS, ICE_TILES, ICE_ROD;
     public static Block CHISELED_BRICK;
     public static Block FROSTED_GLASS;
     public static Block FROSTED_GLASS_PANE;
@@ -90,8 +92,17 @@ public class NBlocks {
             LADDERS[woodType.getMetadata()] = new BlockCustomLadder(woodType.getName());
         }
 
-        CUSTOM_CHEST = new BlockCustomChest("wooden_chest", BlockChest.Type.BASIC);
-        CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", BlockChest.Type.TRAP);
+        CUSTOM_CHEST = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
+        CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
+
+        SANDSTONE_DOOR = new BlockNeutroniaDoor("sandstone_door");
+        SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("sandstone_trapdoor");
+        RED_SANDSTONE_DOOR = new BlockNeutroniaDoor("red_sandstone_door");
+        RED_SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("red_sandstone_trapdoor");
+        ICE_DOOR = new BlockNeutroniaDoor(Material.ICE, "ice_door");
+        ICE_TRAPDOOR = new BlockNeutroniaTrapdoor(Material.ICE, "ice_trapdoor", SoundType.SNOW);
+        BAMBOO_DOOR = new BlockNeutroniaDoor("bamboo_door");
+        BAMBOO_TRAPDOOR = new BlockNeutroniaTrapdoor("bamboo_trapdoor");
 
         for(WoodTypes woodTypes : WoodTypes.values()) {
             WOOD_LANTERNS[woodTypes.getMetadata()] = new BlockWoodenLantern(woodTypes);
@@ -127,7 +138,7 @@ public class NBlocks {
         OBSIDIAN_COBBLE = new BlockNeutroniaBase(Material.ROCK, "obsidian_cobble").setHardness(50.0F).setResistance(2000.0F);
         OBSIDIAN_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "obsidian_pillar").setHardness(50.0F).setResistance(2000.0F);
         CHISELED_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "chiseled_obsidian").setHardness(50.0F).setResistance(2000.0F);
-        CRYING_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "crying_obsidian").setHardness(50.0F).setResistance(2000.0F);
+        GLOWING_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "glowing_obsidian").setHardness(50.0F).setResistance(2000.0F);
 
         SMOOTH_END_BRICK = new BlockNeutroniaBase(Material.ROCK, "smooth_end_brick", CreativeTabs.BUILDING_BLOCKS, 0.8F, 10.0F, SoundType.STONE);
         SMOOTH_PRISMARINE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
@@ -191,8 +202,6 @@ public class NBlocks {
         SNOW_BRICKS = new BlockNeutroniaBase(Material.PACKED_ICE, "snow_bricks");
         ICE_TILES = new BlockNeutroniaBase(Material.PACKED_ICE, "ice_tiles");
         ICE_ROD = new BlockRodBase("ice_rod", true);
-        ICE_DOOR = new BlockNeutroniaDoor(Material.ICE, "ice_door");
-        ICE_TRAPDOOR = new BlockNeutroniaTrapdoor(Material.ICE, "ice_trapdoor", SoundType.SNOW);
 
         SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         RED_SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "red_sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);

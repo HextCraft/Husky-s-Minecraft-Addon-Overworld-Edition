@@ -1,0 +1,26 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_column",
+    "textures": {
+      "end": "neutronia:block/purhogany_log_top",
+      "side": "neutronia:block/purhogany_log"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "axis=y": {
+      "x": 0,
+      "y": 0
+    },
+    "axis=z": {
+      "x": 90
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90
+    },
+    "inventory": [{}]
+  }
+}

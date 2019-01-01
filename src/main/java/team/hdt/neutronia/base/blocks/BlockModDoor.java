@@ -4,9 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import team.hdt.huskylib.interf.IModBlock;
@@ -27,13 +32,18 @@ public abstract class BlockModDoor extends BlockDoor implements IModBlock {
 
         this.bareName = name;
         this.variants = variants;
-        if (this.registerInConstruction()) {
-            this.setTranslationKey(name);
+        if (registerInConstruction()) {
+            register(name);
         }
     }
 
-    public Block setTranslationKey(String name) {
-        super.setTranslationKey(name);
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+        return new ItemStack(this.getDefaultState().getBlock());
+    }
+
+    public Block register(String name) {
+        setTranslationKey(name);
         this.setRegistryName(this.getPrefix() + name);
         ProxyRegistry.register(this);
         ProxyRegistry.register(new ItemNeutroniaDoor(this, name));

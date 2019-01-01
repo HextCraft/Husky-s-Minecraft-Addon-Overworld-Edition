@@ -6,11 +6,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaBase;
+import team.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 
-public class BlockCactusBundle extends BlockNeutroniaBase {
+public class BlockCactusBundle extends BlockNeutroniaPillar {
 
     public BlockCactusBundle() {
-        super("cactus_bundle", Material.CACTUS);
+        super(Material.CACTUS, "cactus_bundle");
         setCreativeTab(CreativeTabs.DECORATIONS);
     }
 
@@ -18,7 +19,7 @@ public class BlockCactusBundle extends BlockNeutroniaBase {
      * Block's chance to react to a living entity falling on it.
      */
     public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-        entityIn.fall(fallDistance, 0.2F);
+        entityIn.fall(fallDistance * fallDistance, 0.2F);
     }
 
 }

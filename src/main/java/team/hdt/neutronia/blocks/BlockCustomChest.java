@@ -38,12 +38,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static team.hdt.neutronia.init.NBlocks.CUSTOM_TYPE_NEUTRONIA_TRAP;
+
 public class BlockCustomChest extends BlockChest implements INeutroniaBlock {
 
     private final String[] variants;
     private final String bareName;
-
-    public static final Type CUSTOM_TYPE_NEUTRONIA_TRAP = EnumHelper.addEnum(Type.class, "NEUTRONIA_TRAP", new Class[0]);
 
     public BlockCustomChest(String name, Type type) {
         super(type);
@@ -289,7 +289,7 @@ public class BlockCustomChest extends BlockChest implements INeutroniaBlock {
     }
 
     public ChestType getCustomType(ItemStack stack) {
-        return ChestType.class.getEnumConstants()[Math.min(5, stack.getItemDamage() + 1)];
+        return ChestType.class.getEnumConstants()[Math.min(9, stack.getItemDamage() + 1)];
     }
 
     public ItemStack setCustomType(ItemStack stack, ChestType type) {
