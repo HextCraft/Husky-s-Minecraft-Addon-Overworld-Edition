@@ -21,13 +21,13 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
 
 import java.util.Random;
 
-public class BiomeAlps extends Biome {
+public class AlpinesBiome extends Biome {
 
     protected static final PatchFeature GRASS = new PatchFeature(Blocks.GRASS.getDefaultState(), 8);
     private final WorldGenerator silverfishSpawner = new WorldGenMinable(Blocks.MONSTER_EGG.getDefaultState().withProperty(BlockSilverfish.VARIANT, BlockSilverfish.EnumType.STONE), 9);
     private final WorldGenTreeTallSpruce spruceGenerator = new WorldGenTreeTallSpruce(true);
 
-    public BiomeAlps(BiomeProperties properties) {
+    public AlpinesBiome(BiomeProperties properties) {
         super(properties);
 
         this.decorator.generateFalls = true;

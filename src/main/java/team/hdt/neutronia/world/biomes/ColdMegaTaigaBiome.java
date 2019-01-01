@@ -4,15 +4,15 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeForest;
+import net.minecraft.world.biome.BiomeTaiga;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class BiomeColdForestHills extends BiomeForest {
+public class ColdMegaTaigaBiome extends BiomeTaiga {
 
-    public BiomeColdForestHills(Type type, String name) {
-        super(type, new BiomeProperties(name).setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setSnowEnabled());
+    public ColdMegaTaigaBiome(Type type, String name) {
+        super(type, new BiomeProperties(name).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()).setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setSnowEnabled());
     }
 
     public void decorate(World worldIn, Random rand, BlockPos pos) {

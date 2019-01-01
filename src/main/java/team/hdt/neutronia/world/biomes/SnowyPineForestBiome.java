@@ -17,12 +17,12 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreePine;
 
 import java.util.Random;
 
-public class BiomePineForest extends Biome {
+public class SnowyPineForestBiome extends Biome {
 
     protected static final WorldGenLakes LAKE = new WorldGenLakes(Blocks.WATER);
     private final WorldGenTreePine pineGenerator = new WorldGenTreePine(true);
 
-    public BiomePineForest(BiomeProperties properties) {
+    public SnowyPineForestBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.GRASS.getDefaultState();
@@ -40,7 +40,7 @@ public class BiomePineForest extends Biome {
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 
-        return (rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
+        return (WorldGenAbstractTree) (rand.nextInt(5) == 0 ? this.pineGenerator : this.pineGenerator);
     }
 
     public WorldGenerator getRandomWorldGenForGrass(Random rand) {
@@ -60,9 +60,9 @@ public class BiomePineForest extends Biome {
             }
 
         net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Pre(worldIn, rand, pos));
-        WorldGenerator diamonds = new DiamondGenerator();
-        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, diamonds, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.DIAMOND))
-            diamonds.generate(worldIn, rand, pos);
+        WorldGenerator lapis = new LapisGenerator();
+        if (net.minecraftforge.event.terraingen.TerrainGen.generateOre(worldIn, rand, lapis, pos, net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.LAPIS))
+            lapis.generate(worldIn, rand, pos);
 
         if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, pos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER)) {
             int boulderChance = rand.nextInt(12);
@@ -88,7 +88,7 @@ public class BiomePineForest extends Biome {
         return super.getModdedBiomeFoliageColor(0x567C48);
     }
 
-    public static class DiamondGenerator extends WorldGenerator {
+    public static class LapisGenerator extends WorldGenerator {
         @Override
         public boolean generate(World worldIn, Random rand, BlockPos pos) {
             int count = 5 + rand.nextInt(6);
@@ -98,8 +98,9 @@ public class BiomePineForest extends Biome {
 
                 net.minecraft.block.state.IBlockState state = worldIn.getBlockState(blockpos);
                 if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, net.minecraft.block.state.pattern.BlockMatcher.forBlock(Blocks.STONE))) {
-                    worldIn.setBlockState(blockpos, Blocks.DIAMOND_ORE.getDefaultState(), 16 | 2);
+                    worldIn.setBlockState(blockpos, Blocks.LAPIS_ORE.getDefaultState(), 16 | 2);
                 }
+                net.minecraftforge.common.MinecraftForge.ORE_GEN_BUS.post(new net.minecraftforge.event.terraingen.OreGenEvent.Post(worldIn, rand, pos));
             }
             return true;
         }

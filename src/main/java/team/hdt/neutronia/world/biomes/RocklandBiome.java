@@ -19,7 +19,7 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreeShrubOak;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BiomeRockland extends Biome {
+public class RocklandBiome extends Biome {
 
 
     protected static final WorldGenBlockBlob STONE_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.STONE, 1);
@@ -27,7 +27,7 @@ public class BiomeRockland extends Biome {
     protected static final WorldGenLakes LAVA_LAKE_FEATURE = new WorldGenLakes(Blocks.LAVA);
     protected static final WorldGenTreeShrubOak SHRUB_OAK = new WorldGenTreeShrubOak();
 
-    public BiomeRockland(BiomeProperties properties) {
+    public RocklandBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.GRASS.getDefaultState();

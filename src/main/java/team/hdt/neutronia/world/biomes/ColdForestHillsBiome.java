@@ -9,10 +9,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class BiomeColdForest extends BiomeForest {
+public class ColdForestHillsBiome extends BiomeForest {
 
-    public BiomeColdForest(Type type, String name) {
-        super(type, new BiomeProperties(name).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setSnowEnabled());
+    public ColdForestHillsBiome(Type type, String name) {
+        super(type, new BiomeProperties(name).setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.FOREST.getRainfall()).setBaseHeight(Biomes.FOREST.getBaseHeight()).setHeightVariation(Biomes.FOREST.getHeightVariation()).setSnowEnabled());
     }
 
     public void decorate(World worldIn, Random rand, BlockPos pos) {

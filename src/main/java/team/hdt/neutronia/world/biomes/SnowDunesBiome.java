@@ -15,13 +15,13 @@ import team.hdt.neutronia.world.gen.features.PatchFeature;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BiomeSnowDune extends Biome {
+public class SnowDunesBiome extends Biome {
 
     protected static final PatchFeature ICE_PATCHES = new PatchFeature(Blocks.PACKED_ICE.getDefaultState(), 5);
     private final WorldGenIceSpike iceSpike = new WorldGenIceSpike();
 
 
-    public BiomeSnowDune(BiomeProperties properties) {
+    public SnowDunesBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.SNOW.getDefaultState();

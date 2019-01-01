@@ -16,7 +16,7 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BiomeIcyTundra extends Biome {
+public class IcyTundraBiome extends Biome {
 
     protected static final PatchFeature GRAVEL_PATCHES = new PatchFeature(Blocks.GRAVEL.getDefaultState(), 5);
     protected static final PatchFeature SNOW_PATCHES = new PatchFeature(Blocks.SNOW.getDefaultState(), 5);
@@ -24,7 +24,7 @@ public class BiomeIcyTundra extends Biome {
     private final WorldGenIceSpike iceSpike = new WorldGenIceSpike();
     private final WorldGenIcePath icePatch = new WorldGenIcePath(4);
 
-    public BiomeIcyTundra(BiomeProperties properties) {
+    public IcyTundraBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.GRASS.getDefaultState();

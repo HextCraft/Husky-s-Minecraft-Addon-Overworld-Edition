@@ -17,13 +17,13 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
 
 import java.util.Random;
 
-public class BiomeCliffs extends Biome {
+public class CliffsBiome extends Biome {
     protected static final WorldGenAbstractTree TREE = new WorldGenTreeShrubSpruce();
     protected static final WorldGenBlockBlob COBBLESTONE_BOULDER_FEATURE = new WorldGenBlockBlob(Blocks.COBBLESTONE, 1);
     protected static final LineFeature COBBLESTONE_LINE = new LineFeature(Blocks.COBBLESTONE, 1);
     private static final WorldGenTreeTallSpruce SPRUCE_GENERATOR = new WorldGenTreeTallSpruce(true);
 
-    public BiomeCliffs(BiomeProperties properties) {
+    public CliffsBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.GRASS.getDefaultState();

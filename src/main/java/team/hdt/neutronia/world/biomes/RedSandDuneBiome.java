@@ -16,8 +16,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Iterator;
 import java.util.Random;
 
-public class BiomeRedSandDune extends Biome {
-    public BiomeRedSandDune(BiomeProperties properties) {
+public class RedSandDuneBiome extends Biome {
+    public RedSandDuneBiome(BiomeProperties properties) {
         super(properties);
 
         topBlock = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);

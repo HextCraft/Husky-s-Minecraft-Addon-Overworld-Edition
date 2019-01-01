@@ -17,11 +17,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class BiomeNHills extends Biome {
+public class NHillsBiome extends Biome {
     private final WorldGenerator silverfishSpawner = new WorldGenMinable(Blocks.MONSTER_EGG.getDefaultState().withProperty(BlockSilverfish.VARIANT, BlockSilverfish.EnumType.STONE), 9);
     private final WorldGenTaiga2 spruceGenerator = new WorldGenTaiga2(false);
 
-    public BiomeNHills(BiomeProperties properties) {
+    public NHillsBiome(BiomeProperties properties) {
         super(properties);
 
         this.decorator.treesPerChunk = 2;

@@ -9,10 +9,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class BiomeColdMegaTaiga extends BiomeTaiga {
+public class ColdMegaTaigaHillsBiome extends BiomeTaiga {
 
-    public BiomeColdMegaTaiga(Type type, String name) {
-        super(type, new BiomeProperties(name).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()).setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setSnowEnabled());
+    public ColdMegaTaigaHillsBiome(Type type, String name) {
+        super(type, new BiomeProperties(name).setBaseHeight(0.98F).setHeightVariation(0.37F).setTemperature(Biomes.ICE_PLAINS.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()).setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setSnowEnabled());
     }
 
     public void decorate(World worldIn, Random rand, BlockPos pos) {
