@@ -16,12 +16,12 @@ import team.hdt.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
 
 import java.util.Random;
 
-public class BiomeTaigaPlains extends Biome {
+public class TaigaPlainsBiome extends Biome {
 
     protected static final PatchFeature STONE_PATCHES = new PatchFeature(Blocks.STONE.getDefaultState(), 7);
     protected static final WorldGenAbstractTree SHRUB_SPRUCE = new WorldGenTreeShrubSpruce();
 
-    public BiomeTaigaPlains() {
+    public TaigaPlainsBiome() {
         super(new BiomeProperties("Taiga Plains").setBaseHeight(Biomes.PLAINS.getBaseHeight()).setHeightVariation(Biomes.PLAINS.getHeightVariation()).setTemperature(Biomes.TAIGA.getDefaultTemperature()).setRainfall(Biomes.TAIGA.getRainfall()));
 
         topBlock = Blocks.GRASS.getDefaultState();

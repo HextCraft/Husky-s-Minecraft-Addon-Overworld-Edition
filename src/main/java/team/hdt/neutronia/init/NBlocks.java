@@ -49,14 +49,13 @@ public class NBlocks {
     public static Block SANDSTONE_PILLAR, RED_SANDSTONE_PILLAR, STONE_PILLAR, POLISHED_ANDESITE_PILLAR, POLISHED_GRANITE_PILLAR, POLISHED_DIORITE_PILLAR,
             STONE_BRICK_PILLAR, PRISMARINE_COLUMN, PRISMARINE_PILLAR, PRISMARINE_BRICK_PILLAR, RED_NETHER_BRICK_PILLAR, END_BRICK_PILLAR,
             BRICK_PILLAR, DARK_PRISMARINE_COLUMN;
-    public static Block DIRTY_BRICKS, CRACKED_BRICKS, MOSSY_BRICKS, BRICK_PATH, CHECKERED_TILE, SMALL_CHECKERED_TILE;
+    public static Block DIRTY_BRICKS, CRACKED_BRICKS, MOSSY_BRICKS, BRICK_PATH, DUSTY_BRICKS, BRICK_TILE, SMALL_BRICK_TILE, CHISELED_BRICK;
     public static Block STONE_TILE, SMALL_STONE_TILE, ANDESITE_TILE, SMALL_ANDESITE_TILE, DIORITE_TILE, SMALL_DIORITE_TILE, GRANITE_TILE, SMALL_GRANITE_TILE,
-            STONE_BRICK_TILE, SMALL_STONE_BRICK_TILE, BRICK_TILE, SMALL_BRICK_TILE, OBSIDIAN_TILES, SMALL_OBSIDIAN_TILES;
+            STONE_BRICK_TILE, SMALL_STONE_BRICK_TILE, OBSIDIAN_TILES, SMALL_OBSIDIAN_TILES, CHECKERED_TILE, SMALL_CHECKERED_TILE;
     public static Block ROPE_COIL;
     public static Block DARK_ANDESITE, DARK_ANDESITE_BRICKS, POLISHED_DARK_ANDESITE;
     public static Block MUD, MUD_BRICKS, DRIED_MUD, DRIED_MUD_BRICKS;
     public static Block PACKED_ICE_BRICKS, PACKED_ICE_PILLAR, SMALL_SNOW_BRICKS, SNOW_BRICKS, ICE_TILES, ICE_ROD;
-    public static Block CHISELED_BRICK;
     public static Block FROSTED_GLASS;
     public static Block FROSTED_GLASS_PANE;
     public static Block IRON_LANTERN, GOLDEN_LANTERN, PRISMARINE_LANTERN, IRON_CHAIN, GOLD_CHAIN, PRISMARINE_CHAIN;
@@ -88,7 +87,7 @@ public class NBlocks {
     public static void init() {
 
         for (VanillaWoodTypes woodType : VanillaWoodTypes.values()) {
-            BOOKSHELVES[woodType.getMetadata()] = new BlockNeutroniaBase(String.format("%s_bookshelf", woodType.getName()), Material.WOOD);
+            BOOKSHELVES[woodType.getMetadata()] = new BlockNeutroniaBase(String.format("%s_bookshelf", woodType.getName()), Material.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
             LADDERS[woodType.getMetadata()] = new BlockCustomLadder(woodType.getName());
         }
 
@@ -108,11 +107,11 @@ public class NBlocks {
             WOOD_LANTERNS[woodTypes.getMetadata()] = new BlockWoodenLantern(woodTypes);
             BARRELS[woodTypes.getMetadata()] = new BlockBarrel(woodTypes);
             FLUID_BARRELS[woodTypes.getMetadata()] = new BlockFluidBarrel(woodTypes);
-            CARVED_PLANKS[woodTypes.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodTypes.getName()));
+            CARVED_PLANKS[woodTypes.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodTypes.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         }
 
         for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
-            PATTERNED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName()));
+            PATTERNED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         }
 
         for (EnumGTPVariants color : EnumGTPVariants.values()) {
@@ -136,7 +135,7 @@ public class NBlocks {
 
         OBSIDIAN_BRICKS = new BlockNeutroniaBase(Material.ROCK, "obsidian_bricks").setHardness(50.0F).setResistance(2000.0F);
         OBSIDIAN_COBBLE = new BlockNeutroniaBase(Material.ROCK, "obsidian_cobble").setHardness(50.0F).setResistance(2000.0F);
-        OBSIDIAN_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "obsidian_pillar").setHardness(50.0F).setResistance(2000.0F);
+        OBSIDIAN_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "obsidian_pillar").setHardness(50.0F).setResistance(2000.0F).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         CHISELED_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "chiseled_obsidian").setHardness(50.0F).setResistance(2000.0F);
         GLOWING_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "glowing_obsidian").setHardness(50.0F).setResistance(2000.0F);
 
@@ -165,6 +164,10 @@ public class NBlocks {
         CRACKED_BRICKS = new BlockNeutroniaBase(Material.ROCK, "cracked_bricks");
         MOSSY_BRICKS = new BlockNeutroniaBase(Material.ROCK, "mossy_bricks");
         BRICK_PATH = new BlockNeutroniaBase(Material.ROCK, "brick_path");
+        DUSTY_BRICKS = new BlockNeutroniaBase(Material.ROCK, "dusty_bricks");
+        BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "brick_tile");
+        SMALL_BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "small_brick_tile");
+        CHISELED_BRICK = new BlockNeutroniaBase(Material.ROCK, "chiseled_brick");
 
         CHECKERED_TILE = new BlockNeutroniaBase(Material.ROCK, "checkered_tiles");
         SMALL_CHECKERED_TILE = new BlockNeutroniaBase(Material.ROCK, "small_checkered_tiles");
@@ -178,14 +181,10 @@ public class NBlocks {
         SMALL_GRANITE_TILE = new BlockNeutroniaBase(Material.ROCK, "small_granite_tile");
         STONE_BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "stone_brick_tile");
         SMALL_STONE_BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "small_stone_brick_tile");
-        BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "brick_tile");
-        SMALL_BRICK_TILE = new BlockNeutroniaBase(Material.ROCK, "small_brick_tile");
         SMALL_OBSIDIAN_TILES = new BlockNeutroniaBase(Material.ROCK, "small_obsidian_tiles").setHardness(50.0F).setResistance(2000.0F);
         OBSIDIAN_TILES = new BlockNeutroniaBase(Material.ROCK, "obsidian_tiles").setHardness(50.0F).setResistance(2000.0F);
 
-        CHISELED_BRICK = new BlockNeutroniaBase(Material.ROCK, "chiseled_brick");
-
-        ROPE_COIL = new BlockNeutroniaPillar(Material.CLOTH, "rope_coil");
+        ROPE_COIL = new BlockNeutroniaPillar(Material.CLOTH, "rope_coil").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 
         DARK_ANDESITE = new BlockNeutroniaBase(Material.ROCK, "dark_andesite");
         DARK_ANDESITE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "dark_andesite_bricks");
@@ -203,13 +202,13 @@ public class NBlocks {
         ICE_TILES = new BlockNeutroniaBase(Material.PACKED_ICE, "ice_tiles");
         ICE_ROD = new BlockRodBase("ice_rod", true);
 
-        SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        RED_SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "red_sandstone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        STONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "stone_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        POLISHED_ANDESITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_andesite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        POLISHED_DIORITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_diorite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        POLISHED_GRANITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_granite_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        STONE_BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "stone_brick_pillar").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "sandstone_pillar");
+        RED_SANDSTONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "red_sandstone_pillar");
+        STONE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "stone_pillar");
+        POLISHED_ANDESITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_andesite_pillar");
+        POLISHED_DIORITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_diorite_pillar");
+        POLISHED_GRANITE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "polished_granite_pillar");
+        STONE_BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "stone_brick_pillar");
         BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "brick_pillar", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
         PRISMARINE_COLUMN = new BlockNeutroniaPillar(Material.ROCK, "prismarine_column");
         PRISMARINE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "prismarine_pillar");
@@ -241,32 +240,32 @@ public class NBlocks {
 //            BlockRegisteringUtils.addSlabAndStair(soulStoneTypes.getName(), SOUL_STONE[soulStoneTypes.getMetadata()], 0, true);
         }
 
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(SOUL_STONE[0]),
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(SOUL_STONE[SoulStoneVariants.NORMAL_SOULSTONE.getMetadata()]),
                 "SS", "SS",
                 'S', ProxyRegistry.newStack(Blocks.SOUL_SAND));
-        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(SOUL_STONE[2], 4),
+        RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(SOUL_STONE[SoulStoneVariants.SMOOTH_SOULSTONE.getMetadata()], 4),
                 "SS", "SS",
                 'S', ProxyRegistry.newStack(SOUL_STONE[0], 1));
         /*RecipeHandler.addOreDictRecipe(ProxyRegistry.newStack(SOUL_STONE[1], 1),
                 "S", "S",
                 'S', ProxyRegistry.newStack(Block.getBlockFromName("neutronia:normal_soulstone_slab"), 1));*/
 
-        STICK_BUNDLE = new BlockNeutroniaPillar(Material.WOOD, "stick_bundle");
-        CHORUS_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "chorus_bundle");
-        SUGAR_CANE_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "sugar_cane_bundle");
-        BAMBOO_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "bamboo_bundle");
+        STICK_BUNDLE = new BlockNeutroniaPillar(Material.WOOD, "stick_bundle").setCreativeTab(CreativeTabs.DECORATIONS);
+        CHORUS_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "chorus_bundle").setCreativeTab(CreativeTabs.DECORATIONS);
+        SUGAR_CANE_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "sugar_cane_bundle").setCreativeTab(CreativeTabs.DECORATIONS);
+        BAMBOO_BUNDLE = new BlockNeutroniaPillar(Material.PLANTS, "bamboo_bundle").setCreativeTab(CreativeTabs.DECORATIONS);
         CACTUS_BUNDLE = new BlockCactusBundle();
 
-        NETHER_WART_SACK = new BlockNeutroniaPillar(Material.CLOTH, "nether_wart_sack");
-        COCOA_BEAN_SACK = new BlockNeutroniaPillar(Material.CLOTH, "cocoa_bean_sack");
-        GUNPOWDER_SACK = new BlockNeutroniaPillar(Material.CLOTH, "gunpowder_sack");
+        NETHER_WART_SACK = new BlockNeutroniaPillar(Material.CLOTH, "nether_wart_sack").setCreativeTab(CreativeTabs.DECORATIONS);
+        COCOA_BEAN_SACK = new BlockNeutroniaPillar(Material.CLOTH, "cocoa_bean_sack").setCreativeTab(CreativeTabs.DECORATIONS);
+        GUNPOWDER_SACK = new BlockNeutroniaPillar(Material.CLOTH, "gunpowder_sack").setCreativeTab(CreativeTabs.DECORATIONS);
 
-        EGG_CRATE = new BlockNeutroniaPillar(Material.WOOD, "egg_crate");
-        BEETROOT_CRATE = new BlockNeutroniaPillar(Material.WOOD, "beetroot_crate");
-        POTATO_CRATE = new BlockNeutroniaPillar(Material.WOOD, "potato_crate");
-        CARROT_CRATE = new BlockNeutroniaPillar(Material.WOOD, "carrot_crate");
-        APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "apple_crate");
-        GOLDEN_APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "golden_apple_crate");
+        EGG_CRATE = new BlockNeutroniaPillar(Material.WOOD, "egg_crate").setCreativeTab(CreativeTabs.DECORATIONS);
+        BEETROOT_CRATE = new BlockNeutroniaPillar(Material.WOOD, "beetroot_crate").setCreativeTab(CreativeTabs.DECORATIONS);
+        POTATO_CRATE = new BlockNeutroniaPillar(Material.WOOD, "potato_crate").setCreativeTab(CreativeTabs.DECORATIONS);
+        CARROT_CRATE = new BlockNeutroniaPillar(Material.WOOD, "carrot_crate").setCreativeTab(CreativeTabs.DECORATIONS);
+        APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "apple_crate").setCreativeTab(CreativeTabs.DECORATIONS);
+        GOLDEN_APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "golden_apple_crate").setCreativeTab(CreativeTabs.DECORATIONS);
 
         /*BAMBOO = new BlockBamboo();
         BAMBOO_SAPLING = new BlockBambooSapling();

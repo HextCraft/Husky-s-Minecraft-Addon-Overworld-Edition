@@ -5,7 +5,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import team.hdt.neutronia.base.blocks.BlockNeutroniaBase;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 
 public class BlockCactusBundle extends BlockNeutroniaPillar {

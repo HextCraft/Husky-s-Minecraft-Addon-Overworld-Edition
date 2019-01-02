@@ -2,9 +2,9 @@ package team.hdt.neutronia.world.biomes;
 
 import net.minecraft.world.biome.Biome;
 
-public class BiomeRockyDesert extends Biome {
+public class RockyDesertBiome extends Biome {
 
-    public BiomeRockyDesert(BiomeProperties properties) {
+    public RockyDesertBiome(BiomeProperties properties) {
         super(properties);
     }
 

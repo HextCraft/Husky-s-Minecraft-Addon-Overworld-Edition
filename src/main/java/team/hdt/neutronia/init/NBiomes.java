@@ -71,6 +71,27 @@ public class NBiomes {
     private static final Biome SNOWY_PINE_FOREST = new SnowyPineForestBiome(new Biome.BiomeProperties("Snowy Pine Forest").setBaseHeight(Biomes.TAIGA.getBaseHeight()).setHeightVariation(Biomes.TAIGA.getHeightVariation()).setTemperature(Biomes.COLD_TAIGA.getDefaultTemperature()).setRainfall(Biomes.COLD_TAIGA.getRainfall()).setSnowEnabled());
     private static final Biome SNOW_DUNE = new SnowDunesBiome(new Biome.BiomeProperties("Snow Dune").setBaseHeight(0.35F).setHeightVariation(0.49F).setTemperature(Biomes.FROZEN_OCEAN.getDefaultTemperature()).setRainfall(Biomes.FROZEN_OCEAN.getRainfall()));
 
+    public static final TropicalDesertBiome TROPICAL_DESERT = new TropicalDesertBiome(new Biome.BiomeProperties("Tropical Desert").setBaseHeight(0.3F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.8F));
+    public static final SparseJungleBiome SPARSE_JUNGLE = new SparseJungleBiome(new Biome.BiomeProperties("Sparse Jungle").setBaseHeight(0.2F).setHeightVariation(0.4F).setTemperature(0.6F).setRainfall(0.6F));
+    public static final TropicalDesertBiome TROPICAL_DESERT_HILLS = new TropicalDesertBiome(new Biome.BiomeProperties("Tropical Desert Hills").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.95F).setWaterColor(0x0093C9).setRainfall(0.8F));
+    public static final TropicalMesaBiome TROPICAL_MESA = new TropicalMesaBiome(false, false, false, new Biome.BiomeProperties("Tropical Mesa").setTemperature(2.0F).setRainfall(0.0F));
+    public static final TropicalMesaBiome TROPICAL_MESA_HILLS = new TropicalMesaBiome(true, false, false, new Biome.BiomeProperties("Tropical Mesa Hills").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F));
+    public static final TropicalMesaBiome TROPICAL_MESA_BRYCE = new TropicalMesaBiome(false, true, false, new Biome.BiomeProperties("Tropical Mesa (Bryce)").setTemperature(2.0F).setRainfall(0.0F));
+    public static final TropicalMesaBiome TROPICAL_MESA_F = new TropicalMesaBiome(false, false, false, new Biome.BiomeProperties("Tropical Mesa F").setTemperature(2.0F).setRainfall(0.0F));
+    public static final TropicalMesaBiome TROPICAL_MESA_HILLS_F = new TropicalMesaBiome(true, false, false, new Biome.BiomeProperties("Tropical Mesa Hills F").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(2.0F).setRainfall(0.0F));
+    public static final TropicalMesaBiome TROPICAL_MESA_BRYCE_F = new TropicalMesaBiome(false, true, false, new Biome.BiomeProperties("Tropical Mesa F (Bryce)").setTemperature(2.0F).setRainfall(0.0F));
+    public static final RoofedSwampBiome ROOFED_SWAMP = new RoofedSwampBiome(new Biome.BiomeProperties("Roofed Swamp").setBaseHeight(-0.1F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.4F).setWaterColor(14745518));
+    public static final WoodlandBiome WOODLAND = new WoodlandBiome(false, WoodlandBiome.EnumType.NORMAL, new Biome.BiomeProperties("Woodland").setBaseHeight(0.2F).setHeightVariation(0.2F));
+    public static final WoodlandBiome WOODLAND_HILLS = new WoodlandBiome(true, WoodlandBiome.EnumType.NORMAL, new Biome.BiomeProperties("Woodland Hills").setBaseHeight(0.3F).setHeightVariation(0.3F));
+    public static final WoodlandBiome COLD_WOODLAND = new WoodlandBiome(false, WoodlandBiome.EnumType.COLD, new Biome.BiomeProperties("Cold Woodland").setBaseHeight(0.2F).setHeightVariation(0.2F).setSnowEnabled());
+    public static final WoodlandBiome COLD_WOODLAND_HILLS = new WoodlandBiome(true, WoodlandBiome.EnumType.COLD, new Biome.BiomeProperties("Cold Woodland Hills").setBaseHeight(0.3F).setHeightVariation(0.3F).setSnowEnabled());
+    public static final MarshBiome MARSH = new MarshBiome(new Biome.BiomeProperties("Marsh").setBaseHeight(-0.2F).setHeightVariation(0.01F).setTemperature(0.8F).setRainfall(0.4F));
+    public static final GlacierBiome GLACIER = new GlacierBiome(new Biome.BiomeProperties("Glacier").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(0.2F).setWaterColor(0x193D77).setSnowEnabled());
+    public static final WoodlandDesertBiome WOODLAND_DESERT = new WoodlandDesertBiome(new Biome.BiomeProperties("Woodland Desert").setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
+    public static final WoodlandDesertBiome WOODLAND_DESERT_HILLS = new WoodlandDesertBiome(new Biome.BiomeProperties("Woodland Desert Hills").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(1.8F).setRainfall(0.0F).setRainDisabled());
+    public static final PaintedDesertBiome PAINTED_DESERT = new PaintedDesertBiome(new Biome.BiomeProperties("Painted Desert").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
+    public static final ArcticBiome ARCTIC = new ArcticBiome(new Biome.BiomeProperties("Arctic").setTemperature(0.2F).setWaterColor(0x193D77).setSnowEnabled());
+
     public static void init() {
         registerBiome(BLUE_MESA, "blue_mesa", 10, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.MESA, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.DRY);
         registerBiome(BLUE_MESA_ROCK, "blue_mesa_rock", 10, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.MESA, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.DRY);
@@ -124,7 +145,28 @@ public class NBiomes {
         registerBiome(ICY_TUNDRA, "icy_tundra", 5, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY);
         registerBiome(TUNDRA, "tundra", 6, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD);
         registerBiome(SNOWY_PINE_FOREST, "snowy_pine_forest", 6, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.SNOWY);
-        registerBiome(SNOW_DUNE, "snowdune", 2, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY);
+        registerBiome(SNOW_DUNE, "snow_dune", 2, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SNOWY);
+
+        registerBiome(TROPICAL_DESERT, "tropical_desert", 8, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.FOREST);
+        registerBiome(TROPICAL_DESERT_HILLS, "tropical_desert_hills", 8, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.RARE);
+        registerBiome(SPARSE_JUNGLE, "sparse_jungle", 5, BiomeManager.BiomeType.WARM, false, BiomeDictionary.Type.PLAINS, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.FOREST);
+        registerBiome(TROPICAL_MESA, "tropical_mesa", 6, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA);
+        registerBiome(TROPICAL_MESA_HILLS, "tropical_mesa_hills", 6, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA, BiomeDictionary.Type.HILLS);
+        registerBiome(TROPICAL_MESA_BRYCE, "tropical_mesa_bryce", 5, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA, BiomeDictionary.Type.RARE);
+        registerBiome(TROPICAL_MESA_F, "tropical_mesa_f", 4, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE);
+        registerBiome(TROPICAL_MESA_HILLS_F, "tropical_mesa_hills_f", 4, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.RARE);
+        registerBiome(TROPICAL_MESA_BRYCE_F, "tropical_mesa_bryce_f", 3, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.MESA, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.RARE);
+        registerBiome(ROOFED_SWAMP, "roofed_swamp", 12, BiomeManager.BiomeType.COOL, false, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WET, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.DENSE);
+        registerBiome(WOODLAND, "woodland", 11, BiomeManager.BiomeType.WARM, false, BiomeDictionary.Type.FOREST);
+        registerBiome(WOODLAND_HILLS, "woodland_hills", 11, BiomeManager.BiomeType.WARM, false, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS);
+        registerBiome(COLD_WOODLAND, "cold_woodland", 12, BiomeManager.BiomeType.COOL, false, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS);
+        registerBiome(COLD_WOODLAND_HILLS, "cold_woodland_hills", 12, BiomeManager.BiomeType.COOL, false, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.HILLS);
+        registerBiome(MARSH, "marsh", 11, BiomeManager.BiomeType.COOL, false, BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.WET);
+        registerBiome(GLACIER, "glacier", 7, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.RARE);
+        registerBiome(WOODLAND_DESERT, "woodland_desert", 9, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SAVANNA);
+        registerBiome(WOODLAND_DESERT_HILLS, "woodland_desert_hills", 9, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SAVANNA, BiomeDictionary.Type.HILLS);
+        registerBiome(PAINTED_DESERT, "painted_desert", 5, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.DRY, BiomeDictionary.Type.RARE, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY);
+        registerBiome(ARCTIC, "arctic", 50, BiomeManager.BiomeType.ICY, false, BiomeDictionary.Type.COLD, BiomeDictionary.Type.OCEAN, BiomeDictionary.Type.RARE, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.SNOWY);
 
         BiomeManager.addVillageBiome(Biomes.JUNGLE_EDGE, true);
         BiomeManager.addVillageBiome(Biomes.MESA, true);

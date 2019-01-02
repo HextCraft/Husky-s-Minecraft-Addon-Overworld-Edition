@@ -1,3 +1,4 @@
+/*
 package team.hdt.neutronia.client.gui;
 
 import com.google.common.collect.Lists;
@@ -12,6 +13,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProviderType;
+import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraft.world.gen.ChunkGeneratorType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -22,6 +24,7 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @SideOnly(Side.CLIENT)
@@ -34,8 +37,10 @@ public class GuiCreateBuffetWorld extends GuiScreen {
     private GuiCreateBuffetWorld.BiomeList biomeList;
     private int field_205312_t;
     private GuiButton field_205313_u;
+    private final ChunkGeneratorSettings.Factory defaultSettings = new ChunkGeneratorSettings.Factory();
+    private ChunkGeneratorSettings.Factory settings;
 
-    public GuiCreateBuffetWorld(GuiCreateWorld p_i49701_1_, NBTTagCompound p_i49701_2_) {
+    public GuiCreateBuffetWorld(GuiCreateWorld p_i49701_1_, String p_i49701_2_) {
         this.biomeTypes = new ResourceLocation[Biome.REGISTRY.getKeys().size()];
         this.parent = p_i49701_1_;
         int lvt_3_1_ = 0;
@@ -46,37 +51,26 @@ public class GuiCreateBuffetWorld extends GuiScreen {
         }
 
         Arrays.sort(this.biomeTypes, (p_210140_0_, p_210140_1_) -> {
-            String lvt_2_1_ = Biome.REGISTRY.getObject(p_210140_0_).getBiomeName();
-            String lvt_4_1_ = ((Biome)Biome.REGISTRY.getObject(p_210140_1_)).getBiomeName();
+            String lvt_2_1_ = Objects.requireNonNull(Biome.REGISTRY.getObject(p_210140_0_)).getBiomeName();
+            String lvt_4_1_ = (Objects.requireNonNull(Biome.REGISTRY.getObject(p_210140_1_))).getBiomeName();
             return lvt_2_1_.compareTo(lvt_4_1_);
         });
-        this.deserialize(p_i49701_2_);
+        this.loadValues(p_i49701_2_);
     }
 
-    private void deserialize(NBTTagCompound p_210506_1_) {
-        int lvt_3_2_;
-        if (p_210506_1_.hasKey("chunk_generator", 10) && p_210506_1_.hasKey("chunk_generator").hasKey("type", 8)) {
-            ResourceLocation lvt_2_1_ = new ResourceLocation(p_210506_1_.getString("chunk_generator").getString("type"));
-
-            for(lvt_3_2_ = 0; lvt_3_2_ < BUFFET_GENERATORS.size(); ++lvt_3_2_) {
-                if (BUFFET_GENERATORS.get(lvt_3_2_).equals(lvt_2_1_)) {
-                    this.field_205312_t = lvt_3_2_;
-                    break;
-                }
-            }
+    public void loadValues(String p_175324_1_)
+    {
+        if (p_175324_1_ != null && !p_175324_1_.isEmpty())
+        {
+            this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(p_175324_1_);
         }
-
-        if (p_210506_1_.contains("biome_source", 10) && p_210506_1_.getCompound("biome_source").contains("biomes", 9)) {
-            NBTTagList lvt_2_2_ = p_210506_1_.getCompound("biome_source").getList("biomes", 8);
-
-            for(lvt_3_2_ = 0; lvt_3_2_ < lvt_2_2_.size(); ++lvt_3_2_) {
-                this.biomes.add(new ResourceLocation(lvt_2_2_.getString(lvt_3_2_)));
-            }
+        else
+        {
+            this.settings = new ChunkGeneratorSettings.Factory();
         }
-
     }
 
-    private NBTTagCompound serialize() {
+    private String serialize() {
         NBTTagCompound lvt_1_1_ = new NBTTagCompound();
         NBTTagCompound lvt_2_1_ = new NBTTagCompound();
         lvt_2_1_.putString("type", ((ResourceLocation)BiomeProviderType.REGISTRY.getKey(BiomeProviderType.FIXED)).toString());
@@ -184,3 +178,4 @@ public class GuiCreateBuffetWorld extends GuiScreen {
         }
     }
 }
+*/
