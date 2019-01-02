@@ -4,7 +4,7 @@
   "defaults": {
     "model": "neutronia:ladder",
     "textures": {
-      "texture": "neutronia:block/jungle_ladder"
+      "texture": "neutronia:block/bamboo_ladder"
     },
     "transform": "forge:default-block"
   },

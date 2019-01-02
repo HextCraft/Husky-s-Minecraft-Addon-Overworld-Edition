@@ -117,12 +117,12 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING, CHAIN_EXTENDED, LIT);
+        return new BlockStateContainer(this, FACING, CHAIN_EXTENDED);
     }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0).withProperty(LIT, (meta & 9) > 0);
+        return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(CHAIN_EXTENDED, (meta & 8) > 0);
     }
 
     @Override
@@ -132,10 +132,6 @@ public class BlockLanternRedstone extends BlockMod implements INeutroniaBlock {
 
         if (state.getValue(CHAIN_EXTENDED)) {
             i |= 8;
-        }
-
-        if(state.getValue(LIT)) {
-            i |= 9;
         }
 
         return i;

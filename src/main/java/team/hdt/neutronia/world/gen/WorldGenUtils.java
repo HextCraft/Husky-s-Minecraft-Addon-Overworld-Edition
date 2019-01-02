@@ -6,18 +6,6 @@ import net.minecraft.world.World;
 
 public class WorldGenUtils {
 
-    public static int calculateGenerationHeight(World world, int x, int z, Block topBlock) {
-        int y = world.getHeight();
-        boolean foundGround = false;
-
-        while (!foundGround && y-- >= 0) {
-            Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-            foundGround = block == topBlock;
-        }
-
-        return y;
-    }
-
     public static int getGroundFromAbove(World world, int x, int z, Block spawnBlock) {
         int y = 255;
         boolean foundGround = false;

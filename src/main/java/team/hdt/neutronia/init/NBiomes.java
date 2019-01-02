@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeTaiga;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.apache.commons.lang3.text.WordUtils;
 import team.hdt.neutronia.base.Reference;
 import team.hdt.neutronia.world.biomes.*;
 
@@ -133,7 +134,7 @@ public class NBiomes {
     private static void registerBiome(Biome biome, String name, int weight, BiomeManager.BiomeType biomeType, boolean villageBiome, BiomeDictionary.Type... types) {
         biome.setRegistryName(MOD_ID, name);
         ForgeRegistries.BIOMES.register(biome);
-        Reference.LOGGER.info(String.format("Biome: %s is now registered", name));
+        Reference.LOGGER.info(String.format("Biome: %s is now registered", WordUtils.capitalizeFully(name.replace("_", ""))));
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, weight));
         BiomeManager.addSpawnBiome(biome);

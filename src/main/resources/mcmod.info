@@ -17,7 +17,8 @@
   },
   {
     "modid": "neutronia",
-    "name": "Neutronia Revamped",
+    "name": "Neutronia",
+    "description": "Neutronia is a mod that aims to expand upon the vanilla style, including much more variety to all dimensions. \n The surface, underground, nether and end have upgraded worldgen, more biomes and structures.",
     "version": "0.0.1",
     "mcversion": "1.12.2",
     "authorList": [

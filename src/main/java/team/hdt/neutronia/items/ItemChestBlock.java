@@ -101,7 +101,7 @@ public class ItemChestBlock extends ItemModBlock implements IExtraVariantHolder 
             variants.add(type.name + "_trapped_chest");
         }
 
-        return variants.toArray(new String[0]);
+        return variants.toArray(new String[variants.size()]);
     }
 
 }
