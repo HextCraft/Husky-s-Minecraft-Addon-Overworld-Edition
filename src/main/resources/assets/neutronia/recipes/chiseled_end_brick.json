@@ -1,20 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "E",
     "E"
   ],
-  "key":
-  {
-    "E":
-    {
+  "key": {
+    "E": {
       "item": "neutronia:end_brick_slab",
       "data": 0
     }
   },
-  "result":
-  {
+  "result": {
     "item": "neutronia:chiseled_end_brick",
     "count": 1
   }

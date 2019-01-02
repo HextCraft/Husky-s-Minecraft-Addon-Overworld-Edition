@@ -90,7 +90,7 @@ public class NBiomes {
     public static final WoodlandDesertBiome WOODLAND_DESERT = new WoodlandDesertBiome(new Biome.BiomeProperties("Woodland Desert").setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
     public static final WoodlandDesertBiome WOODLAND_DESERT_HILLS = new WoodlandDesertBiome(new Biome.BiomeProperties("Woodland Desert Hills").setBaseHeight(0.45F).setHeightVariation(0.3F).setTemperature(1.8F).setRainfall(0.0F).setRainDisabled());
     public static final PaintedDesertBiome PAINTED_DESERT = new PaintedDesertBiome(new Biome.BiomeProperties("Painted Desert").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
-    public static final ArcticBiome ARCTIC = new ArcticBiome(new Biome.BiomeProperties("Arctic").setTemperature(0.2F).setWaterColor(0x193D77).setSnowEnabled());
+    public static final ArcticBiome ARCTIC = new ArcticBiome(new Biome.BiomeProperties("Antarctica").setTemperature(0.2F).setWaterColor(0x193D77).setSnowEnabled());
 
     public static void init() {
         registerBiome(BLUE_MESA, "blue_mesa", 10, BiomeManager.BiomeType.DESERT, false, BiomeDictionary.Type.MESA, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.DRY);
@@ -182,6 +182,7 @@ public class NBiomes {
         BiomeManager.addSpawnBiome(biome);
         BiomeManager.addStrongholdBiome(biome);
         BiomeManager.addVillageBiome(biome, villageBiome);
+        System.out.println();
         Reference.LOGGER.info(String.format("Biome: %s is now added to the spawn biome's", name));
         Reference.LOGGER.info(String.format("Biome: %s has a %d percent chance to spawn", name, new BiomeManager.BiomeEntry(biome, weight).itemWeight));
     }

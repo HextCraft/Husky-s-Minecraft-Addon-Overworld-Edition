@@ -1,20 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "P",
     "P"
   ],
-  "key":
-  {
-    "P":
-    {
+  "key": {
+    "P": {
       "item": "neutronia:elder_prismarine_brick_slab",
       "data": 0
     }
   },
-  "result":
-  {
+  "result": {
     "item": "neutronia:chiseled_elder_prismarine",
     "count": 1
   }

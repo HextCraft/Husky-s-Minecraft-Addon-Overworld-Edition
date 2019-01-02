@@ -1,22 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-
-  "pattern":
-  [
+  "pattern": [
     "SS",
     "SS"
   ],
-
-  "key":
-  {
-    "S":
-    {
+  "key": {
+    "S": {
       "item": "neutronia:soul_sandstone"
     }
   },
-
-  "result":
-  {
+  "result": {
     "item": "neutronia:smooth_soul_sandstone",
     "count": 4
   }

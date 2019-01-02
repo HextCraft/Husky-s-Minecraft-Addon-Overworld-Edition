@@ -7,7 +7,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import team.hdt.neutronia.base.modules.ModuleLoader;
 import team.hdt.neutronia.base.proxy.CommonProxy;
+import team.hdt.neutronia.commands.CommandNewLocate;
+import team.hdt.neutronia.commands.CommandTeleportToDimension;
 import team.hdt.neutronia.init.NBiomes;
 import team.hdt.neutronia.init.NBlocks;
 import team.hdt.neutronia.init.NItems;
@@ -49,7 +52,9 @@ public class NeutroniaRevamped {
 
     @Mod.EventHandler
     public void serverInit(FMLServerStartingEvent event) {
-        
+        ModuleLoader.serverStarting(event);
+        event.registerServerCommand(new CommandNewLocate());
+        event.registerServerCommand(new CommandTeleportToDimension());
     }
 
 }
