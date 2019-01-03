@@ -1,6 +1,5 @@
 package team.hdt.neutronia.world.biomes;
 
-import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -8,7 +7,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenFossils;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,11 +20,6 @@ public class MarshlandsBiome extends Biome {
     public MarshlandsBiome() {
         super(new BiomeProperties("Marshlands").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
         this.topBlock = WATER;
-    }
-
-    public WorldGenAbstractTree getRandomTreeFeature(Random rand)
-    {
-        return SWAMP_FEATURE;
     }
 
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
@@ -75,12 +68,6 @@ public class MarshlandsBiome extends Biome {
     public int getFoliageColorAtPos(BlockPos pos)
     {
         return getModdedBiomeFoliageColor(6975545);
-    }
-
-    @Override
-    public void addDefaultFlowers()
-    {
-        addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.BLUE_ORCHID), 10);
     }
 
 }
