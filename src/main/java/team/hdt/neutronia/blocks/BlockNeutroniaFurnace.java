@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -21,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import team.hdt.huskylib.block.BlockModContainer;
+import team.hdt.neutronia.client.gui.GuiFurnace;
 import team.hdt.neutronia.tileentities.TileEntityNeutroniaFurnace;
 
 import java.util.Random;
@@ -97,7 +99,7 @@ public class BlockNeutroniaFurnace extends BlockModContainer implements INeutron
 
     /**
      * Called periodically clientside on blocks near the player to show effects (like furnace fire particles). Note that
-     * this method is unrelated to {@link randomTick} and {@link #needsRandomTick}, and will always be called regardless
+     * this method is unrelated to {@link #needsRandomTick}, and will always be called regardless
      * of whether the block can receive random update ticks
      */
     @SideOnly(Side.CLIENT)
@@ -154,7 +156,7 @@ public class BlockNeutroniaFurnace extends BlockModContainer implements INeutron
 
             if (tileentity instanceof TileEntityNeutroniaFurnace)
             {
-                playerIn.displayGUIChest((TileEntityNeutroniaFurnace)tileentity);
+                Minecraft.getMinecraft().displayGuiScreen(new GuiFurnace(playerIn.inventory, (TileEntityNeutroniaFurnace)tileentity));
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
 

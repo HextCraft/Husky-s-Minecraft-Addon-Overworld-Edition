@@ -2,12 +2,15 @@ package team.hdt.neutronia.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.hdt.neutronia.items.crafting.SmokerRecipes;
+import team.hdt.neutronia.tileentities.TileEntitySmoker;
 
 public class ContainerSmoker extends Container
 {
@@ -22,7 +25,7 @@ public class ContainerSmoker extends Container
         this.tileFurnace = furnaceInventory;
         this.addSlotToContainer(new Slot(furnaceInventory, 0, 56, 17));
         this.addSlotToContainer(new SlotSmokerFuel(furnaceInventory, 1, 56, 53));
-        this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
+        this.addSlotToContainer(new SlotSmokerOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
 
         for (int i = 0; i < 3; ++i)
         {
@@ -121,28 +124,28 @@ public class ContainerSmoker extends Container
             }
             else if (index != 1 && index != 0)
             {
-                if (!FurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
+                if (!SmokerRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (TileEntityFurnace.isItemFuel(itemstack1))
+                else if (TileEntitySmoker.isItemFuel(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (index >= 3 && index < 30)
+                else if (index < 30)
                 {
                     if (!this.mergeItemStack(itemstack1, 30, 39, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (index >= 30 && index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+                else if (index < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
                 {
                     return ItemStack.EMPTY;
                 }

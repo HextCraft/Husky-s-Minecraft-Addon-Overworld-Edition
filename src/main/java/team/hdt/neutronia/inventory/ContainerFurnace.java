@@ -7,12 +7,12 @@ import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import team.hdt.neutronia.items.crafting.BlastFurnaceRecipes;
-import team.hdt.neutronia.tileentities.TileEntityBlastFurnace;
+import team.hdt.neutronia.tileentities.TileEntityNeutroniaFurnace;
 
-public class ContainerBlastFurnace extends Container
+public class ContainerFurnace extends Container
 {
     private final IInventory tileFurnace;
     private int cookTime;
@@ -20,12 +20,12 @@ public class ContainerBlastFurnace extends Container
     private int furnaceBurnTime;
     private int currentItemBurnTime;
 
-    public ContainerBlastFurnace(InventoryPlayer playerInventory, IInventory furnaceInventory)
+    public ContainerFurnace(InventoryPlayer playerInventory, IInventory furnaceInventory)
     {
         this.tileFurnace = furnaceInventory;
         this.addSlotToContainer(new Slot(furnaceInventory, 0, 56, 17));
-        this.addSlotToContainer(new SlotBlastFurnaceFuel(furnaceInventory, 1, 56, 53));
-        this.addSlotToContainer(new SlotBlastFurnaceOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
+        this.addSlotToContainer(new SlotFurnaceFuel(furnaceInventory, 1, 56, 53));
+        this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 2, 116, 35));
 
         for (int i = 0; i < 3; ++i)
         {
@@ -124,14 +124,14 @@ public class ContainerBlastFurnace extends Container
             }
             else if (index != 1 && index != 0)
             {
-                if (!BlastFurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
+                if (!FurnaceRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {
                         return ItemStack.EMPTY;
                     }
                 }
-                else if (TileEntityBlastFurnace.isItemFuel(itemstack1))
+                else if (TileEntityNeutroniaFurnace.isItemFuel(itemstack1))
                 {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false))
                     {

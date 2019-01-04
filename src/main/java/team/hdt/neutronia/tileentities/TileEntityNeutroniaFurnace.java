@@ -574,7 +574,7 @@ public class TileEntityNeutroniaFurnace extends TileEntityLockable implements IT
 
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
     {
-        return new ContainerFurnace(playerInventory, this);
+        return new team.hdt.neutronia.inventory.ContainerFurnace(playerInventory, this);
     }
 
     public int getField(int id)

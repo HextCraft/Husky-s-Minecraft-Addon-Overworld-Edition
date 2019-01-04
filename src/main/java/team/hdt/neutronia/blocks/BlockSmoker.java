@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -20,6 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import team.hdt.huskylib.block.BlockModContainer;
+import team.hdt.neutronia.client.gui.GuiSmoker;
 import team.hdt.neutronia.init.NBlocks;
 import team.hdt.neutronia.tileentities.TileEntitySmoker;
 
@@ -144,7 +146,7 @@ public class BlockSmoker extends BlockModContainer implements INeutroniaBlock {
 
             if (tileentity instanceof TileEntitySmoker)
             {
-                playerIn.displayGUIChest((TileEntitySmoker)tileentity);
+                Minecraft.getMinecraft().displayGuiScreen(new GuiSmoker(playerIn.inventory, (TileEntitySmoker)tileentity));
                 playerIn.addStat(StatList.FURNACE_INTERACTION);
             }
 
