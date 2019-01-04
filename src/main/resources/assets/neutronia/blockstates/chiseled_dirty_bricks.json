@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/smooth_dirty_brick",
+      "side": "neutronia:block/chiseled_dirty_bricks"
+    },
+    "model": "cube_column",
+    "uvlock": true
+  },
+  "variants": {
+    "filled": {
+      "true": {
+        "textures": {
+          "end": "neutronia:block/smooth_dirty_brick",
+          "side": "neutronia:block/chiseled_dirty_bricks_filled"
+        }
+      },
+      "false": {
+        "textures": {
+          "end": "neutronia:block/smooth_dirty_brick",
+          "side": "neutronia:block/chiseled_dirty_bricks"
+        }
+      }
+    },
+    "inventory": [{
+    }]
+  }
+}

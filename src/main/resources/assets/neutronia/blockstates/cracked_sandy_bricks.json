@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "neutronia:block/cracked_sandy_bricks"
+    },
+    "model": "cube_all"
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}

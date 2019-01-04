@@ -101,7 +101,7 @@ public class SmokerRecipes {
 
         for (Entry<ItemStack, Float> entry : this.experienceList.entrySet()) {
             if (this.compareItemStacks(stack, entry.getKey())) {
-                return entry.getValue().floatValue();
+                return entry.getValue();
             }
         }
 

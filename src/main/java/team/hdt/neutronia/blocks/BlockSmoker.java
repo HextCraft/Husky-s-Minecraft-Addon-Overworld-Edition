@@ -43,7 +43,7 @@ public class BlockSmoker extends BlockModContainer implements INeutroniaBlock {
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(NBlocks.BLAST_FURNACE);
+        return Item.getItemFromBlock(NBlocks.SMOKER);
     }
 
     /**
