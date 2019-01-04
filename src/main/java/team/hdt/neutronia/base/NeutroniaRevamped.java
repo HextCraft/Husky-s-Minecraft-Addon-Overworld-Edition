@@ -1,5 +1,6 @@
 package team.hdt.neutronia.base;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,6 +17,7 @@ import team.hdt.neutronia.init.NBlocks;
 import team.hdt.neutronia.init.NItems;
 import team.hdt.neutronia.tileentities.TileCustomChest;
 import team.hdt.neutronia.tileentities.TileEntityBlastFurnace;
+import team.hdt.neutronia.tileentities.TileEntityNeutroniaFurnace;
 import team.hdt.neutronia.tileentities.TileEntitySmoker;
 
 import static team.hdt.neutronia.base.Reference.*;
@@ -35,9 +37,10 @@ public class NeutroniaRevamped {
         NBlocks.init();
         NItems.init();
         NBiomes.init();
-        GameRegistry.registerTileEntity(TileEntitySmoker.class, "neutronia:smoker");
-        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, "neutronia:blast_furnace");
-        GameRegistry.registerTileEntity(TileCustomChest.class, "neutronia:wooden_chest");
+        GameRegistry.registerTileEntity(TileEntitySmoker.class, new ResourceLocation(MOD_ID, "smoker"));
+        GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, new ResourceLocation(MOD_ID, "blast_furnace"));
+        GameRegistry.registerTileEntity(TileCustomChest.class, new ResourceLocation(MOD_ID, "wooden_chest"));
+        GameRegistry.registerTileEntity(TileEntityNeutroniaFurnace.class, new ResourceLocation(MOD_ID, "furnace"));
     }
 
     @Mod.EventHandler

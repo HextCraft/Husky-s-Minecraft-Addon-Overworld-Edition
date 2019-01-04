@@ -1,9 +1,6 @@
 package team.hdt.neutronia.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -83,6 +80,30 @@ public class NBlocks {
 
     public static Block BLACK_SAND;
     public static Block WHITE_SAND;
+
+    public static Block ANDESITE_FURNACE, LIT_ANDESITE_FURNACE;
+    public static Block GRANITE_FURNACE, LIT_GRANITE_FURNACE;
+    public static Block DIORITE_FURNACE, LIT_DIORITE_FURNACE;
+
+    public static Block oak_bark_pressure_plate, stripped_oak_bark_pressure_plate, oak_bark_button, stripped_oak_bark_button;
+    public static Block spruce_pressure_plate, spruce_bark_pressure_plate, stripped_spruce_bark_pressure_plate, spruce_button, spruce_bark_button, stripped_spruce_bark_button;
+    public static Block birch_pressure_plate, birch_bark_pressure_plate, stripped_birch_bark_pressure_plate, birch_button, birch_bark_button, stripped_birch_bark_button;
+    public static Block jungle_pressure_plate, jungle_bark_pressure_plate, stripped_jungle_bark_pressure_plate, jungle_button, jungle_bark_button, stripped_jungle_bark_button;
+    public static Block acacia_pressure_plate, acacia_bark_pressure_plate, stripped_acacia_bark_pressure_plate, acacia_button, acacia_bark_button, stripped_acacia_bark_button;
+    public static Block dark_oak_pressure_plate, dark_oak_bark_pressure_plate, stripped_dark_oak_bark_pressure_plate, dark_oak_button, dark_oak_bark_button, stripped_dark_oak_bark_button;
+
+    public static Block cherry_pressure_plate, cherry_bark_pressure_plate, stripped_cherry_bark_pressure_plate, cherry_button, cherry_bark_button, stripped_cherry_bark_button;
+    public static Block baobab_pressure_plate, baobab_bark_pressure_plate, stripped_baobab_bark_pressure_plate, baobab_button, baobab_bark_button, stripped_baobab_bark_button;
+    public static Block willow_pressure_plate, willow_bark_pressure_plate, stripped_willow_bark_pressure_plate, willow_button, willow_bark_button, stripped_willow_bark_button;
+    public static Block palm_pressure_plate, palm_bark_pressure_plate, stripped_palm_bark_pressure_plate, palm_button, palm_bark_button, stripped_palm_bark_button;
+    public static Block bamboo_pressure_plate, purhogany_bark_pressure_plate, stripped_purhogany_bark_pressure_plate, bamboo_button, purhogany_bark_button, stripped_purhogany_bark_button;
+
+    public static Block andesite_pressure_plate, andesite_button;
+    public static Block granite_pressure_plate, granite_button;
+    public static Block diorite_pressure_plate, diorite_button;
+    public static Block polished_andesite_pressure_plate, polished_andesite_button;
+    public static Block polished_granite_pressure_plate, polished_granite_button;
+    public static Block polished_diorite_pressure_plate, polished_diorite_button;
 
     public static void init() {
 
@@ -314,6 +335,49 @@ public class NBlocks {
 
         BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand");
         WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand");
+
+        ANDESITE_FURNACE = new BlockNeutroniaFurnace("andesite", false);
+        LIT_ANDESITE_FURNACE = new BlockNeutroniaFurnace("andesite", true);
+        GRANITE_FURNACE = new BlockNeutroniaFurnace("granite", false);
+        LIT_GRANITE_FURNACE = new BlockNeutroniaFurnace("granite", true);
+        DIORITE_FURNACE = new BlockNeutroniaFurnace("diorite", false);
+        LIT_DIORITE_FURNACE = new BlockNeutroniaFurnace("diorite", true);
+
+        spruce_pressure_plate = new BlockCustomPressurePlate("spruce");
+        birch_pressure_plate = new BlockCustomPressurePlate("birch");
+        jungle_pressure_plate = new BlockCustomPressurePlate("jungle");
+        acacia_pressure_plate = new BlockCustomPressurePlate("acacia");
+        dark_oak_pressure_plate = new BlockCustomPressurePlate("dark_oak");
+
+        cherry_pressure_plate = new BlockCustomPressurePlate("cherry");
+        willow_pressure_plate = new BlockCustomPressurePlate("willow");
+        palm_pressure_plate = new BlockCustomPressurePlate("palm");
+        bamboo_pressure_plate = new BlockCustomPressurePlate("bamboo");
+
+        andesite_pressure_plate = new BlockCustomPressurePlate("andesite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+        granite_pressure_plate = new BlockCustomPressurePlate("granite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+        diorite_pressure_plate = new BlockCustomPressurePlate("diorite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+        polished_andesite_pressure_plate = new BlockCustomPressurePlate("polished_andesite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+        polished_granite_pressure_plate = new BlockCustomPressurePlate("polished_granite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+        polished_diorite_pressure_plate = new BlockCustomPressurePlate("polished_diorite", Material.ROCK, SoundType.STONE, BlockPressurePlate.Sensitivity.MOBS);
+
+        spruce_button = new BlockCustomButton("spruce");
+        birch_button = new BlockCustomButton("birch");
+        jungle_button = new BlockCustomButton("jungle");
+        acacia_button = new BlockCustomButton("acacia");
+        dark_oak_button = new BlockCustomButton("dark_oak");
+
+        cherry_button = new BlockCustomButton("cherry");
+        willow_button = new BlockCustomButton("willow");
+        palm_button = new BlockCustomButton("palm");
+        bamboo_button = new BlockCustomButton("bamboo");
+
+        andesite_button = new BlockCustomButton("andesite", false);
+        granite_button = new BlockCustomButton("granite", false);
+        diorite_button = new BlockCustomButton("diorite", false);
+        polished_andesite_button = new BlockCustomButton("polished_andesite", false);
+        polished_granite_button = new BlockCustomButton("polished_granite", false);
+        polished_diorite_button = new BlockCustomButton("polished_diorite", false);
     }
 
 }
