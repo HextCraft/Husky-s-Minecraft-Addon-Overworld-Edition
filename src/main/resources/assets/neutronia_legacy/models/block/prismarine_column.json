@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "neutronia:block/prismarine_column_top",
-    "side": "neutronia:block/prismarine_column_side"
-  }
-}

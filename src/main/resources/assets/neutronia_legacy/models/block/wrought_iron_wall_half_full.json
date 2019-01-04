@@ -1,6 +1,0 @@
-{
-  "parent": "neutronia:block/wall_full",
-  "textures": {
-    "wall": "neutronia:block/wrought_iron_block"
-  }
-}

@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"textures": { 
-		"layer0": "neutronia:items/rune",
-		"layer1": "neutronia:items/rune_overlay"
-	}
-}

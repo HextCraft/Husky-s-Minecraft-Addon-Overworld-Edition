@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "neutronia:block/stripped_jungle_log_top",
-    "front": "neutronia:block/stripped_jungle_log",
-    "side": "neutronia:block/stripped_jungle_log"
-  }
-}

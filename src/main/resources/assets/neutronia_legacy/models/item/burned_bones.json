@@ -1,8 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "neutronia:block/burnt_bone_block_top",
-    "side": "neutronia:block/burnt_bone_block_side"
-  }
-}

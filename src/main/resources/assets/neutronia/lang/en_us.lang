@@ -9,13 +9,37 @@ tile.neutronia:birch_ladder.name=Birch Ladder
 tile.neutronia:dark_oak_ladder.name=Dark Oak Ladder
 tile.neutronia:jungle_ladder.name=Jungle Ladder
 tile.neutronia:spruce_ladder.name=Spruce Ladder
+tile.neutronia:bamboo_ladder.name=Bamboo Ladder
 
-tile.neutronia:patterned_acacia_planks.name=Patterned Acacia Planks
-tile.neutronia:patterned_birch_planks.name=Patterned Birch Planks
-tile.neutronia:patterned_dark_oak_planks.name=Patterned Dark Oak Planks
-tile.neutronia:patterned_jungle_planks.name=Patterned Jungle Planks
-tile.neutronia:patterned_oak_planks.name=Patterned Oak Planks
-tile.neutronia:patterned_spruce_planks.name=Patterned Spruce Planks
+tile.neutronia:acacia_chest.name=Acacia Chest
+tile.neutronia:birch_chest.name=Birch Chest
+tile.neutronia:dark_oak_chest.name=Dark Oak Chest
+tile.neutronia:jungle_chest.name=Jungle Chest
+tile.neutronia:spruce_chest.name=Spruce Chest
+tile.neutronia:bamboo_chest.name=Bamboo Chest
+
+tile.neutronia:acacia_trapped_chest.name=Acacia Trapped Chest
+tile.neutronia:birch_trapped_chest.name=Birch Trapped Chest
+tile.neutronia:dark_oak_trapped_chest.name=Dark Oak Trapped Chest
+tile.neutronia:jungle_trapped_chest.name=Jungle Trapped Chest
+tile.neutronia:spruce_trapped_chest.name=Spruce Trapped Chest
+tile.neutronia:bamboo_trapped_chest.name=Bamboo Trapped Chest
+
+tile.neutronia:sandstone_door.name=Sandstone Door
+tile.neutronia:sandstone_trapdoor.name=Sandstone Trapdoor
+tile.neutronia:red_sandstone_door.name=Red Sandstone Door
+tile.neutronia:red_sandstone_trapdoor.name=Red Sandstone Trapdoor
+tile.neutronia:ice_door.name=Ice Door
+tile.neutronia:ice_trapdoor.name=Ice Trapdoor
+tile.neutronia:bamboo_door.name=Bamboo Door
+tile.neutronia:bamboo_trapdoor.name=Bamboo Trapdoor
+
+tile.neutronia:acacia_lantern.name=Acacia Lantern
+tile.neutronia:birch_lantern.name=Birch Lantern
+tile.neutronia:dark_oak_lantern.name=Dark Oak Lantern
+tile.neutronia:jungle_lantern.name=Jungle Lantern
+tile.neutronia:oak_lantern.name=Oak Lantern
+tile.neutronia:spruce_lantern.name=Spruce Lantern
 
 tile.neutronia:carved_acacia_planks.name=Carved Acacia Planks
 tile.neutronia:carved_birch_planks.name=Carved Birch Planks
@@ -24,12 +48,12 @@ tile.neutronia:carved_jungle_planks.name=Carved Jungle Planks
 tile.neutronia:carved_oak_planks.name=Carved Oak Planks
 tile.neutronia:carved_spruce_planks.name=Carved Spruce Planks
 
-tile.neutronia:acacia_lantern.name=Acacia Lantern
-tile.neutronia:birch_lantern.name=Birch Lantern
-tile.neutronia:dark_oak_lantern.name=Dark Oak Lantern
-tile.neutronia:jungle_lantern.name=Jungle Lantern
-tile.neutronia:oak_lantern.name=Oak Lantern
-tile.neutronia:spruce_lantern.name=Spruce Lantern
+tile.neutronia:patterned_acacia_planks.name=Patterned Acacia Planks
+tile.neutronia:patterned_birch_planks.name=Patterned Birch Planks
+tile.neutronia:patterned_dark_oak_planks.name=Patterned Dark Oak Planks
+tile.neutronia:patterned_jungle_planks.name=Patterned Jungle Planks
+tile.neutronia:patterned_oak_planks.name=Patterned Oak Planks
+tile.neutronia:patterned_spruce_planks.name=Patterned Spruce Planks
 
 tile.neutronia:black_glazed_terracotta_pillar.name=Black Glazed Terracotta Pillar
 tile.neutronia:blue_glazed_terracotta_pillar.name=Blue Glazed Terracotta Pillar
@@ -49,7 +73,6 @@ tile.neutronia:chiseled_prismarine.name=Chiseled Prismarine
 tile.neutronia:chiseled_prismarine_bricks.name=Chiseled Prismarine Bricks
 tile.neutronia:chiseled_nether_brick.name=Chiseled Nether Brick
 tile.neutronia:chiseled_purpur.name=Chiseled Purpur
-tile.neutronia:chiseled_bricks.name=Chiseled Bricks
 tile.neutronia:chiseled_dark_prismarine.name=Chiseled Dark Prismarine
 tile.neutronia:chiseled_end_brick.name=Chiseled End Bricks
 tile.neutronia:chiseled_red_nether_brick.name=Chiseled Red Netherbricks
@@ -63,12 +86,15 @@ tile.neutronia:engraved_prismarine_bricks.name=Engraved Prismarine Bricks
 tile.neutronia:obsidian_bricks.name=Obsidian Bricks
 tile.neutronia:obsidian_cobble.name=Obsidian Cobble
 tile.neutronia:obsidian_tiles.name=Obsidian Tiles
+tile.neutronia:chiseled_obsidian.name=Chiseled Obsidian
+tile.neutronia:obsidian_pillar.name=Obsidian Pillar
+tile.neutronia:small_obsidian_tiles.name=Small Obsidian Tiles
+tile.neutronia:glowing_obsidian.name=Glowing Obsidian
 
 tile.neutronia:smooth_end_brick.name=Smooth End Bricks
 tile.neutronia:smooth_prismarine.name=Smooth Prismarine
 tile.neutronia:smooth_prismarine_bricks.name=Smooth Prismarine Bricks
 tile.neutronia:smooth_obsidian.name=Smooth Obsidian
-tile.neutronia:smooth_brick.name=Smooth Bricks
 tile.neutronia:smooth_purpur_brick.name=Smooth Purpur
 tile.neutronia:smooth_nether_brick.name=Smooth Netherbrick
 tile.neutronia:smooth_red_nether_brick.name=Smooth Netherbrick
@@ -85,9 +111,38 @@ tile.neutronia:emerald_pillar.name=Emerald Pillar
 tile.neutronia:iron_pillar.name=Iron Pillar
 tile.neutronia:gold_pillar.name=Gold Pillar
 
-tile.neutronia:dirty_bricks.name=Dirty Bricks
+tile.neutronia:chiseled_bricks.name=Chiseled Bricks
 tile.neutronia:cracked_bricks.name=Cracked Bricks
 tile.neutronia:mossy_bricks.name=Mossy Bricks
+tile.neutronia:brick_path.name=Brick Path
+tile.neutronia:brick_tile.name=Brick Tiles
+tile.neutronia:small_brick_tile.name=Small Brick Tiles
+tile.neutronia:chiseled_brick.name=Chiseled Brick
+tile.neutronia:brick_pillar.name=Brick Pillar
+tile.neutronia:smooth_brick.name=Smooth Bricks
+
+tile.neutronia:dirty_bricks.name=Dirty Bricks
+tile.neutronia:chiseled_dirty_bricks.name=Chiseled Dirty Bricks
+tile.neutronia:cracked_dirty_bricks.name=Cracked Dirty Bricks
+tile.neutronia:mossy_dirty_bricks.name=Mossy Dirty Bricks
+tile.neutronia:dirty_brick_path.name=Dirty Brick Path
+tile.neutronia:dirty_brick_tile.name=Dirty Brick Tiles
+tile.neutronia:small_dirty_brick_tile.name=Small Dirty Brick Tiles
+tile.neutronia:chiseled_dirty_brick.name=Chiseled Dirty Brick
+tile.neutronia:dirty_brick_pillar.name=Dirty Brick Pillar
+tile.neutronia:smooth_dirty_brick.name=Smooth Dirty Bricks
+
+tile.neutronia:sandy_bricks.name=Sandy Bricks
+tile.neutronia:chiseled_sandy_bricks.name=Chiseled Sandy Bricks
+tile.neutronia:cracked_sandy_bricks.name=Cracked Sandy Bricks
+tile.neutronia:mossy_sandy_bricks.name=Mossy Sandy Bricks
+tile.neutronia:sandy_brick_path.name=Sandy Brick Path
+tile.neutronia:sandy_brick_tile.name=Sandy Brick Tiles
+tile.neutronia:small_sandy_brick_tile.name=Small Sandy Brick Tiles
+tile.neutronia:chiseled_sandy_brick.name=Chiseled Sandy Brick
+tile.neutronia:sandy_brick_pillar.name=Sandy Brick Pillar
+tile.neutronia:smooth_sandy_brick.name=Smooth Sandy Bricks
+
 tile.neutronia:checkered_tiles.name=Checkered Tiles
 tile.neutronia:small_checkered_tiles.name=Small Checkered Tiles
 tile.neutronia:stone_tile.name=Stone Tiles
@@ -100,12 +155,21 @@ tile.neutronia:granite_tile.name=Granite Tiles
 tile.neutronia:small_granite_tile.name=Small Granite Tiles
 tile.neutronia:stone_brick_tile.name=Stonebrick Tile
 tile.neutronia:small_stone_brick_tile.name=Small Stonebrick Tiles
-tile.neutronia:brick_tile.name=Brick Tiles
-tile.neutronia:small_brick_tile.name=Small Brick Tiles
-
-tile.neutronia:chiseled_brick.name=Chiseled Brick
 
 tile.neutronia:rope_coil.name=Rope Coil
+
+tile.neutronia:dark_andesite.name=Dark Andesite
+tile.neutronia:dark_andesite_bricks.name=Dark Andesite Bricks
+tile.neutronia:polished_dark_andesite.name=Polished Dark Andesite
+
+tile.neutronia:andesite_bricks.name=Andesite Bricks
+tile.neutronia:diorite_bricks.name=Diorite Bricks
+tile.neutronia:granite_bricks.name=Granite Bricks
+
+tile.neutronia:mud.name=Mud
+tile.neutronia:mud_bricks.name=Mud Bricks
+tile.neutronia:dried_mud.name=Dried Mud
+tile.neutronia:dried_mud_bricks.name=Dried Mud Bricks
 
 tile.neutronia:chiseled_ice.name=Chiseled Ice
 tile.neutronia:packed_ice_bricks.name=Packed Ice Bricks
@@ -122,7 +186,6 @@ tile.neutronia:polished_andesite_pillar.name=Polished Andesite Pillar
 tile.neutronia:polished_diorite_pillar.name=Polished Diorite Pillar
 tile.neutronia:polished_granite_pillar.name=Polished Granite Pillar
 tile.neutronia:stone_brick_pillar.name=Stonebrick Pillar
-tile.neutronia:brick_pillar.name=Brick Tile
 tile.neutronia:prismarine_column.name=Prismarine Column
 tile.neutronia:prismarine_pillar.name=Prismarine Pillar
 tile.neutronia:prismarine_brick_pillar.name=Prismarine Brick Pillar
@@ -143,12 +206,31 @@ tile.neutronia:lit_gold_redstone_lantern.name=Lit Gold Redstone Lantern
 tile.neutronia:iron_chain.name=Iron Chain
 tile.neutronia:gold_chain.name=Gold Chain
 tile.neutronia:prismarine_chain.name=Prismarine Chain
-tile.neutronia:rope.name=Rope
 
 tile.neutronia:normal_soulstone.name=Normal Soulstone
 tile.neutronia:chiseled_soulstone.name=Chiseled Soulstone
 tile.neutronia:smooth_soulstone.name=Smooth Soulstone
 tile.neutronia:polished_soulstone.name=Polished Soulstone
+
+tile.neutronia:stick_bundle.name=Stick Bundle
+tile.neutronia:chorus_bundle.name=Chorus Bundle
+tile.neutronia:sugar_cane_bundle.name=Sugar Cane Bundle
+tile.neutronia:bamboo_bundle.name=Bamboo Bundle
+tile.neutronia:cactus_bundle.name=Cactus Bundle
+
+tile.neutronia:nether_wart_sack.name=Nether Wart Sack
+tile.neutronia:cocoa_bean_sack.name=Cocoa Bean Sack
+tile.neutronia:gunpowder_sack.name=Gunpowder Sack
+
+tile.neutronia:egg_crate.name=Egg Crate
+tile.neutronia:beetroot_crate.name=Beetroot Crate
+tile.neutronia:potato_crate.name=Potato Crate
+tile.neutronia:carrot_crate.name=Carrot Crate
+tile.neutronia:apple_crate.name=Apple Crate
+tile.neutronia:golden_apple_crate.name=Golden Apple Crate
+
+tile.neutronia:black_sand.name=Black Sand
+tile.neutronia:white_sand.name=White Sand
 
 command.neutronia.found_biome=Found a biome called '%s' at %d  (y?) %d
 command.neutronia.not_found_biome=Could not find a biome called '%s'

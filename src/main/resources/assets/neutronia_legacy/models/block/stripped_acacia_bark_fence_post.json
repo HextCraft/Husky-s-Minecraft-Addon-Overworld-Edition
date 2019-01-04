@@ -1,7 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/fence_post",
-  "textures": {
-    "texture": "neutronia:block/stripped_acacia_bark"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "neutronia:block/pole",
-  "textures": {
-    "pole_inner": "neutronia:block/stripped_oak_log",
-    "pole_outer": "blocks/log_oak",
-    "pole_top": "blocks/log_oak_top"
-  }
-}
