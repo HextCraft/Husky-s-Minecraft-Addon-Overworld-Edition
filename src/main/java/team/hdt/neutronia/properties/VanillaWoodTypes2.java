@@ -3,17 +3,18 @@ package team.hdt.neutronia.properties;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.util.IStringSerializable;
 
-public enum VanillaWoodTypes implements IStringSerializable {
+public enum VanillaWoodTypes2 implements IStringSerializable {
     SPRUCE(0, "spruce", MapColor.OBSIDIAN),
     BIRCH(1, "birch", MapColor.SAND),
     JUNGLE(2, "jungle", MapColor.DIRT),
     ACACIA(3, "acacia", MapColor.ADOBE),
-    DARK_OAK(4, "dark_oak", MapColor.BROWN);
+    DARK_OAK(4, "dark_oak", MapColor.BROWN),
+    BAMBOO(5, "bamboo", MapColor.DIRT);
 
-    private static final VanillaWoodTypes[] META_LOOKUP = new VanillaWoodTypes[values().length];
+    private static final VanillaWoodTypes2[] META_LOOKUP = new VanillaWoodTypes2[values().length];
 
     static {
-        for (VanillaWoodTypes blockplanks$enumtype : values()) {
+        for (VanillaWoodTypes2 blockplanks$enumtype : values()) {
             META_LOOKUP[blockplanks$enumtype.getMetadata()] = blockplanks$enumtype;
         }
     }
@@ -26,18 +27,18 @@ public enum VanillaWoodTypes implements IStringSerializable {
      */
     private final MapColor mapColor;
 
-    VanillaWoodTypes(int metaIn, String nameIn, MapColor mapColorIn) {
+    VanillaWoodTypes2(int metaIn, String nameIn, MapColor mapColorIn) {
         this(metaIn, nameIn, nameIn, mapColorIn);
     }
 
-    VanillaWoodTypes(int metaIn, String nameIn, String unlocalizedNameIn, MapColor mapColorIn) {
+    VanillaWoodTypes2(int metaIn, String nameIn, String unlocalizedNameIn, MapColor mapColorIn) {
         this.meta = metaIn;
         this.name = nameIn;
         this.unlocalizedName = unlocalizedNameIn;
         this.mapColor = mapColorIn;
     }
 
-    public static VanillaWoodTypes byMetadata(int meta) {
+    public static VanillaWoodTypes2 byMetadata(int meta) {
         if (meta < 0 || meta >= META_LOOKUP.length) {
             meta = 0;
         }

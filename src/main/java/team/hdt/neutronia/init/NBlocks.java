@@ -19,10 +19,7 @@ import team.hdt.neutronia.base.blocks.BlockNeutroniaDoor;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaPillar;
 import team.hdt.neutronia.base.blocks.BlockNeutroniaTrapdoor;
 import team.hdt.neutronia.blocks.*;
-import team.hdt.neutronia.properties.EnumGTPVariants;
-import team.hdt.neutronia.properties.SoulStoneVariants;
-import team.hdt.neutronia.properties.VanillaWoodTypes;
-import team.hdt.neutronia.properties.WoodTypes;
+import team.hdt.neutronia.properties.*;
 
 public class NBlocks {
 
@@ -56,6 +53,7 @@ public class NBlocks {
             STONE_BRICK_TILE, SMALL_STONE_BRICK_TILE, OBSIDIAN_TILES, SMALL_OBSIDIAN_TILES, CHECKERED_TILE, SMALL_CHECKERED_TILE;
     public static Block ROPE_COIL;
     public static Block DARK_ANDESITE, DARK_ANDESITE_BRICKS, POLISHED_DARK_ANDESITE;
+    public static Block ANDESITE_BRICKS, GRANITE_BRICKS, DIORITE_BRICKS;
     public static Block MUD, MUD_BRICKS, DRIED_MUD, DRIED_MUD_BRICKS;
     public static Block PACKED_ICE_BRICKS, PACKED_ICE_PILLAR, SMALL_SNOW_BRICKS, SNOW_BRICKS, ICE_TILES, ICE_ROD;
     public static Block FROSTED_GLASS;
@@ -90,7 +88,10 @@ public class NBlocks {
 
         for (VanillaWoodTypes woodType : VanillaWoodTypes.values()) {
             BOOKSHELVES[woodType.getMetadata()] = new BlockNeutroniaBase(String.format("%s_bookshelf", woodType.getName()), Material.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-            LADDERS[woodType.getMetadata()] = new BlockCustomLadder(woodType.getName());
+        }
+
+        for(VanillaWoodTypes2 woodTypes2 : VanillaWoodTypes2.values()) {
+            LADDERS[woodTypes2.getMetadata()] = new BlockCustomLadder(woodTypes2.getName());
         }
 
         CUSTOM_CHEST = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
@@ -213,6 +214,10 @@ public class NBlocks {
         DARK_ANDESITE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "dark_andesite_bricks");
         POLISHED_DARK_ANDESITE = new BlockNeutroniaBase(Material.ROCK, "polished_dark_andesite");
 
+        ANDESITE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "andesite_bricks");
+        DIORITE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "diorite_bricks");
+        GRANITE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "granite_bricks");
+
         MUD = new BlockMud();
         MUD_BRICKS = new BlockMud("mud_bricks");
         DRIED_MUD = new BlockNeutroniaBase(Material.GROUND, "dried_mud");
@@ -290,12 +295,12 @@ public class NBlocks {
         GOLDEN_APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "golden_apple_crate").setCreativeTab(CreativeTabs.DECORATIONS);
 
         /*BAMBOO = new BlockBamboo();
-        BAMBOO_SAPLING = new BlockBambooSapling();*/
+        BAMBOO_SAPLING = new BlockBambooSapling();
         BLAST_FURNACE = new BlockBlastFurnace(false);
         LIT_BLAST_FURNACE = new BlockBlastFurnace(true);
         SMOKER = new BlockSmoker(false);
         LIT_SMOKER = new BlockSmoker(true);
-        /*SWEET_BERRY_BUSH = new BlockBerryBush("sweet_berry", NItems.SWEET_BERRIES);
+        SWEET_BERRY_BUSH = new BlockBerryBush("sweet_berry", NItems.SWEET_BERRIES);
         GOOSEBERRY_BUSH = new BlockBerryBush("gooseberry", NItems.GOOSEBERRIES);
         BLUEBERRY_BUSH = new BlockBerryBush("blueberry", NItems.BLUEBERRIES);
         RED_GRAPE_BUSH = new BlockGrapeBush("red", NItems.RED_GRAPES);
