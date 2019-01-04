@@ -106,13 +106,13 @@ public class NBlocks {
         BAMBOO_TRAPDOOR = new BlockNeutroniaTrapdoor("bamboo_trapdoor");
 
         for(WoodTypes woodTypes : WoodTypes.values()) {
-            WOOD_LANTERNS[woodTypes.getMetadata()] = new BlockWoodenLantern(woodTypes);
-            BARRELS[woodTypes.getMetadata()] = new BlockBarrel(woodTypes);
-            FLUID_BARRELS[woodTypes.getMetadata()] = new BlockFluidBarrel(woodTypes);
-            CARVED_PLANKS[woodTypes.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodTypes.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+//            BARRELS[woodTypes.getMetadata()] = new BlockBarrel(woodTypes);
+//            FLUID_BARRELS[woodTypes.getMetadata()] = new BlockFluidBarrel(woodTypes);
         }
 
         for (BlockPlanks.EnumType woodType : BlockPlanks.EnumType.values()) {
+            WOOD_LANTERNS[woodType.getMetadata()] = new BlockWoodenLantern(woodType);
+            CARVED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
             PATTERNED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         }
 
@@ -290,12 +290,12 @@ public class NBlocks {
         GOLDEN_APPLE_CRATE = new BlockNeutroniaPillar(Material.WOOD, "golden_apple_crate").setCreativeTab(CreativeTabs.DECORATIONS);
 
         /*BAMBOO = new BlockBamboo();
-        BAMBOO_SAPLING = new BlockBambooSapling();
+        BAMBOO_SAPLING = new BlockBambooSapling();*/
         BLAST_FURNACE = new BlockBlastFurnace(false);
         LIT_BLAST_FURNACE = new BlockBlastFurnace(true);
         SMOKER = new BlockSmoker(false);
         LIT_SMOKER = new BlockSmoker(true);
-        SWEET_BERRY_BUSH = new BlockBerryBush("sweet_berry", NItems.SWEET_BERRIES);
+        /*SWEET_BERRY_BUSH = new BlockBerryBush("sweet_berry", NItems.SWEET_BERRIES);
         GOOSEBERRY_BUSH = new BlockBerryBush("gooseberry", NItems.GOOSEBERRIES);
         BLUEBERRY_BUSH = new BlockBerryBush("blueberry", NItems.BLUEBERRIES);
         RED_GRAPE_BUSH = new BlockGrapeBush("red", NItems.RED_GRAPES);
