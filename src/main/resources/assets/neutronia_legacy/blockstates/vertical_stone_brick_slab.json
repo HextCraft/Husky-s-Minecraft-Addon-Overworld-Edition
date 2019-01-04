@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "neutronia:vertical_slab_stonebrick_block_n" },
-        "facing=south": { "model": "neutronia:vertical_slab_stonebrick_block_s" },
-        "facing=west": { "model": "neutronia:vertical_slab_stonebrick_block_w" },
-        "facing=east": { "model": "neutronia:vertical_slab_stonebrick_block_e" }
-    }
-}

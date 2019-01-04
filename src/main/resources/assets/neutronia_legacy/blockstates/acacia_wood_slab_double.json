@@ -1,5 +1,0 @@
-{
-  "variants": {
-    "variant=default": { "parent": "neutronia:blockstates/acacia_bark_block" }
-  }
-}

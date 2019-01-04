@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/pane_side_alt",
-  "textures": {
-    "edge": "neutronia:block/frosted_glass_top",
-    "pane": "neutronia:block/frosted_glass"
-  }
-}

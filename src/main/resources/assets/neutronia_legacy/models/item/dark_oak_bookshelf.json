@@ -1,9 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/orientable",
-  "textures": {
-    "top": "minecraft:block/planks_dark_oak",
-    "front": "neutronia:block/bookshelf_dark_oak",
-    "side": "neutronia:block/bookshelf_dark_oak"
-  }
-}

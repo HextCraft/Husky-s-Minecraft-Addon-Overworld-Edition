@@ -1,7 +1,0 @@
-{
-  "_comment": "Generated using Husky's JSON Generator v4.",
-  "parent": "block/cross",
-  "textures": {
-    "cross": "neutronia:block/large_sea_anemone"
-  }
-}

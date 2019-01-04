@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "SSS",
+    "EEE"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:wooden_slab"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  },
+  "result": {
+    "item": "neutronia:egg_crate",
+    "count": 2
+  }
+}

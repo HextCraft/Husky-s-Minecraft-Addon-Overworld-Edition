@@ -1,7 +1,0 @@
-{
-    "parent": "block/tinted_cross",
-    "textures": {
-        "particle": "neutronia:block/kelp_plant",
-        "cross": "neutronia:block/kelp_plant"
-    }
-}

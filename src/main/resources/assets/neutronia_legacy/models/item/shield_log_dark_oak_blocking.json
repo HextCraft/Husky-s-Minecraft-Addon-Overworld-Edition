@@ -1,7 +1,0 @@
-{
-  "credit": "Made with Blockbench",
-  "parent": "neutronia:item/shield_blocking",
-  "textures": {
-    "0": "neutronia:items/shield_log_big_oak"
-  }
-}

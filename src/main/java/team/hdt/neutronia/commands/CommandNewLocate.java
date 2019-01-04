@@ -124,11 +124,13 @@ public class CommandNewLocate extends CommandTreeBase {
                         e.printStackTrace();
                     }
                 }
-                BlockPos blockpos = sender.getEntityWorld().getBiomeProvider().findBiomePosition(sender.getPosition().getX(), sender.getPosition().getZ(), 10_000, sender.getEntityWorld().getBiomeProvider().getBiomesToSpawnIn(), new Random());
-                BlockPos pos = spiralOutwardsLookingForBiome(sender, sender.getEntityWorld(), ForgeRegistries.BIOMES.getValue(biomeName), sender.getPosition().getX(), sender.getPosition().getZ(), 30_000);
-                if(sender.getEntityWorld().getBiome(Objects.requireNonNull(pos)) == ForgeRegistries.BIOMES.getValue(biomeName)) {
-                    sender.sendMessage(new TextComponentTranslation("command.neutronia.found_biome", biomeName, pos.getX(), pos.getZ()));
-                }
+                new Thread(() -> {
+                    BlockPos blockpos = sender.getEntityWorld().getBiomeProvider().findBiomePosition(sender.getPosition().getX(), sender.getPosition().getZ(), 10_000, sender.getEntityWorld().getBiomeProvider().getBiomesToSpawnIn(), new Random());
+                    BlockPos pos = spiralOutwardsLookingForBiome(sender, sender.getEntityWorld(), ForgeRegistries.BIOMES.getValue(biomeName), sender.getPosition().getX(), sender.getPosition().getZ(), 30_000);
+                    if(sender.getEntityWorld().getBiome(Objects.requireNonNull(pos)) == ForgeRegistries.BIOMES.getValue(biomeName)) {
+                        sender.sendMessage(new TextComponentTranslation("command.neutronia.found_biome", biomeName, pos.getX(), pos.getZ()));
+                    }
+                }, "Neutronia Biome Locator").start();
             }
         }
     }

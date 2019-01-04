@@ -19,7 +19,7 @@ public class MarshlandsBiome extends Biome {
 
     public MarshlandsBiome() {
         super(new BiomeProperties("Marshlands").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
-        this.topBlock = WATER;
+        this.topBlock = AIR;
     }
 
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
