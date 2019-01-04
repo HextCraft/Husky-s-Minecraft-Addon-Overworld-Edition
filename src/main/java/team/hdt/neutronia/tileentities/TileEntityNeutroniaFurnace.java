@@ -141,7 +141,7 @@ public class TileEntityNeutroniaFurnace extends TileEntityLockable implements IT
      */
     public String getName()
     {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.neutoniaFurnace";
+        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace";
     }
 
     /**
