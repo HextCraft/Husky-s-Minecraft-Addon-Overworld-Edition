@@ -26,8 +26,9 @@ public class NBlocks {
     public static final ResourceLocation TRAP_RESOURCE = new ResourceLocation(Reference.PREFIX_MOD + "textures/entity/chest/trap.png");
     public static final ResourceLocation TRAP_DOUBLE_RESOURCE = new ResourceLocation(Reference.PREFIX_MOD + "textures/entity/chest/trap_double.png");
 
-    public static Block[] BOOKSHELVES = new Block[9], PATTERNED_PLANKS = new Block[6], CARVED_PLANKS = new Block[10],
-            BARRELS = new Block[10], FLUID_BARRELS = new Block[10], WOOD_LANTERNS = new Block[10], LADDERS = new Block[9],
+    public static Block[] BOOKSHELVES = new Block[9], PATTERNED_PLANKS = new Block[6], STRIPPED_LOGS = new Block[6],
+            STRIPPED_WOOD = new Block[6], WOOD = new Block[6], CARVED_PLANKS = new Block[10], BARRELS = new Block[10],
+            FLUID_BARRELS = new Block[10], WOOD_LANTERNS = new Block[10], LADDERS = new Block[9],
             GLAZED_TERRACOTTA_PILLAR = new Block[13], SOUL_STONE = new Block[4];
     public static BlockCustomChest CUSTOM_CHEST;
     public static BlockCustomChest CUSTOM_TRAPPED_CHEST;
@@ -136,6 +137,9 @@ public class NBlocks {
             WOOD_LANTERNS[woodType.getMetadata()] = new BlockWoodenLantern(woodType);
             CARVED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("carved_%s_planks", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
             PATTERNED_PLANKS[woodType.getMetadata()] = new BlockNeutroniaBase(Material.WOOD, String.format("patterned_%s_planks", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+            STRIPPED_LOGS[woodType.getMetadata()] = new BlockStrippedLog(String.format("stripped_%s_log", woodType.getName()), Material.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+            STRIPPED_WOOD[woodType.getMetadata()] = new BlockWood(String.format("stripped_%s_wood", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+            WOOD[woodType.getMetadata()] = new BlockWood(String.format("%s_wood", woodType.getName())).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         }
 
         for (EnumGTPVariants color : EnumGTPVariants.values()) {
