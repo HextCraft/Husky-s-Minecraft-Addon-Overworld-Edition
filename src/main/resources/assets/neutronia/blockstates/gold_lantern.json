@@ -8,18 +8,18 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "chain_extended=false,facing=north": { "model": "neutronia:lantern_wall" },
-    "chain_extended=false,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
-    "chain_extended=false,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
-    "chain_extended=false,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
-    "chain_extended=false,facing=up":    { "model": "neutronia:lantern" },
-    "chain_extended=false,facing=down":  { "model": "neutronia:lantern_hanging" },
-    "chain_extended=true,facing=north": { "model": "neutronia:lantern_wall" },
-    "chain_extended=true,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
-    "chain_extended=true,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
-    "chain_extended=true,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
-    "chain_extended=true,facing=up":    { "model": "neutronia:lantern" },
-    "chain_extended=true,facing=down":  { "model": "neutronia:lantern_hanging_extended" },
-    "inventory": { "model": "neutronia:lantern" }
+    "hanging=false,facing=north": { "model": "neutronia:lantern_wall" },
+    "hanging=false,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
+    "hanging=false,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "hanging=false,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "hanging=false,facing=up":    { "model": "neutronia:lantern" },
+    "hanging=false,facing=down":  { "model": "neutronia:lantern_hanging" },
+    "hanging=true,facing=north": { "model": "neutronia:lantern_wall" },
+    "hanging=true,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
+    "hanging=true,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "hanging=true,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "hanging=true,facing=up":    { "model": "neutronia:lantern" },
+    "hanging=true,facing=down":  { "model": "neutronia:lantern_hanging_extended" },
+    "inventory": { "model": "neutronia:lantern_inventory" }
   }
 }
