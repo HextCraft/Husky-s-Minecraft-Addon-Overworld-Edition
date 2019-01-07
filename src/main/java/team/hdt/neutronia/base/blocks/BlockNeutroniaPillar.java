@@ -20,7 +20,7 @@ public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
 
     public BlockNeutroniaPillar(Material materialIn, String name) {
         super(name, materialIn);
-        setCreativeTab(CreativeTabs.DECORATIONS);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
     }
 
