@@ -1,0 +1,13 @@
+title: Neutronia Website
+author: OliviaTheVampire
+email: sindrefagerheim@outlook.com
+description: > # this means to ignore newlines until "baseurl:"
+  This webute will show info about my mod called Neutronia
+
+# social links
+twitter_username: huskytheartist
+github_username:  sindrefag
+
+show_excerpts: true # set to false to remove excerpts on the homepage
+
+theme: minima
