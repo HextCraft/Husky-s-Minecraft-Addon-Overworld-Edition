@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -13,8 +13,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import team.abnormals.neutronia.world.gen.features.LineFeature;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreeShrubOak;
+import team.abnormal.neutronia.world.gen.features.LineFeature;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreeShrubOak;
 
 import java.util.Iterator;
 import java.util.Random;

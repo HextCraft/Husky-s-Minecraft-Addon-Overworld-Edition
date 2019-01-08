@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenFossils;
-import team.abnormals.neutronia.init.NBlocks;
+import team.abnormal.neutronia.init.NBlocks;
 
 import java.util.Random;
 

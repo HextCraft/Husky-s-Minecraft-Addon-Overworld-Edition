@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.gen.features.tree;
+package team.abnormal.neutronia.world.gen.features.tree;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;

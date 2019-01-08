@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.entity.passive.EntityLlama;
 import net.minecraft.entity.passive.EntityRabbit;
@@ -11,9 +11,9 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import team.abnormals.neutronia.world.gen.features.LineFeature;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
+import team.abnormal.neutronia.world.gen.features.LineFeature;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
 
 import java.util.Random;
 

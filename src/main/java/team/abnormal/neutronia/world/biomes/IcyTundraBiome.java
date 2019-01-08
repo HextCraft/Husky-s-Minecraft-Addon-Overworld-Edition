@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.monster.EntityPolarBear;
@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.*;
-import team.abnormals.neutronia.world.gen.features.PatchFeature;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
+import team.abnormal.neutronia.world.gen.features.PatchFeature;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreeShrubSpruce;
 
 import java.util.Iterator;
 import java.util.Random;

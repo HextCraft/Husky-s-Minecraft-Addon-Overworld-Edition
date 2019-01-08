@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.gen.features.tree;
+package team.abnormal.neutronia.world.gen.features.tree;
 
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.BlockPlanks;

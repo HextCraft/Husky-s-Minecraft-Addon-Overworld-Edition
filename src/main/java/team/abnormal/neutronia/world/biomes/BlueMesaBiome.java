@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.BlockDirt;
@@ -15,7 +15,7 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import team.abnormals.neutronia.init.NBlocks;
+import team.abnormal.neutronia.init.NBlocks;
 
 import java.util.Arrays;
 import java.util.Random;

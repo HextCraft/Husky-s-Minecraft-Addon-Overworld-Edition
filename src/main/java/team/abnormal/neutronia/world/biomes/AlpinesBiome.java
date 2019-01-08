@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockSilverfish;
@@ -16,8 +16,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import team.abnormals.neutronia.world.gen.features.PatchFeature;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
+import team.abnormal.neutronia.world.gen.features.PatchFeature;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreeTallSpruce;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.gen.features;
+package team.abnormal.neutronia.world.gen.features;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;

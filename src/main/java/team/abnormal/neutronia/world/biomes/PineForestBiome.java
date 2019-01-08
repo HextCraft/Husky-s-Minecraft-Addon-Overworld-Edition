@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import team.abnormals.neutronia.world.gen.features.tree.WorldGenTreePine;
+import team.abnormal.neutronia.world.gen.features.tree.WorldGenTreePine;
 
 import java.util.Random;
 

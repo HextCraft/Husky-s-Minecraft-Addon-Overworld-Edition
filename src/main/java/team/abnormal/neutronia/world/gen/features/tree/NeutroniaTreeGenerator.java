@@ -1,8 +1,8 @@
-package team.abnormals.neutronia.world.gen.features.tree;
+package team.abnormal.neutronia.world.gen.features.tree;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.gen.feature.WorldGenTrees;
-import team.abnormals.neutronia.world.WorldGenConstants;
+import team.abnormal.neutronia.world.WorldGenConstants;
 
 public class NeutroniaTreeGenerator extends WorldGenTrees implements WorldGenConstants {
 

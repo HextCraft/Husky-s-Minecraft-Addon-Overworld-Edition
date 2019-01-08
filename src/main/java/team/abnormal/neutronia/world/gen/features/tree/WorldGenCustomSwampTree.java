@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.gen.features.tree;
+package team.abnormal.neutronia.world.gen.features.tree;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
@@ -9,7 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import team.abnormals.neutronia.world.WorldGenConstants;
+import team.abnormal.neutronia.world.WorldGenConstants;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.biomes;
+package team.abnormal.neutronia.world.biomes;
 
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.monster.EntityHusk;

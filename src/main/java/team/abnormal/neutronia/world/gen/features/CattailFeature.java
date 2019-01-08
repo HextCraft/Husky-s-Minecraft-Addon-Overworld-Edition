@@ -1,5 +1,5 @@
-package team.abnormals.neutronia.world.gen.features;/*
-package team.hdt.neutronia_legacy.groups.world.world.gen;
+package team.abnormal.neutronia.world.gen.features;/*
+package neutronia_legacy.groups.world.world.gen;
 
 import BlockCattail;
 import net.minecraft.block.material.Material;

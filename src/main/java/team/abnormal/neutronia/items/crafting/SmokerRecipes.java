@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.items.crafting;
+package team.abnormal.neutronia.items.crafting;
 
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;

@@ -1,4 +1,4 @@
-package team.abnormals.neutronia.world.gen;
+package team.abnormal.neutronia.world.gen;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
