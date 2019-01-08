@@ -8,18 +8,18 @@
     "transform": "forge:default-block"
   },
   "variants": {
-    "hanging=false,facing=north": { "model": "neutronia:lantern_wall" },
-    "hanging=false,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
-    "hanging=false,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
-    "hanging=false,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
-    "hanging=false,facing=up":    { "model": "neutronia:lantern" },
-    "hanging=false,facing=down":  { "model": "neutronia:lantern_hanging" },
-    "hanging=true,facing=north": { "model": "neutronia:lantern_wall" },
-    "hanging=true,facing=south": { "model": "neutronia:lantern_wall", "y": 180 },
-    "hanging=true,facing=west":  { "model": "neutronia:lantern_wall", "y": 270 },
-    "hanging=true,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
-    "hanging=true,facing=up":    { "model": "neutronia:lantern" },
-    "hanging=true,facing=down":  { "model": "neutronia:lantern_hanging_extended" },
+    "facing=north,hanging=false": { "model": "neutronia:lantern_wall" },
+    "facing=south,hanging=false": { "model": "neutronia:lantern_wall", "y": 180 },
+    "facing=west,hanging=false":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "facing=east,hanging=false":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "facing=up,hanging=false":    { "model": "neutronia:lantern" },
+    "facing=down,hanging=false":  { "model": "neutronia:lantern_hanging" },
+    "facing=north,hanging=true": { "model": "neutronia:lantern_wall" },
+    "facing=south,hanging=true": { "model": "neutronia:lantern_wall", "y": 180 },
+    "facing=west,hanging=true":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "facing=east,hanging=true":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "facing=up,hanging=true":    { "model": "neutronia:lantern" },
+    "facing=down,hanging=true":  { "model": "neutronia:lantern_hanging_extended" },
     "inventory": { "model": "neutronia:lantern_inventory" }
   }
 }

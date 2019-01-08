@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "NNN",
+    "N#N",
+    "III"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:torch"
+    },
+    "N": {
+      "item": "neutronia:dark_iron_nugget"
+    },
+    "I": {
+      "item": "neutronia:dark_iron_ingot"
+    }
+  },
+  "result": {
+    "item": "neutronia:lantern"
+  }
+}

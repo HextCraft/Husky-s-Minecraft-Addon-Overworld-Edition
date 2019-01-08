@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "NNN",
+    "N#N",
+    "III"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:torch"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "neutronia:gold_lantern"
+  }
+}

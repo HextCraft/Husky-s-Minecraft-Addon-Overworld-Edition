@@ -1,0 +1,25 @@
+{
+  "_comment": "Generated using Husky's JSON Generator v4.",
+  "forge_marker": 1,
+  "defaults": {
+    "textures":  {
+      "all": "neutronia:block/lantern"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "facing=north,hanging=false": { "model": "neutronia:lantern_wall" },
+    "facing=south,hanging=false": { "model": "neutronia:lantern_wall", "y": 180 },
+    "facing=west,hanging=false":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "facing=east,hanging=false":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "facing=up,hanging=false":    { "model": "neutronia:lantern" },
+    "facing=down,hanging=false":  { "model": "neutronia:lantern_hanging" },
+    "facing=north,hanging=true": { "model": "neutronia:lantern_wall" },
+    "facing=south,hanging=true": { "model": "neutronia:lantern_wall", "y": 180 },
+    "facing=west,hanging=true":  { "model": "neutronia:lantern_wall", "y": 270 },
+    "facing=east,hanging=true":  { "model": "neutronia:lantern_wall", "y": 90 },
+    "facing=up,hanging=true":    { "model": "neutronia:lantern" },
+    "facing=down,hanging=true":  { "model": "neutronia:lantern_hanging_extended" },
+    "inventory": { "model": "neutronia:lantern_inventory" }
+  }
+}

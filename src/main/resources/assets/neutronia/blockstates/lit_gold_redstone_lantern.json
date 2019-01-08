@@ -20,6 +20,6 @@
     "chain_extended=true,facing=east":  { "model": "neutronia:lantern_wall", "y": 90 },
     "chain_extended=true,facing=up":    { "model": "neutronia:lantern" },
     "chain_extended=true,facing=down":  { "model": "neutronia:lantern_hanging_extended" },
-    "inventory": { "model": "neutronia:lantern" }
+    "inventory": { "model": "neutronia:lantern_inventory" }
   }
 }
