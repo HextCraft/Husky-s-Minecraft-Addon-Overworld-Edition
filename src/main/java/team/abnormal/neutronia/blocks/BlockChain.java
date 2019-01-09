@@ -40,7 +40,7 @@ public class BlockChain extends BlockMod implements INeutroniaBlock {
         if(worldIn.getBlockState(pos.down()).getBlock() instanceof BlockLantern || worldIn.getBlockState(pos.down()).getBlock() instanceof BlockLanternRedstone) {
             return worldIn.getBlockState(pos.down()).getBlock().getOffset(state, worldIn, pos);
         }
-        return null;
+        return new Vec3d(0D, 0D, 0D);
     }
 
     public boolean isOpaqueCube(IBlockState state) {

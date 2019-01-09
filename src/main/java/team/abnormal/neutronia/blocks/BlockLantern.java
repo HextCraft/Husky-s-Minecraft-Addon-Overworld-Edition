@@ -50,19 +50,19 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         switch (state.getValue(FACING)) {
             case NORTH:
-                return LANTERN_NORTH_AABB.offset(getOffset(state, source, pos));
+                return LANTERN_NORTH_AABB;
             case SOUTH:
-                return LANTERN_SOUTH_AABB.offset(getOffset(state, source, pos));
+                return LANTERN_SOUTH_AABB;
             case EAST:
-                return LANTERN_EAST_AABB.offset(getOffset(state, source, pos));
+                return LANTERN_EAST_AABB;
             case WEST:
-                return LANTERN_WEST_AABB.offset(getOffset(state, source, pos));
+                return LANTERN_WEST_AABB;
             case UP:
                 return LANTERN_UP_AABB.offset(getOffset(state, source, pos));
             case DOWN:
                 return LANTERN_DOWN_AABB.offset(getOffset(state, source, pos));
             default:
-                return LANTERN_UP_AABB.offset(getOffset(state, source, pos));
+                return LANTERN_UP_AABB;
         }
     }
 
@@ -75,7 +75,7 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
 
     @Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-        return this.getDefaultState().withProperty(FACING, facing).withProperty(HANGING, facing == EnumFacing.DOWN);
+        return this.getDefaultState().withProperty(FACING, facing).withProperty(HANGING, facing == EnumFacing.DOWN || world.getBlockState(pos.up()).getBlock() instanceof BlockChain);
     }
 
     @Override
