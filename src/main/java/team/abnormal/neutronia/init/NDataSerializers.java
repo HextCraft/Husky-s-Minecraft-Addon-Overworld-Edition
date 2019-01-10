@@ -3,10 +3,8 @@ package team.abnormal.neutronia.init;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializer;
-import team.abnormal.neutronia.village.VillagerData;
-import team.abnormal.neutronia.village.VillagerProfession;
-import team.abnormal.neutronia.village.VillagerType;
 import team.abnormal.neutronia.base.utils.registry.Registry;
+import team.abnormal.neutronia.village.VillagerData;
 
 public class NDataSerializers {
 
@@ -34,7 +32,7 @@ public class NDataSerializers {
         }
 
         public VillagerData write(PacketBuffer packetByteBuf_1) {
-            return new VillagerData((VillagerType)Registry.VILLAGER_TYPE.getInt(packetByteBuf_1.readVarInt()), (VillagerProfession) Registry.VILLAGER_PROFESSION.getInt(packetByteBuf_1.readVarInt()), packetByteBuf_1.readVarInt());
+            return new VillagerData(Registry.VILLAGER_TYPE.getInt(packetByteBuf_1.readVarInt()), Registry.VILLAGER_PROFESSION.getInt(packetByteBuf_1.readVarInt()), packetByteBuf_1.readVarInt());
         }
 
     };

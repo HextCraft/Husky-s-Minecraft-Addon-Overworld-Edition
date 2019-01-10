@@ -26,7 +26,7 @@ public interface VillagerProfession {
    VillagerProfession GUARD = register("guard");
 
    static VillagerProfession register(final String string_1) {
-      return (VillagerProfession) Registry.VILLAGER_PROFESSION.register(new ResourceLocation(string_1), new VillagerProfession() {
+      return Registry.VILLAGER_PROFESSION.register(new ResourceLocation(string_1), new VillagerProfession() {
          public String toString() {
             return string_1;
          }
