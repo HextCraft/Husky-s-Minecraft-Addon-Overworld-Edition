@@ -1,14 +1,17 @@
 package team.abnormal.neutronia.village;
 
 public class VillagerData {
+
+   public static final VillagerData DEFAULT = new VillagerData(VillagerType.PLAINS, VillagerProfession.NITWIT, 0);
+
    private final VillagerType type;
    private final VillagerProfession profession;
    private final int level;
 
-   public VillagerData(VillagerType villagerType_1, VillagerProfession villagerProfession_1, int int_1) {
+   public VillagerData(VillagerType villagerType_1, VillagerProfession villagerProfession_1, int level) {
       this.type = villagerType_1;
       this.profession = villagerProfession_1;
-      this.level = Math.max(1, int_1);
+      this.level = Math.max(1, level);
    }
 
    public VillagerType getType() {

@@ -5,6 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import team.abnormal.neutronia.village.VillageStructures;
 import team.abnormal.neutronia.village.VillagerProfession;
 import team.abnormal.neutronia.village.VillagerType;
 import team.abnormal.neutronia.base.utils.IntIterable;
@@ -23,6 +24,7 @@ public abstract class Registry<T> implements IntIterable<T> {
    public static final ModifiableRegistry<ModifiableRegistry<?>> REGISTRIES = new IdRegistry<>();
    public static final DefaultMappedRegistry<VillagerType> VILLAGER_TYPE = method_10224("villager_type", new DefaultMappedRegistry<>("plains"), () -> VillagerType.PLAINS);
    public static final DefaultMappedRegistry<VillagerProfession> VILLAGER_PROFESSION = method_10224("villager_profession", new DefaultMappedRegistry<>("none"), () -> VillagerProfession.NONE);
+    public static final DefaultMappedRegistry<VillageStructures> VILLAGE_STRUCTURES = method_10224("village_structures", new DefaultMappedRegistry<>("small_house"), () -> VillageStructures.SMALL_HOUSE);
 
    private static <T> void method_10227(String string_1, Supplier<T> supplier_1) {
       field_11140.put(new ResourceLocation(string_1), supplier_1);
