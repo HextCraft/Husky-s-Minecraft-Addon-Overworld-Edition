@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package team.abnormal.neutronia.recipes;
+package team.abnormal.neutronia.recipes.idk;
 
 import com.google.gson.JsonObject;
 import net.minecraft.class_3924.class_3925;

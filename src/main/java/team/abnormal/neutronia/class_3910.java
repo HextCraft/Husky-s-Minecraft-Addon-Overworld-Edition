@@ -5,80 +5,77 @@
 
 package team.abnormal.neutronia;
 
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
 import net.minecraft.block.Blocks;
-import net.minecraft.container.Container;
-import net.minecraft.container.Slot;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.BasicInventory;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.FilledMapItem;
+import net.minecraft.inventory.InventoryBasic;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemMap;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.map.MapState;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.SoundCategory;
+import team.abnormal.neutronia.init.NSoundEvents;
 
 public class class_3910 extends Container {
     private final class_3914 field_17294;
     private boolean field_17295;
     private ItemStack field_17296;
     private ItemStack field_17297;
-    public final Inventory field_17293;
+    public final InventoryBasic field_17293;
 
-    public class_3910(int int_1, PlayerInventory playerInventory_1) {
+    public class_3910(int int_1, InventoryPlayer playerInventory_1) {
         this(int_1, playerInventory_1, class_3914.field_17304);
     }
 
-    public class_3910(int int_1, final PlayerInventory playerInventory_1, final class_3914 class_3914_1) {
+    public class_3910(int int_1, final InventoryPlayer playerInventory_1, final class_3914 class_3914_1) {
         super(int_1);
         this.field_17296 = ItemStack.EMPTY;
         this.field_17297 = ItemStack.EMPTY;
-        this.field_17293 = new BasicInventory(3) {
+        this.field_17293 = new InventoryBasic(3) {
             public void markDirty() {
                 class_3910.this.onContentChanged(this);
                 super.markDirty();
             }
         };
         this.field_17294 = class_3914_1;
-        this.addSlot(new Slot(this.field_17293, 0, 15, 15) {
+        this.addSlotToContainer(new Slot(this.field_17293, 0, 15, 15) {
             public boolean canInsert(ItemStack itemStack_1) {
                 return itemStack_1.getItem() == Items.FILLED_MAP;
             }
         });
-        this.addSlot(new Slot(this.field_17293, 1, 15, 52) {
+        this.addSlotToContainer(new Slot(this.field_17293, 1, 15, 52) {
             public boolean canInsert(ItemStack itemStack_1) {
                 Item item_1 = itemStack_1.getItem();
                 return item_1 == Items.PAPER || item_1 == Items.MAP || item_1 == Items.field_8141;
             }
         });
-        this.addSlot(new Slot(this.field_17293, 2, 145, 39) {
+        this.addSlotToContainer(new Slot(this.field_17293, 2, 145, 39) {
             public boolean canInsert(ItemStack itemStack_1) {
                 return false;
             }
 
-            public ItemStack onTakeItem(PlayerEntity playerEntity_1, ItemStack itemStack_1) {
-                ItemStack itemStack_2 = (ItemStack)class_3914_1.method_17395((world_1, blockPos_1) -> {
-                    if (!class_3910.this.field_17295 && class_3910.this.field_17293.getInvStack(1).getItem() == Items.field_8141) {
-                        ItemStack itemStack_2 = FilledMapItem.method_17442(world_1, class_3910.this.field_17296);
-                        if (itemStack_2 != null) {
-                            return itemStack_2;
-                        }
+            public ItemStack onTake(EntityPlayer playerEntity_1, ItemStack itemStack_1) {
+                ItemStack itemStack_2 = class_3914_1.method_17395((world_1, blockPos_1) -> {
+                    if (!class_3910.this.field_17295 && class_3910.this.field_17293.getStackInSlot(1).getItem() == Items.MAP) {
+                        ItemStack itemStack_3 = ItemMap.renderBiomePreviewMap(world_1, class_3910.this.field_17296);
+                        return itemStack_3;
                     }
 
                     return itemStack_1;
                 }).orElse(itemStack_1);
-                this.inventory.takeInvStack(0, 1);
-                this.inventory.takeInvStack(1, 1);
-                playerInventory_1.setCursorStack(itemStack_2);
-                itemStack_2.getItem().onCrafted(itemStack_2, playerEntity_1.world, playerEntity_1);
+                this.inventory.decrStackSize(0, 1);
+                this.inventory.decrStackSize(1, 1);
+                playerInventory_1.setItemStack(itemStack_2);
+                itemStack_2.getItem().onCreated(itemStack_2, playerEntity_1.world, playerEntity_1);
                 class_3914_1.method_17393((world_1, blockPos_1) -> {
-                    world_1.playSound((PlayerEntity)null, blockPos_1, SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, SoundCategory.BLOCK, 1.0F, 1.0F);
+                    world_1.playSound(null, blockPos_1, NSoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 });
-                return super.onTakeItem(playerEntity_1, itemStack_2);
+                return super.onTake(playerEntity_1, itemStack_2);
             }
         });
 

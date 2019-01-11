@@ -5,19 +5,20 @@
 
 package team.abnormal.neutronia.tileentities;
 
-import javax.annotation.Nullable;
+import com.sun.istack.internal.Nullable;
 import net.minecraft.class_3829;
 import net.minecraft.class_3913;
 import net.minecraft.class_3916;
-import net.minecraft.block.LecternBlock;
-import net.minecraft.container.Container;
 import net.minecraft.container.NameableContainerProvider;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.ItemWrittenBook;
 import net.minecraft.item.WrittenBookItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.command.CommandOutput;
@@ -26,27 +27,30 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.StringTextComponent;
 import net.minecraft.text.TextComponent;
 import net.minecraft.text.TranslatableTextComponent;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.WorldServer;
+import team.abnormal.neutronia.blocks.LecternBlock;
 
-public class LecternBlockEntity extends BlockEntity implements class_3829, NameableContainerProvider {
-    private final Inventory field_17386 = new Inventory() {
-        public int getInvSize() {
+public class LecternBlockEntity extends TileEntity implements class_3829, NameableContainerProvider {
+    private final InventoryBasic field_17386 = new InventoryBasic() {
+        public int getSizeInventory() {
             return 1;
         }
 
-        public boolean isInvEmpty() {
+        public boolean isEmpty() {
             return LecternBlockEntity.this.field_17388.isEmpty();
         }
 
-        public ItemStack getInvStack(int int_1) {
+        public ItemStack getStackInSlot(int int_1) {
             return int_1 == 0 ? LecternBlockEntity.this.field_17388 : ItemStack.EMPTY;
         }
 
-        public ItemStack takeInvStack(int int_1, int int_2) {
+        public ItemStack decrStackSize(int int_1, int int_2) {
             if (int_1 == 0) {
-                ItemStack itemStack_1 = LecternBlockEntity.this.field_17388.split(int_2);
+                ItemStack itemStack_1 = LecternBlockEntity.this.field_17388.splitStack(int_2);
                 if (LecternBlockEntity.this.field_17388.isEmpty()) {
                     LecternBlockEntity.this.method_17525();
                 }
@@ -57,7 +61,7 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
             }
         }
 
-        public ItemStack removeInvStack(int int_1) {
+        public ItemStack removeStackFromSlot(int int_1) {
             if (int_1 == 0) {
                 ItemStack itemStack_1 = LecternBlockEntity.this.field_17388;
                 LecternBlockEntity.this.field_17388 = ItemStack.EMPTY;
@@ -68,10 +72,10 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
             }
         }
 
-        public void setInvStack(int int_1, ItemStack itemStack_1) {
+        public void setInventorySlotContents(int int_1, ItemStack itemStack_1) {
         }
 
-        public int getInvMaxStackAmount() {
+        public int getInventoryStackLimit() {
             return 1;
         }
 
@@ -79,19 +83,19 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
             LecternBlockEntity.this.markDirty();
         }
 
-        public boolean canPlayerUseInv(PlayerEntity playerEntity_1) {
-            if (LecternBlockEntity.this.world.getBlockEntity(LecternBlockEntity.this.pos) != LecternBlockEntity.this) {
+        public boolean isUsableByPlayer(EntityPlayer playerEntity_1) {
+            if (LecternBlockEntity.this.world.getTileEntity(LecternBlockEntity.this.pos) != LecternBlockEntity.this) {
                 return false;
             } else {
-                return playerEntity_1.squaredDistanceTo((double)LecternBlockEntity.this.pos.getX() + 0.5D, (double)LecternBlockEntity.this.pos.getY() + 0.5D, (double)LecternBlockEntity.this.pos.getZ() + 0.5D) > 64.0D ? false : LecternBlockEntity.this.method_17522();
+                return !(playerEntity_1.getDistanceSq((double) LecternBlockEntity.this.pos.getX() + 0.5D, (double) LecternBlockEntity.this.pos.getY() + 0.5D, (double) LecternBlockEntity.this.pos.getZ() + 0.5D) > 64.0D) && LecternBlockEntity.this.method_17522();
             }
         }
 
-        public boolean isValidInvStack(int int_1, ItemStack itemStack_1) {
+        public boolean isItemValidForSlot(int int_1, ItemStack itemStack_1) {
             return false;
         }
 
-        public void clearInv() {
+        public void clear() {
         }
     };
     private final class_3913 field_17387 = new class_3913() {
@@ -115,7 +119,6 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
     private int field_17390;
 
     public LecternBlockEntity() {
-        super(BlockEntityType.LECTERN);
         this.field_17388 = ItemStack.EMPTY;
     }
 
@@ -129,19 +132,19 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
     }
 
     public void method_17513(ItemStack itemStack_1) {
-        this.method_17514(itemStack_1, (PlayerEntity)null);
+        this.method_17514(itemStack_1, null);
     }
 
     private void method_17525() {
         this.field_17389 = 0;
         this.field_17390 = 0;
-        LecternBlock.method_17473(this.getWorld(), this.getPos(), this.getCachedState(), false);
+        LecternBlock.method_17473(this.getWorld(), this.getPos(), this.getUpdatePacket(), false);
     }
 
-    public void method_17514(ItemStack itemStack_1, @Nullable PlayerEntity playerEntity_1) {
+    public void method_17514(ItemStack itemStack_1, @Nullable EntityPlayer playerEntity_1) {
         this.field_17388 = this.method_17518(itemStack_1, playerEntity_1);
         this.field_17389 = 0;
-        this.field_17390 = WrittenBookItem.method_17443(this.field_17388);
+        this.field_17390 = ItemWrittenBook.getGeneration(this.field_17388);
         this.markDirty();
     }
 
@@ -164,8 +167,8 @@ public class LecternBlockEntity extends BlockEntity implements class_3829, Namea
         return MathHelper.floor(float_1 * 14.0F) + (this.method_17522() ? 1 : 0);
     }
 
-    private ItemStack method_17518(ItemStack itemStack_1, @Nullable PlayerEntity playerEntity_1) {
-        if (this.world instanceof ServerWorld && itemStack_1.getItem() == Items.WRITTEN_BOOK) {
+    private ItemStack method_17518(ItemStack itemStack_1, @Nullable EntityPlayer playerEntity_1) {
+        if (this.world instanceof WorldServer && itemStack_1.getItem() == Items.WRITTEN_BOOK) {
             WrittenBookItem.method_8054(itemStack_1, this.method_17512(playerEntity_1), playerEntity_1);
         }
 
