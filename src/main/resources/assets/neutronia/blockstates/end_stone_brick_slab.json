@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/end_bricks",
+      "top": "blocks/end_bricks",
+      "side": "blocks/end_bricks"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+  }
+}

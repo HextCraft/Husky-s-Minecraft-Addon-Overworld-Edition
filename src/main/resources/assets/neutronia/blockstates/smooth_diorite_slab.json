@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/stone_diorite_smooth",
+      "top": "blocks/stone_diorite_smooth",
+      "side": "blocks/stone_diorite_smooth"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+  }
+}

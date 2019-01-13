@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/smooth_prismarine_bricks",
+      "side": "neutronia:block/smooth_prismarine_bricks"
+    }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_column" }
+  }
+}

@@ -12,6 +12,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import team.abnormal.abnormalib.block.BlockMod;
@@ -67,10 +69,16 @@ public class BlockLantern extends BlockMod implements INeutroniaBlock {
     }
 
     @Override
-    public EnumOffsetType getOffsetType() {
-        if(getDefaultState().getValue(FACING) == EnumFacing.UP) return EnumOffsetType.XZ;
-        else if(getDefaultState().getValue(FACING) == EnumFacing.DOWN) return EnumOffsetType.XYZ;
-        else return EnumOffsetType.NONE;
+    public Vec3d getOffset(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        if(state.getValue(FACING) == EnumFacing.UP) {
+            long i = MathHelper.getCoordinateRandom(pos.getX(), 0, pos.getZ());
+            return new Vec3d(((double)((float)(i >> 16 & 15L) / 15.0F) - 0.5D) * 0.5D, 0.0D, ((double)((float)(i >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D);
+        } else if(state.getValue(FACING) == EnumFacing.DOWN) {
+            long i = MathHelper.getCoordinateRandom(pos.getX(), 0, pos.getZ());
+            return new Vec3d(((double)((float)(i >> 16 & 15L) / 15.0F) - 0.5D) * 0.5D, ((double)((float)(i >> 20 & 15L) / 15.0F) - 1.0D) * 0.2D, ((double)((float)(i >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D);
+        } else {
+            return Vec3d.ZERO;
+        }
     }
 
     @Override

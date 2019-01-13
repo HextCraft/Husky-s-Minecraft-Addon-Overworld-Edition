@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -224,3 +225,4 @@ public class LecternBlockEntity extends TileEntity implements class_3829, Nameab
         return new TranslatableTextComponent("container.lectern", new Object[0]);
     }
 }
+*/
