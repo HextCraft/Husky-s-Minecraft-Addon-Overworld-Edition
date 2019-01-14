@@ -35,14 +35,14 @@ public class NBlocks {
     public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
     public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
     public static BlockChiseled CHISELED_PRISMARINE, CHISELED_NETHER_BRICK, CHISELED_PURPUR, CHISELED_BRICKS, CHISELED_END_BRICK, CHISELED_RED_NETHER_BRICK;
-    public static BlockDarkPrismarineChiseled CHISELED_DARK_PRISMARINE;
-    public static Block CHISELED_PRISMARINE_BRICKS, CUT_PRISMARINE, CUT_PRISMARINE_BRICKS, ENGRAVED_PRISMARINE, ENGRAVED_PRISMARINE_BRICKS;
+    public static BlockDarkPrismarineChiseled CHISELED_DARK_PRISMARINE_ALT;
+    public static Block CHISELED_PRISMARINE_BRICKS, CHISELED_DARK_PRISMARINE, CUT_PRISMARINE, CUT_PRISMARINE_BRICKS, CUT_DARK_PRISMARINE, ENGRAVED_PRISMARINE, ENGRAVED_PRISMARINE_BRICKS, ENGRAVED_DARK_PRISMARINE;
     public static Block OBSIDIAN_BRICKS, OBSIDIAN_COBBLE, OBSIDIAN_PILLAR, CHISELED_OBSIDIAN, GLOWING_OBSIDIAN;
-    public static Block SMOOTH_END_BRICK, SMOOTH_PRISMARINE_BRICKS, SMOOTH_PRISMARINE, SMOOTH_OBSIDIAN, SMOOTH_PURPUR_BRICK, SMOOTH_NETHER_BRICK, SMOOTH_RED_NETHER_BRICK, SMOOTH_STONE, SMOOTH_STONE_BRICK;
+    public static Block SMOOTH_END_BRICK, SMOOTH_PRISMARINE_BRICKS, SMOOTH_PRISMARINE, SMOOTH_DARK_PRISMARINE, SMOOTH_OBSIDIAN, SMOOTH_PURPUR_BRICK, SMOOTH_NETHER_BRICK, SMOOTH_RED_NETHER_BRICK, SMOOTH_STONE, SMOOTH_STONE_BRICK;
     public static BlockNeutroniaPillar DIAMOND_PILLAR, EMERALD_PILLAR, IRON_PILLAR, GOLD_PILLAR;
     public static Block DIAMOND_BRICKS, EMERALD_BRICKS, IRON_BRICKS, GOLD_BRICKS;
     public static Block SANDSTONE_PILLAR, RED_SANDSTONE_PILLAR, STONE_PILLAR, POLISHED_ANDESITE_PILLAR, POLISHED_GRANITE_PILLAR, POLISHED_DIORITE_PILLAR,
-            STONE_BRICK_PILLAR, PRISMARINE_COLUMN, PRISMARINE_PILLAR, PRISMARINE_BRICK_PILLAR, RED_NETHER_BRICK_PILLAR, END_BRICK_PILLAR,
+            STONE_BRICK_PILLAR, PRISMARINE_COLUMN, PRISMARINE_PILLAR, PRISMARINE_BRICK_PILLAR, DARK_PRISMARINE_PILLAR, RED_NETHER_BRICK_PILLAR, END_BRICK_PILLAR,
             BRICK_PILLAR, DARK_PRISMARINE_COLUMN;
     public static Block CRACKED_BRICKS, MOSSY_BRICKS, BRICK_PATH, BRICK_TILE, SMALL_BRICK_TILE, CHISELED_BRICK, SMOOTH_BRICK;
     public static Block SANDY_BRICKS, CRACKED_SANDY_BRICKS, MOSSY_SANDY_BRICKS, SANDY_BRICK_PATH, SANDY_BRICK_TILE, SMALL_SANDY_BRICK_TILE, CHISELED_SANDY_BRICK, SANDY_BRICK_PILLAR, SMOOTH_SANDY_BRICK;
@@ -157,17 +157,20 @@ public class NBlocks {
 
         CHISELED_PRISMARINE = new BlockChiseled(Material.ROCK, "chiseled_prismarine", 1.5F, 10.0F, SoundType.STONE, Items.PRISMARINE_CRYSTALS);
         CHISELED_PRISMARINE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "chiseled_prismarine_bricks");
+        CHISELED_DARK_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "chiseled_dark_prismarine");
         CHISELED_NETHER_BRICK = new BlockChiseled(Material.ROCK, "chiseled_nether_brick", 1.5F, 10.0F, SoundType.STONE, Items.LAVA_BUCKET);
         CHISELED_PURPUR = new BlockChiseled(Material.ROCK, "chiseled_purpur", 1.5F, 10.0F, SoundType.STONE, Items.ENDER_PEARL);
-        CHISELED_DARK_PRISMARINE = new BlockDarkPrismarineChiseled("chiseled_dark_prismarine");
+        CHISELED_DARK_PRISMARINE_ALT = new BlockDarkPrismarineChiseled("chiseled_dark_prismarine_alt");
         CHISELED_END_BRICK = new BlockChiseled(Material.ROCK, "chiseled_end_brick", 3.0F, 15.0F, SoundType.STONE, Items.CHORUS_FRUIT_POPPED);
         CHISELED_RED_NETHER_BRICK = new BlockChiseled(Material.ROCK, "chiseled_red_nether_brick", 1.5F, 10.0F, SoundType.STONE, Item.getItemFromBlock(Blocks.GLOWSTONE));
 
         CUT_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "cut_prismarine");
         CUT_PRISMARINE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "cut_prismarine_bricks");
+        CUT_DARK_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "cut_dark_prismarine");
 
         ENGRAVED_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "engraved_prismarine");
         ENGRAVED_PRISMARINE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "engraved_prismarine_bricks");
+        ENGRAVED_DARK_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "engraved_dark_prismarine");
 
         OBSIDIAN_BRICKS = new BlockNeutroniaBase(Material.ROCK, "obsidian_bricks").setHardness(50.0F).setResistance(2000.0F);
         OBSIDIAN_COBBLE = new BlockNeutroniaBase(Material.ROCK, "obsidian_cobble").setHardness(50.0F).setResistance(2000.0F);
@@ -178,6 +181,7 @@ public class NBlocks {
         SMOOTH_END_BRICK = new BlockNeutroniaBase(Material.ROCK, "smooth_end_brick", CreativeTabs.BUILDING_BLOCKS, 0.8F, 10.0F, SoundType.STONE);
         SMOOTH_PRISMARINE_BRICKS = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine_bricks", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
         SMOOTH_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "smooth_prismarine");
+        SMOOTH_DARK_PRISMARINE = new BlockNeutroniaBase(Material.ROCK, "smooth_dark_prismarine");
         SMOOTH_OBSIDIAN = new BlockNeutroniaBase(Material.ROCK, "smooth_obsidian").setHardness(50.0F).setResistance(2000.0F);
         SMOOTH_PURPUR_BRICK = new BlockNeutroniaBase(Material.ROCK, "smooth_purpur_brick", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
         SMOOTH_NETHER_BRICK = new BlockNeutroniaBase(Material.ROCK, "smooth_nether_brick", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
@@ -274,6 +278,7 @@ public class NBlocks {
         PRISMARINE_COLUMN = new BlockNeutroniaPillar(Material.ROCK, "prismarine_column");
         PRISMARINE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "prismarine_pillar");
         PRISMARINE_BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "prismarine_brick_pillar");
+        DARK_PRISMARINE_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "dark_prismarine_pillar");
         RED_NETHER_BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "red_nether_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 2.0F, 10.0F, SoundType.STONE);
         END_BRICK_PILLAR = new BlockNeutroniaPillar(Material.ROCK, "end_brick_pillar", CreativeTabs.BUILDING_BLOCKS, 3.0F, 15.0F, SoundType.STONE);
         DARK_PRISMARINE_COLUMN = new BlockNeutroniaPillar(Material.ROCK, "dark_prismarine_column", CreativeTabs.BUILDING_BLOCKS, 1.5F, 10.0F, SoundType.STONE);
@@ -385,6 +390,7 @@ public class NBlocks {
         BlockRegisteringUtils.addWalls("nether_brick", Blocks.NETHER_BRICK, 0, true);
         BlockRegisteringUtils.addWalls("stone_brick", Blocks.STONE, 0, true);
         BlockRegisteringUtils.addWalls("mossy_stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addWalls("prismarine", Blocks.PRISMARINE, 0, true);
         BlockRegisteringUtils.addWalls("cracked_stone_brick", Blocks.STONE, 0, true);
         BlockRegisteringUtils.addWalls("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true);
         BlockRegisteringUtils.addWalls("end_brick", Blocks.END_BRICKS, 0, true);
@@ -421,6 +427,8 @@ public class NBlocks {
         BlockRegisteringUtils.addSlabAndStair("cracked_stone_brick", Blocks.STONE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true);
         BlockRegisteringUtils.addSlabAndStair("end_stone_brick", Blocks.END_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("end_stone_brick", Blocks.END_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("prismarine", Blocks.PRISMARINE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("smooth_sandstone", SMOOTH_SANDSTONE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("smooth_red_sandstone", SMOOTH_RED_SANDSTONE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("smooth_quartz", Blocks.QUARTZ_BLOCK, 0, true);
