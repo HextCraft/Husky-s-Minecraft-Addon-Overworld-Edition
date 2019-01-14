@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -245,3 +246,4 @@ public class LecternBlock extends BlockWithEntity {
         field_17372 = VoxelShapes.union(VoxelShapes.union(Block.createCubeShape(0.0D, 10.0D, 15.0D, 16.0D, 14.0D, 10.666667D), Block.createCubeShape(0.0D, 12.0D, 10.666667D, 16.0D, 16.0D, 6.333333D)), VoxelShapes.union(Block.createCubeShape(0.0D, 14.0D, 6.333333D, 16.0D, 18.0D, 2.0D), field_16403));
     }
 }
+*/

@@ -78,11 +78,11 @@ public class BlockRegisteringUtils {
         }
     }
 
-    public static void add(String name, Block block, int meta, boolean doit) {
-        add(name, block, meta, doit, BlockNeutroniaWall::new);
+    public static void addWalls(String name, Block block, int meta, boolean doit) {
+        addWalls(name, block, meta, doit, BlockNeutroniaWall::new);
     }
 
-    public static void add(String name, Block block, int meta, boolean doit, WallSupplier supplier) {
+    public static void addWalls(String name, Block block, int meta, boolean doit, WallSupplier supplier) {
         if (!doit)
             return;
 
@@ -91,11 +91,11 @@ public class BlockRegisteringUtils {
         BlockNeutroniaWall.initWall(block, meta, supplier.supply(wallName, state));
     }
 
-    public static void add(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
-        add(name, block, meta, doit, BlockNeutroniaWall::new, creativeTabs);
+    public static void addWalls(String name, Block block, int meta, boolean doit, CreativeTabs creativeTabs) {
+        addWalls(name, block, meta, doit, BlockNeutroniaWall::new, creativeTabs);
     }
 
-    public static void add(String name, Block block, int meta, boolean doit, WallSupplier supplier, CreativeTabs creativeTabs) {
+    public static void addWalls(String name, Block block, int meta, boolean doit, WallSupplier supplier, CreativeTabs creativeTabs) {
         if (!doit)
             return;
 

@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -51,3 +52,4 @@ public class LoomBlock extends HorizontalFacingBlock {
         stateFactory$Builder_1.with(new Property[]{field_11177});
     }
 }
+*/

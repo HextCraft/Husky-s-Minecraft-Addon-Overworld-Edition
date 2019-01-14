@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -230,3 +231,4 @@ public class LecternBlockEntity extends TileEntityLockable implements class_3829
         return new TextComponentTranslation("container.lectern");
     }
 }
+*/

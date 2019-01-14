@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "blocks/stone_diorite",
+      "side": "blocks/stone_diorite"
+    }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_column" }
+  }
+}

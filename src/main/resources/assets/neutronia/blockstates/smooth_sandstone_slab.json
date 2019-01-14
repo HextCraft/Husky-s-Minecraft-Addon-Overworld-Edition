@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "blocks/sandstone_top",
+      "top": "blocks/sandstone_top",
+      "side": "blocks/sandstone_top"
+    }
+  },
+  "variants": {
+    "inventory": { "model": "minecraft:half_slab" },
+    "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+    "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+  }
+}

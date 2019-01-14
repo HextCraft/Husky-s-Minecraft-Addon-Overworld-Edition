@@ -58,7 +58,7 @@ public class WorldGenCattail implements IWorldGenerator
 								{
 									((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
 									
-									for(BlockPos position : BlockPos.getAllInBoxMutable(pos.add(-5, yPos, -5), (pos.add(5, yPos, 5))))
+									for(BlockPos position : BlockPos.getAllInBoxMutable(pos.addWalls(-5, yPos, -5), (pos.addWalls(5, yPos, 5))))
 									{
 										if(world.getBlockState(position).getBlock() == Blocks.GRASS)
 										{

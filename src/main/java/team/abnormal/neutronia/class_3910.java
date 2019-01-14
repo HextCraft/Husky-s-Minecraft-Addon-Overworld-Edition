@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -221,3 +222,4 @@ public class class_3910 extends Container {
         });
     }
 }
+*/

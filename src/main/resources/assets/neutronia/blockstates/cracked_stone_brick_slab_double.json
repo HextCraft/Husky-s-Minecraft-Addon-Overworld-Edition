@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "end": "blocks/stonebrick_cracked",
+            "side": "blocks/stonebrick_cracked"
+        }
+    },
+    "variants": {
+        "variant=default": { "model": "cube_column" }
+    }
+}

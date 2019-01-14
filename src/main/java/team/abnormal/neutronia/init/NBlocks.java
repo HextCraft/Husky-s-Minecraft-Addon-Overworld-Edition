@@ -1,9 +1,6 @@
 package team.abnormal.neutronia.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -15,6 +12,7 @@ import team.abnormal.abnormalib.recipe.RecipeHandler;
 import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.base.blocks.*;
+import team.abnormal.neutronia.base.utils.BlockRegisteringUtils;
 import team.abnormal.neutronia.blocks.*;
 import team.abnormal.neutronia.properties.*;
 
@@ -32,6 +30,8 @@ public class NBlocks {
             GLAZED_TERRACOTTA_PILLAR = new Block[13], SOUL_STONE = new Block[4];
     public static BlockCustomChest CUSTOM_CHEST;
     public static BlockCustomChest CUSTOM_TRAPPED_CHEST;
+    public static Block carvedMelon, melOLantern;
+    public static Block phantomLantern, litPhantomLantern, phantomItemFrame;
     public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
     public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
     public static BlockChiseled CHISELED_PRISMARINE, CHISELED_NETHER_BRICK, CHISELED_PURPUR, CHISELED_BRICKS, CHISELED_END_BRICK, CHISELED_RED_NETHER_BRICK;
@@ -54,8 +54,7 @@ public class NBlocks {
     public static Block ANDESITE_BRICKS, GRANITE_BRICKS, DIORITE_BRICKS;
     public static Block MUD, MUD_BRICKS, DRIED_MUD, DRIED_MUD_BRICKS;
     public static Block PACKED_ICE_BRICKS, PACKED_ICE_PILLAR, SMALL_SNOW_BRICKS, SNOW_BRICKS, ICE_TILES, ICE_ROD;
-    public static Block FROSTED_GLASS;
-    public static Block FROSTED_GLASS_PANE;
+    public static Block FROSTED_GLASS, FROSTED_GLASS_PANE;
     public static Block LANTERN, IRON_LANTERN, ICE_LANTERN, GOLDEN_LANTERN, PRISMARINE_LANTERN, WROUGHT_IRON_LANTERN;
     public static Block CHAIN, IRON_CHAIN, ICE_CHAIN, GOLD_CHAIN, PRISMARINE_CHAIN, WROUGHT_IRON_CHAIN;
     public static BlockLanternRedstone REDSTONE_LANTERN, REDSTONE_LANTERN_OFF, IRON_REDSTONE_LANTERN, IRON_REDSTONE_LANTERN_OFF, GOLDEN_REDSTONE_LANTERN, GOLDEN_REDSTONE_LANTERN_OFF, WROUGHT_IRON_REDSTONE_LANTERN, WROUGHT_IRON_REDSTONE_LANTERN_OFF;
@@ -83,6 +82,8 @@ public class NBlocks {
 
     public static Block BLACK_SAND;
     public static Block WHITE_SAND;
+
+    public static Block SMOOTH_SANDSTONE, SMOOTH_RED_SANDSTONE;
 
     public static Block ANDESITE_FURNACE, LIT_ANDESITE_FURNACE;
     public static Block GRANITE_FURNACE, LIT_GRANITE_FURNACE;
@@ -120,6 +121,12 @@ public class NBlocks {
 
         CUSTOM_CHEST = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
         CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
+
+        carvedMelon = new BlockNeutroniaBase("carved_melon", Material.WOOD);
+        melOLantern = new BlockMelOLantern();
+
+        phantomLantern = new BlockPhantomLantern(false);
+        litPhantomLantern = new BlockPhantomLantern(true);
 
         SANDSTONE_DOOR = new BlockNeutroniaDoor("sandstone_door");
         SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("sandstone_trapdoor");
@@ -252,7 +259,7 @@ public class NBlocks {
 
         PACKED_ICE_BRICKS = new BlockNeutroniaBase(Material.PACKED_ICE, "packed_ice_bricks");
         PACKED_ICE_PILLAR = new BlockNeutroniaPillar(Material.PACKED_ICE, "packed_ice_pillar");
-        SMALL_SNOW_BRICKS = new BlockNeutroniaBase(Material.SNOW, "small_snow_bricks");
+        SMALL_SNOW_BRICKS = new BlockNeutroniaBase(Material.PACKED_ICE, "small_snow_bricks");
         SNOW_BRICKS = new BlockNeutroniaBase(Material.PACKED_ICE, "snow_bricks");
         ICE_TILES = new BlockNeutroniaBase(Material.PACKED_ICE, "ice_tiles");
         ICE_ROD = new BlockRodBase("ice_rod", true);
@@ -361,7 +368,77 @@ public class NBlocks {
         BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand");
         WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand");
 
+        SMOOTH_SANDSTONE = new BlockNeutroniaBase("smooth_sandstone", Material.ROCK);
+        SMOOTH_RED_SANDSTONE = new BlockNeutroniaBase("smooth_red_sandstone", Material.ROCK);
 
+        BlockRegisteringUtils.addWalls("stone", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addWalls("granite", Blocks.STONE, 1, true);
+        BlockRegisteringUtils.addWalls("smooth_granite", Blocks.STONE, 2, true);
+        BlockRegisteringUtils.addWalls("diorite", Blocks.STONE, 3, true);
+        BlockRegisteringUtils.addWalls("smooth_diorite", Blocks.STONE, 4, true);
+        BlockRegisteringUtils.addWalls("andesite", Blocks.STONE, 5, true);
+        BlockRegisteringUtils.addWalls("smooth_andesite", Blocks.STONE, 6, true);
+        BlockRegisteringUtils.addWalls("dark_andesite", DARK_ANDESITE, 0, true);
+        BlockRegisteringUtils.addWalls("polished_dark_andesite", POLISHED_DARK_ANDESITE, 0, true);
+
+        BlockRegisteringUtils.addWalls("brick", Blocks.BRICK_BLOCK, 0, true);
+        BlockRegisteringUtils.addWalls("nether_brick", Blocks.NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addWalls("mossy_stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addWalls("cracked_stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addWalls("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("end_brick", Blocks.END_BRICKS, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_sandstone", SMOOTH_SANDSTONE, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_red_sandstone", SMOOTH_RED_SANDSTONE, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_quartz", Blocks.QUARTZ_BLOCK, 0, true);
+        BlockRegisteringUtils.addWalls("sandstone", Blocks.SANDSTONE, 0, true);
+        BlockRegisteringUtils.addWalls("red_sandstone", Blocks.RED_SANDSTONE, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_end_brick", SMOOTH_END_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_prismarine_bricks", SMOOTH_PRISMARINE_BRICKS, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_prismarine", SMOOTH_PRISMARINE, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_brick", SMOOTH_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_purpur", SMOOTH_PURPUR_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_nether_brick", SMOOTH_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_red_nether_brick", SMOOTH_RED_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_stone", SMOOTH_STONE, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_stone_brick", SMOOTH_STONE_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("dirty_brick", DIRTY_BRICKS, 0, true);
+        BlockRegisteringUtils.addWalls("sandy_brick", SANDY_BRICKS, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_dirty_brick", SMOOTH_DIRTY_BRICK, 0, true);
+        BlockRegisteringUtils.addWalls("smooth_sandy_brick", SMOOTH_SANDY_BRICK, 0, true);
+
+        BlockRegisteringUtils.addSlabAndStair("stone", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("granite", Blocks.STONE, 1, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_granite", Blocks.STONE, 2, true);
+        BlockRegisteringUtils.addSlabAndStair("diorite", Blocks.STONE, 3, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_diorite", Blocks.STONE, 4, true);
+        BlockRegisteringUtils.addSlabAndStair("andesite", Blocks.STONE, 5, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_andesite", Blocks.STONE, 6, true);
+        BlockRegisteringUtils.addSlabAndStair("dark_andesite", DARK_ANDESITE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("polished_dark_andesite", POLISHED_DARK_ANDESITE, 0, true);
+
+        BlockRegisteringUtils.addSlabAndStair("mossy_stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("cracked_stone_brick", Blocks.STONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("end_stone_brick", Blocks.END_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_sandstone", SMOOTH_SANDSTONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_red_sandstone", SMOOTH_RED_SANDSTONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_quartz", Blocks.QUARTZ_BLOCK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("mossy_cobblestone", Blocks.RED_NETHER_BRICK, 0, true);
+
+        BlockRegisteringUtils.addSlabAndStair("smooth_end_stone_brick", SMOOTH_END_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_prismarine_bricks", SMOOTH_PRISMARINE_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_prismarine", SMOOTH_PRISMARINE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_brick", SMOOTH_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_purpur", SMOOTH_PURPUR_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_nether_brick", SMOOTH_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_red_nether_brick", SMOOTH_RED_NETHER_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_stone", SMOOTH_STONE, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_stone_brick", SMOOTH_STONE_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("dirty_brick", DIRTY_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("sandy_brick", SANDY_BRICKS, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_dirty_brick", SMOOTH_DIRTY_BRICK, 0, true);
+        BlockRegisteringUtils.addSlabAndStair("smooth_sandy_brick", SMOOTH_SANDY_BRICK, 0, true);
 
 //        ANDESITE_FURNACE = new BlockNeutroniaFurnace("andesite", false);
 //        LIT_ANDESITE_FURNACE = new BlockNeutroniaFurnace("andesite", true);
