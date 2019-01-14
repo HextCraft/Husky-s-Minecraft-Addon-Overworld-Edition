@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import net.minecraft.block.Block.Settings;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LecternBlockEntity;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.VerticalEntityPosition;
@@ -125,23 +126,23 @@ public class LecternBlock extends BlockWithEntity {
         method_17474(world_1, blockPos_1, blockState_1);
     }
 
-    public static void method_17471(World world_1, BlockPos blockPos_1, BlockState blockState_1) {
+    public static void method_17471(World world_1, BlockPos blockPos_1, IBlockState blockState_1) {
         method_17476(world_1, blockPos_1, blockState_1, true);
-        world_1.getBlockTickScheduler().schedule(blockPos_1, blockState_1.getBlock(), 2);
+        world_1.scheduleUpdate(blockPos_1, blockState_1.getBlock(), 2);
         world_1.fireWorldEvent(1043, blockPos_1, 0);
     }
 
-    private static void method_17476(World world_1, BlockPos blockPos_1, BlockState blockState_1, boolean boolean_1) {
-        world_1.setBlockState(blockPos_1, (BlockState)blockState_1.with(field_17365, boolean_1), 3);
+    private static void method_17476(World world_1, BlockPos blockPos_1, IBlockState blockState_1, boolean boolean_1) {
+        world_1.setBlockState(blockPos_1, (IBlockState)blockState_1.withProperty(field_17365, boolean_1), 3);
         method_17474(world_1, blockPos_1, blockState_1);
     }
 
-    private static void method_17474(World world_1, BlockPos blockPos_1, BlockState blockState_1) {
-        world_1.updateNeighborsAlways(blockPos_1.down(), blockState_1.getBlock());
+    private static void method_17474(World world_1, BlockPos blockPos_1, IBlockState blockState_1) {
+        world_1.updateObservingBlocksAt(blockPos_1.down(), blockState_1.getBlock());
     }
 
-    public void scheduledTick(BlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
-        if (!world_1.isClient) {
+    public void scheduleUpdate(IBlockState blockState_1, World world_1, BlockPos blockPos_1, Random random_1) {
+        if (!world_1.isRemote) {
             method_17476(world_1, blockPos_1, blockState_1, false);
         }
     }

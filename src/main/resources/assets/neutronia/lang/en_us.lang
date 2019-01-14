@@ -236,3 +236,4 @@ command.neutronia.found_biome=Found a biome called '%s' at %d  (y?) %d
 command.neutronia.not_found_biome=Could not find a biome called '%s'
 command.neutronia.locate_biome.failure=Unable to locate any biomes called '%s'
 commands.neutronia.dimension_not_found=Dimension with the id %d is not found
+container.lectern=Lectern
