@@ -8,35 +8,36 @@ package team.abnormal.neutronia.tileentities;
 
 import com.sun.istack.internal.Nullable;
 import net.minecraft.class_3829;
-import net.minecraft.class_3913;
-import net.minecraft.class_3916;
-import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemWrittenBook;
 import net.minecraft.item.WrittenBookItem;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.command.CommandOutput;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.StringTextComponent;
 import net.minecraft.text.TextComponent;
-import net.minecraft.text.TranslatableTextComponent;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.WorldServer;
 import team.abnormal.neutronia.blocks.LecternBlock;
+import team.abnormal.neutronia.inventory.class_3913;
+import team.abnormal.neutronia.inventory.class_3916;
 
-public class LecternBlockEntity extends TileEntity implements class_3829, NameableContainerProvider {
-    private final InventoryBasic field_17386 = new InventoryBasic() {
+public class LecternBlockEntity extends TileEntityLockable implements class_3829, ISidedInventory {
+
+    private final InventoryBasic field_17386 = new InventoryBasic("Lectern", false, 1) {
         public int getSizeInventory() {
             return 1;
         }
@@ -154,7 +155,7 @@ public class LecternBlockEntity extends TileEntity implements class_3829, Nameab
         if (int_2 != this.field_17389) {
             this.field_17389 = int_2;
             this.markDirty();
-            LecternBlock.method_17471(this.getWorld(), this.getPos(), this.getCachedState());
+            LecternBlock.method_17471(this.getWorld(), this.getPos(), this.getUpdatePacket());
         }
 
     }
@@ -170,13 +171,13 @@ public class LecternBlockEntity extends TileEntity implements class_3829, Nameab
 
     private ItemStack method_17518(ItemStack itemStack_1, @Nullable EntityPlayer playerEntity_1) {
         if (this.world instanceof WorldServer && itemStack_1.getItem() == Items.WRITTEN_BOOK) {
-            WrittenBookItem.method_8054(itemStack_1, this.method_17512(playerEntity_1), playerEntity_1);
+            ItemWrittenBook.getGeneration(itemStack_1);
         }
 
         return itemStack_1;
     }
 
-    private ServerCommandSource method_17512(@Nullable PlayerEntity playerEntity_1) {
+    /*private ServerCommandSource method_17512(@Nullable PlayerEntity playerEntity_1) {
         String string_2;
         Object textComponent_2;
         if (playerEntity_1 == null) {
@@ -188,41 +189,46 @@ public class LecternBlockEntity extends TileEntity implements class_3829, Nameab
         }
 
         Vec3d vec3d_1 = new Vec3d((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D);
-        return new ServerCommandSource(CommandOutput.field_17395, vec3d_1, Vec2f.ZERO, (ServerWorld)this.world, 2, string_2, (TextComponent)textComponent_2, this.world.getServer(), playerEntity_1);
-    }
+        return new ServerCommandSource(CommandOutput.field_17395, vec3d_1, Vec2f.ZERO, this.world, 2, string_2, (TextComponent)textComponent_2, this.world.getServer(), playerEntity_1);
+    }*/
 
-    public void fromTag(CompoundTag compoundTag_1) {
-        super.fromTag(compoundTag_1);
-        if (compoundTag_1.containsKey("Book", 10)) {
-            this.field_17388 = this.method_17518(ItemStack.fromTag(compoundTag_1.getCompound("Book")), (PlayerEntity)null);
+    @Override
+    public void readFromNBT(NBTTagCompound compoundTag_1) {
+        super.readFromNBT(compoundTag_1);
+        if (compoundTag_1.hasKey("Book", 10)) {
+            this.field_17388 = this.method_17518(new ItemStack(compoundTag_1.getCompoundTag("Book")),  null);
         } else {
             this.field_17388 = ItemStack.EMPTY;
         }
 
-        this.field_17390 = WrittenBookItem.method_17443(this.field_17388);
-        this.field_17389 = MathHelper.clamp(compoundTag_1.getInt("Page"), 0, this.field_17390 - 1);
+        this.field_17390 = ItemWrittenBook.getGeneration(this.field_17388);
+        this.field_17389 = MathHelper.clamp(compoundTag_1.getInteger("Page"), 0, this.field_17390 - 1);
     }
 
-    public CompoundTag toTag(CompoundTag compoundTag_1) {
-        super.toTag(compoundTag_1);
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compoundTag_1) {
+        super.writeToNBT(compoundTag_1);
         if (!this.method_17520().isEmpty()) {
-            compoundTag_1.put("Book", this.method_17520().toTag(new CompoundTag()));
-            compoundTag_1.putInt("Page", this.field_17389);
+            compoundTag_1.setTag("Book", this.method_17520().writeToNBT(new NBTTagCompound()));
+            compoundTag_1.setInteger("Page", this.field_17389);
         }
 
         return compoundTag_1;
     }
 
-    public void clearInv() {
+    @Override
+    public void clear() {
         this.method_17513(ItemStack.EMPTY);
     }
 
-    public Container createMenu(int int_1, PlayerInventory playerInventory_1, PlayerEntity playerEntity_1) {
-        return new class_3916(int_1, this.field_17386, this.field_17387);
+    @Override
+    public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
+        return new class_3916(this.field_17386, this.field_17387);
     }
 
-    public TextComponent getDisplayName() {
-        return new TranslatableTextComponent("container.lectern", new Object[0]);
+    @Override
+    public ITextComponent getDisplayName() {
+        return new TextComponentTranslation("container.lectern");
     }
 }
 */
