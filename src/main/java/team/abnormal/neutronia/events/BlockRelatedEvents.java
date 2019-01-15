@@ -5,7 +5,9 @@ import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemShears;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -52,6 +54,26 @@ public class BlockRelatedEvents {
             if(iblockstate.getBlock() instanceof BlockWood) {
                 EntityPlayer player = event.getEntityPlayer();
                 world.playSound(player, blockpos, NSoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                if (!world.isRemote) {
+                    world.setBlockState(blockpos, block.getDefaultState(), 11);
+                    if (player != null) {
+                        event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onMelonCarved(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        BlockPos blockpos = event.getPos();
+        IBlockState iblockstate = world.getBlockState(blockpos);
+
+        if(event.getEntityPlayer().getActiveItemStack().getItem() instanceof ItemShears) {
+            if(iblockstate.getBlock() instanceof BlockMelon) {
+                EntityPlayer player = event.getEntityPlayer();
+                world.playSound(player, blockpos, SoundEvents.CAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
                     world.setBlockState(blockpos, block.getDefaultState(), 11);
                     if (player != null) {
