@@ -3,10 +3,17 @@ package team.abnormal.neutronia.init;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Bootstrap;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import team.abnormal.abnormalib.recipe.RecipeHandler;
 import team.abnormal.abnormalib.util.ProxyRegistry;
@@ -30,7 +37,8 @@ public class NBlocks {
             GLAZED_TERRACOTTA_PILLAR = new Block[13], SOUL_STONE = new Block[4];
     public static BlockCustomChest CUSTOM_CHEST;
     public static BlockCustomChest CUSTOM_TRAPPED_CHEST;
-    public static Block carvedMelon, melOLantern;
+    public static Block CARVED_MELON, melOLantern;
+    public static Block CARVED_PUMPKIN, JACK_O_LANTERN;
     public static Block phantomLantern, litPhantomLantern, phantomItemFrame;
     public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
     public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
@@ -121,8 +129,11 @@ public class NBlocks {
         CUSTOM_CHEST = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
         CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
 
-        carvedMelon = new BlockNeutroniaBase("carved_melon", Material.WOOD);
+        CARVED_MELON = new BlockNeutroniaBase("carved_melon", Material.WOOD);
         melOLantern = new BlockMelOLantern();
+
+        CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin").setHardness(1.0F).setResistance(1.0F);
+        JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern").setLightLevel(15).setHardness(1.0F).setResistance(1.0F);
 
         phantomLantern = new BlockPhantomLantern(false);
         litPhantomLantern = new BlockPhantomLantern(true);
@@ -425,7 +436,6 @@ public class NBlocks {
         BlockRegisteringUtils.addSlabAndStair("cracked_stone_brick", Blocks.STONE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("red_nether_brick", Blocks.RED_NETHER_BRICK, 0, true);
         BlockRegisteringUtils.addSlabAndStair("end_stone_brick", Blocks.END_BRICKS, 0, true);
-        BlockRegisteringUtils.addSlabAndStair("end_stone_brick", Blocks.END_BRICKS, 0, true);
         BlockRegisteringUtils.addSlabAndStair("prismarine", Blocks.PRISMARINE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("smooth_sandstone", SMOOTH_SANDSTONE, 0, true);
         BlockRegisteringUtils.addSlabAndStair("smooth_red_sandstone", SMOOTH_RED_SANDSTONE, 0, true);
@@ -488,6 +498,31 @@ public class NBlocks {
 //        polished_andesite_button = new BlockCustomButton("polished_andesite", false);
 //        polished_granite_button = new BlockCustomButton("polished_granite", false);
 //        polished_diorite_button = new BlockCustomButton("polished_diorite", false);
+    }
+
+    public void misc() {
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(CARVED_PUMPKIN), new Bootstrap.BehaviorDispenseOptional() {
+            protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+                World world = source.getWorld();
+                BlockPos blockpos = source.getBlockPos().offset((EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING));
+                BlockCarvedPumpkin blockpumpkin = (BlockCarvedPumpkin)CARVED_PUMPKIN;
+                this.successful = true;
+
+                if (world.isAirBlock(blockpos) && blockpumpkin.canDispenserPlace(world, blockpos)) {
+                    if (!world.isRemote) {
+                        world.setBlockState(blockpos, blockpumpkin.getDefaultState(), 3);
+                    }
+                    stack.shrink(1);
+                }
+                else {
+                    ItemStack itemstack = ItemArmor.dispenseArmor(source, stack);
+                    if (itemstack.isEmpty()) {
+                        this.successful = false;
+                    }
+                }
+                return stack;
+            }
+        });
     }
 
 }

@@ -9,7 +9,7 @@ public class BlockMelOLantern extends BlockNeutroniaBase {
     public BlockMelOLantern() {
         super("mel_o_lantern", Material.GOURD);
         setSoundType(SoundType.WOOD);
-        setHardness(1.0F);
+        setLightLevel(15);
     }
 
 }

@@ -5,7 +5,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemShears;
 import net.minecraft.util.SoundCategory;
@@ -70,12 +69,32 @@ public class BlockRelatedEvents {
         BlockPos blockpos = event.getPos();
         IBlockState iblockstate = world.getBlockState(blockpos);
 
-        if(event.getEntityPlayer().getActiveItemStack().getItem() instanceof ItemShears) {
+        if(event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
             if(iblockstate.getBlock() instanceof BlockMelon) {
                 EntityPlayer player = event.getEntityPlayer();
-                world.playSound(player, blockpos, SoundEvents.CAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
-                    world.setBlockState(blockpos, block.getDefaultState(), 11);
+                    world.setBlockState(blockpos, NBlocks.CARVED_MELON.getDefaultState(), 11);
+                    if (player != null) {
+                        event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPumpkinCarved(PlayerInteractEvent.RightClickBlock event) {
+        World world = event.getWorld();
+        BlockPos blockpos = event.getPos();
+        IBlockState iblockstate = world.getBlockState(blockpos);
+
+        if(event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
+            if(iblockstate.getBlock() instanceof BlockPumpkin) {
+                EntityPlayer player = event.getEntityPlayer();
+                world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                if (!world.isRemote) {
+                    world.setBlockState(blockpos, NBlocks.CARVED_PUMPKIN.getDefaultState(), 11);
                     if (player != null) {
                         event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
                     }

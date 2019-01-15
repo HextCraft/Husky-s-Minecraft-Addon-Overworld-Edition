@@ -1,3 +1,4 @@
+/*
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
@@ -85,3 +86,4 @@ public class class_3916 extends Container {
         return this.field_17314.method_17390(0);
     }
 }
+*/
