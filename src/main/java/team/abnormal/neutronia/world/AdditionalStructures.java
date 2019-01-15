@@ -1,46 +1,11 @@
-/*
- * Decompiled with CFR 0.137.
- * 
- * Could not load the following classes:
- *  net.minecraftforge.common.MinecraftForge
- *  net.minecraftforge.common.config.Configuration
- *  net.minecraftforge.common.config.Property
- *  net.minecraftforge.fml.common.IWorldGenerator
- *  net.minecraftforge.fml.common.Mod
- *  net.minecraftforge.fml.common.Mod$EventHandler
- *  net.minecraftforge.fml.common.Mod$Instance
- *  net.minecraftforge.fml.common.SidedProxy
- *  net.minecraftforge.fml.common.event.FMLInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPostInitializationEvent
- *  net.minecraftforge.fml.common.event.FMLPreInitializationEvent
- *  net.minecraftforge.fml.common.eventhandler.EventBus
- *  net.minecraftforge.fml.common.registry.GameRegistry
- */
 package team.abnormal.neutronia.world;
 
-import java.io.File;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.EventBus;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import xxrexraptorxx.additionalstructures.proxy.ServerProxy;
-import xxrexraptorxx.additionalstructures.util.Events;
-import xxrexraptorxx.additionalstructures.util.UpdateChecker;
-import xxrexraptorxx.additionalstructures.world.WorldGenCustomStructures;
 
-@Mod(modid="additionalstructures", version="1.8.0", acceptedMinecraftVersions="[1.12.2]")
 public class AdditionalStructures {
-    @Mod.Instance(value="additionalstructures")
-    public static AdditionalStructures instance;
-    @SidedProxy(clientSide="xxrexraptorxx.additionalstructures.proxy.ClientProxy", serverSide="xxrexraptorxx.additionalstructures.proxy.ServerProxy")
-    public static ServerProxy proxy;
     public static boolean activateUpdateChecker;
     public static boolean activateDebugMode;
     public static boolean activateOverworldGeneration;
@@ -149,18 +114,8 @@ public class AdditionalStructures {
         spawnchanceSpiderNests = config.getInt("Spawnchance of the Underground Spider Nests", "GENERATION", 5000, 100, 50000, "higher value = rarer");
         spawnchancePyramides = config.getInt("Spawnchance of the Pyramides", "GENERATION", 4000, 100, 50000, "higher value = rarer");
         config.save();
-        UpdateChecker.checkForUpdates();
-        MinecraftForge.EVENT_BUS.register((Object)new Events());
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
     }
 
-    @Mod.EventHandler
-    public void Init(FMLInitializationEvent event) {
-        proxy.registerClientStuff();
-    }
-
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-    }
 }
 
