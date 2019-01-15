@@ -38,22 +38,8 @@
  */
 package team.abnormal.neutronia.world;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.UnmodifiableIterator;
-import java.io.PrintStream;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCactus;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.BlockStaticLiquid;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -65,16 +51,17 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
 import net.minecraft.world.WorldServer;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.common.BiomeDictionary;
-import xxrexraptorxx.additionalstructures.main.AdditionalStructures;
+
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
 
 public class StructureGenerator
 extends WorldGenerator {
@@ -89,31 +76,31 @@ extends WorldGenerator {
         WorldServer worldServer = (WorldServer)world;
         MinecraftServer minecraftServer = world.getMinecraftServer();
         TemplateManager templateManager = worldServer.getStructureTemplateManager();
-        Template template = templateManager.get(minecraftServer, new ResourceLocation("additionalstructures", this.structureName));
+        Template template = templateManager.get(minecraftServer, new ResourceLocation("neutronia", this.structureName));
         if (template == null) {
             System.err.println("The structure template: " + this.structureName + " did not exist!");
             return false;
         }
         if (this.structureName.endsWith("_")) {
-            Rotation rotation = Rotation.values()[rand.nextInt(3)];
+            Rotation rotation = Rotation.values()[rand.nextInt(VARIATION)];
             PlacementSettings settings = new PlacementSettings().setMirror(Mirror.NONE).setRotation(rotation).setIgnoreStructureBlock(false);
             template.addBlocksToWorld(world, position, settings);
             Map dataBlocks = template.getDataBlocks(position, settings);
-            for (Map.Entry entry : dataBlocks.entrySet()) {
+            for (Object entry : dataBlocks.entrySet()) {
                 try {
-                    String[] data = ((String)entry.getValue()).split(" ");
+                    String[] data = ((String)entry).split(" ");
                     if (data.length < 2) continue;
-                    Block block = Block.getBlockFromName((String)data[0]);
-                    IBlockState state = null;
-                    state = data.length == 3 ? block.getStateFromMeta(Integer.parseInt(data[2])) : block.getDefaultState();
+                    Block block = Block.getBlockFromName(data[0]);
+                    IBlockState state;
+                    state = data.length == 3 ? block.getStateFromMeta(Integer.parseInt(data[2])) : Objects.requireNonNull(block).getDefaultState();
                     for (Map.Entry entry2 : block.getDefaultState().getProperties().entrySet()) {
                         if (!((IProperty)entry2.getKey()).getValueClass().equals(EnumFacing.class) || !((IProperty)entry2.getKey()).getName().equals("facing")) continue;
                         state = state.withRotation(rotation.add(Rotation.CLOCKWISE_180));
                         break;
                     }
-                    world.setBlockState((BlockPos)entry.getKey(), state, 3);
-                    TileEntity te = world.getTileEntity((BlockPos)entry.getKey());
-                    if (te == null || !(te instanceof TileEntityLockableLoot)) continue;
+                    world.setBlockState((BlockPos)entry, state, 3);
+                    TileEntity te = world.getTileEntity((BlockPos)entry);
+                    if (!(te instanceof TileEntityLockableLoot)) continue;
                     ((TileEntityLockableLoot)te).setLootTable(new ResourceLocation(data[1]), rand.nextLong());
                 }
                 catch (Exception e) {
@@ -125,26 +112,26 @@ extends WorldGenerator {
             }
             return true;
         }
-        if (StructureGenerator.canSpawnHere(template, (World)worldServer, position)) {
-            Rotation rotation = Rotation.values()[rand.nextInt(3)];
+        if (StructureGenerator.canSpawnHere(template, worldServer, position)) {
+            Rotation rotation = Rotation.values()[rand.nextInt(VARIATION)];
             PlacementSettings settings = new PlacementSettings().setMirror(Mirror.NONE).setRotation(rotation).setIgnoreStructureBlock(false);
             template.addBlocksToWorld(world, position, settings);
             Map dataBlocks = template.getDataBlocks(position, settings);
-            for (Map.Entry entry : dataBlocks.entrySet()) {
+            for (Object entry : dataBlocks.entrySet()) {
                 try {
-                    String[] data = ((String)entry.getValue()).split(" ");
+                    String[] data = ((String)entry).split(" ");
                     if (data.length < 2) continue;
-                    Block block = Block.getBlockFromName((String)data[0]);
-                    IBlockState state = null;
+                    Block block = Block.getBlockFromName(data[0]);
+                    IBlockState state;
                     state = data.length == 3 ? block.getStateFromMeta(Integer.parseInt(data[2])) : block.getDefaultState();
                     for (Map.Entry entry2 : block.getDefaultState().getProperties().entrySet()) {
                         if (!((IProperty)entry2.getKey()).getValueClass().equals(EnumFacing.class) || !((IProperty)entry2.getKey()).getName().equals("facing")) continue;
                         state = state.withRotation(rotation.add(Rotation.CLOCKWISE_180));
                         break;
                     }
-                    world.setBlockState((BlockPos)entry.getKey(), state, 3);
-                    UnmodifiableIterator te = world.getTileEntity((BlockPos)entry.getKey());
-                    if (te == null || !(te instanceof TileEntityLockableLoot)) continue;
+                    world.setBlockState((BlockPos)entry, state, 3);
+                    TileEntity te = world.getTileEntity((BlockPos)entry);
+                    if (!(te instanceof TileEntityLockableLoot)) continue;
                     ((TileEntityLockableLoot)te).setLootTable(new ResourceLocation(data[1]), rand.nextLong());
                 }
                 catch (Exception e) {
@@ -154,7 +141,6 @@ extends WorldGenerator {
             if (AdditionalStructures.activateDebugMode) {
                 System.out.println("Structure (" + this.structureName + ") generated at: x=" + position.getX() + ", y=" + position.getY() + ", z=" + position.getZ());
             }
-            int searchRange = 10;
             int posX = position.getX();
             int posY = position.getY() - 1;
             int posZ = position.getZ();
@@ -162,17 +148,17 @@ extends WorldGenerator {
                 for (int z = 0; z < template.getSize().getZ(); ++z) {
                     for (int y = 0; y < 10; ++y) {
                         if (world.getBlockState(new BlockPos(posX, posY, posZ)).getBlock() != Blocks.AIR) continue;
-                        if (BiomeDictionary.hasType((Biome)world.getBiome(position), (BiomeDictionary.Type)BiomeDictionary.Type.SANDY)) {
+                        if (BiomeDictionary.hasType(world.getBiome(position), BiomeDictionary.Type.SANDY)) {
                             world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.SAND.getDefaultState());
-                        } else if (BiomeDictionary.hasType((Biome)world.getBiome(position), (BiomeDictionary.Type)BiomeDictionary.Type.NETHER)) {
+                        } else if (BiomeDictionary.hasType(world.getBiome(position), BiomeDictionary.Type.NETHER)) {
                             world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.NETHERRACK.getDefaultState());
-                        } else if (BiomeDictionary.hasType((Biome)world.getBiome(position), (BiomeDictionary.Type)BiomeDictionary.Type.END)) {
+                        } else if (BiomeDictionary.hasType(world.getBiome(position), BiomeDictionary.Type.END)) {
                             world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.END_STONE.getDefaultState());
                         } else {
                             world.setBlockState(new BlockPos(posX, posY, posZ), Blocks.DIRT.getDefaultState());
                         }
                         if (AdditionalStructures.activateDebugMode && position.getY() > 0) {
-                            System.out.println("Foundation for " + this.structureName + " generated at: x=" + posX + ", y=" + posY + ", z=" + posZ + " with rotation: " + (Object)settings.getRotation());
+                            System.out.println("Foundation for " + this.structureName + " generated at: x=" + posX + ", y=" + posY + ", z=" + posZ + " with rotation: " + settings.getRotation());
                         }
                         --posY;
                     }
@@ -211,7 +197,7 @@ extends WorldGenerator {
             return true;
         }
         if (AdditionalStructures.activateDebugMode) {
-            System.err.println("ERROR! Not accepted position for (" + this.structureName + ") at " + (Object)position);
+            System.err.println("ERROR! Not accepted position for (" + this.structureName + ") at " + position);
         }
         return false;
     }
@@ -234,28 +220,16 @@ extends WorldGenerator {
         }
         BlockPos pos = new BlockPos(x, y - 1, z);
         if (world.provider.getDimension() == -1) {
-            int count1 = 0;
-            int count2 = 0;
             int minY = 100;
             Chunk chunk = world.getChunk(pos);
             IBlockState block1 = chunk.getBlockState(x & 15, y, z & 15);
             IBlockState block2 = chunk.getBlockState(x & 15, y - 1, z & 15);
-            while ((block1 != Blocks.AIR.getBlockState() || block2 != Blocks.NETHERRACK.getBlockState()) && --y >= minY) {
+            while ((!block1.equals(Blocks.AIR.getBlockState()) || !block2.equals(Blocks.NETHERRACK.getBlockState())) && --y >= minY) {
                 block1 = block2;
                 block2 = chunk.getBlockState(x & 15, y - 1, z & 15);
             }
-            if (y >= minY) {
-                if (y < 64) {
-                    ++count1;
-                } else {
-                    ++count2;
-                }
-                if (count1 >= 2 && count2 >= 2) {
-                    return y;
-                }
-            }
         }
-        if (world.getBlockState(pos).getBlock() == Blocks.WATER && !BiomeDictionary.hasType((Biome)world.getBiome(pos), (BiomeDictionary.Type)BiomeDictionary.Type.OCEAN)) {
+        if (world.getBlockState(pos).getBlock() == Blocks.WATER && !BiomeDictionary.hasType(world.getBiome(pos), BiomeDictionary.Type.OCEAN)) {
             y = -99;
         }
         if (world.getBlockState(pos).getBlock() == Blocks.LAVA || world.getBlockState(pos).getBlock() == Blocks.AIR || world.getBlockState(pos).getBlock() == Blocks.ICE || world.getBlockState(pos).getBlock() == Blocks.PACKED_ICE) {

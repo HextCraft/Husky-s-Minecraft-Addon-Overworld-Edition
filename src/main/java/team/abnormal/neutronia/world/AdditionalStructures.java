@@ -1,9 +1,10 @@
 package team.abnormal.neutronia.world;
 
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import team.abnormal.neutronia.base.Reference;
+
+import java.io.File;
 
 public class AdditionalStructures {
     public static boolean activateUpdateChecker;
@@ -58,9 +59,8 @@ public class AdditionalStructures {
     public static int spawnchanceSpiderNests;
     public static int spawnchancePyramides;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+    static {
+        Configuration config = new Configuration(new File("run/config/" + Reference.MOD_ID + "/test.cfg"));
         config.load();
         activateUpdateChecker = config.get("EVENTS", "Activate the Update-Checker", true, "[true/false]").getBoolean();
         activateDebugMode = config.get("EVENTS", "Activate the Debug Mode (shows all positions of generated structures in the console)", false, "[true/false]").getBoolean();

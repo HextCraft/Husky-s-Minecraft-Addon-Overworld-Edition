@@ -37,9 +37,9 @@ public class NBlocks {
             GLAZED_TERRACOTTA_PILLAR = new Block[13], SOUL_STONE = new Block[4];
     public static BlockCustomChest CUSTOM_CHEST;
     public static BlockCustomChest CUSTOM_TRAPPED_CHEST;
-    public static Block CARVED_MELON, melOLantern;
+    public static Block CARVED_MELON, MEL_O_LANTERN;
     public static Block CARVED_PUMPKIN, JACK_O_LANTERN;
-    public static Block phantomLantern, litPhantomLantern, phantomItemFrame;
+    public static Block PHANTOM_LANTERN, LIT_PHANTOM_LANTERN, phantomItemFrame;
     public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
     public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
     public static BlockChiseled CHISELED_NETHER_BRICK, CHISELED_PURPUR, CHISELED_BRICKS, CHISELED_END_BRICK, CHISELED_RED_NETHER_BRICK;
@@ -130,13 +130,13 @@ public class NBlocks {
         CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
 
         CARVED_MELON = new BlockNeutroniaBase("carved_melon", Material.WOOD);
-        melOLantern = new BlockMelOLantern();
+        MEL_O_LANTERN = new BlockMelOLantern();
 
         CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin").setHardness(1.0F).setResistance(1.0F);
         JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern").setLightLevel(15).setHardness(1.0F).setResistance(1.0F);
 
-        phantomLantern = new BlockPhantomLantern(false);
-        litPhantomLantern = new BlockPhantomLantern(true);
+        PHANTOM_LANTERN = new BlockPhantomLantern(false);
+        LIT_PHANTOM_LANTERN = new BlockPhantomLantern(true);
 
         SANDSTONE_DOOR = new BlockNeutroniaDoor("sandstone_door");
         SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("sandstone_trapdoor");

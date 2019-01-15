@@ -1,9 +1,4 @@
-/*
- * Decompiled with CFR 0.137.
- */
 package team.abnormal.neutronia.world;
-
-import xxrexraptorxx.additionalstructures.world.StructureGenerator;
 
 public class StructureList {
     public static final StructureGenerator ACACIA_LOG = new StructureGenerator("acacia_log");
@@ -132,5 +127,7 @@ public class StructureList {
     public static final StructureGenerator SPIDER_NEST_1 = new StructureGenerator("spider_nest1_");
     public static final StructureGenerator SPIDER_NEST_2 = new StructureGenerator("spider_nest2_");
     public static final StructureGenerator SPIDER_NEST_3 = new StructureGenerator("spider_nest3_");
+    public static final StructureGenerator TAVERN = new StructureGenerator("Tavern");
+    public static final StructureGenerator RANDOM_BUILDING = new StructureGenerator("random_building");
 }
 
