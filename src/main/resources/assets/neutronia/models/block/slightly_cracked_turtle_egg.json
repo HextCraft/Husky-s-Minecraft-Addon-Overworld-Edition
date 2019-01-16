@@ -1,0 +1,7 @@
+{
+    "parent": "neutronia:block/turtle_egg",
+    "textures": {
+        "particle": "neutronia:block/turtle_egg_slightly_cracked",
+        "all": "neutronia:block/turtle_egg_slightly_cracked"
+    }
+}
