@@ -114,6 +114,7 @@ public class AdditionalStructures {
         spawnchanceSpiderNests = config.getInt("Spawnchance of the Underground Spider Nests", "GENERATION", 5000, 100, 50000, "higher value = rarer");
         spawnchancePyramides = config.getInt("Spawnchance of the Pyramides", "GENERATION", 4000, 100, 50000, "higher value = rarer");
         config.save();
+        Reference.LOGGER.info(config.toString());
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 0);
     }
 

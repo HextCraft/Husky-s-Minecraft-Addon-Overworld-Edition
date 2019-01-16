@@ -63,8 +63,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
-public class StructureGenerator
-extends WorldGenerator {
+public class StructureGenerator extends WorldGenerator {
     private static final int VARIATION = 3;
     private String structureName;
 
