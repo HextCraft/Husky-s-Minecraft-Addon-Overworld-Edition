@@ -86,7 +86,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -124,7 +124,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
     }
 
@@ -165,7 +165,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
     }
 
@@ -238,9 +238,9 @@ public class JsonGenerator {
 
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
-            System.out.print(String.format("Created file with the name %s" + "\n", modIdAndName.getPath()));
+            System.out.printf("Created file with the name %s" + "\n", modIdAndName.getPath());
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
         genCoralFanModel(modIdAndName, textureName);
         genCoralFanItemModel(modIdAndName, textureName);
@@ -267,7 +267,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -293,7 +293,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -319,7 +319,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -370,9 +370,9 @@ public class JsonGenerator {
 
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
-            System.out.print(String.format("Created file with the name %s" + "\n", modIdAndName.getPath()));
+            System.out.printf("Created file with the name %s" + "\n", modIdAndName.getPath());
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
         genCoralPlantModel(modIdAndName, textureName);
         genCoralPlantItemModel(modIdAndName, textureName);
@@ -399,7 +399,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -425,7 +425,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
     }
@@ -462,7 +462,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
         genPlantBlockModel(modId, blockName, textureName);
@@ -490,7 +490,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -516,7 +516,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -577,7 +577,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
         genBlockOrientedItemModel(modIdAndName, topTextureName, frontTextureName, sidesTextureName);
@@ -601,7 +601,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
     }
 
@@ -658,7 +658,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
     }
 
@@ -947,7 +947,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(builder.toString()), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
     }
 
@@ -974,7 +974,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -1166,7 +1166,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve(modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve(modIDAndName.getPath() + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIDAndName.getPath());
         }
     }
 
@@ -1229,7 +1229,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve(modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve(modIDAndName.getPath() + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIDAndName.getPath());
         }
 
         genSlabColoredBlockModel(modIDAndName, topTextureLocation, sideTextureLocation, bottomTextureLocation);
@@ -1274,7 +1274,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve("half_" + modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve("upper_" + modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIDAndName.getPath());
         }
 
     }
@@ -1316,7 +1316,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve("half_" + modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve("upper_" + modIDAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIDAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIDAndName.getPath());
         }
 
     }
@@ -1339,7 +1339,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -1398,7 +1398,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve(blockName + "_double.json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
         genLayeredSlabModel(modId, blockName, mainTexture, overlayTexture);
@@ -1441,7 +1441,7 @@ public class JsonGenerator {
             FileUtils.writeStringToFile(base.resolve("half_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             FileUtils.writeStringToFile(base.resolve("upper_" + blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json2), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -1464,7 +1464,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(blockName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", blockName));
+            System.out.printf("Error creating file %s.json" + "\n", blockName);
         }
 
     }
@@ -1553,7 +1553,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath()));
+            System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath());
         }
 
         genBlockFenceModel(modIdAndName, textureName);
@@ -1584,7 +1584,7 @@ public class JsonGenerator {
             try {
                 FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + "_post.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             } catch (IOException e) {
-                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_post"));
+                System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_post");
             }
         }
         {
@@ -1601,7 +1601,7 @@ public class JsonGenerator {
             try {
                 FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + "_side.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             } catch (IOException e) {
-                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_side"));
+                System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_side");
             }
         }
         {
@@ -1618,7 +1618,7 @@ public class JsonGenerator {
             try {
                 FileUtils.writeStringToFile(base.resolve(modIdAndName.getPath() + "_inventory.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             } catch (IOException e) {
-                System.out.print(String.format("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_inventory"));
+                System.out.printf("Error creating file %s.json" + "\n", modIdAndName.getPath() + "_inventory");
             }
         }
 
@@ -1701,7 +1701,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve("moon.info").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print("Error creating file mcmod file" + "\n");
+            System.out.println("Error creating file mcmod file");
         }
     }
 
@@ -1740,7 +1740,7 @@ public class JsonGenerator {
             try {
                 FileUtils.writeStringToFile(base.resolve(name + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             } catch (IOException e) {
-                System.out.print(String.format("Error creating recipe file %s.json" + "\n", name));
+                System.out.printf("Error creating recipe file %s.json" + "\n", name);
             }
         } else {
             root.addProperty("type", "forge:ore_shapeless");
@@ -1763,7 +1763,7 @@ public class JsonGenerator {
             try {
                 FileUtils.writeStringToFile(base.resolve(name + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
             } catch (IOException e) {
-                System.out.print(String.format("Error creating recipe file %s.json" + "\n", name));
+                System.out.printf("Error creating recipe file %s.json" + "\n", name);
             }
         }
     }
@@ -1784,7 +1784,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(itemName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", itemName));
+            System.out.printf("Error creating file %s.json" + "\n", itemName);
         }
     }
 
@@ -1804,7 +1804,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve(itemName + ".json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", itemName));
+            System.out.printf("Error creating file %s.json" + "\n", itemName);
         }
     }
 
@@ -1818,7 +1818,7 @@ public class JsonGenerator {
             unlocalized_name = WordUtils.capitalizeFully(name);
             w.write("tile." + modid + ":" + block_name + ".name=" + unlocalized_name + "\n");
         } catch (IOException ignored) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", lang_file_name));
+            System.out.printf("Error creating file %s.json" + "\n", lang_file_name);
         }
     }
 
@@ -1863,7 +1863,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve("root.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", advancement_name));
+            System.out.printf("Error creating file %s.json" + "\n", advancement_name);
         }
 
     }
@@ -1910,7 +1910,7 @@ public class JsonGenerator {
         try {
             FileUtils.writeStringToFile(base.resolve("root.json").toFile(), StringEscapeUtils.unescapeJson(json), CharEncoding.UTF_8);
         } catch (IOException e) {
-            System.out.print(String.format("Error creating file %s.json" + "\n", advancement_name));
+            System.out.printf("Error creating file %s.json" + "\n", advancement_name);
         }
 
     }
