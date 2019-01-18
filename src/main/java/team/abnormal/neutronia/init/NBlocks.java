@@ -108,6 +108,9 @@ public class NBlocks {
     public static Block polished_granite_pressure_plate, polished_granite_button;
     public static Block polished_diorite_pressure_plate, polished_diorite_button;
 
+    public static Block pumpkin = new BlockPumpkin();
+
+
     public static void init() {
 
         for (VanillaWoodTypes woodType : VanillaWoodTypes.values()) {
