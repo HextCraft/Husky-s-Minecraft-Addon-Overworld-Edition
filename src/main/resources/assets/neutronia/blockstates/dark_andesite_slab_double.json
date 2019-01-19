@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "neutronia:block/dark_andesite",
+      "side": "neutronia:block/dark_andesite"
+    }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_column" }
+  }
+}

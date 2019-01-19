@@ -468,7 +468,7 @@ public class CraftingHelper {
                 throw new JsonSyntaxException("Key defines symbols that aren't used in pattern: " + keys);
 
             ItemStack result = CraftingHelper.getItemStack(JsonUtils.getJsonObject(json, "result"), context);
-            return new ShapedRecipes(group, pattern[0].length(), pattern.length, input, result);
+            return new SmokingRecipes(group, pattern[0].length(), pattern.length, input, result);
         });
         registerR("minecraft:crafting_shapeless", (context, json) -> {
             String group = JsonUtils.getString(json, "group", "");

@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "top": "blocks/melon_top",
+      "front": "neutronia:block/carved_melon",
+      "side": "blocks/melon_side"
+    },
+    "model": "orientable"
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}

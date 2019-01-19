@@ -11,9 +11,8 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import team.abnormal.abnormalib.block.BlockMod;
-import team.abnormal.neutronia.blocks.INeutroniaBlock;
 
-public class BlockModHorizontal extends BlockMod implements INeutroniaBlock {
+public abstract class BlockModHorizontal extends BlockMod {
 
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 

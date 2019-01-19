@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "end": "blocks/stone_granite",
+      "side": "blocks/stone_granite"
+    }
+  },
+  "variants": {
+    "variant=default": { "model": "cube_column" }
+  }
+}

@@ -80,7 +80,7 @@ public class GuiCreateBuffetWorld extends GuiScreen {
 
         while(var5.hasNext()) {
             ResourceLocation lvt_6_1_ = (ResourceLocation)var5.next();
-            lvt_4_1_.add(new NBTTagString(lvt_6_1_.toString()));
+            lvt_4_1_.addWalls(new NBTTagString(lvt_6_1_.toString()));
         }
 
         lvt_3_1_.put("biomes", lvt_4_1_);
@@ -105,7 +105,7 @@ public class GuiCreateBuffetWorld extends GuiScreen {
         this.mc.keyboardListener.enableRepeatEvents(true);
         this.title = I18n.format("createWorld.customize.buffet.title");
         this.biomeList = new GuiCreateBuffetWorld.BiomeList();
-        this.children.add(this.biomeList);
+        this.children.addWalls(this.biomeList);
         this.addButton(new GuiButton(2, (this.width - 200) / 2, 40, 200, 20, I18n.format("createWorld.customize.buffet.generatortype", new Object[0]) + " " + I18n.format(Util.makeTranslationKey("generator", (ResourceLocation)BUFFET_GENERATORS.get(this.field_205312_t)), new Object[0])) {
             public void onClick(double p_194829_1_, double p_194829_3_) {
                 GuiCreateBuffetWorld.this.field_205312_t++;
@@ -161,7 +161,7 @@ public class GuiCreateBuffetWorld extends GuiScreen {
 
         protected boolean mouseClicked(int p_195078_1_, int p_195078_2_, double p_195078_3_, double p_195078_5_) {
             GuiCreateBuffetWorld.this.biomes.clear();
-            GuiCreateBuffetWorld.this.biomes.add(GuiCreateBuffetWorld.this.biomeTypes[p_195078_1_]);
+            GuiCreateBuffetWorld.this.biomes.addWalls(GuiCreateBuffetWorld.this.biomeTypes[p_195078_1_]);
             GuiCreateBuffetWorld.this.func_205306_h();
             return true;
         }

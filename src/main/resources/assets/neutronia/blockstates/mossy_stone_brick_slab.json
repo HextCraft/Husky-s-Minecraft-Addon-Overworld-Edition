@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "bottom": "blocks/stonebrick_mossy",
+            "top": "blocks/stonebrick_mossy",
+            "side": "blocks/stonebrick_mossy"
+        }
+    },
+    "variants": {
+        "inventory": { "model": "minecraft:half_slab" },
+        "half=bottom,variant=default":  { "model": "minecraft:half_slab" },
+        "half=top,variant=default":  { "model": "minecraft:upper_slab" }
+    }
+}

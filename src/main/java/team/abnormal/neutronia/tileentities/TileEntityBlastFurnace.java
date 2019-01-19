@@ -1,5 +1,6 @@
 package team.abnormal.neutronia.tileentities;
 
+import com.sun.istack.internal.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -629,8 +630,8 @@ public class TileEntityBlastFurnace extends TileEntityLockable implements ITicka
 
     @SuppressWarnings("unchecked")
     @Override
-    @javax.annotation.Nullable
-    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @javax.annotation.Nullable net.minecraft.util.EnumFacing facing)
+    @Nullable
+    public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @Nullable net.minecraft.util.EnumFacing facing)
     {
         if (facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
             if (facing == EnumFacing.DOWN)

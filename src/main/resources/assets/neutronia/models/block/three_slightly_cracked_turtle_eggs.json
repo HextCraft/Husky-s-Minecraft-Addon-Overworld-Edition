@@ -1,0 +1,6 @@
+{
+    "parent": "neutronia:block/three_turtle_eggs",
+    "textures": {
+        "all": "neutronia:block/turtle_egg_slightly_cracked"
+    }
+}
