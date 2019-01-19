@@ -16,6 +16,7 @@ import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.base.blocks.*;
 import team.abnormal.neutronia.blocks.*;
+import team.abnormal.neutronia.blocks.pumpkin.BlockPumpkin;
 import team.abnormal.neutronia.properties.*;
 
 public class NBlocks {
