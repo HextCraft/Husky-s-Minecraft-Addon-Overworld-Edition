@@ -21,6 +21,7 @@ import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.base.blocks.*;
 import team.abnormal.neutronia.base.utils.BlockRegisteringUtils;
 import team.abnormal.neutronia.blocks.*;
+import team.abnormal.neutronia.blocks.pumpkin.BlockPumpkin;
 import team.abnormal.neutronia.properties.*;
 
 public class NBlocks {
@@ -115,6 +116,9 @@ public class NBlocks {
     public static Block polished_andesite_pressure_plate, polished_andesite_button;
     public static Block polished_granite_pressure_plate, polished_granite_button;
     public static Block polished_diorite_pressure_plate, polished_diorite_button;
+
+    public static Block pumpkin = new BlockPumpkin();
+
 
     public static void init() {
 

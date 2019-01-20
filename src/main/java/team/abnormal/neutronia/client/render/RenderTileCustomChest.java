@@ -22,8 +22,8 @@ public class RenderTileCustomChest extends TileEntitySpecialRenderer<TileCustomC
     private boolean xmas;
 
     public RenderTileCustomChest() {
-        Calendar calendar = Calendar.getInstance();
-        xmas = calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DAY_OF_MONTH) >= 14 && calendar.get(Calendar.DAY_OF_MONTH) <= 16;
+            Calendar calendar = Calendar.getInstance();
+            xmas = calendar.get(Calendar.MONTH) + 1 == 12 && calendar.get(Calendar.DAY_OF_MONTH) >= 14 && calendar.get(Calendar.DAY_OF_MONTH) <= 16;
     }
 
     @Override
