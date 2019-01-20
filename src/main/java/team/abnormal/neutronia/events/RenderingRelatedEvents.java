@@ -8,19 +8,17 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.init.NBlocks;
 import team.abnormal.neutronia.tileentities.TileCustomChest;
 
-@SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID, value = Side.CLIENT)
 public class RenderingRelatedEvents {
 
     @SubscribeEvent
     public static void onRegisterModel(ModelRegistryEvent event) {
-
         TileCustomChest customChest = new TileCustomChest();
+
         Item.getItemFromBlock(NBlocks.CUSTOM_CHEST).setTileEntityItemStackRenderer(new TileEntityItemStackRenderer() {
             @Override
             public void renderByItem(ItemStack itemStackIn) {

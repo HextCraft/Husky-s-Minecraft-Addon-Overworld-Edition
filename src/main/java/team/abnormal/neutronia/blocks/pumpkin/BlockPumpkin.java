@@ -52,8 +52,6 @@ public class BlockPumpkin extends BlockNeutroniaBase {
         return Integer.parseInt(builder.toString());
     }
 
-
-
     @Override
     public IBlockState getStateFromMeta(int meta) {
         String number = String.valueOf(meta);
@@ -71,6 +69,5 @@ public class BlockPumpkin extends BlockNeutroniaBase {
     public BlockStateContainer getBlockState() {
         return new BlockStateContainer(this, TYPE, FACING);
     }
-
 
 }

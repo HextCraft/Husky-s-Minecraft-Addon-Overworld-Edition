@@ -237,3 +237,7 @@ command.neutronia.not_found_biome=Could not find a biome called '%s'
 command.neutronia.locate_biome.failure=Unable to locate any biomes called '%s'
 commands.neutronia.dimension_not_found=Dimension with the id %d is not found
 container.lectern=Lectern
+inventory.composter="Composter
+Full Composter=inventory.full_composter
+inventory.full_composter=Full Composter
+inventory.idk=Idk
