@@ -123,6 +123,7 @@ public class NBlocks {
     public static Block CAMPFIRE = new BlockCampfire(false);
     public static Block LIT_CAMPFIRE = new BlockCampfire(true);
 
+    public static final Block PUMPKIN = new BlockPumpkin();
 
     public static void init() {
 
