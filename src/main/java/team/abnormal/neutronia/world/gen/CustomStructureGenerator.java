@@ -12,8 +12,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import team.abnormal.neutronia.world.AdditionalStructures;
-import team.abnormal.neutronia.world.StructureGenerator;
 import team.abnormal.neutronia.world.gen.features.StructureFeature;
 
 import java.util.*;
@@ -40,56 +38,6 @@ public class CustomStructureGenerator implements IWorldGenerator {
                 generateStructure(SPRUCE_BUILDS, world, random, chunkX, chunkZ, 20, Blocks.GRASS, Biomes.FOREST, Biomes.PLAINS, Biomes.TAIGA);
                 generateStructure(RANDOM, world, random, chunkX, chunkZ, 20, Blocks.GRASS, Biomes.FOREST, Biomes.PLAINS, Biomes.TAIGA);
                 break;
-        }
-    }
-
-    private void generateStructure(WorldGenerator generator, World world, Random random, int blockX, int blockZ, int chance, Set<Biome> set) {
-        float chanceModified = AdditionalStructures.generationModifier * (float)chance;
-        int blockY = StructureGenerator.getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, blockY + 1, blockZ);
-        Biome biome = world.getChunk(pos).getBiome(pos, world.getBiomeProvider());
-        if (set.contains(biome) && (int)(Math.random() * (double)chanceModified) == 0) {
-            generator.generate(world, random, pos);
-        }
-    }
-
-    private void generateDownsetStructure(WorldGenerator generator, World world, Random random, int blockX, int blockZ, int chance, Set<Biome> set) {
-        float chanceModified = AdditionalStructures.generationModifier * (float)chance;
-        int blockY = StructureGenerator.getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, blockY, blockZ);
-        Biome biome = world.getChunk(pos).getBiome(pos, world.getBiomeProvider());
-        if (set.contains(biome) && (int)(Math.random() * (double)chanceModified) == 0) {
-            generator.generate(world, random, pos);
-        }
-    }
-
-    private void generateBuryStructure(WorldGenerator generator, World world, Random random, int blockX, int blockZ, int chance, Set<Biome> set) {
-        float chanceModified = AdditionalStructures.generationModifier * (float)chance;
-        int blockY = StructureGenerator.getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, blockY - 3, blockZ);
-        Biome biome = world.getChunk(pos).getBiome(pos, world.getBiomeProvider());
-        if (set.contains(biome) && (int)(Math.random() * (double)chanceModified) == 0) {
-            generator.generate(world, random, pos);
-        }
-    }
-
-    private void generateUndergroundStructure(WorldGenerator generator, World world, Random random, int blockX, int blockZ, int chance, Set<Biome> set) {
-        float chanceModified = AdditionalStructures.generationModifier * (float)chance;
-        int blockY = StructureGenerator.getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, blockY - 35, blockZ);
-        Biome biome = world.getChunk(pos).getBiome(pos, world.getBiomeProvider());
-        if (set.contains(biome) && (int)(Math.random() * (double)chanceModified) == 0) {
-            generator.generate(world, random, pos);
-        }
-    }
-
-    private void generateFlyingStructure(WorldGenerator generator, World world, Random random, int blockX, int blockZ, int chance, Set<Biome> set) {
-        float chanceModified = AdditionalStructures.generationModifier * (float)chance;
-        int blockY = StructureGenerator.getGroundFromAbove(world, blockX, blockZ);
-        BlockPos pos = new BlockPos(blockX, blockY + 35, blockZ);
-        Biome biome = world.getChunk(pos).getBiome(pos, world.getBiomeProvider());
-        if (set.contains(biome) && (int)(Math.random() * (double)chanceModified) == 0) {
-            generator.generate(world, random, pos);
         }
     }
 

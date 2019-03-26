@@ -8,7 +8,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import team.abnormal.neutronia.tileentities.TileEntityNeutroniaFurnace;
 
 @SideOnly(Side.CLIENT)
 public class GuiFurnace extends GuiContainer
