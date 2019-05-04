@@ -22,6 +22,8 @@ import team.abnormal.neutronia.init.NSoundEvents;
 
 import java.util.Map;
 
+import static team.abnormal.neutronia.blocks.pumpkin.BlockPumpkin.FACING;
+
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class BlockRelatedEvents {
 
@@ -114,7 +116,7 @@ public class BlockRelatedEvents {
                 if (player.isSneaking()) {
                     world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     if (!world.isRemote) {
-                        world.setBlockState(blockpos, PumpkinHelper.getPumpkinReturn(iblockstate.getBlock().getRegistryName()), 11);
+                        world.setBlockState(blockpos, PumpkinHelper.getPumpkinReturn(iblockstate.getBlock().getRegistryName()).withProperty(FACING,iblockstate.getValue(FACING)), 11);
                         if (player != null) {
                             event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
                         }

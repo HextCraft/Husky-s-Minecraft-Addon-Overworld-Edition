@@ -66,7 +66,7 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
 
             if(!playerIn.isSneaking()) {
                 if(!worldIn.isRemote) {
-                    worldIn.setBlockState(pos, PumpkinHelper.getPumpkinNext(this.getRegistryName()), 11);
+                    worldIn.setBlockState(pos, PumpkinHelper.getPumpkinNext(this.getRegistryName()).withProperty(FACING,state.getValue(FACING)), 11);
 
                 }
                 used.damageItem(1, playerIn);

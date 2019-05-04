@@ -6,6 +6,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -26,6 +27,7 @@ public class BlockPumpkin extends BlockMinecraftBase {
     public BlockPumpkin(){
         super("pumpkin", Material.GOURD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
     @Override
@@ -35,8 +37,9 @@ public class BlockPumpkin extends BlockMinecraftBase {
 
             if(!playerIn.isSneaking()) {
                 if(!worldIn.isRemote) {
-                    worldIn.setBlockState(pos, NBlocks.CARVED_PUMPKIN.getDefaultState());
+                    worldIn.setBlockState(pos, NBlocks.CARVED_PUMPKIN.getDefaultState().withProperty(FACING,state.getValue(FACING)));
                     used.damageItem(1, playerIn);
+                    spawnAsEntity(worldIn,pos,new ItemStack(Items.PUMPKIN_SEEDS,4));
                 }
                 worldIn.playSound(playerIn, pos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return true;
