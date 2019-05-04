@@ -14,7 +14,9 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import team.abnormal.neutronia.base.Reference;
+import team.abnormal.neutronia.blocks.BlockCarvedPumpkin;
 import team.abnormal.neutronia.blocks.BlockWood;
+import team.abnormal.neutronia.blocks.pumpkin.PumpkinHelper;
 import team.abnormal.neutronia.init.NBlocks;
 import team.abnormal.neutronia.init.NSoundEvents;
 
@@ -38,8 +40,8 @@ public class BlockRelatedEvents {
         IBlockState iblockstate = world.getBlockState(blockpos);
         Block block = BLOCK_STRIPPING_MAP.get(iblockstate);
 
-        if(event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemAxe) {
-            if(iblockstate.getBlock() instanceof BlockLog) {
+        if (event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemAxe) {
+            if (iblockstate.getBlock() instanceof BlockLog) {
                 EntityPlayer entityplayer = event.getEntityPlayer();
                 world.playSound(entityplayer, blockpos, NSoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
@@ -50,7 +52,7 @@ public class BlockRelatedEvents {
                     }
                 }
             }
-            if(iblockstate.getBlock() instanceof BlockWood) {
+            if (iblockstate.getBlock() instanceof BlockWood) {
                 EntityPlayer player = event.getEntityPlayer();
                 world.playSound(player, blockpos, NSoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
@@ -69,8 +71,8 @@ public class BlockRelatedEvents {
         BlockPos blockpos = event.getPos();
         IBlockState iblockstate = world.getBlockState(blockpos);
 
-        if(event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
-            if(iblockstate.getBlock() instanceof BlockMelon) {
+        if (event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
+            if (iblockstate.getBlock() instanceof BlockMelon) {
                 EntityPlayer player = event.getEntityPlayer();
                 world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
@@ -89,9 +91,10 @@ public class BlockRelatedEvents {
         BlockPos blockpos = event.getPos();
         IBlockState iblockstate = world.getBlockState(blockpos);
 
-        if(event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
-            if(iblockstate.getBlock() instanceof BlockPumpkin) {
+        if (event.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemShears) {
+            if (iblockstate.getBlock() instanceof BlockPumpkin) {
                 EntityPlayer player = event.getEntityPlayer();
+
                 world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
                     world.setBlockState(blockpos, NBlocks.CARVED_PUMPKIN.getDefaultState(), 11);
@@ -99,7 +102,20 @@ public class BlockRelatedEvents {
                         event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
                     }
                 }
+                player.swingArm(event.getHand());
+
+            } else if (iblockstate.getBlock() instanceof BlockCarvedPumpkin) {
+                EntityPlayer player = event.getEntityPlayer();
+
+                if (player.isSneaking()) {
+                    world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    if (!world.isRemote) {
+                        world.setBlockState(blockpos, PumpkinHelper.getReturn(iblockstate.getBlock().getRegistryName()), 11);
+                    }
+                    player.swingArm(event.getHand());
+                }
             }
+
         }
     }
 

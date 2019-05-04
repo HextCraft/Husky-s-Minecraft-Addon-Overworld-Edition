@@ -11,26 +11,35 @@ public class PumpkinHelper {
     public static Block[] pumpkins = new Block[FaceTypes.values().length];
 
     public static IBlockState getNext(ResourceLocation registryName) {
-        String value = registryName.getPath().replace("pumpkin", "");
+        String value = registryName.getPath().replace("carved_pumpkin", "");
         if ("".equals(value)){
             return pumpkins[0].getDefaultState();
         } else {
             int ordinal = Integer.parseInt(value);
             ordinal++;
             if (ordinal == FaceTypes.values().length){
-                return NBlocks.PUMPKIN.getDefaultState();
+                return NBlocks.CARVED_PUMPKIN.getDefaultState();
             } else {
                 return pumpkins[ordinal].getDefaultState();
             }
         }
     }
 
-    public static void init(){
-        for(int i = 0; i < pumpkins.length; i++){
-            pumpkins[i] = new BlockPumpkin(FaceTypes.values()[i]);
+    public static IBlockState getReturn(ResourceLocation registryName) {
+        String value = registryName.getPath().replace("carved_pumpkin", "");
+
+        if ("".equals(value)){
+            return pumpkins[24].getDefaultState();
+        } else {
+            int ordinal = Integer.parseInt(value);
+            ordinal--;
+            if (ordinal == -1){
+                return NBlocks.CARVED_PUMPKIN.getDefaultState();
+            } else {
+                return pumpkins[ordinal].getDefaultState();
+            }
         }
     }
-
 
     public enum FaceTypes implements IStringSerializable {
         CREEPER, DERP, DINNER, DUMB, FURNACE, GHAST, GRUMP, GUARDIAN, LANTERN1, LANTERN2, LAUGH, LIVID, NOSE, OBSERVER,

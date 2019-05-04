@@ -22,6 +22,7 @@ import team.abnormal.neutronia.base.blocks.*;
 import team.abnormal.neutronia.base.utils.BlockRegisteringUtils;
 import team.abnormal.neutronia.blocks.*;
 import team.abnormal.neutronia.blocks.pumpkin.BlockPumpkin;
+import team.abnormal.neutronia.blocks.pumpkin.PumpkinHelper;
 import team.abnormal.neutronia.properties.*;
 
 public class NBlocks {
@@ -117,9 +118,8 @@ public class NBlocks {
     public static Block polished_granite_pressure_plate, polished_granite_button;
     public static Block polished_diorite_pressure_plate, polished_diorite_button;
 
-    public static Block pumpkin = new BlockPumpkin();
+    public static Block PUMPKIN;
 
-    public static final Block PUMPKIN = new BlockPumpkin();
 
     public static void init() {
 
@@ -127,17 +127,25 @@ public class NBlocks {
             BOOKSHELVES[woodType.getMetadata()] = new BlockNeutroniaBase(String.format("%s_bookshelf", woodType.getName()), Material.WOOD).setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         }
 
-        for(VanillaWoodTypes2 woodTypes2 : VanillaWoodTypes2.values()) {
+        for (VanillaWoodTypes2 woodTypes2 : VanillaWoodTypes2.values()) {
             LADDERS[woodTypes2.getMetadata()] = new BlockCustomLadder(woodTypes2.getName());
         }
 
         CUSTOM_CHEST = new BlockCustomChest("wooden_chest", CUSTOM_TYPE_NEUTRONIA);
         CUSTOM_TRAPPED_CHEST = new BlockCustomChest("trapped_wooden_chest", CUSTOM_TYPE_NEUTRONIA_TRAP);
 
+        PUMPKIN = new BlockPumpkin();
+
         CARVED_MELON = new BlockNeutroniaBase("carved_melon", Material.WOOD);
         MEL_O_LANTERN = new BlockMelOLantern();
 
+
         CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin").setHardness(1.0F).setResistance(1.0F);
+
+        for (int i = 0; i < PumpkinHelper.pumpkins.length; i++) {
+            PumpkinHelper.pumpkins[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i]).setHardness(1.0F).setResistance(1.0F);
+        }
+
         JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern").setLightLevel(15).setHardness(1.0F).setResistance(1.0F);
 
         PHANTOM_LANTERN = new BlockPhantomLantern(false);
@@ -152,7 +160,7 @@ public class NBlocks {
         BAMBOO_DOOR = new BlockNeutroniaDoor("bamboo_door");
         BAMBOO_TRAPDOOR = new BlockNeutroniaTrapdoor("bamboo_trapdoor");
 
-        for(WoodTypes woodTypes : WoodTypes.values()) {
+        for (WoodTypes woodTypes : WoodTypes.values()) {
 //            BARRELS[woodTypes.getMetadata()] = new BlockBarrel(woodTypes);
 //            FLUID_BARRELS[woodTypes.getMetadata()] = new BlockFluidBarrel(woodTypes);
         }
@@ -509,8 +517,8 @@ public class NBlocks {
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(CARVED_PUMPKIN), new Bootstrap.BehaviorDispenseOptional() {
             protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
                 World world = source.getWorld();
-                BlockPos blockpos = source.getBlockPos().offset((EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING));
-                BlockCarvedPumpkin blockpumpkin = (BlockCarvedPumpkin)CARVED_PUMPKIN;
+                BlockPos blockpos = source.getBlockPos().offset((EnumFacing) source.getBlockState().getValue(BlockDispenser.FACING));
+                BlockCarvedPumpkin blockpumpkin = (BlockCarvedPumpkin) CARVED_PUMPKIN;
                 this.successful = true;
 
                 if (world.isAirBlock(blockpos) && blockpumpkin.canDispenserPlace(world, blockpos)) {
@@ -518,8 +526,7 @@ public class NBlocks {
                         world.setBlockState(blockpos, blockpumpkin.getDefaultState(), 3);
                     }
                     stack.shrink(1);
-                }
-                else {
+                } else {
                     ItemStack itemstack = ItemArmor.dispenseArmor(source, stack);
                     if (itemstack.isEmpty()) {
                         this.successful = false;

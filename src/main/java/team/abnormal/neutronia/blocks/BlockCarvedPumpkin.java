@@ -15,17 +15,19 @@ import net.minecraft.block.state.pattern.FactoryBlockPattern;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntitySnowman;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import team.abnormal.neutronia.base.blocks.BlockModHorizontal;
 import team.abnormal.neutronia.base.blocks.IMinecraftBlock;
+import team.abnormal.neutronia.blocks.pumpkin.PumpkinHelper;
 import team.abnormal.neutronia.init.NBlocks;
+import team.abnormal.neutronia.init.NSoundEvents;
 
 import java.util.Iterator;
 
@@ -38,16 +40,38 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
     private static final Predicate<IBlockState> IS_PUMPKIN = p_apply_1_ ->
                     p_apply_1_ != null && (p_apply_1_.getBlock() == NBlocks.CARVED_PUMPKIN || p_apply_1_.getBlock() == NBlocks.JACK_O_LANTERN);
 
+    public BlockCarvedPumpkin(PumpkinHelper.FaceTypes type) {
+        super("carved_pumpkin" + type.ordinal(), Material.GOURD);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+    }
+
     public BlockCarvedPumpkin(String name) {
         super(name, Material.GOURD);
         this.setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.NORTH));
     }
 
     @Override
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        if(worldIn.getBlockState(pos).getBlock() != state.getBlock()) {
-            this.trySpawnGolem(worldIn, pos);
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        ItemStack used = playerIn.getHeldItem(hand);
+        if(used.getItem() == Items.SHEARS){
+
+            if(!playerIn.isSneaking()) {
+                if(!worldIn.isRemote) {
+                    worldIn.setBlockState(pos, PumpkinHelper.getNext(this.getRegistryName()), 11);
+                    used.damageItem(1, playerIn);
+                }
+                worldIn.playSound(playerIn, pos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                return true;
+            }
         }
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+    }
+
+    @Override
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+        super.onBlockAdded(worldIn, pos, state);
+
+        this.trySpawnGolem(worldIn, pos);
     }
 
     public boolean canDispenserPlace(World worldIn, BlockPos pos) {
