@@ -55,11 +55,11 @@ public class GuiFurnace extends GuiContainer
         int j = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
 
-        if (TileEntityNeutroniaFurnace.isBurning(this.tileFurnace))
+       /* if (TileEntityNeutroniaFurnace.isBurning(this.tileFurnace))
         {
             int k = this.getBurnLeftScaled(13);
             this.drawTexturedModalRect(i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
-        }
+        }*/
 
         int l = this.getCookProgressScaled(24);
         this.drawTexturedModalRect(i + 79, j + 34, 176, 14, l + 1, 16);

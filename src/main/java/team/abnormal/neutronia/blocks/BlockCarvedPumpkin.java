@@ -12,6 +12,7 @@ import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.block.state.pattern.BlockPattern.PatternHelper;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.block.state.pattern.FactoryBlockPattern;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntitySnowman;
@@ -40,14 +41,22 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
     private static final Predicate<IBlockState> IS_PUMPKIN = p_apply_1_ ->
                     p_apply_1_ != null && (p_apply_1_.getBlock() == NBlocks.CARVED_PUMPKIN || p_apply_1_.getBlock() == NBlocks.JACK_O_LANTERN);
 
-    public BlockCarvedPumpkin(PumpkinHelper.FaceTypes type) {
-        super("carved_pumpkin" + type.ordinal(), Material.GOURD);
+    public BlockCarvedPumpkin(PumpkinHelper.FaceTypes type,String name,boolean light) {
+        super(name + type.ordinal(), Material.GOURD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        if(light){
+            this.setLightLevel(1.0F);
+        }
     }
 
-    public BlockCarvedPumpkin(String name) {
+    public BlockCarvedPumpkin(String name,boolean light) {
         super(name, Material.GOURD);
         this.setDefaultState(getDefaultState().withProperty(FACING, EnumFacing.NORTH));
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        if(light){
+            this.setLightLevel(1.0F);
+        }
     }
 
     @Override
@@ -57,9 +66,10 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
 
             if(!playerIn.isSneaking()) {
                 if(!worldIn.isRemote) {
-                    worldIn.setBlockState(pos, PumpkinHelper.getNext(this.getRegistryName()), 11);
-                    used.damageItem(1, playerIn);
+                    worldIn.setBlockState(pos, PumpkinHelper.getPumpkinNext(this.getRegistryName()), 11);
+
                 }
+                used.damageItem(1, playerIn);
                 worldIn.playSound(playerIn, pos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return true;
             }

@@ -1,0 +1,17 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "top": "blocks/pumpkin_top",
+      "front": "neutronia:block/jack_o_lanterns/jack_o_lantern_smile",
+      "side": "blocks/pumpkin_side"
+    }
+  },
+  "variants": {
+    "inventory": {"model": "orientable"},
+    "facing=north":  {"model": "orientable"},
+    "facing=south":  {"model": "orientable", "y": 180},
+    "facing=east":  {"model": "orientable", "y": 90},
+    "facing=west":  {"model": "orientable", "y": 270}
+  }
+}

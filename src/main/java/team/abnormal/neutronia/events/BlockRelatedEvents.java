@@ -97,7 +97,11 @@ public class BlockRelatedEvents {
 
                 world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 if (!world.isRemote) {
-                    world.setBlockState(blockpos, NBlocks.CARVED_PUMPKIN.getDefaultState(), 11);
+                    if(iblockstate.getBlock() == Blocks.LIT_PUMPKIN){
+                        world.setBlockState(blockpos, NBlocks.JACK_O_LANTERN.getDefaultState(), 11);
+                    }else {
+                        world.setBlockState(blockpos, NBlocks.CARVED_PUMPKIN.getDefaultState(), 11);
+                    }
                     if (player != null) {
                         event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
                     }
@@ -110,7 +114,10 @@ public class BlockRelatedEvents {
                 if (player.isSneaking()) {
                     world.playSound(player, blockpos, NSoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     if (!world.isRemote) {
-                        world.setBlockState(blockpos, PumpkinHelper.getReturn(iblockstate.getBlock().getRegistryName()), 11);
+                        world.setBlockState(blockpos, PumpkinHelper.getPumpkinReturn(iblockstate.getBlock().getRegistryName()), 11);
+                        if (player != null) {
+                            event.getItemStack().getItem().setDamage(event.getItemStack(), 1);
+                        }
                     }
                     player.swingArm(event.getHand());
                 }

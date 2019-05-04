@@ -140,13 +140,17 @@ public class NBlocks {
         MEL_O_LANTERN = new BlockMelOLantern();
 
 
-        CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin").setHardness(1.0F).setResistance(1.0F);
+        CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin",false).setHardness(1.0F).setResistance(1.0F);
 
         for (int i = 0; i < PumpkinHelper.pumpkins.length; i++) {
-            PumpkinHelper.pumpkins[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i]).setHardness(1.0F).setResistance(1.0F);
+            PumpkinHelper.pumpkins[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i],"carved_pumpkin",false).setHardness(1.0F).setResistance(1.0F);
         }
 
-        JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern").setLightLevel(15).setHardness(1.0F).setResistance(1.0F);
+        JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern",true).setHardness(1.0F).setResistance(1.0F);
+
+        for (int i = 0; i < PumpkinHelper.jack_o_lantern.length; i++) {
+            PumpkinHelper.jack_o_lantern[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i],"jack_o_lantern",true).setHardness(1.0F).setResistance(1.0F);
+        }
 
         PHANTOM_LANTERN = new BlockPhantomLantern(false);
         LIT_PHANTOM_LANTERN = new BlockPhantomLantern(true);
