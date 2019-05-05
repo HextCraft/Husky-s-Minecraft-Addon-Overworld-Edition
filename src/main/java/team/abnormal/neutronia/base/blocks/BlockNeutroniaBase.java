@@ -17,6 +17,12 @@ public class BlockNeutroniaBase extends BlockMod implements INeutroniaBlock {
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
+    public BlockNeutroniaBase(Material material, String name,SoundType soundType) {
+        super(name, material);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setSoundType(soundType);
+    }
+
     public BlockNeutroniaBase(Material material, String name, CreativeTabs creativetab, float hardness, float resistance, SoundType soundType) {
         super(name, material);
         setCreativeTab(creativetab);

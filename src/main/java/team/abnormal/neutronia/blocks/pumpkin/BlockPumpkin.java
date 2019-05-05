@@ -1,6 +1,7 @@
 package team.abnormal.neutronia.blocks.pumpkin;
 
 import net.minecraft.block.BlockHorizontal;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
@@ -28,6 +29,7 @@ public class BlockPumpkin extends BlockMinecraftBase {
         super("pumpkin", Material.GOURD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        this.setSoundType(SoundType.WOOD);
     }
 
     @Override

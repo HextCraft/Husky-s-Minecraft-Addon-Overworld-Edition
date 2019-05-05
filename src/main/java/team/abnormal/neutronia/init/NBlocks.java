@@ -396,8 +396,8 @@ public class NBlocks {
         SOUR_BERRY_BUSH = new BlockBerryBush("sour_berry", NItems.RASPBERRIES);
         CURRANT_BUSH = new BlockBerryBush("currant", NItems.CURRANTS);*/
 
-        BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand");
-        WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand");
+        BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand",SoundType.SAND);
+        WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand",SoundType.SAND);
 
         SMOOTH_SANDSTONE = new BlockNeutroniaBase("smooth_sandstone", Material.ROCK);
         SMOOTH_RED_SANDSTONE = new BlockNeutroniaBase("smooth_red_sandstone", Material.ROCK);

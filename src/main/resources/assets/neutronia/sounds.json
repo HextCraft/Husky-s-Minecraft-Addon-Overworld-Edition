@@ -5,7 +5,8 @@
       {
         "name": "neutronia:crossbow/loading_start"
       }
-    ]
+    ],
+    "subtitle": "neutronia.subtitles.crossbow.load_crossbow"
   },
   "item.crossbow.charge": {
     "category": "master",
@@ -15,7 +16,8 @@
       },{
         "name": "neutronia:crossbow/quick1_2"
       }
-    ]
+    ],
+    "subtitle": "neutronia.subtitles.crossbow.charge_crossbow"
   },
   "item.crossbow.fire": {
     "category": "master",
@@ -27,6 +29,7 @@
       },{
         "name": "neutronia:crossbow/shoot3"
       }
-    ]
+    ],
+    "subtitle": "neutronia.subtitles.crossbow.fire_crossbow"
   }
 }

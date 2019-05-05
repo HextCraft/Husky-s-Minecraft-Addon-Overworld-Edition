@@ -10,6 +10,7 @@ import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.base.modules.ModuleLoader;
 import team.abnormal.neutronia.init.NBiomes;
 import team.abnormal.neutronia.init.NBlocks;
+import team.abnormal.neutronia.init.NEntitys;
 import team.abnormal.neutronia.init.NItems;
 import team.abnormal.neutronia.tileentities.TileCustomChest;
 
@@ -20,6 +21,7 @@ public class CommonProxy implements IProxy {
         ModuleLoader.preInit(event);
         NBlocks.init();
         NItems.init();
+        NEntitys.init();
         NBiomes.init();
         GameRegistry.registerTileEntity(TileCustomChest.class, new ResourceLocation(Reference.MOD_ID, "wooden_chest"));
     }

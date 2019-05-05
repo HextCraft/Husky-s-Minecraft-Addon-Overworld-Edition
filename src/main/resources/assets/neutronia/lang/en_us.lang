@@ -285,6 +285,15 @@ tile.neutronia:golden_apple_crate.name=Golden Apple Crate
 tile.neutronia:black_sand.name=Black Sand
 tile.neutronia:white_sand.name=White Sand
 
+item.neutronia:crossbow.name=Cross Bow
+
+entity.neutronia.Pillager.name=Pillager
+entity.neutronia.Cod.name=Cod
+
+neutronia.subtitles.crossbow.load_crossbow=CrossBow Loading
+neutronia.subtitles.crossbow.charge_crossbow=CrossBow Charge
+neutronia.subtitles.crossbow.fire_crossbow=CrossBow Fire
+
 command.neutronia.found_biome=Found a biome called '%s' at %d  (y?) %d
 command.neutronia.not_found_biome=Could not find a biome called '%s'
 command.neutronia.locate_biome.failure=Unable to locate any biomes called '%s'

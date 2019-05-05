@@ -19,7 +19,7 @@ public class EntityPillager extends AbstractTeamIllager {
 
     protected SoundEvent getAmbientSound()
     {
-        return SoundEvents.ENTITY_VINDICATION_ILLAGER_HURT;
+        return SoundEvents.VINDICATION_ILLAGER_AMBIENT;
     }
 
     protected SoundEvent getDeathSound()

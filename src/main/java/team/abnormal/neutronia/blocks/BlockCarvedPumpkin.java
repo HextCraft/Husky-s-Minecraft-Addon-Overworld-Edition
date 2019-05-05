@@ -3,6 +3,7 @@ package team.abnormal.neutronia.blocks;
 import com.google.common.base.Predicate;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.BlockWorldState;
@@ -48,6 +49,7 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
         if(light){
             this.setLightLevel(1.0F);
         }
+        this.setSoundType(SoundType.WOOD);
     }
 
     public BlockCarvedPumpkin(String name,boolean light) {
@@ -57,6 +59,7 @@ public class BlockCarvedPumpkin extends BlockModHorizontal implements IMinecraft
         if(light){
             this.setLightLevel(1.0F);
         }
+        this.setSoundType(SoundType.WOOD);
     }
 
     @Override

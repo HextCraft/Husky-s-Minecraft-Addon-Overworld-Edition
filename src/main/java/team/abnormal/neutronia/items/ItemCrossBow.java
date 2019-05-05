@@ -29,20 +29,17 @@ public class ItemCrossBow extends ItemNeutroniaBase {
         this.addPropertyOverride(new ResourceLocation("pull"), ((stack, worldIn, entityIn) -> entityIn == null || entityIn.getActiveItemStack().getItem() != NItems.CROSSBOW || isLoaded(stack) ? 0.0F : (float) (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / 20.0F));
         this.addPropertyOverride(new ResourceLocation("pulling"), (stack, worldIn, entityIn) -> !isLoaded(stack) && entityIn != null && entityIn.isHandActive() && entityIn.getActiveItemStack() == stack ? 1.0F : 0.0F);
         this.addPropertyOverride(new ResourceLocation("loaded"), (stack, worldIn, entityIn) -> isLoaded(stack) ? 1.0F : 0.0F);
-
-
     }
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 72000;
+        return 300000;
     }
 
 
     public void setIsLoaded(ItemStack stack, boolean bool) {
 
         NBTTagCompound tag2 = NBTUtils.getCompoundSafe(stack);
-        ;
 
         tag2.setBoolean("isLoaded", bool);
         stack.setTagCompound(tag2);
@@ -167,8 +164,8 @@ public class ItemCrossBow extends ItemNeutroniaBase {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer playerIn = (EntityPlayer) entityLiving;
             float rand = 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.7F * 0.5F;
-            int i = this.getUseDuration(stack, timeLeft);
-            if (i >= 20 && !isLoaded(stack)) {
+            int i = this.getMaxItemUseDuration(stack) - timeLeft;
+            if (i >= 28.0F && !isLoaded(stack)) {
                 if (!this.findAmmo(playerIn).isEmpty() || playerIn.isCreative()) {
                     ItemStack item;
                     if (playerIn.isCreative()) {
@@ -187,6 +184,7 @@ public class ItemCrossBow extends ItemNeutroniaBase {
         }
     }
 
+
     private void setupStock(ItemStack stack, ItemStack item, EntityLivingBase entityLiving, boolean flag) {
         boolean boolean_3 = flag && item.getItem() instanceof ItemArrow;
         ItemStack itemStack_4;
@@ -200,10 +198,6 @@ public class ItemCrossBow extends ItemNeutroniaBase {
         }
 
 
-    }
-
-    private int getUseDuration(ItemStack stack, int timeLeft) {
-        return stack.getMaxItemUseDuration() - timeLeft;
     }
 
     /**
