@@ -1,6 +1,7 @@
 package team.abnormal.neutronia.init;
 
 import net.minecraft.item.Item;
+import team.abnormal.neutronia.items.ItemCrossBow;
 import team.abnormal.neutronia.items.ItemNeutroniaBase;
 
 public class NItems {
@@ -21,6 +22,7 @@ public class NItems {
     public static Item IRON_DRAGON_ARMOR;
     public static Item GOLD_DRAGON_ARMOR;
     public static Item DIAMOND_DRAGON_ARMOR;
+    public static Item CROSSBOW;
 
     public static Item WROUGHT_IRON_INGOT, WROUGHT_IRON_NUGGET;
 
@@ -41,6 +43,7 @@ public class NItems {
         IRON_DRAGON_ARMOR = new ItemNeutroniaBase("iron_dragon_armor").setCreativeTab(CreativeTabs.MISC);
         GOLD_DRAGON_ARMOR = new ItemNeutroniaBase("gold_dragon_armor").setCreativeTab(CreativeTabs.MISC);
         DIAMOND_DRAGON_ARMOR = new ItemNeutroniaBase("diamond_dragon_armor").setCreativeTab(CreativeTabs.MISC);*/
+        CROSSBOW = new ItemCrossBow();
         WROUGHT_IRON_INGOT = new ItemNeutroniaBase("wrought_iron_ingot");
         WROUGHT_IRON_NUGGET = new ItemNeutroniaBase("wrought_iron_nugget");
     }

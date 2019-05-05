@@ -1,0 +1,32 @@
+{
+  "item.crossbow.loading_start": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "neutronia:crossbow/loading_start"
+      }
+    ]
+  },
+  "item.crossbow.charge": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "neutronia:crossbow/quick1_1"
+      },{
+        "name": "neutronia:crossbow/quick1_2"
+      }
+    ]
+  },
+  "item.crossbow.fire": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "neutronia:crossbow/shoot1"
+      },{
+        "name": "neutronia:crossbow/shoot2"
+      },{
+        "name": "neutronia:crossbow/shoot3"
+      }
+    ]
+  }
+}
