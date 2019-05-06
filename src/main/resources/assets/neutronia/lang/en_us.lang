@@ -289,10 +289,14 @@ item.neutronia:crossbow.name=Cross Bow
 
 entity.neutronia.Pillager.name=Pillager
 entity.neutronia.Cod.name=Cod
+entity.neutronia.Salmon.name=Salmon
 
 neutronia.subtitles.crossbow.load_crossbow=CrossBow Loading
 neutronia.subtitles.crossbow.charge_crossbow=CrossBow Charge
 neutronia.subtitles.crossbow.fire_crossbow=CrossBow Fire
+
+neutronia.subtitles.fish.hurt=Fish hurts
+neutronia.subtitles.fish.death=Fish dies
 
 command.neutronia.found_biome=Found a biome called '%s' at %d  (y?) %d
 command.neutronia.not_found_biome=Could not find a biome called '%s'

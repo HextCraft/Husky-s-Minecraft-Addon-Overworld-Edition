@@ -1,10 +1,13 @@
-package team.abnormal.neutronia.entity;
+package team.abnormal.neutronia.entity.passive;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import team.abnormal.neutronia.entity.ai.EntityAIMoveToLeader;
+import team.abnormal.neutronia.init.NSoundEvents;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -21,6 +24,16 @@ public abstract class AbstractFishGroup extends AbstractFish{
         this.tasks.addTask(0, new EntityAIMoveToLeader(this,1.0));
     }
 
+    protected SoundEvent getDeathSound()
+    {
+        return NSoundEvents.ENTITY_FISH_DEATH;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
+        return NSoundEvents.ENTITY_FISH_HURT;
+    }
+
     public void moveTowardLeader() {
         if (this.hasLeader()) {
             this.getNavigator().tryMoveToEntityLiving(this.leader, 1.0D);
@@ -29,7 +42,7 @@ public abstract class AbstractFishGroup extends AbstractFish{
     }
 
     public int getMaxGroupSize() {
-        return 20;
+        return 4;
     }
 
     protected boolean hasSelfControl() {

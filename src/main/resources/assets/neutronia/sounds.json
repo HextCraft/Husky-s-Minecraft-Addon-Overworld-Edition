@@ -1,35 +1,61 @@
 {
   "item.crossbow.loading_start": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
-        "name": "neutronia:crossbow/loading_start"
+        "name": "neutronia:item/crossbow/loading_start"
       }
     ],
     "subtitle": "neutronia.subtitles.crossbow.load_crossbow"
   },
   "item.crossbow.charge": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
-        "name": "neutronia:crossbow/quick1_1"
+        "name": "neutronia:item/crossbow/quick1_1"
       },{
-        "name": "neutronia:crossbow/quick1_2"
+        "name": "neutronia:item/crossbow/quick1_2"
       }
     ],
     "subtitle": "neutronia.subtitles.crossbow.charge_crossbow"
   },
   "item.crossbow.fire": {
-    "category": "master",
+    "category": "player",
     "sounds": [
       {
-        "name": "neutronia:crossbow/shoot1"
+        "name": "neutronia:item/crossbow/shoot1"
       },{
-        "name": "neutronia:crossbow/shoot2"
+        "name": "neutronia:item/crossbow/shoot2"
       },{
-        "name": "neutronia:crossbow/shoot3"
+        "name": "neutronia:item/crossbow/shoot3"
       }
     ],
     "subtitle": "neutronia.subtitles.crossbow.fire_crossbow"
+  },
+  "entity.fish.hurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "neutronia:entity/fish/hurt1"
+      },{
+        "name": "neutronia:entity/fish/hurt2"
+      },{
+        "name": "neutronia:entity/fish/hurt3"
+      }
+    ],
+    "subtitle": "neutronia.subtitles.fish.hurt"
+  },
+  "entity.fish.death": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "neutronia:entity/fish/hurt1"
+      },{
+        "name": "neutronia:entity/fish/hurt2"
+      },{
+        "name": "neutronia:entity/fish/hurt3"
+      }
+    ],
+    "subtitle": "neutronia.subtitles.fish.death"
   }
 }

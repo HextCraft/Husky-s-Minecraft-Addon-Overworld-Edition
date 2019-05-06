@@ -1,9 +1,10 @@
-package team.abnormal.neutronia.entity;
+package team.abnormal.neutronia.entity.passive;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.pathfinding.PathNavigate;
@@ -13,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class AbstractFish extends EntityCreature {
+public abstract class AbstractFish extends EntityCreature implements IAnimals {
     public AbstractFish(World worldIn) {
         super(worldIn);
         this.moveHelper = new MoveHelper(this);

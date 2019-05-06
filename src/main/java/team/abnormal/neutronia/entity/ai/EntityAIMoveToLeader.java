@@ -1,7 +1,7 @@
 package team.abnormal.neutronia.entity.ai;
 
 import net.minecraft.entity.ai.EntityAIBase;
-import team.abnormal.neutronia.entity.AbstractFishGroup;
+import team.abnormal.neutronia.entity.passive.AbstractFishGroup;
 
 public class EntityAIMoveToLeader extends EntityAIBase {
     public AbstractFishGroup owner;
