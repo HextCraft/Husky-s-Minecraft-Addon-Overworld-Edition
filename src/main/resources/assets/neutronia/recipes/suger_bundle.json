@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:reeds"
+    }
+  },
+  "result": {
+    "item": "neutronia:suger_cane_bundle"
+  }
+}

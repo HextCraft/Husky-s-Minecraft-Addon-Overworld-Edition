@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "P P",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:planks",
+      "data": 5
+    }
+  },
+  "result": {
+    "item": "neutronia:wooden_chest",
+    "data": 4
+  }
+}
