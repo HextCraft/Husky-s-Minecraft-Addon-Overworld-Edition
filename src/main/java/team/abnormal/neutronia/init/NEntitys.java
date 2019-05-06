@@ -14,7 +14,7 @@ import team.abnormal.neutronia.entity.illager.EntityPillager;
 public class NEntitys {
     public static void init() {
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "pillager"), EntityPillager.class, prefix("Pillager"), 1, NeutroniaRevamped.instance, 100, 3, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "cod"), EntityCod.class, prefix("Cod"), 2, NeutroniaRevamped.instance, 80, 3, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "cod"), EntityCod.class, prefix("Cod"), 2, NeutroniaRevamped.instance, 80, 3, true, 12691306, 15058059);
 
         EntitySpawnPlacementRegistry.setPlacementType(EntityCod.class, EntityLiving.SpawnPlacementType.IN_WATER);
         EntityRegistry.addSpawn(EntityCod.class, 10, 2, 3, EnumCreatureType.WATER_CREATURE, Biomes.RIVER);

@@ -12,6 +12,7 @@ import team.abnormal.neutronia.base.client.ContributorRewardHandler;
 import team.abnormal.neutronia.base.modules.ModuleLoader;
 import team.abnormal.neutronia.client.NEntityRender;
 import team.abnormal.neutronia.client.render.RenderTileCustomChest;
+import team.abnormal.neutronia.init.NBlocks;
 import team.abnormal.neutronia.tileentities.TileCustomChest;
 
 @SideOnly(Side.CLIENT)
@@ -22,6 +23,7 @@ public class ClientProxy extends CommonProxy {
         super.preInit(event);
         Display.setTitle(String.format("%s %s | Minecraft 1.12.2", Reference.MOD_NAME, Reference.VERSION));
         ModuleLoader.preInitClient(event);
+        NBlocks.renderInit();
         ClientRegistry.bindTileEntitySpecialRenderer(TileCustomChest.class, new RenderTileCustomChest());
         NEntityRender.registerRenderers();
     }

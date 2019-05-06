@@ -2,6 +2,7 @@ package team.abnormal.neutronia.init;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.init.Blocks;
@@ -14,7 +15,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import team.abnormal.abnormalib.recipe.RecipeHandler;
 import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.base.Reference;
@@ -140,16 +144,16 @@ public class NBlocks {
         MEL_O_LANTERN = new BlockMelOLantern();
 
 
-        CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin",false).setHardness(1.0F).setResistance(1.0F);
+        CARVED_PUMPKIN = new BlockCarvedPumpkin("carved_pumpkin", false).setHardness(1.0F).setResistance(1.0F);
 
         for (int i = 0; i < PumpkinHelper.pumpkins.length; i++) {
-            PumpkinHelper.pumpkins[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i],"carved_pumpkin",false).setHardness(1.0F).setResistance(1.0F);
+            PumpkinHelper.pumpkins[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i], "carved_pumpkin", false).setHardness(1.0F).setResistance(1.0F);
         }
 
-        JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern",true).setHardness(1.0F).setResistance(1.0F);
+        JACK_O_LANTERN = new BlockCarvedPumpkin("jack_o_lantern", true).setHardness(1.0F).setResistance(1.0F);
 
         for (int i = 0; i < PumpkinHelper.jack_o_lantern.length; i++) {
-            PumpkinHelper.jack_o_lantern[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i],"jack_o_lantern",true).setHardness(1.0F).setResistance(1.0F);
+            PumpkinHelper.jack_o_lantern[i] = new BlockCarvedPumpkin(PumpkinHelper.FaceTypes.values()[i], "jack_o_lantern", true).setHardness(1.0F).setResistance(1.0F);
         }
 
         PHANTOM_LANTERN = new BlockPhantomLantern(false);
@@ -396,8 +400,8 @@ public class NBlocks {
         SOUR_BERRY_BUSH = new BlockBerryBush("sour_berry", NItems.RASPBERRIES);
         CURRANT_BUSH = new BlockBerryBush("currant", NItems.CURRANTS);*/
 
-        BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand",SoundType.SAND);
-        WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand",SoundType.SAND);
+        BLACK_SAND = new BlockNeutroniaBase(Material.SAND, "black_sand", SoundType.SAND);
+        WHITE_SAND = new BlockNeutroniaBase(Material.SAND, "white_sand", SoundType.SAND);
 
         SMOOTH_SANDSTONE = new BlockNeutroniaBase("smooth_sandstone", Material.ROCK);
         SMOOTH_RED_SANDSTONE = new BlockNeutroniaBase("smooth_red_sandstone", Material.ROCK);
@@ -539,6 +543,22 @@ public class NBlocks {
                 return stack;
             }
         });
+    }
+
+    public static void renderInit() {
+        //when tileentity block using many metadata and you want rendered item,use this
+        registerRender(CUSTOM_CHEST,ChestType.values().length);
+        registerRender(CUSTOM_TRAPPED_CHEST,ChestType.values().length);
+    }
+
+
+    @SideOnly(Side.CLIENT)
+    public static void registerRender(Block block, int i) {
+
+        ModelResourceLocation model = new ModelResourceLocation(Reference.MOD_ID + ":" + block.getRegistryName().getPath(), "inventory");
+        for (int i2 = 0;i2 <= i; i2++) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), i2, model);
+        }
     }
 
 }

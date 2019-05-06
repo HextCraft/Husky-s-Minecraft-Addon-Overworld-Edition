@@ -28,12 +28,12 @@ import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.init.NBlocks;
-import team.abnormal.neutronia.tileentities.TileCustomChest;
-import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.items.ItemChestBlock;
 import team.abnormal.neutronia.properties.ChestType;
+import team.abnormal.neutronia.tileentities.TileCustomChest;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -54,6 +54,8 @@ public class BlockCustomChest extends BlockChest implements INeutroniaBlock {
         setHardness(2.5F);
         setSoundType(SoundType.WOOD);
         setCreativeTab(type == NBlocks.CUSTOM_TYPE_NEUTRONIA_TRAP ? CreativeTabs.REDSTONE : CreativeTabs.DECORATIONS);
+
+
     }
 
     public Block register(String name) {
@@ -288,7 +290,7 @@ public class BlockCustomChest extends BlockChest implements INeutroniaBlock {
         return ChestType.NONE;
     }
 
-    public ChestType getCustomType(ItemStack stack) {
+    public static ChestType getCustomType(ItemStack stack) {
         return ChestType.class.getEnumConstants()[Math.min(9, stack.getItemDamage() + 1)];
     }
 

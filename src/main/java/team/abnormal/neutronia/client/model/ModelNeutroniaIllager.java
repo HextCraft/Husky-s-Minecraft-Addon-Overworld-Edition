@@ -76,15 +76,10 @@ public class ModelNeutroniaIllager extends ModelBase
         this.leg1.render(scale);
         AbstractIllager abstractillager = (AbstractIllager)entityIn;
 
-        if (abstractillager.getArmPose() == AbstractIllager.IllagerArmPose.CROSSED)
-        {
-            this.arms.render(scale);
-        }
-        else
-        {
+
             this.rightArm.render(scale);
             this.leftArm.render(scale);
-        }
+
     }
 
     /**

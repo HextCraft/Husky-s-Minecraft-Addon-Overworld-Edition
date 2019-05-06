@@ -3,6 +3,7 @@ package team.abnormal.neutronia.tileentities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -22,6 +23,8 @@ import javax.annotation.Nullable;
 public class TileCustomChest extends TileEntityChest {
 
     public ChestType chestType = ChestType.NONE;
+
+
 
     @Nullable
     public static VanillaDoubleChestItemHandler getDoubleChestHandler(TileCustomChest chest) {
@@ -63,6 +66,10 @@ public class TileCustomChest extends TileEntityChest {
         NBTTagCompound nbt = super.getUpdateTag();
         nbt.setString("type", chestType.name);
         return nbt;
+    }
+
+    public void setChestType(ItemStack stack) {
+        this.chestType = ChestType.getType(stack.getItemDamage());
     }
 
     @Override
