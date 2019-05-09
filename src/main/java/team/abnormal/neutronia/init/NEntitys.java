@@ -11,6 +11,7 @@ import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.entity.illager.EntityPillager;
 import team.abnormal.neutronia.entity.passive.EntityCod;
 import team.abnormal.neutronia.entity.passive.EntityFox;
+import team.abnormal.neutronia.entity.passive.EntityHyena;
 import team.abnormal.neutronia.entity.passive.EntitySalmon;
 
 public class NEntitys {
@@ -19,6 +20,7 @@ public class NEntitys {
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "cod"), EntityCod.class, prefix("Cod"), 2, NeutroniaRevamped.instance, 80, 3, true, 12691306, 15058059);
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "salmon"), EntitySalmon.class, prefix("Salmon"), 3, NeutroniaRevamped.instance, 80, 3, true, 10489616, 951412);
         EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "fox"), EntityFox.class, prefix("Fox"), 4, NeutroniaRevamped.instance, 90, 3, true, 14005919, 13396256);
+        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID, "hyena"), EntityHyena.class, prefix("Hyena"), 5, NeutroniaRevamped.instance, 90, 3, true,0x4f453d,0x64453d);
 
         EntitySpawnPlacementRegistry.setPlacementType(EntityCod.class, EntityLiving.SpawnPlacementType.IN_WATER);
         EntitySpawnPlacementRegistry.setPlacementType(EntitySalmon.class, EntityLiving.SpawnPlacementType.IN_WATER);

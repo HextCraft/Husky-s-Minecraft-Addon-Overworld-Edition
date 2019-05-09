@@ -290,6 +290,8 @@ item.neutronia:crossbow.name=Cross Bow
 entity.neutronia.Pillager.name=Pillager
 entity.neutronia.Cod.name=Cod
 entity.neutronia.Salmon.name=Salmon
+entity.neutronia.Fox.name=Fox
+entity.neutronia.Hyena.name=Hyena
 
 neutronia.subtitles.crossbow.load_crossbow=CrossBow Loading
 neutronia.subtitles.crossbow.charge_crossbow=CrossBow Charge

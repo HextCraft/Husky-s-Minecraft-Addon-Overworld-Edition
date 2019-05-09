@@ -24,8 +24,4 @@ public class RenderFox extends RenderLiving<EntityFox> {
         return FOX_LOCATION;
     }
 
-    protected void applyRotations(EntityFox entityLiving, float ageInTicks, float rotationYaw, float partialTicks) {
-        super.applyRotations(entityLiving, ageInTicks, rotationYaw, partialTicks);
-
-    }
 }
