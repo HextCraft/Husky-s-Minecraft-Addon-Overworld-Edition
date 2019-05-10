@@ -2,6 +2,7 @@ package team.abnormal.neutronia.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
@@ -74,13 +75,30 @@ public class ModelHyena extends ModelBase {
     public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entityIn);
+        if (this.isChild) {
+            float f = 2.0F;
+            GlStateManager.pushMatrix();
+            GlStateManager.translate(0.0F, 7.0F * scale, 2.0F * scale);
+            this.Head.render(scale);
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+            GlStateManager.scale(0.5F, 0.5F, 0.5F);
+            GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
+            this.LeftFrontLeg.render(scale);
+            this.LeftBackLeg.render(scale);
+            this.Body.render(scale);
+            this.RightFrontLeg.render(scale);
+            this.RightBackLeg.render(scale);
 
-        this.LeftFrontLeg.render(scale);
-        this.LeftBackLeg.render(scale);
-        this.Body.render(scale);
-        this.RightFrontLeg.render(scale);
-        this.RightBackLeg.render(scale);
-        this.Head.render(scale);
+            GlStateManager.popMatrix();
+        } else {
+            this.LeftFrontLeg.render(scale);
+            this.LeftBackLeg.render(scale);
+            this.Body.render(scale);
+            this.RightFrontLeg.render(scale);
+            this.RightBackLeg.render(scale);
+            this.Head.render(scale);
+        }
     }
 
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {

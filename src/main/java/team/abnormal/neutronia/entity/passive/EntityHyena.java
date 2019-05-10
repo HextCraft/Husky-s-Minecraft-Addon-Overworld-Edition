@@ -27,7 +27,9 @@ import team.abnormal.neutronia.entity.ai.EntityAIFollowTamedHyena;
 import team.abnormal.neutronia.entity.ai.EntityAIOwnerHyenaHurtByTarget;
 
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 public class EntityHyena extends EntityTameable {
 
@@ -40,6 +42,10 @@ public class EntityHyena extends EntityTameable {
     /** This time increases while hyena is shaking and emitting water particles. */
     private float timeWolfIsShaking;
     private float prevTimeWolfIsShaking;
+
+    private int groupSize;
+    @Nullable
+    private EntityHyena leader;
 
     @Nullable
     private EntityHyena menberHead;
@@ -63,7 +69,7 @@ public class EntityHyena extends EntityTameable {
         this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.4F));
         this.tasks.addTask(5, new EntityAIAttackMelee(this, 1.0D, true));
         this.tasks.addTask(6, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
-        this.tasks.addTask(6, new EntityAIFollowTamedHyena(this, 1.0D));
+        this.tasks.addTask(6, new EntityAIFollowTamedHyena(this, 1.2D));
         this.tasks.addTask(7, new EntityAIMate(this, 1.0D));
         this.tasks.addTask(8, new EntityAIWanderAvoidWater(this, 1.0D));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -158,6 +164,8 @@ public class EntityHyena extends EntityTameable {
         }
 
         this.menberHead = null;
+
+        this.leader = null;
     }
 
     public void joinMenber(EntityHyena menberHeadIn)
@@ -166,14 +174,55 @@ public class EntityHyena extends EntityTameable {
         this.menberHead.menberTail = this;
     }
 
-    public boolean isLeader()
+    public boolean hasLeader()
     {
         return this.menberLeader != null;
     }
 
-    public void setLeader(EntityHyena leaderIn)
+    public EntityHyena joinGroupOf(EntityHyena groupHyena) {
+        this.leader = groupHyena;
+        groupHyena.increaseGroupSize();
+        return groupHyena;
+    }
+
+    public void leaveGroup() {
+        this.leader.decreaseGroupSize();
+        this.leader = null;
+    }
+
+    private void increaseGroupSize() {
+        ++this.groupSize;
+    }
+
+    private void decreaseGroupSize() {
+        --this.groupSize;
+    }
+
+    public boolean canHaveMoreHyenaInGroup() {
+        return this.hasOtherHyenaInGroup() && this.groupSize < this.getMaxGroupSize();
+    }
+
+    private int getMaxGroupSize() {
+        return 8;
+    }
+
+
+    public boolean hasOtherHyenaInGroup() {
+        return this.groupSize > 1;
+    }
+
+    public void pullInOtherHyena(Stream<EntityHyena> stream_1) {
+        stream_1.limit((long) (this.getMaxGroupSize() - this.groupSize)).filter((schoolingFishEntity_1) -> {
+            return schoolingFishEntity_1 != this;
+        }).forEach((schoolingFishEntity_1) -> {
+            schoolingFishEntity_1.joinGroupOf(this);
+        });
+    }
+
+    @Nullable
+    public EntityHyena getLeader()
     {
-        this.menberLeader = leaderIn;
+        return this.leader;
     }
 
 
@@ -193,33 +242,15 @@ public class EntityHyena extends EntityTameable {
         return this.menberHead;
     }
 
-    protected double followLeashSpeed()
-    {
-        return 2.0D;
-    }
-
-
-    public void onLivingUpdate()
-    {
-        super.onLivingUpdate();
-
-        if (!this.world.isRemote && this.isWet && !this.isShaking && !this.hasPath() && this.onGround)
-        {
-            this.isShaking = true;
-            this.timeWolfIsShaking = 0.0F;
-            this.prevTimeWolfIsShaking = 0.0F;
-            this.world.setEntityState(this, (byte)8);
-        }
-
-        if (!this.world.isRemote && this.getAttackTarget() == null && this.isAngry())
-        {
-            this.setAngry(false);
-        }
-    }
-
-    public void onUpdate()
-    {
+    public void onUpdate() {
         super.onUpdate();
+        if (this.hasOtherHyenaInGroup() && this.world.rand.nextInt(200) == 1) {
+            List<Entity> list_1 = this.world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(8.0D, 8.0D, 8.0D));
+            if (list_1.size() <= 1) {
+                this.groupSize = 1;
+            }
+        }
+
         this.headRotationCourseOld = this.headRotationCourse;
 
         this.headRotationCourse += (0.0F - this.headRotationCourse) * 0.4F;
@@ -265,6 +296,25 @@ public class EntityHyena extends EntityTameable {
         }
     }
 
+    protected double followLeashSpeed() {
+        return 1.2D;
+    }
+
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+
+        if (!this.world.isRemote && this.isWet && !this.isShaking && !this.hasPath() && this.onGround) {
+            this.isShaking = true;
+            this.timeWolfIsShaking = 0.0F;
+            this.prevTimeWolfIsShaking = 0.0F;
+            this.world.setEntityState(this, (byte) 8);
+        }
+
+        if (!this.world.isRemote && this.getAttackTarget() == null && this.isAngry()) {
+            this.setAngry(false);
+        }
+    }
+
     public void setTamed(boolean tamed)
     {
         super.setTamed(tamed);
@@ -277,6 +327,8 @@ public class EntityHyena extends EntityTameable {
         {
             this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(16.0D);
         }
+
+        this.leader = null;
 
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
     }

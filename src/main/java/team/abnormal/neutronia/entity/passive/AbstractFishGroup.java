@@ -11,6 +11,7 @@ import team.abnormal.neutronia.init.NSoundEvents;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.stream.Stream;
 
 public abstract class AbstractFishGroup extends AbstractFish{
     private int groupSize;
@@ -84,7 +85,14 @@ public abstract class AbstractFishGroup extends AbstractFish{
                 this.groupSize = 1;
             }
         }
+    }
 
+    public void pullInOtherFish(Stream<AbstractFishGroup> stream_1) {
+        stream_1.limit((long) (this.getMaxGroupSize() - this.groupSize)).filter((schoolingFishEntity_1) -> {
+            return schoolingFishEntity_1 != this;
+        }).forEach((schoolingFishEntity_1) -> {
+            schoolingFishEntity_1.joinGroupOf(this);
+        });
     }
 
     public boolean hasOtherFishInGroup() {

@@ -67,8 +67,7 @@ public class EntityAIFollowTamedHyena extends EntityAIBase
             if (entityhyena == null)
             {
                 return false;
-            }
-            else if (!this.firstIsLeader(entityhyena, 1))
+            } else if (!entityhyena.isTamed() && !this.firstIsLeader(entityhyena, 1))
             {
                 return false;
             }else if(entityhyena.isSitting()){
@@ -160,8 +159,6 @@ public class EntityAIFollowTamedHyena extends EntityAIBase
         {
             if (p_190858_1_.getMenberHead().isTamed())
             {
-                return true;
-            }else if(p_190858_1_.getMenberHead().isLeader()){
                 return true;
             }
             else
