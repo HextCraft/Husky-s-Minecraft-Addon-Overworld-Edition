@@ -23,7 +23,7 @@ public class RenderHyena extends RenderLiving<EntityHyena> {
         super(p_i48864_1_, new ModelHyena(), 0.5F);
     }
 
-
+    @Override
     public void doRender(EntityHyena entity, double x, double y, double z, float entityYaw, float partialTicks)
     {
         if (entity.isWolfWet())
@@ -33,6 +33,11 @@ public class RenderHyena extends RenderLiving<EntityHyena> {
         }
 
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
+    }
+
+    @Override
+    protected float handleRotationFloat(EntityHyena livingBase, float partialTicks) {
+        return livingBase.getTailRotation();
     }
 
     @Nullable

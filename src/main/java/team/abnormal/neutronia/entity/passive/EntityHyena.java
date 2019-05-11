@@ -34,6 +34,7 @@ import java.util.UUID;
 
 public class EntityHyena extends EntityTameable {
     private static final DataParameter<Boolean> LEADER = EntityDataManager.<Boolean>createKey(EntityHyena.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.<Float>createKey(EntityHyena.class, DataSerializers.FLOAT);
 
     private float headRotationCourse;
     private float headRotationCourseOld;
@@ -92,8 +93,13 @@ public class EntityHyena extends EntityTameable {
         this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityWolf.class, false));
     }
 
+    protected void updateAITasks() {
+        this.dataManager.set(DATA_HEALTH_ID, Float.valueOf(this.getHealth()));
+    }
+
     protected void entityInit() {
         super.entityInit();
+        this.dataManager.register(DATA_HEALTH_ID, Float.valueOf(this.getHealth()));
         this.dataManager.register(LEADER, Boolean.valueOf(false));
     }
 
@@ -342,6 +348,15 @@ public class EntityHyena extends EntityTameable {
     @SideOnly(Side.CLIENT)
     public boolean isWolfWet() {
         return this.isWet;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public float getTailRotation() {
+        if (this.isAngry()) {
+            return 1.5393804F;
+        } else {
+            return -((this.getMaxHealth() - ((Float) this.dataManager.get(DATA_HEALTH_ID)).floatValue()) - 28.0F) * 0.02F * (float) Math.PI;
+        }
     }
 
     /**

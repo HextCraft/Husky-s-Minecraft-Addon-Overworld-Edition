@@ -104,6 +104,12 @@ public class ModelHyena extends ModelBase {
     public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
         EntityHyena entityhyena = (EntityHyena) entitylivingbaseIn;
 
+        if (entityhyena.isAngry()) {
+            this.Tail.rotateAngleY = 0.0F;
+        } else {
+            this.Tail.rotateAngleY = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        }
+
         if (entityhyena.isSitting())
         {
             this.Body.setRotationPoint(0.0F, 12.0F, -3.0F);
@@ -141,6 +147,7 @@ public class ModelHyena extends ModelBase {
         super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
         this.Head.rotateAngleX = headPitch * 0.017453292F;
         this.Head.rotateAngleY = netHeadYaw * 0.017453292F;
+        this.Tail.rotateAngleX = ageInTicks;
     }
 
     /**
