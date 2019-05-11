@@ -22,16 +22,21 @@ public class EntityAIOwnerHyenaHurtByTarget extends EntityAITarget
      */
     public boolean shouldExecute()
     {
-        if (!this.tameable.isTamed())
-        {
+        if (!this.tameable.isTamed()) {
             EntityLivingBase entitylivingbase = this.tameable.getMenberHead();
 
-            if (entitylivingbase == null)
-            {
-                return false;
-            }
-            else
-            {
+            EntityLivingBase entitylivingbase2 = this.tameable.getLeaderHyena();
+
+            if (entitylivingbase == null) {
+                if (entitylivingbase2 == null) {
+                    return false;
+                } else {
+                    this.attacker = entitylivingbase2.getRevengeTarget();
+                    int i = entitylivingbase2.getRevengeTimer();
+                    return i != this.timestamp && this.isSuitableTarget(this.attacker, false) && this.tameable.shouldAttackEntity(this.attacker, entitylivingbase2);
+
+                }
+            } else {
                 this.attacker = entitylivingbase.getRevengeTarget();
                 int i = entitylivingbase.getRevengeTimer();
                 return i != this.timestamp && this.isSuitableTarget(this.attacker, false) && this.tameable.shouldAttackEntity(this.attacker, entitylivingbase);

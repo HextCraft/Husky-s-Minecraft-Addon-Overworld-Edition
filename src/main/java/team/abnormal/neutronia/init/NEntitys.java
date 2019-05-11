@@ -1,10 +1,13 @@
 package team.abnormal.neutronia.init;
 
+import com.google.common.collect.Lists;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import team.abnormal.neutronia.base.NeutroniaRevamped;
 import team.abnormal.neutronia.base.Reference;
@@ -13,6 +16,11 @@ import team.abnormal.neutronia.entity.passive.EntityCod;
 import team.abnormal.neutronia.entity.passive.EntityFox;
 import team.abnormal.neutronia.entity.passive.EntityHyena;
 import team.abnormal.neutronia.entity.passive.EntitySalmon;
+
+import java.util.List;
+import java.util.Set;
+
+import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
 public class NEntitys {
     public static void init() {
@@ -26,6 +34,16 @@ public class NEntitys {
         EntitySpawnPlacementRegistry.setPlacementType(EntitySalmon.class, EntityLiving.SpawnPlacementType.IN_WATER);
         EntityRegistry.addSpawn(EntityCod.class, 10, 2, 3, EnumCreatureType.WATER_CREATURE, Biomes.RIVER,Biomes.OCEAN,Biomes.DEEP_OCEAN);
         EntityRegistry.addSpawn(EntitySalmon.class, 10, 2, 3, EnumCreatureType.WATER_CREATURE, Biomes.RIVER,Biomes.OCEAN,Biomes.DEEP_OCEAN);
+
+        List<Biome> savanna_biomes = Lists.newArrayList();
+        for (Biome biome : Biome.REGISTRY) {
+            Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(biome);
+            if (types.contains(SAVANNA) && !types.contains(WASTELAND) && !types.contains(NETHER) && !biome.getSpawnableList(EnumCreatureType.CREATURE).isEmpty() && !biome.getSpawnableList(EnumCreatureType.CREATURE).contains(savanna_biomes)) {
+                savanna_biomes.add(biome);
+            }
+        }
+
+        EntityRegistry.addSpawn(EntityHyena.class, 5, 3, 6, EnumCreatureType.CREATURE, savanna_biomes.toArray(new Biome[savanna_biomes.size()]));
     }
 
     private static String prefix(String path) {

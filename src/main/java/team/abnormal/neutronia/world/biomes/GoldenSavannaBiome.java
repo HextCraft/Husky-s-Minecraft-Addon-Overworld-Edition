@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.*;
+import team.abnormal.neutronia.entity.passive.EntityHyena;
 import team.abnormal.neutronia.world.gen.features.PatchFeature;
 
 import java.util.Iterator;
@@ -34,6 +35,7 @@ public class GoldenSavannaBiome extends Biome {
         this.decorator.grassPerChunk = 20;
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 1, 2, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityDonkey.class, 1, 1, 1));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHyena.class, 5, 3, 6));
         Iterator<SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
 
         while (iterator.hasNext()) {
