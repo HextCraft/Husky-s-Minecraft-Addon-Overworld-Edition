@@ -24,6 +24,7 @@ import team.abnormal.abnormalib.util.ProxyRegistry;
 import team.abnormal.neutronia.base.Reference;
 import team.abnormal.neutronia.base.blocks.*;
 import team.abnormal.neutronia.base.utils.BlockRegisteringUtils;
+import team.abnormal.neutronia.base.utils.registry.RegistryUtils;
 import team.abnormal.neutronia.blocks.*;
 import team.abnormal.neutronia.blocks.pumpkin.BlockPumpkin;
 import team.abnormal.neutronia.blocks.pumpkin.PumpkinHelper;
@@ -46,7 +47,7 @@ public class NBlocks {
     public static Block CARVED_MELON, MEL_O_LANTERN;
     public static Block CARVED_PUMPKIN, JACK_O_LANTERN;
     public static Block PHANTOM_LANTERN, LIT_PHANTOM_LANTERN, phantomItemFrame;
-    public static BlockNeutroniaDoor SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
+    public static Block SANDSTONE_DOOR, RED_SANDSTONE_DOOR, ICE_DOOR, BAMBOO_DOOR;
     public static BlockNeutroniaTrapdoor SANDSTONE_TRAPDOOR, RED_SANDSTONE_TRAPDOOR, ICE_TRAPDOOR, BAMBOO_TRAPDOOR;
     public static BlockChiseled CHISELED_NETHER_BRICK, CHISELED_PURPUR, CHISELED_BRICKS, CHISELED_END_BRICK, CHISELED_RED_NETHER_BRICK;
     public static Block CHISELED_PRISMARINE, CHISELED_PRISMARINE_BRICKS, CHISELED_DARK_PRISMARINE, CUT_PRISMARINE, CUT_PRISMARINE_BRICKS, CUT_DARK_PRISMARINE, ENGRAVED_PRISMARINE, ENGRAVED_PRISMARINE_BRICKS, ENGRAVED_DARK_PRISMARINE;
@@ -159,7 +160,7 @@ public class NBlocks {
         PHANTOM_LANTERN = new BlockPhantomLantern(false);
         LIT_PHANTOM_LANTERN = new BlockPhantomLantern(true);
 
-        SANDSTONE_DOOR = new BlockNeutroniaDoor("sandstone_door");
+        SANDSTONE_DOOR = RegistryUtils.registerDoor(new BlockModDoor(Material.ROCK), new ResourceLocation(Reference.MOD_ID, "sandstone_door"), CreativeTabs.REDSTONE);
         SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("sandstone_trapdoor");
         RED_SANDSTONE_DOOR = new BlockNeutroniaDoor("red_sandstone_door");
         RED_SANDSTONE_TRAPDOOR = new BlockNeutroniaTrapdoor("red_sandstone_trapdoor");

@@ -1,6 +1,6 @@
 package team.abnormal.neutronia.base.blocks;
 
-import net.minecraft.block.SoundType;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
@@ -11,30 +11,14 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import team.abnormal.abnormalib.block.BlockMod;
-import team.abnormal.neutronia.blocks.INeutroniaBlock;
 
-public class BlockNeutroniaPillar extends BlockMod implements INeutroniaBlock {
+public class BlockNeutroniaPillar extends Block {
 
     private static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class);
 
-    public BlockNeutroniaPillar(Material materialIn, String name) {
-        super(name, materialIn);
+    public BlockNeutroniaPillar(Material materialIn) {
+        super(materialIn);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-        setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
-    }
-
-    public BlockNeutroniaPillar(Material material, String name, CreativeTabs creativetab, float hardnesss, float resistance, SoundType soundType) {
-        super(name, material);
-        setCreativeTab(creativetab);
-        setHardness(hardnesss);
-        setResistance(resistance);
-        setSoundType(soundType);
-    }
-
-    public BlockNeutroniaPillar(Material materialIn, String name, CreativeTabs creativeTabs) {
-        super(name, materialIn);
-        setCreativeTab(creativeTabs);
         setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
     }
 

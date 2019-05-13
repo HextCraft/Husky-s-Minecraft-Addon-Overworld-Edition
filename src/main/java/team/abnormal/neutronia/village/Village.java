@@ -1,3 +1,4 @@
+/*
 package team.abnormal.neutronia.village;
 
 public class Village {
@@ -12,4 +13,4 @@ public class Village {
         this.structure = structure;
     }
 
-}
+}*/

@@ -71,6 +71,9 @@
     "facing=east,half=upper,hinge=right,open=true,powered=false":  { "model": "door_top", "y": 270 },
     "facing=south,half=upper,hinge=right,open=true,powered=false": { "model": "door_top" },
     "facing=west,half=upper,hinge=right,open=true,powered=false":  { "model": "door_top", "y": 90 },
-    "facing=north,half=upper,hinge=right,open=true,powered=false": { "model": "door_top", "y": 180 }
+    "facing=north,half=upper,hinge=right,open=true,powered=false": { "model": "door_top", "y": 180 },
+    "inventory": {
+      "model": "neutronia:sandstone_door"
+    }
   }
 }

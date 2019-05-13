@@ -1,3 +1,4 @@
+/*
 package team.abnormal.neutronia.village;
 
 import net.minecraft.util.ResourceLocation;
@@ -33,3 +34,4 @@ public interface VillagerProfession {
       });
    }
 }
+*/

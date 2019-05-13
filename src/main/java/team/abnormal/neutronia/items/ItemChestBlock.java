@@ -41,14 +41,14 @@ public class ItemChestBlock extends ItemModBlock implements IExtraVariantHolder 
     @SideOnly(Side.CLIENT)
     public ItemMeshDefinition getCustomMeshDefinition() {
         return stack -> {
-            ChestType type = NBlocks.CUSTOM_CHEST.getCustomType(stack);
+            ChestType type = BlockCustomChest.getCustomType(stack);
             return getBlock() == NBlocks.CUSTOM_TRAPPED_CHEST ? type.trapModel : type.normalModel;
         };
     }
 
     @Override
     public String getTranslationKey(ItemStack stack) {
-        ChestType type = NBlocks.CUSTOM_CHEST.getCustomType(stack);
+        ChestType type = BlockCustomChest.getCustomType(stack);
         String name = type.name + (getBlock() == NBlocks.CUSTOM_TRAPPED_CHEST ? "_trapped" : "");
         return "tile." + Reference.PREFIX_MOD + name + "_chest";
     }
@@ -63,7 +63,7 @@ public class ItemChestBlock extends ItemModBlock implements IExtraVariantHolder 
         BlockPos posE = pos.east();
 
         BlockCustomChest cChest = (BlockCustomChest) getBlock();
-        ChestType myType = cChest.getCustomType(stack);
+        ChestType myType = BlockCustomChest.getCustomType(stack);
 
         if (world.getBlockState(posN).getBlock() == block && cChest.getCustomType(world, posN) == myType)
             typeCnt += cChest.isDoubleChest(world, posN, myType) ? 2 : 1;

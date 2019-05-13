@@ -1,3 +1,4 @@
+/*
 package team.abnormal.neutronia.init;
 
 import net.minecraft.network.PacketBuffer;
@@ -38,3 +39,4 @@ public class NDataSerializers {
     };
 
 }
+*/

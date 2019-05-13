@@ -1,3 +1,4 @@
+/*
 package team.abnormal.neutronia.village;
 
 public class VillagerData {
@@ -39,3 +40,4 @@ public class VillagerData {
    }
 
 }
+*/

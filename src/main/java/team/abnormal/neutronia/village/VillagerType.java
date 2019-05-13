@@ -1,3 +1,4 @@
+/*
 package team.abnormal.neutronia.village;
 
 import com.google.common.collect.Maps;
@@ -75,3 +76,4 @@ public interface VillagerType {
       return biomeToType.getOrDefault(biome_1, PLAINS);
    }
 }
+*/

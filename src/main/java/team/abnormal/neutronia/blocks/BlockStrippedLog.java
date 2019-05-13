@@ -1,7 +1,7 @@
 package team.abnormal.neutronia.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,21 +9,14 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import team.abnormal.abnormalib.block.BlockMod;
 
 import static net.minecraft.block.BlockLog.LOG_AXIS;
 
-public class BlockStrippedLog extends BlockMod implements INeutroniaBlock {
+public class BlockStrippedLog extends Block {
 
-    public BlockStrippedLog(String name, Material materialIn) {
-        super(name, materialIn);
+    public BlockStrippedLog(IBlockState materialIn) {
+        super(materialIn.getMaterial());
         setDefaultState(getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-    }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta) {
-        BlockLog.EnumAxis[] values = BlockLog.EnumAxis.values();
-        return this.getDefaultState().withProperty(LOG_AXIS, values[meta % values.length]);
     }
 
     @Override
